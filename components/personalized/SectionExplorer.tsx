@@ -51,7 +51,8 @@ export default function SectionExplorer({
     
     // Filter out already viewed components
     const viewedComponentNames = viewedComponents.map(vc => vc.componentName);
-    return allComponents.filter(comp => !viewedComponentNames.includes(comp.name));
+    const filteredComponents = allComponents.filter(comp => !viewedComponentNames.includes(comp.name));
+    return filteredComponents;
   };
 
   const availableComponents = getAllAvailableComponents();

@@ -106,8 +106,10 @@ export async function POST(req: NextRequest) {
       viewedSectionsCount: viewedSections?.length || 0
     });
 
-    // Construct the share URL
-    const baseUrl = process.env.NEXT_PUBLIC_URL || 'http://localhost:3000';
+    // Construct the share URL using request headers for proper domain detection
+    const host = req.headers.get('host');
+    const protocol = req.headers.get('x-forwarded-proto') || (host?.includes('localhost') ? 'http' : 'https');
+    const baseUrl = process.env.NEXT_PUBLIC_URL || `${protocol}://${host}`;
     const shareUrl = `${baseUrl}/shared/${shareId}`;
 
     // Return success response
