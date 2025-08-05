@@ -19,6 +19,7 @@ export default function CustomQuestionSection({
 }: CustomQuestionSectionProps) {
   const [question, setQuestion] = useState('');
   const [schemaResponse, setSchemaResponse] = useState<any>(null);
+  const [schemaResponses, setSchemaResponses] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [conversationHistory, setConversationHistory] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
 
@@ -70,6 +71,7 @@ export default function CustomQuestionSection({
       if (data.success && data.responseFormat === 'schema') {
         console.log('[CustomQuestionSection] Got schema response:', data.response);
         setSchemaResponse(data.response);
+        setSchemaResponses(prev => [...prev, data.response]);
         
         // Add to conversation history
         const newHistory = [
@@ -92,6 +94,7 @@ export default function CustomQuestionSection({
           next_options: ['Tell me about TimeBack results', 'How does the daily schedule work?', 'What about my child\'s specific interests?']
         };
         setSchemaResponse(fallbackResponse);
+        setSchemaResponses(prev => [...prev, fallbackResponse]);
         
         // Add to conversation history
         const newHistory = [
@@ -156,6 +159,7 @@ export default function CustomQuestionSection({
       }
       
       setSchemaResponse(errorResponse);
+      setSchemaResponses(prev => [...prev, errorResponse]);
       
       // Add detailed error to conversation history for debugging
       const newHistory = [
@@ -181,11 +185,54 @@ export default function CustomQuestionSection({
 
   const handleNextOptionClick = async (option: string) => {
     console.log('[CustomQuestionSection] Next option clicked:', option);
-    setQuestion(option);
-    // Auto-submit the selected question for seamless flow
-    setTimeout(() => {
-      handleQuestionSubmit({ preventDefault: () => {} } as React.FormEvent);
-    }, 50);
+    // Instead of replacing the question, we submit the option directly
+    // This will add a new response below the existing ones
+    const currentQuestion = option;
+    
+    if (isLoading) return;
+    
+    setIsLoading(true);
+    setSchemaResponse(null); // Clear single response state
+    
+    try {
+      const response = await fetch('/api/ai/personalized', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          question: currentQuestion,
+          quizData,
+          conversationHistory,
+          interests,
+          gradeLevel,
+          source: 'personalized-page',
+          requestSchema: true,
+          metadata: {
+            timestamp: new Date().toISOString(),
+            conversationLength: conversationHistory.length
+          }
+        }),
+      });
+
+      const data = await response.json();
+      
+      if (data.success && data.responseFormat === 'schema') {
+        console.log('[CustomQuestionSection] Got schema response for next option:', data.response);
+        setSchemaResponse(data.response);
+        setSchemaResponses(prev => [...prev, data.response]);
+        
+        // Add to conversation history
+        const newHistory = [
+          ...conversationHistory,
+          { role: 'user' as const, content: currentQuestion },
+          { role: 'assistant' as const, content: JSON.stringify(data.response) }
+        ];
+        setConversationHistory(newHistory);
+      }
+    } catch (error) {
+      console.error('[CustomQuestionSection] Error processing next option:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -227,17 +274,37 @@ export default function CustomQuestionSection({
 
       </div>
 
-      {/* Personalized Answer Display (Independent) */}
-      {(schemaResponse || isLoading) && (
-        <div className="mt-16 backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl overflow-hidden">
+      {/* Display all responses in sequence */}
+      {schemaResponses.map((response, index) => (
+        <div key={index} className="mt-16 backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl overflow-hidden">
           <div className="p-6 bg-timeback-primary">
-            <h3 className="text-xl font-bold text-white text-center font-cal">Your Personalized Answer</h3>
+            <h3 className="text-xl font-bold text-white text-center font-cal">
+              {index === 0 ? 'Your Personalized Answer' : `Follow-up Answer ${index}`}
+            </h3>
           </div>
           <div className="p-6">
             <SchemaResponseRenderer
-              response={schemaResponse}
+              response={response}
               onNextOptionClick={handleNextOptionClick}
-              isLoading={isLoading}
+              isLoading={false}
+            />
+          </div>
+        </div>
+      ))}
+      
+      {/* Loading state for new responses */}
+      {isLoading && (
+        <div className="mt-16 backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl overflow-hidden">
+          <div className="p-6 bg-timeback-primary">
+            <h3 className="text-xl font-bold text-white text-center font-cal">
+              {schemaResponses.length === 0 ? 'Your Personalized Answer' : `Follow-up Answer ${schemaResponses.length}`}
+            </h3>
+          </div>
+          <div className="p-6">
+            <SchemaResponseRenderer
+              response={null}
+              onNextOptionClick={handleNextOptionClick}
+              isLoading={true}
             />
           </div>
         </div>

@@ -6,8 +6,8 @@ const ButtonAIExperience = ({ extraStyle }: { extraStyle?: string }) => {
   const router = useRouter();
 
   const handleClick = () => {
-    console.log("[ButtonAIExperience] Button clicked - navigating to /dynamic-ai");
-    router.push("/dynamic-ai");
+    console.log("[ButtonAIExperience] Button clicked - navigating to /auth");
+    router.push("/auth");
   };
 
   return (

@@ -6,49 +6,102 @@ import { usePostHog } from 'posthog-js/react';
 import { QuizData, GeneratedContent } from '@/types/quiz';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import PersonalizedResults from '@/components/PersonalizedResults';
-import ProgressiveDisclosureContainer from '@/components/personalized/ProgressiveDisclosureContainer';
-import { getCachedContent, getGenerationStatus, startOptimisticGeneration } from '@/libs/optimisticContentGeneration';
+import { useRouter } from 'next/navigation';
 import '../ui-animations.css';
 
-// Quiz data and generated content interfaces are now imported from @/types/quiz
+// Component imports for data collection
+import dynamic from 'next/dynamic';
+
+// Component imports for content display
+const TimeBackVsCompetitors = dynamic(() => import('@/components/personalized/TimeBackVsCompetitors'));
+const MechanismSection = dynamic(() => import('@/components/personalized/MechanismSection'));
+const LearningScienceSection = dynamic(() => import('@/components/personalized/LearningScienceSection'));
+const AfternoonActivities = dynamic(() => import('@/components/personalized/AfternoonActivities'));
+const PersonalizedSubjectExamples = dynamic(() => import('@/components/personalized/PersonalizedSubjectExamples'));
+const ClosestSchools = dynamic(() => import('@/components/personalized/ClosestSchools'));
+const CustomQuestionSection = dynamic(() => import('@/components/personalized/CustomQuestionSection'));
+const SchoolReportCard = dynamic(() => import('@/components/personalized/SchoolReportCard'));
 
 export default function PersonalizedPage() {
   const { data: session, status } = useSession();
   const posthog = usePostHog();
-  const [quizData, setQuizData] = useState<QuizData | null>(null);
-  const [generatedContent, setGeneratedContent] = useState<GeneratedContent | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [contentReadyStatus, setContentReadyStatus] = useState({
-    dataLoaded: false,
-    coreContentGenerated: false,
-    pageStable: false
+  const router = useRouter();
+  
+  // State for user data
+  const [userData, setUserData] = useState<Partial<QuizData>>({
+    selectedSchools: [],
+    kidsInterests: [],
+    userType: 'parent',
+    parentSubType: 'go-to-school'
   });
+  
+  // State for UI
+  const [selectedSection, setSelectedSection] = useState<string | null>(null);
+  const [isCollectingData, setIsCollectingData] = useState(false);
+  const [dataNeeded, setDataNeeded] = useState<string | null>(null);
+  const [viewedComponents, setViewedComponents] = useState<string[]>([]);
+  
+  // Data requirements mapping
+  const dataRequirements: Record<string, string[]> = {
+    'what-is-timeback': [], // No data required
+    'how-does-it-work': [], // No data initially
+    'show-data': ['school', 'grade'],
+    'example-question': ['interests'],
+    'find-school': ['location'],
+    'extra-hours': ['interests'],
+    'custom-question': ['grade', 'interests']
+  };
 
 
-  // Comprehensive loading system - wait for all content to be stable
+  // Check if user is authenticated
   useEffect(() => {
-    const loadQuizData = async () => {
-      const startTime = performance.now();
-      const timestamp = new Date().toISOString();
-      console.log(`🚀 [PersonalizedPage] ${timestamp} ========== STARTING COMPREHENSIVE DATA LOADING PROCESS ==========`);
-      console.log(`🔐 [PersonalizedPage] ${timestamp} Auth status: ${status}, Session exists: ${!!session?.user?.email}, User email: ${session?.user?.email || 'none'}`);
-      console.log(`📊 [PersonalizedPage] ${timestamp} Initial content ready status:`, contentReadyStatus);
+    if (status === 'unauthenticated') {
+      console.log('[PersonalizedPage] User not authenticated, redirecting to auth');
+      router.push('/auth');
+    }
+  }, [status, router]);
 
-      let loadedQuizData: QuizData | null = null;
-      let loadedGeneratedContent: GeneratedContent | null = null;
-      let source: 'database' | 'localStorage' = 'localStorage';
-
-      // Phase 1: Load quiz data
-      console.log(`📋 [PersonalizedPage] ${timestamp} ===== PHASE 1: LOADING QUIZ DATA =====`);
+  // Load any existing user data from localStorage and database
+  useEffect(() => {
+    const loadExistingData = async () => {
+      if (status === 'loading') return;
       
-      // Try to load from database first if user is authenticated
-      if (status === 'authenticated' && session?.user?.email) {
-        console.log(`🔑 [PersonalizedPage] ${timestamp} User authenticated (${session.user.email}), attempting database load`);
-        
-        const dbStartTime = performance.now();
+      const timestamp = new Date().toISOString();
+      console.log(`[PersonalizedPage] ${timestamp} Loading existing user data`);
+      
+      // Try to load from localStorage first
+      const savedSchool = localStorage.getItem('timebackUserSchool');
+      const savedGrade = localStorage.getItem('timebackUserGrade');
+      const savedInterests = localStorage.getItem('timebackUserInterests');
+      
+      const updatedData: Partial<QuizData> = { ...userData };
+      
+      if (savedSchool) {
         try {
-          console.log(`🌐 [PersonalizedPage] ${timestamp} Making GET request to /api/quiz/save...`);
+          updatedData.selectedSchools = JSON.parse(savedSchool);
+        } catch (e) {
+          console.error('Failed to parse saved school data:', e);
+        }
+      }
+      
+      if (savedGrade) {
+        // Grade is stored directly as a string
+        if (updatedData.selectedSchools && updatedData.selectedSchools.length > 0) {
+          updatedData.selectedSchools[0].level = savedGrade;
+        }
+      }
+      
+      if (savedInterests) {
+        try {
+          updatedData.kidsInterests = JSON.parse(savedInterests);
+        } catch (e) {
+          console.error('Failed to parse saved interests:', e);
+        }
+      }
+      
+      // Try to load from database if authenticated
+      if (status === 'authenticated' && session?.user?.email) {
+        try {
           const response = await fetch('/api/quiz/save', {
             method: 'GET',
             headers: {
@@ -56,439 +109,277 @@ export default function PersonalizedPage() {
             }
           });
 
-          const dbLatency = performance.now() - dbStartTime;
-          console.log(`⏱️ [PersonalizedPage] ${timestamp} Database request completed in ${dbLatency.toFixed(2)}ms, status: ${response.status}`);
-
           if (response.ok) {
             const result = await response.json();
-            console.log(`✅ [PersonalizedPage] ${timestamp} Database response structure:`, {
-              success: result.success,
-              hasData: !!result.data,
-              hasQuizData: !!result.data?.quizData,
-              hasGeneratedContent: !!result.data?.generatedContent,
-              hasCompletedQuiz: result.data?.hasCompletedQuiz,
-              dataKeys: result.data ? Object.keys(result.data) : []
-            });
-
-            if (result.success && result.data?.quizData && result.data.hasCompletedQuiz) {
-              loadedQuizData = result.data.quizData;
-              loadedGeneratedContent = result.data.generatedContent;
-              source = 'database';
-              console.log(`🎯 [PersonalizedPage] ${timestamp} Successfully loaded from database:`, {
-                userType: loadedQuizData.userType,
-                parentSubType: loadedQuizData.parentSubType,
-                schoolsCount: loadedQuizData.selectedSchools?.length || 0,
-                interestsCount: loadedQuizData.kidsInterests?.length || 0,
-                interests: loadedQuizData.kidsInterests || [],
-                hasGeneratedContent: !!loadedGeneratedContent
-              });
-            } else {
-              console.log(`⚠️ [PersonalizedPage] ${timestamp} Database data incomplete - success: ${result.success}, hasQuizData: ${!!result.data?.quizData}, hasCompletedQuiz: ${result.data?.hasCompletedQuiz}`);
-              console.log(`🔄 [PersonalizedPage] ${timestamp} Falling back to localStorage`);
+            if (result.success && result.data?.quizData) {
+              // Merge database data with localStorage data
+              const dbData = result.data.quizData;
+              if (dbData.selectedSchools?.length > 0) {
+                updatedData.selectedSchools = dbData.selectedSchools;
+              }
+              if (dbData.kidsInterests?.length > 0) {
+                updatedData.kidsInterests = dbData.kidsInterests;
+              }
             }
-          } else {
-            console.log(`❌ [PersonalizedPage] ${timestamp} Database request failed with status ${response.status}, falling back to localStorage`);
           }
         } catch (error) {
-          const dbLatency = performance.now() - dbStartTime;
-          console.error(`💥 [PersonalizedPage] ${timestamp} Database error after ${dbLatency.toFixed(2)}ms:`, error);
-          console.log(`🔄 [PersonalizedPage] ${timestamp} Error details:`, {
-            name: error.name,
-            message: error.message,
-            stack: error.stack?.split('\n').slice(0, 3)
-          });
-          console.log(`🔄 [PersonalizedPage] ${timestamp} Falling back to localStorage due to error`);
+          console.error('Failed to load data from database:', error);
         }
-      } else {
-        console.log(`🔒 [PersonalizedPage] ${timestamp} User not authenticated (status: ${status}) or session loading, using localStorage directly`);
       }
+      
+      setUserData(updatedData);
+      console.log(`[PersonalizedPage] ${timestamp} Loaded user data:`, updatedData);
+    };
+    
+    loadExistingData();
+  }, [status, session]);
 
-      // Fallback to localStorage if no database data found
-      if (!loadedQuizData) {
-        console.log(`💾 [PersonalizedPage] ${timestamp} ===== LOADING FROM LOCALSTORAGE =====`);
-        
-        const localStartTime = performance.now();
-        const savedQuizData = localStorage.getItem('timebackQuizData');
-        const savedGeneratedContent = localStorage.getItem('timebackGeneratedContent');
-        
-        console.log(`🔍 [PersonalizedPage] ${timestamp} LocalStorage inspection:`, {
-          hasQuizData: !!savedQuizData,
-          hasGeneratedContent: !!savedGeneratedContent,
-          quizDataSize: savedQuizData ? `${savedQuizData.length} chars` : 'none',
-          generatedContentSize: savedGeneratedContent ? `${savedGeneratedContent.length} chars` : 'none'
+  // Function to check if we have required data for a section
+  const hasRequiredData = (requirements: string[]): boolean => {
+    for (const req of requirements) {
+      switch (req) {
+        case 'school':
+          if (!userData.selectedSchools || userData.selectedSchools.length === 0) return false;
+          break;
+        case 'grade':
+          if (!userData.selectedSchools?.[0]?.level) return false;
+          break;
+        case 'interests':
+          if (!userData.kidsInterests || userData.kidsInterests.length === 0) return false;
+          break;
+        case 'location':
+          if (!userData.selectedSchools?.[0]?.city && !userData.selectedSchools?.[0]?.state) return false;
+          break;
+      }
+    }
+    return true;
+  };
+
+  // Handle section selection
+  const handleSectionSelect = (sectionId: string) => {
+    console.log(`[PersonalizedPage] Section selected: ${sectionId}`);
+    
+    const requirements = dataRequirements[sectionId] || [];
+    
+    if (hasRequiredData(requirements)) {
+      // We have all required data, show the component
+      setSelectedSection(sectionId);
+      setIsCollectingData(false);
+      setDataNeeded(null);
+      
+      // Add to viewed components if not already there
+      if (!viewedComponents.includes(sectionId)) {
+        setViewedComponents([...viewedComponents, sectionId]);
+      }
+    } else {
+      // We need to collect data first
+      const missingData = requirements.find(req => {
+        switch (req) {
+          case 'school':
+            return !userData.selectedSchools || userData.selectedSchools.length === 0;
+          case 'grade':
+            return !userData.selectedSchools?.[0]?.level;
+          case 'interests':
+            return !userData.kidsInterests || userData.kidsInterests.length === 0;
+          case 'location':
+            return !userData.selectedSchools?.[0]?.city && !userData.selectedSchools?.[0]?.state;
+          default:
+            return false;
+        }
+      });
+      
+      setSelectedSection(sectionId);
+      setIsCollectingData(true);
+      setDataNeeded(missingData || null);
+    }
+  };
+
+  // Save data to localStorage and database
+  const saveUserData = async (dataType: string, data: any) => {
+    const timestamp = new Date().toISOString();
+    console.log(`[PersonalizedPage] ${timestamp} Saving ${dataType} data:`, data);
+    
+    // Save to localStorage
+    switch (dataType) {
+      case 'school':
+        localStorage.setItem('timebackUserSchool', JSON.stringify(data));
+        setUserData(prev => ({ ...prev, selectedSchools: data }));
+        break;
+      case 'grade':
+        localStorage.setItem('timebackUserGrade', data);
+        setUserData(prev => ({
+          ...prev,
+          selectedSchools: prev.selectedSchools?.map((school, idx) => 
+            idx === 0 ? { ...school, level: data } : school
+          )
+        }));
+        break;
+      case 'interests':
+        localStorage.setItem('timebackUserInterests', JSON.stringify(data));
+        setUserData(prev => ({ ...prev, kidsInterests: data }));
+              break;
+    }
+    
+    // Save to database if authenticated
+    if (status === 'authenticated' && session?.user?.email) {
+      try {
+        const response = await fetch('/api/quiz/save', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            quizData: {
+              ...userData,
+              [dataType === 'school' ? 'selectedSchools' : 
+               dataType === 'grade' ? 'selectedSchools' : 
+               'kidsInterests']: data
+            },
+            partial: true // Indicate this is a partial save
+          })
         });
         
-        if (savedQuizData) {
-          try {
-            console.log(`📖 [PersonalizedPage] ${timestamp} Parsing localStorage quiz data...`);
-            const parsedQuizData = JSON.parse(savedQuizData);
-            console.log(`✅ [PersonalizedPage] ${timestamp} Successfully parsed localStorage quiz data:`, {
-              userType: parsedQuizData.userType,
-              parentSubType: parsedQuizData.parentSubType,
-              schoolsCount: parsedQuizData.selectedSchools?.length || 0,
-              interestsCount: parsedQuizData.kidsInterests?.length || 0,
-              interests: parsedQuizData.kidsInterests || [],
-              dataKeys: Object.keys(parsedQuizData),
-              isCompleted: !!parsedQuizData.isCompleted
-            });
-            loadedQuizData = parsedQuizData;
-            source = 'localStorage';
-          } catch (error) {
-            console.error(`💥 [PersonalizedPage] ${timestamp} Failed to parse localStorage quiz data:`, error);
-            console.log(`🔍 [PersonalizedPage] ${timestamp} Raw quiz data sample:`, savedQuizData.substring(0, 200) + '...');
-          }
-        } else {
-          console.log(`❌ [PersonalizedPage] ${timestamp} No quiz data found in localStorage`);
+        if (!response.ok) {
+          console.error('Failed to save to database:', await response.text());
         }
-
-        if (savedGeneratedContent) {
-          try {
-            console.log(`📖 [PersonalizedPage] ${timestamp} Parsing localStorage generated content...`);
-            const parsedGeneratedContent = JSON.parse(savedGeneratedContent);
-            console.log(`✅ [PersonalizedPage] ${timestamp} Successfully parsed localStorage generated content:`, {
-              hasAfternoonActivities: !!parsedGeneratedContent.afternoonActivities,
-              hasSubjectExamples: !!parsedGeneratedContent.subjectExamples,
-              hasHowWeGetResults: !!parsedGeneratedContent.howWeGetResults,
-              hasLearningScience: !!parsedGeneratedContent.learningScience,
-              hasDataShock: !!parsedGeneratedContent.dataShock,
-              hasFollowUpQuestions: !!parsedGeneratedContent.followUpQuestions,
-              allCompleted: parsedGeneratedContent.allCompleted,
-              hasErrors: parsedGeneratedContent.hasErrors,
-              contentKeys: Object.keys(parsedGeneratedContent)
-            });
-            loadedGeneratedContent = parsedGeneratedContent;
-          } catch (error) {
-            console.error(`💥 [PersonalizedPage] ${timestamp} Failed to parse localStorage generated content:`, error);
-            console.log(`🔍 [PersonalizedPage] ${timestamp} Raw generated content sample:`, savedGeneratedContent.substring(0, 200) + '...');
-          }
-        } else {
-          console.log(`❌ [PersonalizedPage] ${timestamp} No generated content found in localStorage`);
-        }
-        
-        const localLatency = performance.now() - localStartTime;
-        console.log(`⏱️ [PersonalizedPage] ${timestamp} LocalStorage processing completed in ${localLatency.toFixed(2)}ms`);
+      } catch (error) {
+        console.error('Error saving to database:', error);
       }
-
-      // Check if we have any quiz data at all
-      if (!loadedQuizData) {
-        console.error(`🚨 [PersonalizedPage] ${timestamp} CRITICAL: No quiz data found in any source!`);
-        console.log(`🔄 [PersonalizedPage] ${timestamp} Redirecting to quiz page for data collection`);
-        window.location.href = '/quiz';
-        return;
-      }
-
-      console.log(`✅ [PersonalizedPage] ${timestamp} Phase 1 Complete - Quiz data loaded from ${source}`);
-
-      // Mark data as loaded
-      console.log(`📊 [PersonalizedPage] ${timestamp} Updating content ready status: dataLoaded = true`);
-      setContentReadyStatus(prev => ({ ...prev, dataLoaded: true }));
-      
-      // Phase 2: Wait for optimistic content generation to complete
-      console.log(`🤖 [PersonalizedPage] ${timestamp} ===== PHASE 2: WAITING FOR CONTENT GENERATION =====`);
-      
-      const waitForCoreContent = async () => {
-        const contentStartTime = performance.now();
-        let attempts = 0;
-        const maxAttempts = 60; // Wait up to 30 seconds (500ms * 60)
-        
-        console.log(`⏳ [PersonalizedPage] ${timestamp} Starting content generation monitoring (max ${maxAttempts} attempts)`);
-        
-        // Check if content generation needs to be started
-        let initialCachedContent = getCachedContent();
-        if (!initialCachedContent && loadedQuizData) {
-          console.log(`🚀 [PersonalizedPage] ${timestamp} No cached content found, starting content generation...`);
-          try {
-            startOptimisticGeneration(loadedQuizData).catch(error => {
-              console.error(`💥 [PersonalizedPage] ${timestamp} Failed to start content generation:`, error);
-            });
-            // Give it a moment to initialize
-            await new Promise(resolve => setTimeout(resolve, 100));
-          } catch (error) {
-            console.error(`💥 [PersonalizedPage] ${timestamp} Error initiating content generation:`, error);
-          }
-        }
-        
-        while (attempts < maxAttempts) {
-          const checkStart = performance.now();
-          const cachedContent = getCachedContent();
-          const generationStatus = getGenerationStatus();
-          
-          console.log(`🔍 [PersonalizedPage] ${timestamp} Content check #${attempts + 1}:`, {
-            hasCachedContent: !!cachedContent,
-            hasGenerationStatus: !!generationStatus,
-            cacheStartTime: cachedContent?.startTime ? new Date(cachedContent.startTime).toISOString() : 'none',
-            cacheCompletionTime: cachedContent?.completionTime ? new Date(cachedContent.completionTime).toISOString() : 'none'
-          });
-          
-          if (cachedContent && generationStatus) {
-            const statusDetails = {
-              afternoonActivities: generationStatus.afternoonActivities,
-              subjectExamples: generationStatus.subjectExamples,
-              howWeGetResults: generationStatus.howWeGetResults,
-              learningScience: generationStatus.learningScience,
-              dataShock: generationStatus.dataShock,
-              hasCompletionTime: !!cachedContent.completionTime,
-              totalGenerationTime: cachedContent.completionTime ? `${cachedContent.completionTime - cachedContent.startTime}ms` : 'in progress'
-            };
-            
-            console.log(`📋 [PersonalizedPage] ${timestamp} Generation status details:`, statusDetails);
-            
-            // Check if core content is ready (at least 3 of 5 sections completed or errored)
-            const completedSections = Object.values(generationStatus).filter(
-              status => status === 'completed' || status === 'error'
-            ).length;
-            const errorSections = Object.values(generationStatus).filter(
-              status => status === 'error'
-            ).length;
-            
-            console.log(`📊 [PersonalizedPage] ${timestamp} Content completion summary:`, {
-              completedSections,
-              errorSections,
-              totalSections: Object.values(generationStatus).length,
-              completionThreshold: 3,
-              meetsThreshold: completedSections >= 3,
-              allCompleted: cachedContent.completionTime
-            });
-            
-            if (completedSections >= 3 || cachedContent.completionTime) {
-              const contentLatency = performance.now() - contentStartTime;
-              console.log(`🎉 [PersonalizedPage] ${timestamp} PHASE 2 COMPLETE! Content generation ready after ${contentLatency.toFixed(2)}ms`);
-              console.log(`📈 [PersonalizedPage] ${timestamp} Final content stats:`, {
-                completedSections,
-                errorSections,
-                successRate: `${Math.round((completedSections - errorSections) / Object.values(generationStatus).length * 100)}%`
-              });
-              
-              // Use the optimistically generated content
-              if (!loadedGeneratedContent) {
-                console.log(`🔄 [PersonalizedPage] ${timestamp} Using optimistically generated content as primary source`);
-                loadedGeneratedContent = {
-                  afternoonActivities: cachedContent.afternoonActivities,
-                  subjectExamples: cachedContent.subjectExamples,
-                  howWeGetResults: cachedContent.howWeGetResults,
-                  learningScience: cachedContent.learningScience,
-                  dataShock: cachedContent.dataShock,
-                  allCompleted: Object.values(generationStatus).every(status => status === 'completed'),
-                  hasErrors: Object.values(generationStatus).some(status => status === 'error')
-                };
-                console.log(`✅ [PersonalizedPage] ${timestamp} Generated content structure:`, {
-                  hasAfternoonActivities: !!loadedGeneratedContent.afternoonActivities,
-                  hasSubjectExamples: !!loadedGeneratedContent.subjectExamples,
-                  hasHowWeGetResults: !!loadedGeneratedContent.howWeGetResults,
-                  hasLearningScience: !!loadedGeneratedContent.learningScience,
-                  hasDataShock: !!loadedGeneratedContent.dataShock,
-                  allCompleted: loadedGeneratedContent.allCompleted,
-                  hasErrors: loadedGeneratedContent.hasErrors
-                });
-              } else {
-                console.log(`ℹ️ [PersonalizedPage] ${timestamp} Using existing loaded generated content (skipping optimistic cache)`);
-              }
-              
-              console.log(`📊 [PersonalizedPage] ${timestamp} Updating content ready status: coreContentGenerated = true`);
-              setContentReadyStatus(prev => ({ ...prev, coreContentGenerated: true }));
-              break;
-            } else {
-              console.log(`⏳ [PersonalizedPage] ${timestamp} Still waiting... ${completedSections}/5 sections complete (need 3+)`);
-            }
-          } else {
-            console.log(`❓ [PersonalizedPage] ${timestamp} Content cache not yet available (cache: ${!!cachedContent}, status: ${!!generationStatus})`);
-          }
-          
-          attempts++;
-          const checkLatency = performance.now() - checkStart;
-          console.log(`⏱️ [PersonalizedPage] ${timestamp} Check #${attempts} completed in ${checkLatency.toFixed(2)}ms, waiting 500ms...`);
-          await new Promise(resolve => setTimeout(resolve, 500));
-        }
-        
-        if (attempts >= maxAttempts) {
-          const totalWaitTime = performance.now() - contentStartTime;
-          console.warn(`⏰ [PersonalizedPage] ${timestamp} Content generation timeout after ${totalWaitTime.toFixed(2)}ms (${attempts} attempts)`);
-          console.log(`🔄 [PersonalizedPage] ${timestamp} Proceeding with whatever content is available`);
-          console.log(`📊 [PersonalizedPage] ${timestamp} Updating content ready status: coreContentGenerated = true (timeout)`);
-          setContentReadyStatus(prev => ({ ...prev, coreContentGenerated: true }));
-        }
-      };
-
-      await waitForCoreContent();
-
-      // Phase 3: Set data and wait for page stability  
-      console.log(`🎯 [PersonalizedPage] ${timestamp} ===== PHASE 3: FINALIZING PAGE STABILITY =====`);
-      
-      const phase3StartTime = performance.now();
-      console.log(`📝 [PersonalizedPage] ${timestamp} Setting React state with loaded data...`);
-      console.log(`📊 [PersonalizedPage] ${timestamp} Final data summary:`, {
-        quizDataKeys: loadedQuizData ? Object.keys(loadedQuizData) : [],
-        generatedContentKeys: loadedGeneratedContent ? Object.keys(loadedGeneratedContent) : [],
-        dataSource: source,
-        userInterests: loadedQuizData?.kidsInterests || [],
-        userType: loadedQuizData?.userType || 'unknown'
-      });
-      
-      setQuizData(loadedQuizData);
-      setGeneratedContent(loadedGeneratedContent);
-
-      console.log(`⏳ [PersonalizedPage] ${timestamp} Waiting for React state updates to settle (300ms)...`);
-      await new Promise(resolve => setTimeout(resolve, 300));
-      
-      console.log(`📊 [PersonalizedPage] ${timestamp} Updating content ready status: pageStable = true`);
-      setContentReadyStatus(prev => ({ ...prev, pageStable: true }));
-
-      const totalLoadTime = performance.now() - startTime;
-      const phase3Time = performance.now() - phase3StartTime;
-      
-      console.log(`🎉 [PersonalizedPage] ${timestamp} ========== ALL PHASES COMPLETE - PAGE READY ==========`);
-      console.log(`📈 [PersonalizedPage] ${timestamp} Performance Summary:`, {
-        totalLoadTime: `${totalLoadTime.toFixed(2)}ms`,
-        phase3Time: `${phase3Time.toFixed(2)}ms`,
-        dataSource: source,
-        hasQuizData: !!loadedQuizData,
-        hasGeneratedContent: !!loadedGeneratedContent,
-        contentSections: loadedGeneratedContent ? Object.keys(loadedGeneratedContent).length : 0
-      });
-
-      // Track personalized page view with analytics
-      console.log(`📊 [PersonalizedPage] ${timestamp} Sending analytics event: personalized_page_viewed`);
-      const analyticsData = {
-        data_source: source,
-        grade_level: loadedQuizData.selectedSchools?.[0]?.level,
-        user_type: loadedQuizData.userType,
-        parent_type: loadedQuizData.parentSubType,
-        interests: loadedQuizData.kidsInterests,
-        school_name: loadedQuizData.selectedSchools?.[0]?.name,
-        is_authenticated: !!session?.user?.email,
-        content_ready: true,
-        load_time_ms: Math.round(totalLoadTime),
-        has_generated_content: !!loadedGeneratedContent
-      };
-      console.log(`📊 [PersonalizedPage] ${timestamp} Analytics data:`, analyticsData);
-      
-      posthog?.capture('personalized_page_viewed', analyticsData);
-
-      console.log(`⏳ [PersonalizedPage] ${timestamp} Final stabilization delay (200ms) before displaying page...`);
-      setTimeout(() => {
-        console.log(`✅ [PersonalizedPage] ${timestamp} LOADING COMPLETE - Displaying personalized page to user`);
-        setIsLoading(false);
-      }, 200);
-    };
-
-    // Only start loading when session status is determined (not loading)
-    if (status !== 'loading') {
-      loadQuizData();
     }
-  }, [status, session, posthog]);
+  };
 
-  // Monitor content ready status
-  useEffect(() => {
-    const timestamp = new Date().toISOString();
-    console.log(`[PersonalizedPage] ${timestamp} Content ready status:`, contentReadyStatus);
-  }, [contentReadyStatus]);
-
-  if (isLoading) {
-    console.log(`[PersonalizedPage] Loading state - contentReadyStatus:`, contentReadyStatus);
+  // Handle data collection completion
+  const handleDataCollected = (dataType: string, data: any) => {
+    console.log(`[PersonalizedPage] Data collected for ${dataType}:`, data);
     
-    const progress = Object.values(contentReadyStatus).filter(Boolean).length / 3;
-    console.log(`[PersonalizedPage] Loading progress: ${(progress * 100).toFixed(0)}%`);
-
-    // Determine current phase and appropriate messaging
-    const getCurrentPhase = () => {
-      if (!contentReadyStatus.dataLoaded) {
-        return {
-          phase: 1,
-          title: "Loading your data",
-          message: "Retrieving your quiz results..."
-        };
-      } else if (!contentReadyStatus.coreContentGenerated) {
-        return {
-          phase: 2,
-          title: "Generating personalized content",
-          message: "Creating custom recommendations..."
-        };
-      } else if (!contentReadyStatus.pageStable) {
-        return {
-          phase: 3,
-          title: "Finalizing",
-          message: "Almost ready..."
-        };
+    saveUserData(dataType, data);
+    
+    // Check if we now have all required data for the selected section
+    if (selectedSection) {
+      const requirements = dataRequirements[selectedSection] || [];
+      const updatedData = { ...userData };
+      
+      if (dataType === 'school') updatedData.selectedSchools = data;
+      if (dataType === 'grade' && updatedData.selectedSchools?.[0]) {
+        updatedData.selectedSchools[0].level = data;
       }
-      return {
-        phase: 3,
-        title: "Preparing",
-        message: "Setting things up..."
-      };
-    };
+      if (dataType === 'interests') updatedData.kidsInterests = data;
+      
+      // Check if we have all required data now
+      const stillMissing = requirements.find(req => {
+        switch (req) {
+          case 'school':
+            return !updatedData.selectedSchools || updatedData.selectedSchools.length === 0;
+          case 'grade':
+            return !updatedData.selectedSchools?.[0]?.level;
+          case 'interests':
+            return !updatedData.kidsInterests || updatedData.kidsInterests.length === 0;
+          case 'location':
+            return !updatedData.selectedSchools?.[0]?.city && !updatedData.selectedSchools?.[0]?.state;
+          default:
+            return false;
+        }
+      });
+      
+      if (!stillMissing) {
+        // We have all data now, show the component
+        setIsCollectingData(false);
+        setDataNeeded(null);
+        
+        // Add to viewed components
+        if (!viewedComponents.includes(selectedSection)) {
+          setViewedComponents([...viewedComponents, selectedSection]);
+        }
+      } else {
+        // Still need more data
+        setDataNeeded(stillMissing);
+      }
+    }
+  };
 
-    const currentPhase = getCurrentPhase();
-    const progressPercentage = Math.max(progress * 100, 10); // Minimum 10% to show activity
-
+  // Render the appropriate content based on selected section
+  const renderSectionContent = () => {
+    if (!selectedSection) return null;
+    
+    if (isCollectingData && dataNeeded) {
+      // Show data collection component
+      switch (dataNeeded) {
+        case 'school':
+        case 'location':
+          return (
+            <SchoolSearchStep
+              onNext={(schools: any) => handleDataCollected('school', schools)}
+              onPrev={() => {
+                setSelectedSection(null);
+                setIsCollectingData(false);
+                setDataNeeded(null);
+              }}
+            />
+          );
+        case 'grade':
+          return (
+            <GradeSelectionStep
+              onNext={(grade: string) => handleDataCollected('grade', grade)}
+              onPrev={() => {
+                setDataNeeded('school');
+              }}
+            />
+          );
+        case 'interests':
+          return (
+            <InterestsStep
+              onNext={(interests: string[]) => handleDataCollected('interests', interests)}
+              onPrev={() => {
+                setSelectedSection(null);
+                setIsCollectingData(false);
+                setDataNeeded(null);
+              }}
+            />
+          );
+      }
+    }
+    
+    // Show the actual component
+    switch (selectedSection) {
+      case 'what-is-timeback':
     return (
-      <div className="min-h-screen bg-gradient-to-br from-timeback-bg to-white flex items-center justify-center p-4">
-        <div className="text-center font-cal">
-          <div className="bg-white rounded-xl shadow-2xl border border-timeback-primary p-8 w-96 mx-auto">
-            {/* Minimalistic TimeBack logo */}
-            <div className="w-16 h-16 bg-timeback-primary rounded-xl flex items-center justify-center mx-auto mb-6">
-              <span className="text-white font-bold text-xl font-cal">T</span>
-            </div>
-            
-            {/* Phase indicator with icon */}
-            <div className="mb-4">
-              <h3 className="text-lg font-bold text-timeback-primary font-cal mb-2">
-                {currentPhase.title}
-              </h3>
-              <p className="text-timeback-primary font-cal text-sm opacity-80">
-                Phase {currentPhase.phase} of 3
-              </p>
-            </div>
-            
-            {/* Minimal spinner */}
-            <div className="mb-6">
-              <div className="w-10 h-10 border-4 border-timeback-bg border-t-timeback-primary rounded-full animate-spin mx-auto"></div>
-            </div>
-            
-            {/* Progress indicator */}
-            <div className="mb-6">
-              <div className="w-full bg-timeback-bg/30 rounded-full h-2">
-                <div 
-                  className="bg-timeback-primary h-2 rounded-full transition-all duration-700 ease-out"
-                  style={{ width: `${progressPercentage}%` }}
-                />
-              </div>
-            </div>
-            
-            {/* Status message */}
-            <p className="text-timeback-primary font-cal text-sm mb-2">
-              {currentPhase.message}
-            </p>
-
-
-          </div>
-        </div>
+          <div className="space-y-8">
+            <TimeBackVsCompetitors quizData={userData} />
+            <MechanismSection />
+            <LearningScienceSection />
       </div>
     );
-  }
+      case 'how-does-it-work':
+        return <MechanismSection />;
+      case 'show-data':
+        return <SchoolReportCard quizData={userData} />;
+      case 'example-question':
+        return <PersonalizedSubjectExamples 
+          interests={userData.kidsInterests} 
+          gradeLevel={userData.selectedSchools?.[0]?.level || 'high school'}
+        />;
+      case 'find-school':
+        return <ClosestSchools quizData={userData} />;
+      case 'extra-hours':
+        return <AfternoonActivities 
+          interests={userData.kidsInterests}
+          gradeLevel={userData.selectedSchools?.[0]?.level || 'high school'}
+        />;
+      case 'custom-question':
+        return <CustomQuestionSection 
+          quizData={userData}
+          interests={userData.kidsInterests}
+          gradeLevel={userData.selectedSchools?.[0]?.level || 'high school'}
+        />;
+      default:
+        return null;
+    }
+  };
 
-  if (!quizData) {
-    console.log(`[PersonalizedPage] No quiz data found, redirecting user to assessment`);
-    
+  if (status === 'loading') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-timeback-bg to-white flex items-center justify-center p-4">
-        <div className="text-center font-cal">
-          <div className="bg-white rounded-xl shadow-2xl border border-timeback-primary p-8 max-w-sm mx-auto">
-            {/* Minimalistic TimeBack logo */}
-            <div className="w-16 h-16 bg-timeback-primary rounded-xl flex items-center justify-center mx-auto mb-6">
-              <span className="text-white font-bold text-xl font-cal">T</span>
-            </div>
-            
-            <h2 className="text-xl font-bold text-timeback-primary mb-3 font-cal">Take Your Assessment</h2>
-            <p className="text-timeback-primary mb-6 font-cal text-sm">Complete our assessment to see your personalized results.</p>
-            
-            <a 
-              href="/quiz" 
-              className="bg-timeback-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-opacity-90 transition-all duration-200 shadow-xl hover:shadow-2xl font-cal inline-block"
-            >
-              Start Assessment
-            </a>
-          </div>
-        </div>
+      <div className="min-h-screen bg-gradient-to-br from-timeback-bg to-white flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-timeback-primary border-t-transparent"></div>
       </div>
     );
   }
@@ -497,18 +388,132 @@ export default function PersonalizedPage() {
     <>
       <Header />
       <main className="min-h-screen bg-gradient-to-br from-timeback-bg to-white">
-        {/* Hero Section - Personalized Greeting + School Report Card */}
-        <PersonalizedResults 
-          quizData={quizData} 
-          preGeneratedContent={generatedContent}
-        />
-        
-        {/* Progressive Disclosure System - All Content Sections */}
-        <ProgressiveDisclosureContainer 
-          quizData={quizData}
-          preGeneratedContent={generatedContent}
-          contentReady={contentReadyStatus.pageStable}
-        />
+        {/* Main exploration UI */}
+        <section className="max-w-7xl mx-auto py-20 lg:py-32 px-6 lg:px-12">
+          <div className="text-center mb-16 font-cal">
+            <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3 mb-8">
+              <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
+              <span className="text-timeback-primary font-bold text-sm font-cal">PERSONALIZED FOR YOU</span>
+            </div>
+            <h2 className="text-4xl lg:text-6xl font-bold text-timeback-primary mb-8 font-cal">
+              Where do you want to start?
+            </h2>
+            <p className="text-2xl text-timeback-primary max-w-4xl mx-auto font-cal leading-relaxed mb-4">
+              Click each section below to explore how TimeBack creates personalized learning experiences for your child
+            </p>
+            {userData.selectedSchools?.[0]?.level && userData.kidsInterests?.length > 0 && (
+              <p className="text-lg text-timeback-primary opacity-75 max-w-3xl mx-auto font-cal">
+                Based on your {userData.selectedSchools[0].level} student's interests in{' '}
+                {userData.kidsInterests.slice(0, 2).join(' and ')}
+              </p>
+            )}
+          </div>
+
+          {/* Main Exploration Buttons */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            <button
+              onClick={() => handleSectionSelect('what-is-timeback')}
+              className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
+                What is TimeBack?
+              </h3>
+            </button>
+            
+            <button
+              onClick={() => handleSectionSelect('how-does-it-work')}
+              className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
+                How does it work?
+              </h3>
+            </button>
+            
+            <button
+              onClick={() => handleSectionSelect('show-data')}
+              className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
+                Show me your data
+              </h3>
+            </button>
+            
+            <button
+              onClick={() => handleSectionSelect('example-question')}
+              className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
+                Show me an example question tailored to my kid
+              </h3>
+            </button>
+            
+            <button
+              onClick={() => handleSectionSelect('find-school')}
+              className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
+                Find a school near me
+              </h3>
+            </button>
+            
+            <button
+              onClick={() => handleSectionSelect('extra-hours')}
+              className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
+                What will my kid do with the extra 6 hours they gain in their day?
+              </h3>
+            </button>
+          </div>
+
+          {/* Custom Question Section */}
+          <div className="mt-16">
+            <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+              <div className="backdrop-blur-md bg-white/10 rounded-2xl p-8 border-2 border-timeback-primary mb-8 shadow-2xl">
+                <h2 className="text-3xl font-bold text-timeback-primary font-cal mb-4">
+                  Have a Specific Question?
+                </h2>
+                <p className="text-lg text-timeback-primary font-cal mb-6">
+                  Ask anything about TimeBack and get a personalized answer based on your child's needs.
+                </p>
+                <button
+                  onClick={() => handleSectionSelect('custom-question')}
+                  className="w-full bg-timeback-primary text-white px-6 py-4 rounded-xl font-bold hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl font-cal text-lg"
+                >
+                  Ask My Question
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Render selected section content or data collection */}
+        {selectedSection && (
+          <section className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
+            {isCollectingData && (
+              <div className="mb-6 text-center">
+                <p className="text-lg text-timeback-primary font-cal">
+                  We need a bit more information to personalize this section for you.
+                </p>
+              </div>
+            )}
+            {renderSectionContent()}
+          </section>
+        )}
+
+        {/* Show all viewed components (growing page) */}
+        {viewedComponents.length > 0 && !selectedSection && (
+          <section className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
+            <h3 className="text-2xl font-bold text-timeback-primary font-cal mb-8 text-center">
+              Your Personalized TimeBack Report
+            </h3>
+            {viewedComponents.map((componentId) => (
+              <div key={componentId} className="mb-12">
+                {renderSectionContent()}
+              </div>
+            ))}
+          </section>
+        )}
       </main>
       <Footer />
     </>

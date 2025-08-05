@@ -33,6 +33,7 @@ export default function SectionExplorer({
   // Simple question answer states - must be at top level
   const [question, setQuestion] = useState('');
   const [schemaResponse, setSchemaResponse] = useState<any>(null);
+  const [schemaResponses, setSchemaResponses] = useState<any[]>([]);
   const [isLoadingQA, setIsLoadingQA] = useState(false);
   const [conversationHistory, setConversationHistory] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
 
@@ -110,6 +111,7 @@ export default function SectionExplorer({
       if (data.success && data.responseFormat === 'schema') {
         console.log('[SectionExplorer] Got schema response:', data.response);
         setSchemaResponse(data.response);
+        setSchemaResponses(prev => [...prev, data.response]);
         
         // Add to conversation history
         const newHistory = [
@@ -132,6 +134,7 @@ export default function SectionExplorer({
           next_options: ['Tell me about TimeBack results', 'How does the daily schedule work?', 'What about my child\'s specific interests?']
         };
         setSchemaResponse(fallbackResponse);
+        setSchemaResponses(prev => [...prev, fallbackResponse]);
         
         // Add to conversation history
         const newHistory = [
@@ -147,7 +150,7 @@ export default function SectionExplorer({
       console.error('[SectionExplorer] QA error', err);
       const errorMessage = 'Sorry, something went wrong. Please try asking your question again.';
       
-      setSchemaResponse({
+      const errorResponse = {
         header: 'TIMEBACK | ERROR',
         main_heading: 'Something went wrong',
         description: errorMessage,
@@ -157,7 +160,9 @@ export default function SectionExplorer({
           { label: 'Browse Resources', description: 'Explore our other resources while we resolve this' }
         ],
         next_options: ['Ask a different question', 'Learn about TimeBack basics', 'Contact our team']
-      });
+      };
+      setSchemaResponse(errorResponse);
+      setSchemaResponses(prev => [...prev, errorResponse]);
       
       // Add error to conversation history
       const newHistory = [
@@ -174,11 +179,51 @@ export default function SectionExplorer({
 
   const handleNextOptionClick = async (option: string) => {
     console.log('[SectionExplorer] Next option clicked:', option);
-    setQuestion(option);
-    // Auto-submit the selected question for seamless flow
-    setTimeout(() => {
-      handleQuestionSubmit({ preventDefault: () => {} } as React.FormEvent);
-    }, 50);
+    // Instead of replacing the question, we submit the option directly
+    // This will add a new response below the existing ones
+    const currentQuestion = option;
+    
+    if (isLoadingQA) return;
+    
+    setIsLoadingQA(true);
+    setSchemaResponse(null); // Clear single response state
+    
+    try {
+      const res = await fetch('/api/ai/personalized', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          question: currentQuestion,
+          quizData,
+          conversationHistory,
+          source: 'section-explorer',
+          requestSchema: true,
+          metadata: {
+            timestamp: new Date().toISOString(),
+            conversationLength: conversationHistory.length
+          }
+        })
+      });
+      const data = await res.json();
+      
+      if (data.success && data.responseFormat === 'schema') {
+        console.log('[SectionExplorer] Got schema response for next option:', data.response);
+        setSchemaResponse(data.response);
+        setSchemaResponses(prev => [...prev, data.response]);
+        
+        // Add to conversation history
+        const newHistory = [
+          ...conversationHistory,
+          { role: 'user' as const, content: currentQuestion },
+          { role: 'assistant' as const, content: JSON.stringify(data.response) }
+        ];
+        setConversationHistory(newHistory);
+      }
+    } catch (error) {
+      console.error('[SectionExplorer] Error processing next option:', error);
+    } finally {
+      setIsLoadingQA(false);
+    }
   };
 
   return (
@@ -321,12 +366,24 @@ export default function SectionExplorer({
                 {isLoadingQA ? 'Getting answer...' : 'Get Personalized Answer'}
               </button>
             </form>
-            {(schemaResponse || isLoadingQA) && (
+            {/* Display all responses in sequence */}
+            {schemaResponses.map((response, index) => (
+              <div key={index} className="mt-6 bg-white rounded-xl p-6 border border-timeback-primary shadow-lg text-left max-w-4xl mx-auto">
+                <SchemaResponseRenderer 
+                  response={response}
+                  onNextOptionClick={handleNextOptionClick}
+                  isLoading={false}
+                />
+              </div>
+            ))}
+            
+            {/* Loading state for new responses */}
+            {isLoadingQA && (
               <div className="mt-6 bg-white rounded-xl p-6 border border-timeback-primary shadow-lg text-left max-w-4xl mx-auto">
                 <SchemaResponseRenderer 
-                  response={schemaResponse}
+                  response={null}
                   onNextOptionClick={handleNextOptionClick}
-                  isLoading={isLoadingQA}
+                  isLoading={true}
                 />
               </div>
             )}

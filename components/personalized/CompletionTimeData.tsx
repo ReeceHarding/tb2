@@ -29,39 +29,28 @@ const completionData: CompletionData[] = [
   { grade: '11', math: { lessons: 70, avgMinutes: 30, totalHours: 35 }, language: { lessons: 104, avgMinutes: 30, totalHours: 52 }, science: { lessons: 42, avgMinutes: 30, totalHours: 21 } },
 ]
 
-interface CompletionTimeDataProps {
-  userGrade?: string;
-  schoolName?: string;
-}
-
-export default function CompletionTimeData({ userGrade, schoolName }: CompletionTimeDataProps = {}) {
+export default function CompletionTimeData() {
   const [quizData, setQuizData] = useState<QuizData | null>(null)
   const [selectedGrade, setSelectedGrade] = useState<string>('5')
 
   useEffect(() => {
-    // First check props, then fallback to localStorage
-    if (userGrade) {
-      const grade = userGrade.replace(/st|nd|rd|th/, '') || '5'
+    const data = localStorage.getItem('timebackQuizData')
+    if (data) {
+      const parsed = JSON.parse(data)
+      setQuizData(parsed)
+      const grade = parsed.grade?.replace(/st|nd|rd|th/, '') || '5'
       setSelectedGrade(grade)
-    } else {
-      const data = localStorage.getItem('timebackQuizData')
-      if (data) {
-        const parsed = JSON.parse(data)
-        setQuizData(parsed)
-        const grade = parsed.grade?.replace(/st|nd|rd|th/, '') || '5'
-        setSelectedGrade(grade)
-      }
     }
-  }, [userGrade])
+  }, [])
 
   const gradeData = completionData.find(d => d.grade === selectedGrade) || completionData[4]
-  const topSchool = schoolName || quizData?.selectedSchools?.[0]
+  const topSchool = quizData?.selectedSchools?.[0]
 
   return (
     <section className="bg-white py-16 lg:py-24">
       <div className="container mx-auto px-4 max-w-6xl">
         
-        {/* Header */}
+        {/* Header with Grade Selector */}
         <div className="text-center mb-12 font-cal">
           <h2 className="text-3xl lg:text-4xl font-bold text-timeback-primary mb-4 font-cal">
             Actual Student Completion Hours
@@ -69,64 +58,9 @@ export default function CompletionTimeData({ userGrade, schoolName }: Completion
           <p className="text-lg text-timeback-primary mb-6 font-cal">
             Measured completion times by grade level - not theoretical estimates
           </p>
-        </div>
-
-        {/* Table View */}
-        <div className="mb-12">
-          <div className="overflow-x-auto">
-            <table className="table table-zebra w-full bg-white border-2 border-timeback-primary rounded-xl shadow-xl">
-              <thead>
-                <tr className="bg-timeback-bg text-timeback-primary">
-                  <th className="font-cal text-lg">Grade</th>
-                  <th className="font-cal text-lg text-center">Math Hours</th>
-                  <th className="font-cal text-lg text-center">Language Hours</th>
-                  <th className="font-cal text-lg text-center">Science Hours</th>
-                  <th className="font-cal text-lg text-center">Total Hours</th>
-                  <th className="font-cal text-lg text-center">vs Traditional (540h)</th>
-                </tr>
-              </thead>
-              <tbody>
-                {completionData.map((data) => {
-                  const totalHours = data.math.totalHours + data.language.totalHours + data.science.totalHours;
-                  const isUserGrade = data.grade === selectedGrade;
-                  return (
-                    <tr 
-                      key={data.grade} 
-                      className={isUserGrade ? 'bg-timeback-bg border-4 border-timeback-primary' : ''}
-                    >
-                      <td className={`font-cal font-bold ${isUserGrade ? 'text-timeback-primary text-xl' : 'text-timeback-primary'}`}>
-                        Grade {data.grade}
-                        {isUserGrade && <span className="ml-2 badge badge-primary font-cal">Your Grade</span>}
-                      </td>
-                      <td className={`font-cal text-center ${isUserGrade ? 'text-timeback-primary font-bold text-lg' : 'text-timeback-primary'}`}>
-                        {data.math.totalHours}h
-                      </td>
-                      <td className={`font-cal text-center ${isUserGrade ? 'text-timeback-primary font-bold text-lg' : 'text-timeback-primary'}`}>
-                        {data.language.totalHours}h
-                      </td>
-                      <td className={`font-cal text-center ${isUserGrade ? 'text-timeback-primary font-bold text-lg' : 'text-timeback-primary'}`}>
-                        {data.science.totalHours}h
-                      </td>
-                      <td className={`font-cal text-center ${isUserGrade ? 'text-timeback-primary font-bold text-lg' : 'text-timeback-primary'}`}>
-                        {totalHours}h
-                      </td>
-                      <td className={`font-cal text-center ${isUserGrade ? 'text-timeback-primary font-bold text-lg' : 'text-timeback-primary'}`}>
-                        <span className="badge badge-success font-cal">
-                          {Math.round(((540 - totalHours) / 540) * 100)}% faster
-                        </span>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* Grade Selector for Detailed View */}
-        <div className="text-center mb-12 font-cal">
+          
           <div className="flex justify-center items-center gap-4">
-            <span className="text-sm font-medium text-timeback-primary font-cal">View detailed breakdown for grade:</span>
+            <span className="text-sm font-medium text-timeback-primary font-cal">View data for grade:</span>
             <select 
               className="px-3 py-2 font-cal rounded-xl border-2 border-timeback-primary text-timeback-primary bg-white focus:outline-none focus:ring-4 focus:ring-timeback-primary focus:ring-opacity-30 focus:border-timeback-primary transition-all duration-200 w-32" 
               value={selectedGrade} 
@@ -150,7 +84,7 @@ export default function CompletionTimeData({ userGrade, schoolName }: Completion
               </h2>
               {topSchool && (
                 <p className="text-center text-timeback-primary font-cal">
-                  vs {typeof topSchool === 'string' ? topSchool : topSchool.name}&#39;s traditional 180-hour allocation per subject
+                  vs {topSchool.name}&#39;s traditional 180-hour allocation per subject
                 </p>
               )}
               
