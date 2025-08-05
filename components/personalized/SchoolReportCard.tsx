@@ -200,10 +200,10 @@ export default function SchoolReportCard({ schoolData, onLearnMore }: SchoolRepo
       <div className="p-6 space-y-6">
         {/* Current Performance Badge */}
         <div className="text-center font-cal">
-          <div className={`inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-bold border-2 border-timeback-primary ${getPerformanceIntensity(schoolStats.percentile)}`}>
+          <div className={`inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-bold border-2 border-timeback-primary ${getPerformanceIntensity(Math.round((schoolStats.testScores.reading + schoolStats.testScores.math + schoolStats.testScores.science) / 3))}`}>
             <div className="w-3 h-3 bg-timeback-primary rounded-full"></div>
             <span className="text-timeback-primary font-cal">
-              Currently {schoolStats.percentile}th Percentile ({getPerformanceLabel(schoolStats.percentile)})
+              Currently {Math.round((schoolStats.testScores.reading + schoolStats.testScores.math + schoolStats.testScores.science) / 3)}th Percentile ({getPerformanceLabel(Math.round((schoolStats.testScores.reading + schoolStats.testScores.math + schoolStats.testScores.science) / 3))})
             </span>
           </div>
         </div>
@@ -303,7 +303,7 @@ export default function SchoolReportCard({ schoolData, onLearnMore }: SchoolRepo
         {/* Data Source Citation */}
         <div className="text-center pt-4 font-cal">
           <p className="text-xs text-timeback-primary opacity-75 font-cal">
-            Real data from {schoolStats.district} & proven TimeBack results
+            Real data from {schoolStats.district} & MAP standardized testing data
           </p>
         </div>
 
