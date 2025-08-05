@@ -48,11 +48,11 @@ export default function PersonalizedCTA({ quizData, onLearnMore }: PersonalizedC
     ];
 
     // Add contextual questions based on quiz data
-    if (quizData.parentSubType === 'I want to homeschool') {
+    if (quizData.parentSubType === 'homeschool') {
       baseQuestions.unshift("What support do I get as a homeschooling parent?");
-    } else if (quizData.parentSubType === 'I want after school tutoring') {
+    } else if (quizData.parentSubType === 'tutoring') {
       baseQuestions.unshift("How does this work with my child's current school?");
-    } else if (quizData.parentSubType === 'I want to go to a TimeBack school') {
+    } else if (quizData.parentSubType === 'timeback-school') {
       baseQuestions.unshift("Are there TimeBack schools in my area?");
     }
 

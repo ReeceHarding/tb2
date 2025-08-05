@@ -40,22 +40,22 @@ const userSchema = new mongoose.Schema(
     quizData: {
       userType: {
         type: String,
-        enum: ['parents', 'schools', 'entrepreneur', 'government', 'philanthropist', 'developer', 'student'],
+        enum: [null, 'parents', 'schools', 'entrepreneur', 'government', 'philanthropist', 'developer', 'student'],
         default: null,
       },
       parentSubType: {
         type: String,
-        enum: ['timeback-school', 'homeschool', 'tutoring'],
+        enum: [null, 'timeback-school', 'homeschool', 'tutoring'],
         default: null,
       },
       schoolSubType: {
         type: String,
-        enum: ['private', 'public'],
+        enum: [null, 'private', 'public'],
         default: null,
       },
       grade: {
         type: String,
-        enum: ['K', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'],
+        enum: [null, 'K', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'],
         default: null,
       },
       numberOfKids: {
