@@ -355,47 +355,14 @@ Example outputs for different interests:
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      // Handle streaming response
-      const reader = response.body?.getReader();
-      const decoder = new TextDecoder();
-      let fullResponse = '';
+      // Handle JSON response instead of streaming
+      console.log('[PersonalizedSubjectExamples] Processing JSON response from chat-tutor API');
+      const data = await response.json();
+      
+      if (data.success && data.response) {
+        const fullResponse = data.response;
+        console.log('[PersonalizedSubjectExamples] Full response received:', fullResponse.length, 'characters');
 
-      if (!reader) {
-        throw new Error('No response body');
-      }
-
-      console.log('[PersonalizedSubjectExamples] Reading streaming response');
-      // eslint-disable-next-line no-constant-condition
-      while (true) {
-        const result = await reader.read();
-        if (result.done) break;
-        const value = result.value;
-
-        const chunk = decoder.decode(value);
-        const lines = chunk.split('\n');
-
-        for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            const data = line.slice(6);
-            if (data === '[DONE]') continue;
-            
-            try {
-              const parsed = JSON.parse(data);
-              if (parsed.text) {
-                fullResponse += parsed.text;
-              } else if (parsed.error) {
-                throw new Error(parsed.error);
-              }
-            } catch (e) {
-              console.error('[PersonalizedSubjectExamples] Error parsing chunk:', e);
-            }
-          }
-        }
-      }
-
-      console.log('[PersonalizedSubjectExamples] Full response received:', fullResponse.length, 'characters');
-
-      if (fullResponse) {
         // Update the last question response with the AI answer
         setQuestionResponses(prev => {
           const updated = [...prev];
@@ -405,7 +372,7 @@ Example outputs for different interests:
           return updated;
         });
       } else {
-        throw new Error('No response content received');
+        throw new Error(data.error || 'Failed to get AI response');
       }
     } catch (error) {
       console.error('[PersonalizedSubjectExamples] Error with question:', error);

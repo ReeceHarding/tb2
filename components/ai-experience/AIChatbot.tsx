@@ -61,11 +61,13 @@ export default function AIChatbot({ userData, onClose }: AIChatbotProps) {
     setMessages(prev => [...prev, assistantMessage]);
 
     try {
+      console.log('[AIChatbot] Sending question to chat-tutor API with JSON response handling');
       const response = await fetch('/api/ai/chat-tutor', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          messages: [...messages, userMessage].map(m => ({
+          question: userMessage.content,
+          messageHistory: [...messages, userMessage].map(m => ({
             role: m.role,
             content: m.content
           })),
@@ -76,38 +78,18 @@ export default function AIChatbot({ userData, onClose }: AIChatbotProps) {
 
       if (!response.ok) throw new Error('Failed to get response');
 
-      const reader = response.body?.getReader();
-      if (!reader) throw new Error('No reader available');
+      const data = await response.json();
+      console.log('[AIChatbot] Received JSON response from chat-tutor API');
 
-      const decoder = new TextDecoder();
-      let content = '';
-
-      let done = false;
-      while (!done) {
-        const { done: isDone, value } = await reader.read();
-        done = isDone;
-        if (done) break;
-
-        const chunk = decoder.decode(value);
-        const lines = chunk.split('\n');
-
-        for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            try {
-              const data = JSON.parse(line.slice(6));
-              if (data.content) {
-                content += data.content;
-                setMessages(prev => prev.map(msg => 
-                  msg.id === assistantId 
-                    ? { ...msg, content } 
-                    : msg
-                ));
-              }
-            } catch (e) {
-              // Skip invalid JSON
-            }
-          }
-        }
+      if (data.success && data.response) {
+        const content = data.response;
+        setMessages(prev => prev.map(msg => 
+          msg.id === assistantId 
+            ? { ...msg, content } 
+            : msg
+        ));
+      } else {
+        throw new Error(data.error || 'Failed to get AI response');
       }
     } catch (error) {
       console.error('[AIChatbot] Error:', error);
