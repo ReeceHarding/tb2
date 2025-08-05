@@ -371,7 +371,7 @@ export default function AIExperienceClient() {
       {/* Floating Chatbot Button */}
       <button
         onClick={() => setShowChatbot(!showChatbot)}
-        className="fixed bottom-6 right-6 w-14 h-14 bg-timeback-primary text-white rounded-full shadow-2xl hover:bg-timeback-primary transition-colors flex items-center justify-center z-50 font-cal"
+        className="fixed bottom-6 right-6 w-14 h-14 bg-timeback-primary text-white rounded-full shadow-2xl hover:bg-timeback-primary transition-all duration-200 flex items-center justify-center z-[70] font-cal"
       >
         {showChatbot ? (
           <X className="w-6 h-6" />
@@ -382,7 +382,7 @@ export default function AIExperienceClient() {
 
       {/* Chatbot Panel */}
       {showChatbot && (
-        <div className="fixed bottom-24 right-6 w-96 h-[600px] bg-white rounded-xl shadow-2xl z-50 overflow-hidden">
+        <div className="fixed bottom-4 right-4 left-4 sm:bottom-24 sm:right-6 sm:left-auto w-auto sm:w-96 max-h-[calc(100vh-120px)] sm:max-h-[calc(100vh-200px)] bg-white rounded-xl shadow-2xl z-[70] overflow-hidden transition-all duration-300 ease-in-out transform animate-in slide-in-from-bottom-4 fade-in">
           <AIChatbot 
             userData={userData}
             onClose={() => setShowChatbot(false)}
