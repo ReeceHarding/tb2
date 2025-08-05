@@ -1,44 +1,73 @@
-# Supabase Setup Guide
+# Supabase Setup Guide for TimeBack Project
 
-This guide will walk you through setting up your environment to work with this Supabase project.
+This guide will walk you through setting up your local environment to work with Reece's TimeBack Supabase project.
 
-## Environment Variables
+## Step 1: Create Environment Variables
 
-You will need to create a `.env.local` file in the root of your project and add the following Supabase-related environment variables. You can get the values for these variables from your own Supabase project dashboard.
+Create a `.env.local` file in the root of your project and add these exact environment variables:
 
+```bash
+# Supabase Configuration for TimeBack Project
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url_here
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_public_key_here
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key_here
+SUPABASE_DB_PASSWORD=your_supabase_database_password_here
+
+# NextAuth Configuration
+NEXTAUTH_URL=http://localhost:3001
+NEXTAUTH_SECRET=your_nextauth_secret_here_use_openssl_rand_base64_32
+
+# Google OAuth (if needed)
+GOOGLE_ID=your_google_oauth_client_id_here
+GOOGLE_SECRET=your_google_oauth_secret_here
+
+# AWS Bedrock for Claude API
+AWS_ACCESS_KEY_ID=your_aws_access_key_id_here
+AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key_here
+AWS_REGION=us-east-1
+
+# Other API Keys
+OPENAI_API_KEY=your_openai_api_key_here
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+CEREBRAS_API_KEY=your_cerebras_api_key_here
+GENDER_API_KEY=your_gender_api_key_here
+
+# SchoolDigger API
+SCHOOLDIGGER_APP_ID=your_schooldigger_app_id_here
+SCHOOLDIGGER_API_KEY=your_schooldigger_api_key_here
+SCHOOLDIGGER_RATE_LIMIT_PER_MINUTE=45
+SCHOOLDIGGER_RATE_DELAY_MS=50
+
+# MongoDB (if used)
+MONGODB_URI=your_mongodb_connection_string_here
 ```
-NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL
-NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
-SUPABASE_SERVICE_ROLE_KEY=YOUR_SUPABASE_SERVICE_ROLE_KEY
-SUPABASE_DB_PASSWORD=YOUR_SUPABASE_DB_PASSWORD
+
+## Step 2: Install Supabase CLI
+
+If you don't have the Supabase CLI installed:
+
+```bash
+npm install -g supabase
 ```
 
-### Where to find these values:
+## Step 3: Link to the TimeBack Project
 
-1.  Go to your Supabase project dashboard.
-2.  Navigate to **Project Settings**.
-3.  Click on **API**.
-4.  You will find your `Project URL` (which is `NEXT_PUBLIC_SUPABASE_URL`) and your `anon` `public` key (which is `NEXT_PUBLIC_SUPABASE_ANON_KEY`).
-5.  You will also find your `service_role` `secret` key (which is `SUPABASE_SERVICE_ROLE_KEY`).
-6.  The `SUPABASE_DB_PASSWORD` is the password you set when you created the project. If you have forgotten it, you can reset it in the **Database** settings of your project dashboard.
+1. **Log in to Supabase CLI:**
+   ```bash
+   supabase login
+   ```
+   This will open your browser to authenticate.
 
-## Linking Your Project
+2. **Link to Reece's TimeBack project:**
+   ```bash
+   supabase link --project-ref igwtslivaqqgiswawdep
+   ```
 
-Before you can interact with your Supabase project using the CLI, you need to link your local project to your Supabase project.
-
-1.  Install the Supabase CLI if you haven't already.
-2.  Log in to the Supabase CLI using `supabase login`.
-3.  Run the following command in your project's root directory:
-
-    ```bash
-    supabase link --project-ref YOUR_PROJECT_REF
-    ```
-
-### Where to find your `YOUR_PROJECT_REF`:
-
-1.  Go to your Supabase project dashboard.
-2.  The project reference ID is part of the URL in your browser's address bar. For example, if your URL is `https://app.supabase.com/project/abcdefghijklmnopqrst`, then `abcdefghijklmnopqrst` is your project reference ID.
-3.  You can also find it in **Project Settings** > **General**.
+   **Project Details:**
+   - Project Reference: `igwtslivaqqgiswawdep`  
+   - Project Name: `reece.harding@superbuilders.school's Project`
+   - Organization: Reece (qwyvjixxyibpgguygafq)
+   - Region: West US (North California)
 
 ## Database Schema
 
@@ -285,6 +314,37 @@ supabase inspect db index-stats
 supabase inspect db table-stats --output json
 ```
 
-By following these steps, your friend should be able to get their local environment set up to work with the project's Supabase backend.
+## Step 4: Verify Your Setup
 
-I have created a new file named `supabase_guide.md` with the content for your friend. As previously mentioned, I am unable to provide the schema at this time because I need you to first link your project to Supabase. After you've done so, I can get the schema and add it to this file. In the meantime, I've added a placeholder for where the schema will go, along with the steps you can take to get the schema yourself. If you'd like me to proceed with getting the schema, please link the project and let me know.
+Once you've completed the above steps, verify everything is working:
+
+1. **Check if your project is linked:**
+   ```bash
+   supabase status
+   ```
+
+2. **Test database connection:**
+   ```bash
+   supabase inspect db table-stats
+   ```
+   You should see a list of tables including: `content`, `transcriptions`, `map_scores`, `marketing_images`, `media`, `testimonials`, `students`, etc.
+
+3. **Test your environment variables:**
+   Create a simple test file to verify your connection works in your application.
+
+## Troubleshooting
+
+- **If linking fails:** Make sure you're logged into the correct Supabase account (`reece.harding@superbuilders.school`)
+- **If table-stats fails:** Double-check your environment variables match exactly what's shown above
+- **If you get permission errors:** You may need Reece to grant you access to the project
+
+## What's Next?
+
+After setup, you'll have access to:
+- **Student Journey Data**: 309 anonymized student profiles with learning analytics
+- **School Marketing Content**: 121 marketing images from various Alpha Schools
+- **Video Content**: Testimonials and promotional videos
+- **Transcription Data**: 396 processed transcriptions
+- **Educational Analytics**: MAP scores, daily metrics, and learning progress data
+
+You're now ready to work with the TimeBack Supabase backend!
