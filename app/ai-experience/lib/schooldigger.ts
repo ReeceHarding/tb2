@@ -743,95 +743,135 @@ function createOptimizedStrategies(query: string, state?: string): Array<{
   });
   
   // STRATEGY 2: Intelligent Targeted Search (Based on query structure)
-  if (queryComponents.city) {
-    // City detected - use city-specific search
-    strategies.push({
-      name: 'city-specific',
-      priority: 25,
-      execute: async () => {
-        console.log(`[SchoolDigger] Executing City-Specific search: q="${queryComponents.schoolTerms}", city="${queryComponents.city}"`);
-        try {
-          const data = await makeApiCallCached('/schools', {
-            q: queryComponents.schoolTerms,
-            city: queryComponents.city,
-            ...(state && { st: state }),
-            perPage: '15',
-            sortBy: 'rank'
-          });
-          
-          const results = (data.schoolList || []).map(extractSchoolData);
-          console.log(`[SchoolDigger] City-Specific found ${results.length} results`);
-          
-          return {
-            results,
-            source: 'city-specific',
-            priority: 25
-          };
-        } catch (error) {
-          console.error('[SchoolDigger] City-Specific search failed:', error);
-          return { results: [], source: 'city-specific', priority: 25 };
+  // Note: These strategies use /schools endpoint which REQUIRES 'st' parameter
+  // Skip them if no state is available to avoid API errors
+  if (state) {
+    if (queryComponents.city) {
+      // City detected - use city-specific search
+      strategies.push({
+        name: 'city-specific',
+        priority: 25,
+        execute: async () => {
+          console.log(`[SchoolDigger] Executing City-Specific search: q="${queryComponents.schoolTerms}", city="${queryComponents.city}", state="${state}"`);
+          try {
+            const data = await makeApiCallCached('/schools', {
+              q: queryComponents.schoolTerms,
+              city: queryComponents.city,
+              st: state, // Always include state since we verified it exists
+              perPage: '15',
+              sortBy: 'rank'
+            });
+            
+            const results = (data.schoolList || []).map(extractSchoolData);
+            console.log(`[SchoolDigger] City-Specific found ${results.length} results`);
+            
+            return {
+              results,
+              source: 'city-specific',
+              priority: 25
+            };
+          } catch (error) {
+            console.error('[SchoolDigger] City-Specific search failed:', error);
+            return { results: [], source: 'city-specific', priority: 25 };
+          }
         }
-      }
-    });
-  } else if (words.length >= 2) {
-    // Multi-word query - try last word as city (common pattern)
-    const lastWord = words[words.length - 1];
-    const schoolTerms = words.slice(0, -1).join(' ');
-    
-    strategies.push({
-      name: 'last-word-city',
-      priority: 22,
-      execute: async () => {
-        console.log(`[SchoolDigger] Executing Last-Word-City search: q="${schoolTerms}", city="${lastWord}"`);
-        try {
-          const data = await makeApiCallCached('/schools', {
-            q: schoolTerms,
-            city: lastWord,
-            ...(state && { st: state }),
-            perPage: '15'
-          });
-          
-          const results = (data.schoolList || []).map(extractSchoolData);
-          console.log(`[SchoolDigger] Last-Word-City found ${results.length} results`);
-          
-          return {
-            results,
-            source: 'last-word-city',
-            priority: 22
-          };
-        } catch (error) {
-          console.error('[SchoolDigger] Last-Word-City search failed:', error);
-          return { results: [], source: 'last-word-city', priority: 22 };
+      });
+    } else if (words.length >= 2) {
+      // Multi-word query - try last word as city (common pattern)
+      const lastWord = words[words.length - 1];
+      const schoolTerms = words.slice(0, -1).join(' ');
+      
+      strategies.push({
+        name: 'last-word-city',
+        priority: 22,
+        execute: async () => {
+          console.log(`[SchoolDigger] Executing Last-Word-City search: q="${schoolTerms}", city="${lastWord}", state="${state}"`);
+          try {
+            const data = await makeApiCallCached('/schools', {
+              q: schoolTerms,
+              city: lastWord,
+              st: state, // Always include state since we verified it exists
+              perPage: '15'
+            });
+            
+            const results = (data.schoolList || []).map(extractSchoolData);
+            console.log(`[SchoolDigger] Last-Word-City found ${results.length} results`);
+            
+            return {
+              results,
+              source: 'last-word-city',
+              priority: 22
+            };
+          } catch (error) {
+            console.error('[SchoolDigger] Last-Word-City search failed:', error);
+            return { results: [], source: 'last-word-city', priority: 22 };
+          }
         }
-      }
-    });
+      });
+    } else {
+      // Single word or simple query - use exact name search
+      strategies.push({
+        name: 'exact-name',
+        priority: 20,
+        execute: async () => {
+          console.log(`[SchoolDigger] Executing Exact Name search for "${query}" in state "${state}"`);
+          try {
+            const data = await makeApiCallCached('/schools', {
+              q: query,
+              qSearchSchoolNameOnly: 'true',
+              st: state, // Always include state since we verified it exists
+              perPage: '15',
+              sortBy: 'schoolname'
+            });
+            
+            const results = (data.schoolList || []).map(extractSchoolData);
+            console.log(`[SchoolDigger] Exact Name found ${results.length} results`);
+            
+            return {
+              results,
+              source: 'exact-name',
+              priority: 20
+            };
+          } catch (error) {
+            console.error('[SchoolDigger] Exact Name search failed:', error);
+            return { results: [], source: 'exact-name', priority: 20 };
+          }
+        }
+      });
+    }
   } else {
-    // Single word or simple query - use exact name search
+    console.log('[SchoolDigger] Skipping /schools endpoint strategies due to missing state parameter (required by API)');
+    
+    // Fallback: Add an enhanced autocomplete strategy when no state is available
     strategies.push({
-      name: 'exact-name',
-      priority: 20,
+      name: 'enhanced-autocomplete-fallback',
+      priority: 15,
       execute: async () => {
-        console.log('[SchoolDigger] Executing Exact Name search');
+        console.log('[SchoolDigger] Executing Enhanced Autocomplete Fallback (no state available)');
         try {
-          const data = await makeApiCallCached('/schools', {
-            q: query,
-            qSearchSchoolNameOnly: 'true',
-            ...(state && { st: state }),
-            perPage: '15',
-            sortBy: 'schoolname'
+          // Use autocomplete with enhanced query building for better results
+          let enhancedQuery = query;
+          if (queryComponents.city && !query.toLowerCase().includes(queryComponents.city.toLowerCase())) {
+            enhancedQuery = `${queryComponents.schoolTerms} ${queryComponents.city}`;
+          }
+          
+          const data = await makeApiCallCached('/autocomplete/schools', {
+            q: enhancedQuery,
+            qSearchCityStateName: 'true',
+            returnCount: '25' // Get more results since we can't use other strategies
           });
           
-          const results = (data.schoolList || []).map(extractSchoolData);
-          console.log(`[SchoolDigger] Exact Name found ${results.length} results`);
+          const results = (data.schoolMatches || []).map(extractSchoolData);
+          console.log(`[SchoolDigger] Enhanced Autocomplete Fallback found ${results.length} results`);
           
           return {
             results,
-            source: 'exact-name',
-            priority: 20
+            source: 'enhanced-autocomplete-fallback',
+            priority: 15
           };
         } catch (error) {
-          console.error('[SchoolDigger] Exact Name search failed:', error);
-          return { results: [], source: 'exact-name', priority: 20 };
+          console.error('[SchoolDigger] Enhanced Autocomplete Fallback failed:', error);
+          return { results: [], source: 'enhanced-autocomplete-fallback', priority: 15 };
         }
       }
     });
