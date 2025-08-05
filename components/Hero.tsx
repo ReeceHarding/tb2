@@ -107,11 +107,7 @@ const Hero = () => {
                   <TypewriterText />
                 </span>
               </h1>
-              
-              {/* SEO-rich secondary headline */}
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-timeback-primary/90 font-cal max-w-4xl mx-auto lg:mx-0">
-                AI-Powered Personalized Learning Platform | Proven 99th Percentile Results in Just 2 Hours Daily
-              </h2>
+
             </motion.div>
 
             {/* Improved subheading with better spacing */}
