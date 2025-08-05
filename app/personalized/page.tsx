@@ -374,30 +374,124 @@ export default function PersonalizedPage() {
     const progress = Object.values(contentReadyStatus).filter(Boolean).length / 3;
     console.log(`[PersonalizedPage] Loading progress: ${(progress * 100).toFixed(0)}%`);
 
+    // Determine current phase and appropriate messaging
+    const getCurrentPhase = () => {
+      if (!contentReadyStatus.dataLoaded) {
+        return {
+          phase: 1,
+          title: "Loading Your Data",
+          message: "Retrieving your quiz results and preferences...",
+          detail: "This usually takes 2-3 seconds",
+          icon: "DATA"
+        };
+      } else if (!contentReadyStatus.coreContentGenerated) {
+        return {
+          phase: 2,
+          title: "Generating Personalized Content",
+          message: "Our AI is creating custom recommendations just for you...",
+          detail: "This may take 15-30 seconds",
+          icon: "AI"
+        };
+      } else if (!contentReadyStatus.pageStable) {
+        return {
+          phase: 3,
+          title: "Finalizing Your Experience",
+          message: "Putting the finishing touches on your personalized page...",
+          detail: "Almost ready!",
+          icon: "DONE"
+        };
+      }
+      return {
+        phase: 3,
+        title: "Getting Ready",
+        message: "Preparing your personalized experience...",
+        detail: "Just a moment more",
+        icon: "PREP"
+      };
+    };
+
+    const currentPhase = getCurrentPhase();
+    const progressPercentage = Math.max(progress * 100, 10); // Minimum 10% to show activity
+
     return (
       <div className="min-h-screen bg-gradient-to-br from-timeback-bg to-white flex items-center justify-center p-4">
         <div className="text-center font-cal">
-          <div className="bg-white rounded-xl shadow-2xl border border-timeback-primary p-8 max-w-xs mx-auto">
+          <div className="bg-white rounded-xl shadow-2xl border border-timeback-primary p-8 max-w-md mx-auto">
             {/* Minimalistic TimeBack logo */}
             <div className="w-16 h-16 bg-timeback-primary rounded-xl flex items-center justify-center mx-auto mb-6">
               <span className="text-white font-bold text-xl font-cal">T</span>
             </div>
             
-            {/* Simple spinner */}
-            <div className="w-8 h-8 border-2 border-timeback-bg border-t-timeback-primary rounded-full animate-spin mx-auto mb-6"></div>
-            
-            {/* Clean progress indicator */}
-            <div className="w-full bg-timeback-bg/30 rounded-full h-1 mb-6">
-              <div 
-                className="bg-timeback-primary h-1 rounded-full transition-all duration-700 ease-out"
-                style={{ width: `${progress * 100}%` }}
-              ></div>
+            {/* Phase indicator with icon */}
+            <div className="mb-4">
+              <div className="text-xs font-bold text-timeback-primary bg-timeback-bg/20 px-2 py-1 rounded mb-2 inline-block">
+                {currentPhase.icon}
+              </div>
+              <h3 className="text-lg font-bold text-timeback-primary font-cal mb-1">
+                {currentPhase.title}
+              </h3>
+              <p className="text-timeback-primary font-cal text-sm opacity-80">
+                Phase {currentPhase.phase} of 3
+              </p>
             </div>
             
-            {/* Simple message */}
-            <p className="text-timeback-primary font-cal text-sm">
-              Creating your personalized experience
-            </p>
+            {/* Enhanced spinner with pulse effect */}
+            <div className="relative mb-6">
+              <div className="w-10 h-10 border-4 border-timeback-bg border-t-timeback-primary rounded-full animate-spin mx-auto"></div>
+              <div className="absolute inset-0 w-10 h-10 border-2 border-timeback-primary/20 rounded-full mx-auto animate-pulse"></div>
+            </div>
+            
+            {/* Enhanced progress indicator with percentage */}
+            <div className="mb-6">
+              <div className="flex justify-between items-center mb-2">
+                <span className="text-xs text-timeback-primary font-cal opacity-60">Progress</span>
+                <span className="text-xs text-timeback-primary font-cal font-bold">{Math.round(progressPercentage)}%</span>
+              </div>
+              <div className="w-full bg-timeback-bg/30 rounded-full h-2 relative overflow-hidden">
+                <div 
+                  className="bg-timeback-primary h-2 rounded-full transition-all duration-1000 ease-out relative"
+                  style={{ width: `${progressPercentage}%` }}
+                >
+                  {/* Animated shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform translate-x-[-100%] animate-pulse"></div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Dynamic status message */}
+            <div className="mb-4">
+              <p className="text-timeback-primary font-cal text-sm font-medium mb-1">
+                {currentPhase.message}
+              </p>
+              <p className="text-timeback-primary font-cal text-xs opacity-60">
+                {currentPhase.detail}
+              </p>
+            </div>
+
+            {/* Phase indicators */}
+            <div className="flex justify-center space-x-2 mt-4">
+              {[1, 2, 3].map((phaseNum) => (
+                <div
+                  key={phaseNum}
+                  className={`w-2 h-2 rounded-full transition-all duration-500 ${
+                    phaseNum <= currentPhase.phase
+                      ? 'bg-timeback-primary scale-110'
+                      : phaseNum === currentPhase.phase + 1
+                      ? 'bg-timeback-primary/50 animate-pulse'
+                      : 'bg-timeback-bg/40'
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Helpful tip for longer waits */}
+            {currentPhase.phase === 2 && (
+              <div className="mt-4 p-3 bg-timeback-bg/20 rounded-lg">
+                <p className="text-timeback-primary font-cal text-xs opacity-70">
+                  <span className="font-bold">TIP:</span> We&apos;re creating custom content based on your interests and school choices
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
