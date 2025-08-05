@@ -125,7 +125,9 @@ export default function MechanismSection() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-8 flex flex-col h-full">
               <div className="w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-white font-bold text-xl font-cal">⚡</span>
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
               </div>
               <h4 className="text-xl font-bold text-timeback-primary mb-4 text-center font-cal">No Waiting Time</h4>
               <div className="flex-grow flex items-center justify-center mb-6">
@@ -187,7 +189,9 @@ export default function MechanismSection() {
             
             <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-8 flex flex-col h-full">
               <div className="w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-white font-bold text-xl font-cal">🗑️</span>
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
               </div>
               <h4 className="text-xl font-bold text-timeback-primary mb-4 text-center font-cal">Waste Elimination</h4>
               <div className="flex-grow flex items-center justify-center mb-6">

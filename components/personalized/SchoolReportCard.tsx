@@ -149,7 +149,7 @@ export default function SchoolReportCard({ schoolData, onLearnMore }: SchoolRepo
 
   if (isLoading) {
     return (
-      <div className="w-full max-w-lg mx-auto bg-white rounded-2xl shadow-2xl border-2 border-timeback-primary overflow-hidden">
+      <div className="w-full max-w-lg mx-auto backdrop-blur-md bg-white/10 rounded-2xl shadow-2xl border-2 border-timeback-primary overflow-hidden">
         <div className="bg-timeback-primary text-white p-6 text-center font-cal">
           <h3 className="text-xl font-bold font-cal">Analyzing School Performance</h3>
           <p className="text-sm opacity-90 mt-1 font-cal">Loading your personalized comparison...</p>
@@ -164,7 +164,7 @@ export default function SchoolReportCard({ schoolData, onLearnMore }: SchoolRepo
 
   if (!schoolStats) {
     return (
-      <div className="w-full max-w-lg mx-auto bg-white rounded-2xl shadow-2xl border-2 border-timeback-primary overflow-hidden">
+      <div className="w-full max-w-lg mx-auto backdrop-blur-md bg-white/10 rounded-2xl shadow-2xl border-2 border-timeback-primary overflow-hidden">
         <div className="bg-timeback-primary text-white p-6 text-center font-cal">
           <h3 className="text-xl font-bold font-cal">School Data Unavailable</h3>
         </div>
@@ -189,7 +189,7 @@ export default function SchoolReportCard({ schoolData, onLearnMore }: SchoolRepo
   };
 
   return (
-    <div className="w-full max-w-lg mx-auto bg-white rounded-2xl shadow-2xl border-2 border-timeback-primary overflow-hidden">
+    <div className="w-full max-w-lg mx-auto backdrop-blur-md bg-white/10 rounded-2xl shadow-2xl border-2 border-timeback-primary overflow-hidden">
       {/* Header */}
       <div className="bg-timeback-primary text-white p-6 text-center font-cal">
         <h3 className="text-xl font-bold font-cal">YOUR RESULTS PREVIEW</h3>
@@ -213,7 +213,7 @@ export default function SchoolReportCard({ schoolData, onLearnMore }: SchoolRepo
           {/* Current School */}
           <div className="text-center font-cal">
             <p className="text-timeback-primary font-bold mb-3 font-cal">Current School</p>
-            <div className="bg-white border-2 border-timeback-primary rounded-xl p-4 space-y-3">
+            <div className="backdrop-blur-sm bg-white/10 border-2 border-timeback-primary rounded-xl p-4 space-y-3">
               <div className="flex justify-between items-center">
                 <span className="text-sm text-timeback-primary font-cal">Reading:</span>
                 <span className={`font-bold text-sm text-timeback-primary font-cal ${getPerformanceIntensity(schoolStats.testScores.reading)}`}>

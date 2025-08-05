@@ -159,7 +159,10 @@ export default function ParentDashboard({ studentGrade, selectedSchool: _selecte
 
             <div className="bg-timeback-bg rounded-xl p-6 border border-timeback-primary">
               <h5 className="font-bold text-timeback-primary mb-4 flex items-center gap-2 font-cal">
-                <span className="text-2xl font-cal">📈</span> Areas to Improve
+                <svg className="w-6 h-6 text-timeback-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 11l5-5m0 0l5 5m-5-5v12" />
+                </svg>
+                <span className="font-cal">Areas to Improve</span>
               </h5>
               <ul className="space-y-2">
                 {metrics.knowledge.improvements.map((item, index) => (
@@ -173,7 +176,10 @@ export default function ParentDashboard({ studentGrade, selectedSchool: _selecte
 
             <div className="bg-timeback-bg rounded-xl p-6 border border-timeback-primary">
               <h5 className="font-bold text-timeback-primary mb-4 flex items-center gap-2 font-cal">
-                <span className="text-2xl font-cal">✅</span> Mastered
+                <svg className="w-6 h-6 text-timeback-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="font-cal">Mastered</span>
               </h5>
               <ul className="space-y-2">
                 {metrics.knowledge.mastered.map((item, index) => (
@@ -191,7 +197,11 @@ export default function ParentDashboard({ studentGrade, selectedSchool: _selecte
       {/* Parent Testimonial */}
       <div className="p-6 bg-timeback-bg rounded-xl border border-timeback-primary">
         <div className="flex items-start gap-4">
-          <div className="text-4xl font-cal">👨‍👩‍👧</div>
+                        <div className="w-12 h-12 bg-timeback-bg rounded-xl flex items-center justify-center">
+                <svg className="w-8 h-8 text-timeback-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                </svg>
+              </div>
           <div>
             <p className="text-timeback-primary italic mb-2 font-cal">
               &quot;Finally, I actually know what my daughter is learning! Her old school gave her all A&apos;s, 

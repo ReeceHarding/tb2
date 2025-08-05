@@ -58,7 +58,7 @@ export default function KnowledgeDispersionChart() {
   console.log(`[KnowledgeDispersionChart] Total students: ${totalStudents}, Below expected: ${studentsBelowExpected}, At expected: ${studentsAtExpected}, Above expected: ${studentsAboveExpected}`);
 
   return (
-    <section className="bg-white py-16 lg:py-24">
+    <section className="py-16 lg:py-24">
       <div className="container mx-auto px-4 max-w-6xl">
         
         {/* Header Section */}
@@ -90,7 +90,7 @@ export default function KnowledgeDispersionChart() {
         </div>
 
         {/* Main Chart Container */}
-        <div className="bg-white rounded-2xl border-2 border-timeback-primary shadow-xl p-8 mb-12">
+        <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-xl p-8 mb-12">
           
           {/* Chart Header */}
           <div className="mb-8">
@@ -242,7 +242,7 @@ export default function KnowledgeDispersionChart() {
                   Traditional education systems group students by age, forcing vastly different learners into the same curriculum. 
                   A student with 2nd grade math skills sits next to one ready for calculus—both receiving identical 7th grade instruction.
                 </p>
-                <div className="bg-white rounded-xl p-6 border-l-4 border-timeback-primary">
+                <div className="backdrop-blur-md bg-white/10 rounded-xl p-6 border-l-4 border-timeback-primary">
                   <p className="text-lg font-semibold text-timeback-primary font-cal mb-2">
                     The Solution: Personalized Learning
                   </p>

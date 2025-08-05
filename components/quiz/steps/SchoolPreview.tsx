@@ -204,7 +204,12 @@ export default function SchoolPreview({ school, onClose, onBack }: SchoolPreview
                 
                 <div className="flex items-center gap-4 text-sm font-cal">
                   {school.phone && (
-                    <span>📞 {school.phone}</span>
+                    <span className="flex items-center">
+                  <svg className="w-4 h-4 text-timeback-primary mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  {school.phone}
+                </span>
                   )}
                   {school.website && (
                     <a 
@@ -213,7 +218,10 @@ export default function SchoolPreview({ school, onClose, onBack }: SchoolPreview
                       rel="noopener noreferrer" 
                       className="hover:underline"
                     >
-                      🌐 Visit Website
+                      <svg className="w-4 h-4 text-timeback-primary inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9" />
+                      </svg>
+                      Visit Website
                     </a>
                   )}
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${getTypeColor(school.type)}`}>

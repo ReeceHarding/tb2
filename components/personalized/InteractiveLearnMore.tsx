@@ -259,7 +259,7 @@ Would you like me to elaborate on any specific aspect of this topic?`;
 
   return (
     <div className="fixed inset-0 bg-timeback-primary bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl shadow-2xl border-2 border-timeback-primary max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl border-2 border-timeback-primary max-w-3xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
         <div className="bg-timeback-primary text-white p-6 rounded-t-2xl font-cal">
           <div className="flex justify-between items-center">
@@ -363,7 +363,7 @@ Would you like me to elaborate on any specific aspect of this topic?`;
                     <span className="text-timeback-primary font-cal text-lg">Generating personalized response...</span>
                   </div>
                 ) : aiResponse ? (
-                  <div className="prose max-w-none bg-white rounded-xl p-6 border-2 border-timeback-primary shadow-2xl">
+                  <div className="prose max-w-none bg-white/90 backdrop-blur-sm rounded-xl p-6 border-2 border-timeback-primary shadow-2xl">
                     <ReactMarkdown 
                       components={{
                         h1: ({children}) => <h1 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">{children}</h1>,
