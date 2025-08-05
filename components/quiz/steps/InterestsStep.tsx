@@ -16,7 +16,7 @@ export default function InterestsStep({ onNext: _onNext, onPrev: _onPrev }: Inte
   console.log('[InterestsStep] Selected interests:', state.kidsInterests.length);
   console.log('[InterestsStep] Expanded category:', expandedCategory);
 
-  // Main interest categories with detailed subcategories
+  // Main interest categories with detailed subcategories - Limited to 5 core categories to reduce cognitive load
   const interestCategories = {
     'Sports & Athletics': [
       'Soccer/Football', 'Basketball', 'Baseball/Softball', 'Tennis', 
@@ -24,39 +24,23 @@ export default function InterestsStep({ onNext: _onNext, onPrev: _onPrev }: Inte
     ],
     'Arts & Creativity': [
       'Drawing & Sketching', 'Painting', 'Digital Art', 'Photography',
-      'Sculpture', 'Crafts & DIY', 'Fashion Design', 'Graphic Design'
+      'Sculpture', 'Crafts & DIY', 'Fashion Design', 'Music & Performance',
+      'Theater/Acting', 'Dance'
     ],
     'Science & Discovery': [
       'Chemistry Experiments', 'Physics & Engineering', 'Biology & Life Sciences', 'Astronomy',
-      'Earth Sciences', 'Environmental Science', 'Robotics', 'Scientific Research'
+      'Earth Sciences', 'Environmental Science', 'Robotics', 'Scientific Research',
+      'Nature Study', 'Animal Care', 'Math & Problem Solving'
     ],
     'Technology & Gaming': [
       'Video Games', 'Programming & Coding', 'Computer Hardware', 'Mobile Apps',
-      'Virtual Reality', 'Artificial Intelligence', 'Cybersecurity', 'Web Development'
+      'Virtual Reality', 'Artificial Intelligence', 'Cybersecurity', 'Web Development',
+      'Electronics', '3D Printing'
     ],
     'Reading & Writing': [
       'Fiction Books', 'Non-fiction', 'Poetry', 'Creative Writing',
-      'Journalism', 'Comic Books/Graphic Novels', 'Screenwriting', 'Blogging'
-    ],
-    'Music & Performance': [
-      'Piano', 'Guitar', 'Singing/Vocals', 'Drums',
-      'Orchestra Instruments', 'Music Production', 'Theater/Acting', 'Dance'
-    ],
-    'Building & Engineering': [
-      'LEGO Building', 'Model Making', 'Woodworking', 'Electronics',
-      'Architecture', 'Mechanical Engineering', '3D Printing', 'Construction'
-    ],
-    'Nature & Animals': [
-      'Pet Care', 'Wildlife Study', 'Gardening', 'Hiking & Outdoors',
-      'Marine Biology', 'Veterinary Science', 'Conservation', 'Camping'
-    ],
-    'History & Culture': [
-      'Ancient Civilizations', 'World History', 'Cultural Studies', 'Archaeology',
-      'Geography', 'Languages', 'Mythology', 'Historical Events'
-    ],
-    'Math & Problem Solving': [
-      'Algebra & Equations', 'Geometry', 'Statistics', 'Logic Puzzles',
-      'Brain Teasers', 'Mathematical Modeling', 'Competition Math', 'Game Theory'
+      'Journalism', 'Comic Books/Graphic Novels', 'Screenwriting', 'Blogging',
+      'History & Culture', 'Languages', 'Geography'
     ]
   };
 
