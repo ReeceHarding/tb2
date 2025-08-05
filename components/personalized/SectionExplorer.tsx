@@ -192,7 +192,7 @@ export default function SectionExplorer({
       {/* End of report message when all components viewed */}
       {availableComponents.length === 0 && (
         <section className="max-w-7xl mx-auto py-16 px-6 lg:px-12 text-center">
-          <div className="bg-gradient-to-br from-timeback-bg to-white rounded-xl p-8 border border-timeback-primary">
+          <div className="backdrop-blur-md bg-white/10 rounded-xl p-8 border-2 border-timeback-primary">
             <h3 className="text-3xl font-bold text-timeback-primary font-cal mb-4">
               Your Complete Personalized Report is Ready!
             </h3>

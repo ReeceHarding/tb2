@@ -20,6 +20,9 @@ export default function ShareJourneyButton({ viewedComponents, className = '' }:
 
   // Check if user already has a shareable journey
   useEffect(() => {
+    // Only run on client-side
+    if (typeof window === 'undefined') return;
+    
     const checkExistingShare = async () => {
       try {
         const response = await fetch('/api/share/journey');
@@ -88,6 +91,12 @@ export default function ShareJourneyButton({ viewedComponents, className = '' }:
   const handleCopyLink = async (url?: string) => {
     const linkToCopy = url || shareUrl;
     if (!linkToCopy) return;
+
+    // Only run on client-side
+    if (typeof window === 'undefined' || !navigator.clipboard) {
+      console.warn('[ShareJourneyButton] Clipboard API not available');
+      return;
+    }
 
     setCopyStatus('copying');
     

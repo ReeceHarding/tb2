@@ -101,7 +101,7 @@ export default function StudentCard({ student, onClick, isActive = false }: Stud
       </div>
       
       {/* Main Achievement */}
-      <div className="bg-gradient-to-br from-timeback-bg to-white rounded-xl p-4 mb-4 flex-grow">
+      <div className="backdrop-blur-md bg-white/10 rounded-xl p-4 mb-4 flex-grow border-2 border-timeback-primary">
         <div className="text-center">
           <div className="text-3xl font-cal font-bold text-timeback-primary mb-1">
             +{biggestJump}

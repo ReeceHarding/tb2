@@ -328,7 +328,7 @@ export default function HowWeGetResults({
           </p>
         </div>
         
-        <div className="bg-gradient-to-br from-timeback-bg to-white rounded-xl p-8 mb-8">
+        <div className="backdrop-blur-md bg-white/10 rounded-xl p-8 mb-8 border-2 border-timeback-primary">
           <h3 className="text-3xl font-bold text-timeback-primary mb-6 font-cal text-center">The Time Waste Crisis</h3>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center">

@@ -15,7 +15,7 @@ export default function TimeBackVsCompetitors({ onLearnMore }: TimeBackVsCompeti
   console.log('[TimeBackVsCompetitors] Rendering comparison section');
 
   return (
-    <section className="max-w-7xl mx-auto bg-gradient-to-br from-timeback-bg to-white py-20 lg:py-32 px-6 lg:px-12">
+    <section className="max-w-7xl mx-auto py-20 lg:py-32 px-6 lg:px-12">
       {/* Header */}
       <div className="text-center mb-16 font-cal">
         <div className="inline-flex items-center gap-2 bg-white border border-timeback-primary rounded-full px-6 py-3 mb-8">

@@ -107,7 +107,7 @@ export default function CustomQuestionSection({
   return (
     <section className="max-w-7xl mx-auto py-16 px-6 lg:px-12">
       {/* Input Section */}
-      <div id="custom-question-input" className="bg-gradient-to-br from-timeback-bg to-white rounded-xl p-8 border border-timeback-primary mb-8">
+      <div id="custom-question-input" className="backdrop-blur-md bg-white/10 rounded-xl p-8 border-2 border-timeback-primary mb-8">
         <h2 className="text-3xl font-bold text-timeback-primary font-cal mb-4">
           Have a Specific Question?
         </h2>
@@ -207,7 +207,7 @@ export default function CustomQuestionSection({
             </div>
 
             {/* Follow-up Questions */}
-            <div className="bg-gradient-to-br from-timeback-bg to-white rounded-xl p-6 border border-timeback-primary">
+            <div className="backdrop-blur-md bg-white/10 rounded-xl p-6 border-2 border-timeback-primary">
               <h4 className="text-xl font-bold text-timeback-primary mb-4 font-cal">
                 Explore More:
               </h4>

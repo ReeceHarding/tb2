@@ -78,7 +78,7 @@ export default function StudentDashboard({ student, isOpen, onClose }: StudentDa
         </button>
         
         {/* Header */}
-        <div className="bg-gradient-to-br from-timeback-bg to-white p-8 rounded-t-xl">
+        <div className="backdrop-blur-md bg-white/10 p-8 rounded-t-xl border-2 border-timeback-primary border-b-0">
           <div className="flex items-start justify-between">
             <div>
               <h2 className="text-3xl font-cal font-bold text-timeback-primary mb-2">
@@ -204,7 +204,7 @@ export default function StudentDashboard({ student, isOpen, onClose }: StudentDa
           </div>
           
           {/* Student Story */}
-          <div className="bg-gradient-to-br from-timeback-bg to-white rounded-xl p-6">
+          <div className="backdrop-blur-md bg-white/10 rounded-xl p-6 border-2 border-timeback-primary">
             <h3 className="text-xl font-cal font-bold text-timeback-primary mb-4">
               The Journey
             </h3>

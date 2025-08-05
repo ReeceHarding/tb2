@@ -316,13 +316,13 @@ export default function ProgressiveDisclosureContainer({
       )}
       
       {/* Share Journey Button - Fixed at bottom right */}
-      {navigationState.viewedComponents.length > 0 && (
+      {/* {navigationState.viewedComponents.length > 0 && (
         <div className="fixed bottom-8 right-8 z-50 backdrop-blur-md bg-white/30 rounded-2xl p-4 shadow-2xl border border-timeback-primary/20">
           <ShareJourneyButton 
             viewedComponents={navigationState.viewedComponents}
           />
         </div>
-      )}
+      )} */}
     </div>
   );
 }

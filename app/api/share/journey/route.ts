@@ -3,15 +3,15 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/libs/next-auth";
 import connectMongo from "@/libs/mongoose";
 import User from "@/models/User";
-import { nanoid } from "nanoid";
+import { randomBytes } from "crypto";
 
 export const dynamic = 'force-dynamic';
 
 // Generate a unique, URL-safe share ID
 function generateShareId(): string {
-  // Using nanoid for URL-safe, collision-resistant IDs
-  // 10 characters gives us 62^10 possible combinations
-  return nanoid(10);
+  // Using crypto.randomBytes for URL-safe, collision-resistant IDs
+  // 10 characters gives us sufficient entropy
+  return randomBytes(8).toString('hex').substring(0, 10);
 }
 
 // POST: Create or update a shareable journey

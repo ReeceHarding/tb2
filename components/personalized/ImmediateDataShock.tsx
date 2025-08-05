@@ -34,7 +34,7 @@ export default function ImmediateDataShock() {
   const topSchool = quizData?.selectedSchools?.[0]
 
   return (
-    <section className="bg-gradient-to-br from-timeback-bg to-white py-20 lg:py-32">
+    <section className="py-20 lg:py-32">
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
         
         {/* Header */}

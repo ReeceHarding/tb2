@@ -121,7 +121,7 @@ export default function StudentJourneyCarousel({ grade, schoolName }: StudentJou
       <SkepticalTransition grade={gradeNumber} schoolName={schoolName} />
       
       {/* Main Carousel Section */}
-      <div className="py-16 bg-gradient-to-br from-timeback-bg to-white">
+      <div className="py-16">
         <div className="max-w-7xl mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-12">
