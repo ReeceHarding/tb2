@@ -1,63 +1,21 @@
 'use client';
 
-import React, { useCallback, Suspense } from 'react';
+import React, { useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useQuiz, quizHelpers } from './QuizContext';
 import QuizProgress from './QuizProgress';
 import dynamic from 'next/dynamic';
 
 // Lazy load quiz step components for better performance
-const QuizIntro = dynamic(() => import('./steps/QuizIntro'), {
-  loading: () => <StepLoadingSpinner />,
-  ssr: false
-});
+const QuizIntro = dynamic(() => import('./steps/QuizIntro'), { ssr: false });
+const UserTypeStep = dynamic(() => import('./steps/UserTypeStep'), { ssr: false });
+const ParentSubTypeStep = dynamic(() => import('./steps/ParentSubTypeStep'), { ssr: false });
+const GradeSelectionStep = dynamic(() => import('./steps/GradeSelectionStep'), { ssr: false });
+const SchoolSearchStep = dynamic(() => import('./steps/SchoolSearchStep'), { ssr: false });
+const InterestsStep = dynamic(() => import('./steps/InterestsStep'), { ssr: false });
+const AuthStep = dynamic(() => import('./steps/AuthStep'), { ssr: false });
 
-const UserTypeStep = dynamic(() => import('./steps/UserTypeStep'), {
-  loading: () => <StepLoadingSpinner />,
-  ssr: false
-});
 
-const ParentSubTypeStep = dynamic(() => import('./steps/ParentSubTypeStep'), {
-  loading: () => <StepLoadingSpinner />,
-  ssr: false
-});
-
-const GradeSelectionStep = dynamic(() => import('./steps/GradeSelectionStep'), {
-  loading: () => <StepLoadingSpinner />,
-  ssr: false
-});
-
-const SchoolSearchStep = dynamic(() => import('./steps/SchoolSearchStep'), {
-  loading: () => <StepLoadingSpinner />,
-  ssr: false
-});
-
-const InterestsStep = dynamic(() => import('./steps/InterestsStep'), {
-  loading: () => <StepLoadingSpinner />,
-  ssr: false
-});
-
-// LoadingStep removed - going directly to AuthStep after InterestsStep
-
-const AuthStep = dynamic(() => import('./steps/AuthStep'), {
-  loading: () => <StepLoadingSpinner />,
-  ssr: false
-});
-
-// Optimized loading spinner for step transitions
-function StepLoadingSpinner() {
-  const timestamp = new Date().toISOString();
-  console.log(`[QuizFlow] ${timestamp} Step component loading...`);
-  
-  return (
-    <div className="flex items-center justify-center py-12">
-      <div className="text-center font-cal">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-timeback-primary mx-auto mb-4"></div>
-        <p className="text-timeback-primary">Loading step...</p>
-      </div>
-    </div>
-  );
-}
 
 export default function QuizFlow() {
   const { state, dispatch } = useQuiz();
@@ -173,27 +131,7 @@ export default function QuizFlow() {
     });
   };
 
-  const scrollToNextStep = () => {
-    const scrollTimestamp = new Date().toISOString();
-    console.log(`[QuizFlow] ${scrollTimestamp} Scrolling down to next step component`);
-    
-    const nextStepElement = document.getElementById('next-step-component');
-    if (nextStepElement) {
-      console.log(`[QuizFlow] ${scrollTimestamp} Found next step component - scrolling into view`);
-      nextStepElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-        inline: 'nearest'
-      });
-    } else {
-      console.warn(`[QuizFlow] ${scrollTimestamp} Next step component not found - fallback scroll down`);
-      // Fallback: scroll down by approximately one viewport height
-      window.scrollBy({
-        top: window.innerHeight * 0.8,
-        behavior: 'smooth'
-      });
-    }
-  };
+
 
   // Smart navigation that handles conditional ParentSubTypeStep and skips KidsCountStep
   const getNextStep = useCallback((currentStep: number): number => {
@@ -306,31 +244,14 @@ export default function QuizFlow() {
       setNextStepNumber(nextStepNum);
       setTransitionPhase('fadeOut');
       
-      // Phase 1: Fade out current step (300ms)
+      // Instant transition - no delays needed
       setTimeout(() => {
-        console.log(`[QuizFlow] ${navTimestamp} Transition Phase 2: Scrolling down to next step`);
-        setTransitionPhase('scroll');
-        
-        // Start scrolling to next component
-        setTimeout(() => {
-          scrollToNextStep();
-        }, 50); // Small delay to ensure next component is rendered
-        
-        // Phase 2: Scroll down to next component (400ms)
-        setTimeout(() => {
-          console.log(`[QuizFlow] ${navTimestamp} Transition Phase 3: Updating step state and fading in`);
-          setTransitionPhase('fadeIn');
-          dispatch({ type: 'SET_STEP', step: nextStepNum });
-          
-          // Phase 3: Fade in new step (300ms)
-          setTimeout(() => {
-            console.log(`[QuizFlow] ${navTimestamp} Transition completed - resetting transition state`);
-            setIsTransitioning(false);
-            setNextStepNumber(null);
-            setTransitionPhase('idle');
-          }, 300);
-        }, 400);
-      }, 300);
+        console.log(`[QuizFlow] ${navTimestamp} Instant transition to step ${nextStepNum}`);
+        dispatch({ type: 'SET_STEP', step: nextStepNum });
+        setIsTransitioning(false);
+        setNextStepNumber(null);
+        setTransitionPhase('idle');
+      }, 50);
     }
   }, [stateRef, dispatch, getNextStep, isTransitioning, transitionPhase]); // Include all dependencies
 
@@ -530,9 +451,7 @@ export default function QuizFlow() {
           
           {/* Enhanced Step Components with Downward Scroll Animation */}
           <div className="w-full">
-            <Suspense fallback={<StepLoadingSpinner />}>
-              {renderTransitionComponents()}
-            </Suspense>
+            {renderTransitionComponents()}
           </div>
           
         </div>
