@@ -13,8 +13,18 @@ const connectMongo = async () => {
     console.log("[MongoDB] Attempting to connect to MongoDB...");
     
     const conn = await mongoose.connect(process.env.MONGODB_URI, {
-      serverSelectionTimeoutMS: 5000, // Timeout after 5 seconds
-      socketTimeoutMS: 45000, // Socket timeout
+      // Fix for SSL/TLS compatibility issues with MongoDB Atlas
+      tls: true,
+      tlsAllowInvalidCertificates: false,
+      tlsAllowInvalidHostnames: false,
+      // Connection timeout and stability options
+      serverSelectionTimeoutMS: 10000, // Increased timeout
+      connectTimeoutMS: 10000,
+      socketTimeoutMS: 45000,
+      maxPoolSize: 10,
+      minPoolSize: 2,
+      maxIdleTimeMS: 30000,
+      heartbeatFrequencyMS: 10000,
     });
     
     console.log("[MongoDB] Successfully connected to MongoDB!");

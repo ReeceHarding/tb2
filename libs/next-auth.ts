@@ -2,9 +2,9 @@ import NextAuth from "next-auth";
 import type { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import EmailProvider from "next-auth/providers/email";
-import { MongoDBAdapter } from "@auth/mongodb-adapter";
+import { SupabaseAdapter } from "@auth/supabase-adapter";
 import config from "@/config";
-import connectMongo from "./mongo";
+import { supabase, isSupabaseConfigured } from "./supabase";
 
 interface NextAuthOptionsExtended extends NextAuthOptions {
   adapter?: any;
@@ -32,8 +32,8 @@ export const authOptions: NextAuthOptionsExtended = {
       },
     }),
     // Follow the "Login with Email" tutorial to set up your email server
-    // Requires a MongoDB database. Set MONOGODB_URI env variable.
-    ...(connectMongo
+    // Uses Supabase for user storage instead of MongoDB
+    ...(isSupabaseConfigured() && process.env.RESEND_API_KEY
       ? [
           EmailProvider({
             server: {
@@ -49,20 +49,29 @@ export const authOptions: NextAuthOptionsExtended = {
         ]
       : []),
   ],
-  // New users will be saved in Database (MongoDB Atlas). Each user (model) has some fields like name, email, image, etc..
-  // Requires a MongoDB database. Set MONOGODB_URI env variable.
-  // Learn more about the model type: https://next-auth.js.org/v3/adapters/models
-  // Conditionally use MongoDB adapter - fallback to JWT-only if connection fails
-  ...(connectMongo && process.env.MONGODB_URI ? 
+  // New users will be saved in Supabase database. Each user has fields like name, email, image, etc.
+  // Uses Supabase adapter for reliable database connectivity (replaces MongoDB which had SSL/TLS issues)
+  // Learn more about the adapter: https://authjs.dev/reference/adapter/supabase
+  // Conditionally use Supabase adapter - fallback to JWT-only if Supabase not configured
+  ...(isSupabaseConfigured() ? 
     (() => {
       try {
-        return { adapter: MongoDBAdapter(connectMongo) };
+        console.log("[NextAuth] 🟢 Configuring Supabase adapter for user authentication");
+        return { 
+          adapter: SupabaseAdapter({
+            url: process.env.NEXT_PUBLIC_SUPABASE_URL!,
+            secret: process.env.SUPABASE_SERVICE_ROLE_KEY!,
+          })
+        };
       } catch (error) {
-        console.error("[NextAuth] MongoDB adapter setup failed, using JWT-only:", error);
+        console.error("[NextAuth] ❌ Supabase adapter setup failed, using JWT-only:", error);
         return {};
       }
     })() 
-    : {}),
+    : {
+      // No database adapter configured, using JWT-only session strategy
+      session: { strategy: "jwt" as const }
+    }),
 
   callbacks: {
     session: async ({ session, token }) => {
@@ -81,9 +90,6 @@ export const authOptions: NextAuthOptionsExtended = {
       });
       return true;
     },
-  },
-  session: {
-    strategy: "jwt",
   },
   theme: {
     brandColor: config.colors.main,

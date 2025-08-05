@@ -10,7 +10,19 @@ declare global {
 }
 
 const uri = process.env.MONGODB_URI;
-const options = {};
+const options = {
+  // Fix for SSL/TLS compatibility issues with MongoDB Atlas
+  tls: true,
+  tlsAllowInvalidCertificates: false,
+  tlsAllowInvalidHostnames: false,
+  // Additional connection options for stability
+  serverSelectionTimeoutMS: 10000,
+  connectTimeoutMS: 10000,
+  maxPoolSize: 10,
+  minPoolSize: 2,
+  maxIdleTimeMS: 30000,
+  heartbeatFrequencyMS: 10000,
+};
 
 let client: MongoClient | undefined;
 let clientPromise: Promise<MongoClient> | undefined;
