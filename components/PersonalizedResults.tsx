@@ -46,14 +46,7 @@ export default function PersonalizedResults({ quizData, preGeneratedContent }: P
   // Cache for optimistically generated questions for all sections
   // Removed questionCache - questions will be generated on-demand when user opens Learn More
   
-  // State for improved copywriting
-  const [improvedCopy, setImprovedCopy] = useState<{
-    subtitle: string;
-    isLoading: boolean;
-  }>({
-    subtitle: '',
-    isLoading: true
-  });
+  // Removed improved copywriting state - now using static text
 
   console.log('[PersonalizedResults] Rendering with quiz data:', quizData);
   console.log('[PersonalizedResults] Pre-generated content available:', {
@@ -66,72 +59,15 @@ export default function PersonalizedResults({ quizData, preGeneratedContent }: P
 
   // Removed allSections - no longer needed since we generate questions on-demand
 
-  // Initialize improved copywriting when component loads
-  useEffect(() => {
-    const improveSubtitleCopy = async () => {
-      console.log('[PersonalizedResults] Starting copywriting improvement...');
-      
-      const schoolName = quizData.selectedSchools[0]?.name || 'your child\'s school';
-      
-      // Create the raw subtitle that needs improvement
-      const rawSubtitle = `We've created a custom plan to show you what the experience will be like for your child using Timeback.`;
-      
-      try {
-        console.log('[PersonalizedResults] Calling copywriting improvement API...');
-        
-        const response = await fetch('/api/ai/improve-copywriting', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            rawText: rawSubtitle,
-            type: 'interests_personalization',
-            context: 'Personalized education plan subtitle for parents',
-            gradeLevel: 'high school',
-            schoolName: schoolName
-          }),
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to improve copywriting');
-        }
-
-        const data = await response.json();
-        console.log('[PersonalizedResults] Received improved copy:', data);
-        
-        if (data.success && data.improvedCopy) {
-          setImprovedCopy({
-            subtitle: data.improvedCopy,
-            isLoading: false
-          });
-        } else {
-          // Use fallback if API fails
-          setImprovedCopy({
-            subtitle: rawSubtitle,
-            isLoading: false
-          });
-        }
-      } catch (error) {
-        console.error('[PersonalizedResults] Error improving copywriting:', error);
-        // Use fallback on error
-        setImprovedCopy({
-          subtitle: rawSubtitle,
-          isLoading: false
-        });
-      }
-    };
-
-    improveSubtitleCopy();
-  }, [quizData]);
+  // Removed copywriting improvement useEffect - now using static text
 
   // Removed optimistic generation - questions will be generated on-demand when user clicks Learn More
 
-  // Generate personalized greeting based on quiz data with improved copy
+  // Generate personalized greeting based on quiz data
   const getPersonalizedGreeting = () => {
     return {
       title: `Here's Your Personalized TimeBack Plan`,
-      subtitle: improvedCopy.isLoading ? 'Personalizing your plan...' : improvedCopy.subtitle,
+      subtitle: 'This is an interactive site where you can learn how we\'ll tailor Timeback to get your kid the results they deserve.',
       valueProp: 'Help your high schooler master their grade-level curriculum in 2-3 months instead of 9 months'
     };
   };
@@ -165,7 +101,7 @@ export default function PersonalizedResults({ quizData, preGeneratedContent }: P
                 {greeting.title}
               </h1>
               <p className="text-xl lg:text-2xl text-timeback-primary font-cal leading-relaxed">
-                {improvedCopy.isLoading ? greeting.subtitle : (improvedCopy.subtitle || greeting.subtitle)}
+                {greeting.subtitle}
               </p>
               
               {/* Quick Stats Preview */}

@@ -39,210 +39,56 @@ export interface MainSection {
 
 export const PROGRESSIVE_DISCLOSURE_MAPPING: MainSection[] = [
   {
-    id: 'time-freedom',
-    buttonText: 'What will my kid do with the extra time?',
-    description: 'Discover how your child will spend their newly freed time pursuing passions and interests',
+    id: 'what-is-timeback',
+    buttonText: 'What is TimeBack?',
+    description: 'Learn about TimeBack\'s revolutionary approach to education',
     sections: [
       {
-        id: 'daily-schedule',
-        title: 'What does a typical day look like?',
-        description: 'See the dramatic difference between traditional school and TimeBack schedules',
+        id: 'timeback-overview',
+        title: 'What makes TimeBack different?',
+        description: 'The core philosophy and approach behind TimeBack',
         components: [
-          { component: AfternoonActivities, name: 'AfternoonActivities' },
-          { component: SpeedComparison, name: 'SpeedComparison' }
+          { component: TimeBackVsCompetitors, name: 'TimeBackVsCompetitors' },
+          { component: LearningScienceSection, name: 'LearningScienceSection' }
         ],
         subButtons: [
           {
-            id: 'morning-routine',
-            text: 'How does the morning learning work?',
-            targetComponents: ['SpeedComparison']
+            id: 'core-philosophy',
+            text: 'What is the core philosophy?',
+            targetComponents: ['LearningScienceSection']
           },
           {
-            id: 'afternoon-freedom',
-            text: 'What activities will my child pursue?',
-            targetComponents: ['AfternoonActivities']
-          }
-        ]
-      },
-      {
-        id: 'interest-pursuit',
-        title: 'How do kids spend those 6+ extra hours?',
-        description: 'Real examples of how students use their time freedom',
-        components: [
-          { component: AfternoonActivities, name: 'AfternoonActivitiesExpanded' },
-          { component: PersonalizedSubjectExamples, name: 'PersonalizedSubjectExamples' }
-        ],
-        subButtons: [
-          {
-            id: 'passion-projects',
-            text: 'What kind of passion projects do kids create?',
-            targetComponents: ['AfternoonActivitiesExpanded']
-          },
-          {
-            id: 'interest-integration',
-            text: 'How do interests connect to academic learning?',
-            targetComponents: ['PersonalizedSubjectExamples']
-          }
-        ]
-      },
-      {
-        id: 'happiness-wellbeing',
-        title: 'Will my child actually be happier?',
-        description: 'The emotional and psychological benefits of time freedom',
-        components: [
-          { component: AfternoonActivities, name: 'AfternoonActivities' },
-          { component: TimeBackVsCompetitors, name: 'TimeBackVsCompetitors' }
-        ],
-        subButtons: [
-          {
-            id: 'stress-reduction',
-            text: 'How does this reduce academic stress?',
+            id: 'vs-traditional',
+            text: 'How is it different from traditional school?',
             targetComponents: ['TimeBackVsCompetitors']
-          },
-          {
-            id: 'social-development',
-            text: 'Will my child still develop socially?',
-            targetComponents: ['AfternoonActivities']
           }
         ]
       }
     ]
   },
   {
-    id: 'time-waste',
-    buttonText: 'How much time is my child wasting?',
-    description: 'Understand exactly where traditional education wastes your child\'s precious time',
+    id: 'how-it-works',
+    buttonText: 'How does it work?',
+    description: 'Understand the mechanics behind TimeBack\'s success',
     sections: [
       {
-        id: 'waste-breakdown',
-        title: 'Where exactly is time being wasted?',
-        description: 'Detailed analysis of how traditional schools squander learning time',
-        components: [
-          { component: KnowledgeDispersionChart, name: 'KnowledgeDispersionChart' },
-          { component: ImmediateDataShock, name: 'ImmediateDataShock' }
-        ],
-        subButtons: [
-          {
-            id: 'classroom-inefficiency',
-            text: 'Why is classroom teaching so inefficient?',
-            targetComponents: ['KnowledgeDispersionChart']
-          },
-          {
-            id: 'waiting-time',
-            text: 'How much time do kids spend waiting?',
-            targetComponents: ['ImmediateDataShock']
-          }
-        ]
-      },
-      {
-        id: 'school-comparison',
-        title: 'How does this compare to my child\'s school?',
-        description: 'See how your specific school stacks up against efficient learning',
+        id: 'learning-mechanism',
+        title: 'How does the learning process work?',
+        description: 'The step-by-step process of TimeBack learning',
         components: [
           { component: MechanismSection, name: 'MechanismSection' },
-          { component: CompletionTimeData, name: 'CompletionTimeData' }
+          { component: HowWeGetResults, name: 'HowWeGetResults' }
         ],
         subButtons: [
           {
-            id: 'efficiency-metrics',
-            text: 'What are the actual efficiency numbers?',
-            targetComponents: ['CompletionTimeData']
-          },
-          {
-            id: 'improvement-potential',
-            text: 'How much could my child improve?',
+            id: 'daily-process',
+            text: 'What does a typical day look like?',
             targetComponents: ['MechanismSection']
-          }
-        ]
-      },
-      {
-        id: 'real-examples',
-        title: 'Show me real examples',
-        description: 'Concrete examples of time waste and efficiency improvements',
-        components: [
-          { component: SpeedComparison, name: 'SpeedComparison' },
-          { component: CompletionTimeData, name: 'CompletionTimeData' }
-        ],
-        subButtons: [
-          {
-            id: 'student-stories',
-            text: 'What do real students experience?',
-            targetComponents: ['SpeedComparison']
           },
           {
-            id: 'before-after',
-            text: 'Show me before and after comparisons',
-            targetComponents: ['CompletionTimeData']
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 'ai-personalization',
-    buttonText: 'How will the AI help my child?',
-    description: 'Discover how AI creates a completely personalized learning experience',
-    sections: [
-      {
-        id: 'ai-understanding',
-        title: 'How does AI know what my child needs?',
-        description: 'The technology behind personalized learning paths',
-        components: [
-          { component: HowWeGetResults, name: 'HowWeGetResults' },
-          { component: PersonalizedSubjectExamples, name: 'PersonalizedSubjectExamples' }
-        ],
-        subButtons: [
-          {
-            id: 'assessment-process',
-            text: 'How does the initial assessment work?',
+            id: 'personalization-process',
+            text: 'How is it personalized for each child?',
             targetComponents: ['HowWeGetResults']
-          },
-          {
-            id: 'ongoing-adaptation',
-            text: 'How does it adapt as my child learns?',
-            targetComponents: ['PersonalizedSubjectExamples']
-          }
-        ]
-      },
-      {
-        id: 'adaptive-learning',
-        title: 'What if my child is behind or ahead?',
-        description: 'How AI handles different starting points and learning speeds',
-        components: [
-          { component: KnowledgeDispersionChart, name: 'KnowledgeDispersionChart' },
-          { component: MechanismSection, name: 'MechanismSection' }
-        ],
-        subButtons: [
-          {
-            id: 'catch-up-process',
-            text: 'How do struggling students catch up?',
-            targetComponents: ['MechanismSection']
-          },
-          {
-            id: 'acceleration-path',
-            text: 'How do advanced students accelerate?',
-            targetComponents: ['KnowledgeDispersionChart']
-          }
-        ]
-      },
-      {
-        id: 'interest-integration',
-        title: 'Will it work for my child\'s specific interests?',
-        description: 'How AI weaves personal interests into academic content',
-        components: [
-          { component: PersonalizedSubjectExamples, name: 'PersonalizedSubjectExamples' },
-          { component: AfternoonActivities, name: 'AfternoonActivities' }
-        ],
-        subButtons: [
-          {
-            id: 'content-customization',
-            text: 'How are lessons customized to interests?',
-            targetComponents: ['PersonalizedSubjectExamples']
-          },
-          {
-            id: 'passion-connection',
-            text: 'How do passions connect to academics?',
-            targetComponents: ['AfternoonActivities']
           }
         ]
       }
@@ -250,7 +96,7 @@ export const PROGRESSIVE_DISCLOSURE_MAPPING: MainSection[] = [
   },
   {
     id: 'data-proof',
-    buttonText: 'Show me the actual data',
+    buttonText: 'Show me your data',
     description: 'Hard evidence and research backing TimeBack\'s approach',
     sections: [
       {
@@ -319,76 +165,126 @@ export const PROGRESSIVE_DISCLOSURE_MAPPING: MainSection[] = [
     ]
   },
   {
-    id: 'effectiveness-proof',
-    buttonText: 'Will this really work for my kid?',
-    description: 'Proof that TimeBack works for students like yours',
+    id: 'example-question',
+    buttonText: 'Show me an example question tailored to my kid',
+    description: 'See how AI personalizes content for your child\'s interests',
     sections: [
       {
-        id: 'success-stories',
-        title: 'Show me kids like mine who succeeded',
-        description: 'Real student success stories and outcomes',
+        id: 'personalized-examples',
+        title: 'How are questions customized for my child?',
+        description: 'Examples of personalized content based on your child\'s interests',
         components: [
-          { component: StudentJourneyCarousel, name: 'StudentJourneyCarousel' },
-          { component: ImmediateDataShock, name: 'ImmediateDataShock' },
-          { component: AfternoonActivities, name: 'AfternoonActivities' }
+          { component: PersonalizedSubjectExamples, name: 'PersonalizedSubjectExamples' },
+          { component: HowWeGetResults, name: 'HowWeGetResults' }
         ],
         subButtons: [
           {
-            id: 'grade-matched-students',
-            text: 'Show me students in my child\'s grade',
+            id: 'interest-integration',
+            text: 'How do you integrate their interests?',
+            targetComponents: ['PersonalizedSubjectExamples']
+          },
+          {
+            id: 'content-creation',
+            text: 'How do you create personalized content?',
+            targetComponents: ['HowWeGetResults']
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'find-school',
+    buttonText: 'Find a school near me',
+    description: 'Locate TimeBack schools and programs in your area',
+    sections: [
+      {
+        id: 'school-locator',
+        title: 'What options are available near me?',
+        description: 'TimeBack schools and programs in your geographic area',
+        components: [
+          { component: StudentJourneyCarousel, name: 'StudentJourneyCarousel' },
+          { component: TimeBackVsCompetitors, name: 'TimeBackVsCompetitors' }
+        ],
+        subButtons: [
+          {
+            id: 'local-schools',
+            text: 'Show me schools in my area',
             targetComponents: ['StudentJourneyCarousel']
           },
           {
-            id: 'similar-backgrounds',
-            text: 'Find students with similar backgrounds',
-            targetComponents: ['ImmediateDataShock']
+            id: 'program-options',
+            text: 'What program options are available?',
+            targetComponents: ['TimeBackVsCompetitors']
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'time-freedom',
+    buttonText: 'What will my kid do with the extra 6 hours they gain in their day?',
+    description: 'Discover how your child will spend their newly freed time pursuing passions and interests',
+    sections: [
+      {
+        id: 'daily-schedule',
+        title: 'What does a typical day look like?',
+        description: 'See the dramatic difference between traditional school and TimeBack schedules',
+        components: [
+          { component: AfternoonActivities, name: 'AfternoonActivities' },
+          { component: SpeedComparison, name: 'SpeedComparison' }
+        ],
+        subButtons: [
+          {
+            id: 'morning-routine',
+            text: 'How does the morning learning work?',
+            targetComponents: ['SpeedComparison']
           },
           {
-            id: 'interest-matches',
-            text: 'Show me kids with similar interests',
+            id: 'afternoon-freedom',
+            text: 'What activities will my child pursue?',
             targetComponents: ['AfternoonActivities']
           }
         ]
       },
       {
-        id: 'guarantee-evidence',
-        title: 'What guarantees do you offer?',
-        description: 'Our confidence in results and what we guarantee',
+        id: 'interest-pursuit',
+        title: 'How do kids spend those 6+ extra hours?',
+        description: 'Real examples of how students use their time freedom',
         components: [
-          { component: TimeBackVsCompetitors, name: 'TimeBackVsCompetitors' },
-          { component: MechanismSection, name: 'MechanismSection' }
+          { component: AfternoonActivities, name: 'AfternoonActivitiesExpanded' },
+          { component: PersonalizedSubjectExamples, name: 'PersonalizedSubjectExamples' }
         ],
         subButtons: [
           {
-            id: 'money-back',
-            text: 'Do you offer money-back guarantees?',
-            targetComponents: ['TimeBackVsCompetitors']
+            id: 'passion-projects',
+            text: 'What kind of passion projects do kids create?',
+            targetComponents: ['AfternoonActivitiesExpanded']
           },
           {
-            id: 'improvement-timeline',
-            text: 'How quickly will I see results?',
-            targetComponents: ['MechanismSection']
+            id: 'interest-integration',
+            text: 'How do interests connect to academic learning?',
+            targetComponents: ['PersonalizedSubjectExamples']
           }
         ]
       },
       {
-        id: 'risk-mitigation',
-        title: 'What if it doesn\'t work for my child?',
-        description: 'How we handle different learning needs and challenges',
+        id: 'happiness-wellbeing',
+        title: 'Will my child actually be happier?',
+        description: 'The emotional and psychological benefits of time freedom',
         components: [
-          { component: KnowledgeDispersionChart, name: 'KnowledgeDispersionChart' },
-          { component: HowWeGetResults, name: 'HowWeGetResults' }
+          { component: AfternoonActivities, name: 'AfternoonActivities' },
+          { component: TimeBackVsCompetitors, name: 'TimeBackVsCompetitors' }
         ],
         subButtons: [
           {
-            id: 'learning-differences',
-            text: 'How do you handle learning differences?',
-            targetComponents: ['KnowledgeDispersionChart']
+            id: 'stress-reduction',
+            text: 'How does this reduce academic stress?',
+            targetComponents: ['TimeBackVsCompetitors']
           },
           {
-            id: 'adaptation-process',
-            text: 'How do you adapt when something isn\'t working?',
-            targetComponents: ['HowWeGetResults']
+            id: 'social-development',
+            text: 'Will my child still develop socially?',
+            targetComponents: ['AfternoonActivities']
           }
         ]
       }

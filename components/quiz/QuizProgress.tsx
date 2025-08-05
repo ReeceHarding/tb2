@@ -31,14 +31,7 @@ export default function QuizProgress({ currentStep, totalSteps, className = '' }
         />
       </div>
 
-      {/* Percentage Display */}
-      {currentStep > 0 && (
-        <div className="text-center mt-2 font-cal">
-          <span className="text-xs text-timeback-primary font-cal">
-            {progressPercentage}% Complete
-          </span>
-        </div>
-      )}
+
     </div>
   );
 }

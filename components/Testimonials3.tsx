@@ -375,13 +375,7 @@ const Testimonials3 = () => {
 
 
 
-          {/* Anonymous Parent - Matt Mullenweg Blog */}
-          <TestimonialWithHighlight
-            name="Anonymous Parent (Parent)"
-            highlight="After twelve months I'm persuaded that Alpha is doing something remarkable"
-            text="Since they started in October my children have been marching through and mastering material roughly three times faster than their age-matched peers."
-            sourceLink="https://ma.tt/2025/06/alpha-school/"
-          />
+
 
           {/* Samantha Stinson - Parent NBC Interview */}
           <SimpleTestimonial
@@ -442,23 +436,11 @@ const Testimonials3 = () => {
             sourceLink="https://www.kxan.com/news/new-sports-academy-opens-in-lake-travis/"
           />
 
-          {/* Victor Pontis - Tech Professional Balanced Review */}
-          <TestimonialWithHighlight
-            name="Victor Pontis (Tech Professional)"
-            text="The software is good but it's not using modern AI. It's simple stuff like Khan Academy. The bundle of software + teachers + culture is what works."
-            highlight="Alpha School does have good outcomes"
-            sourceLink="https://twitter.com/VictorPontis/status/1938827112082788818"
-          />
 
 
 
-          {/* Anonymous Parent - Scott Alexander Review */}
-          <TestimonialWithHighlight
-            name="Anonymous Parent (Parent)"
-            text="I moved the family across the country to Austin for a year and ran the experiment myself... Since last autumn I've collected the sort of on-the-ground detail that doesn't surface in press releases."
-            highlight="Since they started in October my children have been marching through and mastering material roughly three times faster"
-            sourceLink="https://www.astralcodexten.com/p/your-review-alpha-school"
-          />
+
+
 
           {/* Navin Kabra - Author Review */}
           <TestimonialWithHighlight

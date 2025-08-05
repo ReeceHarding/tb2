@@ -25,7 +25,7 @@ export default function ProgressiveDisclosureHero({ onSectionSelect, quizData }:
           <span className="text-timeback-primary font-bold text-sm font-cal">PERSONALIZED FOR YOU</span>
         </div>
         <h2 className="text-4xl lg:text-6xl font-bold text-timeback-primary mb-8 font-cal">
-          Preview the Site
+          Where do you want to start?
         </h2>
         <p className="text-2xl text-timeback-primary max-w-4xl mx-auto font-cal leading-relaxed mb-4">
           Click each section below to explore how TimeBack creates personalized learning experiences for your child
@@ -46,9 +46,6 @@ export default function ProgressiveDisclosureHero({ onSectionSelect, quizData }:
             }}
             className="bg-white border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-timeback-bg transition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            <div className="w-8 h-8 bg-timeback-primary text-white rounded-full flex items-center justify-center font-bold text-sm font-cal mx-auto mb-2">
-              {index + 1}
-            </div>
             <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
               {section.buttonText}
             </h3>

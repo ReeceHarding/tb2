@@ -422,8 +422,8 @@ export default function QuizFlow() {
             }
           }}
         >
-          <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
-            <div className="flex items-center justify-between mb-4">
+          <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-3">
+            <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-timeback-primary rounded-full flex items-center justify-center">
                   <span className="text-white font-bold text-lg font-cal">T</span>
@@ -446,7 +446,7 @@ export default function QuizFlow() {
       )}
 
       {/* Main Content Area with Enhanced Downward Scroll Transitions */}
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-8 lg:py-16 flex-1 overflow-hidden">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-8 lg:py-16 flex-1 overflow-y-auto">
         <div className="h-full flex items-center justify-center">
           
           {/* Enhanced Step Components with Downward Scroll Animation */}

@@ -145,7 +145,7 @@ export default function SectionExplorer({
                     console.log(`[SectionExplorer] Follow-up component selected: ${component.name}`);
                     onComponentSelect(component.name);
                   }}
-                  className="bg-white border-2 border-timeback-primary rounded-xl p-6 text-left hover:bg-timeback-bg transition-all duration-300 shadow-lg hover:shadow-xl group"
+                  className="bg-white border-2 border-timeback-primary rounded-xl p-4 text-left hover:bg-timeback-bg transition-all duration-300 shadow-lg hover:shadow-xl group"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
@@ -158,7 +158,7 @@ export default function SectionExplorer({
                             {displayName}
                           </h4>
                           <p className="text-sm text-timeback-primary opacity-75 font-cal">
-                            From: {component.sectionTitle}
+                            {component.sectionTitle}
                           </p>
                         </div>
                       </div>
