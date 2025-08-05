@@ -14,9 +14,6 @@ import dynamic from 'next/dynamic';
 import { SchoolSearchCollector, GradeCollector, InterestsCollector } from '@/components/personalized/DataCollectionComponents';
 
 // Component imports for content display
-const TimeBackVsCompetitors = dynamic(() => import('@/components/personalized/TimeBackVsCompetitors'));
-const MechanismSection = dynamic(() => import('@/components/personalized/MechanismSection'));
-const LearningScienceSection = dynamic(() => import('@/components/personalized/LearningScienceSection'));
 const AfternoonActivities = dynamic(() => import('@/components/personalized/AfternoonActivities'));
 const PersonalizedSubjectExamples = dynamic(() => import('@/components/personalized/PersonalizedSubjectExamples'));
 const ClosestSchools = dynamic(() => import('@/components/personalized/ClosestSchools'));
@@ -390,7 +387,7 @@ export default function PersonalizedPage() {
         return (
           <div className="max-w-7xl mx-auto py-20 lg:py-32 px-6 lg:px-12">
             <div className="text-center mb-16 font-cal">
-              <div className="inline-flex items-center gap-2 bg-white border border-timeback-primary rounded-full px-6 py-3 mb-8">
+              <div className="inline-flex items-center gap-2 bg-timeback-bg border border-timeback-primary rounded-full px-6 py-3 mb-8">
                 <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
                 <span className="text-timeback-primary font-bold text-sm font-cal">WHAT IS TIMEBACK</span>
               </div>
@@ -429,25 +426,170 @@ export default function PersonalizedPage() {
               </div>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => smoothScrollToElement('comparison-section')}
-                className="px-8 py-4 bg-timeback-primary text-white rounded-xl font-bold hover:bg-timeback-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl font-cal text-lg"
+            {/* Follow-up Question Buttons */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mt-16">
+              <button
+                onClick={() => handleSectionSelect('how-does-it-work')}
+                className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                Why can&apos;t I just use ChatGPT?
+                <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
+                  How does it work?
+                </h3>
               </button>
               <button 
-                onClick={() => smoothScrollToElement('data-section')}
-                className="px-8 py-4 border-2 border-timeback-primary text-timeback-primary bg-transparent rounded-xl font-bold hover:bg-timeback-bg transition-all duration-200 shadow-lg hover:shadow-xl font-cal text-lg"
+                onClick={() => handleSectionSelect('show-data')}
+                className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                See the data
+                <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
+                  Show me your data
+                </h3>
+              </button>
+              <button 
+                onClick={() => handleSectionSelect('whats-the-science')}
+                className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
+                  What&apos;s the science?
+                </h3>
               </button>
             </div>
           </div>
         );
       case 'how-does-it-work':
-        return <MechanismSection />;
+        return (
+          <section className="bg-timeback-bg py-20 lg:py-32" aria-labelledby="how-timeback-works-heading" role="region">
+            <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+              <header className="text-center mb-20 lg:mb-28 font-cal" style={{opacity: 1, transform: 'none'}}>
+                <div className="inline-flex items-center gap-2 bg-white border-2 border-timeback-primary rounded-full px-6 py-3 mb-8">
+                  <span className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></span>
+                  <span className="text-timeback-primary font-bold text-lg font-cal">Learning, Accelerated</span>
+                </div>
+                <h2 id="how-timeback-works-heading" className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight mb-8 text-timeback-primary font-cal leading-tight">How AI-Powered Personalized Learning Works</h2>
+                <p className="max-w-4xl mx-auto text-xl sm:text-2xl lg:text-3xl text-timeback-primary leading-relaxed font-cal font-medium">Our adaptive AI tutoring system helps homeschool children achieve mastery-based learning and complete grade levels in 80 days with just 2 hours of daily study.</p>
+              </header>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10" role="list" aria-label="Timeback learning features">
+                <article className="bg-white rounded-2xl border-2 border-timeback-primary p-8 shadow-2xl group flex flex-col h-full" role="listitem">
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-20 h-20 bg-timeback-bg rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl">
+                      <div className="text-timeback-primary font-cal">
+                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-timeback-primary mb-4 leading-tight font-cal text-center">Step 1: Find Your Starting Point</h3>
+                  <div className="flex-grow flex items-center justify-center mb-6">
+                    <p className="text-timeback-primary text-lg leading-relaxed font-cal text-center">AI tests your child in minutes to discover exactly what they know and what they need to learn.</p>
+                  </div>
+                </article>
+                <article className="bg-white rounded-2xl border-2 border-timeback-primary p-8 shadow-2xl group flex flex-col h-full" role="listitem">
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-20 h-20 bg-timeback-bg rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl">
+                      <div className="text-timeback-primary font-cal">
+                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-timeback-primary mb-4 leading-tight font-cal text-center">Step 2: Build Your Custom Path</h3>
+                  <div className="flex-grow flex items-center justify-center mb-6">
+                    <p className="text-timeback-primary text-lg leading-relaxed font-cal text-center">AI creates a personalized learning journey just for your child, filling gaps and accelerating through concepts they already know.</p>
+                  </div>
+                </article>
+                <article className="bg-white rounded-2xl border-2 border-timeback-primary p-8 shadow-2xl group flex flex-col h-full" role="listitem">
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-20 h-20 bg-timeback-bg rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl">
+                      <div className="text-timeback-primary font-cal">
+                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-timeback-primary mb-4 leading-tight font-cal text-center">Step 3: Learn in Focused Bursts</h3>
+                  <div className="flex-grow flex items-center justify-center mb-6">
+                    <p className="text-timeback-primary text-lg leading-relaxed font-cal text-center">Your child learns in 25-minute focused sessions. They must master each concept 100% before moving forward.</p>
+                  </div>
+                </article>
+                <article className="bg-white rounded-2xl border-2 border-timeback-primary p-8 shadow-2xl group flex flex-col h-full" role="listitem">
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-20 h-20 bg-timeback-bg rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl">
+                      <div className="text-timeback-primary font-cal">
+                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-timeback-primary mb-4 leading-tight font-cal text-center">Step 4: Get Help When Stuck</h3>
+                  <div className="flex-grow flex items-center justify-center mb-6">
+                    <p className="text-timeback-primary text-lg leading-relaxed font-cal text-center">AI instantly detects when your child struggles and provides immediate support with easier explanations or practice problems.</p>
+                  </div>
+                </article>
+                <article className="bg-white rounded-2xl border-2 border-timeback-primary p-8 shadow-2xl group flex flex-col h-full" role="listitem">
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-20 h-20 bg-timeback-bg rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl">
+                      <div className="text-timeback-primary font-cal">
+                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-timeback-primary mb-4 leading-tight font-cal text-center">Step 5: Adjust and Accelerate</h3>
+                  <div className="flex-grow flex items-center justify-center mb-6">
+                    <p className="text-timeback-primary text-lg leading-relaxed font-cal text-center">The system continuously adapts, making lessons easier or harder based on your child&apos;s performance to maintain optimal difficulty.</p>
+                  </div>
+                </article>
+                <article className="bg-white rounded-2xl border-2 border-timeback-primary p-8 shadow-2xl group flex flex-col h-full" role="listitem">
+                  <div className="mb-6 flex justify-center">
+                    <div className="w-20 h-20 bg-timeback-bg rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl">
+                      <div className="text-timeback-primary font-cal">
+                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-timeback-primary mb-4 leading-tight font-cal text-center">Step 6: Complete Grades Fast</h3>
+                  <div className="flex-grow flex items-center justify-center mb-6">
+                    <p className="text-timeback-primary text-lg leading-relaxed font-cal text-center">Your child finishes complete grade levels in just 80 days instead of 180.</p>
+                  </div>
+                </article>
+              </div>
+              
+              {/* Follow-up Question Buttons */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mt-16">
+                <button
+                  onClick={() => handleSectionSelect('whats-the-science')}
+                  className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
+                    What&apos;s the science?
+                  </h3>
+                </button>
+                <button
+                  onClick={() => handleSectionSelect('show-data')}
+                  className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
+                    Show me your data
+                  </h3>
+                </button>
+                <button
+                  onClick={() => handleSectionSelect('example-question')}
+                  className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
+                    Show me an example question
+                  </h3>
+                </button>
+              </div>
+            </div>
+          </section>
+        );
       case 'show-data':
         return <SchoolReportCard 
           schoolData={userData.selectedSchools?.[0]}
@@ -465,6 +607,75 @@ export default function PersonalizedPage() {
           interests={userData.kidsInterests}
           onLearnMore={() => {}}
         />;
+      case 'whats-the-science':
+        return (
+          <section className="max-w-7xl mx-auto  py-20 lg:py-32 px-6 lg:px-12">
+            <div className="text-center mb-16 font-cal">
+              <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3 mb-8">
+                <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
+                <span className="text-timeback-primary font-bold text-sm font-cal">SCIENTIFIC RESEARCH</span>
+              </div>
+              <h2 className="text-4xl lg:text-6xl font-bold text-timeback-primary mb-8 font-cal">Here&apos;s the Science Behind TimeBack</h2>
+              <p className="text-2xl text-timeback-primary max-w-5xl mx-auto font-cal leading-relaxed">Our revolutionary approach is backed by decades of peer-reviewed research from the world&apos;s leading educational institutions. Each study below demonstrates how TimeBack transforms theoretical breakthroughs into practical results for your child.</p>
+            </div>
+            <div className="py-8 mb-8">
+              <div className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="backdrop-blur-md bg-white/10 rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-timeback-primary">
+                    <div className="relative h-48  overflow-hidden">
+                      <div className="absolute inset-0 p-6">
+                        <div className="backdrop-blur-sm bg-white/30 rounded-xl shadow-sm p-4 transform rotate-3 group-hover:rotate-2 transition-transform border border-timeback-primary">
+                          <div className="space-y-2">
+                            <div className="h-2 bg-timeback-bg border border-timeback-primary rounded w-3/4"></div>
+                            <div className="h-2 bg-timeback-bg border border-timeback-primary rounded w-full"></div>
+                            <div className="h-2 bg-timeback-bg border border-timeback-primary rounded w-5/6"></div>
+                            <div className="mt-4">
+                              <div className="h-20 bg-timeback-bg border border-timeback-primary rounded flex items-center justify-center">
+                                <div className="text-timeback-primary font-bold text-2xl font-cal">2σ</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="absolute top-4 right-4 bg-timeback-primary text-white px-3 py-1 rounded-full text-xs font-bold font-cal">MIT • 1984</div>
+                    </div>
+                    <div className="p-6">
+                      <h4 className="text-xl font-bold text-timeback-primary mb-2 font-cal">Bloom&apos;s 2 Sigma Problem</h4>
+                      <p className="text-sm text-timeback-primary mb-3 font-cal">Benjamin S. Bloom • Educational Researcher</p>
+                      <p className="text-timeback-primary mb-4 font-cal">Groundbreaking research demonstrating that 1-on-1 tutoring produces a 2 standard deviation improvement - moving average students to the top 2% of achievement.</p>
+                    </div>
+                  </div>
+                  <div className="backdrop-blur-md bg-white/10 rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-timeback-primary">
+                    <div className="relative h-48  overflow-hidden">
+                      <div className="absolute inset-0 p-6">
+                        <div className="backdrop-blur-sm bg-white/30 rounded-xl shadow-sm p-4 transform -rotate-3 group-hover:-rotate-2 transition-transform border border-timeback-primary">
+                          <div className="space-y-2">
+                            <div className="h-2 bg-timeback-bg border border-timeback-primary rounded w-5/6"></div>
+                            <div className="h-2 bg-timeback-bg border border-timeback-primary rounded w-full"></div>
+                            <div className="h-2 bg-timeback-bg border border-timeback-primary rounded w-4/5"></div>
+                            <div className="mt-4">
+                              <div className="h-20 bg-timeback-bg border border-timeback-primary rounded flex items-center justify-center">
+                                <svg className="w-12 h-12 text-timeback-primary font-cal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="absolute top-4 right-4 bg-timeback-primary text-white px-3 py-1 rounded-full text-xs font-bold font-cal">ERIC • 1968</div>
+                    </div>
+                    <div className="p-6">
+                      <h4 className="text-xl font-bold text-timeback-primary mb-2 font-cal">Mastery-Based Learning</h4>
+                      <p className="text-sm text-timeback-primary mb-3 font-cal">James H. Block &amp; Benjamin S. Bloom • Educational Psychology</p>
+                      <p className="text-timeback-primary mb-4 font-cal">Revolutionary approach requiring 90% mastery before advancement, eliminating learning gaps and ensuring deep understanding of each concept.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
       case 'custom-question':
         return <CustomQuestionSection 
           quizData={userData as QuizData}
@@ -583,101 +794,9 @@ export default function PersonalizedPage() {
           </section>
         )}
 
-                  {/* Comparison Section - shown when "Why can&apos;t I just use ChatGPT?" is clicked */}
-        {selectedSection === 'what-is-timeback' && (
-          <section id="comparison-section" className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
-            <TimeBackVsCompetitors onLearnMore={() => {}} />
-          </section>
-        )}
 
-        {/* Data Section - shown when "See the data" is clicked */}
-        {(selectedSection === 'what-is-timeback' || selectedSection === 'how-does-it-work' || selectedSection === 'example-question' || selectedSection === 'extra-hours') && (
-          <section id="data-section" className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
-            <LearningScienceSection 
-              learningGoals={[]} 
-              onLearnMore={() => {}}
-            />
-          </section>
-        )}
 
-        {/* Show all viewed components (growing page) */}
-        {viewedComponents.length > 0 && (
-          <section id="viewed-components-section" className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
-            <h3 className="text-2xl font-bold text-timeback-primary font-cal mb-8 text-center">
-              Your Personalized TimeBack Report
-            </h3>
-            {viewedComponents.map((componentId) => {
-              // Render each viewed component based on its ID
-              let content = null;
-              let sectionTitle = '';
-              
-              switch (componentId) {
-                case 'what-is-timeback':
-                  sectionTitle = 'What is TimeBack?';
-                  content = (
-                    <div className="space-y-8">
-                      <TimeBackVsCompetitors onLearnMore={() => {}} />
-                      <MechanismSection />
-                      <LearningScienceSection 
-                        learningGoals={[]} 
-                        onLearnMore={() => {}}
-                      />
-                    </div>
-                  );
-                  break;
-                case 'how-does-it-work':
-                  sectionTitle = 'How does it work?';
-                  content = <MechanismSection />;
-                  break;
-                case 'show-data':
-                  sectionTitle = 'Show me your data';
-                  content = <SchoolReportCard 
-                    schoolData={userData.selectedSchools?.[0]}
-                    onLearnMore={() => {}} 
-                  />;
-                  break;
-                case 'example-question':
-                  sectionTitle = 'Show me an example question tailored to my kid';
-                  content = <PersonalizedSubjectExamples 
-                    interests={userData.kidsInterests} 
-                    onLearnMore={() => {}}
-                  />;
-                  break;
-                case 'find-school':
-                  sectionTitle = 'Find a school near me';
-                  content = <ClosestSchools quizData={userData as QuizData} />;
-                  break;
-                case 'extra-hours':
-                  sectionTitle = 'What will my kid do with the extra 6 hours they gain in their day?';
-                  content = <AfternoonActivities 
-                    interests={userData.kidsInterests}
-                    onLearnMore={() => {}}
-                  />;
-                  break;
-                case 'custom-question':
-                  sectionTitle = 'Custom Questions';
-                  content = <CustomQuestionSection 
-                    quizData={userData as QuizData}
-                    interests={userData.kidsInterests}
-                    gradeLevel={userData.selectedSchools?.[0]?.level || 'high school'}
-                  />;
-                  break;
-              }
-              
-              return (
-                <div key={componentId} id={`viewed-component-${componentId}`} className="mb-12">
-                  <div className="text-center mb-8">
-                    <h4 className="text-2xl font-bold text-timeback-primary font-cal">
-                      {sectionTitle}
-                    </h4>
-                  </div>
-                  {content}
-                  <div className="mt-8 border-t border-timeback-primary opacity-20"></div>
-                </div>
-              );
-            })}
-          </section>
-        )}
+
         
         {/* Persistent CustomQuestionSection at bottom of page */}
         <section id="persistent-questions-section" className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
