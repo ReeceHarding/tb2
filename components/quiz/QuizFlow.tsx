@@ -223,8 +223,8 @@ export default function QuizFlow() {
     if (nextStepNum > quizHelpers.getTotalSteps()) {
       // Quiz complete - user went past AuthStep, now redirect to personalized page
       console.log(`🚨 [CRITICAL-COMPLETION] ${navTimestamp} *** QUIZ COMPLETE - USER WENT PAST AUTHSTEP ***`);
-      console.log(`🚨 [CRITICAL-COMPLETION] ${navTimestamp} *** THIS MEANS AUTH WAS HANDLED (SIGNED IN OR GUEST) ***`);
-      console.log(`[QuizFlow] ${navTimestamp} QUIZ COMPLETE! User authenticated or chose guest mode`);
+      console.log(`🚨 [CRITICAL-COMPLETION] ${navTimestamp} *** THIS MEANS AUTH WAS HANDLED (SIGNED IN) ***`);
+      console.log(`[QuizFlow] ${navTimestamp} QUIZ COMPLETE! User authenticated`);
       console.log(`[QuizFlow] ${navTimestamp} Dispatching COMPLETE_QUIZ action`);
       dispatch({ type: 'COMPLETE_QUIZ' });
 

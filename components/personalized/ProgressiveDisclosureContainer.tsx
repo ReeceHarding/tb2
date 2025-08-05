@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { usePostHog } from 'posthog-js/react';
 import ProgressiveDisclosureHero from './ProgressiveDisclosureHero';
 import SectionExplorer from './SectionExplorer';
+import ShareJourneyButton from './ShareJourneyButton';
 import { PROGRESSIVE_DISCLOSURE_MAPPING, MainSection, SectionMapping } from './ProgressiveDisclosureMapping';
 import { smoothScrollTo, instantReveal } from '@/libs/ui-animations';
 
@@ -16,6 +17,7 @@ interface NavigationState {
   currentMainSection: string | null;
   viewedComponents: Array<{
     mainSectionId: string;
+    componentId: string;
     componentName: string;
     timestamp: number;
   }>;

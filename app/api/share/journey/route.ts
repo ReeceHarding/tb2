@@ -73,7 +73,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Update shareable journey data
-    const updateData = {
+    const updateData: Record<string, any> = {
       'shareableJourney.shareId': shareId,
       'shareableJourney.isPublic': true,
       'shareableJourney.viewedSections': viewedSections || [],

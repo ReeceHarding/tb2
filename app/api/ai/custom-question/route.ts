@@ -1,11 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import Anthropic from '@anthropic-ai/sdk';
-
-// Initialize Anthropic client using Bedrock
-const anthropic = new Anthropic({
-  apiKey: 'placeholder', // Not used with AWS SDK
-  baseURL: 'https://bedrock-runtime.us-east-1.amazonaws.com',
-});
 
 async function callAnthropicBedrock(prompt: string): Promise<any> {
   try {
@@ -78,7 +71,7 @@ async function callAnthropicBedrock(prompt: string): Promise<any> {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { question, quizData, viewedComponentsSummary, currentUser } = body;
+    const { question, viewedComponentsSummary, currentUser } = body;
 
     console.log('Received custom question request:', { question, currentUser });
 

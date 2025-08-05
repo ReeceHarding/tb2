@@ -173,28 +173,7 @@ export default function AuthStep({ onNext, quizData, generatedContent }: AuthSte
     }
   };
 
-  // Handle continuing as guest (skip auth)
-  const handleContinueAsGuest = () => {
-    const guestTimestamp = new Date().toISOString();
-    
-    // === CRITICAL GUEST ACTION LOGS - FOR LLM PARSING ===
-    console.log(`🚨 [CRITICAL-GUEST] ${guestTimestamp} *** USER CLICKED CONTINUE AS GUEST ***`);
-    console.log(`🚨 [CRITICAL-GUEST] ${guestTimestamp} *** AUTH PAGE WAS VISIBLE AND USER CHOSE GUEST MODE ***`);
-    console.log(`🚨 [CRITICAL-GUEST] ${guestTimestamp} *** SAVING DATA TO LOCALSTORAGE INSTEAD OF DATABASE ***`);
-    // === END CRITICAL GUEST LOGS ===
-    
-    console.log(`[AuthStep] ${guestTimestamp} User chose to continue as guest`);
-    
-    // Save to localStorage as fallback
-    localStorage.setItem('timebackQuizData', JSON.stringify(dataToSave));
-    if (generatedContent) {
-      localStorage.setItem('timebackGeneratedContent', JSON.stringify(generatedContent));
-    }
-    
-    console.log(`🚨 [CRITICAL-GUEST] ${guestTimestamp} *** DATA SAVED TO LOCALSTORAGE, PROCEEDING TO RESULTS ***`);
-    console.log(`[AuthStep] ${guestTimestamp} Data saved to localStorage, proceeding to results`);
-    onNext();
-  };
+
 
   // Auto-save and proceed when user becomes authenticated
   useEffect(() => {
@@ -470,21 +449,6 @@ export default function AuthStep({ onNext, quizData, generatedContent }: AuthSte
               </svg>
             </>
           )}
-        </motion.button>
-
-        {/* Enhanced Guest Button */}
-        <motion.button
-          onClick={handleContinueAsGuest}
-          disabled={isSigningIn}
-          whileHover={!isSigningIn ? { scale: 1.02 } : undefined}
-          whileTap={!isSigningIn ? { scale: 0.98 } : undefined}
-          className={`w-full bg-transparent border-2 border-timeback-primary/40 text-timeback-primary px-8 py-4 rounded-xl font-semibold text-lg font-cal transition-all duration-300 ${
-            isSigningIn 
-              ? 'opacity-60 cursor-not-allowed' 
-              : 'hover:bg-timeback-bg/50 hover:border-timeback-primary focus:outline-none focus:ring-4 focus:ring-timeback-primary/20'
-          }`}
-        >
-          Continue as Guest
         </motion.button>
       </motion.div>
 
