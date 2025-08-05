@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useCallback, Suspense } from 'react';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useQuiz, quizHelpers } from './QuizContext';
 import QuizProgress from './QuizProgress';
 import dynamic from 'next/dynamic';
@@ -165,12 +165,34 @@ export default function QuizFlow() {
     isCompleted: state.isCompleted
   });
 
-  // Auto-scroll function for smooth navigation
+  // Enhanced scroll functions for downward navigation
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
+  };
+
+  const scrollToNextStep = () => {
+    const scrollTimestamp = new Date().toISOString();
+    console.log(`[QuizFlow] ${scrollTimestamp} Scrolling down to next step component`);
+    
+    const nextStepElement = document.getElementById('next-step-component');
+    if (nextStepElement) {
+      console.log(`[QuizFlow] ${scrollTimestamp} Found next step component - scrolling into view`);
+      nextStepElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+        inline: 'nearest'
+      });
+    } else {
+      console.warn(`[QuizFlow] ${scrollTimestamp} Next step component not found - fallback scroll down`);
+      // Fallback: scroll down by approximately one viewport height
+      window.scrollBy({
+        top: window.innerHeight * 0.8,
+        behavior: 'smooth'
+      });
+    }
   };
 
   // Smart navigation that handles conditional ParentSubTypeStep and skips KidsCountStep
@@ -289,6 +311,11 @@ export default function QuizFlow() {
         console.log(`[QuizFlow] ${navTimestamp} Transition Phase 2: Scrolling down to next step`);
         setTransitionPhase('scroll');
         
+        // Start scrolling to next component
+        setTimeout(() => {
+          scrollToNextStep();
+        }, 50); // Small delay to ensure next component is rendered
+        
         // Phase 2: Scroll down to next component (400ms)
         setTimeout(() => {
           console.log(`[QuizFlow] ${navTimestamp} Transition Phase 3: Updating step state and fading in`);
@@ -385,10 +412,7 @@ export default function QuizFlow() {
     }
   };
 
-  // Get current step component (legacy wrapper for backward compatibility)
-  const getCurrentStepComponent = () => {
-    return renderStepComponent(state.currentStep, false);
-  };
+  // Legacy getCurrentStepComponent removed - now using renderTransitionComponents
 
   // Enhanced rendering logic for downward scroll transitions
   const renderTransitionComponents = () => {
@@ -404,30 +428,50 @@ export default function QuizFlow() {
     // During transition, render both current and next components vertically
     console.log(`[QuizFlow] ${renderTimestamp} Transition rendering - current step: ${state.currentStep}, next step: ${nextStepNumber}`);
     
-    const currentOpacity = transitionPhase === 'fadeOut' ? 0.3 : (transitionPhase === 'scroll' ? 0.1 : 1);
-    const nextOpacity = transitionPhase === 'fadeIn' ? 1 : 0.1;
+    // Enhanced animation timing for smoother transitions
+    const currentOpacity = transitionPhase === 'fadeOut' ? 0.2 : (transitionPhase === 'scroll' ? 0.05 : 1);
+    const nextOpacity = transitionPhase === 'fadeIn' ? 1 : (transitionPhase === 'scroll' ? 0.3 : 0.05);
+    
+    // Scale and blur effects for professional feel
+    const currentScale = transitionPhase === 'fadeOut' ? 0.98 : (transitionPhase === 'scroll' ? 0.95 : 1);
+    const nextScale = transitionPhase === 'fadeIn' ? 1 : (transitionPhase === 'scroll' ? 0.98 : 0.95);
+    
+    const currentBlur = transitionPhase === 'fadeOut' ? 'blur(2px)' : (transitionPhase === 'scroll' ? 'blur(4px)' : 'blur(0px)');
+    const nextBlur = transitionPhase === 'fadeIn' ? 'blur(0px)' : (transitionPhase === 'scroll' ? 'blur(2px)' : 'blur(4px)');
     
     return (
-      <div className="space-y-8">
-        {/* Current step component with fade out */}
+      <div className="space-y-12">
+        {/* Current step component with enhanced fade out animation */}
         <div 
-          className="transition-opacity duration-300"
-          style={{ opacity: currentOpacity }}
+          className="transition-all duration-300 ease-out"
+          style={{ 
+            opacity: currentOpacity,
+            transform: `scale(${currentScale})`,
+            filter: currentBlur
+          }}
         >
           <div className="bg-white rounded-3xl shadow-2xl border-2 border-timeback-primary p-8 lg:p-12">
             {renderStepComponent(state.currentStep, false)}
           </div>
         </div>
         
-        {/* Next step component with fade in */}
+        {/* Next step component with enhanced fade in animation */}
         {nextStepNumber !== null && (
           <div 
             id="next-step-component"
-            className="transition-opacity duration-300"
-            style={{ opacity: nextOpacity }}
+            className="transition-all duration-400 ease-in-out"
+            style={{ 
+              opacity: nextOpacity,
+              transform: `scale(${nextScale}) translateY(${transitionPhase === 'scroll' ? '-20px' : '0px'})`,
+              filter: nextBlur
+            }}
           >
-            <div className="bg-white rounded-3xl shadow-2xl border-2 border-timeback-primary p-8 lg:p-12">
-              {renderStepComponent(nextStepNumber, true)}
+            <div className="bg-white rounded-3xl shadow-2xl border-2 border-timeback-primary p-8 lg:p-12 relative">
+              {/* Subtle glow effect for the next step */}
+              <div className="absolute inset-0 bg-timeback-bg rounded-3xl opacity-10 pointer-events-none"></div>
+              <div className="relative z-10">
+                {renderStepComponent(nextStepNumber, true)}
+              </div>
             </div>
           </div>
         )}
@@ -435,37 +479,8 @@ export default function QuizFlow() {
     );
   };
 
-  // Enhanced step transition animation variants for professional feel
-  const stepVariants: Variants = {
-    initial: { 
-      opacity: 0, 
-      x: 60, 
-      scale: 0.98,
-      filter: 'blur(4px)'
-    },
-    animate: { 
-      opacity: 1, 
-      x: 0, 
-      scale: 1,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.5,
-        ease: "easeOut", // Use predefined easing for better compatibility
-        opacity: { duration: 0.3 },
-        filter: { duration: 0.2 }
-      }
-    },
-    exit: { 
-      opacity: 0, 
-      x: -60, 
-      scale: 0.98,
-      filter: 'blur(4px)',
-      transition: {
-        duration: 0.3,
-        ease: "easeIn" // Slightly faster exit with professional easing
-      }
-    }
-  };
+  // Enhanced transition animations now handled directly in renderTransitionComponents
+  // with CSS transitions for smoother downward scroll effect
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-timeback-bg to-white">
@@ -509,27 +524,16 @@ export default function QuizFlow() {
         </motion.div>
       )}
 
-      {/* Main Content Area with Improved Spacing */}
+      {/* Main Content Area with Enhanced Downward Scroll Transitions */}
       <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-8 lg:py-16">
-        <div className="min-h-[calc(100vh-200px)] flex items-center justify-center">
+        <div className="min-h-[calc(100vh-200px)]">
           
-          {/* Step Component with Enhanced Animation and Better Container */}
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={state.currentStep}
-              variants={stepVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="w-full"
-            >
-              <div className="bg-white rounded-3xl shadow-2xl border-2 border-timeback-primary p-8 lg:p-12">
-                <Suspense fallback={<StepLoadingSpinner />}>
-                  {getCurrentStepComponent()}
-                </Suspense>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+          {/* Enhanced Step Components with Downward Scroll Animation */}
+          <div className="w-full">
+            <Suspense fallback={<StepLoadingSpinner />}>
+              {renderTransitionComponents()}
+            </Suspense>
+          </div>
           
         </div>
       </div>

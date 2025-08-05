@@ -555,11 +555,17 @@ Example outputs for different interests:
                   {/* Messages Area - Expanded */}
                   <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-timeback-bg">
                     {questionResponses.length === 0 && (
-                      <div className="text-center text-timeback-primary mt-12 font-cal">
-                        <svg className="w-16 h-16 mx-auto mb-6 text-timeback-primary font-cal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                        </svg>
-                        <p className="text-lg font-cal">Ask a question about this {activeTab} problem to get started!</p>
+                      <div className="flex justify-start">
+                        <div className="flex gap-4 max-w-[80%]">
+                          <div className="w-10 h-10 bg-white border-2 border-timeback-primary rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg className="w-5 h-5 text-timeback-primary font-cal" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,6V8H13V6H11M11,10V18H13V10H11Z"/>
+                            </svg>
+                          </div>
+                          <div className="bg-white border-2 border-timeback-primary rounded-2xl px-6 py-4 shadow-2xl">
+                            <p className="text-timeback-primary font-cal">Hi! I&apos;m here to help you understand this {activeTab} problem. What would you like to know?</p>
+                          </div>
+                        </div>
                       </div>
                     )}
                     
