@@ -69,14 +69,14 @@ export const PROGRESSIVE_DISCLOSURE_MAPPING: MainSection[] = [
         title: 'How do kids spend those 6+ extra hours?',
         description: 'Real examples of how students use their time freedom',
         components: [
-          { component: AfternoonActivities, name: 'AfternoonActivities' },
+          { component: AfternoonActivities, name: 'AfternoonActivitiesExpanded' },
           { component: PersonalizedSubjectExamples, name: 'PersonalizedSubjectExamples' }
         ],
         subButtons: [
           {
             id: 'passion-projects',
             text: 'What kind of passion projects do kids create?',
-            targetComponents: ['AfternoonActivities']
+            targetComponents: ['AfternoonActivitiesExpanded']
           },
           {
             id: 'interest-integration',

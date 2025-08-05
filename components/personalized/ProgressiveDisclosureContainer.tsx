@@ -63,6 +63,10 @@ export default function ProgressiveDisclosureContainer({
     const firstComponent = mainSection?.sections[0]?.components[0]?.name;
 
     if (firstComponent) {
+      // Store current scroll position to prevent layout shifts
+      const currentScrollY = window.scrollY;
+      console.log(`[ProgressiveDisclosureContainer] Storing scroll position: ${currentScrollY}`);
+      
       // Add component to viewed list if not already there
       setNavigationState(prev => {
         const alreadyViewed = prev.viewedComponents.some(
@@ -70,8 +74,30 @@ export default function ProgressiveDisclosureContainer({
         );
         
         if (alreadyViewed) {
-          return prev; // Don't add duplicates
+          // Component already exists, just scroll to it
+          setTimeout(() => {
+            const element = document.getElementById(`component-${firstComponent.toLowerCase()}`);
+            if (element) {
+              console.log(`[ProgressiveDisclosureContainer] Scrolling to existing component: ${firstComponent}`);
+              smoothScrollTo(element, {
+                offset: 80,
+                duration: 600,
+                onComplete: () => setIsTransitioning(false)
+              });
+            } else {
+              setIsTransitioning(false);
+            }
+          }, 100);
+          return prev;
         }
+
+        // Restore scroll position immediately after state update to prevent jumps
+        requestAnimationFrame(() => {
+          if (Math.abs(window.scrollY - currentScrollY) > 50) {
+            console.log(`[ProgressiveDisclosureContainer] Restoring scroll position from ${window.scrollY} to ${currentScrollY}`);
+            window.scrollTo(0, currentScrollY);
+          }
+        });
 
         return {
           currentMainSection: sectionId,
@@ -89,38 +115,40 @@ export default function ProgressiveDisclosureContainer({
           ]
         };
       });
-    }
 
-    // Auto-scroll to the new section with enhanced animation
-    const scrollToNewComponent = () => {
-      const newComponentElement = document.getElementById(`component-${firstComponent?.toLowerCase()}`);
-      if (newComponentElement) {
-        console.log(`[ProgressiveDisclosureContainer] Auto-scrolling to new component: ${firstComponent}`);
-        
-        // Use enhanced smooth scroll with completion callback
-        smoothScrollTo(newComponentElement, {
-          offset: 80,
-          duration: 800,
-          onComplete: () => {
-            setIsTransitioning(false);
-            
-            // Reveal content with instant animation
-            const contentElements = newComponentElement.querySelectorAll('.content-section');
-            if (contentElements.length > 0) {
-              instantReveal(contentElements as any, {
-                staggerDelay: 100,
-                from: 'bottom'
-              });
+      // Auto-scroll to the new section with enhanced reliability
+      const scrollToNewComponent = () => {
+        const newComponentElement = document.getElementById(`component-${firstComponent?.toLowerCase()}`);
+        if (newComponentElement) {
+          console.log(`[ProgressiveDisclosureContainer] Auto-scrolling to new component: ${firstComponent}`);
+          
+          // Use enhanced smooth scroll with completion callback
+          smoothScrollTo(newComponentElement, {
+            offset: 80,
+            duration: 800,
+            onComplete: () => {
+              setIsTransitioning(false);
+              
+              // Reveal content with instant animation
+              const contentElements = newComponentElement.querySelectorAll('.content-section');
+              if (contentElements.length > 0) {
+                instantReveal(contentElements as any, {
+                  staggerDelay: 100,
+                  from: 'bottom'
+                });
+              }
             }
-          }
-        });
-      } else {
-        // Retry after a short delay if element not found
-        setTimeout(scrollToNewComponent, 100);
-      }
-    };
-    
-    setTimeout(scrollToNewComponent, 200);
+          });
+        } else {
+          // Retry after a short delay if element not found
+          console.log(`[ProgressiveDisclosureContainer] Element not found, retrying: ${firstComponent}`);
+          setTimeout(scrollToNewComponent, 100);
+        }
+      };
+      
+      // Wait a bit longer for DOM to be fully updated
+      setTimeout(scrollToNewComponent, 400);
+    }
   };
 
   // Handle component selection (from follow-up questions) - adds component to cumulative page
@@ -149,6 +177,10 @@ export default function ProgressiveDisclosureContainer({
       cumulative_components_count: navigationState.viewedComponents.length + 1
     });
 
+    // Store current scroll position to prevent layout shifts
+    const currentScrollY = window.scrollY;
+    console.log(`[ProgressiveDisclosureContainer] Component select - storing scroll position: ${currentScrollY}`);
+
     // Add component to viewed list if not already there
     setNavigationState(prev => {
       const alreadyViewed = prev.viewedComponents.some(
@@ -157,29 +189,29 @@ export default function ProgressiveDisclosureContainer({
       
       if (alreadyViewed) {
         // Just scroll to existing component with enhanced reliability
-        const scrollToExistingComponent = () => {
+        setTimeout(() => {
           const element = document.getElementById(`component-${componentId.toLowerCase()}`);
           if (element) {
-            console.log(`[ProgressiveDisclosureContainer] Auto-scrolling to existing component: ${componentId}`);
-            // Scroll with slight offset for better visibility
-            const elementTop = element.offsetTop;
-            const offsetPosition = elementTop - 80; // 80px offset from top
-            
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
+            console.log(`[ProgressiveDisclosureContainer] Scrolling to existing component: ${componentId}`);
+            smoothScrollTo(element, {
+              offset: 80,
+              duration: 600,
+              onComplete: () => setIsTransitioning(false)
             });
           } else {
-            // Retry after a short delay if element not found
-            console.log(`[ProgressiveDisclosureContainer] Existing element not found, retrying scroll for: ${componentId}`);
-            setTimeout(scrollToExistingComponent, 100);
+            setIsTransitioning(false);
           }
-        };
-        
-        setTimeout(scrollToExistingComponent, 100);
-        setIsTransitioning(false);
+        }, 100);
         return prev;
       }
+
+      // Restore scroll position immediately after state update to prevent jumps
+      requestAnimationFrame(() => {
+        if (Math.abs(window.scrollY - currentScrollY) > 50) {
+          console.log(`[ProgressiveDisclosureContainer] Component select - restoring scroll position from ${window.scrollY} to ${currentScrollY}`);
+          window.scrollTo(0, currentScrollY);
+        }
+      });
 
       const newState: NavigationState = {
         ...prev,
@@ -202,16 +234,12 @@ export default function ProgressiveDisclosureContainer({
       const scrollToComponent = () => {
         const element = document.getElementById(`component-${componentId.toLowerCase()}`);
         if (element) {
-          console.log(`[ProgressiveDisclosureContainer] Auto-scrolling to follow-up component: ${componentId}`);
-          // Scroll with slight offset for better visibility
-          const elementTop = element.offsetTop;
-          const offsetPosition = elementTop - 80; // 80px offset from top
-          
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
+          console.log(`[ProgressiveDisclosureContainer] Auto-scrolling to new component: ${componentId}`);
+          smoothScrollTo(element, {
+            offset: 80,
+            duration: 800,
+            onComplete: () => setIsTransitioning(false)
           });
-          setIsTransitioning(false);
         } else {
           // Retry after a short delay if element not found
           console.log(`[ProgressiveDisclosureContainer] Element not found, retrying scroll for: ${componentId}`);
@@ -219,7 +247,8 @@ export default function ProgressiveDisclosureContainer({
         }
       };
       
-      setTimeout(scrollToComponent, 200);
+      // Wait a bit longer for DOM to be fully updated
+      setTimeout(scrollToComponent, 400);
 
       return newState;
     });
@@ -283,4 +312,5 @@ export default function ProgressiveDisclosureContainer({
       )}
     </div>
   );
+}
 }
