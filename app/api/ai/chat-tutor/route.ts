@@ -1,8 +1,14 @@
 import { NextRequest } from 'next/server';
 import { trackLLMUsage } from '@/libs/llm-analytics';
 import { invokeClaude, formatClaudeResponse, ClaudeMessage } from '@/libs/bedrock-claude';
+import OpenAI from 'openai';
 
 export const dynamic = 'force-dynamic';
+
+// Initialize OpenAI client for final fallback
+const openaiClient = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY || '',
+});
 
 export async function POST(req: NextRequest) {
   console.log('[chat-tutor] API route called');
@@ -85,9 +91,12 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
 
     // Track start time for analytics
     const startTime = Date.now();
+    let usedProvider = '';
+    let fullText = '';
+    let tokenUsage: any = {};
     
-    // Generate with Bedrock Claude and return JSON response
-    const messages: ClaudeMessage[] = [
+    // Prepare messages for all providers
+    const messages = [
       ...(messageHistory || []).map((msg: any) => ({
         role: msg.role as 'user' | 'assistant',
         content: msg.content
@@ -99,21 +108,100 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
     ];
 
     try {
-      console.log('[chat-tutor] Invoking Claude with messages:', messages.length);
+      // FIRST: Try Cerebras API (following models.mdc hierarchy)
+      console.log('[chat-tutor] Attempting Cerebras (primary model)...');
       
-      const response = await invokeClaude(messages, {
-        maxTokens: 1024,
-        temperature: 0.7,
-        system: systemPrompt
-      });
+      try {
+        const cerebrasMessages = [];
+        if (systemPrompt) {
+          cerebrasMessages.push({ role: 'system', content: systemPrompt });
+        }
+        cerebrasMessages.push(...messages);
+        
+        const cerebrasResponse = await fetch('https://api.cerebras.ai/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.CEREBRAS_API_KEY}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            model: 'qwen-3-235b-a22b-instruct-2507',
+            messages: cerebrasMessages,
+            max_tokens: 1024,
+            temperature: 0.7
+          })
+        });
+
+        if (!cerebrasResponse.ok) {
+          const error = await cerebrasResponse.text();
+          throw new Error(`Cerebras API error: ${cerebrasResponse.status} - ${error}`);
+        }
+
+        const cerebrasCompletion = await cerebrasResponse.json();
+        fullText = cerebrasCompletion.choices[0]?.message?.content || '';
+        tokenUsage = cerebrasCompletion.usage || {};
+        usedProvider = 'cerebras';
+        
+        console.log('[chat-tutor] Cerebras successful, response length:', fullText.length);
+        
+      } catch (cerebrasError) {
+        console.log('[chat-tutor] Cerebras failed, falling back to AWS Bedrock...', cerebrasError.message);
+        
+        try {
+          // SECOND: Try AWS Bedrock Claude (fallback #1)
+          console.log('[chat-tutor] Attempting AWS Bedrock...');
+          
+          const claudeMessages: ClaudeMessage[] = messages;
+          const response = await invokeClaude(claudeMessages, {
+            maxTokens: 1024,
+            temperature: 0.7,
+            system: systemPrompt
+          });
+          
+          fullText = formatClaudeResponse(response);
+          tokenUsage = response.usage || {};
+          usedProvider = 'bedrock';
+          
+          console.log('[chat-tutor] AWS Bedrock successful, response length:', fullText.length);
+          
+        } catch (bedrockError) {
+          console.log('[chat-tutor] Bedrock failed, falling back to OpenAI GPT-4 Turbo...', bedrockError.message);
+          
+          // THIRD: Try OpenAI GPT-4 Turbo (final fallback)
+          console.log('[chat-tutor] Attempting OpenAI GPT-4 Turbo...');
+          
+          const openaiMessages: OpenAI.Chat.ChatCompletionMessageParam[] = [];
+          if (systemPrompt) {
+            openaiMessages.push({ role: 'system', content: systemPrompt });
+          }
+          openaiMessages.push(...messages);
+          
+          const completion = await openaiClient.chat.completions.create({
+            model: 'gpt-4-turbo-preview',
+            messages: openaiMessages,
+            max_tokens: 1024,
+            temperature: 0.7,
+            stream: false,
+          });
+
+          fullText = completion.choices[0]?.message?.content || '';
+          tokenUsage = completion.usage || {};
+          usedProvider = 'openai';
+          
+          console.log('[chat-tutor] OpenAI GPT-4 Turbo successful, response length:', fullText.length);
+        }
+      }
       
-      const fullText = formatClaudeResponse(response);
-      console.log('[chat-tutor] Generated response length:', fullText.length);
+      // Track successful completion with actual provider used
+      const modelMap = {
+        cerebras: 'qwen-3-235b-a22b-instruct-2507',
+        bedrock: 'us.anthropic.claude-3-7-sonnet-20250219-v1:0', 
+        openai: 'gpt-4-turbo-preview'
+      };
       
-      // Track successful completion
       await trackLLMUsage({
         endpoint: 'chat-tutor',
-        model: 'us.anthropic.claude-3-7-sonnet-20250219-v1:0',
+        model: modelMap[usedProvider as keyof typeof modelMap] || usedProvider,
         latencyMs: Date.now() - startTime,
         success: true,
         context: {
@@ -121,15 +209,17 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
           interests,
           messagesCount: messageHistory?.length || 0,
           isStreaming: false,
-          inputTokens: response.usage.input_tokens,
-          outputTokens: response.usage.output_tokens
+          provider: usedProvider,
+          inputTokens: tokenUsage.input_tokens || tokenUsage.prompt_tokens,
+          outputTokens: tokenUsage.output_tokens || tokenUsage.completion_tokens
         }
       });
 
       // Return JSON response that matches UI expectations
       return new Response(JSON.stringify({
         success: true,
-        response: fullText
+        response: fullText,
+        provider: usedProvider
       }), {
         status: 200,
         headers: {
@@ -138,12 +228,12 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
       });
       
     } catch (error) {
-      console.error('[chat-tutor] Error generating response:', error);
+      console.error('[chat-tutor] All providers failed:', error);
       
-      // Track error
+      // Track error with final attempted provider
       await trackLLMUsage({
         endpoint: 'chat-tutor',
-        model: 'us.anthropic.claude-3-7-sonnet-20250219-v1:0',
+        model: usedProvider || 'unknown',
         latencyMs: Date.now() - startTime,
         success: false,
         error: error instanceof Error ? error.message : String(error),
@@ -151,13 +241,14 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
           gradeLevel,
           interests,
           messagesCount: messageHistory?.length || 0,
-          isStreaming: false
+          isStreaming: false,
+          provider: usedProvider || 'all-failed'
         }
       });
 
       return new Response(JSON.stringify({
         success: false,
-        error: 'Failed to generate response'
+        error: 'Failed to generate response - all AI providers unavailable'
       }), {
         status: 500,
         headers: {
