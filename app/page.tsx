@@ -9,6 +9,27 @@ import Testimonials3 from "@/components/Testimonials3";
 import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import { getSEOTags } from "@/libs/seo";
+
+export const metadata = getSEOTags({
+  title: "TimeBack - AI-Powered Personalized Learning | 99th Percentile in 2 Hours Daily",
+  description: "Revolutionary AI tutoring platform where students achieve 99th percentile test scores in just 2 hours per day. Proven homeschool curriculum with adaptive learning for K-12. Join Alpha School's success.",
+  keywords: [
+    "AI tutoring",
+    "personalized learning",
+    "homeschool curriculum", 
+    "adaptive learning",
+    "2 hour school day",
+    "AI education",
+    "99th percentile",
+    "MAP test scores",
+    "online learning",
+    "K-12 education",
+    "Alpha School",
+    "TimeBack"
+  ],
+  canonicalUrlRelative: "/",
+});
 
 export default function Page() {
   return (

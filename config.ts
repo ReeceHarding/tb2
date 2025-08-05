@@ -6,7 +6,7 @@ const config = {
   appName: "Timeback",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription:
-    "Revolutionary AI-powered education where students learn 2x faster in just 2 hours a day. Join the waitlist to transform your child's education.",
+    "AI-powered personalized learning platform where students achieve 99th percentile test scores in just 2 hours daily. Proven homeschool curriculum with adaptive tutoring for K-12 students.",
   // REQUIRED (no https://, not trailing slash at the end, just the naked domain)
   domainName: "timebacklearn.com",
   crisp: {

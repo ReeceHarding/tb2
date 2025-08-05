@@ -52,10 +52,10 @@ const Problem = () => {
           className="text-center mb-16 lg:mb-24 font-cal"
         >
           <h2 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight mb-6 font-cal text-timeback-primary max-w-4xl mx-auto leading-tight">
-            What is TimeBack?
+            AI-Powered Homeschool Curriculum: What is TimeBack?
           </h2>
           <p className="max-w-3xl mx-auto text-xl sm:text-2xl leading-relaxed font-cal text-timeback-primary font-medium">
-            TimeBack replaces traditional classroom teaching with AI tutors. Your child finishes all their academics in just 2 hours a day while learning twice as fast as kids in regular schools.
+            TimeBack replaces traditional classroom teaching with personalized AI tutors. Your child finishes all their academics in just 2 hours a day while learning twice as fast as kids in regular schools—proven by real MAP test scores from Alpha School students.
           </p>
         </motion.div>
 
@@ -63,18 +63,18 @@ const Problem = () => {
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           <Step 
             icon={CpuChipIcon} 
-            title="AI Finds What Your Child Needs" 
-            description="The AI figures out exactly what your child knows and what they don't. Then it teaches them at the perfect level - not too easy, not too hard." 
+            title="Adaptive AI Tutoring System" 
+            description="Our AI tutoring technology figures out exactly what your child knows and what they don't. Then it provides personalized learning at the perfect difficulty level - not too easy, not too hard." 
           />
           <Step 
             icon={TrophyIcon} 
-            title="Real Results from Real Schools" 
-            description="Alpha School has used TimeBack for 10 years. Their students score in the top 1% nationally on standardized tests and get into top universities." 
+            title="Proven 99th Percentile MAP Test Results" 
+            description="Alpha School has used TimeBack for 10 years. Their students consistently score in the 99th percentile on MAP standardized tests and gain admission to top universities like Stanford and Vanderbilt." 
           />
           <Step 
             icon={AcademicCapIcon} 
-            title="Everything You Need Included" 
-            description="All subjects from kindergarten through 12th grade. Daily lesson plans, progress tracking, and detailed reports for parents." 
+            title="Complete K-12 Homeschool Curriculum" 
+            description="All subjects from kindergarten through 12th grade included. AI-generated daily lesson plans, real-time progress tracking, and detailed parent reports - everything homeschool families need." 
           />
         </div>
 
@@ -82,10 +82,10 @@ const Problem = () => {
         <div className="mt-16 lg:mt-24 text-center font-cal">
           <div className="bg-timeback-bg border-2 border-timeback-primary rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto">
             <h3 className="text-2xl lg:text-3xl font-bold text-timeback-primary mb-4 font-cal">
-              The Bottom Line
+              Why Choose AI-Powered Personalized Learning?
             </h3>
             <p className="text-lg lg:text-xl text-timeback-primary font-cal leading-relaxed">
-              Your child finishes all their school work in 2 hours instead of 8+ hours. They learn more, faster, and have time for family, sports, hobbies, and just being a kid.
+              Your child finishes all their homeschool curriculum in just 2 hours instead of 8+ hours with traditional schooling. They learn more, faster, achieve higher test scores, and have time for family, sports, hobbies, and just being a kid.
             </p>
           </div>
         </div>

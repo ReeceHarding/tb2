@@ -93,7 +93,7 @@ const Hero = () => {
             className="space-y-8 lg:space-y-10 text-center lg:text-left font-cal"
           >
             
-            {/* Headline with clean typography */}
+            {/* SEO-optimized headline with clean typography */}
             <motion.div 
               variants={heroContentVariants}
               custom={0.05}
@@ -103,10 +103,15 @@ const Hero = () => {
                 <span className="block mb-2">
                   What if your child could 
                 </span>
-                <span className="block min-h-[1.2em]">
+                <span className="block h-[2.4em] overflow-hidden">
                   <TypewriterText />
                 </span>
               </h1>
+              
+              {/* SEO-rich secondary headline */}
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-timeback-primary/90 font-cal max-w-4xl mx-auto lg:mx-0">
+                AI-Powered Personalized Learning Platform | Proven 99th Percentile Results in Just 2 Hours Daily
+              </h2>
             </motion.div>
 
             {/* Improved subheading with better spacing */}
@@ -115,12 +120,12 @@ const Hero = () => {
               custom={0.1}  // Reduced from 1.0s to 100ms stagger
               className="text-base sm:text-lg lg:text-xl text-timeback-primary leading-relaxed font-cal max-w-2xl mx-auto lg:mx-0 font-medium"
             >
-              We know it sounds impossible. That&apos;s what every parent thinks—until they see their child mastering 
-              two grade levels in one year, scoring in the top 1% nationally, and actually loving school. 
+              We know it sounds impossible. That&apos;s what every homeschool parent thinks—until they see their child mastering 
+              two grade levels in one year with our AI tutoring system, scoring in the 99th percentile on MAP tests, and actually loving their personalized learning experience. 
               <span className="block mt-3 font-bold font-cal flex items-center justify-center lg:justify-start gap-2">
                 Welcome to 
                 <SafeImage 
-                  alt="Timeback" 
+                  alt="TimeBack AI-powered personalized learning platform for homeschool families" 
                   src="/images/logos/BluetimeBackLogo.png" 
                   width={120} 
                   height={32} 

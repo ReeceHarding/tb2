@@ -310,10 +310,10 @@ const FeaturesListicle = () => {
           className="text-center mb-12 md:mb-20 font-cal"
         >
           <h2 className="font-extrabold text-3xl md:text-5xl tracking-tight mb-6 bg-gradient-to-r from-timeback-primary via-timeback-primary to-timeback-primary bg-clip-text text-transparent font-cal">
-            The Learning Science Behind TimeBack
+            AI Tutoring & Personalized Learning Science Behind TimeBack
           </h2>
           <p className="text-lg md:text-xl text-timeback-primary max-w-2xl mx-auto leading-relaxed font-cal">
-            Six research-proven learning theories transformed into AI-powered education
+            Six research-proven learning theories transformed into our adaptive AI-powered education platform for homeschool families
           </p>
         </motion.div>
 

@@ -3,6 +3,23 @@ import { authOptions } from "@/libs/next-auth";
 import { QuizProvider } from "@/components/quiz/QuizContext";
 import QuizFlow from "@/components/quiz/QuizFlow";
 import { Suspense } from "react";
+import { getSEOTags } from "@/libs/seo";
+
+export const metadata = getSEOTags({
+  title: "Find Your Perfect Homeschool Curriculum | TimeBack Learning Assessment",
+  description: "Discover how TimeBack's AI-powered personalized learning can help your child achieve 99th percentile performance. Take our free assessment to see how 2-hour school days transform education.",
+  keywords: [
+    "homeschool assessment",
+    "learning evaluation", 
+    "student placement test",
+    "personalized learning quiz",
+    "AI tutoring assessment",
+    "homeschool curriculum finder",
+    "educational assessment",
+    "learning style quiz"
+  ],
+  canonicalUrlRelative: "/quiz",
+});
 
 export const dynamic = "force-dynamic";
 

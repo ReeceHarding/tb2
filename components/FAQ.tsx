@@ -172,9 +172,9 @@ const FAQ = () => {
           initial="initial"
           viewport={{ once: true, margin: "-100px" }}
         >
-          <p className="inline-block font-semibold text-timeback-primary mb-4 font-cal">Your Questions Answered</p>
+          <p className="inline-block font-semibold text-timeback-primary mb-4 font-cal">AI Tutoring & Homeschool Questions Answered</p>
           <p className="sm:text-4xl text-3xl font-extrabold text-timeback-primary font-cal">
-            Everything you need to know about TimeBack education.
+            Everything you need to know about AI-powered personalized learning and homeschool curriculum.
           </p>
         </motion.div>
 
