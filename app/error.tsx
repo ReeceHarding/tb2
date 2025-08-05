@@ -131,11 +131,7 @@ export default function Error({
                   </details>
                 )}
               </div>
-            ) : (
-              <p className="text-sm md:text-base font-cal text-timeback-primary/70 bg-white/10 rounded-xl p-4 max-w-2xl mx-auto">
-                <strong>What happened:</strong> Something unexpected occurred while processing your request. Our team has been notified and we are working to resolve this issue quickly.
-              </p>
-            )}
+            ) : null}
           </div>
 
           {/* Action buttons */}
