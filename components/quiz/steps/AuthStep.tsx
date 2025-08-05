@@ -5,6 +5,7 @@ import { useSession, signIn } from 'next-auth/react';
 import { useQuiz } from '../QuizContext';
 import { AuthStepProps } from '@/types/quiz';
 import { motion, AnimatePresence } from 'framer-motion';
+import { requestThrottler } from '@/utils/debounce';
 
 export default function AuthStep({ onNext, quizData, generatedContent }: AuthStepProps) {
   const { state } = useQuiz();
@@ -68,16 +69,20 @@ export default function AuthStep({ onNext, quizData, generatedContent }: AuthSte
     console.log(`[AuthStep] ${saveTimestamp} Saving quiz data for user:`, session.user.email);
 
     try {
-      const response = await fetch('/api/quiz/save', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          quizData: dataToSave,
-          generatedContent: generatedContent || null
-        })
-      });
+      const response = await requestThrottler.throttleRequest(
+        `quiz-save-${session.user.email}`,
+        () => fetch('/api/quiz/save', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            quizData: dataToSave,
+            generatedContent: generatedContent || null
+          })
+        }),
+        10000 // 10 second timeout
+      );
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
