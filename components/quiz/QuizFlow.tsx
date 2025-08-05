@@ -63,9 +63,16 @@ export default function QuizFlow() {
   const { state, dispatch } = useQuiz();
   const canProceed = quizHelpers.canProceedToNextStep(state);
   
+  // Transition state management for downward scroll effect
+  const [isTransitioning, setIsTransitioning] = React.useState(false);
+  const [nextStepNumber, setNextStepNumber] = React.useState<number | null>(null);
+  const [transitionPhase, setTransitionPhase] = React.useState<'idle' | 'fadeOut' | 'scroll' | 'fadeIn'>('idle');
+  
   const renderCount = React.useRef(0);
   renderCount.current += 1;
   const timestamp = new Date().toISOString();
+
+  console.log(`[QuizFlow] ${timestamp} Transition State - isTransitioning: ${isTransitioning}, nextStep: ${nextStepNumber}, phase: ${transitionPhase}`);
 
   // Keep a mutable ref to always access the latest state inside callbacks to avoid stale closures
   const stateRef = React.useRef(state);
@@ -202,23 +209,29 @@ export default function QuizFlow() {
     return currentStep - 1; // Normal backwards progression
   }, [state.userType]);
 
-  // Navigation functions with validation and auto-scroll
+  // Enhanced nextStep function with downward scroll transition
   const nextStep = React.useCallback(() => {
     const navTimestamp = new Date().toISOString();
     const currentState = stateRef.current;
     const canProceedNow = quizHelpers.canProceedToNextStep(currentState);
 
-    console.log(`[QuizFlow] ${navTimestamp} nextStep() FUNCTION CALLED`);
+    console.log(`[QuizFlow] ${navTimestamp} nextStep() FUNCTION CALLED - Downward Scroll Transition`);
     console.log(`[QuizFlow] ${navTimestamp} Function closure captures - canProceed: ${canProceedNow}, currentStep: ${currentState.currentStep}, userType: ${currentState.userType}`);
+    console.log(`[QuizFlow] ${navTimestamp} Current transition state: isTransitioning=${isTransitioning}, phase=${transitionPhase}`);
     console.log(`[QuizFlow] ${navTimestamp} Full state in closure:`, {
       currentStep: currentState.currentStep,
       userType: currentState.userType,
       parentSubType: currentState.parentSubType,
       schoolSubType: currentState.schoolSubType,
       selectedSchools: currentState.selectedSchools.length,
-      // learningGoals: currentState.learningGoals.length, - removed
       kidsInterests: currentState.kidsInterests.length
     });
+
+    // Prevent multiple transitions
+    if (isTransitioning) {
+      console.log(`[QuizFlow] ${navTimestamp} Already transitioning - ignoring nextStep call`);
+      return;
+    }
 
     if (!canProceedNow) {
       console.log(`[QuizFlow] ${navTimestamp} BLOCKING NAVIGATION - validation failed`);
@@ -228,27 +241,26 @@ export default function QuizFlow() {
         parentSubType: currentState.parentSubType,
         schoolSubType: currentState.schoolSubType,
         selectedSchools: currentState.selectedSchools.length,
-        // learningGoals: currentState.learningGoals.length, - removed
         kidsInterests: currentState.kidsInterests.length
       });
       return;
     }
 
-    const nextStepNumber = getNextStep(currentState.currentStep);
-    console.log(`[QuizFlow] ${navTimestamp} PROCEEDING - Moving from step ${currentState.currentStep} to step: ${nextStepNumber}`);
+    const nextStepNum = getNextStep(currentState.currentStep);
+    console.log(`[QuizFlow] ${navTimestamp} PROCEEDING - Planning transition from step ${currentState.currentStep} to step: ${nextStepNum}`);
     
     // === CRITICAL STEP NAVIGATION LOGS - FOR LLM PARSING ===
-    if (nextStepNumber === 6) {
+    if (nextStepNum === 6) {
       console.log(`🚨 [CRITICAL-NAVIGATION] ${navTimestamp} *** NAVIGATING TO AUTHSTEP (STEP 6 - LOADING REMOVED) ***`);
       console.log(`🚨 [CRITICAL-NAVIGATION] ${navTimestamp} *** USER SHOULD NOW SEE AUTH PAGE ***`);
     }
     
-    if (currentState.currentStep === 5 && nextStepNumber === 6) {
+    if (currentState.currentStep === 5 && nextStepNum === 6) {
       console.log(`🚨 [CRITICAL-NAVIGATION] ${navTimestamp} *** TRANSITIONING FROM INTERESTS DIRECTLY TO AUTH (NO LOADING) ***`);
     }
     // === END CRITICAL NAVIGATION LOGS ===
 
-    if (nextStepNumber > quizHelpers.getTotalSteps()) {
+    if (nextStepNum > quizHelpers.getTotalSteps()) {
       // Quiz complete - user went past AuthStep, now redirect to personalized page
       console.log(`🚨 [CRITICAL-COMPLETION] ${navTimestamp} *** QUIZ COMPLETE - USER WENT PAST AUTHSTEP ***`);
       console.log(`🚨 [CRITICAL-COMPLETION] ${navTimestamp} *** THIS MEANS AUTH WAS HANDLED (SIGNED IN OR GUEST) ***`);
@@ -266,15 +278,34 @@ export default function QuizFlow() {
       console.log(`[QuizFlow] ${navTimestamp} Redirecting to personalized page`);
       window.location.href = '/personalized';
     } else {
-      console.log(`[QuizFlow] ${navTimestamp} Dispatching SET_STEP to step: ${nextStepNumber}`);
-      dispatch({ type: 'SET_STEP', step: nextStepNumber });
-      // Auto-scroll to top after step change
+      // Start the downward scroll transition
+      console.log(`[QuizFlow] ${navTimestamp} Starting downward scroll transition to step ${nextStepNum}`);
+      setIsTransitioning(true);
+      setNextStepNumber(nextStepNum);
+      setTransitionPhase('fadeOut');
+      
+      // Phase 1: Fade out current step (300ms)
       setTimeout(() => {
-        console.log(`[QuizFlow] ${navTimestamp} Auto-scrolling to top after step change`);
-        scrollToTop();
-      }, 100); // Small delay to ensure DOM update
+        console.log(`[QuizFlow] ${navTimestamp} Transition Phase 2: Scrolling down to next step`);
+        setTransitionPhase('scroll');
+        
+        // Phase 2: Scroll down to next component (400ms)
+        setTimeout(() => {
+          console.log(`[QuizFlow] ${navTimestamp} Transition Phase 3: Updating step state and fading in`);
+          setTransitionPhase('fadeIn');
+          dispatch({ type: 'SET_STEP', step: nextStepNum });
+          
+          // Phase 3: Fade in new step (300ms)
+          setTimeout(() => {
+            console.log(`[QuizFlow] ${navTimestamp} Transition completed - resetting transition state`);
+            setIsTransitioning(false);
+            setNextStepNumber(null);
+            setTransitionPhase('idle');
+          }, 300);
+        }, 400);
+      }, 300);
     }
-  }, [stateRef, dispatch, getNextStep]); // Include all dependencies
+  }, [stateRef, dispatch, getNextStep, isTransitioning, transitionPhase]); // Include all dependencies
 
   const prevStep = React.useCallback(() => {
     const navTimestamp = new Date().toISOString();
@@ -298,46 +329,48 @@ export default function QuizFlow() {
     }
   }, [stateRef, dispatch, getPrevStep]);
 
-  // Get current step component
-  const getCurrentStepComponent = () => {
+  // Helper function to render any step component by step number
+  const renderStepComponent = (stepNumber: number, isNextStep: boolean = false) => {
     const compTimestamp = new Date().toISOString();
-    console.log(`[QuizFlow] ${compTimestamp} Getting component for step: ${state.currentStep}`);
-    console.log(`[QuizFlow] ${compTimestamp} Creating component with nextStep callback created at render #${renderCount.current}`);
+    console.log(`[QuizFlow] ${compTimestamp} Rendering step component for step: ${stepNumber}, isNextStep: ${isNextStep}`);
     
-    switch (state.currentStep) {
+    // For next step components, we use a different callback to prevent double navigation
+    const stepNextCallback = isNextStep ? () => {
+      console.log(`[QuizFlow] ${compTimestamp} Next step component clicked - ignoring (transition in progress)`);
+    } : nextStep;
+    
+    const stepPrevCallback = isNextStep ? () => {
+      console.log(`[QuizFlow] ${compTimestamp} Next step component prev clicked - ignoring (transition in progress)`);
+    } : prevStep;
+    
+    switch (stepNumber) {
       case 0:
-        console.log(`[QuizFlow] ${compTimestamp} Rendering QuizIntro with nextStep callback`);
-        return <QuizIntro onNext={nextStep} />;
+        console.log(`[QuizFlow] ${compTimestamp} Rendering QuizIntro with callbacks`);
+        return <QuizIntro onNext={stepNextCallback} />;
       case 1:
-        console.log(`[QuizFlow] ${compTimestamp} Rendering UserTypeStep with nextStep callback (auto-advance)`);
-        return <UserTypeStep onNext={nextStep} onPrev={prevStep} />;
+        console.log(`[QuizFlow] ${compTimestamp} Rendering UserTypeStep with callbacks`);
+        return <UserTypeStep onNext={stepNextCallback} onPrev={stepPrevCallback} />;
       case 2:
-        console.log(`[QuizFlow] ${compTimestamp} Rendering ParentSubTypeStep with nextStep callback (auto-advance)`);
-        // ParentSubTypeStep is only shown for parents
-        return <ParentSubTypeStep onNext={nextStep} onPrev={prevStep} />;
+        console.log(`[QuizFlow] ${compTimestamp} Rendering ParentSubTypeStep with callbacks`);
+        return <ParentSubTypeStep onNext={stepNextCallback} onPrev={stepPrevCallback} />;
       case 3:
-        console.log(`[QuizFlow] ${compTimestamp} Rendering GradeSelectionStep with nextStep callback (auto-advance)`);
-        return <GradeSelectionStep onNext={nextStep} onPrev={prevStep} />;
+        console.log(`[QuizFlow] ${compTimestamp} Rendering GradeSelectionStep with callbacks`);
+        return <GradeSelectionStep onNext={stepNextCallback} onPrev={stepPrevCallback} />;
       case 4:
-        console.log(`[QuizFlow] ${compTimestamp} Rendering SchoolSearchStep with nextStep callback (auto-advance)`);
-        return <SchoolSearchStep onNext={nextStep} onPrev={prevStep} />;
-      // case 5: - removed LearningGoalsStep
-        // console.log(`[QuizFlow] ${compTimestamp} Rendering LearningGoalsStep with nextStep/prevStep callbacks`);
-        // return <LearningGoalsStep onNext={nextStep} onPrev={prevStep} />;
+        console.log(`[QuizFlow] ${compTimestamp} Rendering SchoolSearchStep with callbacks`);
+        return <SchoolSearchStep onNext={stepNextCallback} onPrev={stepPrevCallback} />;
       case 5:
-        console.log(`[QuizFlow] ${compTimestamp} Rendering InterestsStep (auto-advance to Auth)`);
-        return <InterestsStep onNext={nextStep} onPrev={prevStep} />;
+        console.log(`[QuizFlow] ${compTimestamp} Rendering InterestsStep with callbacks`);
+        return <InterestsStep onNext={stepNextCallback} onPrev={stepPrevCallback} />;
       case 6:
         console.log(`🚨 [CRITICAL-QUIZ-FLOW] ${compTimestamp} *** AUTHSTEP REACHED - STEP 6 (LOADING REMOVED) ***`);
-        console.log(`🚨 [CRITICAL-QUIZ-FLOW] ${compTimestamp} *** THIS IS THE FINAL STEP BEFORE COMPLETION ***`);
-        console.log(`🚨 [CRITICAL-QUIZ-FLOW] ${compTimestamp} *** AUTHSTEP SHOULD NOW BE VISIBLE ***`);
-        console.log(`[QuizFlow] ${compTimestamp} Rendering AuthStep with nextStep/prevStep callbacks`);
-        return <AuthStep onNext={nextStep} onPrev={prevStep} />;
+        console.log(`[QuizFlow] ${compTimestamp} Rendering AuthStep with callbacks`);
+        return <AuthStep onNext={stepNextCallback} onPrev={stepPrevCallback} />;
       default:
-        console.error(`[QuizFlow] ${compTimestamp} UNKNOWN STEP ERROR:`, state.currentStep);
+        console.error(`[QuizFlow] ${compTimestamp} UNKNOWN STEP ERROR:`, stepNumber);
         return (
           <div className="text-center py-8 font-cal">
-            <p className="text-timeback-primary font-cal">Error: Unknown quiz step</p>
+            <p className="text-timeback-primary font-cal">Error: Unknown quiz step {stepNumber}</p>
             <button 
               onClick={() => {
                 console.log(`[QuizFlow] ${compTimestamp} Resetting quiz due to unknown step error`);
@@ -350,6 +383,56 @@ export default function QuizFlow() {
           </div>
         );
     }
+  };
+
+  // Get current step component (legacy wrapper for backward compatibility)
+  const getCurrentStepComponent = () => {
+    return renderStepComponent(state.currentStep, false);
+  };
+
+  // Enhanced rendering logic for downward scroll transitions
+  const renderTransitionComponents = () => {
+    const renderTimestamp = new Date().toISOString();
+    console.log(`[QuizFlow] ${renderTimestamp} Rendering transition components - Phase: ${transitionPhase}, isTransitioning: ${isTransitioning}`);
+    
+    if (!isTransitioning || transitionPhase === 'idle') {
+      // Normal single component rendering
+      console.log(`[QuizFlow] ${renderTimestamp} Normal rendering - single component for step ${state.currentStep}`);
+      return renderStepComponent(state.currentStep, false);
+    }
+    
+    // During transition, render both current and next components vertically
+    console.log(`[QuizFlow] ${renderTimestamp} Transition rendering - current step: ${state.currentStep}, next step: ${nextStepNumber}`);
+    
+    const currentOpacity = transitionPhase === 'fadeOut' ? 0.3 : (transitionPhase === 'scroll' ? 0.1 : 1);
+    const nextOpacity = transitionPhase === 'fadeIn' ? 1 : 0.1;
+    
+    return (
+      <div className="space-y-8">
+        {/* Current step component with fade out */}
+        <div 
+          className="transition-opacity duration-300"
+          style={{ opacity: currentOpacity }}
+        >
+          <div className="bg-white rounded-3xl shadow-2xl border-2 border-timeback-primary p-8 lg:p-12">
+            {renderStepComponent(state.currentStep, false)}
+          </div>
+        </div>
+        
+        {/* Next step component with fade in */}
+        {nextStepNumber !== null && (
+          <div 
+            id="next-step-component"
+            className="transition-opacity duration-300"
+            style={{ opacity: nextOpacity }}
+          >
+            <div className="bg-white rounded-3xl shadow-2xl border-2 border-timeback-primary p-8 lg:p-12">
+              {renderStepComponent(nextStepNumber, true)}
+            </div>
+          </div>
+        )}
+      </div>
+    );
   };
 
   // Enhanced step transition animation variants for professional feel

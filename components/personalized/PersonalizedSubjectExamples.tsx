@@ -79,6 +79,9 @@ export default function PersonalizedSubjectExamples({ interests = [], onLearnMor
   const [interestsPreview, setInterestsPreview] = useState<string>('');
   const [isPreviewLoading, setIsPreviewLoading] = useState(true);
   
+  // Ref for auto-scrolling chat messages
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  
 
   console.log('[PersonalizedSubjectExamples] Rendering with interests:', interests);
   console.log('[PersonalizedSubjectExamples] Pre-generated content available:', {
@@ -295,6 +298,11 @@ Example outputs for different interests:
     }
   }, [interests, generateQuestion, loadingStates, questions]);
 
+  // Auto-scroll to bottom when new messages arrive
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [questionResponses, isQuestionLoading]);
+
   const handleTabChange = (subjectId: string) => {
     console.log(`[PersonalizedSubjectExamples] Switching to ${subjectId} tab`);
     setActiveTab(subjectId);
@@ -313,6 +321,12 @@ Example outputs for different interests:
     
     const userQuestion = questionInput.trim();
     console.log('[PersonalizedSubjectExamples] Processing new question:', userQuestion);
+    
+    // Add user question to chat immediately
+    setQuestionResponses(prev => [...prev, {
+      question: userQuestion,
+      answer: ''
+    }]);
     
     setQuestionInput('');
     setIsQuestionLoading(true);
@@ -381,33 +395,27 @@ Example outputs for different interests:
       console.log('[PersonalizedSubjectExamples] Full response received:', fullResponse.length, 'characters');
 
       if (fullResponse) {
-        // Create a new question data structure from the AI response
-        const newQuestionData: QuestionData = {
-          question: userQuestion,
-          solution: fullResponse,
-          learningObjective: `Exploring ${activeTab} through your question`,
-          interestConnection: `Connected to ${interests[0] || 'your interests'}`,
-          nextSteps: `Continue exploring ${activeTab} concepts`
-        };
-        
-        // Replace the current question with the new one
-        setQuestions(prev => ({ ...prev, [activeTab]: newQuestionData }));
-        setShowSolution(prev => ({ ...prev, [activeTab]: true })); // Auto-show the response
+        // Update the last question response with the AI answer
+        setQuestionResponses(prev => {
+          const updated = [...prev];
+          if (updated.length > 0) {
+            updated[updated.length - 1].answer = fullResponse;
+          }
+          return updated;
+        });
       } else {
         throw new Error('No response content received');
       }
     } catch (error) {
       console.error('[PersonalizedSubjectExamples] Error with question:', error);
-      // Show error in the computer interface
-      const errorQuestionData: QuestionData = {
-        question: userQuestion,
-        solution: 'I apologize, but I encountered an error processing your question. Please try asking again.',
-        learningObjective: `${activeTab} question`,
-        interestConnection: `Related to ${interests[0] || 'your interests'}`,
-        nextSteps: 'Try asking your question again'
-      };
-      setQuestions(prev => ({ ...prev, [activeTab]: errorQuestionData }));
-      setShowSolution(prev => ({ ...prev, [activeTab]: true }));
+      // Update the last question response with error message
+      setQuestionResponses(prev => {
+        const updated = [...prev];
+        if (updated.length > 0) {
+          updated[updated.length - 1].answer = 'I apologize, but I encountered an error processing your question. Please try asking again.';
+        }
+        return updated;
+      });
     } finally {
       setIsQuestionLoading(false);
     }
@@ -624,6 +632,7 @@ Example outputs for different interests:
                         </div>
                       </div>
                     )}
+                    <div ref={messagesEndRef} />
                   </div>
 
                   {/* Input Area - Bottom Position (ChatGPT Style) */}
