@@ -15,12 +15,12 @@ interface FAQItemProps {
 
 const faqList: FAQItemProps[] = [
   {
-    question: "How can kids really learn 2x faster?",
+    question: "How does AI tutoring help children learn 2x faster than traditional school?",
     answer: (
       <div className="space-y-2 leading-relaxed">
-        <p>This approach is based on 40+ years of learning science research, particularly Benjamin Bloom&#39;s 2 Sigma Problem, which found that students with 1:1 tutoring perform two standard deviations better than traditional classroom students.</p>
-        <p>Traditional classrooms can&#39;t provide 1:1 tutoring or true mastery-based learning. Our AI tutors can. When children get personalized instruction at their exact level and master each concept before moving on, they naturally learn much faster.</p>
-        <p>Our MAP test scores prove it: children average in the top 1-2% nationally across all subjects. These are standardized tests taken by millions—the results are real and verified.</p>
+        <p>This approach is based on 40+ years of learning science research, particularly Benjamin Bloom&#39;s 2 Sigma Problem, which found that students with 1:1 AI tutoring perform two standard deviations better than traditional classroom students.</p>
+        <p>Traditional classrooms can&#39;t provide personalized learning or true mastery-based education. Our AI tutors can. When children get adaptive learning instruction at their exact level and master each concept before moving on, they naturally learn much faster.</p>
+        <p>Our MAP test scores prove it: children average in the 99th percentile nationally across all subjects. These are standardized tests taken by millions—the results are real and verified.</p>
       </div>
     ),
   },
@@ -35,12 +35,12 @@ const faqList: FAQItemProps[] = [
     ),
   },
   {
-    question: "How does it work without teachers?",
+    question: "How does AI-powered homeschool curriculum work without traditional teachers?",
     answer: (
       <div className="space-y-2 leading-relaxed">
-        <p>We don&#39;t have traditional teachers lecturing at the front of a classroom—we have something better: Guides who mentor and motivate.</p>
-        <p>Each child works with an AI tutor that provides personalized 1:1 instruction, instantly identifying and addressing learning gaps. The AI never gets frustrated, never judges, and adapts perfectly to each child&#39;s pace.</p>
-        <p>Our human Guides focus on what humans do best: inspiring, encouraging, and helping students develop as whole people. They&#39;re there for emotional support, motivation, and ensuring every child becomes a confident, self-driven learner.</p>
+        <p>We don&#39;t have traditional teachers lecturing at the front of a classroom—we have something better: AI tutors combined with human Guides who mentor and motivate.</p>
+        <p>Each child works with a personalized AI tutor that provides adaptive 1:1 instruction, instantly identifying and addressing learning gaps. The AI never gets frustrated, never judges, and adapts perfectly to each child&#39;s learning pace and style.</p>
+        <p>Our human Guides focus on what humans do best: inspiring, encouraging, and helping students develop as whole people. They&#39;re there for emotional support, motivation, and ensuring every child becomes a confident, self-driven learner in our homeschool environment.</p>
       </div>
     ),
   },

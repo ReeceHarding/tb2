@@ -318,11 +318,11 @@ const Testimonials3 = () => {
         >
           <div className="mb-8">
             <h2 className="sm:text-5xl text-4xl font-extrabold text-timeback-primary font-cal">
-              Families are transforming their children&apos;s education
+              Real Homeschool Families Using AI-Powered Personalized Learning
             </h2>
           </div>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-timeback-primary/80 font-cal">
-            They got their lives back, and their kids are thriving like never before!
+            See how families transformed their children&apos;s education with TimeBack&apos;s AI tutoring system - achieving 99th percentile results in just 2 hours daily!
           </p>
         </motion.div>
 
@@ -351,10 +351,10 @@ const Testimonials3 = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           <h3 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">
-            What Parents & Educators Are Saying
+            AI Tutoring Success Stories: What Homeschool Parents & Educators Are Saying
           </h3>
           <p className="text-timeback-primary/70 font-cal">
-            Media coverage and parent feedback about educational transformation
+            Real testimonials about personalized learning transformation and academic achievement
           </p>
         </motion.div>
 

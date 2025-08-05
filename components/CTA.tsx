@@ -39,17 +39,15 @@ const CTA = () => {
             className="font-bold text-3xl md:text-5xl tracking-tight mb-8 md:mb-12 font-cal text-timeback-primary leading-tight"
             variants={animationVariants.fadeInUp}
           >
-            Skeptical Your Child Can Learn <br />
-            2x Faster in Just 2 Hours?
+            Ready to See How AI Tutoring Can Help Your Child <br />
+            Achieve 99th Percentile Results in Just 2 Hours?
           </motion.h2>
           
           <motion.p 
             className="text-lg mb-12 md:mb-16 max-w-2xl font-cal text-timeback-primary leading-relaxed"
             variants={animationVariants.fadeInUp}
           >
-            We know it sounds too good to be true. Let TimeBack&apos;s AI create a personalized mockup 
-            showing exactly what questions we would ask your child and how our adaptive learning system 
-            works in practice.
+            Experience our AI-powered personalized learning platform firsthand. See exactly how our homeschool curriculum adapts to your child&apos;s needs and why Alpha School students consistently achieve 99th percentile MAP test scores with just 2 hours of daily study.
           </motion.p>
 
           <motion.div 

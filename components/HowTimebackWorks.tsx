@@ -189,11 +189,11 @@ const HowTimebackWorks: React.FC = React.memo(() => {
             id="how-timeback-works-heading"
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight mb-8 text-timeback-primary font-cal leading-tight"
           >
-            How Timeback Works
+            How AI-Powered Personalized Learning Works
           </h2>
           
           <p className="max-w-4xl mx-auto text-xl sm:text-2xl lg:text-3xl text-timeback-primary leading-relaxed font-cal font-medium">
-            AI-powered learning system that helps children complete grade levels in 80 days with just 2 hours of daily study.
+            Our adaptive AI tutoring system helps homeschool children achieve mastery-based learning and complete grade levels in 80 days with just 2 hours of daily study.
           </p>
         </motion.header>
 
@@ -277,11 +277,11 @@ const HowTimebackWorks: React.FC = React.memo(() => {
             id="schools-using-timeback-heading"
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight mb-8 text-timeback-primary font-cal leading-tight"
           >
-            Schools Using Timeback
+            Schools & Homeschool Programs Using AI Tutoring
           </h2>
           
           <p className="max-w-4xl mx-auto text-xl sm:text-2xl lg:text-3xl text-timeback-primary leading-relaxed font-cal font-medium">
-            Join the innovative schools already transforming education with AI-powered learning.
+            Join the innovative schools and homeschool families already achieving 99th percentile results with our AI-powered personalized learning system.
           </p>
         </motion.header>
 
