@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
+import SchoolFinder from '@/components/quiz/steps/SchoolFinder';
 
-// School Search Component
+// School Search Component - Using Quiz SchoolFinder with proper search prompts
 export function SchoolSearchCollector({ 
   onNext, 
   onPrev 
@@ -10,111 +11,57 @@ export function SchoolSearchCollector({
   onNext: (schools: any[]) => void;
   onPrev: () => void;
 }) {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState<any[]>([]);
-  const [isSearching, setIsSearching] = useState(false);
   const [selectedSchool, setSelectedSchool] = useState<any>(null);
-  const [error, setError] = useState<string | null>(null);
 
-  const searchSchools = async () => {
-    if (!searchQuery.trim()) return;
-    
-    setIsSearching(true);
-    setError(null);
-    
-    try {
-      const response = await fetch(`/api/schools/search?q=${encodeURIComponent(searchQuery)}&limit=10`);
-      if (!response.ok) {
-        throw new Error('Failed to search schools');
-      }
-      
-      const data = await response.json();
-      setSearchResults(data.schools || []);
-    } catch (err) {
-      console.error('School search error:', err);
-      setError('Failed to search schools. Please try again.');
-      setSearchResults([]);
-    } finally {
-      setIsSearching(false);
-    }
-  };
-
-  const handleSelectSchool = (school: any) => {
+  const handleSchoolSelect = (school: any) => {
+    console.log('💠 [SchoolSearchCollector] School selected:', school);
     setSelectedSchool(school);
     onNext([school]);
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 backdrop-blur-md bg-white/10 rounded-xl shadow-lg border-2 border-timeback-primary">
-      <h2 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">
-        Which school does your child attend?
-      </h2>
-      
-      <div className="space-y-4">
-        <div className="flex gap-2">
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyPress={(e) => {
-              if (e.key === 'Enter') {
-                searchSchools();
-              }
-            }}
-            placeholder="Search by school name or location..."
-            className="flex-1 px-4 py-2 border-2 border-timeback-primary rounded-xl focus:outline-none focus:ring-2 focus:ring-timeback-bg font-cal"
-          />
-          <button
-            onClick={searchSchools}
-            disabled={isSearching || !searchQuery.trim()}
-            className="px-6 py-2 bg-timeback-primary text-white rounded-xl font-bold hover:bg-opacity-90 disabled:opacity-50 transition-all font-cal"
-          >
-            {isSearching ? 'Searching...' : 'Search'}
-          </button>
-        </div>
-
-        {error && (
-          <p className="text-red-600 text-sm font-cal">{error}</p>
-        )}
-
-        {searchResults.length > 0 && (
-          <div className="space-y-2 max-h-96 overflow-y-auto">
-            {searchResults.map((school) => (
-              <button
-                key={school.id}
-                onClick={() => handleSelectSchool(school)}
-                className="w-full text-left p-4 border-2 border-timeback-primary rounded-xl hover:bg-timeback-bg transition-all font-cal"
-              >
-                <div className="font-bold text-timeback-primary">{school.name}</div>
-                <div className="text-sm text-timeback-primary opacity-75">
-                  {school.city}, {school.state} • {school.level}
-                </div>
-              </button>
-            ))}
-          </div>
-        )}
-
-        {searchResults.length === 0 && searchQuery && !isSearching && (
-          <p className="text-timeback-primary opacity-75 text-center py-4 font-cal">
-            No schools found. Try a different search term.
+    <div className="space-y-6">
+      {/* Custom header to match data collection flow */}
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white rounded-xl border border-timeback-primary p-6">
+          <h2 className="text-2xl font-bold text-timeback-primary mb-2 font-cal">
+            Which school does your child attend?
+          </h2>
+          <p className="text-timeback-primary font-cal mb-4">
+            Search for your child&apos;s school to get personalized insights about TimeBack learning opportunities.
           </p>
-        )}
+        </div>
       </div>
 
-      <div className="mt-6 flex justify-between">
-        <button
-          onClick={onPrev}
-          className="px-6 py-2 border-2 border-timeback-primary text-timeback-primary rounded-xl font-bold hover:bg-timeback-bg transition-all font-cal"
-        >
-          Back
-        </button>
-        
-        <button
-          onClick={() => onNext([])}
-          className="px-6 py-2 text-timeback-primary underline font-cal"
-        >
-          Skip for now
-        </button>
+      {/* Use the quiz SchoolFinder component */}
+      <SchoolFinder onSchoolSelect={handleSchoolSelect} />
+
+      {/* Action buttons to match data collection flow */}
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white rounded-xl border border-timeback-primary p-6">
+          <div className="flex flex-col sm:flex-row gap-4 justify-between items-center">
+            <div className="text-sm text-timeback-primary font-cal">
+              {selectedSchool 
+                ? `Selected: ${selectedSchool.name}`
+                : 'Select a school above to continue, or skip to explore other options.'
+              }
+            </div>
+            <div className="flex gap-3">
+              <button
+                onClick={onPrev}
+                className="px-6 py-2 border border-timeback-primary text-timeback-primary rounded-xl hover:bg-timeback-bg transition-colors font-cal"
+              >
+                Back
+              </button>
+              <button
+                onClick={() => onNext([])}
+                className="px-6 py-2 text-timeback-primary underline font-cal"
+              >
+                Skip for now
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
