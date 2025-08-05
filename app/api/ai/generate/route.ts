@@ -1,62 +1,52 @@
-import OpenAI from 'openai';
-import { safeBedrockAPI } from './bedrock-helpers';
 
-// Log timestamps for debugging
+import { NextRequest, NextResponse } from 'next/server';
+import OpenAI from 'openai';
+import { safeBedrockAPI } from '@/libs/bedrock-helpers';
+
 const log = (message: string, data?: any) => {
   const timestamp = new Date().toISOString();
-  console.log(`[CerebrasClient] ${timestamp} ${message}`, data || '');
+  console.log(`[AI-GENERATE-API] ${timestamp} ${message}`, data || '');
 };
 
-// Initialize Cerebras client (uses OpenAI-compatible API)
 const cerebrasClient = new OpenAI({
   apiKey: process.env.CEREBRAS_API_KEY || '',
   baseURL: 'https://api.cerebras.ai/v1',
 });
 
-// Initialize OpenAI client as fallback
 const openaiClient = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || '',
 });
 
-export interface GenerateContentOptions {
+interface GenerateContentOptions {
   prompt: string;
   maxTokens?: number;
   temperature?: number;
   systemPrompt?: string;
-  stream?: boolean;
 }
 
-export interface GenerateContentResponse {
+interface GenerateContentResponse {
   content: string;
   provider: 'cerebras' | 'bedrock' | 'openai';
   latencyMs: number;
   tokenCount?: number;
 }
 
-/**
- * Generate content using Cerebras with automatic fallback to AWS Bedrock and OpenAI
- * This implements the fallback chain: Cerebras → AWS Bedrock (Claude) → OpenAI GPT-4 Turbo
- */
-export async function generateContent(options: GenerateContentOptions): Promise<GenerateContentResponse> {
+async function generateContent(options: GenerateContentOptions): Promise<GenerateContentResponse> {
   const startTime = Date.now();
   
   log('Starting content generation with options:', {
     promptLength: options.prompt.length,
     maxTokens: options.maxTokens,
     temperature: options.temperature,
-    stream: options.stream
   });
 
-  // First, try Cerebras (fastest inference) with direct API call
   try {
     log('Attempting generation with Cerebras (direct API)...');
     
     const messages = [];
-    
     if (options.systemPrompt) {
       messages.push({ role: 'system', content: options.systemPrompt });
     }
-    
     messages.push({ role: 'user', content: options.prompt });
     
     const response = await fetch('https://api.cerebras.ai/v1/chat/completions', {
@@ -66,7 +56,7 @@ export async function generateContent(options: GenerateContentOptions): Promise<
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'qwen-3-235b-a22b-instruct-2507', // Using the latest Qwen3 235B model
+        model: 'qwen-3-235b-a22b-instruct-2507',
         messages,
         max_tokens: options.maxTokens || 40000,
         temperature: options.temperature || 0.7
@@ -79,12 +69,6 @@ export async function generateContent(options: GenerateContentOptions): Promise<
     }
 
     const completion = await response.json();
-
-    if (options.stream) {
-      // For streaming responses, we'd need to handle differently
-      // For now, we'll throw to use non-streaming fallback
-      throw new Error('Streaming not yet implemented for Cerebras');
-    }
 
     const content = completion.choices[0]?.message?.content || '';
     const latencyMs = Date.now() - startTime;
@@ -100,7 +84,6 @@ export async function generateContent(options: GenerateContentOptions): Promise<
   } catch (cerebrasError) {
     log('Cerebras failed, falling back to AWS Bedrock', cerebrasError);
     
-    // Second, try AWS Bedrock with Claude
     try {
       const bedrockStartTime = Date.now();
       
@@ -125,7 +108,6 @@ export async function generateContent(options: GenerateContentOptions): Promise<
     } catch (bedrockError) {
       log('Bedrock failed, falling back to OpenAI', bedrockError);
       
-      // Final fallback to OpenAI GPT-4 Turbo
       try {
         const openaiStartTime = Date.now();
         
@@ -142,12 +124,8 @@ export async function generateContent(options: GenerateContentOptions): Promise<
           messages,
           max_tokens: options.maxTokens || 4096,
           temperature: options.temperature || 0.7,
-          stream: false, // Always false for now
+          stream: false,
         });
-
-        if (options.stream) {
-          throw new Error('Streaming not yet implemented for OpenAI fallback');
-        }
 
         const content = completion.choices[0]?.message?.content || '';
         const latencyMs = Date.now() - openaiStartTime;
@@ -168,80 +146,23 @@ export async function generateContent(options: GenerateContentOptions): Promise<
   }
 }
 
-/**
- * Stream content generation with Cerebras (with fallback support)
- * Returns an async generator that yields content chunks
- */
-export async function* streamContent(options: GenerateContentOptions): AsyncGenerator<string> {
-  log('Starting streaming content generation...');
-  
+export async function POST(req: NextRequest) {
   try {
-    // Try Cerebras streaming first
-    const messages: OpenAI.Chat.ChatCompletionMessageParam[] = [];
-    
-    if (options.systemPrompt) {
-      messages.push({ role: 'system', content: options.systemPrompt });
-    }
-    
-    messages.push({ role: 'user', content: options.prompt });
-    
-    const stream = await cerebrasClient.chat.completions.create({
-      model: 'qwen-3-235b-a22b-instruct-2507',
-      messages,
-      max_tokens: options.maxTokens || 40000,
-      temperature: options.temperature || 0.7,
-      stream: true,
-    });
+    const body = await req.json();
+    log('Received request with body:', body);
 
-    for await (const chunk of stream) {
-      const content = chunk.choices[0]?.delta?.content || '';
-      if (content) {
-        yield content;
-      }
+    const { prompt, maxTokens, temperature, systemPrompt } = body;
+
+    if (!prompt) {
+      return NextResponse.json({ error: 'Prompt is required' }, { status: 400 });
     }
-    
-    log('Cerebras streaming completed successfully');
+
+    const result = await generateContent({ prompt, maxTokens, temperature, systemPrompt });
+
+    return NextResponse.json(result);
   } catch (error) {
-    log('Cerebras streaming failed, using non-streaming fallback', error);
-    
-    // Fallback to non-streaming generation
-    const response = await generateContent({ ...options, stream: false });
-    
-    // Simulate streaming by yielding chunks
-    const chunkSize = 10; // Characters per chunk
-    for (let i = 0; i < response.content.length; i += chunkSize) {
-      yield response.content.slice(i, i + chunkSize);
-      // Small delay to simulate streaming
-      await new Promise(resolve => setTimeout(resolve, 10));
-    }
+    log('API route error', error);
+    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+    return NextResponse.json({ error: 'Failed to generate content', details: errorMessage }, { status: 500 });
   }
 }
-
-/**
- * Pre-generate content for multiple prompts in parallel
- * Used for optimistic content generation
- */
-export async function preGenerateContent(
-  prompts: GenerateContentOptions[]
-): Promise<GenerateContentResponse[]> {
-  log(`Pre-generating content for ${prompts.length} prompts...`);
-  
-  const startTime = Date.now();
-  
-  // Generate all content in parallel
-  const results = await Promise.all(
-    prompts.map(prompt => generateContent(prompt))
-  );
-  
-  const totalLatency = Date.now() - startTime;
-  log(`Pre-generation completed in ${totalLatency}ms for ${prompts.length} prompts`);
-  
-  return results;
-}
-
-// Export a singleton instance for easy use
-export const cerebras = {
-  generateContent,
-  streamContent,
-  preGenerateContent,
-};

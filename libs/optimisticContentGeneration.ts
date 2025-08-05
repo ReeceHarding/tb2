@@ -1,5 +1,3 @@
-import { cerebras } from './cerebras';
-
 // Log timestamps for debugging
 const log = (message: string, data?: any) => {
   const timestamp = new Date().toISOString();
@@ -133,26 +131,38 @@ const generateSectionContent = async (
       contentCache.generationStatus[sectionId as keyof ContentGenerationStatus] = 'generating';
     }
 
-    // Generate content using Cerebras with fallback chain
-    const response = await cerebras.generateContent({
-      prompt,
-      systemPrompt: 'You are an expert educational content generator. Generate engaging, personalized content that speaks directly to parents about their child\'s education. Always respond with valid JSON only, no additional text.',
-      maxTokens: 2000,
-      temperature: 0.8
+    const response = await fetch('/api/ai/generate', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            prompt,
+            systemPrompt: 'You are an expert educational content generator. Generate engaging, personalized content that speaks directly to parents about their child\'s education. Always respond with valid JSON only, no additional text.',
+            maxTokens: 2000,
+            temperature: 0.8
+        }),
     });
 
+    if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to generate content');
+    }
+
+    const result = await response.json();
+
     log(`Generated content for ${sectionId}`, {
-      provider: response.provider,
-      latencyMs: response.latencyMs
+      provider: result.provider,
+      latencyMs: result.latencyMs
     });
 
     // Parse the JSON response
     let parsedContent;
     try {
-      parsedContent = JSON.parse(response.content);
+      parsedContent = JSON.parse(result.content);
     } catch (parseError) {
       log(`Failed to parse JSON for ${sectionId}, using raw content`, parseError);
-      parsedContent = { rawContent: response.content };
+      parsedContent = { rawContent: result.content };
     }
 
     // Cache the content
@@ -248,22 +258,33 @@ export const prefetchFollowUpContent = async (
 ): Promise<void> => {
   log(`Pre-fetching follow-up content for section: ${sectionId}`);
 
-  // This would generate follow-up questions based on the section
-  // Implementation depends on the specific follow-up question logic
   try {
     const prompt = `Generate 3 follow-up questions for the ${sectionId} section.
 Context: ${JSON.stringify(context)}
 Format as JSON array of questions with engaging text.`;
 
-    const response = await cerebras.generateContent({
-      prompt,
-      maxTokens: 1000,
-      temperature: 0.9
+    const response = await fetch('/api/ai/generate', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            prompt,
+            maxTokens: 1000,
+            temperature: 0.9,
+        }),
     });
 
+    if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to prefetch content');
+    }
+    const result = await response.json();
+
+
     log(`Pre-fetched follow-up content for ${sectionId}`, {
-      provider: response.provider,
-      latencyMs: response.latencyMs
+      provider: result.provider,
+      latencyMs: result.latencyMs
     });
 
     // Store in a separate follow-up cache if needed

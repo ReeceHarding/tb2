@@ -1,4 +1,4 @@
-import { cerebras } from '@/libs/cerebras';
+
 import { z } from 'zod';
 
 export const dynamic = 'force-dynamic';
@@ -70,6 +70,29 @@ const AfternoonContentSchema = z.object({
     timeback: z.string().describe('Custom description of TimeBack time freedom')
   })
 });
+
+async function callGenerateAPI(prompt: string, systemPrompt: string) {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/ai/generate`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            prompt,
+            systemPrompt,
+            maxTokens: 2000,
+            temperature: 0.7,
+        }),
+    });
+
+    if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`[generate-afternoon-content] AI generation API failed with status ${response.status}: ${errorText}`);
+        throw new Error(`AI generation failed: ${errorText}`);
+    }
+
+    return response.json();
+}
 
 export async function POST(request: Request) {
   console.log('[generate-afternoon-content] Processing request');
@@ -148,7 +171,7 @@ Make the content feel personal and achievable, showing clear steps from where th
 
       console.log('[generate-afternoon-content] Calling AI with prompt length:', prompt.length);
 
-      // Generate the structured content using Cerebras with fallback
+      // Generate the structured content using the new API endpoint
       const systemPrompt = `You are an expert JSON generator. You must respond with valid JSON that matches the required schema exactly. Do not include any explanation or text outside the JSON object.`;
       
       const structuredPrompt = `${prompt}
@@ -157,12 +180,7 @@ ${JSON.stringify(AfternoonContentSchema.shape, null, 2)}
 
 Please respond with a JSON object that matches this exact schema.`;
       
-      const response = await cerebras.generateContent({
-        prompt: structuredPrompt,
-        systemPrompt: systemPrompt,
-        maxTokens: 2000,
-        temperature: 0.7,
-      });
+      const response = await callGenerateAPI(structuredPrompt, systemPrompt);
       
       console.log('[generate-afternoon-content] Using provider:', response.provider);
       console.log('[generate-afternoon-content] Generation latency:', response.latencyMs, 'ms');

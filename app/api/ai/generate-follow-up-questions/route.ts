@@ -1,8 +1,31 @@
+
 import { NextRequest, NextResponse } from 'next/server';
 import { withLLMTracking } from '@/libs/llm-analytics';
-import { cerebras } from '@/libs/cerebras';
 
 export const dynamic = 'force-dynamic';
+
+async function callGenerateAPI(prompt: string, systemPrompt: string) {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/ai/generate`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            prompt,
+            systemPrompt,
+            maxTokens: 1000,
+            temperature: 0.7
+        }),
+    });
+
+    if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`[Generate Follow-up Questions API] AI generation API failed with status ${response.status}: ${errorText}`);
+        throw new Error(`AI generation failed: ${errorText}`);
+    }
+
+    return response.json();
+}
 
 export async function POST(req: NextRequest) {
   console.log('[Generate Follow-up Questions API] Request received');
@@ -80,12 +103,7 @@ Return ONLY a JSON object in this exact format:
       'generate-follow-up-questions',
       'cerebras-qwen-3-coder-480b',
       async () => {
-        const result = await cerebras.generateContent({
-          prompt: combinedPrompt,
-          systemPrompt: systemPrompt,
-          maxTokens: 1000,
-          temperature: 0.7
-        });
+        const result = await callGenerateAPI(combinedPrompt, systemPrompt);
         console.log(`[Generate Follow-up Questions API] Using provider: ${result.provider}, latency: ${result.latencyMs}ms`);
         return result.content;
       },

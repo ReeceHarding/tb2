@@ -1,5 +1,28 @@
+
 import { NextRequest, NextResponse } from 'next/server';
-import { cerebras } from '@/libs/cerebras';
+
+async function callGenerateAPI(prompt: string) {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/ai/generate`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            prompt,
+            maxTokens: 2000,
+            temperature: 0.8
+        }),
+    });
+
+    if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`[Generate Fallback API] AI generation API failed with status ${response.status}: ${errorText}`);
+        throw new Error(`AI generation failed: ${errorText}`);
+    }
+
+    return response.json();
+}
+
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,7 +49,7 @@ export async function POST(request: NextRequest) {
     }
     
     console.log(`[Generate Fallback API] Creating ${type} fallback content for ${subject} with interests:`, interests);
-    console.log('[Generate Fallback API] Using OpenAI as fallback provider for better reliability');
+    console.log('[Generate Fallback API] Using new centralized API for better reliability');
     console.log('[Generate Fallback API] Full request body:', body);
     
     let prompt = '';
@@ -137,70 +160,54 @@ CRITICAL: Use only plain text in your response - no special characters, control 
         );
     }
 
-    console.log('[Generate Fallback API] Sending prompt to Cerebras with fallback chain...');
+    console.log('[Generate Fallback API] Sending prompt to centralized API...');
     
-    // Set maxTokens based on type
-    const maxTokens = type === 'question_fallback' ? 800 : 2000;
-    
-    const response = await cerebras.generateContent({
-      prompt: prompt,
-      maxTokens: maxTokens,
-      temperature: 0.8
-    });
+    const response = await callGenerateAPI(prompt);
     
     console.log(`[Generate Fallback API] Using provider: ${response.provider}, latency: ${response.latencyMs}ms`);
     
     const result = { text: response.content };
     
-    console.log('[Generate Fallback API] Raw OpenAI response:', result.text);
+    console.log('[Generate Fallback API] Raw API response:', result.text);
     console.log('[Generate Fallback API] Response length:', result.text.length);
     console.log('[Generate Fallback API] First 100 chars:', JSON.stringify(result.text.substring(0, 100)));
     
-    // Parse the JSON response from OpenAI
+    // Parse the JSON response
     let fallbackData;
     try {
       // Enhanced JSON extraction and sanitization
       let jsonText = result.text.trim();
       
-      // Remove BOM and other invisible characters that can break JSON parsing
-      jsonText = jsonText.replace(/^\uFEFF/, ''); // Remove BOM
-      jsonText = jsonText.replace(/^[\u200B-\u200D\uFEFF]/, ''); // Remove zero-width chars
+      jsonText = jsonText.replace(/^\uFEFF/, '');
+      jsonText = jsonText.replace(/^[\u200B-\u200D\uFEFF]/, '');
       // eslint-disable-next-line no-control-regex
-      jsonText = jsonText.replace(/[\u0000-\u001F\u007F-\u009F]/g, ''); // Remove control chars
+      jsonText = jsonText.replace(/[\u0000-\u001F\u007F-\u009F]/g, '');
       
-      // Extract JSON from the cleaned response
       const jsonMatch = jsonText.match(/\{[\s\S]*\}|\[[\s\S]*\]/);
       if (jsonMatch) {
         let cleanJson = jsonMatch[0];
         
         console.log('[Generate Fallback API] Extracted JSON (first 200 chars):', JSON.stringify(cleanJson.substring(0, 200)));
         
-        // Enhanced JSON string cleaning with comprehensive escaping
         try {
-          // Use a more robust approach to clean JSON
           cleanJson = cleanJson
-            // Remove any remaining control characters within the JSON
             // eslint-disable-next-line no-control-regex
             .replace(/[\u0000-\u001F\u007F-\u009F]/g, '')
-            // Properly escape common problematic characters in JSON string values
-            .replace(/(?<!\\)"/g, '"')  // Ensure quotes are handled
-            .replace(/\\n/g, '\\n')     // Keep already escaped newlines
-            .replace(/(?<!\\)\n/g, '\\n')  // Escape unescaped newlines  
-            .replace(/(?<!\\)\r/g, '\\r')  // Escape unescaped carriage returns
-            .replace(/(?<!\\)\t/g, '\\t')  // Escape unescaped tabs
-
-            .replace(/(?<!\\)\f/g, '\\f')  // Escape unescaped form feed
-            .replace(/(?<!\\)\v/g, '\\v'); // Escape unescaped vertical tab
+            .replace(/(?<!\\)"/g, '"')
+            .replace(/\\n/g, '\\n')
+            .replace(/(?<!\\)\n/g, '\\n')
+            .replace(/(?<!\\)\r/g, '\\r')
+            .replace(/(?<!\\)\t/g, '\\t')
+            .replace(/(?<!\\)\f/g, '\\f')
+            .replace(/(?<!\\)\v/g, '\\v');
         } catch (cleanError) {
           console.log('[Generate Fallback API] Lookbehind not supported, using simpler approach');
-          // Fallback: use simpler replacement without negative lookbehind
           cleanJson = cleanJson
             // eslint-disable-next-line no-control-regex
             .replace(/[\u0000-\u001F\u007F-\u009F]/g, '')
             .replace(/\n/g, '\\n')
             .replace(/\r/g, '\\r')
             .replace(/\t/g, '\\t')
-
             .replace(/\f/g, '\\f')
             .replace(/\v/g, '\\v');
         }
@@ -210,12 +217,11 @@ CRITICAL: Use only plain text in your response - no special characters, control 
         fallbackData = JSON.parse(cleanJson);
         console.log('[Generate Fallback API] Successfully parsed fallback data:', fallbackData);
       } else {
-        throw new Error('No JSON found in OpenAI response');
+        throw new Error('No JSON found in API response');
       }
     } catch (parseError) {
-      console.error('[Generate Fallback API] Failed to parse OpenAI response as JSON:', parseError);
+      console.error('[Generate Fallback API] Failed to parse API response as JSON:', parseError);
       
-      // Ultimate fallback with minimal hardcoded content
       if (type === 'question_fallback') {
         fallbackData = {
           question: `${subject} problem related to ${interests[0] || 'your interests'} (AI temporarily unavailable)`,
@@ -251,13 +257,12 @@ CRITICAL: Use only plain text in your response - no special characters, control 
     });
 
   } catch (error) {
-    console.error('[Generate Fallback API] OpenAI Error:', error);
+    console.error('[Generate Fallback API] Error:', error);
     return NextResponse.json(
       { 
         success: false,
-        error: 'Failed to generate fallback content via OpenAI',
+        error: 'Failed to generate fallback content',
         details: error.message,
-        provider: 'openai'
       },
       { status: 500 }
     );

@@ -1,8 +1,30 @@
+
 import { NextRequest, NextResponse } from 'next/server';
 import { withLLMTracking } from '@/libs/llm-analytics';
-import { cerebras } from '@/libs/cerebras';
 
 export const dynamic = 'force-dynamic';
+
+async function callGenerateAPI(prompt: string) {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/ai/generate`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            prompt,
+            maxTokens: 4000,
+            temperature: 0.7
+        }),
+    });
+
+    if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`[Generate Questions API] AI generation API failed with status ${response.status}: ${errorText}`);
+        throw new Error(`AI generation failed: ${errorText}`);
+    }
+
+    return response.json();
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -66,17 +88,13 @@ Return ONLY a JSON object in this exact format:
 
 Remember: This should be a real question they can solve, not just a discussion prompt!`;
 
-    console.log('[Generate Questions API] Sending prompt to Claude...');
+    console.log('[Generate Questions API] Sending prompt to centralized API...');
     
     const result = await withLLMTracking(
       'generate-questions',
       'cerebras-qwen-3-coder-480b',
       async () => {
-        const response = await cerebras.generateContent({
-          prompt,
-          maxTokens: 4000,
-          temperature: 0.7
-        });
+        const response = await callGenerateAPI(prompt);
         console.log(`[Generate Questions API] Using provider: ${response.provider}, latency: ${response.latencyMs}ms`);
         return { text: response.content };
       },
@@ -87,36 +105,30 @@ Remember: This should be a real question they can solve, not just a discussion p
       }
     );
     
-    console.log('[Generate Questions API] Raw Claude response:', result.text);
+    console.log('[Generate Questions API] Raw API response:', result.text);
     console.log('[Generate Questions API] Response length:', result.text.length);
     console.log('[Generate Questions API] First 100 chars:', JSON.stringify(result.text.substring(0, 100)));
     
-    // Parse the JSON response from Claude
+    // Parse the JSON response
     let questionData;
     try {
       // Enhanced JSON extraction and sanitization
       let jsonText = result.text.trim();
       
-      // Remove BOM and other invisible characters that can break JSON parsing
-      jsonText = jsonText.replace(/^\uFEFF/, ''); // Remove BOM
-      jsonText = jsonText.replace(/^[\u200B-\u200D\uFEFF]/, ''); // Remove zero-width chars
+      jsonText = jsonText.replace(/^\uFEFF/, '');
+      jsonText = jsonText.replace(/^[\u200B-\u200D\uFEFF]/, '');
       // eslint-disable-next-line no-control-regex
-      jsonText = jsonText.replace(/[\u0000-\u001F\u007F-\u009F]/g, ''); // Remove control chars
+      jsonText = jsonText.replace(/[\u0000-\u001F\u007F-\u009F]/g, '');
       
-      // Extract JSON from the cleaned response
       const jsonMatch = jsonText.match(/\{[\s\S]*\}/);
       if (jsonMatch) {
         let cleanJson = jsonMatch[0];
         
         console.log('[Generate Questions API] Extracted JSON (first 200 chars):', JSON.stringify(cleanJson.substring(0, 200)));
         
-        // Enhanced JSON string cleaning with comprehensive escaping
-        // Use simpler approach without negative lookbehind for better compatibility
         /* eslint-disable no-control-regex */
         cleanJson = cleanJson
-          // Remove any remaining control characters within the JSON
           .replace(/[\u0000-\u001F\u007F-\u009F]/g, '')
-          // Escape unescaped newlines, carriage returns, tabs etc.
           .replace(/\n/g, '\\n')
           .replace(/\r/g, '\\r')
           .replace(/\t/g, '\\t')
@@ -129,13 +141,12 @@ Remember: This should be a real question they can solve, not just a discussion p
         questionData = JSON.parse(cleanJson);
         console.log('[Generate Questions API] Successfully parsed question data:', questionData);
       } else {
-        throw new Error('No JSON found in Claude response');
+        throw new Error('No JSON found in API response');
       }
     } catch (parseError) {
-      console.error('[Generate Questions API] Failed to parse Claude response as JSON:', parseError);
-      console.log('[Generate Questions API] Claude failed, attempting OpenAI fallback...');
+      console.error('[Generate Questions API] Failed to parse API response as JSON:', parseError);
+      console.log('[Generate Questions API] API failed, attempting fallback...');
       
-      // Try to generate fallback content using OpenAI (different provider for reliability)
       try {
         const fallbackResponse = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'}/api/ai/generate-fallback`, {
           method: 'POST',
@@ -153,7 +164,7 @@ Remember: This should be a real question they can solve, not just a discussion p
         if (fallbackResponse.ok) {
           const fallbackData = await fallbackResponse.json();
           if (fallbackData.success) {
-            console.log('[Generate Questions API] Successfully generated LLM fallback content');
+            console.log('[Generate Questions API] Successfully generated fallback content');
             questionData = fallbackData.data;
           } else {
             throw new Error('Fallback API returned error');
@@ -162,8 +173,8 @@ Remember: This should be a real question they can solve, not just a discussion p
           throw new Error('Fallback API request failed');
         }
       } catch (fallbackError) {
-        console.error('[Generate Questions API] Fallback LLM generation also failed:', fallbackError);
-        // Ultimate fallback with minimal hardcoded content (only when both AI calls fail)
+        console.error('[Generate Questions API] Fallback generation also failed:', fallbackError);
+        // Ultimate fallback with minimal hardcoded content
         questionData = {
           question: `${subject} problem related to ${interests[0] || 'your interests'} (AI temporarily unavailable)`,
           solution: 'Solution would be provided when AI service is restored.',
