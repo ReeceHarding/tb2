@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
-import { usePostHog } from 'posthog-js/react';
-import { QuizData, GeneratedContent } from '@/types/quiz';
+import { QuizData } from '@/types/quiz';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useRouter } from 'next/navigation';
@@ -11,6 +10,7 @@ import '../ui-animations.css';
 
 // Component imports for data collection
 import dynamic from 'next/dynamic';
+import { SchoolSearchCollector, GradeCollector, InterestsCollector } from '@/components/personalized/DataCollectionComponents';
 
 // Component imports for content display
 const TimeBackVsCompetitors = dynamic(() => import('@/components/personalized/TimeBackVsCompetitors'));
@@ -24,15 +24,14 @@ const SchoolReportCard = dynamic(() => import('@/components/personalized/SchoolR
 
 export default function PersonalizedPage() {
   const { data: session, status } = useSession();
-  const posthog = usePostHog();
   const router = useRouter();
   
   // State for user data
   const [userData, setUserData] = useState<Partial<QuizData>>({
     selectedSchools: [],
     kidsInterests: [],
-    userType: 'parent',
-    parentSubType: 'go-to-school'
+    userType: 'parents',
+    parentSubType: 'timeback-school'
   });
   
   // State for UI
@@ -74,7 +73,12 @@ export default function PersonalizedPage() {
       const savedGrade = localStorage.getItem('timebackUserGrade');
       const savedInterests = localStorage.getItem('timebackUserInterests');
       
-      const updatedData: Partial<QuizData> = { ...userData };
+      let updatedData: Partial<QuizData> = {
+        selectedSchools: [],
+        kidsInterests: [],
+        userType: 'parents',
+        parentSubType: 'timeback-school'
+      };
       
       if (savedSchool) {
         try {
@@ -223,24 +227,35 @@ export default function PersonalizedPage() {
     // Save to database if authenticated
     if (status === 'authenticated' && session?.user?.email) {
       try {
+        // Prepare the quiz data update based on what was collected
+        let quizDataUpdate = { ...userData };
+        
+        if (dataType === 'school') {
+          quizDataUpdate.selectedSchools = data;
+        } else if (dataType === 'grade') {
+          // For grade, we need to update the existing school data
+          if (quizDataUpdate.selectedSchools && quizDataUpdate.selectedSchools.length > 0) {
+            quizDataUpdate.selectedSchools[0].level = data;
+          }
+        } else if (dataType === 'interests') {
+          quizDataUpdate.kidsInterests = data;
+        }
+        
         const response = await fetch('/api/quiz/save', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            quizData: {
-              ...userData,
-              [dataType === 'school' ? 'selectedSchools' : 
-               dataType === 'grade' ? 'selectedSchools' : 
-               'kidsInterests']: data
-            },
+            quizData: quizDataUpdate,
             partial: true // Indicate this is a partial save
           })
         });
         
         if (!response.ok) {
           console.error('Failed to save to database:', await response.text());
+        } else {
+          console.log(`[PersonalizedPage] Successfully saved ${dataType} to database`);
         }
       } catch (error) {
         console.error('Error saving to database:', error);
@@ -307,7 +322,7 @@ export default function PersonalizedPage() {
         case 'school':
         case 'location':
           return (
-            <SchoolSearchStep
+            <SchoolSearchCollector
               onNext={(schools: any) => handleDataCollected('school', schools)}
               onPrev={() => {
                 setSelectedSection(null);
@@ -318,7 +333,7 @@ export default function PersonalizedPage() {
           );
         case 'grade':
           return (
-            <GradeSelectionStep
+            <GradeCollector
               onNext={(grade: string) => handleDataCollected('grade', grade)}
               onPrev={() => {
                 setDataNeeded('school');
@@ -327,7 +342,7 @@ export default function PersonalizedPage() {
           );
         case 'interests':
           return (
-            <InterestsStep
+            <InterestsCollector
               onNext={(interests: string[]) => handleDataCollected('interests', interests)}
               onPrev={() => {
                 setSelectedSection(null);
@@ -339,35 +354,41 @@ export default function PersonalizedPage() {
       }
     }
     
-    // Show the actual component
+        // Show the actual component
     switch (selectedSection) {
       case 'what-is-timeback':
     return (
           <div className="space-y-8">
-            <TimeBackVsCompetitors quizData={userData} />
+            <TimeBackVsCompetitors onLearnMore={() => {}} />
             <MechanismSection />
-            <LearningScienceSection />
+            <LearningScienceSection 
+              learningGoals={[]} 
+              onLearnMore={() => {}}
+            />
       </div>
     );
       case 'how-does-it-work':
         return <MechanismSection />;
       case 'show-data':
-        return <SchoolReportCard quizData={userData} />;
+        return <SchoolReportCard 
+          schoolData={userData.selectedSchools?.[0]}
+          onLearnMore={() => {}} 
+        />;
       case 'example-question':
         return <PersonalizedSubjectExamples 
           interests={userData.kidsInterests} 
-          gradeLevel={userData.selectedSchools?.[0]?.level || 'high school'}
+          onLearnMore={() => {}}
         />;
       case 'find-school':
-        return <ClosestSchools quizData={userData} />;
+        return <ClosestSchools quizData={userData as QuizData} />;
       case 'extra-hours':
         return <AfternoonActivities 
           interests={userData.kidsInterests}
-          gradeLevel={userData.selectedSchools?.[0]?.level || 'high school'}
+          onLearnMore={() => {}}
         />;
       case 'custom-question':
         return <CustomQuestionSection 
-          quizData={userData}
+          quizData={userData as QuizData}
           interests={userData.kidsInterests}
           gradeLevel={userData.selectedSchools?.[0]?.level || 'high school'}
         />;
@@ -403,7 +424,7 @@ export default function PersonalizedPage() {
             </p>
             {userData.selectedSchools?.[0]?.level && userData.kidsInterests?.length > 0 && (
               <p className="text-lg text-timeback-primary opacity-75 max-w-3xl mx-auto font-cal">
-                Based on your {userData.selectedSchools[0].level} student's interests in{' '}
+                Based on your {userData.selectedSchools[0].level} student&apos;s interests in{' '}
                 {userData.kidsInterests.slice(0, 2).join(' and ')}
               </p>
             )}
@@ -474,7 +495,7 @@ export default function PersonalizedPage() {
                   Have a Specific Question?
                 </h2>
                 <p className="text-lg text-timeback-primary font-cal mb-6">
-                  Ask anything about TimeBack and get a personalized answer based on your child's needs.
+                  Ask anything about TimeBack and get a personalized answer based on your child&apos;s needs.
                 </p>
                 <button
                   onClick={() => handleSectionSelect('custom-question')}
@@ -507,11 +528,62 @@ export default function PersonalizedPage() {
             <h3 className="text-2xl font-bold text-timeback-primary font-cal mb-8 text-center">
               Your Personalized TimeBack Report
             </h3>
-            {viewedComponents.map((componentId) => (
-              <div key={componentId} className="mb-12">
-                {renderSectionContent()}
-              </div>
-            ))}
+            {viewedComponents.map((componentId) => {
+              // Render each viewed component based on its ID
+              let content = null;
+              switch (componentId) {
+                case 'what-is-timeback':
+                  content = (
+                    <div className="space-y-8">
+                      <TimeBackVsCompetitors onLearnMore={() => {}} />
+                      <MechanismSection />
+                      <LearningScienceSection 
+                        learningGoals={[]} 
+                        onLearnMore={() => {}}
+                      />
+                    </div>
+                  );
+                  break;
+                case 'how-does-it-work':
+                  content = <MechanismSection />;
+                  break;
+                case 'show-data':
+                  content = <SchoolReportCard 
+                    schoolData={userData.selectedSchools?.[0]}
+                    onLearnMore={() => {}} 
+                  />;
+                  break;
+                case 'example-question':
+                  content = <PersonalizedSubjectExamples 
+                    interests={userData.kidsInterests} 
+                    onLearnMore={() => {}}
+                  />;
+                  break;
+                case 'find-school':
+                  content = <ClosestSchools quizData={userData as QuizData} />;
+                  break;
+                case 'extra-hours':
+                  content = <AfternoonActivities 
+                    interests={userData.kidsInterests}
+                    onLearnMore={() => {}}
+                  />;
+                  break;
+                case 'custom-question':
+                  content = <CustomQuestionSection 
+                    quizData={userData as QuizData}
+                    interests={userData.kidsInterests}
+                    gradeLevel={userData.selectedSchools?.[0]?.level || 'high school'}
+                  />;
+                  break;
+              }
+              
+              return (
+                <div key={componentId} className="mb-12">
+                  {content}
+                  <div className="mt-8 border-t border-timeback-primary opacity-20"></div>
+                </div>
+              );
+            })}
           </section>
         )}
       </main>

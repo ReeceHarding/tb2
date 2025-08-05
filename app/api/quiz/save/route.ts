@@ -50,11 +50,12 @@ export async function POST(req: NextRequest) {
       );
     }
     
-    const { quizData, generatedContent } = body;
+    const { quizData, generatedContent, partial } = body;
 
     console.log(`[QuizSaveAPI] ${timestamp} Received data:`, {
       hasQuizData: !!quizData,
       hasGeneratedContent: !!generatedContent,
+      isPartialSave: !!partial,
       userType: quizData?.userType,
       schoolsCount: quizData?.selectedSchools?.length || 0,
       interestsCount: quizData?.kidsInterests?.length || 0
@@ -69,13 +70,39 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Prepare the update object
-    const updateData: any = {
-      quizData: {
-        ...quizData,
-        completedAt: quizData.completedAt || new Date().toISOString(),
-      }
-    };
+    // For partial saves, merge with existing data
+    let updateData: any;
+    
+    if (partial) {
+      // Find existing user data first
+      const existingUser = await User.findOne({ email: session.user.email });
+      const existingQuizData = existingUser?.quizData || {};
+      
+      console.log(`[QuizSaveAPI] ${timestamp} Partial save - merging with existing data:`, {
+        hasExistingData: !!existingUser,
+        existingSchools: existingQuizData.selectedSchools?.length || 0,
+        existingInterests: existingQuizData.kidsInterests?.length || 0
+      });
+      
+      // Merge the data
+      updateData = {
+        quizData: {
+          ...existingQuizData,
+          ...quizData,
+          // Don't set completedAt for partial saves
+          completedAt: quizData.completedAt || existingQuizData.completedAt,
+          updatedAt: new Date().toISOString()
+        }
+      };
+    } else {
+      // Full save - replace all quiz data
+      updateData = {
+        quizData: {
+          ...quizData,
+          completedAt: quizData.completedAt || new Date().toISOString(),
+        }
+      };
+    }
 
     // Add generated content if provided
     if (generatedContent) {

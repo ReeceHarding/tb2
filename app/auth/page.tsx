@@ -58,7 +58,7 @@ export default function AuthPage() {
 
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight font-cal">
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-timeback-primary to-timeback-primary font-cal">
-                    The World's First
+                    The World&apos;s First
                   </span>
                   <br />
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-timeback-primary to-timeback-primary font-cal">
@@ -71,8 +71,8 @@ export default function AuthPage() {
                     Experience education that adapts to you
                   </p>
                   <p className="text-lg sm:text-xl text-timeback-primary leading-relaxed font-cal">
-                    Just like TimeBack creates personalized learning questions tailored to each child's interests and level, 
-                    we'll generate a website experience customized specifically for you.
+                    Just like TimeBack creates personalized learning questions tailored to each child&apos;s interests and level, 
+                    we&apos;ll generate a website experience customized specifically for you.
                   </p>
                 </div>
 
