@@ -224,22 +224,24 @@ export default function CustomQuestionSection({
           </button>
         </form>
 
-        {/* Schema Response Display */}
-        {(schemaResponse || isLoading) && (
-          <div className="mt-8 backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl overflow-hidden">
-            <div className="p-6 bg-timeback-primary">
-              <h3 className="text-xl font-bold text-white text-center font-cal">Your Personalized Answer</h3>
-            </div>
-            <div className="p-6">
-              <SchemaResponseRenderer 
-                response={schemaResponse}
-                onNextOptionClick={handleNextOptionClick}
-                isLoading={isLoading}
-              />
-            </div>
-          </div>
-        )}
+
       </div>
+
+      {/* Personalized Answer Display (Independent) */}
+      {(schemaResponse || isLoading) && (
+        <div className="mt-16 backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl overflow-hidden">
+          <div className="p-6 bg-timeback-primary">
+            <h3 className="text-xl font-bold text-white text-center font-cal">Your Personalized Answer</h3>
+          </div>
+          <div className="p-6">
+            <SchemaResponseRenderer
+              response={schemaResponse}
+              onNextOptionClick={handleNextOptionClick}
+              isLoading={isLoading}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -164,14 +164,14 @@ export default function SchemaResponseRenderer({
               <button
                 key={index}
                 onClick={() => onNextOptionClick?.(option)}
-                className="group flex items-center justify-between p-6 bg-gradient-to-br from-white via-timeback-bg/5 to-white border-2 border-timeback-primary rounded-2xl hover:bg-gradient-to-br hover:from-timeback-bg hover:via-timeback-bg/80 hover:to-timeback-bg transition-all duration-500 text-left shadow-xl hover:shadow-2xl hover:scale-[1.03] hover:border-timeback-primary/80 animate-in slide-in-from-bottom-4"
+                className="group flex items-center justify-between p-6 bg-gradient-to-br from-white via-timeback-bg/5 to-white border-2 border-timeback-primary rounded-2xl hover:bg-gradient-to-br hover:from-timeback-bg transition-all duration-300 text-left shadow-xl hover:shadow-2xl"
                 style={{animationDelay: `${800 + index * 100}ms`}}
               >
-                <span className="text-timeback-primary font-semibold group-hover:text-timeback-primary flex-1 pr-4 text-base leading-snug">
+                <span className="text-timeback-primary font-semibold text-timeback-primary flex-1 pr-4 text-base leading-snug">
                   {option}
                 </span>
-                <div className="flex-shrink-0 w-10 h-10 bg-timeback-primary group-hover:bg-timeback-primary/90 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-all duration-300 shadow-lg">
-                  <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-0.5 transition-transform" />
+                <div className="flex-shrink-0 w-10 h-10 bg-timeback-primary rounded-xl flex items-center justify-center shadow-lg">
+                  <ArrowRight className="w-5 h-5 text-white" />
                 </div>
               </button>
             ))}

@@ -511,8 +511,16 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
           // Try to parse the response as JSON to validate structure
           let parsedResponse;
           
-          // Clean up response if it has extra text around JSON
+          // Clean up response if it has extra text around JSON or common formatting issues returned by LLMs
           let cleanedResponse = fullText.trim();
+
+          // Standardise curly / straight quotation marks that often break JSON parsing
+          cleanedResponse = cleanedResponse
+            .replace(/[\u201C\u201D]/g, '"')   // smart double quotes → straight quotes
+            .replace(/[\u2018\u2019]/g, "'");  // smart single quotes → straight single quotes
+
+          // Remove raw newline characters that occasionally appear unescaped inside JSON string values
+          cleanedResponse = cleanedResponse.replace(/\r?\n+/g, ' ');
           
           // Find JSON object boundaries
           const jsonStart = cleanedResponse.indexOf('{');
