@@ -14,7 +14,7 @@ SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key_here
 SUPABASE_DB_PASSWORD=your_supabase_database_password_here
 
 # NextAuth Configuration
-NEXTAUTH_URL=http://localhost:3001
+NEXTAUTH_URL=http://localhost:3002
 NEXTAUTH_SECRET=your_nextauth_secret_here_use_openssl_rand_base64_32
 
 # Google OAuth (if needed)
