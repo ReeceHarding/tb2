@@ -49,9 +49,10 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
   useEffect(() => {
     const timestamp = new Date().toISOString();
     
-    if (preGeneratedContent) {
+    // Check for pre-generated afternoon activities content
+    if (preGeneratedContent?.afternoonActivities) {
       console.log(`[AfternoonActivities] ${timestamp} Using pre-generated content`);
-      setContent(preGeneratedContent);
+      setContent(preGeneratedContent.afternoonActivities);
       setIsLoading(false);
       setError(null);
       return;

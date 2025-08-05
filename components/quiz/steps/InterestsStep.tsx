@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useQuiz } from '../QuizContext';
+import { startOptimisticGeneration } from '@/libs/optimisticContentGeneration';
 
 interface InterestsStepProps {
   onNext: () => void;
@@ -98,6 +99,23 @@ export default function InterestsStep({ onNext: _onNext, onPrev: _onPrev }: Inte
     const savedState = { ...state, isCompleted: false, isLoading: false }; // Not completed until after auth
     localStorage.setItem('timeback-quiz-state', JSON.stringify(savedState));
     console.log('[InterestsStep] Quiz state saved to localStorage');
+
+    // Start optimistic content generation in the background
+    console.log('[InterestsStep] Starting optimistic content generation');
+    const quizData = {
+      userType: state.userType,
+      parentSubType: state.parentSubType,
+      selectedSchools: state.selectedSchools,
+      kidsInterests: state.kidsInterests,
+      numberOfKids: state.numberOfKids
+    };
+    
+    // Fire and forget - don't await
+    startOptimisticGeneration(quizData).catch(error => {
+      console.error('[InterestsStep] Error in optimistic content generation:', error);
+    });
+    
+    console.log('[InterestsStep] Optimistic generation started in background');
 
     // Go directly to AuthStep (skipping LoadingStep)
     dispatch({ type: 'SET_STEP', step: 6 }); // AuthStep is now step 6 (InterestsStep is step 5)

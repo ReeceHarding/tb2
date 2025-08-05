@@ -8,6 +8,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PersonalizedResults from '@/components/PersonalizedResults';
 import ProgressiveDisclosureContainer from '@/components/personalized/ProgressiveDisclosureContainer';
+import { getCachedContent } from '@/libs/optimisticContentGeneration';
 
 // Quiz data and generated content interfaces are now imported from @/types/quiz
 
@@ -118,6 +119,31 @@ export default function PersonalizedPage() {
         console.warn(`[PersonalizedPage] ${timestamp} No quiz data found in database or localStorage, redirecting to quiz`);
         window.location.href = '/quiz';
         return;
+      }
+
+      // Check for optimistically generated content
+      const cachedContent = getCachedContent();
+      if (cachedContent && !loadedGeneratedContent) {
+        console.log(`[PersonalizedPage] ${timestamp} Found optimistically generated content in cache:`, {
+          hasAfternoonActivities: !!cachedContent.afternoonActivities,
+          hasSubjectExamples: !!cachedContent.subjectExamples,
+          hasHowWeGetResults: !!cachedContent.howWeGetResults,
+          hasLearningScience: !!cachedContent.learningScience,
+          hasDataShock: !!cachedContent.dataShock,
+          generationStatus: cachedContent.generationStatus,
+          totalTime: cachedContent.completionTime ? cachedContent.completionTime - cachedContent.startTime : 'in progress'
+        });
+        
+        // Use cached content if available
+        loadedGeneratedContent = {
+          afternoonActivities: cachedContent.afternoonActivities,
+          subjectExamples: cachedContent.subjectExamples,
+          howWeGetResults: cachedContent.howWeGetResults,
+          learningScience: cachedContent.learningScience,
+          dataShock: cachedContent.dataShock,
+          allCompleted: Object.values(cachedContent.generationStatus).every(status => status === 'completed'),
+          hasErrors: Object.values(cachedContent.generationStatus).some(status => status === 'error')
+        };
       }
 
       // Set the loaded data
