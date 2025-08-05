@@ -40,7 +40,7 @@ export default function MechanismSection() {
         
         {/* Header */}
         <div className="text-center mb-16 font-cal">
-          <div className="inline-flex items-center gap-2 bg-white border border-timeback-primary rounded-full px-6 py-3 mb-6">
+          <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3 mb-6">
             <div className="w-2 h-2 bg-timeback-primary rounded-full"></div>
             <span className="text-timeback-primary font-bold text-sm font-cal">THE SCIENCE</span>
           </div>
@@ -55,7 +55,7 @@ export default function MechanismSection() {
 
         {/* Time Comparison - Professional Design */}
         <div className="mb-16">
-          <div className="bg-white rounded-3xl shadow-2xl border-2 border-timeback-primary overflow-hidden max-w-5xl mx-auto">
+          <div className="backdrop-blur-md bg-white/10 rounded-3xl shadow-2xl border-2 border-timeback-primary overflow-hidden max-w-5xl mx-auto">
             {/* Card Header */}
             <div className="bg-timeback-primary text-white p-8 text-center font-cal">
               <h3 className="text-2xl font-bold font-cal mb-2">Learning Time Analysis</h3>
@@ -68,7 +68,7 @@ export default function MechanismSection() {
                 <button className="flex-1 bg-timeback-primary text-white py-3 px-4 rounded-xl font-cal font-bold text-sm">
                   Hour Comparison
                 </button>
-                <button className="flex-1 text-timeback-primary py-3 px-4 rounded-xl font-cal font-bold text-sm hover:bg-white transition-colors">
+                <button className="flex-1 text-timeback-primary py-3 px-4 rounded-xl font-cal font-bold text-sm hover:bg-white/20 transition-colors">
                   How It Works
                 </button>
               </div>
@@ -123,7 +123,7 @@ export default function MechanismSection() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-8 flex flex-col h-full">
+            <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-8 flex flex-col h-full">
               <div className="w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white font-bold text-xl font-cal">⚡</span>
               </div>
@@ -147,7 +147,7 @@ export default function MechanismSection() {
               </div>
             </div>
             
-            <div className="bg-white rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-8 flex flex-col h-full">
+            <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-8 flex flex-col h-full">
               <div className="w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white font-bold text-xl font-cal">✓</span>
               </div>
@@ -166,7 +166,7 @@ export default function MechanismSection() {
               </div>
             </div>
             
-            <div className="bg-white rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-8 flex flex-col h-full">
+            <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-8 flex flex-col h-full">
               <div className="w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white font-bold text-xl font-cal">🤖</span>
               </div>
@@ -185,7 +185,7 @@ export default function MechanismSection() {
               </div>
             </div>
             
-            <div className="bg-white rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-8 flex flex-col h-full">
+            <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-8 flex flex-col h-full">
               <div className="w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white font-bold text-xl font-cal">🗑️</span>
               </div>
@@ -213,7 +213,7 @@ export default function MechanismSection() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="bg-white rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-6 text-center font-cal">
+          <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-6 text-center font-cal">
             <div className="w-12 h-12 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-white font-bold text-lg font-cal">%</span>
             </div>
@@ -228,7 +228,7 @@ export default function MechanismSection() {
             </div>
           </div>
           
-          <div className="bg-white rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-6 text-center font-cal">
+          <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-6 text-center font-cal">
             <div className="w-12 h-12 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-white font-bold text-lg font-cal">✓</span>
             </div>
@@ -243,7 +243,7 @@ export default function MechanismSection() {
             </div>
           </div>
           
-          <div className="bg-white rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-6 text-center font-cal">
+          <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-6 text-center font-cal">
             <div className="w-12 h-12 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-white font-bold text-lg font-cal">×</span>
             </div>
@@ -258,7 +258,7 @@ export default function MechanismSection() {
             </div>
           </div>
           
-          <div className="bg-white rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-6 text-center font-cal">
+          <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105 p-6 text-center font-cal">
             <div className="w-12 h-12 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-white font-bold text-lg font-cal">AI</span>
             </div>

@@ -31,7 +31,7 @@ export default function LearningScienceSection({
     <section className="max-w-7xl mx-auto bg-gradient-to-br from-timeback-bg to-white py-20 lg:py-32 px-6 lg:px-12">
       {/* Header */}
       <div className="text-center mb-16 font-cal">
-        <div className="inline-flex items-center gap-2 bg-white border border-timeback-primary rounded-full px-6 py-3 mb-8">
+        <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3 mb-8">
           <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
           <span className="text-timeback-primary font-bold text-sm font-cal">SCIENTIFIC RESEARCH</span>
         </div>
@@ -51,7 +51,7 @@ export default function LearningScienceSection({
           <div className="text-center font-cal">
             <button
               onClick={() => setShowStudyLinks(true)}
-              className="px-8 py-4 bg-white border-2 border-timeback-primary text-timeback-primary rounded-xl hover:bg-timeback-bg transition-all duration-200 font-bold font-cal shadow-2xl hover:shadow-2xl transform hover:scale-105"
+              className="px-8 py-4 backdrop-blur-md bg-white/10 border-2 border-timeback-primary text-timeback-primary rounded-xl hover:bg-white/20 transition-all duration-200 font-bold font-cal shadow-2xl hover:shadow-2xl transform hover:scale-105"
             >
               See The Research Behind TimeBack
             </button>
@@ -62,11 +62,11 @@ export default function LearningScienceSection({
             <div className="grid md:grid-cols-2 gap-6">
               
               {/* Bloom's 2 Sigma Problem - Research Paper Card */}
-              <div className="bg-white rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-timeback-primary">
+              <div className="backdrop-blur-md bg-white/10 rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-timeback-primary">
                 {/* Paper preview image */}
                 <div className="relative h-48 bg-gradient-to-br from-timeback-bg to-white overflow-hidden">
                   <div className="absolute inset-0 p-6">
-                    <div className="bg-white rounded-xl shadow-sm p-4 transform rotate-3 group-hover:rotate-2 transition-transform border border-timeback-primary">
+                    <div className="backdrop-blur-sm bg-white/30 rounded-xl shadow-sm p-4 transform rotate-3 group-hover:rotate-2 transition-transform border border-timeback-primary">
                       <div className="space-y-2">
                         <div className="h-2 bg-timeback-bg border border-timeback-primary rounded w-3/4"></div>
                         <div className="h-2 bg-timeback-bg border border-timeback-primary rounded w-full"></div>
@@ -152,11 +152,11 @@ export default function LearningScienceSection({
               </div>
 
               {/* Mastery Learning - Research Paper Card */}
-              <div className="bg-white rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-timeback-primary">
+              <div className="backdrop-blur-md bg-white/10 rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-timeback-primary">
                 {/* Paper preview image */}
                 <div className="relative h-48 bg-gradient-to-br from-timeback-bg to-white overflow-hidden">
                   <div className="absolute inset-0 p-6">
-                    <div className="bg-white rounded-xl shadow-sm p-4 transform -rotate-3 group-hover:-rotate-2 transition-transform border border-timeback-primary">
+                    <div className="backdrop-blur-sm bg-white/30 rounded-xl shadow-sm p-4 transform -rotate-3 group-hover:-rotate-2 transition-transform border border-timeback-primary">
                       <div className="space-y-2">
                         <div className="h-2 bg-timeback-bg border border-timeback-primary rounded w-5/6"></div>
                         <div className="h-2 bg-timeback-bg border border-timeback-primary rounded w-full"></div>
@@ -244,11 +244,11 @@ export default function LearningScienceSection({
               </div>
 
               {/* Zone of Proximal Development - Research Paper Card */}
-              <div className="bg-white rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-timeback-primary">
+              <div className="backdrop-blur-md bg-white/10 rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-timeback-primary">
                 {/* Paper preview image */}
                 <div className="relative h-48 bg-gradient-to-br from-timeback-bg to-white overflow-hidden">
                   <div className="absolute inset-0 p-6">
-                    <div className="bg-white rounded-xl shadow-sm p-4 transform rotate-2 group-hover:rotate-1 transition-transform border border-timeback-primary">
+                    <div className="backdrop-blur-sm bg-white/30 rounded-xl shadow-sm p-4 transform rotate-2 group-hover:rotate-1 transition-transform border border-timeback-primary">
                       <div className="space-y-2">
                         <div className="h-2 bg-timeback-bg border border-timeback-primary rounded w-4/5"></div>
                         <div className="h-2 bg-timeback-bg border border-timeback-primary rounded w-full"></div>
@@ -336,11 +336,11 @@ export default function LearningScienceSection({
               </div>
 
               {/* Adaptive Learning Technology - Research Paper Card */}
-              <div className="bg-white rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-timeback-primary">
+              <div className="backdrop-blur-md bg-white/10 rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-timeback-primary">
                 {/* Paper preview image */}
                 <div className="relative h-48 bg-gradient-to-br from-timeback-bg to-white overflow-hidden">
                   <div className="absolute inset-0 p-6">
-                    <div className="bg-white rounded-xl shadow-sm p-4 transform -rotate-2 group-hover:-rotate-1 transition-transform border border-timeback-primary">
+                    <div className="backdrop-blur-sm bg-white/30 rounded-xl shadow-sm p-4 transform -rotate-2 group-hover:-rotate-1 transition-transform border border-timeback-primary">
                       <div className="space-y-2">
                         <div className="h-2 bg-timeback-bg border border-timeback-primary rounded w-full"></div>
                         <div className="h-2 bg-timeback-bg border border-timeback-primary rounded w-4/5"></div>

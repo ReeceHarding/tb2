@@ -172,7 +172,7 @@ export default function HowWeGetResults({
     return (
       <section className="max-w-7xl mx-auto py-20 lg:py-32 px-6 lg:px-12">
         <div className="text-center font-cal">
-          <div className="bg-white rounded-2xl border-2 border-timeback-primary p-12 shadow-2xl">
+          <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary p-12 shadow-2xl">
             <div className="w-20 h-20 border-4 border-timeback-bg border-t-timeback-primary rounded-full animate-spin mx-auto mb-6"></div>
             <p className="text-2xl text-timeback-primary font-cal">Personalizing your content...</p>
             <p className="text-lg text-timeback-primary opacity-75 mt-3 font-cal">Creating a custom experience based on your responses</p>
@@ -190,7 +190,7 @@ export default function HowWeGetResults({
     <>
     <section className="max-w-7xl mx-auto py-20 lg:py-32 px-6 lg:px-12">
       <div className="text-center mb-16 font-cal">
-        <div className="inline-flex items-center gap-2 bg-white border border-timeback-primary rounded-full px-6 py-3 mb-8">
+        <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3 mb-8">
           <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
           <span className="text-timeback-primary font-bold text-sm font-cal">PERSONALIZED FOR YOU</span>
         </div>
@@ -207,7 +207,7 @@ export default function HowWeGetResults({
         {content.points.map((point, index) => (
           <div 
             key={index} 
-            className="bg-white rounded-2xl shadow-2xl p-8 hover:shadow-2xl transition-all duration-300 cursor-pointer hover:scale-105 border-2 border-timeback-primary hover:bg-timeback-bg group"
+            className="backdrop-blur-md bg-white/10 rounded-2xl shadow-2xl p-8 hover:shadow-2xl transition-all duration-300 cursor-pointer hover:scale-105 border-2 border-timeback-primary hover:bg-white/20 group"
             onClick={() => handleCardClick(point.title)}
             role="button"
             tabIndex={0}
@@ -292,7 +292,7 @@ export default function HowWeGetResults({
             </ul>
           </div>
           
-          <div className="bg-white rounded-xl p-8 border-2 border-timeback-primary">
+          <div className="backdrop-blur-md bg-white/10 rounded-xl p-8 border-2 border-timeback-primary">
             <h3 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">TimeBack Learning</h3>
             <ul className="space-y-3 text-timeback-primary font-cal">
               <li className="flex items-start gap-3">
@@ -389,7 +389,7 @@ export default function HowWeGetResults({
             </div>
           </div>
           
-          <div className="bg-white rounded-xl p-8 border-2 border-timeback-primary">
+          <div className="backdrop-blur-md bg-white/10 rounded-xl p-8 border-2 border-timeback-primary">
             <h3 className="text-2xl font-bold text-timeback-primary mb-6 font-cal">Comprehension Rates</h3>
             <div className="space-y-4">
               <div className="flex justify-between items-center">

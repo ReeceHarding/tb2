@@ -144,7 +144,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
     return (
       <section className="max-w-7xl mx-auto bg-gradient-to-br from-timeback-bg to-white py-20 lg:py-32 px-6 lg:px-12">
         <div className="text-center font-cal">
-          <div className="bg-white rounded-2xl border-2 border-timeback-primary p-12 shadow-2xl max-w-md mx-auto">
+          <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary p-12 shadow-2xl max-w-md mx-auto">
             <div className="animate-pulse">
               <div className="h-8 bg-timeback-bg border border-timeback-primary rounded-xl w-3/4 mx-auto mb-6"></div>
               <div className="h-6 bg-timeback-bg border border-timeback-primary rounded-xl w-1/2 mx-auto mb-8"></div>
@@ -162,7 +162,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
     return (
       <section className="max-w-7xl mx-auto bg-gradient-to-br from-timeback-bg to-white py-20 lg:py-32 px-6 lg:px-12">
         <div className="text-center font-cal">
-          <div className="bg-white rounded-2xl border-2 border-timeback-primary p-12 shadow-2xl max-w-md mx-auto">
+          <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary p-12 shadow-2xl max-w-md mx-auto">
             <p className="text-timeback-primary font-cal text-xl font-bold">Unable to generate personalized content. Please try again later.</p>
           </div>
         </div>
@@ -176,7 +176,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
   return (
     <section className="max-w-7xl mx-auto bg-gradient-to-br from-timeback-bg to-white py-20 lg:py-32 px-6 lg:px-12">
       <div className="text-center mb-16 font-cal">
-        <div className="inline-flex items-center gap-2 bg-white border border-timeback-primary rounded-full px-6 py-3 mb-8">
+        <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3 mb-8">
           <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
           <span className="text-timeback-primary font-bold text-sm font-cal">TIME FREEDOM</span>
         </div>
@@ -194,7 +194,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
         
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto content-section">
           {/* Traditional School Schedule */}
-          <div className="bg-white rounded-2xl p-8 border-2 border-timeback-primary shadow-2xl">
+          <div className="backdrop-blur-md bg-white/10 rounded-2xl p-8 border-2 border-timeback-primary shadow-2xl">
             <h4 className="text-2xl font-bold text-timeback-primary mb-8 text-center font-cal">Traditional School</h4>
             
             <div className="space-y-4">
@@ -283,7 +283,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
               {/* Morning */}
               <div className="flex items-center gap-4">
                 <div className="text-lg font-bold text-timeback-primary w-24 font-cal">8:00 AM</div>
-                <div className="flex-1 bg-white rounded-xl p-4 border border-timeback-primary">
+                <div className="flex-1 backdrop-blur-sm bg-white/10 rounded-xl p-4 border border-timeback-primary">
                   <div className="font-bold text-timeback-primary font-cal">Relaxed Morning</div>
                   <div className="text-timeback-primary font-cal">No rush, healthy breakfast</div>
                 </div>
@@ -292,7 +292,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
               {/* Learning Time */}
               <div className="flex items-center gap-4">
                 <div className="text-lg font-bold text-timeback-primary w-24 font-cal">9:00 AM</div>
-                <div className="flex-1 bg-white rounded-xl p-4 border-2 border-timeback-primary">
+                <div className="flex-1 backdrop-blur-sm bg-white/10 rounded-xl p-4 border-2 border-timeback-primary">
                   <div className="font-bold text-timeback-primary font-cal">Focused Learning</div>
                   <div className="text-timeback-primary font-cal">AI-powered, personalized pace</div>
                 </div>
@@ -309,7 +309,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
               {/* Passion Time */}
               <div className="flex items-center gap-4">
                 <div className="text-lg font-bold text-timeback-primary w-24 font-cal">11:30 AM</div>
-                <div className="flex-1 bg-white rounded-xl p-4 border-2 border-timeback-primary shadow-2xl">
+                <div className="flex-1 backdrop-blur-sm bg-white/10 rounded-xl p-4 border-2 border-timeback-primary shadow-2xl">
                   <div className="font-bold text-timeback-primary font-cal">{content?.passionProjectName || `${primaryInterest} Deep Dive`}</div>
                   <div className="text-timeback-primary font-cal">2-3 hours of focused practice</div>
                 </div>
@@ -317,7 +317,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
               
               <div className="flex items-center gap-4">
                 <div className="text-lg font-bold text-timeback-primary w-24 font-cal">2:30 PM</div>
-                <div className="flex-1 bg-white rounded-xl p-4 border border-timeback-primary">
+                <div className="flex-1 backdrop-blur-sm bg-white/10 rounded-xl p-4 border border-timeback-primary">
                   <div className="font-bold text-timeback-primary font-cal">Creative Projects</div>
                   <div className="text-timeback-primary font-cal">Build, create, experiment</div>
                 </div>
@@ -325,7 +325,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
               
               <div className="flex items-center gap-4">
                 <div className="text-lg font-bold text-timeback-primary w-24 font-cal">4:00 PM</div>
-                <div className="flex-1 bg-white rounded-xl p-4 border border-timeback-primary">
+                <div className="flex-1 backdrop-blur-sm bg-white/10 rounded-xl p-4 border border-timeback-primary">
                   <div className="font-bold text-timeback-primary font-cal">Social & Physical</div>
                   <div className="text-timeback-primary font-cal">Friends, sports, activities</div>
                 </div>
@@ -333,7 +333,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
               
               <div className="flex items-center gap-4">
                 <div className="text-lg font-bold text-timeback-primary w-24 font-cal">6:00 PM</div>
-                <div className="flex-1 bg-white rounded-xl p-4 border border-timeback-primary">
+                <div className="flex-1 backdrop-blur-sm bg-white/10 rounded-xl p-4 border border-timeback-primary">
                   <div className="font-bold text-timeback-primary font-cal">Family Time</div>
                   <div className="text-timeback-primary font-cal">Real connection, no stress</div>
                 </div>
@@ -341,7 +341,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
               
               <div className="flex items-center gap-4">
                 <div className="text-lg font-bold text-timeback-primary w-24 font-cal">8:00 PM</div>
-                <div className="flex-1 bg-white rounded-xl p-4 border border-timeback-primary">
+                <div className="flex-1 backdrop-blur-sm bg-white/10 rounded-xl p-4 border border-timeback-primary">
                   <div className="font-bold text-timeback-primary font-cal">Evening Interests</div>
                   <div className="text-timeback-primary font-cal">More time for {primaryInterest}</div>
                 </div>

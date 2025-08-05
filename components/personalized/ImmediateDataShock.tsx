@@ -39,7 +39,7 @@ export default function ImmediateDataShock() {
         
         {/* Header */}
         <div className="text-center mb-16 font-cal">
-          <div className="inline-flex items-center gap-2 bg-white border border-timeback-primary rounded-full px-6 py-3 mb-6">
+          <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3 mb-6">
             <div className="w-2 h-2 bg-timeback-primary rounded-full"></div>
             <span className="text-timeback-primary font-bold text-sm font-cal">SPRING 2024 RESULTS</span>
           </div>
@@ -55,7 +55,7 @@ export default function ImmediateDataShock() {
 
           {/* Personalized Context */}
           {userGrade && (
-            <div className="bg-white border-2 border-timeback-primary rounded-2xl p-6 max-w-3xl mx-auto mb-8">
+            <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-2xl p-6 max-w-3xl mx-auto mb-8">
               <div className="text-center text-timeback-primary font-cal">
                 <span className="font-bold font-cal">Your {userGrade === 'K' ? 'kindergartener' : `${userGrade}th grader`}</span> would be in the highlighted row below.
                 {topSchool && ` For comparison, ${topSchool.name} has a ${topSchool.rating}/10 rating.`}
@@ -65,7 +65,7 @@ export default function ImmediateDataShock() {
         </div>
 
         {/* Data Table - Professional Design */}
-        <div className="bg-white rounded-2xl border-2 border-timeback-primary shadow-2xl overflow-hidden mb-12">
+        <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl overflow-hidden mb-12">
           <div className="p-6 bg-timeback-primary">
             <h3 className="text-xl font-bold text-white text-center font-cal">MAP Test Achievement Percentiles</h3>
             <p className="text-white text-center text-sm mt-2 font-cal opacity-90">Standardized test results across all grade levels</p>
@@ -147,7 +147,7 @@ export default function ImmediateDataShock() {
 
         {/* Key Insights - Professional Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          <div className="bg-white rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+          <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
             <div className="p-8 text-center font-cal">
               <div className="w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold text-xl font-cal">%</span>
@@ -157,7 +157,7 @@ export default function ImmediateDataShock() {
             </div>
           </div>
           
-          <div className="bg-white rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+          <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
             <div className="p-8 text-center font-cal">
               <div className="w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold text-xl font-cal">#</span>
@@ -167,7 +167,7 @@ export default function ImmediateDataShock() {
             </div>
           </div>
           
-          <div className="bg-white rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+          <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
             <div className="p-8 text-center font-cal">
               <div className="w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white font-bold text-lg font-cal">✓</span>

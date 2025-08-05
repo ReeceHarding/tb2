@@ -121,7 +121,7 @@ export default function SpeedComparison({ gradeLevel = '2nd', onLearnMore }: Spe
     <section className="max-w-7xl mx-auto py-20 lg:py-32 px-6 lg:px-12">
       {/* Header */}
       <div className="text-center mb-16 font-cal">
-        <div className="inline-flex items-center gap-2 bg-white border border-timeback-primary rounded-full px-6 py-3 mb-8">
+        <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3 mb-8">
           <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
           <span className="text-timeback-primary font-bold text-sm font-cal">SPEED COMPARISON</span>
         </div>
@@ -134,7 +134,7 @@ export default function SpeedComparison({ gradeLevel = '2nd', onLearnMore }: Spe
       </div>
 
       {/* Main comparison chart */}
-      <div className="bg-white rounded-2xl shadow-2xl border-2 border-timeback-primary p-12 mb-16">
+      <div className="backdrop-blur-md bg-white/10 rounded-2xl shadow-2xl border-2 border-timeback-primary p-12 mb-16">
         <h3 className="text-3xl font-bold text-timeback-primary mb-12 text-center font-cal">
           Our kids finish their coursework 5-10x faster
         </h3>
