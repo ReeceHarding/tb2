@@ -105,6 +105,36 @@ export interface LoadingStepProps {
   onPrev?: () => void;
 }
 
+// Shareable journey interfaces
+export interface ShareableJourneySection {
+  sectionId: string;
+  componentId: string;
+  timestamp: Date;
+}
+
+export interface ShareableJourney {
+  shareId: string;
+  isPublic: boolean;
+  viewedSections: ShareableJourneySection[];
+  createdAt: Date;
+  lastUpdatedAt: Date;
+  viewCount: number;
+}
+
+export interface ShareableJourneyResponse {
+  success: boolean;
+  data?: {
+    shareId: string;
+    shareUrl: string;
+    quizData: QuizData;
+    generatedContent: GeneratedContent;
+    viewedSections: ShareableJourneySection[];
+    createdAt: Date;
+    parentName?: string;
+  };
+  error?: string;
+}
+
 // Quiz action types
 export type QuizAction =
   | { type: 'SET_STEP'; step: number }
