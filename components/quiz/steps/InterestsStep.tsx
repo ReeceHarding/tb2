@@ -16,31 +16,27 @@ export default function InterestsStep({ onNext: _onNext, onPrev: _onPrev }: Inte
   console.log('[InterestsStep] Selected interests:', state.kidsInterests.length);
   console.log('[InterestsStep] Expanded category:', expandedCategory);
 
-  // Main interest categories with detailed subcategories - Limited to 5 core categories to reduce cognitive load
+  // Broad, encompassing interest categories with max 8 subcategories each
   const interestCategories = {
-    'Sports & Athletics': [
-      'Soccer/Football', 'Basketball', 'Baseball/Softball', 'Tennis', 
-      'Swimming', 'Track & Field', 'Volleyball', 'Martial Arts'
+    'Physical & Sports': [
+      'Team Sports', 'Individual Sports', 'Swimming & Water Sports', 'Martial Arts & Combat Sports',
+      'Dance & Movement', 'Outdoor Adventures', 'Fitness & Training', 'Motor Sports & Racing'
     ],
-    'Arts & Creativity': [
-      'Drawing & Sketching', 'Painting', 'Digital Art', 'Photography',
-      'Sculpture', 'Crafts & DIY', 'Fashion Design', 'Music & Performance',
-      'Theater/Acting', 'Dance'
+    'Creative & Artistic': [
+      'Visual Arts & Drawing', 'Music & Instruments', 'Performance & Theater', 'Digital & Media Arts',
+      'Crafts & Making', 'Fashion & Design', 'Photography & Film', 'Creative Writing & Storytelling'
     ],
-    'Science & Discovery': [
-      'Chemistry Experiments', 'Physics & Engineering', 'Biology & Life Sciences', 'Astronomy',
-      'Earth Sciences', 'Environmental Science', 'Robotics', 'Scientific Research',
-      'Nature Study', 'Animal Care', 'Math & Problem Solving'
+    'STEM & Discovery': [
+      'Science Experiments', 'Engineering & Building', 'Math & Logic Puzzles', 'Nature & Environmental Study',
+      'Space & Astronomy', 'Biology & Life Sciences', 'Chemistry & Physics', 'Research & Investigation'
     ],
-    'Technology & Gaming': [
-      'Video Games', 'Programming & Coding', 'Computer Hardware', 'Mobile Apps',
-      'Virtual Reality', 'Artificial Intelligence', 'Cybersecurity', 'Web Development',
-      'Electronics', '3D Printing'
+    'Technology & Digital': [
+      'Video Games & Gaming', 'Programming & Coding', 'Robotics & AI', 'Digital Creation & Apps',
+      'Virtual & Augmented Reality', 'Electronics & Hardware', 'Web Development', '3D Design & Printing'
     ],
-    'Reading & Writing': [
-      'Fiction Books', 'Non-fiction', 'Poetry', 'Creative Writing',
-      'Journalism', 'Comic Books/Graphic Novels', 'Screenwriting', 'Blogging',
-      'History & Culture', 'Languages', 'Geography'
+    'Language & Culture': [
+      'Reading & Literature', 'Writing & Journalism', 'History & Geography', 'World Languages',
+      'Cultural Studies', 'Communication & Public Speaking', 'Research & Academic Studies', 'Philosophy & Ideas'
     ]
   };
 
