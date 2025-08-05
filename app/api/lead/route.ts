@@ -8,7 +8,18 @@ import connectMongo from "@/libs/mongoose";
 export async function POST(req: NextRequest) {
   await connectMongo();
 
-  const body = await req.json();
+  // Parse request body with error handling
+  let body;
+  try {
+    const contentLength = req.headers.get('content-length');
+    if (!contentLength || contentLength === '0') {
+      return NextResponse.json({ error: "Request body is required" }, { status: 400 });
+    }
+    body = await req.json();
+  } catch (error) {
+    console.error('[lead] Invalid JSON in request body:', error);
+    return NextResponse.json({ error: "Invalid JSON format in request body" }, { status: 400 });
+  }
 
   if (!body.email) {
     return NextResponse.json({ error: "Email is required" }, { status: 400 });

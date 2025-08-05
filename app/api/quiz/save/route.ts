@@ -30,35 +30,26 @@ export async function POST(req: NextRequest) {
     await connectMongo();
     console.log(`[QuizSaveAPI] ${timestamp} Connected to MongoDB`);
 
-    // Parse and validate request body
+    // Parse request body with error handling
     let body;
     try {
-      const contentType = req.headers.get('content-type');
-      if (!contentType?.includes('application/json')) {
-        console.log(`[QuizSaveAPI] ${timestamp} Invalid content type:`, contentType);
+      const contentLength = req.headers.get('content-length');
+      if (!contentLength || contentLength === '0') {
+        console.log(`[QuizSaveAPI] ${timestamp} Empty request body`);
         return NextResponse.json(
-          { error: "Content-Type must be application/json" },
+          { error: "Request body is required" },
           { status: 400 }
         );
       }
-
       body = await req.json();
-      
-      if (!body || typeof body !== 'object') {
-        console.log(`[QuizSaveAPI] ${timestamp} Invalid request body format`);
-        return NextResponse.json(
-          { error: "Request body must be a valid JSON object" },
-          { status: 400 }
-        );
-      }
     } catch (error) {
-      console.log(`[QuizSaveAPI] ${timestamp} JSON parsing error:`, error.message);
+      console.log(`[QuizSaveAPI] ${timestamp} Invalid JSON in request body:`, error);
       return NextResponse.json(
-        { error: "Invalid JSON in request body" },
+        { error: "Invalid JSON format in request body" },
         { status: 400 }
       );
     }
-
+    
     const { quizData, generatedContent } = body;
 
     console.log(`[QuizSaveAPI] ${timestamp} Received data:`, {

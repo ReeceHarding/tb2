@@ -8,7 +8,26 @@ export async function POST(req: NextRequest) {
   console.log('[chat-tutor] API route called');
   
   try {
-    const { question, interests = [], subject, gradeLevel, context, messageHistory } = await req.json();
+    // Parse request body with error handling
+    let body;
+    try {
+      const contentLength = req.headers.get('content-length');
+      if (!contentLength || contentLength === '0') {
+        return new Response(JSON.stringify({ error: "Request body is required" }), {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      body = await req.json();
+    } catch (error) {
+      console.error('[chat-tutor] Invalid JSON in request body:', error);
+      return new Response(JSON.stringify({ error: "Invalid JSON format in request body" }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
+    const { question, interests = [], subject, gradeLevel, context, messageHistory } = body;
     
     console.log('[chat-tutor] Processing question:', question);
     console.log('[chat-tutor] Context:', context);

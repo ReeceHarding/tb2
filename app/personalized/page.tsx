@@ -8,7 +8,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PersonalizedResults from '@/components/PersonalizedResults';
 import ProgressiveDisclosureContainer from '@/components/personalized/ProgressiveDisclosureContainer';
-import { getCachedContent, getGenerationStatus } from '@/libs/optimisticContentGeneration';
+import { getCachedContent, getGenerationStatus, startOptimisticGeneration } from '@/libs/optimisticContentGeneration';
 import '../ui-animations.css';
 
 // Quiz data and generated content interfaces are now imported from @/types/quiz
@@ -192,6 +192,21 @@ export default function PersonalizedPage() {
         const maxAttempts = 60; // Wait up to 30 seconds (500ms * 60)
         
         console.log(`⏳ [PersonalizedPage] ${timestamp} Starting content generation monitoring (max ${maxAttempts} attempts)`);
+        
+        // Check if content generation needs to be started
+        let initialCachedContent = getCachedContent();
+        if (!initialCachedContent && loadedQuizData) {
+          console.log(`🚀 [PersonalizedPage] ${timestamp} No cached content found, starting content generation...`);
+          try {
+            startOptimisticGeneration(loadedQuizData).catch(error => {
+              console.error(`💥 [PersonalizedPage] ${timestamp} Failed to start content generation:`, error);
+            });
+            // Give it a moment to initialize
+            await new Promise(resolve => setTimeout(resolve, 100));
+          } catch (error) {
+            console.error(`💥 [PersonalizedPage] ${timestamp} Error initiating content generation:`, error);
+          }
+        }
         
         while (attempts < maxAttempts) {
           const checkStart = performance.now();

@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useSession, signIn } from 'next-auth/react';
 import { useQuiz } from '../QuizContext';
 import { AuthStepProps } from '@/types/quiz';
 import { motion, AnimatePresence } from 'framer-motion';
-import { requestThrottler } from '@/utils/debounce';
 
 export default function AuthStep({ onNext, quizData, generatedContent }: AuthStepProps) {
   const { state } = useQuiz();
@@ -69,20 +68,16 @@ export default function AuthStep({ onNext, quizData, generatedContent }: AuthSte
     console.log(`[AuthStep] ${saveTimestamp} Saving quiz data for user:`, session.user.email);
 
     try {
-      const response = await requestThrottler.throttleRequest(
-        `quiz-save-${session.user.email}`,
-        () => fetch('/api/quiz/save', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            quizData: dataToSave,
-            generatedContent: generatedContent || null
-          })
-        }),
-        10000 // 10 second timeout
-      );
+      const response = await fetch('/api/quiz/save', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          quizData: dataToSave,
+          generatedContent: generatedContent || null
+        })
+      });
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
@@ -180,10 +175,14 @@ export default function AuthStep({ onNext, quizData, generatedContent }: AuthSte
 
 
 
-  // Auto-save and proceed when user becomes authenticated
+  // Auto-save and proceed when user becomes authenticated (with debounce protection)
+  const autoSaveExecutedRef = useRef(false);
   useEffect(() => {
-    if (status === 'authenticated' && session?.user?.email) {
+    if (status === 'authenticated' && session?.user?.email && !autoSaveExecutedRef.current && !isSaving) {
       const authTimestamp = new Date().toISOString();
+      
+      // Prevent multiple executions
+      autoSaveExecutedRef.current = true;
       
       // === CRITICAL AUTO-SAVE BEHAVIOR LOGS - FOR LLM PARSING ===
       console.log(`🚨 [CRITICAL-AUTO-SAVE] ${authTimestamp} *** AUTHENTICATED USER DETECTED ***`);
@@ -219,7 +218,7 @@ export default function AuthStep({ onNext, quizData, generatedContent }: AuthSte
       const authTimestamp = new Date().toISOString();
       console.log(`🚨 [CRITICAL-AUTO-SAVE] ${authTimestamp} User not authenticated - auth page will be displayed`);
     }
-  }, [status, session, onNext, saveQuizData]);
+  }, [status, session, onNext, saveQuizData, isSaving]);
 
   // Enhanced authenticated state with better design
   if (status === 'authenticated') {
