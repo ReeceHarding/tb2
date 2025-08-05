@@ -184,7 +184,7 @@ export default function ShareJourneyButton({ viewedComponents, className = '' }:
               
               <div className="backdrop-blur-md bg-white/20 border border-timeback-primary rounded-xl p-3 shadow-lg">
                 <p className="font-cal text-timeback-primary text-xs mb-2 font-semibold">Share this link:</p>
-                <div className="backdrop-blur-sm bg-white/90 rounded-lg p-2 border border-timeback-primary shadow-lg">
+                <div className="backdrop-blur-sm bg-white/90 rounded-xl p-2 border border-timeback-primary shadow-xl">
                   <p className="font-cal text-timeback-primary text-xs break-all font-mono">
                     {shareUrl}
                   </p>

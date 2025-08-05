@@ -659,13 +659,27 @@ Example outputs for different interests:
 
 
 
-      {/* Learn More button */}
-      <div className="flex justify-center mt-12">
+      {/* Action buttons */}
+      <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
         <button 
           onClick={() => onLearnMore('subject-examples')}
           className="px-8 py-4 border-2 border-timeback-primary text-timeback-primary bg-transparent rounded-xl hover:bg-timeback-bg transition-all duration-200 transform hover:scale-105 font-bold font-cal text-lg shadow-2xl hover:shadow-2xl"
         >
           Get AI analysis of how this applies to my child
+        </button>
+        <button 
+          onClick={() => {
+            const dataSection = document.getElementById('data-section');
+            if (dataSection) {
+              dataSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          }}
+          className="px-8 py-4 bg-timeback-primary text-white rounded-xl font-bold hover:bg-timeback-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl font-cal text-lg"
+        >
+          See the data
         </button>
       </div>
     </section>

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import SchemaResponseRenderer from '@/components/SchemaResponseRenderer';
+import { smoothScrollToElement } from '@/lib/utils';
 
 interface CustomQuestionSectionProps {
   quizData: any;
@@ -31,6 +32,13 @@ export default function CustomQuestionSection({
     console.log('[CustomQuestionSection] Processing question with schema format:', currentQuestion);
     setIsLoading(true);
     setSchemaResponse(null);
+    
+    // Smooth scroll to the loading state that will appear
+    const loadingId = `custom-response-loading-${schemaResponses.length}`;
+    console.log(`[CustomQuestionSection] Scrolling to loading state: ${loadingId}`);
+    smoothScrollToElement(loadingId, 100, 'smooth', () => {
+      console.log(`[CustomQuestionSection] Scroll completed to loading state`);
+    });
     
     // Create previous content summary for context
     const previousContentSummary = conversationHistory.length > 0 
@@ -71,6 +79,7 @@ export default function CustomQuestionSection({
       if (data.success && data.responseFormat === 'schema') {
         console.log('[CustomQuestionSection] Got schema response:', data.response);
         setSchemaResponse(data.response);
+        const newResponseIndex = schemaResponses.length;
         setSchemaResponses(prev => [...prev, data.response]);
         
         // Add to conversation history
@@ -80,6 +89,13 @@ export default function CustomQuestionSection({
           { role: 'assistant' as const, content: JSON.stringify(data.response) }
         ];
         setConversationHistory(newHistory);
+        
+        // Smooth scroll to the newly generated response
+        const responseId = `custom-response-${newResponseIndex}`;
+        console.log(`[CustomQuestionSection] Scrolling to new response: ${responseId}`);
+        smoothScrollToElement(responseId, 100, 'smooth', () => {
+          console.log(`[CustomQuestionSection] Scroll completed for response ${newResponseIndex}`);
+        });
       } else if (data.success) {
         console.log('[CustomQuestionSection] Got plain text, creating fallback schema');
         const fallbackResponse = {
@@ -94,6 +110,7 @@ export default function CustomQuestionSection({
           next_options: ['Tell me about TimeBack results', 'How does the daily schedule work?', 'What about my child\'s specific interests?']
         };
         setSchemaResponse(fallbackResponse);
+        const newResponseIndex = schemaResponses.length;
         setSchemaResponses(prev => [...prev, fallbackResponse]);
         
         // Add to conversation history
@@ -103,6 +120,13 @@ export default function CustomQuestionSection({
           { role: 'assistant' as const, content: data.response }
         ];
         setConversationHistory(newHistory);
+        
+        // Smooth scroll to the newly generated response
+        const responseId = `custom-response-${newResponseIndex}`;
+        console.log(`[CustomQuestionSection] Scrolling to fallback response: ${responseId}`);
+        smoothScrollToElement(responseId, 100, 'smooth', () => {
+          console.log(`[CustomQuestionSection] Scroll completed for fallback response ${newResponseIndex}`);
+        });
       } else {
         throw new Error(data.error || data.validationError || 'Failed to get AI response');
       }
@@ -159,6 +183,7 @@ export default function CustomQuestionSection({
       }
       
       setSchemaResponse(errorResponse);
+      const errorResponseIndex = schemaResponses.length;
       setSchemaResponses(prev => [...prev, errorResponse]);
       
       // Add detailed error to conversation history for debugging
@@ -168,6 +193,13 @@ export default function CustomQuestionSection({
         { role: 'assistant' as const, content: `${errorMessage} (Error: ${error instanceof Error ? error.message : 'Unknown error'})` }
       ];
       setConversationHistory(newHistory);
+      
+      // Smooth scroll to the error response
+      const responseId = `custom-response-${errorResponseIndex}`;
+      console.log(`[CustomQuestionSection] Scrolling to error response: ${responseId}`);
+      smoothScrollToElement(responseId, 100, 'smooth', () => {
+        console.log(`[CustomQuestionSection] Scroll completed for error response ${errorResponseIndex}`);
+      });
       
       // Track error for analytics
       console.error('[CustomQuestionSection] Error details for analytics:', {
@@ -194,6 +226,13 @@ export default function CustomQuestionSection({
     setIsLoading(true);
     setSchemaResponse(null); // Clear single response state
     
+    // Smooth scroll to the loading state that will appear for next option
+    const loadingId = `custom-response-loading-${schemaResponses.length}`;
+    console.log(`[CustomQuestionSection] Scrolling to loading state for next option: ${loadingId}`);
+    smoothScrollToElement(loadingId, 100, 'smooth', () => {
+      console.log(`[CustomQuestionSection] Scroll completed to loading state for next option`);
+    });
+    
     try {
       const response = await fetch('/api/ai/personalized', {
         method: 'POST',
@@ -218,6 +257,7 @@ export default function CustomQuestionSection({
       if (data.success && data.responseFormat === 'schema') {
         console.log('[CustomQuestionSection] Got schema response for next option:', data.response);
         setSchemaResponse(data.response);
+        const newResponseIndex = schemaResponses.length;
         setSchemaResponses(prev => [...prev, data.response]);
         
         // Add to conversation history
@@ -227,6 +267,13 @@ export default function CustomQuestionSection({
           { role: 'assistant' as const, content: JSON.stringify(data.response) }
         ];
         setConversationHistory(newHistory);
+        
+        // Smooth scroll to the newly generated response from next option
+        const responseId = `custom-response-${newResponseIndex}`;
+        console.log(`[CustomQuestionSection] Scrolling to next option response: ${responseId}`);
+        smoothScrollToElement(responseId, 100, 'smooth', () => {
+          console.log(`[CustomQuestionSection] Scroll completed for next option response ${newResponseIndex}`);
+        });
       }
     } catch (error) {
       console.error('[CustomQuestionSection] Error processing next option:', error);
@@ -276,7 +323,7 @@ export default function CustomQuestionSection({
 
       {/* Display all responses in sequence */}
       {schemaResponses.map((response, index) => (
-        <div key={index} className="mt-16 backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl overflow-hidden">
+        <div key={index} id={`custom-response-${index}`} className="mt-16 backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl overflow-hidden">
           <div className="p-6 bg-timeback-primary">
             <h3 className="text-xl font-bold text-white text-center font-cal">
               {index === 0 ? 'Your Personalized Answer' : `Follow-up Answer ${index}`}
@@ -294,7 +341,7 @@ export default function CustomQuestionSection({
       
       {/* Loading state for new responses */}
       {isLoading && (
-        <div className="mt-16 backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl overflow-hidden">
+        <div id={`custom-response-loading-${schemaResponses.length}`} className="mt-16 backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl overflow-hidden">
           <div className="p-6 bg-timeback-primary">
             <h3 className="text-xl font-bold text-white text-center font-cal">
               {schemaResponses.length === 0 ? 'Your Personalized Answer' : `Follow-up Answer ${schemaResponses.length}`}

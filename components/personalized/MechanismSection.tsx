@@ -7,6 +7,10 @@ interface QuizData {
   kidsInterests?: string[]
 }
 
+interface GradePromptProps {
+  onGradeSelect: (grade: string) => void
+}
+
 const hoursData: Record<string, { math: number, language: number, science: number }> = {
   'K': { math: 53, language: 25, science: 0 },
   '1': { math: 45, language: 38, science: 1 },
@@ -22,20 +26,94 @@ const hoursData: Record<string, { math: number, language: number, science: numbe
   '11': { math: 35, language: 52, science: 21 },
 }
 
+const gradeLabels = ['K', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th']
+
+function GradePrompt({ onGradeSelect }: GradePromptProps) {
+  console.log('🎓 GradePrompt component rendered - asking for child grade')
+  
+  return (
+    <div className="text-center py-16 font-cal">
+      <div className="max-w-2xl mx-auto">
+        <div className="inline-flex items-center gap-2 bg-timeback-bg border border-timeback-primary rounded-full px-6 py-3 mb-6">
+          <div className="w-2 h-2 bg-timeback-primary rounded-full"></div>
+          <span className="text-timeback-primary font-bold text-sm font-cal">PERSONALIZED ANALYSIS</span>
+        </div>
+        
+        <h3 className="text-3xl font-bold text-timeback-primary mb-4 font-cal">
+          What grade is your child in?
+        </h3>
+        <p className="text-lg text-timeback-primary mb-8 font-cal">
+          We&apos;ll show you personalized learning time comparisons based on your child&apos;s grade level
+        </p>
+        
+        <div className="grid grid-cols-3 md:grid-cols-4 gap-4 max-w-lg mx-auto">
+          {gradeLabels.map((grade) => (
+            <button
+              key={grade}
+              onClick={() => {
+                console.log(`📊 Grade selected: ${grade} for child's learning analysis`)
+                onGradeSelect(grade)
+              }}
+              className="bg-white border-2 border-timeback-primary text-timeback-primary py-3 px-4 rounded-xl font-cal font-bold hover:bg-timeback-bg transition-colors"
+            >
+              {grade}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function MechanismSection() {
   const [quizData, setQuizData] = useState<QuizData | null>(null)
+  const [selectedGrade, setSelectedGrade] = useState<string | null>(null)
+  const [showGradePrompt, setShowGradePrompt] = useState<boolean>(false)
 
   useEffect(() => {
+    console.log('🔍 MechanismSection mounted - checking for existing quiz data')
     const data = localStorage.getItem('timebackQuizData')
-    if (data) setQuizData(JSON.parse(data))
+    if (data) {
+      const parsedData = JSON.parse(data)
+      console.log('📋 Found existing quiz data:', parsedData)
+      setQuizData(parsedData)
+    } else {
+      console.log('❌ No quiz data found - will show grade prompt')
+      setShowGradePrompt(true)
+    }
   }, [])
 
-  const userGrade = quizData?.grade?.replace(/st|nd|rd|th/, '') || '5'
-  const userHours = hoursData[userGrade] || hoursData['5']
+  const handleGradeSelect = (grade: string) => {
+    console.log(`✅ Grade selected for child: ${grade}`)
+    setSelectedGrade(grade)
+    setShowGradePrompt(false)
+    
+    // Save the grade selection temporarily (you might want to save this differently)
+    const tempQuizData = { grade: grade, kidsInterests: [] as string[] }
+    setQuizData(tempQuizData)
+  }
+
+  // Determine which grade to use for the analysis
+  const displayGrade = selectedGrade || quizData?.grade
+  const userGrade = displayGrade?.replace(/st|nd|rd|th/, '') || null
+  const userHours = userGrade ? hoursData[userGrade] : null
   const interests = quizData?.kidsInterests || []
 
+  // Show grade prompt if no grade data is available
+  if (showGradePrompt || !userGrade || !userHours) {
+    return (
+      <section className="py-20 lg:py-32">
+        <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+          <GradePrompt onGradeSelect={handleGradeSelect} />
+        </div>
+      </section>
+    )
+  }
+
+  console.log(`📊 Displaying analysis for grade: ${userGrade}`)
+
   return (
-    <section className="bg-gradient-to-br from-white to-timeback-bg py-20 lg:py-32">
+    <section className="py-20 lg:py-32">
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
         
         {/* Header */}
@@ -59,7 +137,7 @@ export default function MechanismSection() {
             {/* Card Header */}
             <div className="bg-timeback-primary text-white p-8 text-center font-cal">
               <h3 className="text-2xl font-bold font-cal mb-2">Learning Time Analysis</h3>
-              <p className="font-cal opacity-90">Grade {userGrade}: TimeBack vs Traditional School</p>
+              <p className="font-cal opacity-90">Grade {displayGrade}: TimeBack vs Traditional School</p>
             </div>
 
             <div className="p-8">
@@ -276,6 +354,24 @@ export default function MechanismSection() {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Action Button */}
+        <div className="flex justify-center mt-12">
+          <button 
+            onClick={() => {
+              const dataSection = document.getElementById('data-section');
+              if (dataSection) {
+                dataSection.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
+            }}
+            className="px-8 py-4 border-2 border-timeback-primary text-timeback-primary bg-transparent rounded-xl font-bold hover:bg-timeback-bg transition-all duration-200 shadow-lg hover:shadow-xl font-cal text-lg"
+          >
+            See the data
+          </button>
         </div>
       </div>
     </section>

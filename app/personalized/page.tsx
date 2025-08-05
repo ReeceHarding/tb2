@@ -6,6 +6,7 @@ import { QuizData } from '@/types/quiz';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useRouter } from 'next/navigation';
+import { smoothScrollToElement } from '@/lib/utils';
 import '../ui-animations.css';
 
 // Component imports for data collection
@@ -159,21 +160,34 @@ export default function PersonalizedPage() {
     return true;
   };
 
-  // Handle section selection
+  // Handle section selection - now adds to growing page instead of replacing content
   const handleSectionSelect = (sectionId: string) => {
     console.log(`[PersonalizedPage] Section selected: ${sectionId}`);
     
     const requirements = dataRequirements[sectionId] || [];
     
     if (hasRequiredData(requirements)) {
-      // We have all required data, show the component
-      setSelectedSection(sectionId);
-      setIsCollectingData(false);
-      setDataNeeded(null);
-      
-      // Add to viewed components if not already there
+      // We have all required data, add the component to viewed components
       if (!viewedComponents.includes(sectionId)) {
-        setViewedComponents([...viewedComponents, sectionId]);
+        const newViewedComponents = [...viewedComponents, sectionId];
+        setViewedComponents(newViewedComponents);
+        
+        // Clear any temporary selection state
+        setSelectedSection(null);
+        setIsCollectingData(false);
+        setDataNeeded(null);
+        
+        // Smooth scroll to the newly added component in the growing page
+        const componentId = `viewed-component-${sectionId}`;
+        console.log(`[PersonalizedPage] Scrolling to newly added component: ${componentId}`);
+        smoothScrollToElement(componentId, 100, 'smooth', () => {
+          console.log(`[PersonalizedPage] Smooth scroll completed for new component: ${sectionId}`);
+        });
+      } else {
+        // Component already exists, just scroll to it
+        const componentId = `viewed-component-${sectionId}`;
+        console.log(`[PersonalizedPage] Component already exists, scrolling to: ${componentId}`);
+        smoothScrollToElement(componentId, 100, 'smooth');
       }
     } else {
       // We need to collect data first
@@ -195,6 +209,11 @@ export default function PersonalizedPage() {
       setSelectedSection(sectionId);
       setIsCollectingData(true);
       setDataNeeded(missingData || null);
+      
+      // Smooth scroll to the data collection section
+      smoothScrollToElement('selected-content-section', 100, 'smooth', () => {
+        console.log(`[PersonalizedPage] Smooth scroll completed for data collection: ${sectionId}`);
+      });
     }
   };
 
@@ -297,13 +316,24 @@ export default function PersonalizedPage() {
       });
       
       if (!stillMissing) {
-        // We have all data now, show the component
+        // We have all data now, add the component to the growing page
         setIsCollectingData(false);
         setDataNeeded(null);
         
         // Add to viewed components
-        if (!viewedComponents.includes(selectedSection)) {
-          setViewedComponents([...viewedComponents, selectedSection]);
+        if (selectedSection && !viewedComponents.includes(selectedSection)) {
+          const newViewedComponents = [...viewedComponents, selectedSection];
+          setViewedComponents(newViewedComponents);
+          
+          // Clear the temporary selected section state
+          setSelectedSection(null);
+          
+          // Smooth scroll to the newly added component
+          const componentId = `viewed-component-${selectedSection}`;
+          console.log(`[PersonalizedPage] Data collection complete, scrolling to new component: ${componentId}`);
+          smoothScrollToElement(componentId, 100, 'smooth', () => {
+            console.log(`[PersonalizedPage] Scroll completed for new component after data collection: ${selectedSection}`);
+          });
         }
       } else {
         // Still need more data
@@ -357,16 +387,65 @@ export default function PersonalizedPage() {
         // Show the actual component
     switch (selectedSection) {
       case 'what-is-timeback':
-    return (
-          <div className="space-y-8">
-            <TimeBackVsCompetitors onLearnMore={() => {}} />
-            <MechanismSection />
-            <LearningScienceSection 
-              learningGoals={[]} 
-              onLearnMore={() => {}}
-            />
-      </div>
-    );
+        return (
+          <div className="max-w-7xl mx-auto py-20 lg:py-32 px-6 lg:px-12">
+            <div className="text-center mb-16 font-cal">
+              <div className="inline-flex items-center gap-2 bg-white border border-timeback-primary rounded-full px-6 py-3 mb-8">
+                <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
+                <span className="text-timeback-primary font-bold text-sm font-cal">WHAT IS TIMEBACK</span>
+              </div>
+              <h2 className="text-4xl lg:text-6xl font-bold text-timeback-primary mb-8 font-cal">
+                TimeBack is AI-Powered Education
+              </h2>
+              <p className="text-2xl text-timeback-primary max-w-5xl mx-auto font-cal leading-relaxed mb-8">
+                We use artificial intelligence to eliminate the 6+ hours of wasted time in traditional education, allowing students to complete a full year of learning in just 2 hours per day.
+              </p>
+            </div>
+
+            {/* Key Benefits Cards */}
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl p-8 text-center">
+                <div className="w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-white font-bold text-2xl font-cal">10x</span>
+                </div>
+                <h3 className="text-xl font-bold text-timeback-primary mb-4 font-cal">10x Faster Learning</h3>
+                <p className="text-timeback-primary font-cal">Complete a full year of curriculum in just 2 months with our AI-powered approach</p>
+              </div>
+              
+              <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl p-8 text-center">
+                <div className="w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-white font-bold text-xl font-cal">✓</span>
+                </div>
+                <h3 className="text-xl font-bold text-timeback-primary mb-4 font-cal">100% Mastery</h3>
+                <p className="text-timeback-primary font-cal">Students must achieve complete understanding before advancing to the next concept</p>
+              </div>
+              
+              <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl p-8 text-center">
+                <div className="w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                  <span className="text-white font-bold text-xl font-cal">🎯</span>
+                </div>
+                <h3 className="text-xl font-bold text-timeback-primary mb-4 font-cal">Personalized Path</h3>
+                <p className="text-timeback-primary font-cal">AI adapts to each student&apos;s pace and learning style for optimal results</p>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button 
+                onClick={() => smoothScrollToElement('comparison-section')}
+                className="px-8 py-4 bg-timeback-primary text-white rounded-xl font-bold hover:bg-timeback-primary/90 transition-all duration-200 shadow-lg hover:shadow-xl font-cal text-lg"
+              >
+                Why can&apos;t I just use ChatGPT?
+              </button>
+              <button 
+                onClick={() => smoothScrollToElement('data-section')}
+                className="px-8 py-4 border-2 border-timeback-primary text-timeback-primary bg-transparent rounded-xl font-bold hover:bg-timeback-bg transition-all duration-200 shadow-lg hover:shadow-xl font-cal text-lg"
+              >
+                See the data
+              </button>
+            </div>
+          </div>
+        );
       case 'how-does-it-work':
         return <MechanismSection />;
       case 'show-data':
@@ -487,19 +566,12 @@ export default function PersonalizedPage() {
             </button>
           </div>
 
-          {/* Custom Question Section */}
-          <div className="mt-16">
-            <CustomQuestionSection 
-              quizData={userData as QuizData}
-              interests={userData.kidsInterests}
-              gradeLevel={userData.selectedSchools?.[0]?.level || 'high school'}
-            />
-          </div>
+
         </section>
 
         {/* Render selected section content or data collection */}
         {selectedSection && (
-          <section className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
+          <section id="selected-content-section" className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
             {isCollectingData && (
               <div className="mb-6 text-center">
                 <p className="text-lg text-timeback-primary font-cal">
@@ -511,17 +583,37 @@ export default function PersonalizedPage() {
           </section>
         )}
 
+                  {/* Comparison Section - shown when "Why can&apos;t I just use ChatGPT?" is clicked */}
+        {selectedSection === 'what-is-timeback' && (
+          <section id="comparison-section" className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
+            <TimeBackVsCompetitors onLearnMore={() => {}} />
+          </section>
+        )}
+
+        {/* Data Section - shown when "See the data" is clicked */}
+        {(selectedSection === 'what-is-timeback' || selectedSection === 'how-does-it-work' || selectedSection === 'example-question' || selectedSection === 'extra-hours') && (
+          <section id="data-section" className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
+            <LearningScienceSection 
+              learningGoals={[]} 
+              onLearnMore={() => {}}
+            />
+          </section>
+        )}
+
         {/* Show all viewed components (growing page) */}
-        {viewedComponents.length > 0 && !selectedSection && (
-          <section className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
+        {viewedComponents.length > 0 && (
+          <section id="viewed-components-section" className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
             <h3 className="text-2xl font-bold text-timeback-primary font-cal mb-8 text-center">
               Your Personalized TimeBack Report
             </h3>
             {viewedComponents.map((componentId) => {
               // Render each viewed component based on its ID
               let content = null;
+              let sectionTitle = '';
+              
               switch (componentId) {
                 case 'what-is-timeback':
+                  sectionTitle = 'What is TimeBack?';
                   content = (
                     <div className="space-y-8">
                       <TimeBackVsCompetitors onLearnMore={() => {}} />
@@ -534,30 +626,36 @@ export default function PersonalizedPage() {
                   );
                   break;
                 case 'how-does-it-work':
+                  sectionTitle = 'How does it work?';
                   content = <MechanismSection />;
                   break;
                 case 'show-data':
+                  sectionTitle = 'Show me your data';
                   content = <SchoolReportCard 
                     schoolData={userData.selectedSchools?.[0]}
                     onLearnMore={() => {}} 
                   />;
                   break;
                 case 'example-question':
+                  sectionTitle = 'Show me an example question tailored to my kid';
                   content = <PersonalizedSubjectExamples 
                     interests={userData.kidsInterests} 
                     onLearnMore={() => {}}
                   />;
                   break;
                 case 'find-school':
+                  sectionTitle = 'Find a school near me';
                   content = <ClosestSchools quizData={userData as QuizData} />;
                   break;
                 case 'extra-hours':
+                  sectionTitle = 'What will my kid do with the extra 6 hours they gain in their day?';
                   content = <AfternoonActivities 
                     interests={userData.kidsInterests}
                     onLearnMore={() => {}}
                   />;
                   break;
                 case 'custom-question':
+                  sectionTitle = 'Custom Questions';
                   content = <CustomQuestionSection 
                     quizData={userData as QuizData}
                     interests={userData.kidsInterests}
@@ -567,7 +665,12 @@ export default function PersonalizedPage() {
               }
               
               return (
-                <div key={componentId} className="mb-12">
+                <div key={componentId} id={`viewed-component-${componentId}`} className="mb-12">
+                  <div className="text-center mb-8">
+                    <h4 className="text-2xl font-bold text-timeback-primary font-cal">
+                      {sectionTitle}
+                    </h4>
+                  </div>
                   {content}
                   <div className="mt-8 border-t border-timeback-primary opacity-20"></div>
                 </div>
@@ -575,6 +678,15 @@ export default function PersonalizedPage() {
             })}
           </section>
         )}
+        
+        {/* Persistent CustomQuestionSection at bottom of page */}
+        <section id="persistent-questions-section" className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
+          <CustomQuestionSection 
+            quizData={userData as QuizData}
+            interests={userData.kidsInterests}
+            gradeLevel={userData.selectedSchools?.[0]?.level || 'high school'}
+          />
+        </section>
       </main>
       <Footer />
     </>

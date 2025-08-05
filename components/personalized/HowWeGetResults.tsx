@@ -313,15 +313,15 @@ export default function HowWeGetResults({
             <h3 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">Traditional Learning</h3>
             <ul className="space-y-3 text-timeback-primary font-cal">
               <li className="flex items-start gap-3">
-                <span className="text-red-500 font-bold">✗</span>
+                <span className="text-timeback-primary font-bold">✗</span>
                 <span>One-size-fits-all curriculum</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-red-500 font-bold">✗</span>
+                <span className="text-timeback-primary font-bold">✗</span>
                 <span>Fixed pace regardless of mastery</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-red-500 font-bold">✗</span>
+                <span className="text-timeback-primary font-bold">✗</span>
                 <span>Generic content that bores students</span>
               </li>
             </ul>
@@ -331,15 +331,15 @@ export default function HowWeGetResults({
             <h3 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">TimeBack Learning</h3>
             <ul className="space-y-3 text-timeback-primary font-cal">
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold">✓</span>
+                <span className="text-timeback-primary font-bold">✓</span>
                 <span>AI adapts to your child learning style</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold">✓</span>
+                <span className="text-timeback-primary font-bold">✓</span>
                 <span>Accelerate through mastered concepts</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-green-600 font-bold">✓</span>
+                <span className="text-timeback-primary font-bold">✓</span>
                 <span>Content built around their interests</span>
               </li>
             </ul>
@@ -415,10 +415,10 @@ export default function HowWeGetResults({
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-timeback-primary font-cal">TimeBack Average:</span>
-                <span className="text-2xl font-bold text-green-600 font-cal">2.1 hrs/day</span>
+                <span className="text-2xl font-bold text-timeback-primary font-cal">2.1 hrs/day</span>
               </div>
               <div className="text-center pt-4">
-                <div className="text-3xl font-bold text-green-600 font-cal">68% Faster</div>
+                <div className="text-3xl font-bold text-timeback-primary font-cal">68% Faster</div>
                 <div className="text-sm text-timeback-primary font-cal">Time savings per day</div>
               </div>
             </div>
@@ -433,10 +433,10 @@ export default function HowWeGetResults({
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-timeback-primary font-cal">TimeBack Students:</span>
-                <span className="text-2xl font-bold text-green-600 font-cal">89%</span>
+                <span className="text-2xl font-bold text-timeback-primary font-cal">89%</span>
               </div>
               <div className="text-center pt-4">
-                <div className="text-3xl font-bold text-green-600 font-cal">+33%</div>
+                <div className="text-3xl font-bold text-timeback-primary font-cal">+33%</div>
                 <div className="text-sm text-timeback-primary font-cal">Better comprehension</div>
               </div>
             </div>

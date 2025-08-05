@@ -244,19 +244,19 @@ export default function AuthStep({ onNext, quizData, generatedContent }: AuthSte
               className="space-y-6"
             >
               <div className="relative">
-                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <motion.svg 
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ delay: 0.2, duration: 0.3 }}
-                    className="w-10 h-10 text-green-600" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                  </motion.svg>
-                </div>
+                              <div className="w-20 h-20 bg-timeback-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                <motion.svg 
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.2, duration: 0.3 }}
+                  className="w-10 h-10 text-timeback-primary" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                </motion.svg>
+              </div>
               </div>
               <div className="space-y-3">
                 <h2 className="text-3xl font-bold text-timeback-primary font-cal">
@@ -300,10 +300,10 @@ export default function AuthStep({ onNext, quizData, generatedContent }: AuthSte
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="mt-6 p-4 bg-gradient-to-r from-red-50 to-red-100 border-2 border-red-200 rounded-xl max-w-md mx-auto"
+                  className="mt-6 p-4 bg-gradient-to-r from-timeback-bg to-white border-2 border-timeback-primary rounded-xl max-w-md mx-auto"
                 >
-                  <p className="text-red-700 font-semibold font-cal">{saveError}</p>
-                  <p className="text-red-600 text-sm mt-1 font-cal">Don&apos;t worry - your results are still available!</p>
+                  <p className="text-timeback-primary font-semibold font-cal">{saveError}</p>
+                  <p className="text-timeback-primary text-sm mt-1 font-cal">Don&apos;t worry - your results are still available!</p>
                 </motion.div>
               )}
             </motion.div>
@@ -463,17 +463,17 @@ export default function AuthStep({ onNext, quizData, generatedContent }: AuthSte
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-gradient-to-r from-red-50 to-red-100 border-2 border-red-200 rounded-xl p-6 max-w-md mx-auto"
+          className="bg-gradient-to-r from-timeback-bg to-white border-2 border-timeback-primary rounded-xl p-6 max-w-md mx-auto"
         >
           <div className="flex items-start space-x-3">
             <div className="flex-shrink-0">
-              <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-timeback-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.732 15.5c-.77.833.192 2.5 1.732 2.5z" />
               </svg>
             </div>
             <div className="flex-1">
-              <p className="text-red-700 font-semibold font-cal text-sm">{saveError}</p>
-                                <p className="text-red-600 text-xs mt-1 font-cal">Don&apos;t worry - your results are still available!</p>
+              <p className="text-timeback-primary font-semibold font-cal text-sm">{saveError}</p>
+                                <p className="text-timeback-primary text-xs mt-1 font-cal">Don&apos;t worry - your results are still available!</p>
             </div>
           </div>
         </motion.div>

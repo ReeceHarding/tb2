@@ -68,7 +68,7 @@ export default function TestStudentJourneysPage() {
             {showComponent && (
               <button
                 onClick={() => setShowComponent(false)}
-                className="w-full bg-gray-500 text-white px-6 py-3 rounded-xl font-cal font-semibold hover:bg-gray-600 transition-colors duration-200"
+                className="w-full bg-timeback-primary text-white px-6 py-3 rounded-xl font-cal font-semibold hover:bg-timeback-primary/80 transition-colors duration-200"
               >
                 Reset Component
               </button>
@@ -81,7 +81,7 @@ export default function TestStudentJourneysPage() {
           <h3 className="text-xl font-cal font-bold text-timeback-primary mb-3">
             API Endpoint Info
           </h3>
-          <div className="bg-gray-100 rounded-lg p-4 font-mono text-sm">
+          <div className="bg-timeback-bg rounded-xl p-4 font-mono text-sm">
             <div className="text-timeback-primary">
               <strong>Endpoint:</strong> /api/student-journeys?grade={selectedGrade === 'K' ? '0' : selectedGrade.replace(/\D/g, '')}&limit=8
             </div>

@@ -55,20 +55,20 @@ export default function SchemaResponseRenderer({
           
           {/* Description Skeleton */}
           <div className="space-y-2">
-            <div className="h-5 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-lg w-full animate-pulse shadow-md" style={{animationDelay: '0.2s'}}></div>
-            <div className="h-5 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-lg w-5/6 animate-pulse shadow-md" style={{animationDelay: '0.25s'}}></div>
-            <div className="h-5 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-lg w-4/5 animate-pulse shadow-md" style={{animationDelay: '0.3s'}}></div>
+                    <div className="h-5 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-xl w-full animate-pulse shadow-lg" style={{animationDelay: '0.2s'}}></div>
+        <div className="h-5 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-xl w-5/6 animate-pulse shadow-lg" style={{animationDelay: '0.25s'}}></div>
+        <div className="h-5 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-xl w-4/5 animate-pulse shadow-lg" style={{animationDelay: '0.3s'}}></div>
           </div>
           
           {/* Key Points Skeleton */}
           <div className="space-y-6">
-            <div className="h-6 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-lg w-1/4 animate-pulse shadow-md" style={{animationDelay: '0.35s'}}></div>
+            <div className="h-6 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-xl w-1/4 animate-pulse shadow-lg" style={{animationDelay: '0.35s'}}></div>
             {[1,2,3].map(i => (
               <div key={i} className="border-2 border-timeback-bg/50 rounded-xl p-6 bg-gradient-to-br from-white to-timeback-bg/10 shadow-lg animate-pulse" style={{animationDelay: `${0.4 + i * 0.1}s`}}>
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-timeback-bg rounded-full animate-pulse"></div>
                   <div className="flex-1 space-y-3">
-                    <div className="h-6 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-lg w-2/3"></div>
+                    <div className="h-6 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-xl w-2/3"></div>
                     <div className="space-y-2">
                       <div className="h-4 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded w-full"></div>
                       <div className="h-4 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded w-4/5"></div>
@@ -81,7 +81,7 @@ export default function SchemaResponseRenderer({
           
           {/* Next Options Skeleton */}
           <div className="space-y-4">
-            <div className="h-6 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-lg w-2/5 animate-pulse shadow-md" style={{animationDelay: '0.7s'}}></div>
+            <div className="h-6 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-xl w-2/5 animate-pulse shadow-lg" style={{animationDelay: '0.7s'}}></div>
             <div className="grid gap-4 sm:grid-cols-1 lg:grid-cols-3">
               {[1,2,3].map(i => (
                 <div key={i} className="h-16 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-xl animate-pulse shadow-lg border-2 border-timeback-bg/50" style={{animationDelay: `${0.75 + i * 0.1}s`}}></div>
