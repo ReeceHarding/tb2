@@ -7,6 +7,7 @@ interface AfternoonActivitiesProps {
   quizData?: any;
   onLearnMore: (_section: string) => void;
   preGeneratedContent?: any;
+  contentReady?: boolean;
 }
 
 interface ActivityContent {
@@ -34,7 +35,7 @@ interface AfternoonContent {
 
 
 
-export default function AfternoonActivities({ interests, quizData, onLearnMore, preGeneratedContent }: AfternoonActivitiesProps) {
+export default function AfternoonActivities({ interests, quizData, onLearnMore, preGeneratedContent, contentReady = true }: AfternoonActivitiesProps) {
   console.log('[AfternoonActivities] Rendering with interests:', interests);
   console.log('[AfternoonActivities] Pre-generated content available:', !!preGeneratedContent);
 
@@ -53,6 +54,51 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
     if (preGeneratedContent?.afternoonActivities) {
       console.log(`[AfternoonActivities] ${timestamp} Using pre-generated content`);
       setContent(preGeneratedContent.afternoonActivities);
+      setIsLoading(false);
+      setError(null);
+      return;
+    }
+
+    // If contentReady is true but no pre-generated content, use fallback immediately
+    if (contentReady) {
+      console.log(`[AfternoonActivities] ${timestamp} Content ready but no pre-generated content, using fallback immediately`);
+      setContent({
+        mainTitle: `In the Afternoons, They Can Focus on ${primaryInterest}`,
+        subtitle: `With 5-6 hours saved daily, they can truly master ${primaryInterest} and explore related activities.`,
+        secondaryInterestsText: interests.length > 1 ? `They'll also have time for their other interests: ${interests.slice(1).join(', ')}` : '',
+        specificActivities: [
+          {
+            activity: `Advanced ${primaryInterest} practice`,
+            description: 'Dedicated time for skill development and mastery',
+            timeRequired: '2 hours'
+          },
+          {
+            activity: 'Creative projects',
+            description: 'Personal projects that combine learning with passion',
+            timeRequired: '1-2 hours'
+          },
+          {
+            activity: 'Real-world application',
+            description: 'Applying skills in practical, meaningful ways',
+            timeRequired: '1 hour'
+          },
+          {
+            activity: 'Exploration and discovery',
+            description: 'Time to explore new aspects of their interests',
+            timeRequired: '1 hour'
+          }
+        ],
+        passionProjectName: `${primaryInterest} Excellence Academy`,
+        passionDeepDive: {
+          title: `Mastering ${primaryInterest}`,
+          description: `With consistent daily practice and exploration, they can develop real expertise in ${primaryInterest}.`,
+          progression: 'From beginner curiosity to advanced skills and creative expression.'
+        },
+        timeComparisonCustom: {
+          traditional: '6-8 hours in school + 2-3 hours homework = 1-2 hours for passions',
+          timeback: '2 hours academics + done with learning = 5-6 hours for passions'
+        }
+      });
       setIsLoading(false);
       setError(null);
       return;
@@ -137,7 +183,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
     };
 
     generateContent();
-  }, [interests, quizData, primaryInterest, preGeneratedContent]);
+  }, [interests, quizData, primaryInterest, preGeneratedContent, contentReady]);
 
   // Loading state
   if (isLoading) {

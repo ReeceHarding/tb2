@@ -8,6 +8,7 @@ interface HowWeGetResultsProps {
   learningGoals: string[];
   onLearnMore: (_section: string) => void;
   preGeneratedContent?: any;
+  contentReady?: boolean;
 }
 
 export default function HowWeGetResults({ 
@@ -15,7 +16,8 @@ export default function HowWeGetResults({
   interests, 
   learningGoals,
   onLearnMore: _onLearnMore,
-  preGeneratedContent 
+  preGeneratedContent,
+  contentReady = true 
 }: HowWeGetResultsProps) {
   
   // Helper function to format grade level properly for different contexts
@@ -164,9 +166,42 @@ export default function HowWeGetResults({
       }
     }
 
+    // If contentReady is true but no pre-generated content, use fallback immediately
+    if (contentReady) {
+      console.log(`[HowWeGetResults] ${timestamp} Content ready but no pre-generated content, using fallback immediately`);
+      setContent({
+        title: `How We Personalize Learning for Your ${formatGradeLevel(gradeLevel, 'student')}`,
+        subtitle: 'AI-powered education that adapts to your child\'s unique interests and learning style',
+        points: [
+          {
+            title: 'AI That Actually Works',
+            description: 'Discover how our advanced AI creates personalized content that matches your child\'s interests'
+          },
+          {
+            title: 'No More Waiting',
+            description: 'See how students move at their own pace, finishing academics in just 2 hours daily'
+          },
+          {
+            title: 'Real Results', 
+            description: 'Learn about the measurable outcomes and academic achievements from our personalized approach'
+          },
+          {
+            title: 'No Wasted Time', 
+            description: 'Explore how we eliminate unnecessary busy work and focus on efficient learning'
+          },
+          {
+            title: 'Proven by Data',
+            description: 'View the measurable results and performance metrics from our personalized platform'
+          }
+        ]
+      });
+      setIsLoading(false);
+      return;
+    }
+
     console.log(`[HowWeGetResults] ${timestamp} No pre-generated content, generating on-demand`);
     generateContent();
-  }, [gradeLevel, interests, learningGoals, preGeneratedContent, generateContent]);
+  }, [gradeLevel, interests, learningGoals, preGeneratedContent, generateContent, contentReady, formatGradeLevel]);
 
   if (isLoading) {
     return (

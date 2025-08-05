@@ -18,6 +18,7 @@ interface PersonalizedSubjectExamplesProps {
   interests: string[];
   onLearnMore: (section: string) => void;
   preGeneratedContent?: any;
+  contentReady?: boolean;
 }
 
 const subjects = [
@@ -64,7 +65,7 @@ const subjects = [
   }
 ];
 
-export default function PersonalizedSubjectExamples({ interests = [], onLearnMore, preGeneratedContent }: PersonalizedSubjectExamplesProps) {
+export default function PersonalizedSubjectExamples({ interests = [], onLearnMore, preGeneratedContent, contentReady = true }: PersonalizedSubjectExamplesProps) {
   const [activeTab, setActiveTab] = useState('math');
   const [questions, setQuestions] = useState<Record<string, QuestionData | null>>({});
   const [loadingStates, setLoadingStates] = useState<Record<string, boolean>>({});
