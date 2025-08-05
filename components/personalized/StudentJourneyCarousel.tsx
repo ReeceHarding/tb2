@@ -139,7 +139,7 @@ export default function StudentJourneyCarousel({ grade, schoolName }: StudentJou
           
           {/* Error State */}
           {error && !isLoading && (
-            <div className="bg-white rounded-xl shadow-lg border-2 border-timeback-primary p-8 max-w-2xl mx-auto text-center">
+            <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-lg border-2 border-timeback-primary p-8 max-w-2xl mx-auto text-center">
               <div className="text-timeback-primary mb-4">
                 <svg className="w-16 h-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
@@ -167,7 +167,7 @@ export default function StudentJourneyCarousel({ grade, schoolName }: StudentJou
                   disabled={currentIndex === 0}
                   className={`
                     absolute left-0 top-1/2 -translate-y-1/2 z-10 -translate-x-4
-                    w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center
+                    w-12 h-12 backdrop-blur-md bg-timeback-bg/80 rounded-full shadow-lg flex items-center justify-center
                     transition-all duration-200
                     ${currentIndex === 0 
                       ? 'opacity-50 cursor-not-allowed' 
@@ -209,7 +209,7 @@ export default function StudentJourneyCarousel({ grade, schoolName }: StudentJou
                   disabled={currentIndex === journeys.length - 1}
                   className={`
                     absolute right-0 top-1/2 -translate-y-1/2 z-10 translate-x-4
-                    w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center
+                    w-12 h-12 backdrop-blur-md bg-timeback-bg/80 rounded-full shadow-lg flex items-center justify-center
                     transition-all duration-200
                     ${currentIndex === journeys.length - 1 
                       ? 'opacity-50 cursor-not-allowed' 

@@ -15,7 +15,7 @@ const CTA = () => {
     router.push("/quiz");
   };
   return (
-    <section className="bg-white py-20 lg:py-32">
+    <section className="py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div 
           className="flex flex-col items-center max-w-4xl mx-auto text-center"
@@ -25,7 +25,7 @@ const CTA = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           <motion.div 
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-timeback-primary rounded-xl text-sm font-medium mb-8 font-cal text-timeback-primary"
+            className="inline-flex items-center gap-2 px-6 py-3 backdrop-blur-md bg-timeback-bg/80 border-2 border-timeback-primary rounded-xl text-sm font-medium mb-8 font-cal text-timeback-primary"
             variants={animationVariants.fadeInUp}
           >
             <span className="relative flex h-2 w-2">

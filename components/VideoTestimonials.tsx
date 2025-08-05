@@ -58,7 +58,7 @@ const VideoModal: React.FC<VideoModalProps> = ({ testimonial, isOpen, onClose })
       onClick={onClose}
     >
       <div 
-                    className="relative w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden max-h-[90vh]"
+                    className="relative w-full max-w-4xl backdrop-blur-md bg-timeback-bg/90 rounded-xl shadow-2xl overflow-hidden max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
@@ -239,7 +239,7 @@ const VideoTestimonials: React.FC<VideoTestimonialsProps> = ({
         {displayTestimonials.map((testimonial) => (
           <div
             key={testimonial.id}
-            className="group cursor-pointer bg-white rounded-xl border border-timeback-primary overflow-hidden hover:shadow-xl transition-all duration-200"
+            className="group cursor-pointer backdrop-blur-md bg-timeback-bg/80 rounded-xl border border-timeback-primary overflow-hidden hover:shadow-xl transition-all duration-200"
             onClick={() => openVideoModal(testimonial)}
           >
             {/* Video thumbnail with play button */}
@@ -260,7 +260,7 @@ const VideoTestimonials: React.FC<VideoTestimonialsProps> = ({
               
               {/* Play button overlay */}
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-opacity">
-                <div className="bg-white bg-opacity-90 rounded-full p-4 group-hover:bg-opacity-100 transition-all transform group-hover:scale-110">
+                <div className="backdrop-blur-md bg-timeback-bg/90 bg-opacity-90 rounded-full p-4 group-hover:bg-opacity-100 transition-all transform group-hover:scale-110">
                   <svg className="w-8 h-8 text-timeback-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>

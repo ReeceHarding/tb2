@@ -85,7 +85,7 @@ export default function SchoolSelectionModule({ onSchoolSelect }: SchoolSelectio
   return (
     <div className="relative">
       {/* Clean card design */}
-      <div className="bg-white rounded-xl border border-timeback-primary p-6">
+      <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl border border-timeback-primary p-6">
         <div className="space-y-4">
           <div>
             <h3 className="text-lg font-semibold text-timeback-primary mb-2 font-cal">
@@ -148,7 +148,7 @@ export default function SchoolSelectionModule({ onSchoolSelect }: SchoolSelectio
 
           {/* Search Results */}
           {showResults && searchResults.length > 0 && !selectedSchool && (
-            <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-timeback-primary rounded-xl shadow-2xl z-10 max-h-96 overflow-y-auto">
+            <div className="absolute top-full left-0 right-0 mt-2 backdrop-blur-md bg-timeback-bg/80 border border-timeback-primary rounded-xl shadow-2xl z-10 max-h-96 overflow-y-auto">
               {searchResults.map((school) => (
                 <button
                   key={school.id}

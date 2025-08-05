@@ -75,12 +75,24 @@ export default function CustomQuestionSection({
       });
 
       const data = await response.json();
+      console.log('[CustomQuestionSection] 🔍 FULL API RESPONSE:', data);
+      console.log('[CustomQuestionSection] 🔍 API Response keys:', Object.keys(data));
+      console.log('[CustomQuestionSection] 🔍 Response format:', data.responseFormat);
+      console.log('[CustomQuestionSection] 🔍 Success flag:', data.success);
+      console.log('[CustomQuestionSection] 🔍 Schema response data:', data.response);
       
       if (data.success && data.responseFormat === 'schema') {
-        console.log('[CustomQuestionSection] Got schema response:', data.response);
+        console.log('[CustomQuestionSection] ✅ Got schema response, processing...');
+        console.log('[CustomQuestionSection] 🎯 Schema response structure:', JSON.stringify(data.response, null, 2));
         setSchemaResponse(data.response);
         const newResponseIndex = schemaResponses.length;
-        setSchemaResponses(prev => [...prev, data.response]);
+        console.log('[CustomQuestionSection] 📝 Adding response to array, new index:', newResponseIndex);
+        setSchemaResponses(prev => {
+          const newArray = [...prev, data.response];
+          console.log('[CustomQuestionSection] 📊 Updated responses array length:', newArray.length);
+          console.log('[CustomQuestionSection] 📊 Last response in array:', newArray[newArray.length - 1]);
+          return newArray;
+        });
         
         // Add to conversation history
         const newHistory = [
@@ -322,22 +334,30 @@ export default function CustomQuestionSection({
       </div>
 
       {/* Display all responses in sequence */}
-      {schemaResponses.map((response, index) => (
-        <div key={index} id={`custom-response-${index}`} className="mt-16 backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl overflow-hidden">
-          <div className="p-6 bg-timeback-primary">
-            <h3 className="text-xl font-bold text-white text-center font-cal">
-              {index === 0 ? 'Your Personalized Answer' : `Follow-up Answer ${index}`}
-            </h3>
-          </div>
-          <div className="p-6">
-            <SchemaResponseRenderer
-              response={response}
-              onNextOptionClick={handleNextOptionClick}
-              isLoading={false}
-            />
-          </div>
-        </div>
-      ))}
+      {(() => {
+        console.log('[CustomQuestionSection] 🎨 RENDERING RESPONSES - Total count:', schemaResponses.length);
+        console.log('[CustomQuestionSection] 🎨 RENDERING RESPONSES - Array:', schemaResponses);
+        return schemaResponses.map((response, index) => {
+          console.log(`[CustomQuestionSection] 🎨 RENDERING Response ${index}:`, response);
+          console.log(`[CustomQuestionSection] 🎨 Response ${index} keys:`, response ? Object.keys(response) : 'null');
+          return (
+            <div key={index} id={`custom-response-${index}`} className="mt-16 backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl overflow-hidden">
+              <div className="p-6 bg-timeback-primary">
+                <h3 className="text-xl font-bold text-white text-center font-cal">
+                  {index === 0 ? 'Your Personalized Answer' : `Follow-up Answer ${index}`}
+                </h3>
+              </div>
+              <div className="p-6">
+                <SchemaResponseRenderer
+                  response={response}
+                  onNextOptionClick={handleNextOptionClick}
+                  isLoading={false}
+                />
+              </div>
+            </div>
+          );
+        });
+      })()}
       
       {/* Loading state for new responses */}
       {isLoading && (

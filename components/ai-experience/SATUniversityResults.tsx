@@ -36,7 +36,7 @@ export default function SATUniversityResults() {
   ];
 
   return (
-    <div className="bg-white rounded-xl border border-timeback-primary p-6">
+    <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl border border-timeback-primary p-6">
       {/* Real Data Badge */}
       <div className="bg-timeback-bg border border-timeback-primary rounded-xl p-3 mb-6">
         <div className="flex items-center gap-2">
@@ -63,7 +63,7 @@ export default function SATUniversityResults() {
       <div className="mb-6">
         <h4 className="text-sm font-semibold text-timeback-primary mb-3 font-cal">SAT Score Comparison</h4>
         <div className="grid grid-cols-2 gap-4">
-          <div className="bg-white rounded-xl p-4 text-center border border-timeback-primary font-cal">
+          <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl p-4 text-center border border-timeback-primary font-cal">
             <p className="text-sm text-timeback-primary mb-1 font-cal">National Average</p>
             <p className="text-3xl font-bold text-timeback-primary font-cal">{satData.nationalAverage}</p>
           </div>

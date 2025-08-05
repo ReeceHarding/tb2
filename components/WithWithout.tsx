@@ -42,7 +42,7 @@ const WithWithout = () => {
   );
 
   return (
-    <section className="bg-white">
+    <section>
       <motion.div 
         variants={animationVariants.fadeInUp}
         whileInView="animate"
@@ -52,7 +52,7 @@ const WithWithout = () => {
       >
         {/* Desktop Table */}
         <div className="hidden lg:block overflow-x-auto">
-          <table className="w-full border-collapse bg-white rounded-xl shadow-2xl overflow-hidden">
+          <table className="w-full border-collapse backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-2xl overflow-hidden">
             <thead className="bg-timeback-bg">
               <tr>
                 <th className="text-left p-6 font-semibold text-timeback-primary border-b border-timeback-primary font-cal"></th>
@@ -174,7 +174,7 @@ const WithWithout = () => {
         {/* Mobile Cards */}
         <div className="lg:hidden space-y-6">
           {/* Timeback Card */}
-          <div className="bg-white rounded-xl border-2 border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
+          <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl border-2 border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
             <div className="flex items-center justify-center mb-6">
               <SafeImage alt="Timeback" src="https://igwtslivaqqgiswawdep.supabase.co/storage/v1/object/public/logos/competitors/timeback-logo.png" width={120} height={32} className="h-8 w-auto object-contain" />
             </div>
@@ -224,7 +224,7 @@ const WithWithout = () => {
           </div>
 
           {/* Khan Academy Card */}
-          <div className="bg-white rounded-xl border border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
+          <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl border border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
             <div className="flex items-center justify-center mb-6">
               <SafeImage alt="Khan Academy" src="https://igwtslivaqqgiswawdep.supabase.co/storage/v1/object/public/logos/competitors/khan-academy-logo.png" width={120} height={32} className="h-8 w-auto object-contain" />
             </div>
@@ -272,7 +272,7 @@ const WithWithout = () => {
           </div>
 
           {/* IXL Card */}
-          <div className="bg-white rounded-xl border border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
+          <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl border border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
             <div className="flex items-center justify-center mb-6">
               <SafeImage alt="IXL" src="https://igwtslivaqqgiswawdep.supabase.co/storage/v1/object/public/logos/competitors/ixl-logo.svg" width={120} height={32} className="h-8 w-auto object-contain" />
             </div>
@@ -320,7 +320,7 @@ const WithWithout = () => {
           </div>
 
           {/* ChatGPT Card */}
-          <div className="bg-white rounded-xl border border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
+          <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl border border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
             <div className="flex items-center justify-center mb-6">
               <div className="flex items-center gap-2">
                 <SafeImage alt="ChatGPT" src="https://igwtslivaqqgiswawdep.supabase.co/storage/v1/object/public/logos/competitors/chatgpt-logo.png" width={120} height={32} className="h-8 w-auto object-contain" />
@@ -371,7 +371,7 @@ const WithWithout = () => {
           </div>
 
           {/* Private Tutor Card */}
-          <div className="bg-white rounded-xl border border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
+          <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl border border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
             <div className="flex items-center justify-center mb-6">
               <div className="font-medium text-timeback-primary font-cal">Private Tutor</div>
             </div>

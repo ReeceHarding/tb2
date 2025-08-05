@@ -276,13 +276,13 @@ export default function PersonalizedCTA({ quizData, onLearnMore }: PersonalizedC
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
               placeholder="Ask me anything about TimeBack..."
-              className="w-full px-6 py-4 bg-white/10 backdrop-blur-md border-2 border-timeback-primary rounded-xl text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-white/50 outline-none font-cal text-lg shadow-lg"
+              className="w-full px-6 py-4 backdrop-blur-md bg-timeback-bg/80/10 backdrop-blur-md border-2 border-timeback-primary rounded-xl text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-white/50 outline-none font-cal text-lg shadow-lg"
               disabled={isLoading}
             />
             <button
               type="submit"
               disabled={!question.trim() || isLoading}
-              className="w-full bg-white text-timeback-primary px-6 py-4 rounded-xl font-bold hover:bg-timeback-bg hover:text-timeback-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl font-cal text-lg"
+              className="w-full backdrop-blur-md bg-timeback-bg/80 text-timeback-primary px-6 py-4 rounded-xl font-bold hover:bg-timeback-bg hover:text-timeback-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl font-cal text-lg"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center gap-2">
@@ -297,11 +297,11 @@ export default function PersonalizedCTA({ quizData, onLearnMore }: PersonalizedC
 
           {/* Display all responses in sequence */}
           {schemaResponses.map((response, index) => (
-            <div key={index} className="mt-8 bg-white/10 backdrop-blur-md border-2 border-timeback-primary rounded-xl p-6 shadow-lg">
+            <div key={index} className="mt-8 backdrop-blur-md bg-timeback-bg/80/10 backdrop-blur-md border-2 border-timeback-primary rounded-xl p-6 shadow-lg">
               <h3 className="text-xl font-bold text-white mb-6 font-cal">
                 {index === 0 ? 'Your Personalized Answer:' : `Follow-up Answer ${index}:`}
               </h3>
-              <div className="bg-white rounded-xl p-6 border border-timeback-primary">
+              <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl p-6 border border-timeback-primary">
                 <SchemaResponseRenderer 
                   response={response}
                   onNextOptionClick={handleNextOptionClick}
@@ -313,11 +313,11 @@ export default function PersonalizedCTA({ quizData, onLearnMore }: PersonalizedC
           
           {/* Loading state for new responses */}
           {isLoading && (
-            <div className="mt-8 bg-white/10 backdrop-blur-md border-2 border-timeback-primary rounded-xl p-6 shadow-lg">
+            <div className="mt-8 backdrop-blur-md bg-timeback-bg/80/10 backdrop-blur-md border-2 border-timeback-primary rounded-xl p-6 shadow-lg">
               <h3 className="text-xl font-bold text-white mb-6 font-cal">
                 {schemaResponses.length === 0 ? 'Your Personalized Answer:' : `Follow-up Answer ${schemaResponses.length}:`}
               </h3>
-              <div className="bg-white rounded-xl p-6 border border-timeback-primary">
+              <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl p-6 border border-timeback-primary">
                 <SchemaResponseRenderer 
                   response={null}
                   onNextOptionClick={handleNextOptionClick}

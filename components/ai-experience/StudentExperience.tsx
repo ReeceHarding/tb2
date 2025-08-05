@@ -70,7 +70,7 @@ export default function StudentExperience({ studentGrade, selectedSubjects }: St
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl p-8 border border-timeback-primary">
+    <div className="backdrop-blur-md bg-timeback-bg/80 rounded-2xl shadow-2xl p-8 border border-timeback-primary">
       <h3 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">
         The Student Experience: Learning That Feels Like Play
       </h3>
@@ -134,7 +134,7 @@ export default function StudentExperience({ studentGrade, selectedSubjects }: St
         <div className="bg-timeback-bg rounded-xl p-6 border border-timeback-primary">
           <div className="aspect-w-16 aspect-h-9 mb-4">
             {activeTab === 'dashboard' && (
-              <div className="w-full h-64 bg-white rounded-xl p-4 border border-timeback-primary">
+              <div className="w-full h-64 backdrop-blur-md bg-timeback-bg/80 rounded-xl p-4 border border-timeback-primary">
                 <div className="text-sm font-medium text-timeback-primary mb-2 font-cal">Daily Progress</div>
                 <div className="grid grid-cols-4 gap-2 mb-4">
                   {['Math', 'Science', 'Language', 'Reading'].map((subject, index) => (
@@ -161,7 +161,7 @@ export default function StudentExperience({ studentGrade, selectedSubjects }: St
             )}
 
             {activeTab === 'ai-tutor' && (
-              <div className="w-full h-64 bg-white rounded-xl p-4 border border-timeback-primary">
+              <div className="w-full h-64 backdrop-blur-md bg-timeback-bg/80 rounded-xl p-4 border border-timeback-primary">
                 <div className="mb-3">
                   <div className="text-sm text-timeback-primary mb-2 font-cal">AI Tutor says:</div>
                   <div className="bg-timeback-bg rounded-xl p-3 border border-timeback-primary">
@@ -183,7 +183,7 @@ export default function StudentExperience({ studentGrade, selectedSubjects }: St
             )}
 
             {activeTab === 'lessons' && (
-              <div className="w-full h-64 bg-white rounded-xl p-4 border border-timeback-primary">
+              <div className="w-full h-64 backdrop-blur-md bg-timeback-bg/80 rounded-xl p-4 border border-timeback-primary">
                 <div className="text-center mb-4 font-cal">
                   <div className="text-4xl font-bold text-timeback-primary mb-2 font-cal">18:00</div>
                   <div className="text-sm text-timeback-primary font-cal">Average lesson time</div>
@@ -206,7 +206,7 @@ export default function StudentExperience({ studentGrade, selectedSubjects }: St
             )}
 
             {activeTab === 'struggle' && (
-              <div className="w-full h-64 bg-white rounded-xl p-4 border border-timeback-primary">
+              <div className="w-full h-64 backdrop-blur-md bg-timeback-bg/80 rounded-xl p-4 border border-timeback-primary">
                 <div className="text-center mb-4 font-cal">
                   <div className="text-6xl mb-2 font-cal">🚨</div>
                   <div className="text-lg font-medium text-timeback-primary font-cal">Struggle Detected</div>

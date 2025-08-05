@@ -16,7 +16,7 @@ export default function StudentJourneyLoader({ message = 'Finding students like 
   return (
     <div className="w-full py-8">
       {/* Main loading container */}
-      <div className="bg-white rounded-xl shadow-lg border-2 border-timeback-primary p-8 max-w-4xl mx-auto">
+      <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-lg border-2 border-timeback-primary p-8 max-w-4xl mx-auto">
         <div className="flex flex-col items-center space-y-6">
           {/* Animated logo */}
           <div className="relative">
@@ -54,7 +54,7 @@ export default function StudentJourneyLoader({ message = 'Finding students like 
       {/* Skeleton cards preview */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto opacity-50">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="bg-white rounded-xl shadow-lg border border-timeback-primary p-6">
+          <div key={i} className="backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-lg border border-timeback-primary p-6">
             <div className="animate-pulse">
               <div className="h-4 bg-timeback-bg rounded w-3/4 mb-4"></div>
               <div className="h-3 bg-timeback-bg rounded w-full mb-2"></div>

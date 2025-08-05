@@ -32,7 +32,7 @@ export default function LearningScienceExplanation() {
   ];
 
   return (
-    <div className="bg-white rounded-xl border border-timeback-primary p-6">
+    <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl border border-timeback-primary p-6">
       <div className="mb-6">
         <h3 className="text-lg font-semibold text-timeback-primary mb-2 font-cal">
           Research-Backed Learning Science

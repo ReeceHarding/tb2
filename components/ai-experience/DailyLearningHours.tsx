@@ -18,7 +18,7 @@ export default function DailyLearningHours({ gradeLevel: _gradeLevel }: DailyLea
   ];
 
   return (
-    <div className="bg-white rounded-xl border border-timeback-primary p-6">
+    <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl border border-timeback-primary p-6">
       {/* Real Data Badge */}
       <div className="bg-timeback-bg border border-timeback-primary rounded-xl p-3 mb-6">
         <div className="flex items-center gap-2">
@@ -48,7 +48,7 @@ export default function DailyLearningHours({ gradeLevel: _gradeLevel }: DailyLea
             <div key={index} className="flex items-start gap-4 p-3 rounded-xl hover:bg-timeback-bg transition-colors border border-timeback-primary border-opacity-30">
               <div className="flex-shrink-0">
                 <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                  slot.type === 'core' ? 'bg-timeback-bg' : 'bg-white'
+                  slot.type === 'core' ? 'bg-timeback-bg' : 'backdrop-blur-md bg-timeback-bg/80'
                 } border border-timeback-primary`}>
                   <Icon className={`w-5 h-5 ${
                     slot.type === 'core' ? 'text-timeback-primary' : 'text-timeback-primary'
@@ -65,7 +65,7 @@ export default function DailyLearningHours({ gradeLevel: _gradeLevel }: DailyLea
       </div>
 
       <div className="mt-6 grid grid-cols-2 gap-4">
-        <div className="bg-white rounded-xl p-4 text-center border border-timeback-primary font-cal">
+        <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl p-4 text-center border border-timeback-primary font-cal">
           <p className="text-2xl font-bold text-timeback-primary font-cal">1.8</p>
           <p className="text-sm text-timeback-primary font-cal">Avg hours per day</p>
           <p className="text-xs text-timeback-primary font-cal mt-1">(Actual 2023-24 data)</p>

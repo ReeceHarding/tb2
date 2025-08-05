@@ -6,7 +6,7 @@ const Testimonial = () => {
       id="testimonials"
     >
       <div className="flex justify-center">
-        <figure className="relative h-full w-full max-w-[550px] p-6 rounded-xl border border-timeback-primary bg-white hover:shadow-2xl transition-shadow duration-200">
+        <figure className="relative h-full w-full max-w-[550px] p-6 rounded-xl border border-timeback-primary backdrop-blur-md bg-timeback-bg/80 hover:shadow-2xl transition-shadow duration-200">
           <blockquote className="relative">
             <div className="text-base xl:text-sm text-timeback-primary font-cal">
               <div className="space-y-2">

@@ -47,7 +47,7 @@ export default function CompletionTimeData() {
   const topSchool = quizData?.selectedSchools?.[0]
 
   return (
-    <section className="bg-white py-16 lg:py-24">
+    <section className="backdrop-blur-md bg-timeback-bg/80 py-16 lg:py-24">
       <div className="container mx-auto px-4 max-w-6xl">
         
         {/* Header with Grade Selector */}
@@ -62,7 +62,7 @@ export default function CompletionTimeData() {
           <div className="flex justify-center items-center gap-4">
             <span className="text-sm font-medium text-timeback-primary font-cal">View data for grade:</span>
             <select 
-              className="px-3 py-2 font-cal rounded-xl border-2 border-timeback-primary text-timeback-primary bg-white focus:outline-none focus:ring-4 focus:ring-timeback-primary focus:ring-opacity-30 focus:border-timeback-primary transition-all duration-200 w-32" 
+              className="px-3 py-2 font-cal rounded-xl border-2 border-timeback-primary text-timeback-primary backdrop-blur-md bg-timeback-bg/80 focus:outline-none focus:ring-4 focus:ring-timeback-primary focus:ring-opacity-30 focus:border-timeback-primary transition-all duration-200 w-32" 
               value={selectedGrade} 
               onChange={(e) => setSelectedGrade(e.target.value)}
             >

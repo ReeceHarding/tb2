@@ -16,7 +16,7 @@ const Step = ({ icon: Icon, title, description }: { icon: React.ComponentType<an
       viewport={{ once: true, margin: "-50px" }}
       className="flex-1 max-w-sm mx-auto"
     >
-      <div className="bg-white rounded-2xl border-2 border-timeback-primary p-8 h-full shadow-2xl">
+      <div className="backdrop-blur-md bg-timeback-bg/80 rounded-2xl border-2 border-timeback-primary p-8 h-full shadow-2xl">
         <div className="flex flex-col items-center text-center space-y-6 font-cal">
           <div className="w-16 h-16 bg-timeback-bg rounded-full flex items-center justify-center border-2 border-timeback-primary">
             <Icon className="w-8 h-8 text-timeback-primary font-cal" />
@@ -40,7 +40,7 @@ const Step = ({ icon: Icon, title, description }: { icon: React.ComponentType<an
 // - Features: "ShipFast has user auth, Stripe, emails all set up for you"
 const Problem = () => {
   return (
-    <section className="bg-white py-20 lg:py-32">
+    <section className="py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         
         {/* Header Section */}

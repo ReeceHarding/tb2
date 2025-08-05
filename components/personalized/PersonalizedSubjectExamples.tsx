@@ -395,7 +395,7 @@ Example outputs for different interests:
   return (
     <section className="w-full bg-gradient-to-br from-white to-timeback-bg py-20 lg:py-32 px-6 lg:px-12">
       <div className="text-center mb-16 font-cal">
-        <div className="inline-flex items-center gap-2 bg-white border border-timeback-primary rounded-full px-6 py-3 mb-8">
+        <div className="inline-flex items-center gap-2 backdrop-blur-md bg-timeback-bg/80 border border-timeback-primary rounded-full px-6 py-3 mb-8">
           <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
           <span className="text-timeback-primary font-bold text-sm font-cal">INTERACTIVE LEARNING</span>
         </div>
@@ -414,7 +414,7 @@ Example outputs for different interests:
       </div>
 
       {/* Subject Learning Examples */}
-      <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl border-2 border-timeback-primary overflow-hidden">
+      <div className="max-w-6xl mx-auto backdrop-blur-md bg-timeback-bg/80 rounded-2xl shadow-2xl border-2 border-timeback-primary overflow-hidden">
         <div className="flex border-b-2 border-timeback-primary overflow-x-auto">
           {subjects.map((subject) => (
             <button
@@ -463,7 +463,7 @@ Example outputs for different interests:
 
               {/* Solution */}
               {showSolution[activeTab] && (
-                <div className="bg-white border-2 border-timeback-primary rounded-2xl p-8 space-y-6 shadow-2xl">
+                <div className="backdrop-blur-md bg-timeback-bg/80 border-2 border-timeback-primary rounded-2xl p-8 space-y-6 shadow-2xl">
                   <h4 className="text-2xl font-bold text-timeback-primary flex items-center gap-3 font-cal">
                     <svg className="w-6 h-6 text-timeback-primary font-cal" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
@@ -504,7 +504,7 @@ Example outputs for different interests:
 
               {/* Interactive Chat Interface - ChatGPT Style */}
               <div className="mt-10 pt-8 border-t-2 border-timeback-primary">
-                <div className="bg-white border-2 border-timeback-primary rounded-2xl shadow-2xl h-[600px] flex flex-col">
+                <div className="backdrop-blur-md bg-timeback-bg/80 border-2 border-timeback-primary rounded-2xl shadow-2xl h-[600px] flex flex-col">
                   {/* Chat Header */}
                   <div className="flex items-center justify-between p-6 border-b-2 border-timeback-primary bg-timeback-bg rounded-t-2xl">
                     <div className="flex items-center gap-4">
@@ -525,12 +525,12 @@ Example outputs for different interests:
                     {questionResponses.length === 0 && (
                       <div className="flex justify-start">
                         <div className="flex gap-4 max-w-[80%]">
-                          <div className="w-10 h-10 bg-white border-2 border-timeback-primary rounded-full flex items-center justify-center flex-shrink-0">
+                          <div className="w-10 h-10 backdrop-blur-md bg-timeback-bg/80 border-2 border-timeback-primary rounded-full flex items-center justify-center flex-shrink-0">
                             <svg className="w-5 h-5 text-timeback-primary font-cal" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,6V8H13V6H11M11,10V18H13V10H11Z"/>
                             </svg>
                           </div>
-                          <div className="bg-white border-2 border-timeback-primary rounded-2xl px-6 py-4 shadow-2xl">
+                          <div className="backdrop-blur-md bg-timeback-bg/80 border-2 border-timeback-primary rounded-2xl px-6 py-4 shadow-2xl">
                             <p className="text-timeback-primary font-cal">Hi! I&apos;m here to help you understand this {activeTab} problem. What would you like to know?</p>
                           </div>
                         </div>
@@ -556,12 +556,12 @@ Example outputs for different interests:
                         {/* AI Response */}
                         <div className="flex justify-start">
                           <div className="flex gap-4 max-w-[80%]">
-                            <div className="w-10 h-10 bg-white border-2 border-timeback-primary rounded-full flex items-center justify-center flex-shrink-0">
+                            <div className="w-10 h-10 backdrop-blur-md bg-timeback-bg/80 border-2 border-timeback-primary rounded-full flex items-center justify-center flex-shrink-0">
                               <svg className="w-5 h-5 text-timeback-primary font-cal" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,6V8H13V6H11M11,10V18H13V10H11Z"/>
                               </svg>
                             </div>
-                            <div className="bg-white border-2 border-timeback-primary rounded-2xl px-6 py-4 shadow-2xl">
+                            <div className="backdrop-blur-md bg-timeback-bg/80 border-2 border-timeback-primary rounded-2xl px-6 py-4 shadow-2xl">
                               <ReactMarkdown 
                                 components={{
                                   h1: ({children}) => <h1 className="text-lg font-bold text-timeback-primary mb-3 font-cal">{children}</h1>,
@@ -588,12 +588,12 @@ Example outputs for different interests:
                     {isQuestionLoading && (
                       <div className="flex justify-start">
                         <div className="flex gap-4 max-w-[80%]">
-                          <div className="w-10 h-10 bg-white border-2 border-timeback-primary rounded-full flex items-center justify-center flex-shrink-0">
+                          <div className="w-10 h-10 backdrop-blur-md bg-timeback-bg/80 border-2 border-timeback-primary rounded-full flex items-center justify-center flex-shrink-0">
                             <svg className="w-5 h-5 text-timeback-primary font-cal" fill="currentColor" viewBox="0 0 24 24">
                               <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M11,6V8H13V6H11M11,10V18H13V10H11Z"/>
                             </svg>
                           </div>
-                          <div className="bg-white border-2 border-timeback-primary rounded-2xl px-6 py-4 shadow-2xl">
+                          <div className="backdrop-blur-md bg-timeback-bg/80 border-2 border-timeback-primary rounded-2xl px-6 py-4 shadow-2xl">
                             <div className="flex items-center gap-3">
                               <div className="flex space-x-1">
                                 <div className="w-3 h-3 bg-timeback-primary rounded-full animate-bounce"></div>
@@ -610,7 +610,7 @@ Example outputs for different interests:
                   </div>
 
                   {/* Input Area - Bottom Position (ChatGPT Style) */}
-                  <div className="border-t-2 border-timeback-primary p-6 bg-white rounded-b-2xl">
+                  <div className="border-t-2 border-timeback-primary p-6 backdrop-blur-md bg-timeback-bg/80 rounded-b-2xl">
                     <form onSubmit={handleQuestionSubmit} className="flex gap-4">
                       <input
                         type="text"

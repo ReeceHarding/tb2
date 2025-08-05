@@ -33,7 +33,7 @@ export default function SkepticalTransition({ grade }: SkepticalTransitionProps)
         
         {/* Trust Indicators */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <div className="bg-white rounded-xl shadow-lg border-2 border-timeback-primary p-6 text-center">
+          <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-lg border-2 border-timeback-primary p-6 text-center">
             <div className="text-3xl font-cal font-bold text-timeback-primary mb-2">
               309
             </div>
@@ -42,7 +42,7 @@ export default function SkepticalTransition({ grade }: SkepticalTransitionProps)
             </p>
           </div>
           
-          <div className="bg-white rounded-xl shadow-lg border-2 border-timeback-primary p-6 text-center">
+          <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-lg border-2 border-timeback-primary p-6 text-center">
             <div className="text-3xl font-cal font-bold text-timeback-primary mb-2">
               800+
             </div>
@@ -51,7 +51,7 @@ export default function SkepticalTransition({ grade }: SkepticalTransitionProps)
             </p>
           </div>
           
-          <div className="bg-white rounded-xl shadow-lg border-2 border-timeback-primary p-6 text-center">
+          <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-lg border-2 border-timeback-primary p-6 text-center">
             <div className="text-3xl font-cal font-bold text-timeback-primary mb-2">
               85%
             </div>
@@ -62,7 +62,7 @@ export default function SkepticalTransition({ grade }: SkepticalTransitionProps)
         </div>
         
         {/* The Promise */}
-        <div className="bg-white rounded-xl shadow-2xl border-2 border-timeback-primary p-8 mb-8">
+        <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-2xl border-2 border-timeback-primary p-8 mb-8">
           <div className="flex items-start space-x-4">
             <div className="flex-shrink-0 w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center">
               <span className="text-white font-cal text-2xl font-bold">!</span>

@@ -687,6 +687,144 @@ export default function PersonalizedPage() {
     }
   };
 
+  // Render content for viewed components (similar to renderSectionContent but for the accumulating page)
+  const renderSectionContentForComponent = (sectionId: string) => {
+    console.log('[PersonalizedPage] Rendering component for section:', sectionId);
+    
+    switch (sectionId) {
+      case 'what-is-timeback':
+        return (
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16 font-cal">
+              <h2 className="text-4xl lg:text-6xl font-bold text-timeback-primary mb-8 font-cal">
+                TimeBack is AI-Powered Education
+              </h2>
+              <p className="text-2xl text-timeback-primary max-w-5xl mx-auto font-cal leading-relaxed mb-8">
+                We use artificial intelligence to eliminate the 6+ hours of wasted time in traditional education, allowing students to complete a full year of learning in just 2 hours per day.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
+              <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-8 shadow-xl">
+                <h3 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">Traditional School</h3>
+                <ul className="space-y-3 text-timeback-primary font-cal">
+                  <li className="flex items-center gap-3">
+                    <span className="text-red-500">✗</span>
+                    6+ hours of wasted time daily
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-red-500">✗</span>
+                    One-size-fits-all approach
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-red-500">✗</span>
+                    Students fall behind or get bored
+                  </li>
+                </ul>
+              </div>
+              <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-8 shadow-xl">
+                <h3 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">TimeBack</h3>
+                <ul className="space-y-3 text-timeback-primary font-cal">
+                  <li className="flex items-center gap-3">
+                    <span className="text-timeback-primary">✓</span>
+                    2 hours of focused learning
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-timeback-primary">✓</span>
+                    AI-personalized for each child
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="text-timeback-primary">✓</span>
+                    6+ hours for passion projects
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'how-does-it-work':
+        return (
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16 font-cal">
+              <h2 className="text-4xl lg:text-6xl font-bold text-timeback-primary mb-8 font-cal">
+                How TimeBack Works
+              </h2>
+              <p className="text-2xl text-timeback-primary max-w-5xl mx-auto font-cal leading-relaxed mb-8">
+                Our AI system creates a personalized learning experience that adapts to your child's pace and interests.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-8 shadow-xl text-center">
+                <div className="text-4xl font-bold text-timeback-primary mb-4 font-cal">1</div>
+                <h3 className="text-xl font-bold text-timeback-primary mb-4 font-cal">AI Assessment</h3>
+                <p className="text-timeback-primary font-cal">AI identifies your child's learning style, pace, and knowledge gaps</p>
+              </div>
+              <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-8 shadow-xl text-center">
+                <div className="text-4xl font-bold text-timeback-primary mb-4 font-cal">2</div>
+                <h3 className="text-xl font-bold text-timeback-primary mb-4 font-cal">Personalized Path</h3>
+                <p className="text-timeback-primary font-cal">Creates a custom curriculum that adapts in real-time</p>
+              </div>
+              <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-8 shadow-xl text-center">
+                <div className="text-4xl font-bold text-timeback-primary mb-4 font-cal">3</div>
+                <h3 className="text-xl font-bold text-timeback-primary mb-4 font-cal">Mastery Learning</h3>
+                <p className="text-timeback-primary font-cal">Ensures 90%+ understanding before moving forward</p>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'show-data':
+        const school = userData.selectedSchools?.[0];
+        return (
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16 font-cal">
+              <h2 className="text-4xl lg:text-6xl font-bold text-timeback-primary mb-8 font-cal">
+                Real Results from Real Students
+              </h2>
+              <p className="text-2xl text-timeback-primary max-w-5xl mx-auto font-cal leading-relaxed mb-8">
+                {school ? `Students at ${school.name} are achieving incredible results` : 'Students across our network are achieving incredible results'}
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-8 shadow-xl text-center">
+                <div className="text-5xl font-bold text-timeback-primary mb-4 font-cal">2x</div>
+                <h3 className="text-xl font-bold text-timeback-primary mb-4 font-cal">Learning Speed</h3>
+                <p className="text-timeback-primary font-cal">Students complete curriculum 2x faster than traditional methods</p>
+              </div>
+              <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-8 shadow-xl text-center">
+                <div className="text-5xl font-bold text-timeback-primary mb-4 font-cal">94%</div>
+                <h3 className="text-xl font-bold text-timeback-primary mb-4 font-cal">Mastery Rate</h3>
+                <p className="text-timeback-primary font-cal">Of concepts achieved before advancing to next level</p>
+              </div>
+              <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-8 shadow-xl text-center">
+                <div className="text-5xl font-bold text-timeback-primary mb-4 font-cal">6+</div>
+                <h3 className="text-xl font-bold text-timeback-primary mb-4 font-cal">Hours Saved</h3>
+                <p className="text-timeback-primary font-cal">Daily time freed up for passion projects and family</p>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'example-question':
+        return <PersonalizedSubjectExamples 
+          interests={userData.kidsInterests} 
+          onLearnMore={() => {}}
+        />;
+
+      case 'find-school':
+        return <ClosestSchools quizData={userData as QuizData} />;
+
+      case 'extra-hours':
+        return <AfternoonActivities 
+          interests={userData.kidsInterests}
+          onLearnMore={() => {}}
+        />;
+
+      default:
+        return null;
+    }
+  };
+
   if (status === 'loading') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-timeback-bg to-white flex items-center justify-center">
@@ -780,6 +918,27 @@ export default function PersonalizedPage() {
 
         </section>
 
+        {/* Render viewed components in order they were selected */}
+        {viewedComponents.map((componentId, index) => (
+          <section 
+            key={componentId} 
+            id={`viewed-component-${componentId}`} 
+            className="max-w-7xl mx-auto px-6 lg:px-12 pb-20"
+          >
+            <div className="mb-8">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3">
+                  <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
+                  <span className="text-timeback-primary font-bold text-sm font-cal">
+                    SECTION {index + 1}
+                  </span>
+                </div>
+              </div>
+              {renderSectionContent()}
+            </div>
+          </section>
+        ))}
+
         {/* Render selected section content or data collection */}
         {selectedSection && (
           <section id="selected-content-section" className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
@@ -794,10 +953,6 @@ export default function PersonalizedPage() {
           </section>
         )}
 
-
-
-
-        
         {/* Persistent CustomQuestionSection at bottom of page */}
         <section id="persistent-questions-section" className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
           <CustomQuestionSection 

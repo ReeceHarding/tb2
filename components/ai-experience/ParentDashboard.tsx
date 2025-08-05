@@ -50,7 +50,7 @@ export default function ParentDashboard({ studentGrade, selectedSchool: _selecte
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl p-8 border border-timeback-primary">
+    <div className="backdrop-blur-md bg-timeback-bg/80 rounded-2xl shadow-2xl p-8 border border-timeback-primary">
       <h3 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">
         Parent Dashboard: Complete Transparency
       </h3>
@@ -68,7 +68,7 @@ export default function ParentDashboard({ studentGrade, selectedSchool: _selecte
             className={`p-4 rounded-xl border-2 transition-all duration-300 ${
               selectedMetric === key
                 ? 'border-timeback-primary bg-timeback-bg'
-                : 'border-timeback-primary bg-white hover:border-timeback-primary'
+                : 'border-timeback-primary backdrop-blur-md bg-timeback-bg/80 hover:border-timeback-primary'
             }`}
           >
             <h4 className="font-bold text-timeback-primary mb-1 font-cal">{metric.title}</h4>

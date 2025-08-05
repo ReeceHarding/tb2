@@ -15,7 +15,7 @@ interface SchemaResponse {
 }
 
 interface SchemaResponseRendererProps {
-  response: SchemaResponse;
+  response: SchemaResponse | null;
   onNextOptionClick?: (option: string) => void;
   isLoading?: boolean;
 }
@@ -25,7 +25,19 @@ export default function SchemaResponseRenderer({
   onNextOptionClick,
   isLoading = false 
 }: SchemaResponseRendererProps) {
-  console.log('[SchemaResponseRenderer] Rendering schema response:', response);
+  console.log('[SchemaResponseRenderer] 🎭 COMPONENT CALLED - isLoading:', isLoading);
+  console.log('[SchemaResponseRenderer] 🎭 RESPONSE RECEIVED:', response);
+  console.log('[SchemaResponseRenderer] 🎭 RESPONSE TYPE:', typeof response);
+  console.log('[SchemaResponseRenderer] 🎭 RESPONSE IS NULL?', response === null);
+  console.log('[SchemaResponseRenderer] 🎭 RESPONSE IS UNDEFINED?', response === undefined);
+  if (response) {
+    console.log('[SchemaResponseRenderer] 🎭 RESPONSE KEYS:', Object.keys(response));
+    console.log('[SchemaResponseRenderer] 🎭 HEADER:', response.header);
+    console.log('[SchemaResponseRenderer] 🎭 MAIN_HEADING:', response.main_heading);
+    console.log('[SchemaResponseRenderer] 🎭 DESCRIPTION:', response.description);
+    console.log('[SchemaResponseRenderer] 🎭 KEY_POINTS:', response.key_points);
+    console.log('[SchemaResponseRenderer] 🎭 NEXT_OPTIONS:', response.next_options);
+  }
 
   if (isLoading) {
     return (

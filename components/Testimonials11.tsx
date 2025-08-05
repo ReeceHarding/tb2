@@ -174,7 +174,7 @@ const Testimonial = ({ i }: { i: number }) => {
 
   return (
     <li key={i}>
-      <figure className="relative h-full p-6 rounded-xl border border-timeback-primary bg-white hover:shadow-2xl transition-shadow duration-200">
+              <figure className="relative h-full p-6 rounded-xl border border-timeback-primary backdrop-blur-md bg-timeback-bg/80 hover:shadow-2xl transition-shadow duration-200">
         <blockquote className="relative">
           <div className="text-base xl:text-sm text-timeback-primary font-cal">{testimonial.text}</div>
         </blockquote>

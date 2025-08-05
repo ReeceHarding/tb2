@@ -76,7 +76,7 @@ export default function StudentCard({ student, onClick, isActive = false }: Stud
     <div
       onClick={onClick}
       className={`
-        bg-white rounded-xl shadow-lg border-2 
+        backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-lg border-2 
         ${isActive ? 'border-timeback-primary scale-105' : 'border-timeback-primary border-opacity-30'}
         p-6 cursor-pointer transition-all duration-200 
         hover:shadow-xl hover:scale-105 hover:border-opacity-100
@@ -101,7 +101,7 @@ export default function StudentCard({ student, onClick, isActive = false }: Stud
       </div>
       
       {/* Main Achievement */}
-      <div className="backdrop-blur-md bg-white/10 rounded-xl p-4 mb-4 flex-grow border-2 border-timeback-primary">
+      <div className="backdrop-blur-md backdrop-blur-md bg-timeback-bg/80/10 rounded-xl p-4 mb-4 flex-grow border-2 border-timeback-primary">
         <div className="text-center">
           <div className="text-3xl font-cal font-bold text-timeback-primary mb-1">
             +{biggestJump}
@@ -148,7 +148,7 @@ export default function StudentCard({ student, onClick, isActive = false }: Stud
  */
 export function StudentCardSkeleton() {
   return (
-    <div className="bg-white rounded-xl shadow-lg border-2 border-timeback-primary border-opacity-30 p-6 h-full animate-pulse">
+    <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-lg border-2 border-timeback-primary border-opacity-30 p-6 h-full animate-pulse">
       <div className="flex justify-between items-start mb-4">
         <div>
           <div className="h-5 bg-timeback-bg rounded w-24 mb-2"></div>

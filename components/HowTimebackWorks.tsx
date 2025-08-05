@@ -180,7 +180,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-20 lg:mb-28 font-cal"
         >
-          <div className="inline-flex items-center gap-2 bg-white border-2 border-timeback-primary rounded-full px-6 py-3 mb-8">
+          <div className="inline-flex items-center gap-2 backdrop-blur-md bg-timeback-bg/80 border-2 border-timeback-primary rounded-full px-6 py-3 mb-8">
             <span className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></span>
             <span className="text-timeback-primary font-bold text-lg font-cal">Learning, Accelerated</span>
           </div>
@@ -211,7 +211,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
             <motion.article 
               key={feature.id} 
               variants={animationVariants.fadeInUp}
-              className="bg-white rounded-2xl border-2 border-timeback-primary p-8 shadow-2xl group flex flex-col h-full"
+              className="backdrop-blur-md bg-timeback-bg/80 rounded-2xl border-2 border-timeback-primary p-8 shadow-2xl group flex flex-col h-full"
               role="listitem"
               aria-labelledby={`feature-title-${feature.id}`}
               aria-describedby={`feature-desc-${feature.id}`}
@@ -255,7 +255,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
 
     {/* Schools Using Timeback Section */}
     <section 
-      className="bg-white py-20 lg:py-32" 
+      className="py-20 lg:py-32" 
       aria-labelledby="schools-using-timeback-heading"
       role="region"
     >
@@ -303,7 +303,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
             role="listitem"
           >
             <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
+              <div className="w-16 h-16 backdrop-blur-md bg-timeback-bg/90 rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
                 <div className="text-timeback-primary font-cal text-2xl font-bold">A</div>
               </div>
             </div>
@@ -335,7 +335,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
             role="listitem"
           >
             <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
+              <div className="w-16 h-16 backdrop-blur-md bg-timeback-bg/90 rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
                 <div className="text-timeback-primary font-cal text-2xl font-bold">S</div>
               </div>
             </div>
@@ -367,7 +367,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
             role="listitem"
           >
             <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
+              <div className="w-16 h-16 backdrop-blur-md bg-timeback-bg/90 rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
                 <div className="text-timeback-primary font-cal text-xl font-bold">GT</div>
               </div>
             </div>
@@ -399,7 +399,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
             role="listitem"
           >
             <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
+              <div className="w-16 h-16 backdrop-blur-md bg-timeback-bg/90 rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
                 <div className="text-timeback-primary font-cal text-xl font-bold">NG</div>
               </div>
             </div>
@@ -431,7 +431,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
             role="listitem"
           >
             <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
+              <div className="w-16 h-16 backdrop-blur-md bg-timeback-bg/90 rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
                 <div className="text-timeback-primary font-cal text-xl font-bold">N</div>
               </div>
             </div>
@@ -463,7 +463,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
             role="listitem"
           >
             <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
+              <div className="w-16 h-16 backdrop-blur-md bg-timeback-bg/90 rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
                 <div className="text-timeback-primary font-cal text-xl font-bold">U</div>
               </div>
             </div>
@@ -495,7 +495,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
             role="listitem"
           >
             <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
+              <div className="w-16 h-16 backdrop-blur-md bg-timeback-bg/90 rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
                 <div className="text-timeback-primary font-cal text-xl font-bold">NV</div>
               </div>
             </div>
@@ -527,7 +527,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
             role="listitem"
           >
             <div className="mb-6 flex justify-center">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center border-2 border-white shadow-2xl ">
+                              <div className="w-16 h-16 backdrop-blur-md bg-timeback-bg/90 rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl ">
                 <div className="text-timeback-primary font-cal text-2xl font-bold">+</div>
               </div>
             </div>
@@ -539,7 +539,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
             </p>
             <a 
               href="/quiz" 
-              className="inline-flex items-center justify-center gap-2 bg-white text-timeback-primary px-6 py-3 rounded-full font-bold hover:bg-white/90 transition-colors font-cal group-hover:scale-105 duration-200"
+              className="inline-flex items-center justify-center gap-2 bg-timeback-bg text-timeback-primary px-6 py-3 rounded-full font-bold hover:bg-timeback-bg/90 transition-colors font-cal group-hover:scale-105 duration-200"
               aria-label="Start quiz to join Timeback network"
             >
               Get Started

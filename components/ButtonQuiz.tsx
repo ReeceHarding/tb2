@@ -12,7 +12,7 @@ const ButtonQuiz = ({ extraStyle }: { extraStyle?: string }) => {
 
   return (
     <button
-      className={`bg-white text-timeback-primary font-cal rounded-xl px-8 py-4 font-semibold shadow-2xl hover:shadow-2xl transition-all duration-200 hover:bg-opacity-90 focus:outline-none focus:ring-4 focus:ring-timeback-primary focus:ring-opacity-30 w-full max-w-md mx-auto lg:mx-0 ${extraStyle ? extraStyle : ""}`}
+      className={`bg-timeback-primary text-white font-cal rounded-xl px-8 py-4 font-semibold shadow-2xl hover:shadow-2xl transition-all duration-200 hover:bg-opacity-90 focus:outline-none focus:ring-4 focus:ring-timeback-primary focus:ring-opacity-30 w-full max-w-md mx-auto lg:mx-0 ${extraStyle ? extraStyle : ""}`}
       onClick={handleClick}
     >
       <span className="inline-flex items-center gap-2">

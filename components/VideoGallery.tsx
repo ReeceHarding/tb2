@@ -42,7 +42,7 @@ const VideoModal: React.FC<VideoModalProps> = ({ video, isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div className="backdrop-blur-md bg-timeback-bg/90 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
         <div className="relative">
           {/* Close button */}
           <button
@@ -197,7 +197,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({ videos, onVideoSelect }) 
       {currentIndex > 0 && (
         <button
           onClick={prevSlide}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-2xl hover:shadow-2xl transition-all duration-200 border border-timeback-primary"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 backdrop-blur-md bg-timeback-bg/90 rounded-full p-3 shadow-2xl hover:shadow-2xl transition-all duration-200 border border-timeback-primary"
           aria-label="Previous videos"
         >
           <svg className="w-6 h-6 text-timeback-primary font-cal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -233,7 +233,7 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({ videos, onVideoSelect }) 
             style={{ scrollSnapAlign: 'start' }}
             onClick={() => onVideoSelect(video)}
           >
-            <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div className="relative backdrop-blur-md bg-timeback-bg/80 rounded-2xl shadow-2xl overflow-hidden">
               {/* Video Thumbnail */}
               <div className="relative aspect-video bg-timeback-primary">
                 <video
@@ -509,7 +509,7 @@ export default function VideoGallery({ quizData }: VideoGalleryProps) {
 
   if (error && videos.length === 0) {
     return (
-      <section className="max-w-7xl mx-auto bg-white py-16 lg:py-24 px-12">
+      <section className="max-w-7xl mx-auto py-16 lg:py-24 px-12">
         <div className="text-center font-cal">
           <h2 className="text-3xl lg:text-5xl font-bold text-timeback-primary mb-6 font-cal">
             Video Library
@@ -524,7 +524,7 @@ export default function VideoGallery({ quizData }: VideoGalleryProps) {
   }
 
   return (
-    <section className="max-w-7xl mx-auto bg-white py-16 lg:py-24 px-12">
+    <section className="max-w-7xl mx-auto py-16 lg:py-24 px-12">
       <div className="text-center mb-12 font-cal">
         <h2 className="text-3xl lg:text-5xl font-bold text-timeback-primary mb-6 font-cal">
           Explore Our Video Library

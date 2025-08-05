@@ -43,7 +43,7 @@ const VideoTestimonial = ({
   };
 
   const content = (
-    <figure className="relative h-full w-full max-w-[550px] p-6 rounded-xl border border-timeback-primary bg-white cursor-pointer hover:shadow-2xl transition-shadow duration-200">
+    <figure className="relative h-full w-full max-w-[550px] p-6 rounded-xl border border-timeback-primary backdrop-blur-md bg-timeback-bg/80 cursor-pointer hover:shadow-2xl transition-shadow duration-200">
       <blockquote className="relative">
         <div className="text-base xl:text-sm text-timeback-primary font-cal">
           <div className="space-y-2">
@@ -149,7 +149,7 @@ const TestimonialWithHighlight = ({
   sourceLink?: string;
 }) => {
   const content = (
-    <figure className={`relative h-full w-full max-w-[550px] p-6 rounded-xl border border-timeback-primary bg-white ${sourceLink ? "cursor-pointer hover:shadow-2xl transition-shadow duration-200" : ""}`}>
+          <figure className={`relative h-full w-full max-w-[550px] p-6 rounded-xl border border-timeback-primary backdrop-blur-md bg-timeback-bg/80 ${sourceLink ? "cursor-pointer hover:shadow-2xl transition-shadow duration-200" : ""}`}>
       <blockquote className="relative">
         <div className="text-base xl:text-sm text-timeback-primary font-cal">
           <div className="space-y-2">
@@ -239,7 +239,7 @@ const SimpleTestimonial = ({
   const content = (
     <figure 
               className={`relative h-full w-full max-w-[550px] p-6 rounded-xl border border-timeback-primary/20 ${
-        theme === "dark" ? "bg-[#2d1e1a]" : "bg-white"
+        theme === "dark" ? "bg-[#2d1e1a]" : "backdrop-blur-md bg-timeback-bg/80"
       } ${sourceLink ? "cursor-pointer hover:shadow-2xl transition-shadow duration-200" : ""}`}
     >
       <blockquote className="relative">

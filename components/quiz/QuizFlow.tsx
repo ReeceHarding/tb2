@@ -371,7 +371,7 @@ export default function QuizFlow() {
             filter: currentBlur
           }}
         >
-                        <div className="backdrop-blur-md bg-white/10 rounded-3xl shadow-2xl border-2 border-timeback-primary p-8 lg:p-12">
+                        <div className="backdrop-blur-md bg-timeback-bg/80 rounded-3xl shadow-2xl border-2 border-timeback-primary p-8 lg:p-12">
             {renderStepComponent(state.currentStep, false)}
           </div>
         </div>
@@ -387,7 +387,7 @@ export default function QuizFlow() {
               filter: nextBlur
             }}
           >
-            <div className="bg-white rounded-3xl shadow-2xl border-2 border-timeback-primary p-8 lg:p-12 relative">
+            <div className="backdrop-blur-md bg-timeback-bg/80 rounded-3xl shadow-2xl border-2 border-timeback-primary p-8 lg:p-12 relative">
               {/* Subtle glow effect for the next step */}
               <div className="absolute inset-0 bg-timeback-bg rounded-3xl opacity-10 pointer-events-none"></div>
               <div className="relative z-10">

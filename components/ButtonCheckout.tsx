@@ -41,7 +41,7 @@ const ButtonCheckout = ({
 
   return (
     <button
-      className="bg-white text-timeback-primary font-cal rounded-xl px-8 py-4 font-semibold shadow-2xl hover:shadow-2xl transition-all duration-200 hover:bg-opacity-90 focus:outline-none focus:ring-4 focus:ring-timeback-primary focus:ring-opacity-30 w-full group"
+      className="bg-timeback-primary text-white font-cal rounded-xl px-8 py-4 font-semibold shadow-2xl hover:shadow-2xl transition-all duration-200 hover:bg-opacity-90 focus:outline-none focus:ring-4 focus:ring-timeback-primary focus:ring-opacity-30 w-full group"
       onClick={() => handlePayment()}
     >
       {isLoading ? (

@@ -24,7 +24,7 @@ interface MAPTestResultsProps {
 
 export default function MAPTestResults({ schoolName, selectedGrade: _selectedGrade }: MAPTestResultsProps) {
   return (
-    <div className="bg-white rounded-xl border border-timeback-primary p-6">
+    <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl border border-timeback-primary p-6">
       {/* Real Data Badge */}
       <div className="bg-timeback-bg border border-timeback-primary rounded-xl p-3 mb-6">
         <div className="flex items-center gap-2">

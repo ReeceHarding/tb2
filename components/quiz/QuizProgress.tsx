@@ -18,7 +18,7 @@ export default function QuizProgress({ currentStep, totalSteps, className = '' }
   return (
     <div className={`w-full ${className}`}>
       {/* Progress Bar Container */}
-      <div className="w-full bg-white rounded-full h-2 overflow-hidden border border-timeback-primary">
+      <div className="w-full bg-timeback-bg/50 rounded-full h-2 overflow-hidden border border-timeback-primary">
         {/* Animated Progress Bar */}
         <motion.div
           className="h-full bg-timeback-primary rounded-full"

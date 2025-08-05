@@ -107,11 +107,23 @@ export default function SectionExplorer({
         })
       });
       const data = await res.json();
+      console.log('[SectionExplorer] 🔍 FULL API RESPONSE:', data);
+      console.log('[SectionExplorer] 🔍 API Response keys:', Object.keys(data));
+      console.log('[SectionExplorer] 🔍 Response format:', data.responseFormat);
+      console.log('[SectionExplorer] 🔍 Success flag:', data.success);
+      console.log('[SectionExplorer] 🔍 Schema response data:', data.response);
       
       if (data.success && data.responseFormat === 'schema') {
-        console.log('[SectionExplorer] Got schema response:', data.response);
+        console.log('[SectionExplorer] ✅ Got schema response, processing...');
+        console.log('[SectionExplorer] 🎯 Schema response structure:', JSON.stringify(data.response, null, 2));
         setSchemaResponse(data.response);
-        setSchemaResponses(prev => [...prev, data.response]);
+        console.log('[SectionExplorer] 📝 Adding response to array...');
+        setSchemaResponses(prev => {
+          const newArray = [...prev, data.response];
+          console.log('[SectionExplorer] 📊 Updated responses array length:', newArray.length);
+          console.log('[SectionExplorer] 📊 Last response in array:', newArray[newArray.length - 1]);
+          return newArray;
+        });
         
         // Add to conversation history
         const newHistory = [
@@ -316,7 +328,7 @@ export default function SectionExplorer({
                     console.log(`[SectionExplorer] Follow-up component selected: ${component.name}`);
                     onComponentSelect(component.name);
                   }}
-                  className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-left hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl group"
+                  className="backdrop-blur-md backdrop-blur-md bg-timeback-bg/80/10 border-2 border-timeback-primary rounded-xl p-4 text-left hover:backdrop-blur-md bg-timeback-bg/80/20 transition-all duration-300 shadow-lg hover:shadow-xl group"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
@@ -355,7 +367,7 @@ export default function SectionExplorer({
                 value={question}
                 onChange={(e)=>setQuestion(e.target.value)}
                 placeholder="Ask anything about TimeBack..."
-                className="w-full px-6 py-4 bg-white/10 backdrop-blur-md border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/60 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal"
+                className="w-full px-6 py-4 backdrop-blur-md bg-timeback-bg/80/10 backdrop-blur-md border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/60 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal"
                 disabled={isLoadingQA}
               />
               <button
@@ -367,19 +379,27 @@ export default function SectionExplorer({
               </button>
             </form>
             {/* Display all responses in sequence */}
-            {schemaResponses.map((response, index) => (
-              <div key={index} className="mt-6 bg-white rounded-xl p-6 border border-timeback-primary shadow-lg text-left max-w-4xl mx-auto">
-                <SchemaResponseRenderer 
-                  response={response}
-                  onNextOptionClick={handleNextOptionClick}
-                  isLoading={false}
-                />
-              </div>
-            ))}
+            {(() => {
+              console.log('[SectionExplorer] 🎨 RENDERING RESPONSES - Total count:', schemaResponses.length);
+              console.log('[SectionExplorer] 🎨 RENDERING RESPONSES - Array:', schemaResponses);
+              return schemaResponses.map((response, index) => {
+                console.log(`[SectionExplorer] 🎨 RENDERING Response ${index}:`, response);
+                console.log(`[SectionExplorer] 🎨 Response ${index} keys:`, response ? Object.keys(response) : 'null');
+                return (
+                  <div key={index} className="mt-6 backdrop-blur-md bg-timeback-bg/80 rounded-xl p-6 border border-timeback-primary shadow-lg text-left max-w-4xl mx-auto">
+                    <SchemaResponseRenderer 
+                      response={response}
+                      onNextOptionClick={handleNextOptionClick}
+                      isLoading={false}
+                    />
+                  </div>
+                );
+              });
+            })()}
             
             {/* Loading state for new responses */}
             {isLoadingQA && (
-              <div className="mt-6 bg-white rounded-xl p-6 border border-timeback-primary shadow-lg text-left max-w-4xl mx-auto">
+              <div className="mt-6 backdrop-blur-md bg-timeback-bg/80 rounded-xl p-6 border border-timeback-primary shadow-lg text-left max-w-4xl mx-auto">
                 <SchemaResponseRenderer 
                   response={null}
                   onNextOptionClick={handleNextOptionClick}
@@ -394,7 +414,7 @@ export default function SectionExplorer({
       {/* End of report message when all components viewed */}
       {availableComponents.length === 0 && (
         <section className="max-w-7xl mx-auto py-16 px-6 lg:px-12 text-center">
-          <div className="backdrop-blur-md bg-white/10 rounded-xl p-8 border-2 border-timeback-primary">
+          <div className="backdrop-blur-md backdrop-blur-md bg-timeback-bg/80/10 rounded-xl p-8 border-2 border-timeback-primary">
             <h3 className="text-3xl font-bold text-timeback-primary font-cal mb-4">
               Your Complete Personalized Report is Ready!
             </h3>

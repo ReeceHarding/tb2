@@ -164,7 +164,7 @@ const Hero = () => {
             </div>
 
             {/* Main Report Card */}
-            <div className="bg-white rounded-2xl shadow-2xl border-2 border-timeback-primary overflow-hidden max-w-lg mx-auto">
+            <div className="backdrop-blur-md bg-timeback-bg/80 rounded-2xl shadow-2xl border-2 border-timeback-primary overflow-hidden max-w-lg mx-auto">
               
               {/* Header Section */}
               <div className="bg-gradient-to-r from-timeback-primary to-timeback-primary/90 text-white p-6 text-center font-cal">
@@ -175,7 +175,7 @@ const Hero = () => {
 
               {/* Achievement Badge */}
               <div className="relative -mt-6 flex justify-center">
-                <div className="bg-white border-4 border-timeback-primary rounded-full px-6 py-3 shadow-2xl">
+                <div className="backdrop-blur-md bg-timeback-bg/90 border-4 border-timeback-primary rounded-full px-6 py-3 shadow-2xl">
                   <div className="flex items-center gap-2 text-timeback-primary font-cal">
                     <span className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></span>
                     <span className="font-bold text-lg font-cal">TOP 1% NATIONALLY</span>

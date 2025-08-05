@@ -66,19 +66,19 @@ export default function StudentDashboard({ student, isOpen, onClose }: StudentDa
       
       {/* Modal Content */}
       <div 
-        className="relative bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+        className="relative backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-all duration-200"
+          className="absolute top-4 right-4 z-10 w-10 h-10 backdrop-blur-md bg-timeback-bg/80 rounded-full shadow-lg flex items-center justify-center hover:shadow-xl transition-all duration-200"
         >
           <span className="text-timeback-primary font-cal text-xl">×</span>
         </button>
         
         {/* Header */}
-        <div className="backdrop-blur-md bg-white/10 p-8 rounded-t-xl border-2 border-timeback-primary border-b-0">
+        <div className="backdrop-blur-md backdrop-blur-md bg-timeback-bg/80/10 p-8 rounded-t-xl border-2 border-timeback-primary border-b-0">
           <div className="flex items-start justify-between">
             <div>
               <h2 className="text-3xl font-cal font-bold text-timeback-primary mb-2">
@@ -136,7 +136,7 @@ export default function StudentDashboard({ student, isOpen, onClose }: StudentDa
           
           {/* Progress Chart */}
           {chartData.length > 0 && (
-            <div className="bg-white rounded-xl shadow-lg border-2 border-timeback-primary p-6">
+            <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-lg border-2 border-timeback-primary p-6">
               <h3 className="text-xl font-cal font-bold text-timeback-primary mb-4">
                 MAP Score Progression
               </h3>
@@ -180,7 +180,7 @@ export default function StudentDashboard({ student, isOpen, onClose }: StudentDa
           )}
           
           {/* Time Commitment */}
-          <div className="bg-white rounded-xl shadow-lg border-2 border-timeback-primary p-6">
+          <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-lg border-2 border-timeback-primary p-6">
             <h3 className="text-xl font-cal font-bold text-timeback-primary mb-4">
               Daily Learning Time
             </h3>
@@ -204,7 +204,7 @@ export default function StudentDashboard({ student, isOpen, onClose }: StudentDa
           </div>
           
           {/* Student Story */}
-          <div className="backdrop-blur-md bg-white/10 rounded-xl p-6 border-2 border-timeback-primary">
+          <div className="backdrop-blur-md backdrop-blur-md bg-timeback-bg/80/10 rounded-xl p-6 border-2 border-timeback-primary">
             <h3 className="text-xl font-cal font-bold text-timeback-primary mb-4">
               The Journey
             </h3>
@@ -223,7 +223,7 @@ export default function StudentDashboard({ student, isOpen, onClose }: StudentDa
           
           {/* Key Attributes */}
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-white rounded-xl shadow-lg border border-timeback-primary p-4">
+            <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-lg border border-timeback-primary p-4">
               <h4 className="text-sm font-cal font-bold text-timeback-primary mb-2">
                 Learning Style
               </h4>
@@ -232,7 +232,7 @@ export default function StudentDashboard({ student, isOpen, onClose }: StudentDa
               </p>
             </div>
             
-            <div className="bg-white rounded-xl shadow-lg border border-timeback-primary p-4">
+            <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-lg border border-timeback-primary p-4">
               <h4 className="text-sm font-cal font-bold text-timeback-primary mb-2">
                 Key Strengths
               </h4>
@@ -241,7 +241,7 @@ export default function StudentDashboard({ student, isOpen, onClose }: StudentDa
               </p>
             </div>
             
-            <div className="bg-white rounded-xl shadow-lg border border-timeback-primary p-4">
+            <div className="backdrop-blur-md bg-timeback-bg/80 rounded-xl shadow-lg border border-timeback-primary p-4">
               <h4 className="text-sm font-cal font-bold text-timeback-primary mb-2">
                 Interests
               </h4>
@@ -259,7 +259,7 @@ export default function StudentDashboard({ student, isOpen, onClose }: StudentDa
             <p className="text-lg font-cal text-white mb-6 opacity-90">
               Join TimeBack and give your child the personalized learning experience they deserve.
             </p>
-            <button className="bg-white text-timeback-primary font-cal font-bold py-4 px-8 rounded-xl hover:shadow-xl transition-all duration-200">
+            <button className="backdrop-blur-md bg-timeback-bg/80 text-timeback-primary font-cal font-bold py-4 px-8 rounded-xl hover:shadow-xl transition-all duration-200">
               Start Your Journey Today →
             </button>
           </div>
