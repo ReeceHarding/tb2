@@ -394,34 +394,26 @@ export default function PersonalizedPage() {
       if (!contentReadyStatus.dataLoaded) {
         return {
           phase: 1,
-          title: "Loading Your Data",
-          message: "Retrieving your quiz results and preferences...",
-          detail: "This usually takes 2-3 seconds",
-          icon: "DATA"
+          title: "Loading your data",
+          message: "Retrieving your quiz results..."
         };
       } else if (!contentReadyStatus.coreContentGenerated) {
         return {
           phase: 2,
-          title: "Generating Personalized Content",
-          message: "Our AI is creating custom recommendations just for you...",
-          detail: "This may take 15-30 seconds",
-          icon: "AI"
+          title: "Generating personalized content",
+          message: "Creating custom recommendations..."
         };
       } else if (!contentReadyStatus.pageStable) {
         return {
           phase: 3,
-          title: "Finalizing Your Experience",
-          message: "Putting the finishing touches on your personalized page...",
-          detail: "Almost ready!",
-          icon: "DONE"
+          title: "Finalizing",
+          message: "Almost ready..."
         };
       }
       return {
         phase: 3,
-        title: "Getting Ready",
-        message: "Preparing your personalized experience...",
-        detail: "Just a moment more",
-        icon: "PREP"
+        title: "Preparing",
+        message: "Setting things up..."
       };
     };
 
@@ -439,10 +431,7 @@ export default function PersonalizedPage() {
             
             {/* Phase indicator with icon */}
             <div className="mb-4">
-              <div className="text-xs font-bold text-timeback-primary bg-timeback-bg/20 px-2 py-1 rounded mb-2 inline-block">
-                {currentPhase.icon}
-              </div>
-              <h3 className="text-lg font-bold text-timeback-primary font-cal mb-1">
+              <h3 className="text-lg font-bold text-timeback-primary font-cal mb-2">
                 {currentPhase.title}
               </h3>
               <p className="text-timeback-primary font-cal text-sm opacity-80">
@@ -450,63 +439,27 @@ export default function PersonalizedPage() {
               </p>
             </div>
             
-            {/* Enhanced spinner with pulse effect */}
-            <div className="relative mb-6">
-              <div className="w-10 h-10 border-4 border-timeback-bg border-t-timeback-primary rounded-full animate-spin mx-auto"></div>
-              <div className="absolute inset-0 w-10 h-10 border-2 border-timeback-primary/20 rounded-full mx-auto animate-pulse"></div>
-            </div>
-            
-            {/* Enhanced progress indicator with percentage */}
+            {/* Minimal spinner */}
             <div className="mb-6">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-xs text-timeback-primary font-cal opacity-60">Progress</span>
-                <span className="text-xs text-timeback-primary font-cal font-bold">{Math.round(progressPercentage)}%</span>
-              </div>
-              <div className="w-full bg-timeback-bg/30 rounded-full h-2 relative overflow-hidden">
+              <div className="w-10 h-10 border-4 border-timeback-bg border-t-timeback-primary rounded-full animate-spin mx-auto"></div>
+            </div>
+            
+            {/* Progress indicator */}
+            <div className="mb-6">
+              <div className="w-full bg-timeback-bg/30 rounded-full h-2">
                 <div 
-                  className="bg-timeback-primary h-2 rounded-full transition-all duration-1000 ease-out relative"
+                  className="bg-timeback-primary h-2 rounded-full transition-all duration-700 ease-out"
                   style={{ width: `${progressPercentage}%` }}
-                >
-                  {/* Animated shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform translate-x-[-100%] animate-pulse"></div>
-                </div>
+                />
               </div>
             </div>
             
-            {/* Dynamic status message */}
-            <div className="mb-4">
-              <p className="text-timeback-primary font-cal text-sm font-medium mb-1">
-                {currentPhase.message}
-              </p>
-              <p className="text-timeback-primary font-cal text-xs opacity-60">
-                {currentPhase.detail}
-              </p>
-            </div>
+            {/* Status message */}
+            <p className="text-timeback-primary font-cal text-sm mb-2">
+              {currentPhase.message}
+            </p>
 
-            {/* Phase indicators */}
-            <div className="flex justify-center space-x-2 mt-4">
-              {[1, 2, 3].map((phaseNum) => (
-                <div
-                  key={phaseNum}
-                  className={`w-2 h-2 rounded-full transition-all duration-500 ${
-                    phaseNum <= currentPhase.phase
-                      ? 'bg-timeback-primary scale-110'
-                      : phaseNum === currentPhase.phase + 1
-                      ? 'bg-timeback-primary/50 animate-pulse'
-                      : 'bg-timeback-bg/40'
-                  }`}
-                />
-              ))}
-            </div>
 
-            {/* Helpful tip for longer waits */}
-            {currentPhase.phase === 2 && (
-              <div className="mt-4 p-3 bg-timeback-bg/20 rounded-lg">
-                <p className="text-timeback-primary font-cal text-xs opacity-70">
-                  <span className="font-bold">TIP:</span> We&apos;re creating custom content based on your interests and school choices
-                </p>
-              </div>
-            )}
           </div>
         </div>
       </div>
