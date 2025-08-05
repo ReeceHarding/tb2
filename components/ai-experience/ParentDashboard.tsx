@@ -142,7 +142,10 @@ export default function ParentDashboard({ studentGrade, selectedSchool: _selecte
           <div className="grid md:grid-cols-3 gap-6">
             <div className="bg-timeback-bg rounded-xl p-6 border border-timeback-primary">
               <h5 className="font-bold text-timeback-primary mb-4 flex items-center gap-2 font-cal">
-                <span className="text-2xl font-cal">💪</span> Strengths
+                <svg className="w-6 h-6 text-timeback-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <span className="font-cal">Strengths</span>
               </h5>
               <ul className="space-y-2">
                 {metrics.knowledge.strengths.map((item, index) => (

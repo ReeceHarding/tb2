@@ -39,7 +39,7 @@ export default function KnowledgeDispersionChart() {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
-        <div className="bg-white p-4 border-2 border-timeback-primary rounded-xl shadow-2xl">
+        <div className="backdrop-blur-md bg-white/10 p-4 border-2 border-timeback-primary rounded-xl shadow-2xl">
           <p className="text-sm font-bold text-timeback-primary font-cal mb-1">
             {data.grade} Grade Knowledge Level
           </p>

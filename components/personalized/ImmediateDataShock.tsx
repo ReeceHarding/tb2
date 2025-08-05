@@ -89,7 +89,7 @@ export default function ImmediateDataShock() {
                     <tr 
                       key={row.grade}
                       className={`border-b border-timeback-primary border-opacity-20 hover:bg-timeback-bg transition-colors duration-200 ${
-                        isUserGrade ? 'bg-timeback-bg border-l-4 border-l-timeback-primary' : index % 2 === 0 ? 'bg-white' : 'bg-timeback-bg bg-opacity-30'
+                        isUserGrade ? 'bg-timeback-bg border-l-4 border-l-timeback-primary' : index % 2 === 0 ? 'bg-white/10' : 'bg-timeback-bg bg-opacity-30'
                       }`}
                     >
                       <td className={`p-4 font-cal ${isUserGrade ? 'font-bold text-timeback-primary' : 'font-medium text-timeback-primary'}`}>

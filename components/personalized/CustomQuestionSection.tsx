@@ -26,10 +26,7 @@ interface GeneratedResponse {
 export default function CustomQuestionSection({ 
   quizData, 
   interests,
-  gradeLevel,
-  learningGoals,
-  preGeneratedContent,
-  onLearnMore 
+  gradeLevel
 }: CustomQuestionSectionProps) {
   const [question, setQuestion] = useState('');
   const [isLoading, setIsLoading] = useState(false);

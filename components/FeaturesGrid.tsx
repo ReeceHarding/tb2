@@ -42,7 +42,7 @@ const features = [
         {[
           {
             text: "Add LemonSqueezy integration to the boilerplate",
-            secondaryText: "Yes, ship this! ✅",
+            secondaryText: "Yes, ship this!",
             votes: 48,
             transition: "group-hover:-mt-36 group-hover:md:-mt-28 duration-500",
           },
