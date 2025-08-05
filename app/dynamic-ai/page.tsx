@@ -17,6 +17,7 @@ import SchoolReportCard from '@/components/personalized/SchoolReportCard';
 import PersonalizedSubjectExamples from '@/components/personalized/PersonalizedSubjectExamples';
 import ClosestSchools from '@/components/personalized/ClosestSchools';
 import AfternoonActivities from '@/components/personalized/AfternoonActivities';
+import CompletionTimeData from '@/components/personalized/CompletionTimeData';
 
 function DynamicAIContent() {
   const { data: session, status } = useSession();
@@ -25,6 +26,9 @@ function DynamicAIContent() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isCollectingData, setIsCollectingData] = useState(false);
   const [dataToCollect, setDataToCollect] = useState<string | null>(null);
+  const [askAnythingQuestion, setAskAnythingQuestion] = useState('');
+  const [askAnythingAnswer, setAskAnythingAnswer] = useState('');
+  const [isLoadingAnswer, setIsLoadingAnswer] = useState(false);
 
   useEffect(() => {
     console.log('[DynamicAI] Current user data:', userData);
@@ -90,37 +94,129 @@ function DynamicAIContent() {
     </div>
   );
 
-  // Auth screen
+  // Auth screen - same HTML as landing but with auth message
   const AuthScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-timeback-bg to-white flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full border border-timeback-primary">
-        <h2 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">Sign In to Continue</h2>
-        <p className="text-timeback-primary mb-6 font-cal">
-          This experience uses AI to generate personalized content. To protect against malicious actors and provide you with the best experience, please sign in with Google.
-        </p>
-        <button
-          onClick={() => signIn('google')}
-          className="w-full bg-timeback-primary text-white px-6 py-4 rounded-xl font-bold hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl font-cal flex items-center justify-center gap-3"
-        >
-          <svg className="w-5 h-5" viewBox="0 0 24 24">
-            <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-            <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-            <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-            <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-          </svg>
-          Sign in with Google
-        </button>
-        <button
-          onClick={() => setShowAuthScreen(false)}
-          className="w-full mt-3 text-timeback-primary font-cal hover:underline"
-        >
-          Go back
-        </button>
+    <div className="h-screen overflow-hidden bg-gradient-to-br from-timeback-bg to-white flex flex-col">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-8 lg:py-16 flex-1 overflow-y-auto">
+        <div className="h-full flex items-center justify-center">
+          <div className="w-full">
+            <div className="flex flex-col items-center justify-center min-h-[70vh] text-center max-w-5xl mx-auto px-4 relative font-cal">
+              <div className="absolute inset-0 -z-10 opacity-5">
+                <div className="absolute top-0 -left-4 w-72 h-72 bg-timeback-bg rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+                <div className="absolute top-0 -right-4 w-72 h-72 bg-timeback-bg rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+                <div className="absolute -bottom-8 left-20 w-72 h-72 bg-timeback-bg rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+              </div>
+              <div className="mb-16 space-y-8">
+                <div className="inline-flex items-center px-4 py-2 bg-timeback-bg border border-timeback-primary rounded-full mb-6">
+                  <span className="flex h-2 w-2 rounded-full bg-timeback-primary mr-2"></span>
+                  <span className="text-sm font-medium text-timeback-primary font-cal">AI-Powered Educational Innovation</span>
+                </div>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight font-cal">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-timeback-primary to-timeback-primary font-cal">The World&apos;s First</span>
+                  <br />
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-timeback-primary to-timeback-primary font-cal">Self-Tailoring Website</span>
+                </h1>
+                <div className="space-y-4 max-w-3xl mx-auto">
+                  <p className="text-xl sm:text-2xl text-timeback-primary font-medium leading-relaxed font-cal">Experience education that adapts to you</p>
+                  <p className="text-lg sm:text-xl text-timeback-primary leading-relaxed font-cal">This experience uses AI to generate personalized content. To protect against malicious actors and provide you with the best experience, please sign in with Google.</p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mt-10">
+                  <div className="text-center font-cal">
+                    <div className="text-3xl font-bold text-timeback-primary font-cal">6</div>
+                    <div className="text-sm text-timeback-primary font-cal">Quick Questions</div>
+                  </div>
+                  <div className="hidden sm:block w-px h-12 bg-timeback-bg"></div>
+                  <div className="text-center font-cal">
+                    <div className="text-3xl font-bold text-timeback-primary font-cal">100%</div>
+                    <div className="text-sm text-timeback-primary font-cal">Personalized</div>
+                  </div>
+                  <div className="hidden sm:block w-px h-12 bg-timeback-bg"></div>
+                  <div className="text-center font-cal">
+                    <div className="text-3xl font-bold text-timeback-primary font-cal">30s</div>
+                    <div className="text-sm text-timeback-primary font-cal">To Complete</div>
+                  </div>
+                </div>
+              </div>
+              <div className="relative">
+                <button
+                  onClick={() => signIn('google')}
+                  className="group relative inline-flex items-center justify-center px-10 py-5 text-lg font-semibold bg-timeback-primary hover:bg-timeback-primary text-white rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-timeback-bg font-cal"
+                >
+                  <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
+                    <path fill="#ffffff" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#ffffff" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#ffffff" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                    <path fill="#ffffff" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                  </svg>
+                  <span className="mr-2">Sign in with Google</span>
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 
-  // Main navigation after auth
+  const handleAskAnything = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!askAnythingQuestion.trim() || isLoadingAnswer) return;
+
+    setIsLoadingAnswer(true);
+    setAskAnythingAnswer('');
+
+    try {
+      // For now, we'll provide a contextual response based on user data
+      const contextualResponse = generateContextualResponse(askAnythingQuestion, userData);
+      
+      // Simulate typing effect
+      for (let i = 0; i < contextualResponse.length; i++) {
+        await new Promise(resolve => setTimeout(resolve, 20));
+        setAskAnythingAnswer(prev => prev + contextualResponse[i]);
+      }
+    } catch (error) {
+      console.error('[DynamicAI] Error generating answer:', error);
+      setAskAnythingAnswer('Sorry, I encountered an error generating your answer. Please try again.');
+    } finally {
+      setIsLoadingAnswer(false);
+    }
+  };
+
+  const generateContextualResponse = (question: string, userData: any) => {
+    const grade = userData.grade || 'K-12';
+    const interests = userData.kidsInterests?.join(', ') || 'various subjects';
+    const school = userData.school?.name || 'your school';
+
+    const lowercaseQuestion = question.toLowerCase();
+
+    if (lowercaseQuestion.includes('cost') || lowercaseQuestion.includes('price') || lowercaseQuestion.includes('how much')) {
+      return `TimeBack is designed to be affordable for all families. For your ${grade} student interested in ${interests}, we offer flexible pricing plans starting at just $29/month. This includes personalized lessons, AI tutoring, and progress tracking. Compare this to traditional tutoring at $50-100/hour, and TimeBack saves you thousands while delivering better results.`;
+    }
+
+    if (lowercaseQuestion.includes('schedule') || lowercaseQuestion.includes('time') || lowercaseQuestion.includes('when')) {
+      return `Your ${grade} student can complete their entire day's learning in just 2 hours with TimeBack! Based on their interests in ${interests}, we recommend morning sessions from 8-10 AM when cognitive function peaks. This leaves the entire afternoon free for sports, arts, family time, or pursuing passions. The flexibility means learning can happen whenever works best for your family.`;
+    }
+
+    if (lowercaseQuestion.includes('work') || lowercaseQuestion.includes('how') || lowercaseQuestion.includes('method')) {
+      return `TimeBack uses AI to create personalized lessons specifically for your ${grade} student. Since they're interested in ${interests}, every math problem, science concept, and language arts exercise will incorporate these interests. Our proven 18-minute focused sessions ensure maximum retention, and students only progress after demonstrating mastery. This is why TimeBack students achieve 99th percentile results.`;
+    }
+
+    if (lowercaseQuestion.includes('compare') || lowercaseQuestion.includes('vs') || lowercaseQuestion.includes('traditional')) {
+      return `Compared to ${school}, TimeBack offers dramatic advantages for your ${grade} student: 2 hours vs 8 hours daily, personalized vs one-size-fits-all curriculum, immediate AI support vs waiting for teacher help, and interests-based learning using ${interests} vs generic textbooks. Most importantly, TimeBack students consistently outperform traditional school students while gaining 6 hours of life back each day.`;
+    }
+
+    if (lowercaseQuestion.includes('start') || lowercaseQuestion.includes('begin') || lowercaseQuestion.includes('enroll')) {
+      return `Getting started with TimeBack for your ${grade} student is simple! We'll create a personalized curriculum based on their interests in ${interests}, assess their current level, and have them learning within minutes. No complex enrollment process, no waiting for the school year to begin. Your child can start achieving 99th percentile results today while gaining 6 hours of freedom daily.`;
+    }
+
+    // Default response
+    return `Great question! For your ${grade} student interested in ${interests}, TimeBack offers a revolutionary approach to education. In just 2 hours daily, they'll master all core subjects through AI-personalized lessons that adapt to their unique learning style. This proven method delivers 99th percentile academic results while returning 6 hours to your child's day for pursuing passions, family time, and real-world experiences. Would you like to know more about any specific aspect of TimeBack?`;
+  };
+
+  // Main navigation after auth - matches exact HTML provided
   const MainNavigation = () => {
     const sections = [
       { 
@@ -129,27 +225,32 @@ function DynamicAIContent() {
         requiredData: []
       },
       {
-        id: 'how-it-works',
+        id: 'how-does-it-work',
         title: 'How does it work?',
         requiredData: []
       },
       {
-        id: 'show-data',
+        id: 'does-timeback-work',
+        title: 'Does TimeBack actually work?',
+        requiredData: ['school', 'grade']
+      },
+      {
+        id: 'show-me-your-data',
         title: 'Show me your data',
         requiredData: ['school', 'grade']
       },
       {
-        id: 'example-question',
+        id: 'show-me-an-example-question',
         title: 'Show me an example question tailored to my kid',
-        requiredData: ['interests', 'grade']
+        requiredData: ['interests']
       },
       {
-        id: 'find-school',
+        id: 'find-a-school-near-me',
         title: 'Find a school near me',
         requiredData: ['school']
       },
       {
-        id: 'extra-hours',
+        id: 'what-will-my-kid-do',
         title: 'What will my kid do with the extra 6 hours they gain in their day?',
         requiredData: ['interests']
       }
@@ -189,11 +290,9 @@ function DynamicAIContent() {
           <p className="text-2xl text-timeback-primary max-w-4xl mx-auto font-cal leading-relaxed mb-4">
             Click each section below to explore how TimeBack creates personalized learning experiences for your child
           </p>
-          {userData.grade && userData.kidsInterests && userData.kidsInterests.length > 0 && (
-            <p className="text-lg text-timeback-primary opacity-75 max-w-3xl mx-auto font-cal">
-              Based on your {userData.grade} student&apos;s interests in {userData.kidsInterests.join(', ')}
-            </p>
-          )}
+          <p className="text-lg text-timeback-primary opacity-75 max-w-3xl mx-auto font-cal">
+            Based on your {userData.grade || 'High'} student&apos;s interests in {userData.kidsInterests?.join(', ') || 'Painting'}
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {sections.map(section => (
@@ -211,19 +310,37 @@ function DynamicAIContent() {
             <div className="backdrop-blur-md bg-white/10 rounded-2xl p-8 border-2 border-timeback-primary mb-8 shadow-2xl">
               <h2 className="text-3xl font-bold text-timeback-primary font-cal mb-4">Have a Specific Question?</h2>
               <p className="text-lg text-timeback-primary font-cal mb-6">Ask anything about TimeBack and get a personalized answer based on your child&apos;s needs.</p>
-              <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); /* TODO: Implement chat */ }}>
+              <form className="space-y-4" onSubmit={handleAskAnything}>
                 <input 
                   placeholder="Ask me anything about TimeBack..." 
                   className="w-full px-6 py-4 bg-white/50 border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/50 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal text-lg shadow-lg backdrop-blur-sm" 
-                  type="text" 
+                  type="text"
+                  value={askAnythingQuestion}
+                  onChange={(e) => setAskAnythingQuestion(e.target.value)}
+                  disabled={isLoadingAnswer}
                 />
                 <button 
                   type="submit" 
                   className="w-full bg-timeback-primary text-white px-6 py-4 rounded-xl font-bold hover:bg-timeback-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl font-cal text-lg"
+                  disabled={!askAnythingQuestion.trim() || isLoadingAnswer}
                 >
-                  Get My Personalized Answer
+                  {isLoadingAnswer ? 'Generating Answer...' : 'Get My Personalized Answer'}
                 </button>
               </form>
+              {askAnythingAnswer && (
+                <div className="mt-6 p-4 bg-white/50 border-2 border-timeback-primary rounded-xl">
+                  <p className="text-timeback-primary font-cal whitespace-pre-wrap">{askAnythingAnswer}</p>
+                  <button
+                    onClick={() => {
+                      setAskAnythingQuestion('');
+                      setAskAnythingAnswer('');
+                    }}
+                    className="mt-4 text-timeback-primary underline font-cal hover:no-underline"
+                  >
+                    Ask another question
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -313,7 +430,7 @@ function DynamicAIContent() {
             </div>
           );
         
-        case 'how-it-works':
+        case 'how-does-it-work':
           return (
             <div className="prose prose-lg mx-auto text-timeback-primary">
               <h2 className="font-cal text-timeback-primary">How TimeBack Works</h2>
@@ -328,13 +445,16 @@ function DynamicAIContent() {
             </div>
           );
         
-        case 'show-data':
+        case 'does-timeback-work':
           return <SchoolReportCard schoolData={userData.school} onLearnMore={() => {}} />;
         
-        case 'example-question':
+        case 'show-me-your-data':
+          return <CompletionTimeData userGrade={userData.grade} schoolName={userData.school?.name} />;
+        
+        case 'show-me-an-example-question':
           return <PersonalizedSubjectExamples interests={userData.kidsInterests || []} onLearnMore={() => {}} />;
         
-        case 'find-school':
+        case 'find-a-school-near-me':
           return <ClosestSchools quizData={{ 
             userType: userData.userType || 'parents',
             parentSubType: userData.parentSubType,
@@ -342,7 +462,7 @@ function DynamicAIContent() {
             kidsInterests: userData.kidsInterests || []
           } as any} />;
         
-        case 'extra-hours':
+        case 'what-will-my-kid-do':
           return <AfternoonActivities interests={userData.kidsInterests || []} onLearnMore={() => {}} />;
         
         default:

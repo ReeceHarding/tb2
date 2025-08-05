@@ -44,6 +44,7 @@ const DynamicOnboardingContext = createContext<DynamicOnboardingContextType | un
 
 export function DynamicOnboardingProvider({ children }: { children: ReactNode }) {
   const { data: session, status } = useSession();
+  const [shouldSaveToDb, setShouldSaveToDb] = useState(false);
   const [userData, setUserData] = useState<DynamicUserData>({
     isAuthenticated: false,
     viewedSections: new Set(),
@@ -123,10 +124,11 @@ export function DynamicOnboardingProvider({ children }: { children: ReactNode })
 
   const updateUserData = (data: Partial<DynamicUserData>) => {
     console.log('[DynamicOnboarding] Updating user data:', data);
-    setUserData(prev => ({
-      ...prev,
+    const newUserData = {
+      ...userData,
       ...data,
-    }));
+    };
+    setUserData(newUserData);
     
     // Also update the legacy quiz data format for compatibility
     if (data.userType || data.parentSubType || data.grade || data.school || data.kidsInterests) {
@@ -141,6 +143,11 @@ export function DynamicOnboardingProvider({ children }: { children: ReactNode })
       
       localStorage.setItem('timebackQuizData', JSON.stringify(quizData));
       console.log('[DynamicOnboarding] Updated legacy quiz data:', quizData);
+      
+      // Trigger database save if authenticated
+      if (newUserData.isAuthenticated) {
+        setShouldSaveToDb(true);
+      }
     }
   };
 
@@ -220,6 +227,19 @@ export function DynamicOnboardingProvider({ children }: { children: ReactNode })
       console.error('[DynamicOnboarding] Error saving to database:', error);
     }
   };
+
+  // Effect to save to database when triggered
+  useEffect(() => {
+    const performSave = async () => {
+      if (shouldSaveToDb && userData.isAuthenticated) {
+        console.log('[DynamicOnboarding] Triggered database save');
+        await saveToDatabase();
+        setShouldSaveToDb(false);
+      }
+    };
+    
+    performSave();
+  }, [shouldSaveToDb, userData]);
 
   return (
     <DynamicOnboardingContext.Provider
