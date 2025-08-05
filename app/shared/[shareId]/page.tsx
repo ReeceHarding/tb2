@@ -101,9 +101,7 @@ export default function SharedJourneyPage() {
             <p className="font-cal text-lg">
               You&apos;re viewing {journeyData.parentName}&apos;s personalized TimeBack journey
             </p>
-            <p className="font-cal text-sm mt-1 opacity-90">
-              This journey has been viewed {journeyData.viewCount} {journeyData.viewCount === 1 ? 'time' : 'times'}
-            </p>
+
           </div>
         </div>
 

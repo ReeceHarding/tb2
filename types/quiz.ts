@@ -131,6 +131,7 @@ export interface ShareableJourneyResponse {
     viewedSections: ShareableJourneySection[];
     createdAt: Date;
     parentName?: string;
+    viewCount: number;
   };
   error?: string;
 }

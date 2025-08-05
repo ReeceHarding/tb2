@@ -13,6 +13,7 @@ import ImmediateDataShock from './ImmediateDataShock';
 import MechanismSection from './MechanismSection';
 import CompletionTimeData from './CompletionTimeData';
 import StudentJourneyCarousel from './StudentJourneyCarousel';
+import CustomQuestionSection from './CustomQuestionSection';
 
 export interface SectionMapping {
   id: string;
@@ -285,6 +286,38 @@ export const PROGRESSIVE_DISCLOSURE_MAPPING: MainSection[] = [
             id: 'social-development',
             text: 'Will my child still develop socially?',
             targetComponents: ['AfternoonActivities']
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: 'custom-questions',
+    buttonText: 'Ask me anything about TimeBack',
+    description: 'Get personalized answers to your specific questions about TimeBack',
+    sections: [
+      {
+        id: 'custom-inquiry',
+        title: 'What would you like to know?',
+        description: 'Ask any question about TimeBack and get a personalized response based on your child\'s needs',
+        components: [
+          { component: CustomQuestionSection, name: 'CustomQuestionSection' }
+        ],
+        subButtons: [
+          {
+            id: 'ask-about-curriculum',
+            text: 'How does the curriculum work for my child?',
+            targetComponents: ['CustomQuestionSection']
+          },
+          {
+            id: 'ask-about-schedule',
+            text: 'What would my child\'s schedule look like?',
+            targetComponents: ['CustomQuestionSection']
+          },
+          {
+            id: 'ask-about-results',
+            text: 'What results can I expect?',
+            targetComponents: ['CustomQuestionSection']
           }
         ]
       }

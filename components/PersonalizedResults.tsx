@@ -86,10 +86,10 @@ export default function PersonalizedResults({ quizData, preGeneratedContent }: P
           grade_level: quizData.selectedSchools[0]?.level
         }}
       >
-        <div className="bg-white rounded-3xl shadow-2xl border-2 border-timeback-primary p-8 lg:p-12">
+        <div className="backdrop-blur-md bg-white/10 rounded-3xl shadow-2xl border-2 border-timeback-primary p-8 lg:p-12">
           {/* Success Badge */}
           <div className="text-center mb-8 font-cal">
-            <div className="inline-flex items-center gap-2 bg-timeback-bg border border-timeback-primary rounded-full px-6 py-3 mb-6">
+            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm border border-timeback-primary rounded-full px-6 py-3 mb-6">
               <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
               <span className="text-timeback-primary font-bold text-sm font-cal">ASSESSMENT COMPLETE</span>
             </div>
@@ -107,11 +107,11 @@ export default function PersonalizedResults({ quizData, preGeneratedContent }: P
               
               {/* Quick Stats Preview */}
               <div className="grid grid-cols-2 gap-4 pt-6">
-                <div className="bg-timeback-bg border border-timeback-primary rounded-xl p-4 text-center font-cal">
+                <div className="backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-xl p-4 text-center font-cal">
                   <div className="text-2xl font-bold text-timeback-primary font-cal">2hrs</div>
                   <div className="text-sm text-timeback-primary font-cal">Daily Learning</div>
                 </div>
-                <div className="bg-timeback-bg border border-timeback-primary rounded-xl p-4 text-center font-cal">
+                <div className="backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-xl p-4 text-center font-cal">
                   <div className="text-2xl font-bold text-timeback-primary font-cal">10x</div>
                   <div className="text-sm text-timeback-primary font-cal">Faster Progress</div>
                 </div>
