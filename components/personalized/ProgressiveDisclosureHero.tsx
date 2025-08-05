@@ -15,7 +15,6 @@ export default function ProgressiveDisclosureHero({ onSectionSelect, quizData }:
 
   // Get child's interests and school info for personalization
   const interests = quizData?.kidsInterests || [];
-  const schoolName = quizData?.selectedSchools?.[0]?.name || 'your child&apos;s school';
   const gradeLevel = quizData?.selectedSchools?.[0]?.level || 'high school';
 
   return (
@@ -54,26 +53,14 @@ export default function ProgressiveDisclosureHero({ onSectionSelect, quizData }:
             </button>
           ))}
         </div>
+
+        {/* Custom Question Section - Moved Here */}
+        <div className="mt-16">
+          <CustomQuestionSection quizData={quizData} />
+        </div>
       </section>
 
-      {/* Custom Question Section - Independent Element */}
-      <div className="mt-16">
-        <CustomQuestionSection quizData={quizData} />
-      </div>
 
-      {/* Bottom CTA */}
-      <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
-        <div className="text-center mt-16 mb-16">
-          <div className="backdrop-blur-md bg-white/10 border border-timeback-primary rounded-xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">
-              Ready to dive deeper?
-            </h3>
-            <p className="text-lg text-timeback-primary font-cal">
-              Click any section above to explore our personalized learning platform in detail
-            </p>
-          </div>
-        </div>
-      </div>
     </>
   );
 }

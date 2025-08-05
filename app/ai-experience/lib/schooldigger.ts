@@ -855,11 +855,16 @@ function createOptimizedStrategies(query: string, state?: string): Array<{
             enhancedQuery = `${queryComponents.schoolTerms} ${queryComponents.city}`;
           }
           
-          const data = await makeApiCallCached('/autocomplete/schools', {
+          const autocompleteParams = {
             q: enhancedQuery,
             qSearchCityStateName: 'true',
-            returnCount: '25' // Get more results since we can't use other strategies
-          });
+            returnCount: '20'
+          };
+          // Defensive check in case future edits accidentally raise this value
+          if (parseInt(autocompleteParams.returnCount, 10) > 20) {
+            autocompleteParams.returnCount = '20';
+          }
+          const data = await makeApiCallCached('/autocomplete/schools', autocompleteParams);
           
           const results = (data.schoolMatches || []).map(extractSchoolData);
           console.log(`[SchoolDigger] Enhanced Autocomplete Fallback found ${results.length} results`);
