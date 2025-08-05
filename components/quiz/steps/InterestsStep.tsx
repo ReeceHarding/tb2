@@ -91,18 +91,17 @@ export default function InterestsStep({ onNext: _onNext, onPrev: _onPrev }: Inte
   };
 
   const completeQuiz = () => {
-    console.log('[InterestsStep] Complete Quiz button clicked - bypassing complex logic');
+    console.log('[InterestsStep] Complete Quiz button clicked - going directly to AuthStep');
     console.log('[InterestsStep] Current interests:', state.kidsInterests);
     
     // Save state to localStorage
-    const savedState = { ...state, isCompleted: true, isLoading: false };
+    const savedState = { ...state, isCompleted: false, isLoading: false }; // Not completed until after auth
     localStorage.setItem('timeback-quiz-state', JSON.stringify(savedState));
     console.log('[InterestsStep] Quiz state saved to localStorage');
 
-    // Mark quiz as complete and go directly to loading step
-    dispatch({ type: 'COMPLETE_QUIZ' });
-    dispatch({ type: 'SET_STEP', step: 6 }); // LoadingStep is step 6 (InterestsStep is step 5)
-    console.log('[InterestsStep] Quiz marked complete, moving to LoadingStep');
+    // Go directly to AuthStep (skipping LoadingStep)
+    dispatch({ type: 'SET_STEP', step: 6 }); // AuthStep is now step 6 (InterestsStep is step 5)
+    console.log('[InterestsStep] Moving directly to AuthStep (LoadingStep removed)');
   };
 
 

@@ -37,10 +37,7 @@ const InterestsStep = dynamic(() => import('./steps/InterestsStep'), {
   ssr: false
 });
 
-const LoadingStep = dynamic(() => import('./steps/LoadingStep'), {
-  loading: () => <StepLoadingSpinner />,
-  ssr: false
-});
+// LoadingStep removed - going directly to AuthStep after InterestsStep
 
 const AuthStep = dynamic(() => import('./steps/AuthStep'), {
   loading: () => <StepLoadingSpinner />,
@@ -126,13 +123,9 @@ export default function QuizFlow() {
           import('./steps/InterestsStep');
           console.log(`[QuizFlow] ${prefetchTimestamp} Prefetched InterestsStep`);
         } else if (currentStep === 5) {
-          // On Interests, prefetch Loading
-          import('./steps/LoadingStep');
-          console.log(`[QuizFlow] ${prefetchTimestamp} Prefetched LoadingStep`);
-        } else if (currentStep === 6) {
-          // On Loading, prefetch Auth
+          // On Interests, prefetch Auth (skipping loading)
           import('./steps/AuthStep');
-          console.log(`[QuizFlow] ${prefetchTimestamp} Prefetched AuthStep`);
+          console.log(`[QuizFlow] ${prefetchTimestamp} Prefetched AuthStep (skipping loading screen)`);
         }
         
         // Also prefetch common components that are likely to be needed
@@ -245,13 +238,13 @@ export default function QuizFlow() {
     console.log(`[QuizFlow] ${navTimestamp} PROCEEDING - Moving from step ${currentState.currentStep} to step: ${nextStepNumber}`);
     
     // === CRITICAL STEP NAVIGATION LOGS - FOR LLM PARSING ===
-    if (nextStepNumber === 7) {
-      console.log(`🚨 [CRITICAL-NAVIGATION] ${navTimestamp} *** NAVIGATING TO AUTHSTEP (STEP 7) ***`);
+    if (nextStepNumber === 6) {
+      console.log(`🚨 [CRITICAL-NAVIGATION] ${navTimestamp} *** NAVIGATING TO AUTHSTEP (STEP 6 - LOADING REMOVED) ***`);
       console.log(`🚨 [CRITICAL-NAVIGATION] ${navTimestamp} *** USER SHOULD NOW SEE AUTH PAGE ***`);
     }
     
-    if (currentState.currentStep === 6 && nextStepNumber === 7) {
-      console.log(`🚨 [CRITICAL-NAVIGATION] ${navTimestamp} *** TRANSITIONING FROM LOADING TO AUTH ***`);
+    if (currentState.currentStep === 5 && nextStepNumber === 6) {
+      console.log(`🚨 [CRITICAL-NAVIGATION] ${navTimestamp} *** TRANSITIONING FROM INTERESTS DIRECTLY TO AUTH (NO LOADING) ***`);
     }
     // === END CRITICAL NAVIGATION LOGS ===
 
@@ -332,13 +325,10 @@ export default function QuizFlow() {
         // console.log(`[QuizFlow] ${compTimestamp} Rendering LearningGoalsStep with nextStep/prevStep callbacks`);
         // return <LearningGoalsStep onNext={nextStep} onPrev={prevStep} />;
       case 5:
-        console.log(`[QuizFlow] ${compTimestamp} Rendering InterestsStep (auto-advance)`);
+        console.log(`[QuizFlow] ${compTimestamp} Rendering InterestsStep (auto-advance to Auth)`);
         return <InterestsStep onNext={nextStep} onPrev={prevStep} />;
       case 6:
-        console.log(`[QuizFlow] ${compTimestamp} Rendering LoadingStep with nextStep callback`);
-        return <LoadingStep onNext={nextStep} onPrev={prevStep} />;
-      case 7:
-        console.log(`🚨 [CRITICAL-QUIZ-FLOW] ${compTimestamp} *** AUTHSTEP REACHED - STEP 7 ***`);
+        console.log(`🚨 [CRITICAL-QUIZ-FLOW] ${compTimestamp} *** AUTHSTEP REACHED - STEP 6 (LOADING REMOVED) ***`);
         console.log(`🚨 [CRITICAL-QUIZ-FLOW] ${compTimestamp} *** THIS IS THE FINAL STEP BEFORE COMPLETION ***`);
         console.log(`🚨 [CRITICAL-QUIZ-FLOW] ${compTimestamp} *** AUTHSTEP SHOULD NOW BE VISIBLE ***`);
         console.log(`[QuizFlow] ${compTimestamp} Rendering AuthStep with nextStep/prevStep callbacks`);

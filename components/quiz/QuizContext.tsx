@@ -499,7 +499,7 @@ export const quizHelpers = {
     return descriptions[step] || '';
   },
 
-  getTotalSteps: (): number => 7, // Excluding intro step, includes LoadingStep and AuthStep (was 5, now 7 with AuthStep added)
+  getTotalSteps: (): number => 6, // Excluding intro step, removed LoadingStep, includes AuthStep
 
   getProgressPercentage: (currentStep: number): number => {
     if (currentStep === 0) return 0; // Intro step
