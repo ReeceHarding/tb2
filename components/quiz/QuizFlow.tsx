@@ -483,7 +483,7 @@ export default function QuizFlow() {
   // with CSS transitions for smoother downward scroll effect
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-timeback-bg to-white">
+    <div className="h-screen overflow-hidden bg-gradient-to-br from-timeback-bg to-white flex flex-col">
       {/* Enhanced Professional Header with Progress */}
       {state.currentStep > 0 && (
         <motion.div 
@@ -525,8 +525,8 @@ export default function QuizFlow() {
       )}
 
       {/* Main Content Area with Enhanced Downward Scroll Transitions */}
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-8 lg:py-16">
-        <div className="min-h-[calc(100vh-200px)]">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-8 lg:py-16 flex-1 overflow-hidden">
+        <div className="h-full flex items-center justify-center">
           
           {/* Enhanced Step Components with Downward Scroll Animation */}
           <div className="w-full">
