@@ -1,70 +1,133 @@
 import { NextRequest, NextResponse } from 'next/server';
+import OpenAI from 'openai';
+import { safeBedrockAPI } from '@/libs/bedrock-helpers';
 
-async function callAnthropicBedrock(prompt: string): Promise<any> {
+// Initialize OpenAI client for final fallback
+const openaiClient = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY || '',
+});
+
+// Helper function to call AI providers with fallback pattern
+async function generateCustomResponse(prompt: string, systemPrompt: string): Promise<any> {
+  const startTime = Date.now();
+  
+  // 1. Try Cerebras first (fastest)
   try {
-    // Using AWS SDK for Bedrock
-    const AWS = require('aws-sdk');
+    console.log('[Custom Question] Attempting generation with Cerebras...');
     
-    const bedrock = new AWS.BedrockRuntime({
-      region: 'us-east-1',
-      credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID || 'your_aws_access_key_id_here',
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || 'your_aws_secret_access_key_here',
+    const messages = [
+      { role: 'system', content: systemPrompt },
+      { role: 'user', content: prompt }
+    ];
+    
+    const response = await fetch('https://api.cerebras.ai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.CEREBRAS_API_KEY}`,
+        'Content-Type': 'application/json'
       },
+      body: JSON.stringify({
+        model: 'qwen-3-235b-a22b-instruct-2507',
+        messages,
+        max_tokens: 1024,
+        temperature: 0.7
+      })
     });
 
-    const modelId = 'anthropic.claude-sonnet-4-20250514-v1:0';
-    
-    const requestBody = {
-      anthropic_version: 'bedrock-2023-05-31',
-      messages: [
-        {
-          role: 'user',
-          content: prompt,
-        },
-      ],
-      max_tokens: 1024,
-      temperature: 0.7,
-    };
+    if (!response.ok) {
+      const error = await response.text();
+      throw new Error(`Cerebras API error: ${response.status} - ${error}`);
+    }
 
-    const response = await bedrock.invokeModel({
-      modelId,
-      contentType: 'application/json',
-      accept: 'application/json',
-      body: JSON.stringify(requestBody),
-    }).promise();
-
-    const responseBody = JSON.parse(response.body.toString());
+    const completion = await response.json();
+    const content = completion.choices[0]?.message?.content || '';
     
-    // Extract content from the response
-    const content = responseBody.content?.[0]?.text || '';
+    console.log(`[Custom Question] Cerebras successful in ${Date.now() - startTime}ms`);
     
     try {
-      // Try to parse as JSON
       return JSON.parse(content);
     } catch (e) {
-      // If not valid JSON, return structured error
-      console.error('Failed to parse AI response as JSON:', content);
-      return {
-        header: "TIMEBACK | CUSTOM INSIGHT",
-        main_heading: "Unable to Generate Response",
-        description: "I apologize, but I couldn't generate a proper response. Please try rephrasing your question.",
-        key_points: [
-          {
-            label: "Error Processing",
-            description: "The AI response was not in the expected format."
-          }
-        ],
-        next_options: [
-          "How does TimeBack personalize learning?",
-          "What results can I expect for my child?",
-          "How is TimeBack different from homeschooling?"
-        ]
-      };
+      console.error('[Custom Question] Failed to parse Cerebras response as JSON:', content);
+      throw new Error('Invalid JSON response from Cerebras');
     }
-  } catch (error) {
-    console.error('Error calling Anthropic via Bedrock:', error);
-    throw error;
+    
+  } catch (cerebrasError) {
+    console.log('[Custom Question] Cerebras failed, falling back to AWS Bedrock:', cerebrasError);
+    
+    // 2. Try AWS Bedrock as first fallback
+    try {
+      const bedrockStartTime = Date.now();
+      
+      const fullPrompt = `${systemPrompt}\n\n${prompt}`;
+      
+      const bedrockResult = await safeBedrockAPI.generateText({
+        prompt: fullPrompt,
+        maxTokens: 1024,
+        temperature: 0.7
+      }, 'custom-question-fallback');
+      
+      const content = bedrockResult.text;
+      
+      console.log(`[Custom Question] AWS Bedrock successful in ${Date.now() - bedrockStartTime}ms`);
+      
+      try {
+        return JSON.parse(content);
+      } catch (e) {
+        console.error('[Custom Question] Failed to parse Bedrock response as JSON:', content);
+        throw new Error('Invalid JSON response from Bedrock');
+      }
+      
+    } catch (bedrockError) {
+      console.log('[Custom Question] Bedrock failed, falling back to OpenAI:', bedrockError);
+      
+      // 3. Try OpenAI GPT-4 Turbo as final fallback
+      try {
+        const openaiStartTime = Date.now();
+        
+        const completion = await openaiClient.chat.completions.create({
+          model: 'gpt-4-turbo-preview',
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: prompt }
+          ],
+          max_tokens: 1024,
+          temperature: 0.7,
+          response_format: { type: "json_object" }
+        });
+
+        const content = completion.choices[0]?.message?.content || '';
+        
+        console.log(`[Custom Question] OpenAI successful in ${Date.now() - openaiStartTime}ms`);
+        
+        try {
+          return JSON.parse(content);
+        } catch (e) {
+          console.error('[Custom Question] Failed to parse OpenAI response as JSON:', content);
+          throw new Error('Invalid JSON response from OpenAI');
+        }
+        
+      } catch (openaiError) {
+        console.error('[Custom Question] All providers failed:', { cerebrasError, bedrockError, openaiError });
+        
+        // Return fallback response
+        return {
+          header: "TIMEBACK | CUSTOM INSIGHT",
+          main_heading: "Unable to Generate Response",
+          description: "I apologize, but I couldn't generate a proper response. Please try rephrasing your question.",
+          key_points: [
+            {
+              label: "Error Processing",
+              description: "All AI providers are currently unavailable. Please try again later."
+            }
+          ],
+          next_options: [
+            "How does TimeBack personalize learning?",
+            "What results can I expect for my child?",
+            "How is TimeBack different from homeschooling?"
+          ]
+        };
+      }
+    }
   }
 }
 
@@ -81,9 +144,8 @@ export async function POST(request: NextRequest) {
     const whitepaperPath = path.join(process.cwd(), 'public/data/timeback-whitepaper.md');
     const whitepaperContent = await fs.readFile(whitepaperPath, 'utf8');
 
-    // Construct the prompt using XML tags
-    const prompt = `<system_role>
-# TimeBack Education Data Analyst
+    // Construct the system prompt
+    const systemPrompt = `# TimeBack Education Data Analyst
 
 You are a TimeBack education data analyst creating compelling content for parents. Generate responses using **ONLY** the provided TimeBack white paper content.
 
@@ -118,13 +180,12 @@ You are a TimeBack education data analyst creating compelling content for parent
 
 - **Missing context**: Generate response using available white paper content only
 - **Incomplete user information**: Focus on general TimeBack benefits and principles
-</system_role>
 
-<knowledge_base>
-<educational_background>${whitepaperContent}</educational_background>
-</knowledge_base>
+## Knowledge Base
+${whitepaperContent}`;
 
-<current_user>
+    // Construct the user prompt with context
+    const prompt = `<current_user>
 <name>${currentUser.name}</name>
 <student_grade>${currentUser.student_grade}</student_grade>
 <interest_subjects>${currentUser.interest_subjects}</interest_subjects>
@@ -172,10 +233,10 @@ RESPOND WITH ONLY THE JSON OBJECT.
 </instructions>
 </target_output>`;
 
-    // Call Anthropic via Bedrock
-    const generatedContent = await callAnthropicBedrock(prompt);
+    // Call AI providers with fallback pattern
+    const generatedContent = await generateCustomResponse(prompt, systemPrompt);
 
-    console.log('Generated custom question response:', generatedContent);
+    console.log('[Custom Question] Generated response:', generatedContent);
 
     return NextResponse.json(generatedContent);
     

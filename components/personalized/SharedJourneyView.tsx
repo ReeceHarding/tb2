@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { QuizData, GeneratedContent, ShareableJourneySection } from '@/types/quiz';
-import { sectionMappings, mainSections } from './ProgressiveDisclosureMapping';
+import { PROGRESSIVE_DISCLOSURE_MAPPING, getComponentByName } from './ProgressiveDisclosureMapping';
 import dynamic from 'next/dynamic';
 
 // Dynamic imports for all possible components
@@ -55,7 +55,7 @@ export default function SharedJourneyView({
 
   // Group sections by main section for better organization
   const groupedSections = viewedSections.reduce((acc, section) => {
-    const mainSection = mainSections.find(ms => ms.id === section.sectionId);
+    const mainSection = PROGRESSIVE_DISCLOSURE_MAPPING.find(ms => ms.id === section.sectionId);
     if (mainSection) {
       if (!acc[section.sectionId]) {
         acc[section.sectionId] = {
@@ -66,7 +66,7 @@ export default function SharedJourneyView({
       acc[section.sectionId].components.push(section);
     }
     return acc;
-  }, {} as Record<string, { mainSection: typeof mainSections[0], components: ShareableJourneySection[] }>);
+  }, {} as Record<string, { mainSection: typeof PROGRESSIVE_DISCLOSURE_MAPPING[0], components: ShareableJourneySection[] }>);
 
   // Sort components within each section by timestamp
   Object.values(groupedSections).forEach(group => {
@@ -101,17 +101,28 @@ export default function SharedJourneyView({
               {/* Section Components */}
               <div className="p-6 space-y-6">
                 {group.components.map((component, index) => {
-                  const mapping = sectionMappings[sectionId];
-                  const componentConfig = mapping?.components.find(c => c.id === component.componentId);
+                  // Find the component configuration from the main section
+                  let componentConfig = null;
+                  let componentName = null;
                   
-                  if (!componentConfig || !componentConfig.component) {
+                  // Search through all sections in the main section to find the component
+                  for (const section of group.mainSection.sections) {
+                    const found = section.components.find(c => c.name === component.componentId);
+                    if (found) {
+                      componentConfig = found;
+                      componentName = found.name;
+                      break;
+                    }
+                  }
+                  
+                  if (!componentConfig || !componentName) {
                     console.warn(`[SharedJourneyView] ${timestamp} Component not found:`, component.componentId);
                     return null;
                   }
 
-                  const Component = componentMap[componentConfig.component.name];
+                  const Component = componentMap[componentName];
                   if (!Component) {
-                    console.warn(`[SharedJourneyView] ${timestamp} Component mapping not found:`, componentConfig.component.name);
+                    console.warn(`[SharedJourneyView] ${timestamp} Component mapping not found:`, componentName);
                     return null;
                   }
 

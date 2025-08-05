@@ -32,6 +32,7 @@ interface GeneratedContent {
 interface PersonalizedResultsProps {
   quizData: QuizData;
   preGeneratedContent?: GeneratedContent | null;
+  isSharedView?: boolean;
 }
 
 // Removed QuestionCache interface - questions will be generated on-demand

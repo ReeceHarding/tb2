@@ -107,6 +107,7 @@ export default function ProgressiveDisclosureContainer({
             ...prev.viewedComponents,
             {
               mainSectionId: sectionId,
+              componentId: firstComponent,
               componentName: firstComponent,
               timestamp: Date.now()
             }
@@ -222,6 +223,7 @@ export default function ProgressiveDisclosureContainer({
           ...prev.viewedComponents,
           {
             mainSectionId: componentMainSection || 'unknown',
+            componentId: componentId,
             componentName: componentId,
             timestamp: Date.now()
           }
@@ -309,6 +311,15 @@ export default function ProgressiveDisclosureContainer({
             quizData={quizData}
             preGeneratedContent={preGeneratedContent}
             isTransitioning={isTransitioning}
+          />
+        </div>
+      )}
+      
+      {/* Share Journey Button - Fixed at bottom right */}
+      {navigationState.viewedComponents.length > 0 && (
+        <div className="fixed bottom-8 right-8 z-50">
+          <ShareJourneyButton 
+            viewedComponents={navigationState.viewedComponents}
           />
         </div>
       )}
