@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withLLMTracking } from '@/libs/llm-analytics';
-import { safeBedrockAPI } from '@/libs/bedrock-helpers';
+import { cerebras } from '@/libs/cerebras';
 
 export const dynamic = 'force-dynamic';
 
@@ -70,17 +70,16 @@ Remember: This should be a real question they can solve, not just a discussion p
     
     const result = await withLLMTracking(
       'generate-questions',
-      'us.anthropic.claude-3-7-sonnet-20250219-v1:0',
-      () => safeBedrockAPI.generateText({
-        messages: [
-          {
-            role: 'user',
-            content: prompt,
-          },
-        ],
-        maxTokens: 4000,
-        temperature: 0.7
-      }),
+      'cerebras-qwen-3-coder-480b',
+      async () => {
+        const response = await cerebras.generateContent({
+          prompt,
+          maxTokens: 4000,
+          temperature: 0.7
+        });
+        console.log(`[Generate Questions API] Using provider: ${response.provider}, latency: ${response.latencyMs}ms`);
+        return { text: response.content };
+      },
       {
         interests,
         subject,

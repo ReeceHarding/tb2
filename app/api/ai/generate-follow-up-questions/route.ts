@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { withLLMTracking } from '@/libs/llm-analytics';
-import { invokeClaude, formatClaudeResponse, ClaudeMessage } from '@/libs/bedrock-claude';
+import { cerebras } from '@/libs/cerebras';
 
 export const dynamic = 'force-dynamic';
 
@@ -74,20 +74,21 @@ Return ONLY a JSON object in this exact format:
   ]
 }`;
 
-    const messages: ClaudeMessage[] = [
-      { 
-        role: 'user', 
-        content: `<knowledge_base>\n<educational_background>${whitepaperContent}</educational_background>\n</knowledge_base>\n\n${userPrompt}`
-      }
-    ];
+    const combinedPrompt = `<knowledge_base>\n<educational_background>${whitepaperContent}</educational_background>\n</knowledge_base>\n\n${userPrompt}`;
 
     const response = await withLLMTracking(
       'generate-follow-up-questions',
-      'us.anthropic.claude-3-7-sonnet-20250219-v1:0',
-      () => invokeClaude(messages, {
-        maxTokens: 1000,
-        system: systemPrompt
-      }),
+      'cerebras-qwen-3-coder-480b',
+      async () => {
+        const result = await cerebras.generateContent({
+          prompt: combinedPrompt,
+          systemPrompt: systemPrompt,
+          maxTokens: 1000,
+          temperature: 0.7
+        });
+        console.log(`[Generate Follow-up Questions API] Using provider: ${result.provider}, latency: ${result.latencyMs}ms`);
+        return result.content;
+      },
       {
         section: sectionId,
         interests: context?.interests,
@@ -96,7 +97,7 @@ Return ONLY a JSON object in this exact format:
       }
     );
 
-    const responseText = formatClaudeResponse(response);
+    const responseText = response;
     
     try {
       const parsed = JSON.parse(responseText);

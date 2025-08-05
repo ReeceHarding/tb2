@@ -1,4 +1,4 @@
-import { safeBedrockAPI, rateLimiter } from '@/libs/bedrock-helpers';
+import { cerebras } from '@/libs/cerebras';
 import { z } from 'zod';
 
 export const dynamic = 'force-dynamic';
@@ -148,14 +148,35 @@ Make the content feel personal and achievable, showing clear steps from where th
 
       console.log('[generate-afternoon-content] Calling AI with prompt length:', prompt.length);
 
-      // Generate the structured content with rate limiting and retry logic
-      const aiResult = await rateLimiter.execute(async () => {
-        return await safeBedrockAPI.generateObject({
-          schema: AfternoonContentSchema,
-          prompt: prompt,
-          temperature: 0.7,
-        }, 'generate-afternoon-content');
+      // Generate the structured content using Cerebras with fallback
+      const systemPrompt = `You are an expert JSON generator. You must respond with valid JSON that matches the required schema exactly. Do not include any explanation or text outside the JSON object.`;
+      
+      const structuredPrompt = `${prompt}
+
+${JSON.stringify(AfternoonContentSchema.shape, null, 2)}
+
+Please respond with a JSON object that matches this exact schema.`;
+      
+      const response = await cerebras.generateContent({
+        prompt: structuredPrompt,
+        systemPrompt: systemPrompt,
+        maxTokens: 2000,
+        temperature: 0.7,
       });
+      
+      console.log('[generate-afternoon-content] Using provider:', response.provider);
+      console.log('[generate-afternoon-content] Generation latency:', response.latencyMs, 'ms');
+      
+      // Parse the JSON response
+      let aiResult;
+      try {
+        aiResult = { object: JSON.parse(response.content) };
+        // Validate against schema
+        AfternoonContentSchema.parse(aiResult.object);
+      } catch (parseError) {
+        console.error('[generate-afternoon-content] Failed to parse AI response:', parseError);
+        throw new Error('Failed to generate valid content structure');
+      }
 
       console.log('[generate-afternoon-content] AI generation completed successfully');
       console.log('[generate-afternoon-content] Generated activities count:', (aiResult.object as any).specificActivities?.length || 0);

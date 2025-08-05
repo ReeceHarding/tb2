@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { openai } from '@ai-sdk/openai';
-import { generateText } from 'ai';
+import { cerebras } from '@/libs/cerebras';
 
 export async function POST(request: NextRequest) {
   try {
@@ -138,17 +137,20 @@ CRITICAL: Use only plain text in your response - no special characters, control 
         );
     }
 
-    console.log('[Generate Fallback API] Sending prompt to OpenAI GPT-4 Turbo...');
+    console.log('[Generate Fallback API] Sending prompt to Cerebras with fallback chain...');
     
-    const result = await generateText({
-      model: openai('gpt-4-turbo'),
-      messages: [
-        {
-          role: 'user',
-          content: prompt,
-        },
-      ],
+    // Set maxTokens based on type
+    const maxTokens = type === 'question_fallback' ? 800 : 2000;
+    
+    const response = await cerebras.generateContent({
+      prompt: prompt,
+      maxTokens: maxTokens,
+      temperature: 0.8
     });
+    
+    console.log(`[Generate Fallback API] Using provider: ${response.provider}, latency: ${response.latencyMs}ms`);
+    
+    const result = { text: response.content };
     
     console.log('[Generate Fallback API] Raw OpenAI response:', result.text);
     console.log('[Generate Fallback API] Response length:', result.text.length);
