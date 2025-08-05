@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { smoothScrollTo } from '@/libs/ui-animations';
+import ReactMarkdown from 'react-markdown';
 
 interface CustomQuestionSectionProps {
   quizData: any;
@@ -12,102 +12,59 @@ interface CustomQuestionSectionProps {
   onLearnMore?: () => void;
 }
 
-interface GeneratedResponse {
-  header: string;
-  main_heading: string;
-  description: string;
-  key_points: Array<{
-    label: string;
-    description: string;
-  }>;
-  next_options: string[];
-}
-
 export default function CustomQuestionSection({ 
   quizData, 
   interests,
   gradeLevel
 }: CustomQuestionSectionProps) {
   const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [generatedResponse, setGeneratedResponse] = useState<GeneratedResponse | null>(null);
-  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleQuestionSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!question.trim() || isLoading) return;
     
-    if (!question.trim()) return;
-
+    console.log('[CustomQuestionSection] Processing question:', question);
     setIsLoading(true);
-    setError(null);
-
-    // Smooth scroll to the loading state
-    setTimeout(() => {
-      const element = document.getElementById('custom-question-response');
-      if (element) {
-        smoothScrollTo(element);
-      }
-    }, 100);
-
+    
     try {
-      const response = await fetch('/api/ai/custom-question', {
+      const response = await fetch('/api/ai/chat-tutor', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          question,
-          quizData,
-          viewedComponentsSummary: 'Personalized report sections',
-          currentUser: {
-            name: quizData.userType || 'Parent',
-            student_grade: gradeLevel || quizData.grade || 'K-12',
-            interest_subjects: interests?.join(', ') || quizData.kidsInterests?.join(', ') || 'General learning',
-            main_concerns: 'Understanding TimeBack educational approach',
-            school_name: quizData.selectedSchools?.[0]?.name || 'Local school',
-            school_city: quizData.selectedSchools?.[0]?.city || '',
-            school_state: quizData.selectedSchools?.[0]?.state || ''
+          question: question.trim(),
+          interests: quizData.kidsInterests,
+          context: {
+            parentType: quizData.parentSubType,
+            school: quizData.selectedSchools[0]?.name,
+            numberOfKids: quizData.numberOfKids
           }
         }),
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to generate response');
-      }
-
       const data = await response.json();
-      setGeneratedResponse(data);
       
-      // After content loads, smooth scroll to show the full response
-      setTimeout(() => {
-        const responseElement = document.getElementById('custom-question-full-response');
-        if (responseElement) {
-          smoothScrollTo(responseElement);
-        }
-      }, 300);
-
-    } catch (err) {
-      console.error('Error generating response:', err);
-      setError('Unable to generate a response. Please try again.');
+      if (data.success) {
+        console.log('[CustomQuestionSection] Got AI response, updating answer display');
+        setAnswer(data.response);
+      } else {
+        throw new Error(data.error || 'Failed to get AI response');
+      }
+    } catch (error) {
+      console.error('[CustomQuestionSection] Error processing question:', error);
+      setAnswer('I apologize, but I encountered an error. Please try asking your question again.');
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleFollowUpQuestion = (followUpQuestion: string) => {
-    setQuestion(followUpQuestion);
-    setGeneratedResponse(null);
-    // Smooth scroll back to the input
-    const inputSection = document.getElementById('custom-question-input');
-    if (inputSection) {
-      smoothScrollTo(inputSection);
-    }
-  };
-
   return (
     <section className="max-w-7xl mx-auto py-16 px-6 lg:px-12">
-      {/* Input Section */}
-      <div id="custom-question-input" className="backdrop-blur-md bg-white/10 rounded-xl p-8 border-2 border-timeback-primary mb-8">
+      {/* Simple Question Input */}
+      <div className="backdrop-blur-md bg-white/10 rounded-xl p-8 border-2 border-timeback-primary mb-8">
         <h2 className="text-3xl font-bold text-timeback-primary font-cal mb-4">
           Have a Specific Question?
         </h2>
@@ -115,124 +72,52 @@ export default function CustomQuestionSection({
           Ask anything about TimeBack and get a personalized answer based on your child&apos;s needs.
         </p>
         
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <textarea
-              value={question}
-              onChange={(e) => setQuestion(e.target.value)}
-              placeholder="Type your question here... (e.g., 'How will TimeBack help my child who struggles with math?' or 'What makes TimeBack different from online homeschooling?')"
-              className="w-full p-4 border-2 border-timeback-primary rounded-xl resize-none h-32 text-timeback-primary placeholder-timeback-primary placeholder-opacity-50 focus:outline-none focus:ring-2 focus:ring-timeback-primary focus:border-transparent font-cal"
-              disabled={isLoading}
-            />
-          </div>
-          
+        <form onSubmit={handleQuestionSubmit} className="space-y-4">
+          <input
+            type="text"
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+            placeholder="Ask me anything about TimeBack..."
+            className="w-full px-6 py-4 bg-white border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/50 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal text-lg shadow-lg"
+            disabled={isLoading}
+          />
           <button
             type="submit"
-            disabled={isLoading || !question.trim()}
-            className={`
-              bg-timeback-primary text-white px-8 py-4 rounded-xl font-bold text-lg 
-              transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 font-cal
-              ${isLoading || !question.trim() ? 'opacity-50 cursor-not-allowed' : ''}
-            `}
+            disabled={!question.trim() || isLoading}
+            className="w-full bg-timeback-primary text-white px-6 py-4 rounded-xl font-bold hover:bg-timeback-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl font-cal text-lg"
           >
-            {isLoading ? 'Generating Response...' : 'Get Personalized Answer'}
+            {isLoading ? (
+              <div className="flex items-center justify-center gap-2">
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                Getting your personalized answer...
+              </div>
+            ) : (
+              'Get My Personalized Answer'
+            )}
           </button>
         </form>
-      </div>
 
-      {/* Response Section */}
-      <div id="custom-question-response">
-        {/* Loading State */}
-        {isLoading && (
-          <div className="bg-white rounded-xl p-8 border border-timeback-primary shadow-lg">
-            <div className="flex items-center justify-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-4 border-timeback-primary border-t-transparent"></div>
-              <span className="ml-4 text-lg text-timeback-primary font-cal">
-                Creating your personalized response...
-              </span>
-            </div>
-          </div>
-        )}
-
-        {/* Error State */}
-        {error && !isLoading && (
-          <div className="bg-red-50 border border-red-200 rounded-xl p-6">
-            <p className="text-red-600 font-cal">{error}</p>
-          </div>
-        )}
-
-        {/* Generated Response */}
-        {generatedResponse && !isLoading && (
-          <div id="custom-question-full-response" className="space-y-8 animate-fadeIn">
-            {/* Main Response Card */}
-            <div className="bg-white rounded-xl shadow-lg border border-timeback-primary overflow-hidden">
-              {/* Header */}
-              <div className="bg-gradient-to-r from-timeback-primary to-timeback-primary p-4">
-                <p className="text-white font-bold text-sm uppercase tracking-wider font-cal">
-                  {generatedResponse.header}
-                </p>
-              </div>
-
-              {/* Content */}
-              <div className="p-8">
-                <h3 className="text-3xl font-bold text-timeback-primary mb-4 font-cal">
-                  {generatedResponse.main_heading}
-                </h3>
-                
-                <p className="text-lg text-timeback-primary opacity-75 mb-8 font-cal">
-                  {generatedResponse.description}
-                </p>
-
-                {/* Key Points */}
-                <div className="space-y-6">
-                  {generatedResponse.key_points.map((point, index) => (
-                    <div key={index} className="flex gap-4">
-                      <div className="flex-shrink-0 w-10 h-10 bg-timeback-bg rounded-xl flex items-center justify-center">
-                        <span className="text-timeback-primary font-bold font-cal">
-                          {index + 1}
-                        </span>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-bold text-timeback-primary mb-2 font-cal">
-                          {point.label}
-                        </h4>
-                        <p className="text-timeback-primary opacity-75 font-cal">
-                          {point.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Follow-up Questions */}
-            <div className="backdrop-blur-md bg-white/10 rounded-xl p-6 border-2 border-timeback-primary">
-              <h4 className="text-xl font-bold text-timeback-primary mb-4 font-cal">
-                Explore More:
-              </h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {generatedResponse.next_options.map((option, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleFollowUpQuestion(option)}
-                    className="p-4 bg-white border-2 border-timeback-primary rounded-xl text-timeback-primary hover:bg-timeback-bg transition-all duration-200 text-left font-cal"
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Progress Indicator */}
-            <div className="text-center">
-              <div className="inline-flex items-center gap-2 bg-white border border-timeback-primary rounded-full px-6 py-3">
-                <div className="w-3 h-3 bg-timeback-primary rounded-full"></div>
-                <span className="text-timeback-primary font-bold text-sm font-cal">
-                  Custom insight added to your personalized report
-                </span>
-              </div>
-            </div>
+        {/* Simple Answer Display */}
+        {answer && (
+          <div className="mt-8 bg-white rounded-xl p-6 border border-timeback-primary shadow-lg">
+            <h3 className="text-xl font-bold text-timeback-primary mb-4 font-cal">Your Personalized Answer:</h3>
+            <ReactMarkdown 
+              components={{
+                h1: ({children}) => <h1 className="text-lg font-bold mb-3 text-timeback-primary font-cal">{children}</h1>,
+                h2: ({children}) => <h2 className="text-base font-semibold mb-2 text-timeback-primary font-cal">{children}</h2>,
+                h3: ({children}) => <h3 className="text-base font-semibold mb-2 text-timeback-primary font-cal">{children}</h3>,
+                p: ({children}) => <p className="leading-relaxed mb-3 last:mb-0 text-timeback-primary font-cal">{children}</p>,
+                ul: ({children}) => <ul className="list-disc list-inside mb-3 space-y-1 text-timeback-primary font-cal">{children}</ul>,
+                ol: ({children}) => <ol className="list-decimal list-inside mb-3 space-y-1 text-timeback-primary font-cal">{children}</ol>,
+                li: ({children}) => <li className="text-timeback-primary font-cal">{children}</li>,
+                strong: ({children}) => <strong className="font-semibold text-timeback-primary font-cal">{children}</strong>,
+                em: ({children}) => <em className="italic text-timeback-primary font-cal">{children}</em>,
+                code: ({children}) => <code className="bg-timeback-bg text-timeback-primary px-2 py-1 rounded text-sm font-mono">{children}</code>,
+                blockquote: ({children}) => <blockquote className="border-l-4 border-timeback-primary pl-4 my-3 text-timeback-primary font-cal">{children}</blockquote>,
+              }}
+            >
+              {answer}
+            </ReactMarkdown>
           </div>
         )}
       </div>

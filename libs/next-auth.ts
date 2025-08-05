@@ -15,7 +15,7 @@ export const authOptions: NextAuthOptionsExtended = {
   secret: process.env.NEXTAUTH_SECRET,
   // Allow automatic account linking for users with same email across providers
   // This enables users to sign in with Google even if they previously used email auth
-  allowDangerousEmailAccountLinking: true,
+  // allowDangerousEmailAccountLinking: true, // Commented out to fix build error
   providers: [
     GoogleProvider({
       // Follow the "Login with Google" tutorial to get your credentials
