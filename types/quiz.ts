@@ -31,6 +31,8 @@ export interface GeneratedContent {
   afternoonActivities?: any;
   subjectExamples?: any;
   howWeGetResults?: any;
+  learningScience?: any;
+  dataShock?: any;
   followUpQuestions?: any;
   allCompleted: boolean;
   hasErrors: boolean;

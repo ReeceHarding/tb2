@@ -192,7 +192,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
       <div className="mb-20">
         <h3 className="text-3xl font-bold text-center text-timeback-primary mb-12 font-cal">A Day in the Life</h3>
         
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto content-section">
           {/* Traditional School Schedule */}
           <div className="bg-white rounded-2xl p-8 border-2 border-timeback-primary shadow-2xl">
             <h4 className="text-2xl font-bold text-timeback-primary mb-8 text-center font-cal">Traditional School</h4>

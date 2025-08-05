@@ -9,6 +9,7 @@ import Footer from '@/components/Footer';
 import PersonalizedResults from '@/components/PersonalizedResults';
 import ProgressiveDisclosureContainer from '@/components/personalized/ProgressiveDisclosureContainer';
 import { getCachedContent } from '@/libs/optimisticContentGeneration';
+import '../ui-animations.css';
 
 // Quiz data and generated content interfaces are now imported from @/types/quiz
 

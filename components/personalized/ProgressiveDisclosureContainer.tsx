@@ -5,6 +5,7 @@ import { usePostHog } from 'posthog-js/react';
 import ProgressiveDisclosureHero from './ProgressiveDisclosureHero';
 import SectionExplorer from './SectionExplorer';
 import { PROGRESSIVE_DISCLOSURE_MAPPING, MainSection, SectionMapping } from './ProgressiveDisclosureMapping';
+import { smoothScrollTo, instantReveal } from '@/libs/ui-animations';
 
 interface ProgressiveDisclosureContainerProps {
   quizData: any;
@@ -90,20 +91,29 @@ export default function ProgressiveDisclosureContainer({
       });
     }
 
-    // Auto-scroll to the new section with enhanced reliability
+    // Auto-scroll to the new section with enhanced animation
     const scrollToNewComponent = () => {
       const newComponentElement = document.getElementById(`component-${firstComponent?.toLowerCase()}`);
       if (newComponentElement) {
         console.log(`[ProgressiveDisclosureContainer] Auto-scrolling to new component: ${firstComponent}`);
-        // Scroll with slight offset for better visibility
-        const elementTop = newComponentElement.offsetTop;
-        const offsetPosition = elementTop - 80; // 80px offset from top
         
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
+        // Use enhanced smooth scroll with completion callback
+        smoothScrollTo(newComponentElement, {
+          offset: 80,
+          duration: 800,
+          onComplete: () => {
+            setIsTransitioning(false);
+            
+            // Reveal content with instant animation
+            const contentElements = newComponentElement.querySelectorAll('.content-section');
+            if (contentElements.length > 0) {
+              instantReveal(contentElements as NodeListOf<HTMLElement>, {
+                staggerDelay: 100,
+                from: 'bottom'
+              });
+            }
+          }
         });
-        setIsTransitioning(false);
       } else {
         // Retry after a short delay if element not found
         setTimeout(scrollToNewComponent, 100);
@@ -229,10 +239,14 @@ export default function ProgressiveDisclosureContainer({
     // Scroll to hero section while keeping components visible
     const heroElement = document.getElementById('progressive-disclosure-hero');
     if (heroElement) {
-      heroElement.scrollIntoView({ behavior: 'smooth' });
+      smoothScrollTo(heroElement, {
+        offset: 0,
+        duration: 600,
+        onComplete: () => setIsTransitioning(false)
+      });
+    } else {
+      setTimeout(() => setIsTransitioning(false), 300);
     }
-
-    setTimeout(() => setIsTransitioning(false), 300);
   };
 
   // Get current main section data

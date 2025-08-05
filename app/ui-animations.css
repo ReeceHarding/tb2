@@ -1,0 +1,276 @@
+/* UI/UX Animations and Enhancements for Personalized Page */
+
+/* Content reveal animations */
+.content-section {
+  opacity: 0;
+  animation: contentReveal 0.6s ease-out forwards;
+}
+
+@keyframes contentReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation for child elements */
+.content-section > * {
+  opacity: 0;
+  animation: staggerReveal 0.4s ease-out forwards;
+}
+
+.content-section > *:nth-child(1) { animation-delay: 0.1s; }
+.content-section > *:nth-child(2) { animation-delay: 0.2s; }
+.content-section > *:nth-child(3) { animation-delay: 0.3s; }
+.content-section > *:nth-child(4) { animation-delay: 0.4s; }
+.content-section > *:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes staggerReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button hover animations - instant response */
+button {
+  transition: all 0.15s ease-out;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+  transition: all 0.05s ease-out;
+}
+
+/* Data highlight animations */
+.data-highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.data-highlight::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  right: -4px;
+  top: -2px;
+  bottom: -2px;
+  background: rgba(26, 190, 255, 0.2);
+  border-radius: 4px;
+  opacity: 0;
+  animation: dataHighlight 1s ease-out forwards;
+}
+
+@keyframes dataHighlight {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
+
+/* Chart animations */
+.chart-bar {
+  animation: chartGrow 0.8s ease-out forwards;
+  transform-origin: bottom;
+}
+
+@keyframes chartGrow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Loading progress indicator */
+.loading-progress {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(26, 190, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  to {
+    left: 100%;
+  }
+}
+
+/* Smooth transitions for content switching */
+.content-switch-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.content-switch-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease-out;
+}
+
+.content-switch-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content-switch-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease-out;
+}
+
+/* Personalized data emphasis */
+.personalized-data {
+  font-weight: 600;
+  color: #0f33bb;
+  position: relative;
+  display: inline-block;
+  padding: 0 4px;
+}
+
+.personalized-data::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 3px;
+  background: #1abeff;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: underlineGrow 0.6s ease-out 0.3s forwards;
+}
+
+@keyframes underlineGrow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Scroll-triggered animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced button states for instant feedback */
+.cta-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Instant hover feedback */
+.instant-hover {
+  position: relative;
+  transition: none !important;
+}
+
+.instant-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 190, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.instant-hover:hover::before {
+  opacity: 1;
+}
+
+/* Progressive disclosure animations */
+.disclosure-item {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+}
+
+.disclosure-item.revealed {
+  opacity: 1;
+  max-height: 1000px;
+}
+
+/* Enhanced focus states */
+:focus-visible {
+  outline: 2px solid #1abeff;
+  outline-offset: 2px;
+}
+
+/* Smooth page transitions */
+.page-transition-enter {
+  opacity: 0;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
