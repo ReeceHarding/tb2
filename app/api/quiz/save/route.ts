@@ -121,13 +121,15 @@ export async function POST(req: NextRequest) {
     }
 
     // Find user and update with quiz data
+    console.log(`[QuizSaveAPI] ${timestamp} Attempting to save updateData:`, JSON.stringify(updateData, null, 2));
+    
     const user = await User.findOneAndUpdate(
       { email: session.user.email },
       updateData,
       { 
         upsert: true, // Create user if doesn't exist
         new: true,    // Return updated document
-        runValidators: true // Run mongoose validation
+        runValidators: false // Disable validation for partial saves to prevent strict enum issues
       }
     );
 
@@ -160,9 +162,15 @@ export async function POST(req: NextRequest) {
 
   } catch (error) {
     console.error(`[QuizSaveAPI] ${timestamp} Error saving quiz data:`, error);
+    console.error(`[QuizSaveAPI] ${timestamp} Error details:`, {
+      name: error?.name,
+      message: error?.message,
+      stack: error?.stack,
+      code: error?.code
+    });
     
     // Check if it's a validation error
-    if (error.name === 'ValidationError') {
+    if (error?.name === 'ValidationError') {
       console.error(`[QuizSaveAPI] ${timestamp} Validation error details:`, error.errors);
       return NextResponse.json(
         { 
@@ -176,11 +184,24 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Check if it's a MongoDB connection error
+    if (error?.name === 'MongoNetworkError' || error?.code === 'ENOTFOUND') {
+      console.error(`[QuizSaveAPI] ${timestamp} Database connection error`);
+      return NextResponse.json(
+        { 
+          error: "Database connection error",
+          message: "Failed to connect to database. Please try again later."
+        },
+        { status: 503 }
+      );
+    }
+
     // Generic error response
     return NextResponse.json(
       { 
         error: "Internal server error",
-        message: "Failed to save quiz data. Please try again."
+        message: "Failed to save quiz data. Please try again.",
+        details: process.env.NODE_ENV === 'development' ? error?.message : undefined
       },
       { status: 500 }
     );

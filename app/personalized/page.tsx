@@ -750,14 +750,14 @@ export default function PersonalizedPage() {
                 How TimeBack Works
               </h2>
               <p className="text-2xl text-timeback-primary max-w-5xl mx-auto font-cal leading-relaxed mb-8">
-                Our AI system creates a personalized learning experience that adapts to your child's pace and interests.
+                Our AI system creates a personalized learning experience that adapts to your child&apos;s pace and interests.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8 mb-16">
               <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-8 shadow-xl text-center">
                 <div className="text-4xl font-bold text-timeback-primary mb-4 font-cal">1</div>
                 <h3 className="text-xl font-bold text-timeback-primary mb-4 font-cal">AI Assessment</h3>
-                <p className="text-timeback-primary font-cal">AI identifies your child's learning style, pace, and knowledge gaps</p>
+                <p className="text-timeback-primary font-cal">AI identifies your child&apos;s learning style, pace, and knowledge gaps</p>
               </div>
               <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-8 shadow-xl text-center">
                 <div className="text-4xl font-bold text-timeback-primary mb-4 font-cal">2</div>
@@ -773,7 +773,7 @@ export default function PersonalizedPage() {
           </div>
         );
 
-      case 'show-data':
+      case 'show-data': {
         const school = userData.selectedSchools?.[0];
         return (
           <div className="max-w-7xl mx-auto">
@@ -804,6 +804,7 @@ export default function PersonalizedPage() {
             </div>
           </div>
         );
+      }
 
       case 'example-question':
         return <PersonalizedSubjectExamples 
