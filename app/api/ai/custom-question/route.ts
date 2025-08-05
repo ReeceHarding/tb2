@@ -2,6 +2,59 @@ import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 import { safeBedrockAPI } from '@/libs/bedrock-helpers';
 
+/**
+ * Get whitepaper content in a serverless-compatible way
+ * Uses Next.js static serving instead of filesystem operations
+ */
+async function getWhitepaperContent(): Promise<string> {
+  try {
+    // For development, try to read from filesystem first (backward compatibility)
+    if (process.env.NODE_ENV === 'development') {
+      try {
+        const fs = require('fs').promises;
+        const path = require('path');
+        const whitepaperPath = path.join(process.cwd(), 'public/data/timeback-whitepaper.md');
+        return await fs.readFile(whitepaperPath, 'utf8');
+      } catch (devError) {
+        console.log('[WhitepaperLoader] Development filesystem read failed, falling back to URL fetch');
+      }
+    }
+
+    // For production (Vercel) or fallback, fetch from public URL
+    const baseUrl = process.env.NEXTAUTH_URL || process.env.VERCEL_URL || 'http://localhost:3000';
+    const whitepaperUrl = `${baseUrl}/data/timeback-whitepaper.md`;
+    
+    console.log('[WhitepaperLoader] Fetching whitepaper from:', whitepaperUrl);
+    
+    const response = await fetch(whitepaperUrl);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch whitepaper: ${response.status} ${response.statusText}`);
+    }
+    
+    const content = await response.text();
+    console.log('[WhitepaperLoader] Successfully loaded whitepaper content:', content.length, 'characters');
+    
+    return content;
+  } catch (error) {
+    console.error('[WhitepaperLoader] Error loading whitepaper content:', error);
+    
+    // Fallback to basic content if all methods fail
+    return `# TimeBack Education White Paper
+
+TimeBack represents a revolutionary approach to education that enables students to learn 2x faster in just 2 hours per day. This innovative system combines AI-powered personalized learning with mastery-based progression to create exceptional educational outcomes.
+
+## Key Benefits
+- Students achieve 2x learning acceleration
+- Reduced daily learning time to 2 hours
+- Increased engagement and retention
+- More time for holistic development
+- Personalized learning paths
+- Data-driven educational insights
+
+For complete details, please contact TimeBack Education directly.`;
+  }
+}
+
 // Initialize OpenAI client for final fallback
 const openaiClient = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || '',
@@ -138,11 +191,9 @@ export async function POST(request: NextRequest) {
 
     console.log('Received custom question request:', { question, currentUser });
 
-    // Read the whitepaper content
-    const fs = require('fs').promises;
-    const path = require('path');
-    const whitepaperPath = path.join(process.cwd(), 'public/data/timeback-whitepaper.md');
-    const whitepaperContent = await fs.readFile(whitepaperPath, 'utf8');
+    // Read the whitepaper content from public URL (serverless-compatible)
+    // This approach works better on Vercel deployment than filesystem operations
+    const whitepaperContent = await getWhitepaperContent();
 
     // Construct the system prompt
     const systemPrompt = `# TimeBack Education Data Analyst

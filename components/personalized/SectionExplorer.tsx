@@ -16,6 +16,7 @@ interface SectionExplorerProps {
   quizData: any;
   preGeneratedContent?: any;
   isTransitioning: boolean;
+  contentReady?: boolean;
 }
 
 export default function SectionExplorer({
@@ -24,7 +25,8 @@ export default function SectionExplorer({
   onBackNavigation,
   quizData,
   preGeneratedContent,
-  isTransitioning
+  isTransitioning,
+  contentReady = true
 }: SectionExplorerProps) {
 
   console.log('[SectionExplorer] Rendering cumulative components:', {
@@ -109,6 +111,7 @@ export default function SectionExplorer({
                   gradeLevel={quizData?.selectedSchools?.[0]?.level || 'high school'}
                   learningGoals={[]}
                   preGeneratedContent={preGeneratedContent}
+                  contentReady={contentReady}
                   onLearnMore={() => {}} // Disable nested learn more for cumulative view
                 />
               </ErrorBoundary>

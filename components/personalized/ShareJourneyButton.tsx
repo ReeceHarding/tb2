@@ -17,6 +17,7 @@ export default function ShareJourneyButton({ viewedComponents, className = '' }:
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copying' | 'copied'>('idle');
   const [error, setError] = useState<string | null>(null);
   const [hasExistingShare, setHasExistingShare] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
 
   // Check if user already has a shareable journey
   useEffect(() => {
@@ -123,66 +124,91 @@ export default function ShareJourneyButton({ viewedComponents, className = '' }:
 
   return (
     <div className={`${className}`}>
-      {!shareUrl ? (
+      {/* Header with minimize/expand toggle */}
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="font-cal text-timeback-primary font-semibold text-sm">Share Journey</h3>
         <button
-          onClick={handleGenerateShare}
-          disabled={isGenerating}
-          className="bg-timeback-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all duration-200 shadow-2xl hover:shadow-2xl transform hover:scale-105 font-cal disabled:opacity-50 disabled:cursor-not-allowed"
+          onClick={() => setIsMinimized(!isMinimized)}
+          className="text-timeback-primary hover:text-opacity-80 transition-colors p-1"
+          aria-label={isMinimized ? "Expand share options" : "Minimize share options"}
         >
-          {isGenerating ? (
-            <span className="flex items-center font-cal">
-              <span className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></span>
-              Creating Share Link...
-            </span>
-          ) : (
-            <span className="font-cal">Share Your Journey</span>
-          )}
-        </button>
-      ) : (
-        <div className="space-y-4">
-          <button
-            onClick={() => handleCopyLink()}
-            className="bg-timeback-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all duration-200 shadow-2xl hover:shadow-2xl transform hover:scale-105 font-cal w-full"
-          >
-            {copyStatus === 'copying' ? (
-              <span className="font-cal">Copying...</span>
-            ) : copyStatus === 'copied' ? (
-              <span className="font-cal flex items-center justify-center">
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-                Link Copied!
-              </span>
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {isMinimized ? (
+              // Expand icon (plus)
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
             ) : (
-              <span className="font-cal">Copy Share Link</span>
+              // Minimize icon (minus)
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
             )}
-          </button>
-          
-          <div className="backdrop-blur-md bg-white/20 border border-timeback-primary rounded-xl p-4 shadow-lg">
-            <p className="font-cal text-timeback-primary text-sm mb-2 font-semibold">Your shareable link:</p>
-            <div className="backdrop-blur-sm bg-white/90 rounded-xl p-3 border border-timeback-primary shadow-lg">
-              <p className="font-cal text-timeback-primary text-xs break-all font-mono">
-                {shareUrl}
-              </p>
-            </div>
-          </div>
+          </svg>
+        </button>
+      </div>
 
-          {hasExistingShare && (
+      {/* Content - hidden when minimized */}
+      {!isMinimized && (
+        <>
+          {!shareUrl ? (
             <button
               onClick={handleGenerateShare}
               disabled={isGenerating}
-              className="text-timeback-primary underline font-cal text-sm hover:text-opacity-80 transition-colors"
+              className="bg-timeback-primary text-white px-6 py-3 rounded-xl font-bold text-base hover:bg-opacity-90 transition-all duration-200 shadow-2xl hover:shadow-2xl transform hover:scale-105 font-cal disabled:opacity-50 disabled:cursor-not-allowed w-full"
             >
-              Update with current journey
+              {isGenerating ? (
+                <span className="flex items-center justify-center font-cal">
+                  <span className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></span>
+                  Creating...
+                </span>
+              ) : (
+                <span className="font-cal">Share Your Journey</span>
+              )}
             </button>
-          )}
-        </div>
-      )}
+          ) : (
+            <div className="space-y-3">
+              <button
+                onClick={() => handleCopyLink()}
+                className="bg-timeback-primary text-white px-6 py-3 rounded-xl font-bold text-base hover:bg-opacity-90 transition-all duration-200 shadow-2xl hover:shadow-2xl transform hover:scale-105 font-cal w-full"
+              >
+                {copyStatus === 'copying' ? (
+                  <span className="font-cal">Copying...</span>
+                ) : copyStatus === 'copied' ? (
+                  <span className="font-cal flex items-center justify-center">
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Copied!
+                  </span>
+                ) : (
+                  <span className="font-cal">Copy Link</span>
+                )}
+              </button>
+              
+              <div className="backdrop-blur-md bg-white/20 border border-timeback-primary rounded-xl p-3 shadow-lg">
+                <p className="font-cal text-timeback-primary text-xs mb-2 font-semibold">Share this link:</p>
+                <div className="backdrop-blur-sm bg-white/90 rounded-lg p-2 border border-timeback-primary shadow-lg">
+                  <p className="font-cal text-timeback-primary text-xs break-all font-mono">
+                    {shareUrl}
+                  </p>
+                </div>
+              </div>
 
-      {error && (
-        <div className="mt-4 backdrop-blur-md bg-white/20 border border-timeback-primary rounded-xl p-4 shadow-lg">
-          <p className="font-cal text-timeback-primary text-sm font-semibold">{error}</p>
-        </div>
+              {hasExistingShare && (
+                <button
+                  onClick={handleGenerateShare}
+                  disabled={isGenerating}
+                  className="text-timeback-primary underline font-cal text-xs hover:text-opacity-80 transition-colors w-full text-center"
+                >
+                  Update with current journey
+                </button>
+              )}
+            </div>
+          )}
+
+          {error && (
+            <div className="mt-3 backdrop-blur-md bg-white/20 border border-timeback-primary rounded-xl p-3 shadow-lg">
+              <p className="font-cal text-timeback-primary text-xs font-semibold">{error}</p>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

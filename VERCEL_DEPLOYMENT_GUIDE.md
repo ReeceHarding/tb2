@@ -60,6 +60,14 @@ ANTHROPIC_API_KEY=sk-ant-...
 
 # Perplexity API Key (for research features)
 PERPLEXITY_API_KEY=pplx-...
+
+# Cerebras API Key (fastest inference)
+CEREBRAS_API_KEY=your-cerebras-api-key
+
+# AWS Bedrock (for Claude Sonnet)
+AWS_ACCESS_KEY_ID=your-aws-access-key
+AWS_SECRET_ACCESS_KEY=your-aws-secret-key
+AWS_REGION=us-east-1
 ```
 
 ### Email Services (if configured)
@@ -88,6 +96,33 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 # Domain configuration for absolute URLs
 NEXT_PUBLIC_DOMAIN=yourdomain.com
 NEXT_PUBLIC_URL=https://yourdomain.com
+NEXT_PUBLIC_APP_URL=https://yourdomain.com
+
+# Site URL for sitemap generation
+SITE_URL=https://yourdomain.com
+```
+
+### External API Services (if used)
+```bash
+# Gender API (for gender detection features)
+GENDER_API_KEY=your-gender-api-key
+
+# SchoolDigger API (for school data)
+SCHOOLDIGGER_APP_ID=your-schooldigger-app-id
+SCHOOLDIGGER_API_KEY=your-schooldigger-api-key
+
+# Google Drive API (for school data extraction)
+GOOGLE_API_KEY=your-google-api-key
+
+# MongoDB (for user data and sessions)
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database
+```
+
+### Analytics (if configured)
+```bash
+# PostHog Analytics
+NEXT_PUBLIC_POSTHOG_KEY=phc_...
+NEXT_PUBLIC_POSTHOG_HOST=https://app.posthog.com
 ```
 
 ## 🚀 Deployment Steps
