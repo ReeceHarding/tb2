@@ -4,6 +4,124 @@ import { invokeClaude, formatClaudeResponse, ClaudeMessage } from '@/libs/bedroc
 import OpenAI from 'openai';
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
+
+// Simple in-memory cache for schema responses
+const responseCache = new Map<string, {
+  response: any,
+  timestamp: number,
+  ttl: number
+}>();
+
+// Pre-cache common questions for better performance
+function initializeCommonResponses() {
+  const commonQuestions = [
+    {
+      question: "how does timeback work",
+      context: { interests: ["general"], gradeLevel: "elementary" },
+      response: {
+        header: "TIMEBACK | HOW IT WORKS",
+        main_heading: "TimeBack's Revolutionary 2-Hour Learning System",
+        description: "TimeBack enables students to learn 2x faster in just 2 hours per day through AI-powered personalized mastery learning. Students work with AI tutors that adapt to their learning style, while human Guides provide motivation and life skills training.",
+        key_points: [
+          { label: "AI-Powered Learning", description: "Each student receives personalized instruction from AI tutors that identify knowledge gaps and deliver targeted lessons for deep understanding." },
+          { label: "Mastery-Based Progress", description: "Students must achieve 90% proficiency before advancing, ensuring solid foundations and preventing learning gaps that plague traditional education." },
+          { label: "Life Skills Focus", description: "Afternoons are dedicated to developing critical life skills, entrepreneurship, and pursuing passions through project-based learning with expert Guides." }
+        ],
+        next_options: [
+          "Show me the daily schedule breakdown",
+          "How do AI tutors personalize learning?", 
+          "What subjects does TimeBack cover?"
+        ]
+      }
+    }
+  ];
+
+  // Pre-cache these responses
+  commonQuestions.forEach(item => {
+    const cacheKey = generateCacheKey(item.question, item.context, 'schema');
+    setCachedResponse(cacheKey, item.response, 1440); // Cache for 24 hours
+  });
+  
+  console.log('[chat-tutor] Pre-cached', commonQuestions.length, 'common responses');
+}
+
+// Initialize common responses when the module loads
+initializeCommonResponses();
+
+// Cache for XML template and whitepaper content to avoid filesystem reads
+let xmlTemplateCache: string | null = null;
+let whitepaperCache: string | null = null;
+let templateCacheTimestamp = 0;
+const TEMPLATE_CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
+// Optimized template and whitepaper loading with caching
+function getXMLTemplate(): string {
+  const now = Date.now();
+  
+  if (!xmlTemplateCache || (now - templateCacheTimestamp) > TEMPLATE_CACHE_TTL) {
+    console.log('[chat-tutor] Loading XML template from filesystem (cache miss/expired)');
+    const xmlTemplatePath = path.join(process.cwd(), 'public/docs/prompt-example.xml');
+    xmlTemplateCache = fs.readFileSync(xmlTemplatePath, 'utf8');
+    templateCacheTimestamp = now;
+  } else {
+    console.log('[chat-tutor] Using cached XML template');
+  }
+  
+  return xmlTemplateCache;
+}
+
+function getWhitepaperContent(): string {
+  const now = Date.now();
+  
+  if (!whitepaperCache || (now - templateCacheTimestamp) > TEMPLATE_CACHE_TTL) {
+    console.log('[chat-tutor] Loading whitepaper from filesystem (cache miss/expired)');
+    const whitepaperPath = path.join(process.cwd(), 'public/data/timeback-whitepaper.md');
+    whitepaperCache = fs.readFileSync(whitepaperPath, 'utf8');
+  } else {
+    console.log('[chat-tutor] Using cached whitepaper content');
+  }
+  
+  return whitepaperCache;
+}
+
+// Cache helper functions
+function generateCacheKey(question: string, context: any, responseFormat?: string): string {
+  const key = JSON.stringify({ question: question.toLowerCase().trim(), context, responseFormat });
+  return crypto.createHash('md5').update(key).digest('hex');
+}
+
+function getCachedResponse(cacheKey: string): any | null {
+  const cached = responseCache.get(cacheKey);
+  if (cached && Date.now() - cached.timestamp < cached.ttl) {
+    console.log('[chat-tutor] Cache hit for key:', cacheKey.substring(0, 8) + '...');
+    return cached.response;
+  }
+  
+  if (cached) {
+    responseCache.delete(cacheKey); // Remove expired entry
+    console.log('[chat-tutor] Cache expired for key:', cacheKey.substring(0, 8) + '...');
+  }
+  
+  return null;
+}
+
+function setCachedResponse(cacheKey: string, response: any, ttlMinutes: number = 60): void {
+  const ttl = ttlMinutes * 60 * 1000; // Convert to milliseconds
+  responseCache.set(cacheKey, {
+    response,
+    timestamp: Date.now(),
+    ttl
+  });
+  console.log('[chat-tutor] Cached response for key:', cacheKey.substring(0, 8) + '...', 'TTL:', ttlMinutes, 'minutes');
+  
+  // Simple cache size management - keep only the 100 most recent entries
+  if (responseCache.size > 100) {
+    const oldestKey = Array.from(responseCache.keys())[0];
+    responseCache.delete(oldestKey);
+    console.log('[chat-tutor] Cache size limit reached, removed oldest entry');
+  }
+}
 
 export const dynamic = 'force-dynamic';
 
@@ -40,6 +158,58 @@ export async function POST(req: NextRequest) {
     console.log('[chat-tutor] Processing question:', question);
     console.log('[chat-tutor] Context:', context);
     console.log('[chat-tutor] Response format:', responseFormat);
+    console.log('[chat-tutor] Message history length:', messageHistory?.length || 0);
+    console.log('[chat-tutor] Quiz data keys:', quizData ? Object.keys(quizData) : 'none');
+
+    // Check cache for schema responses (only cache schema responses, not conversations)
+    let cacheKey: string | null = null;
+    if (responseFormat === 'schema' || context === 'schema-generation') {
+      // Create cache key based on question and minimal context (exclude conversation history for caching)
+      const cacheContext = {
+        interests,
+        gradeLevel,
+        parentType: quizData?.parentSubType,
+        schoolName: quizData?.selectedSchools?.[0]?.name
+      };
+      
+      cacheKey = generateCacheKey(question, cacheContext, responseFormat);
+      const cachedResponse = getCachedResponse(cacheKey);
+      
+      if (cachedResponse) {
+        console.log('[chat-tutor] Returning cached schema response');
+        
+        // Track cached response analytics
+        console.log('[chat-tutor] Schema analytics (cached):', {
+          timestamp: new Date().toISOString(),
+          provider: 'cache',
+          responseFormat: 'schema',
+          questionLength: question.length,
+          hasConversationHistory: !!(messageHistory && messageHistory.length > 0),
+          historyLength: messageHistory?.length || 0,
+          userContext: {
+            hasQuizData: !!quizData,
+            parentType: quizData?.parentSubType || 'unknown',
+            interests: quizData?.kidsInterests?.length || 0,
+            schoolCount: quizData?.selectedSchools?.length || 0
+          },
+          cacheStatus: 'hit',
+          component: 'chat-tutor-api'
+        });
+        
+        return new Response(JSON.stringify({
+          success: true,
+          response: cachedResponse,
+          responseFormat: 'schema',
+          provider: 'cache',
+          cached: true
+        }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      
+      console.log('[chat-tutor] No cache hit, proceeding with AI generation');
+    }
 
     let systemPrompt = '';
     let userPrompt = '';
@@ -48,14 +218,27 @@ export async function POST(req: NextRequest) {
       // Schema generation context using XML prompt template
       console.log('[chat-tutor] Using schema generation context with XML template');
       
-      try {
-        // Read XML prompt template
-        const xmlTemplatePath = path.join(process.cwd(), 'public/docs/prompt-example.xml');
-        const xmlTemplate = fs.readFileSync(xmlTemplatePath, 'utf8');
+      // Smart conversation history management
+      let managedHistory = '';
+      if (messageHistory && messageHistory.length > 0) {
+        console.log('[chat-tutor] Processing conversation history for context');
         
-        // Read whitepaper content
-        const whitepaperPath = path.join(process.cwd(), 'public/data/timeback-whitepaper.md');
-        const whitepaperContent = fs.readFileSync(whitepaperPath, 'utf8');
+        // Keep last 6 messages to maintain context while preventing token overflow
+        const recentHistory = messageHistory.slice(-6);
+        
+        // Format conversation history for context
+        const conversationContext = recentHistory
+          .map((msg: {role: string, content: any}) => `${msg.role === 'user' ? 'Parent' : 'TimeBack AI'}: ${typeof msg.content === 'string' ? msg.content : JSON.stringify(msg.content)}`)
+          .join('\n\n');
+        
+        managedHistory = `\n\nPREVIOUS CONVERSATION CONTEXT:\n${conversationContext}\n\nCURRENT QUESTION:`;
+        console.log('[chat-tutor] Added conversation context:', recentHistory.length, 'messages');
+      }
+      
+      try {
+        // Get cached XML template and whitepaper content (optimized)
+        const xmlTemplate = getXMLTemplate();
+        const whitepaperContent = getWhitepaperContent();
         
         // Extract user context from quizData or context object
         const userContext = quizData || context || {};
@@ -78,8 +261,9 @@ export async function POST(req: NextRequest) {
         
         // Use the populated template as the system prompt
         systemPrompt = populatedTemplate;
-        userPrompt = `Generate a compelling response for this question: "${question}"`;
+        userPrompt = `${managedHistory}Generate a compelling response for this question: "${question}"`;
         
+        console.log('[chat-tutor] Final user prompt includes conversation history:', !!managedHistory);
       } catch (error) {
         console.error('[chat-tutor] Error reading XML template or whitepaper:', error);
         // Fallback to simple schema prompt
@@ -99,7 +283,9 @@ RESPOND WITH ONLY THE JSON OBJECT - no explanations, no markdown, no additional 
         userPrompt = question;
       }
     } else if (context === 'timeback-whitepaper') {
-      // Chatbot context
+      // Chatbot context with conversation history support
+      console.log('[chat-tutor] Using timeback-whitepaper context with conversation history');
+      
       systemPrompt = `You are a helpful TimeBack education assistant. Answer questions about TimeBack's educational approach based on the white paper content.
 
 Key facts about TimeBack:
@@ -110,9 +296,22 @@ Key facts about TimeBack:
 - No traditional teachers, instead "Guides" who motivate and support
 - Afternoons free for life skills and passion projects
 
-Be helpful, informative, and educational. Focus on explaining how TimeBack works and its benefits.`;
+Be helpful, informative, and educational. Focus on explaining how TimeBack works and its benefits.
+
+If there is previous conversation context, acknowledge it and build upon the discussion naturally.`;
       
-      userPrompt = question;
+      // Include conversation history for context continuity
+      if (messageHistory && messageHistory.length > 0) {
+        const recentHistory = messageHistory.slice(-8); // More context for chat
+        const conversationContext = recentHistory
+          .map((msg: {role: string, content: any}) => `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}`)
+          .join('\n');
+        
+        userPrompt = `Previous conversation:\n${conversationContext}\n\nCurrent question: ${question}`;
+        console.log('[chat-tutor] Added conversation context for whitepaper chat:', recentHistory.length, 'messages');
+      } else {
+        userPrompt = question;
+      }
     } else {
       // Regular tutor context  
       systemPrompt = `You are a helpful AI tutor helping a ${gradeLevel || 'student'} who is interested in ${interests.join(', ') || 'various topics'}.
@@ -319,12 +518,41 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
           
           console.log('[chat-tutor] Schema response validated successfully');
           
+          // Cache the successful schema response for future use
+          if (cacheKey) {
+            setCachedResponse(cacheKey, parsedResponse, 120); // Cache for 2 hours
+          }
+          
+          // Track successful schema response analytics
+          console.log('[chat-tutor] Schema analytics:', {
+            timestamp: new Date().toISOString(),
+            provider: usedProvider,
+            responseFormat: 'schema',
+            questionLength: question.length,
+            hasConversationHistory: !!(messageHistory && messageHistory.length > 0),
+            historyLength: messageHistory?.length || 0,
+            userContext: {
+              hasQuizData: !!quizData,
+              parentType: quizData?.parentSubType || 'unknown',
+              interests: quizData?.kidsInterests?.length || 0,
+              schoolCount: quizData?.selectedSchools?.length || 0
+            },
+            responseMetrics: {
+              keyPointsCount: parsedResponse.key_points?.length || 0,
+              nextOptionsCount: parsedResponse.next_options?.length || 0,
+              descriptionLength: parsedResponse.description?.length || 0
+            },
+            cacheStatus: 'fresh',
+            component: 'chat-tutor-api'
+          });
+          
           // Return validated schema response
           return new Response(JSON.stringify({
             success: true,
             response: parsedResponse,
             responseFormat: 'schema',
-            provider: usedProvider
+            provider: usedProvider,
+            cached: false
           }), {
             status: 200,
             headers: {

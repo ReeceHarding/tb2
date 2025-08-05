@@ -117,28 +117,87 @@ export default function PersonalizedCTA({ quizData, onLearnMore }: PersonalizedC
       }
     } catch (error) {
       console.error('[PersonalizedCTA] Error processing question:', error);
-      const errorMessage = 'I apologize, but I encountered an error processing your question. Please try asking again.';
       
-      // Set error schema response
-      setSchemaResponse({
-        header: 'TIMEBACK | ERROR',
-        main_heading: 'Something went wrong',
-        description: errorMessage,
-        key_points: [
-          { label: 'Try Again', description: 'Please rephrase your question and try again' },
-          { label: 'Contact Support', description: 'If the issue persists, our team is here to help' },
-          { label: 'Browse Resources', description: 'Explore our other resources while we resolve this' }
-        ],
-        next_options: ['Ask a different question', 'Learn about TimeBack basics', 'Contact our team']
-      });
+      // Enhanced error handling with specific error types
+      const isNetworkError = error instanceof TypeError && error.message.includes('fetch');
+      const isServerError = error instanceof Error && error.message.includes('500');
+      const isTimeoutError = error instanceof Error && error.message.includes('timeout');
       
-      // Add error to conversation history
+      let errorResponse;
+      let errorMessage = '';
+      
+      if (isNetworkError) {
+        errorMessage = 'Network connection issue - please check your internet and try again.';
+        errorResponse = {
+          header: 'TIMEBACK | CONNECTION ERROR',
+          main_heading: 'Network Connection Issue',
+          description: 'Unable to connect to TimeBack AI. Please check your internet connection and try again.',
+          key_points: [
+            { label: 'Check Connection', description: 'Verify your internet connection is stable' },
+            { label: 'Try Again', description: 'Click the button below to retry your question' },
+            { label: 'Refresh Page', description: 'If problems persist, try refreshing the page' }
+          ],
+          next_options: ['Retry my question', 'Check TimeBack basics offline', 'Refresh page']
+        };
+      } else if (isServerError) {
+        errorMessage = 'Server temporarily busy - please try again in a moment.';
+        errorResponse = {
+          header: 'TIMEBACK | SERVER ERROR',
+          main_heading: 'Temporary Service Issue',
+          description: 'Our AI service is temporarily experiencing high demand. Please try again in a moment.',
+          key_points: [
+            { label: 'High Demand', description: 'Many parents are exploring TimeBack right now' },
+            { label: 'Try Again Soon', description: 'The service will be back to normal shortly' },
+            { label: 'Browse Meanwhile', description: 'Explore our learning approach while you wait' }
+          ],
+          next_options: ['Try again in a moment', 'Learn about our approach', 'See student results']
+        };
+      } else if (isTimeoutError) {
+        errorMessage = 'Response taking longer than expected - try a simpler question.';
+        errorResponse = {
+          header: 'TIMEBACK | PROCESSING TIMEOUT',
+          main_heading: 'AI Response Taking Too Long',
+          description: 'Your question is being processed but is taking longer than expected. This usually means our AI is working extra hard to give you a detailed answer.',
+          key_points: [
+            { label: 'Complex Question', description: 'Your question requires detailed analysis' },
+            { label: 'Try Simpler Version', description: 'Consider asking a more specific question' },
+            { label: 'Quick Alternative', description: 'Ask about a specific aspect of TimeBack' }
+          ],
+          next_options: ['Ask a simpler question', 'How does TimeBack work?', 'What are the results?']
+        };
+      } else {
+        errorMessage = 'I apologize, but I encountered an error processing your question. Please try asking again.';
+        errorResponse = {
+          header: 'TIMEBACK | PROCESSING ERROR',
+          main_heading: 'Unexpected Issue Occurred',
+          description: 'I apologize, but I encountered an unexpected error while processing your question. Our team has been notified.',
+          key_points: [
+            { label: 'Automatic Report', description: 'This error has been automatically reported to our team' },
+            { label: 'Try Different Question', description: 'Please try asking your question differently' },
+            { label: 'Contact Support', description: 'For urgent questions, contact our support team directly' }
+          ],
+          next_options: ['Ask a different question', 'Learn about TimeBack basics', 'Contact our team']
+        };
+      }
+      
+      setSchemaResponse(errorResponse);
+      
+      // Add detailed error to conversation history for debugging
       const newHistory = [
         ...conversationHistory,
         { role: 'user' as const, content: currentQuestion },
-        { role: 'assistant' as const, content: errorMessage }
+        { role: 'assistant' as const, content: `${errorMessage} (Error: ${error instanceof Error ? error.message : 'Unknown error'})` }
       ];
       setConversationHistory(newHistory);
+      
+      // Track error for analytics
+      console.error('[PersonalizedCTA] Error details for analytics:', {
+        question: currentQuestion,
+        errorType: isNetworkError ? 'network' : isServerError ? 'server' : isTimeoutError ? 'timeout' : 'unknown',
+        errorMessage: error instanceof Error ? error.message : 'Unknown error',
+        timestamp: new Date().toISOString(),
+        component: 'PersonalizedCTA'
+      });
     } finally {
       setIsLoading(false);
       setQuestion(''); // Clear the question input after submission
