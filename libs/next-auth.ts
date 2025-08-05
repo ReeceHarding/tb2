@@ -13,6 +13,9 @@ interface NextAuthOptionsExtended extends NextAuthOptions {
 export const authOptions: NextAuthOptionsExtended = {
   // Set any random key in .env.local
   secret: process.env.NEXTAUTH_SECRET,
+  // Allow automatic account linking for users with same email across providers
+  // This enables users to sign in with Google even if they previously used email auth
+  allowDangerousEmailAccountLinking: true,
   providers: [
     GoogleProvider({
       // Follow the "Login with Google" tutorial to get your credentials
@@ -67,6 +70,16 @@ export const authOptions: NextAuthOptionsExtended = {
         session.user.id = token.sub;
       }
       return session;
+    },
+    signIn: async ({ user, account, profile, email, credentials }) => {
+      // Log successful sign-ins for debugging
+      console.log(`[NextAuth] Sign-in attempt:`, {
+        provider: account?.provider,
+        email: user?.email,
+        userId: user?.id,
+        timestamp: new Date().toISOString()
+      });
+      return true;
     },
   },
   session: {
