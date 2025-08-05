@@ -190,7 +190,9 @@ export async function POST(req: NextRequest) {
             hasQuizData: !!quizData,
             parentType: quizData?.parentSubType || 'unknown',
             interests: quizData?.kidsInterests?.length || 0,
-            schoolCount: quizData?.selectedSchools?.length || 0
+            schoolCount: quizData?.selectedSchools?.length || 0,
+            schoolLevels: quizData?.selectedSchools?.map((s: any) => s.level).join(',') || 'none',
+            schoolLocations: quizData?.selectedSchools?.map((s: any) => `${s.city}, ${s.state}`).join(';') || 'none'
           },
           cacheStatus: 'hit',
           component: 'chat-tutor-api'
@@ -242,7 +244,35 @@ export async function POST(req: NextRequest) {
         
         // Extract user context from quizData or context object
         const userContext = quizData || context || {};
-        const schoolInfo = userContext.selectedSchools?.[0] || {};
+        const selectedSchools = userContext.selectedSchools || [];
+        
+        // Build comprehensive school context for AI personalization
+        const schoolContext = selectedSchools.length > 0 
+          ? selectedSchools.map((school: any) => `${school.name} (${school.level} in ${school.city}, ${school.state})`).join('; ')
+          : 'No specific school selected';
+        
+        const schoolLevels = selectedSchools.length > 0
+          ? Array.from(new Set(selectedSchools.map((school: any) => school.level))).join(', ')
+          : 'Not specified';
+          
+        const schoolLocations = selectedSchools.length > 0
+          ? Array.from(new Set(selectedSchools.map((school: any) => `${school.city}, ${school.state}`))).join('; ')
+          : 'Not specified';
+          
+        const schoolTypes = selectedSchools.length > 0
+          ? selectedSchools.map((school: any) => {
+              // Infer school type from name or other indicators
+              const name = school.name.toLowerCase();
+              if (name.includes('private') || name.includes('prep') || name.includes('academy')) return 'Private';
+              if (name.includes('charter')) return 'Charter';
+              if (name.includes('magnet')) return 'Magnet';
+              return 'Public'; // Default assumption
+            }).join(', ')
+          : 'Not specified';
+          
+        const schoolPerformanceData = selectedSchools.length > 0
+          ? selectedSchools.map((school: any) => school.name).join(', ') + ' - Performance data available on request'
+          : 'Performance data not available';
         
         // Populate XML template placeholders
         const populatedTemplate = xmlTemplate
@@ -251,9 +281,11 @@ export async function POST(req: NextRequest) {
           .replace('{{STUDENT_GRADE_LEVEL}}', userContext.childGrade || gradeLevel || 'elementary')
           .replace('{{STUDENT_SUBJECTS_OF_INTEREST}}', Array.isArray(interests) ? interests.join(', ') : (userContext.kidsInterests?.join(', ') || 'math, science'))
           .replace('{{PARENT_CONCERNS}}', userContext.learningGoals?.join(', ') || userContext.mainConcerns?.join(', ') || 'academic achievement')
-          .replace('{{SCHOOL_NAME}}', schoolInfo.name || userContext.schoolName || 'Current School')
-          .replace('{{SCHOOL_CITY}}', schoolInfo.city || userContext.schoolCity || 'Unknown')
-          .replace('{{SCHOOL_STATE}}', schoolInfo.state || userContext.schoolState || 'Unknown')
+          .replace('{{SELECTED_SCHOOLS_CONTEXT}}', schoolContext)
+          .replace('{{SCHOOL_LEVELS}}', schoolLevels)
+          .replace('{{SCHOOL_LOCATIONS}}', schoolLocations)
+          .replace('{{SCHOOL_TYPES}}', schoolTypes)
+          .replace('{{SCHOOL_PERFORMANCE_DATA}}', schoolPerformanceData)
           .replace('{{PREVIOUS_COMPONENTS_SUMMARY}}', userContext.previousContent || 'No previous interactions')
           .replace('{{USER_LATEST_CHOICE}}', question || 'General inquiry about TimeBack');
         
@@ -310,7 +342,7 @@ If there is previous conversation context, acknowledge it and build upon the dis
         userPrompt = `Previous conversation:\n${conversationContext}\n\nCurrent question: ${question}`;
         console.log('[chat-tutor] Added conversation context for whitepaper chat:', recentHistory.length, 'messages');
       } else {
-        userPrompt = question;
+      userPrompt = question;
       }
     } else {
       // Regular tutor context  
@@ -535,7 +567,9 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
               hasQuizData: !!quizData,
               parentType: quizData?.parentSubType || 'unknown',
               interests: quizData?.kidsInterests?.length || 0,
-              schoolCount: quizData?.selectedSchools?.length || 0
+              schoolCount: quizData?.selectedSchools?.length || 0,
+              schoolLevels: quizData?.selectedSchools?.map((s: any) => s.level).join(',') || 'none',
+              schoolLocations: quizData?.selectedSchools?.map((s: any) => `${s.city}, ${s.state}`).join(';') || 'none'
             },
             responseMetrics: {
               keyPointsCount: parsedResponse.key_points?.length || 0,
