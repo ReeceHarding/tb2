@@ -83,23 +83,10 @@ Keep responses encouraging, age-appropriate, and focused on guiding their thinki
 ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
     }
 
-    // Create streaming response
-    const encoder = new TextEncoder();
-    const stream = new TransformStream();
-    const writer = stream.writable.getWriter();
-
-    const response = new Response(stream.readable, {
-      headers: {
-        'Content-Type': 'text/event-stream',
-        'Cache-Control': 'no-cache',
-        'Connection': 'keep-alive',
-      },
-    });
-
     // Track start time for analytics
     const startTime = Date.now();
     
-    // Generate with Bedrock Claude and simulate streaming
+    // Generate with Bedrock Claude and return JSON response
     const messages: ClaudeMessage[] = [
       ...(messageHistory || []).map((msg: any) => ({
         role: msg.role as 'user' | 'assistant',
@@ -111,80 +98,83 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
       }
     ];
 
-    invokeClaude(messages, {
-      maxTokens: 1024,
-      temperature: 0.7,
-      system: systemPrompt
-    }).then(async (response) => {
-      try {
-        const fullText = formatClaudeResponse(response);
-        
-        // Simulate streaming by sending text in chunks
-        const chunkSize = 5; // Words per chunk
-        const words = fullText.split(' ');
-        
-        for (let i = 0; i < words.length; i += chunkSize) {
-          const chunk = words.slice(i, i + chunkSize).join(' ') + ' ';
-          await writer.write(encoder.encode(`data: ${JSON.stringify({ text: chunk })}\n\n`));
-          // Add small delay to simulate streaming
-          await new Promise(resolve => setTimeout(resolve, 50));
+    try {
+      console.log('[chat-tutor] Invoking Claude with messages:', messages.length);
+      
+      const response = await invokeClaude(messages, {
+        maxTokens: 1024,
+        temperature: 0.7,
+        system: systemPrompt
+      });
+      
+      const fullText = formatClaudeResponse(response);
+      console.log('[chat-tutor] Generated response length:', fullText.length);
+      
+      // Track successful completion
+      await trackLLMUsage({
+        endpoint: 'chat-tutor',
+        model: 'us.anthropic.claude-3-7-sonnet-20250219-v1:0',
+        latencyMs: Date.now() - startTime,
+        success: true,
+        context: {
+          gradeLevel,
+          interests,
+          messagesCount: messageHistory?.length || 0,
+          isStreaming: false,
+          inputTokens: response.usage.input_tokens,
+          outputTokens: response.usage.output_tokens
         }
-        
-        await writer.write(encoder.encode('data: [DONE]\n\n'));
-        
-        // Track successful completion
-        await trackLLMUsage({
-          endpoint: 'chat-tutor',
-          model: 'us.anthropic.claude-3-7-sonnet-20250219-v1:0',
-          latencyMs: Date.now() - startTime,
-          success: true,
-          context: {
-            gradeLevel,
-            interests,
-            messagesCount: messageHistory?.length || 0,
-            isStreaming: true,
-            inputTokens: response.usage.input_tokens,
-            outputTokens: response.usage.output_tokens
-          }
-        });
-      } catch (error) {
-        console.error('[chat-tutor] Streaming error:', error);
-        await writer.write(encoder.encode(`data: ${JSON.stringify({ error: 'Streaming error occurred' })}\n\n`));
-        
-        // Track error
-        await trackLLMUsage({
-          endpoint: 'chat-tutor',
-          model: 'us.anthropic.claude-3-7-sonnet-20250219-v1:0',
-          latencyMs: Date.now() - startTime,
-          success: false,
-          error: error instanceof Error ? error.message : String(error),
-          context: {
-            gradeLevel,
-            interests,
-            messagesCount: messageHistory?.length || 0,
-            isStreaming: true
-          }
-        });
-      } finally {
-        await writer.close();
-      }
-    }).catch(async (error) => {
-      console.error('[chat-tutor] Error:', error);
-      await writer.write(encoder.encode(`data: ${JSON.stringify({ error: 'Failed to generate response' })}\n\n`));
-      await writer.close();
-    });
+      });
 
-    return response;
-  } catch (error) {
-    console.error('[chat-tutor] Error:', error);
-    return new Response(
-      `data: ${JSON.stringify({ error: 'Failed to process request' })}\n\n`,
-      {
+      // Return JSON response that matches UI expectations
+      return new Response(JSON.stringify({
+        success: true,
+        response: fullText
+      }), {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+      
+    } catch (error) {
+      console.error('[chat-tutor] Error generating response:', error);
+      
+      // Track error
+      await trackLLMUsage({
+        endpoint: 'chat-tutor',
+        model: 'us.anthropic.claude-3-7-sonnet-20250219-v1:0',
+        latencyMs: Date.now() - startTime,
+        success: false,
+        error: error instanceof Error ? error.message : String(error),
+        context: {
+          gradeLevel,
+          interests,
+          messagesCount: messageHistory?.length || 0,
+          isStreaming: false
+        }
+      });
+
+      return new Response(JSON.stringify({
+        success: false,
+        error: 'Failed to generate response'
+      }), {
         status: 500,
         headers: {
-          'Content-Type': 'text/event-stream',
-        },
+          'Content-Type': 'application/json',
+        }
+      });
+    }
+  } catch (error) {
+    console.error('[chat-tutor] Outer error:', error);
+    return new Response(JSON.stringify({
+      success: false,
+      error: 'Failed to process request'
+    }), {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json',
       }
-    );
+    });
   }
 }

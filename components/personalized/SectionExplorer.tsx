@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 import ErrorBoundary from '../ErrorBoundary';
 import TrackedSection from '../TrackedSection';
 import { getComponentByName, PROGRESSIVE_DISCLOSURE_MAPPING } from './ProgressiveDisclosureMapping';
@@ -29,8 +30,13 @@ export default function SectionExplorer({
   contentReady = true
 }: SectionExplorerProps) {
 
+  // Simple question answer states - must be at top level
+  const [question, setQuestion] = useState('');
+  const [answer, setAnswer] = useState('');
+  const [isLoadingQA, setIsLoadingQA] = useState(false);
+
   console.log('[SectionExplorer] Rendering cumulative components:', {
-    viewedComponents: viewedComponents.map(c => c.componentName),
+    viewedComponents: viewedComponents?.map(c => c.componentName) || [],
     isTransitioning
   });
 
@@ -58,6 +64,35 @@ export default function SectionExplorer({
   };
 
   const availableComponents = getAllAvailableComponents();
+
+  const handleQuestionSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!question.trim() || isLoadingQA) return;
+    setIsLoadingQA(true);
+    try {
+      const res = await fetch('/api/ai/chat-tutor', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          question: question.trim(),
+          interests: quizData?.kidsInterests,
+          context: {
+            parentType: quizData?.parentSubType,
+            school: quizData?.selectedSchools?.[0]?.name,
+            numberOfKids: quizData?.numberOfKids
+          }
+        })
+      });
+      const data = await res.json();
+      if (data.success) setAnswer(data.response);
+      else setAnswer('Sorry, something went wrong.');
+    } catch (err) {
+      console.error('[SectionExplorer] QA error', err);
+      setAnswer('Sorry, something went wrong.');
+    } finally {
+      setIsLoadingQA(false);
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -180,14 +215,30 @@ export default function SectionExplorer({
             })}
           </div>
 
-          {/* Progress indicator showing how much of the report has been built */}
+          {/* Personalized Q&A */}
           <div className="mt-12 text-center">
-            <div className="inline-flex items-center gap-2 backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-full px-6 py-3 shadow-lg">
-              <div className="w-3 h-3 bg-timeback-primary rounded-full"></div>
-              <span className="text-timeback-primary font-bold text-sm font-cal">
-                {viewedComponents.length} sections added to your personalized report
-              </span>
-            </div>
+            <form onSubmit={handleQuestionSubmit} className="flex flex-col gap-4 items-center max-w-xl mx-auto w-full">
+              <input
+                type="text"
+                value={question}
+                onChange={(e)=>setQuestion(e.target.value)}
+                placeholder="Ask anything about TimeBack..."
+                className="w-full px-6 py-4 bg-white/10 backdrop-blur-md border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/60 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal"
+                disabled={isLoadingQA}
+              />
+              <button
+                type="submit"
+                disabled={!question.trim() || isLoadingQA}
+                className="bg-timeback-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-timeback-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg font-cal"
+              >
+                {isLoadingQA ? 'Getting answer...' : 'Get Personalized Answer'}
+              </button>
+            </form>
+            {answer && (
+              <div className="mt-6 bg-white rounded-xl p-6 border border-timeback-primary shadow-lg text-left max-w-2xl mx-auto">
+                <ReactMarkdown>{answer}</ReactMarkdown>
+              </div>
+            )}
           </div>
         </section>
       )}
