@@ -1,0 +1,37 @@
+{
+  "school": {
+    "name": "Alpha School | Houston",
+    "id": "alpha-houston",
+    "city": "Houston",
+    "state": "Unknown",
+    "type": "alpha",
+    "extractionDate": "2025-08-03T21:49:26.523Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "Dr Yeager Houston V1.pptx",
+        "organizedName": "alpha-houston_1_Dr_Yeager_Houston_V1.pptx",
+        "localPath": "/alpha-schools/documents/alpha-houston_1_Dr_Yeager_Houston_V1.pptx",
+        "fileType": "document",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "size": 5941224,
+        "googleDriveId": "1kn2iY61wjjpP7C3Pm0XIOncxiW9IdGU4",
+        "downloadUrl": "https://drive.google.com/uc?id=1kn2iY61wjjpP7C3Pm0XIOncxiW9IdGU4&export=download",
+        "webViewLink": "https://docs.google.com/presentation/d/1kn2iY61wjjpP7C3Pm0XIOncxiW9IdGU4/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "category": "Presentations"
+      }
+    ],
+    "totalAssets": 1
+  },
+  "metadata": {
+    "hasMarketingFolder": true,
+    "marketingFolderId": "1zrOHzlmtz8HUd3GInrLIcBORiwl_2M5X",
+    "contentCategories": [
+      "Presentations"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.950Z"
+  }
+}

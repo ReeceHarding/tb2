@@ -1,0 +1,48 @@
+{
+  "school": {
+    "name": "Alpha School | Palm Beach",
+    "id": "1yoJosOFbVXq2FR_k0Gd--ncWnVyle06k",
+    "extractionDate": "2025-08-03T21:37:09.878Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1nmPlTTpaExG9-eu-VpWoo6ewxVQJJ1b2",
+        "name": "Palm Beach .pdf",
+        "mimeType": "application/pdf",
+        "size": "1178170",
+        "webViewLink": "https://drive.google.com/file/d/1nmPlTTpaExG9-eu-VpWoo6ewxVQJJ1b2/view?usp=drivesdk"
+      },
+      {
+        "id": "1WXlCjv21WUKIdnW4EhsD0tO_nc65s4m3",
+        "name": "Alpha Palm Beach - Now Enrolling 2025.2026 (FinalPrint) (1).pdf",
+        "mimeType": "application/pdf",
+        "size": "13035573",
+        "webViewLink": "https://drive.google.com/file/d/1WXlCjv21WUKIdnW4EhsD0tO_nc65s4m3/view?usp=drivesdk"
+      }
+    ],
+    "other": [
+      {
+        "id": "1sgGLEz5-atiVoinaFXkQlFXkd132JC82",
+        "name": "Ads",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1sgGLEz5-atiVoinaFXkQlFXkd132JC82"
+      },
+      {
+        "id": "1h5Q3Sy1MA_Ks-UWQX-lQRswFkh9DtTQW",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1h5Q3Sy1MA_Ks-UWQX-lQRswFkh9DtTQW"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 2,
+    "other": 2,
+    "total": 4
+  }
+}

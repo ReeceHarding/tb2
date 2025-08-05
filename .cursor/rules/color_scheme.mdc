@@ -1,0 +1,124 @@
+---
+description: Enforce TimeBack design system with custom colors, typography, and enhanced UI elements for brand consistency
+globs: components/*.tsx, app/**/*.tsx, styles/*.css
+alwaysApply: true
+---
+
+- **TimeBack Design System Colors:**
+  - **Primary Color**: `timeback-primary` (#0f33bb) - Dark blue for text and primary elements
+  - **Background Color**: `timeback-bg` (#1abeff) - Light blue for backgrounds and highlights
+  - **White**: `white` (#ffffff) - Clean backgrounds and contrast elements
+  - **ALL text must use the `font-cal` font family**
+
+- **Mandatory Typography:**
+  - **EVERY text element MUST include `font-cal`**
+  - Apply to: headings (h1-h6), paragraphs, buttons, labels, all text content
+  - Example: `className="font-cal text-timeback-primary"`
+
+- **Core Color Mappings (Replace ALL instances):**
+
+  ```typescript
+  // ✅ TEXT COLORS - Use timeback-primary for ALL text
+  text-blue-600 → text-timeback-primary
+  text-blue-700 → text-timeback-primary  
+  text-blue-800 → text-timeback-primary
+  text-gray-900 → text-timeback-primary
+  text-gray-800 → text-timeback-primary
+  text-gray-700 → text-timeback-primary
+  text-gray-600 → text-timeback-primary
+  text-gray-500 → text-timeback-primary
+  text-green-600 → text-timeback-primary
+  text-green-700 → text-timeback-primary
+  text-red-600 → text-timeback-primary
+  text-red-700 → text-timeback-primary
+
+  // ✅ BACKGROUND COLORS - Use timeback-bg for highlights
+  bg-blue-50 → bg-timeback-bg
+  bg-blue-100 → bg-timeback-bg
+  bg-gray-50 → bg-timeback-bg
+  bg-gray-100 → bg-timeback-bg
+  bg-green-50 → bg-timeback-bg
+  bg-green-100 → bg-timeback-bg
+  bg-red-50 → bg-timeback-bg
+  bg-white → bg-white (keep unchanged)
+
+  // ✅ BORDER COLORS - Use timeback-primary for all borders
+  border-blue-200 → border-timeback-primary
+  border-blue-600 → border-timeback-primary
+  border-gray-200 → border-timeback-primary
+  border-gray-300 → border-timeback-primary
+  border-green-600 → border-timeback-primary
+  border-red-600 → border-timeback-primary
+
+  // ✅ HOVER STATES
+  hover:text-blue-600 → hover:text-timeback-primary
+  hover:text-blue-700 → hover:text-timeback-primary
+  hover:bg-blue-50 → hover:bg-timeback-bg
+  hover:bg-blue-100 → hover:bg-timeback-bg
+  hover:bg-gray-50 → hover:bg-timeback-bg
+  hover:border-blue-600 → hover:border-timeback-primary
+  ```
+
+- **Enhanced Design System Elements:**
+
+  ```typescript
+  // ✅ BORDER RADIUS UPGRADES
+  rounded-lg → rounded-xl
+  rounded-md → rounded-xl
+
+  // ✅ SHADOW UPGRADES  
+  shadow-md → shadow-lg
+  shadow-lg → shadow-xl
+  shadow-xl → shadow-2xl
+
+  // ✅ GRADIENT REPLACEMENTS
+  bg-gradient-to-br from-blue-50 to-blue-100 → bg-gradient-to-br from-timeback-bg to-white
+  bg-gradient-to-r from-blue-600 to-purple-600 → bg-gradient-to-r from-timeback-primary to-timeback-primary
+  ```
+
+- **TimeBack Color Values (tailwind.config.js):**
+  ```javascript
+  timeback: {
+    bg: '#1abeff',      // Light blue background
+    primary: '#0f33bb', // Dark blue for text/elements  
+    white: '#ffffff'    // White for accents
+  }
+  ```
+
+- **Component Implementation Examples:**
+
+  ```typescript
+  // ✅ CORRECT TimeBack Implementation
+  className="font-cal bg-timeback-bg text-timeback-primary border-timeback-primary rounded-xl shadow-lg"
+  className="font-cal text-timeback-primary hover:text-timeback-primary"
+  className="font-cal bg-white border-timeback-primary rounded-xl"
+  
+  // ❌ FORBIDDEN - Old color system
+  className="bg-blue-50 text-blue-600"       // Must use timeback colors
+  className="text-gray-500"                  // Must use timeback-primary
+  className="border-gray-200 rounded-lg"     // Must use timeback-primary and rounded-xl
+  ```
+
+- **Programmatic Replacement Pattern:**
+  ```javascript
+  const colorMappings = {
+    'text-blue-[678]00': 'text-timeback-primary',
+    'text-gray-[56789]00': 'text-timeback-primary', 
+    'text-green-[67]00': 'text-timeback-primary',
+    'text-red-[67]00': 'text-timeback-primary',
+    'bg-blue-[15]0': 'bg-timeback-bg',
+    'bg-gray-[15]0': 'bg-timeback-bg',
+    'border-blue-[26]00': 'border-timeback-primary',
+    'border-gray-[23]00': 'border-timeback-primary',
+    'rounded-lg': 'rounded-xl',
+    'rounded-md': 'rounded-xl',
+    'shadow-md(?!-)': 'shadow-lg'
+  };
+  ```
+
+- **Brand Consistency Requirements:**
+  - TimeBack custom colors create distinctive brand identity
+  - Cal font provides premium, readable typography
+  - Enhanced shadows and rounded corners create modern, polished feel
+  - Consistent application across ALL components ensures professional appearance
+  - NO exceptions - every component must follow this system

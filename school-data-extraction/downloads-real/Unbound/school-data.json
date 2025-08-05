@@ -1,0 +1,91 @@
+{
+  "school": {
+    "name": "Unbound",
+    "id": "1oHffPdT_ozZMnAZq8qbptcLEDsOdkAdf",
+    "extractionDate": "2025-08-03T21:37:13.899Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1ema_Y4jql_jiq1qvfnYotLKDiWfb7CL7",
+        "name": "Unbound Academy_Arkansas V1.pptx",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "size": "3181361",
+        "webViewLink": "https://docs.google.com/presentation/d/1ema_Y4jql_jiq1qvfnYotLKDiWfb7CL7/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true"
+      },
+      {
+        "id": "1lAsS1e9uTPKR7Y7IR_8jq9Xj3FOex4Rs",
+        "name": "Unbound Academy_Pennsylvania V1.pptx",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "size": "3631471",
+        "webViewLink": "https://docs.google.com/presentation/d/1lAsS1e9uTPKR7Y7IR_8jq9Xj3FOex4Rs/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true"
+      }
+    ],
+    "other": [
+      {
+        "id": "1Q_SStRzT2kPusXW6N8H4onlEbNqqk9dBSmxEPBHAfBg",
+        "name": "AI Audit - April 2025 - Unbound",
+        "mimeType": "application/vnd.google-apps.spreadsheet",
+        "size": "9223",
+        "webViewLink": "https://docs.google.com/spreadsheets/d/1Q_SStRzT2kPusXW6N8H4onlEbNqqk9dBSmxEPBHAfBg/edit?usp=drivesdk"
+      },
+      {
+        "id": "1Yf3wky_HJE-qmZh81QzYYIViebqU7nlK",
+        "name": "Governing Board",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1Yf3wky_HJE-qmZh81QzYYIViebqU7nlK"
+      },
+      {
+        "id": "1dhAuAoVS7QNu5zdSL4m2Cd2xzKz6uc0M",
+        "name": "COMPLIANCE DOCUMENTS",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1dhAuAoVS7QNu5zdSL4m2Cd2xzKz6uc0M"
+      },
+      {
+        "id": "1RaTlMkR4xB24riawh7jDPDK5G5l3vWpC",
+        "name": "UNB | Stats",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1RaTlMkR4xB24riawh7jDPDK5G5l3vWpC"
+      },
+      {
+        "id": "1Y-6JL9v0Db8Fh714KM0Ljufae7uwjxlU",
+        "name": "Unbound - Audience Research Tools",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1Y-6JL9v0Db8Fh714KM0Ljufae7uwjxlU"
+      },
+      {
+        "id": "1bPe-tN4uG1UUtHzy0yzb1EPtCW2x_W0O",
+        "name": "UNB | Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1bPe-tN4uG1UUtHzy0yzb1EPtCW2x_W0O"
+      },
+      {
+        "id": "1o4RE0JvccdVx64_PXLvgnmMB5TS7Fx6i",
+        "name": "UNB | Emails",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1o4RE0JvccdVx64_PXLvgnmMB5TS7Fx6i"
+      },
+      {
+        "id": "1OnhXxeaQRWikjUACrdAS0UtSIWg9kywG",
+        "name": "Unbound Academy-School Storytellers",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1OnhXxeaQRWikjUACrdAS0UtSIWg9kywG/view?usp=drivesdk"
+      },
+      {
+        "id": "1EUWxxXzOvZ4G7Nu7APa3L75SJ_KYqKMz",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1EUWxxXzOvZ4G7Nu7APa3L75SJ_KYqKMz"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 2,
+    "other": 9,
+    "total": 11
+  }
+}

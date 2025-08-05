@@ -1,0 +1,328 @@
+{
+  "alphaSchools": [
+    {
+      "id": "alpha-high-school-austin",
+      "name": "Alpha High School | Austin",
+      "originalName": "Alpha High School | Austin",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "15D3ZT1AAt60W1k7uOBw9tV2CTf4CCw1A"
+    },
+    {
+      "id": "alpha-school-austin",
+      "name": "Alpha School | Austin",
+      "originalName": "Alpha School | Austin",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "16EZHXKWdK8h4SZR2kRbXyIU-IDMJbofV"
+    },
+    {
+      "id": "alpha-school-bethesda",
+      "name": "Alpha School | Bethesda",
+      "originalName": "Alpha School | Bethesda",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1mf_Txk2Q3QyvyWmdSa6YhMiRl7Otddy2"
+    },
+    {
+      "id": "alpha-school-brownsville",
+      "name": "Alpha School | Brownsville",
+      "originalName": "Alpha School | Brownsville",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1LGKw7ITduVlqsfEqOijaIX5QQzXNl5h6"
+    },
+    {
+      "id": "alpha-school-chantilly",
+      "name": "Alpha School | Chantilly",
+      "originalName": "Alpha School | Chantilly",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1PbV3NsBpWHXaOs6mAIOdI4SGK6K6BEtt"
+    },
+    {
+      "id": "alpha-school-charlotte",
+      "name": "Alpha School | Charlotte ",
+      "originalName": "Alpha School | Charlotte ",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1XNz0qXWiAjGsU69oXTbA0rO6RTCpqxOP"
+    },
+    {
+      "id": "alpha-school-chicago",
+      "name": "Alpha School | Chicago",
+      "originalName": "Alpha School | Chicago",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "16k2DMaHR65HqgdZhx1-T0jjHsnq8NoCs"
+    },
+    {
+      "id": "alpha-school-denver",
+      "name": "Alpha School | Denver",
+      "originalName": "Alpha School | Denver",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1GURyQciIEI6EcMJhfNHQoTfECHGCSweT"
+    },
+    {
+      "id": "alpha-school-folsom",
+      "name": "Alpha School | Folsom",
+      "originalName": "Alpha School | Folsom",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1o0vHEC0DWFneTJ9LDSzV1wV15nbrEghr"
+    },
+    {
+      "id": "alpha-school-fort-worth",
+      "name": "Alpha School | Fort Worth",
+      "originalName": "Alpha School | Fort Worth",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1QOhq17a0N_U8HUEu-nALSI1ia5CRi5Nl"
+    },
+    {
+      "id": "alpha-school-houston",
+      "name": "Alpha School | Houston",
+      "originalName": "Alpha School | Houston",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1ctV-hh0ddbxIGU82NeJqHRzksL52HcOv"
+    },
+    {
+      "id": "alpha-school-lake-forest",
+      "name": "Alpha School | Lake Forest",
+      "originalName": "Alpha School | Lake Forest",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1-xidtvWFYnSpDWhe-uoZytppCjQyTe6s"
+    },
+    {
+      "id": "alpha-school-miami",
+      "name": "Alpha School | Miami",
+      "originalName": "Alpha School | Miami",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1TYH0JVXdVodPQlE2IztRD_E_yh4vONPP"
+    },
+    {
+      "id": "alpha-school-microschools",
+      "name": "Alpha School | Microschools",
+      "originalName": "Alpha School | Microschools",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1-61aiPkwjdsnsSGwUEUFCOl7Gzgf5Ftl"
+    },
+    {
+      "id": "alpha-school-new-york",
+      "name": "Alpha School | New York",
+      "originalName": "Alpha School | New York",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "143USdMMJu3ngWnr1t2FdH8TsYk-8VtBa"
+    },
+    {
+      "id": "alpha-school-orlando",
+      "name": "Alpha School | Orlando",
+      "originalName": "Alpha School | Orlando",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1u8n2RGBiNviKsx8A7hoo_sac5aizP5ZN"
+    },
+    {
+      "id": "alpha-school-palm-beach",
+      "name": "Alpha School | Palm Beach",
+      "originalName": "Alpha School | Palm Beach",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1yoJosOFbVXq2FR_k0Gd--ncWnVyle06k"
+    },
+    {
+      "id": "alpha-school-plano",
+      "name": "Alpha School | Plano ",
+      "originalName": "Alpha School | Plano ",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1XVwcatoJyR-2bgx2M1nvEpUtF-8yAnHQ"
+    },
+    {
+      "id": "alpha-school-raleigh",
+      "name": "Alpha School | Raleigh ",
+      "originalName": "Alpha School | Raleigh ",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1XxNPdYH7O8NnQW7CadJZMFoEm1QugJzk"
+    },
+    {
+      "id": "alpha-school-san-francisco",
+      "name": "Alpha School | San Francisco",
+      "originalName": "Alpha School | San Francisco",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1XCXRz6IAgvDmBVTGvlO7wSqdiIK9Qy6V"
+    },
+    {
+      "id": "alpha-school-santa-barbara",
+      "name": "Alpha School | Santa Barbara",
+      "originalName": "Alpha School | Santa Barbara",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1L2oi_v5U7b_2DlIcewo2xHheBGKrjehU"
+    },
+    {
+      "id": "alpha-school-scottsdale",
+      "name": "Alpha School | Scottsdale",
+      "originalName": "Alpha School | Scottsdale",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "15_hwRBAHXa_QUHUAW6uU-0WVguYbjydI"
+    },
+    {
+      "id": "alpha-school-silicon-valley",
+      "name": "Alpha School | Silicon Valley",
+      "originalName": "Alpha School | Silicon Valley",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "16Gr7x546KUpirgQMl570IwQcBO8Iwu9A"
+    },
+    {
+      "id": "alpha-school-tampa",
+      "name": "Alpha School | Tampa",
+      "originalName": "Alpha School | Tampa",
+      "type": "alpha",
+      "category": "alpha-schools",
+      "googleDriveId": "1MjTMUS3D42d3aZuzc-NNVIOFOt0gAPqm"
+    }
+  ],
+  "otherSchools": [
+    {
+      "id": "gt-school",
+      "name": "GT School",
+      "originalName": "GT School",
+      "type": "other",
+      "category": "other-schools",
+      "googleDriveId": "14fDN3jWyTjh9-1vmMGJH_aDPmRRPQvBM"
+    },
+    {
+      "id": "limitless-education",
+      "name": "Limitless Education",
+      "originalName": "Limitless Education",
+      "type": "other",
+      "category": "other-schools",
+      "googleDriveId": "1_J5EzrXKp9MMXlcvqGbEj5ICrjnZlraF"
+    },
+    {
+      "id": "montessorium",
+      "name": "Montessorium",
+      "originalName": "Montessorium",
+      "type": "other",
+      "category": "other-schools",
+      "googleDriveId": "1lbaYMkZMljTqY2TkVZPm0uvZPWqxYt7T"
+    },
+    {
+      "id": "nextgen-academy-austin",
+      "name": "NextGen Academy | Austin",
+      "originalName": "NextGen Academy | Austin",
+      "type": "other",
+      "category": "other-schools",
+      "googleDriveId": "1RC1x9-lfLsDpPhN1cILQ_Tq1HMlaDOc1"
+    },
+    {
+      "id": "nova-academy-aka-valenta-academy",
+      "name": "Nova Academy (aka Valenta Academy)",
+      "originalName": "Nova Academy (aka Valenta Academy)",
+      "type": "other",
+      "category": "other-schools",
+      "googleDriveId": "1DBJ-nv1bDsmw2hKgLEhw8lwsBtJwVT5p"
+    },
+    {
+      "id": "novatio-school",
+      "name": "Novatio School",
+      "originalName": "Novatio School",
+      "type": "other",
+      "category": "other-schools",
+      "googleDriveId": "1w7M-uijZy5nyb2d4ypmOJjWPfyzKB2lx"
+    },
+    {
+      "id": "texas-sports-academy",
+      "name": "Texas Sports Academy",
+      "originalName": "Texas Sports Academy",
+      "type": "other",
+      "category": "other-schools",
+      "googleDriveId": "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+    },
+    {
+      "id": "waypoint-academy",
+      "name": "Waypoint Academy",
+      "originalName": "Waypoint Academy",
+      "type": "other",
+      "category": "other-schools",
+      "googleDriveId": "1k0Gumvm-Gbg-v6LxDyKHdSlW7eqiG2Er"
+    }
+  ],
+  "specialCategories": [
+    {
+      "id": "2-hour-learning",
+      "name": "2 Hour Learning",
+      "originalName": "2 Hour Learning",
+      "type": "special",
+      "category": "special",
+      "googleDriveId": "1ubJInFcaBiBX1rX5eL3xJTYaikZiABPm"
+    },
+    {
+      "id": "internal",
+      "name": "Internal",
+      "originalName": "Internal",
+      "type": "special",
+      "category": "special",
+      "googleDriveId": "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+    },
+    {
+      "id": "learn-earn",
+      "name": "Learn + Earn",
+      "originalName": "Learn + Earn",
+      "type": "special",
+      "category": "special",
+      "googleDriveId": "1hu3eOcTwcFv3HornMy-YBAxNw084YexH"
+    },
+    {
+      "id": "press-media",
+      "name": "Press & Media",
+      "originalName": "Press & Media",
+      "type": "special",
+      "category": "special",
+      "googleDriveId": "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+    },
+    {
+      "id": "sat-level-up",
+      "name": "SAT Level Up",
+      "originalName": "SAT Level Up",
+      "type": "special",
+      "category": "special",
+      "googleDriveId": "1sNx1_R0Vf0NTNQotRko5kpJ9X5p1hsA3"
+    },
+    {
+      "id": "thought-leadership-events",
+      "name": "Thought Leadership Events",
+      "originalName": "Thought Leadership Events",
+      "type": "special",
+      "category": "special",
+      "googleDriveId": "1HvoGm0iZoYwqfNd1FU2wA2wK8qr2uj5T"
+    },
+    {
+      "id": "unbound",
+      "name": "Unbound",
+      "originalName": "Unbound",
+      "type": "special",
+      "category": "special",
+      "googleDriveId": "1oHffPdT_ozZMnAZq8qbptcLEDsOdkAdf"
+    }
+  ],
+  "stats": {
+    "totalSchools": 39,
+    "alphaSchoolCount": 24,
+    "otherSchoolCount": 8,
+    "specialCategoryCount": 7,
+    "totalFiles": 192
+  },
+  "lastUpdated": "2025-08-03T21:38:46.793Z"
+}

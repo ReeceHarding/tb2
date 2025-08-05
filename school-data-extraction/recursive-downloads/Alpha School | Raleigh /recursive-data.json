@@ -1,0 +1,55 @@
+{
+  "school": {
+    "name": "Alpha School | Raleigh ",
+    "id": "alpha-school-raleigh-",
+    "extractionDate": "2025-08-03T21:49:20.049Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1XxNPdYH7O8NnQW7CadJZMFoEm1QugJzk"
+        ],
+        "id": "1rrJA5j0yUSmlrSdGiFPN6LRz2PCCM0fV",
+        "name": "Alpha Raleigh - Now Enrolling 2025.2026.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1rrJA5j0yUSmlrSdGiFPN6LRz2PCCM0fV/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNopK_tLJE7tFVF7MtRuJW68Z_cFxlTEyJlG0seruZM3NnJ1hPvNkZ7tIKZN1fpx1hxNRgpKVz3OXEoJgRufdWLjxsrM0gU9_uc=s220",
+        "size": "12886339"
+      },
+      {
+        "parents": [
+          "1XxNPdYH7O8NnQW7CadJZMFoEm1QugJzk"
+        ],
+        "id": "1PkhH2lucA71EJ6YKItQ7mWqkhKCNjcNO",
+        "name": "Alpha Raleigh.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1PkhH2lucA71EJ6YKItQ7mWqkhKCNjcNO/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOaqtaWunvK4ZAs0FspTGAxxQWXgWTYP5NLW6Hj93ruY-ThMpHMbtQQfrjYjoO2s7pIa4XZGLq9xm5__b4yZNzGcJOmsM3deEDk=s220",
+        "size": "1177913"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1XxNPdYH7O8NnQW7CadJZMFoEm1QugJzk"
+        ],
+        "id": "1EYmtF3eoSp7gOg1b_KW3CuvfcR73I5mx",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1EYmtF3eoSp7gOg1b_KW3CuvfcR73I5mx"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 2,
+    "folders": 1,
+    "other": 0,
+    "total": 3
+  }
+}

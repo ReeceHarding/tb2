@@ -10,10 +10,10 @@ const features = [
     demo: (
       <div className="overflow-hidden h-full flex items-stretch">
         <div className="w-full translate-x-12 bg-base-200 rounded-t-box h-full p-6">
-          <p className="font-medium uppercase tracking-wide text-base-content/60 text-sm mb-3">
+          <p className="font-medium uppercase tracking-wide text-base-content/60 text-sm mb-3 font-cal">
             Suggest a feature
           </p>
-          <div className="relative textarea py-4 h-full mr-12 bg-base-200 group-hover:bg-base-100 group-hover:border-base-content/10 text-base-content">
+          <div className="relative textarea py-4 h-full mr-12 bg-base-200 group-hover:bg-base-100 group-hover:border-base-content/10 text-base-content font-cal">
             <div className="absolute left-4 top-4 group-hover:hidden flex items-center ">
               <span>Notifica</span>
               <span className="w-[2px] h-6 bg-primary animate-pulse"></span>
@@ -25,7 +25,7 @@ const features = [
               <span>Terms & privacy pages don&apos;t need them</span>
               <span className="w-[2px] h-6 bg-primary animate-pulse"></span>
             </div>
-            <button className="btn shadow-lg btn-primary absolute right-4 bottom-6 opacity-0 group-hover:opacity-100 duration-1000">
+            <button className="btn shadow-2xl btn-primary absolute right-4 bottom-6 opacity-0 group-hover:opacity-100 duration-1000">
               Submit
             </button>
           </div>
@@ -47,7 +47,7 @@ const features = [
             transition: "group-hover:-mt-36 group-hover:md:-mt-28 duration-500",
           },
           {
-            text: "A new pricing table for metered billing",
+            text: "A flexible billing system for your needs",
             secondaryText: "Maybe ship this 🤔",
             votes: 12,
           },
@@ -62,8 +62,8 @@ const features = [
             key={i}
           >
             <div>
-              <p className="font-semibold mb-1">{feature.text}</p>
-              <p className="text-base-content-secondary">
+              <p className="font-semibold mb-1 font-cal">{feature.text}</p>
+              <p className="text-base-content-secondary font-cal">
                 {feature.secondaryText}
               </p>
             </div>
@@ -121,13 +121,13 @@ const features = [
             },
           ].map((theme, i) => (
             <div className={theme.css} key={i}>
-              <div className="font-medium uppercase tracking-wide text-base-content/60 text-sm mb-3">
+              <div className="font-medium uppercase tracking-wide text-base-content/60 text-sm mb-3 font-cal">
                 Trending feedback
               </div>
               <div className="space-y-2">
                 <div className="p-4 bg-base-100 rounded-box flex justify-between">
                   <div>
-                    <p className="font-semibold mb-1">Clickable cards</p>
+                    <p className="font-semibold mb-1 font-cal">Clickable cards</p>
                     <p className="opacity-80">Make cards more accessible</p>
                   </div>
                   <button
@@ -152,7 +152,7 @@ const features = [
                 </div>
                 <div className="p-4 bg-base-100 rounded-box flex justify-between ">
                   <div>
-                    <p className="font-semibold mb-1">Bigger images</p>
+                    <p className="font-semibold mb-1 font-cal">Bigger images</p>
                     <p className="opacity-80">Make cards more accessible</p>
                   </div>
                   <button
@@ -187,7 +187,7 @@ const features = [
     description: "Users can chat and discuss features.",
     styles: "bg-neutral text-neutral-content",
     demo: (
-      <div className="text-neutral-content px-6 space-y-4">
+      <div className="text-neutral-content px-6 space-y-4 font-cal">
         {[
           {
             id: 1,
@@ -213,7 +213,7 @@ const features = [
             className={`px-6 py-4 bg-neutral-content text-neutral rounded-box ${reply?.transition}`}
           >
             <div className="mb-2 whitespace-pre-wrap">{reply.text}</div>
-            <div className="text-neutral/80 flex items-center gap-2 text-sm">
+            <div className="text-neutral/80 flex items-center gap-2 text-sm font-cal">
               <div className="flex items-center gap-2">
                 <div className="avatar">
                   <div className="w-7 rounded-full">
@@ -239,15 +239,15 @@ const features = [
 ];
 const FeaturesGrid = () => {
   return (
-    <section className="flex justify-center items-center w-full bg-base-200/50 text-base-content py-20 lg:py-32">
+    <section className="flex justify-center items-center w-full bg-base-200/50 text-base-content py-20 lg:py-32 font-cal">
       <div className="flex flex-col max-w-[82rem] gap-16 md:gap-20 px-4">
-        <h2 className="max-w-3xl font-black text-4xl md:text-6xl tracking-[-0.01em]">
+        <h2 className="max-w-3xl font-black text-4xl md:text-6xl tracking-[-0.01em] font-cal">
           Ship features <br /> users{" "}
           <span className="underline decoration-dashed underline-offset-8 decoration-base-300">
             really want
           </span>
         </h2>
-        <div className="flex flex-col w-full h-fit gap-4 lg:gap-10 text-text-default max-w-[82rem]">
+        <div className="flex flex-col w-full h-fit gap-4 lg:gap-10 text-text-default max-w-[82rem] font-cal">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-10">
             {features.map((feature) => (
               <div
@@ -255,7 +255,7 @@ const FeaturesGrid = () => {
                 className={`${feature.styles} rounded-3xl flex flex-col gap-6 w-full h-[22rem] lg:h-[25rem] pt-6 overflow-hidden group`}
               >
                 <div className="px-6 space-y-2">
-                  <h3 className="font-bold text-xl lg:text-3xl tracking-tight">
+                  <h3 className="font-bold text-xl lg:text-2xl tracking-tight font-cal">
                     {feature.title}
                   </h3>
                   <p className="opacity-80">{feature.description}</p>

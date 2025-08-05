@@ -1,0 +1,505 @@
+{
+  "school": {
+    "name": "Alpha School | Miami",
+    "id": "alpha-school-miami",
+    "extractionDate": "2025-08-03T21:49:15.858Z"
+  },
+  "marketingFolder": {
+    "id": "1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5",
+    "name": "Marketing",
+    "webViewLink": "https://drive.google.com/drive/folders/1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5"
+  },
+  "media": {
+    "images": [
+      {
+        "parents": [
+          "1HExVNVzI5PxHKqAfxcqL3nugHhCSiXg2"
+        ],
+        "id": "1leDwmLXP1vc5Io2gd0BEP6RVzeH4R1jC",
+        "name": "305 Hive 600x400 Acosta.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1leDwmLXP1vc5Io2gd0BEP6RVzeH4R1jC/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPgZ2fKX2KGrn2enjELALKLh_qaCbwAdWxKomdU1vy_-vjauwxn-Ak7xFB4tycYC8pcQ7mYinkyQNyhJIZ3OoPWJtaTlzjTynUDKA=s220",
+        "size": "1308429"
+      },
+      {
+        "parents": [
+          "1HExVNVzI5PxHKqAfxcqL3nugHhCSiXg2"
+        ],
+        "id": "1rVq26BxSO655CI_CJD8BQNl51vz82a0j",
+        "name": "Alpha_Miami_Speaker_2_Summer_Success (1).png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1rVq26BxSO655CI_CJD8BQNl51vz82a0j/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPlfaJgLeobrUA78drboI_LGvhyAhuMnvuWxntljNoo6gKIhKw25Mq4GVwBGlun9pNWrt_MBgxYAMfTFZ-r3b7kJ1fHqLJhm4OG5Q=s220",
+        "size": "151189"
+      },
+      {
+        "parents": [
+          "1ywTelHWq4f8HQM7qtQiuCeCW-MUzZUux"
+        ],
+        "id": "1lfs9UB346rTpw3Xf1NpNFH7uRTvDNxlx",
+        "name": "Alpha_Miami_Website.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1lfs9UB346rTpw3Xf1NpNFH7uRTvDNxlx/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMBz-yg8cVKWgc4ySvFl_8ficESEuwIhtNAn6Fq5nhjfvbnabGEbs4oOHsZGkD-n9HkepAd3pTwrBmpTf5aYI_nAG02GXs8e6B70A=s220",
+        "size": "167041"
+      },
+      {
+        "parents": [
+          "1x_iSXFvRa5VLv4GbKTv6cvffo705ozH8"
+        ],
+        "id": "1MlS3VlV2D-UMGxmJcoNJ44yvVkJZvH-Y",
+        "name": "Miami_Showcases.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1MlS3VlV2D-UMGxmJcoNJ44yvVkJZvH-Y/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMnafhdnY8XFmFfnmYX7R9nFjCaE2Cq5NUhRszU1z2RY9tZtXh1eQDdFN7B7fVgqNpYHRRYj0BGEOpQwH5nEjXQMXxxch-OVHs4=s220",
+        "size": "14798"
+      },
+      {
+        "parents": [
+          "1x_iSXFvRa5VLv4GbKTv6cvffo705ozH8"
+        ],
+        "id": "14CqJNjuJhyqPeM1h9IZT8gblMb-6P7ce",
+        "name": "Miami_Showcases.svg",
+        "mimeType": "image/svg+xml",
+        "webViewLink": "https://drive.google.com/file/d/14CqJNjuJhyqPeM1h9IZT8gblMb-6P7ce/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNgwITwBlrdFIdHKVAzQwooN8pbZwPJ6bAWrcSbhxxqzZN4bbZ_sYWTSoGuTFf0BNjmQbP7k7zW3RVEbYBRkF5amlS8mh0on95W=s220",
+        "size": "26255"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1HExVNVzI5PxHKqAfxcqL3nugHhCSiXg2"
+        ],
+        "id": "1z5jKcAQJz34elVE97rar-9Nz19Cy6-QH",
+        "name": "Alpha Miami Speaker #2 - Lobby Posters 3.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1z5jKcAQJz34elVE97rar-9Nz19Cy6-QH/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPAmCBpddH3iK3D03OD6d_ZRD6J691LsiN7L-UuqhtevIVseJqmOPZ6boy0NivtpnFxOEIp2Vp-ENh82htEG_F37b2lNILNdLrmXw=s220",
+        "size": "5413446"
+      },
+      {
+        "parents": [
+          "1A4Vgh4GOgvjlp1cOTV72hfeM-Q3zbYD6"
+        ],
+        "id": "1slTAi2qc8JJ4yUPiY93ydBmYP7YyUWVL",
+        "name": "Dr Yeager Miami - V4.pptx",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "webViewLink": "https://docs.google.com/presentation/d/1slTAi2qc8JJ4yUPiY93ydBmYP7YyUWVL/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMAn0OM01dPj-yzpDmBNOV030TVUloIFUS6W-W8M17fAWpBk-k-IQRQm6cJhzHvfJdBXZYI-cZ080Yn3JIsmFzLJVj2YIhNJKCX=s220",
+        "size": "5197380"
+      },
+      {
+        "parents": [
+          "1m-KRUy-_zmBAqibBMzcoURVdCOv9P0Ka"
+        ],
+        "id": "1226ClmhRn42vY5B5K3uPkMUQdiFXIOn9",
+        "name": "Alpha Miami 24x36 Poster.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1226ClmhRn42vY5B5K3uPkMUQdiFXIOn9/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPd-9uZUhadWC7EInTLEOBTnLfIxdB5YbM-K9D2def416sr954MMWQ8AUtKeDgVa5WSn6S-uuLx974Me2-bDk3h3C3aKWhtp_cN=s220",
+        "size": "1978093"
+      },
+      {
+        "parents": [
+          "1m-KRUy-_zmBAqibBMzcoURVdCOv9P0Ka"
+        ],
+        "id": "11VzK2ufH3cmsiFlevpKIxV-twlK8Fu8A",
+        "name": "Alpha Miami Retractable Banners 47x81 inch.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/11VzK2ufH3cmsiFlevpKIxV-twlK8Fu8A/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOFQX6xBebTGn1KYPRJ5SJFUAc8heKVpDsaI_kPrtYiyQatstRarDLZcCzl5s_nk5151TdUYSmaAKQqBPyKdp4DaEKG_uV0yPZH=s220",
+        "size": "1891596"
+      },
+      {
+        "parents": [
+          "1nTa25ps5Gn0yP5SefyTU8DPw5K-7TxiN"
+        ],
+        "id": "1TYQOCfZxRRf2QogO8MaHN8cULqKXR58l",
+        "name": "Alpha School - Miami Introduction.pptx",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "webViewLink": "https://docs.google.com/presentation/d/1TYQOCfZxRRf2QogO8MaHN8cULqKXR58l/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "size": "241700403"
+      },
+      {
+        "parents": [
+          "1FHQNH29tAc5_5F7xQub5AyKSFmy6-2qV"
+        ],
+        "id": "1uPkeOLOAdV2LNnzRZTsFhQdpus0VEYev",
+        "name": "Alpha School Miami  - Afterschoo Flyerl.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1uPkeOLOAdV2LNnzRZTsFhQdpus0VEYev/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPgRhlco6_cmgRsxMkaAkk44Mv-i6XiQYR3YE-49iPXBj4g-YuMFnMdiNClguzxgaxTwFyFFgopVSu1AbXDajkFl-i5A2fLM39gvw=s220",
+        "size": "3574479"
+      },
+      {
+        "parents": [
+          "1ywTelHWq4f8HQM7qtQiuCeCW-MUzZUux"
+        ],
+        "id": "1iTh8XqbqbjYHQMy0B-2aSCErhXKLq9H2",
+        "name": "Alpha General Miami Flyer 2024 - Website QR.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1iTh8XqbqbjYHQMy0B-2aSCErhXKLq9H2/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBP4LWHPE7R3kDCE2uUO4nUhE9PRRZFEDSwFyt-UZYuvchAHlRLeTcPPE128fQ52B6VosBvTyyQBSVxqtYY6Zg23_y7FhPFAnK7c-g=s220",
+        "size": "20471686"
+      },
+      {
+        "parents": [
+          "1ywTelHWq4f8HQM7qtQiuCeCW-MUzZUux"
+        ],
+        "id": "1EtpkwmSTaTWNKb-2pysMabCdjGJDELAb",
+        "name": "Alpha Half Page - 8x5.125 V1.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1EtpkwmSTaTWNKb-2pysMabCdjGJDELAb/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMCCWDP3i78WVTQFFJ07Adk1cPYZvE9zRoFIV2AMIxUThZ42iiV1UMXvNvF8tj7zn8Lf8cgQ2vgqvTCjzN13pXzyfg62cn3UGYgkQ=s220",
+        "size": "115072"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5"
+        ],
+        "id": "1M1JhygOif4PT9yo0sg7w2Nj3hPouWjU0",
+        "name": "Showcases 25-26",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1M1JhygOif4PT9yo0sg7w2Nj3hPouWjU0"
+      },
+      {
+        "parents": [
+          "1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5"
+        ],
+        "id": "1HExVNVzI5PxHKqAfxcqL3nugHhCSiXg2",
+        "name": "Acosta Apr 17",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1HExVNVzI5PxHKqAfxcqL3nugHhCSiXg2"
+      },
+      {
+        "parents": [
+          "1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5"
+        ],
+        "id": "1bn5ozwzaQDZ-qVo9a4FOX56O9ffGuwz7",
+        "name": "305",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1bn5ozwzaQDZ-qVo9a4FOX56O9ffGuwz7"
+      },
+      {
+        "parents": [
+          "1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5"
+        ],
+        "id": "1hRAKLo1icar3ThbARm2yJUfeSeJYnQ0F",
+        "name": "Summer Camp 25",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1hRAKLo1icar3ThbARm2yJUfeSeJYnQ0F"
+      },
+      {
+        "parents": [
+          "1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5"
+        ],
+        "id": "1A4Vgh4GOgvjlp1cOTV72hfeM-Q3zbYD6",
+        "name": "Dr Yeager",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1A4Vgh4GOgvjlp1cOTV72hfeM-Q3zbYD6"
+      },
+      {
+        "parents": [
+          "1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5"
+        ],
+        "id": "1m-KRUy-_zmBAqibBMzcoURVdCOv9P0Ka",
+        "name": "Signage",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1m-KRUy-_zmBAqibBMzcoURVdCOv9P0Ka"
+      },
+      {
+        "parents": [
+          "1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5"
+        ],
+        "id": "1nTa25ps5Gn0yP5SefyTU8DPw5K-7TxiN",
+        "name": "Presentations",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1nTa25ps5Gn0yP5SefyTU8DPw5K-7TxiN"
+      },
+      {
+        "parents": [
+          "1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5"
+        ],
+        "id": "1FHQNH29tAc5_5F7xQub5AyKSFmy6-2qV",
+        "name": "Afterschool 25",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1FHQNH29tAc5_5F7xQub5AyKSFmy6-2qV"
+      },
+      {
+        "parents": [
+          "1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5"
+        ],
+        "id": "1ywTelHWq4f8HQM7qtQiuCeCW-MUzZUux",
+        "name": "Evergreen",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1ywTelHWq4f8HQM7qtQiuCeCW-MUzZUux"
+      },
+      {
+        "parents": [
+          "1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5"
+        ],
+        "id": "1x_iSXFvRa5VLv4GbKTv6cvffo705ozH8",
+        "name": "Showcases 24-25",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1x_iSXFvRa5VLv4GbKTv6cvffo705ozH8"
+      },
+      {
+        "parents": [
+          "1M1JhygOif4PT9yo0sg7w2Nj3hPouWjU0"
+        ],
+        "id": "1CEpQsEbCq5jl41thDoKzxo92doz5w0Tc",
+        "name": "04 - 600x400",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1CEpQsEbCq5jl41thDoKzxo92doz5w0Tc"
+      },
+      {
+        "parents": [
+          "1M1JhygOif4PT9yo0sg7w2Nj3hPouWjU0"
+        ],
+        "id": "1PZXqWuaR9VhXYC0DGpTrXGbGEk_Rnt21",
+        "name": "03 - 600x180",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1PZXqWuaR9VhXYC0DGpTrXGbGEk_Rnt21"
+      },
+      {
+        "parents": [
+          "1M1JhygOif4PT9yo0sg7w2Nj3hPouWjU0"
+        ],
+        "id": "1lEkwTHxudN-Fn2w0-c-JSa6toy-EeqhN",
+        "name": "01 - 1200x900",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1lEkwTHxudN-Fn2w0-c-JSa6toy-EeqhN"
+      },
+      {
+        "parents": [
+          "1M1JhygOif4PT9yo0sg7w2Nj3hPouWjU0"
+        ],
+        "id": "1xpX7KgYLk0zBoEp1uEdUIyDzrXgFTP6N",
+        "name": "02 - 600x1000",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1xpX7KgYLk0zBoEp1uEdUIyDzrXgFTP6N"
+      },
+      {
+        "parents": [
+          "1M1JhygOif4PT9yo0sg7w2Nj3hPouWjU0"
+        ],
+        "id": "1MlkqUPXyjrEErzg2yLBWN2l51Nfb5OJ8",
+        "name": "05 - 1 Inch Thumbnail",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1MlkqUPXyjrEErzg2yLBWN2l51Nfb5OJ8"
+      },
+      {
+        "parents": [
+          "1bn5ozwzaQDZ-qVo9a4FOX56O9ffGuwz7"
+        ],
+        "id": "1WsLzynjtjjPGjgVu-FrYjCX72I-IMeUk",
+        "name": "Mar 25",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1WsLzynjtjjPGjgVu-FrYjCX72I-IMeUk"
+      },
+      {
+        "parents": [
+          "1hRAKLo1icar3ThbARm2yJUfeSeJYnQ0F"
+        ],
+        "id": "1knW6DgDGj_Cxb0zv1AWPIbKXspZ1mToc",
+        "name": "600 x 180 Banner",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1knW6DgDGj_Cxb0zv1AWPIbKXspZ1mToc"
+      },
+      {
+        "parents": [
+          "1hRAKLo1icar3ThbARm2yJUfeSeJYnQ0F"
+        ],
+        "id": "1dDP_BsZxp6j3fLKvXSH7nz4Kl7Bckq5D",
+        "name": "Thumbnail",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1dDP_BsZxp6j3fLKvXSH7nz4Kl7Bckq5D"
+      },
+      {
+        "parents": [
+          "1hRAKLo1icar3ThbARm2yJUfeSeJYnQ0F"
+        ],
+        "id": "1a8MWcwd8tyCKsGR5pBQGnH0hDvEkOghY",
+        "name": "Banner (728x90)",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1a8MWcwd8tyCKsGR5pBQGnH0hDvEkOghY"
+      },
+      {
+        "parents": [
+          "1hRAKLo1icar3ThbARm2yJUfeSeJYnQ0F"
+        ],
+        "id": "1lf3FTOBd3HsJ4yC8azOYr1tLrPBFouIy",
+        "name": "600x400",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1lf3FTOBd3HsJ4yC8azOYr1tLrPBFouIy"
+      },
+      {
+        "parents": [
+          "1hRAKLo1icar3ThbARm2yJUfeSeJYnQ0F"
+        ],
+        "id": "1_P47urXmdP3WYQZ7wnfLBjpIrckpoOUN",
+        "name": "Posters",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1_P47urXmdP3WYQZ7wnfLBjpIrckpoOUN"
+      },
+      {
+        "parents": [
+          "1hRAKLo1icar3ThbARm2yJUfeSeJYnQ0F"
+        ],
+        "id": "1JMOEUfvIzvN518fX_XmXuAhERunBpB1I",
+        "name": "Paid Socials",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1JMOEUfvIzvN518fX_XmXuAhERunBpB1I"
+      },
+      {
+        "parents": [
+          "1A4Vgh4GOgvjlp1cOTV72hfeM-Q3zbYD6"
+        ],
+        "id": "1XPXNCpqYNEMEePpkO_zEE4GuaidXsu-Y",
+        "name": "Presentations",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1XPXNCpqYNEMEePpkO_zEE4GuaidXsu-Y"
+      },
+      {
+        "parents": [
+          "1A4Vgh4GOgvjlp1cOTV72hfeM-Q3zbYD6"
+        ],
+        "id": "1l4UI-KoAauPnsis5m-KfZIDjBD1gbhyJ",
+        "name": "Event Branding",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1l4UI-KoAauPnsis5m-KfZIDjBD1gbhyJ"
+      },
+      {
+        "parents": [
+          "1A4Vgh4GOgvjlp1cOTV72hfeM-Q3zbYD6"
+        ],
+        "id": "1-EoyWJ3U58Ob8lRDw8EGws5ILmmFAvDw",
+        "name": "Poster",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1-EoyWJ3U58Ob8lRDw8EGws5ILmmFAvDw"
+      },
+      {
+        "parents": [
+          "1A4Vgh4GOgvjlp1cOTV72hfeM-Q3zbYD6"
+        ],
+        "id": "1LriGOEoI-SqxqNN0CL7uYamFzjJjAqpu",
+        "name": "305 Hive",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1LriGOEoI-SqxqNN0CL7uYamFzjJjAqpu"
+      },
+      {
+        "parents": [
+          "1A4Vgh4GOgvjlp1cOTV72hfeM-Q3zbYD6"
+        ],
+        "id": "1ZrYqEr9AiIvX_j8ifHl1jInPfJ4myF67",
+        "name": "Social",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1ZrYqEr9AiIvX_j8ifHl1jInPfJ4myF67"
+      },
+      {
+        "parents": [
+          "1A4Vgh4GOgvjlp1cOTV72hfeM-Q3zbYD6"
+        ],
+        "id": "1c8Yc4-ACK9si04c9U-ICmrlSskio7l-U",
+        "name": "QR Code",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1c8Yc4-ACK9si04c9U-ICmrlSskio7l-U"
+      },
+      {
+        "parents": [
+          "1A4Vgh4GOgvjlp1cOTV72hfeM-Q3zbYD6"
+        ],
+        "id": "1EDLQCzpaCB5GFQYa0V2EdazCVMCOPqWN",
+        "name": "Flyers",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1EDLQCzpaCB5GFQYa0V2EdazCVMCOPqWN"
+      },
+      {
+        "parents": [
+          "1m-KRUy-_zmBAqibBMzcoURVdCOv9P0Ka"
+        ],
+        "id": "1M6ZF-UM7nWLpmLLR-6Uz_tUAkas8zlHz",
+        "name": "Decor Moodboards",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1M6ZF-UM7nWLpmLLR-6Uz_tUAkas8zlHz"
+      },
+      {
+        "parents": [
+          "1FHQNH29tAc5_5F7xQub5AyKSFmy6-2qV"
+        ],
+        "id": "1LMd0phtr2FEb6XL7BT2eqBAGo9NXgAz3",
+        "name": "305Hive",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1LMd0phtr2FEb6XL7BT2eqBAGo9NXgAz3"
+      },
+      {
+        "parents": [
+          "1FHQNH29tAc5_5F7xQub5AyKSFmy6-2qV"
+        ],
+        "id": "1DoPOiLoxpDxGvJo4C0v8TSxu_OiaWxXX",
+        "name": "Social",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1DoPOiLoxpDxGvJo4C0v8TSxu_OiaWxXX"
+      },
+      {
+        "parents": [
+          "1x_iSXFvRa5VLv4GbKTv6cvffo705ozH8"
+        ],
+        "id": "12g-2861NNP_1cdhUTY6f5H-NqRivAYVY",
+        "name": "Showcase Graphics",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/12g-2861NNP_1cdhUTY6f5H-NqRivAYVY"
+      },
+      {
+        "parents": [
+          "1x_iSXFvRa5VLv4GbKTv6cvffo705ozH8"
+        ],
+        "id": "1XDbYmT4RP5d7rLsOBZ0BtfQX4UAL3ZKP",
+        "name": "Animated Banners",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1XDbYmT4RP5d7rLsOBZ0BtfQX4UAL3ZKP"
+      },
+      {
+        "parents": [
+          "1x_iSXFvRa5VLv4GbKTv6cvffo705ozH8"
+        ],
+        "id": "1hf5mjvLxg2g9EkZxqgvyVbQpSPgGgpgy",
+        "name": "SFBJ Breaking News",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1hf5mjvLxg2g9EkZxqgvyVbQpSPgGgpgy"
+      },
+      {
+        "parents": [
+          "1x_iSXFvRa5VLv4GbKTv6cvffo705ozH8"
+        ],
+        "id": "1IJSEfuzyS37kktQVsnaTrgtoTohQytvm",
+        "name": "Community Newspaper",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1IJSEfuzyS37kktQVsnaTrgtoTohQytvm"
+      },
+      {
+        "parents": [
+          "1x_iSXFvRa5VLv4GbKTv6cvffo705ozH8"
+        ],
+        "id": "1xdxFYt_Al_7O1OjuyvmtMOHQNajR0Nql",
+        "name": "Social",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1xdxFYt_Al_7O1OjuyvmtMOHQNajR0Nql"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 5,
+    "videos": 0,
+    "documents": 8,
+    "folders": 37,
+    "other": 0,
+    "total": 50
+  }
+}

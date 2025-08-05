@@ -1,0 +1,55 @@
+{
+  "school": {
+    "name": "Alpha School | Microschools",
+    "id": "1-61aiPkwjdsnsSGwUEUFCOl7Gzgf5Ftl",
+    "extractionDate": "2025-08-03T21:37:16.700Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1mtIOOPT3TLeHyEdFMWet9BGuWvrnhWIi",
+        "name": "Alpha School - General Trifold.pdf",
+        "mimeType": "application/pdf",
+        "size": "10723647",
+        "webViewLink": "https://drive.google.com/file/d/1mtIOOPT3TLeHyEdFMWet9BGuWvrnhWIi/view?usp=drivesdk"
+      },
+      {
+        "id": "1QWNbicsvVEZ5oNKCwTObpmsXpThQc_q8",
+        "name": "Tuition Micro.pdf",
+        "mimeType": "application/pdf",
+        "size": "5980096",
+        "webViewLink": "https://drive.google.com/file/d/1QWNbicsvVEZ5oNKCwTObpmsXpThQc_q8/view?usp=drivesdk"
+      },
+      {
+        "id": "1u1M3GHGO6uyB-ZQcG2EE30inCZD-7_tI",
+        "name": "2HL School 2025 - 2026 Calendars.pdf",
+        "mimeType": "application/pdf",
+        "size": "2046410",
+        "webViewLink": "https://drive.google.com/file/d/1u1M3GHGO6uyB-ZQcG2EE30inCZD-7_tI/view?usp=drivesdk"
+      }
+    ],
+    "other": [
+      {
+        "id": "1S7w7cZfTMnDB5SHvtnvVgfESpKQXDqL4",
+        "name": "City Pictures_26",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1S7w7cZfTMnDB5SHvtnvVgfESpKQXDqL4"
+      },
+      {
+        "id": "1bYRvAdkG_lt647Oq-PnhyQwK7wMzEE0-",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1bYRvAdkG_lt647Oq-PnhyQwK7wMzEE0-"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 3,
+    "other": 2,
+    "total": 5
+  }
+}

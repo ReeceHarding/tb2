@@ -1,0 +1,49 @@
+{
+  "school": {
+    "id": "alpha-school-fort-worth",
+    "name": "Alpha School | Fort Worth",
+    "originalName": "Alpha School | Fort Worth",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1QOhq17a0N_U8HUEu-nALSI1ia5CRi5Nl"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1jLLbv9Qpg9_KDdUTr1i3MRM_X1o3NVQa",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-fort-worth_1_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1jLLbv9Qpg9_KDdUTr1i3MRM_X1o3NVQa",
+        "downloadUrl": "https://drive.google.com/uc?id=1jLLbv9Qpg9_KDdUTr1i3MRM_X1o3NVQa&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-fort-worth_1_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:15.187Z"
+      },
+      {
+        "id": "19Mnr4q6o7cwXgIDM-lx0xdMV3N3ew3yx",
+        "originalName": "25/26 Calendar",
+        "organizedName": "alpha-school-fort-worth_2_26-Calendar",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/19Mnr4q6o7cwXgIDM-lx0xdMV3N3ew3yx",
+        "downloadUrl": "https://drive.google.com/uc?id=19Mnr4q6o7cwXgIDM-lx0xdMV3N3ew3yx&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-fort-worth_2_26-Calendar",
+        "extractionDate": "2025-08-03T21:37:15.187Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 2,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 2
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:15.187Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

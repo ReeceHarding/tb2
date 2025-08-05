@@ -1,0 +1,32 @@
+{
+  "school": {
+    "name": "Alpha School | San Francisco",
+    "id": "alpha-school-san-francisco",
+    "extractionDate": "2025-08-03T21:49:17.795Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [],
+    "folders": [
+      {
+        "parents": [
+          "1XCXRz6IAgvDmBVTGvlO7wSqdiIK9Qy6V"
+        ],
+        "id": "1QY_-QhW-A4dYdiFqeI_JhSc9_q-g7i-u",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1QY_-QhW-A4dYdiFqeI_JhSc9_q-g7i-u"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 0,
+    "folders": 1,
+    "other": 0,
+    "total": 1
+  }
+}

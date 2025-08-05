@@ -1,0 +1,28 @@
+{
+  "school": {
+    "id": "alpha-school-chicago",
+    "name": "Alpha School | Chicago",
+    "originalName": "Alpha School | Chicago",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "16k2DMaHR65HqgdZhx1-T0jjHsnq8NoCs"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": []
+  },
+  "stats": {
+    "totalFiles": 0,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 0
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:08.338Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "school": {
+    "name": "Alpha School | Plano ",
+    "id": "alpha-plano-",
+    "city": "Plano",
+    "state": "Unknown",
+    "type": "alpha",
+    "extractionDate": "2025-08-03T21:49:20.376Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "Alpha Plano.pdf",
+        "organizedName": "alpha-plano-_1_Alpha_Plano.pdf",
+        "localPath": "/alpha-schools/documents/alpha-plano-_1_Alpha_Plano.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 1177415,
+        "googleDriveId": "1Xu95cB8O558gBnLEYvLhRMsM4dT804WY",
+        "downloadUrl": "https://drive.google.com/uc?id=1Xu95cB8O558gBnLEYvLhRMsM4dT804WY&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1Xu95cB8O558gBnLEYvLhRMsM4dT804WY/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      }
+    ],
+    "totalAssets": 1
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [
+      "Marketing Documents"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.952Z"
+  }
+}

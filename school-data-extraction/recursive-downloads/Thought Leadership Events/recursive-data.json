@@ -1,0 +1,128 @@
+{
+  "school": {
+    "name": "Thought Leadership Events",
+    "id": "thought-leadership-events",
+    "extractionDate": "2025-08-03T21:49:21.488Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1HvoGm0iZoYwqfNd1FU2wA2wK8qr2uj5T"
+        ],
+        "id": "1ZtTpX60TSa7Ner8n-XRfd-E8usxx7b9ldpIGxOOjH6U",
+        "name": "Thought Leadership Event - Communication Flows",
+        "mimeType": "application/vnd.google-apps.presentation",
+        "webViewLink": "https://docs.google.com/presentation/d/1ZtTpX60TSa7Ner8n-XRfd-E8usxx7b9ldpIGxOOjH6U/edit?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOy0YvfgZIJkAqX-TEKbwH-ehH-UefFaWU-jidYl7Mw7cIfciVG0y1gQDjqfQYxiXTWjCVbhskKftuvKZYtHGG80UczNgnXQCcsGa1-uDXFp9OvkUbR=s220",
+        "size": "31203"
+      },
+      {
+        "parents": [
+          "1HvoGm0iZoYwqfNd1FU2wA2wK8qr2uj5T"
+        ],
+        "id": "1cIncguZh0XTYvloezLhqZUxHQaJFOUkQXmjr2EQSdqo",
+        "name": "Event Asset Database",
+        "mimeType": "application/vnd.google-apps.spreadsheet",
+        "webViewLink": "https://docs.google.com/spreadsheets/d/1cIncguZh0XTYvloezLhqZUxHQaJFOUkQXmjr2EQSdqo/edit?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMSPZ9Hur8woCVa8BmD9l5WaKbUsU91jmHJwQPoqZPHAB4AbT9TjhHZbtkHePThcE_p0Wcba0D2vSGx770SHM_dYr3BmLS_XedAY-uhVBv-OiYAIclB=s220",
+        "size": "2095"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1HvoGm0iZoYwqfNd1FU2wA2wK8qr2uj5T"
+        ],
+        "id": "11YFTtiWbySypf3TcizV4Ni5WouHzE_4Y",
+        "name": "04 - Sept 18 - Self-Driven Child - Austin + WP",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/11YFTtiWbySypf3TcizV4Ni5WouHzE_4Y"
+      },
+      {
+        "parents": [
+          "1HvoGm0iZoYwqfNd1FU2wA2wK8qr2uj5T"
+        ],
+        "id": "1PE7mAgILMM54EmaJst6W4QhUlt_dAMWZ",
+        "name": "02 - Aug 19 - FoE Live Podcast Virtual Event | Thought Leadership Event ",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1PE7mAgILMM54EmaJst6W4QhUlt_dAMWZ"
+      },
+      {
+        "parents": [
+          "1HvoGm0iZoYwqfNd1FU2wA2wK8qr2uj5T"
+        ],
+        "id": "1bUEuB7SMRzcpfdfzksKG9OOll_BUmas9",
+        "name": "07 - Oct 14 - Dr. Yeager - Santa Barbara",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1bUEuB7SMRzcpfdfzksKG9OOll_BUmas9"
+      },
+      {
+        "parents": [
+          "1HvoGm0iZoYwqfNd1FU2wA2wK8qr2uj5T"
+        ],
+        "id": "1A7QIrNXKQsak_WllkPM6BN14fuFVb7Zg",
+        "name": "00 - Archive",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1A7QIrNXKQsak_WllkPM6BN14fuFVb7Zg"
+      },
+      {
+        "parents": [
+          "1HvoGm0iZoYwqfNd1FU2wA2wK8qr2uj5T"
+        ],
+        "id": "1bNcTWksj648qeO48sScMRLcbHvdHFvgH",
+        "name": "00 - Operations",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1bNcTWksj648qeO48sScMRLcbHvdHFvgH"
+      },
+      {
+        "parents": [
+          "1HvoGm0iZoYwqfNd1FU2wA2wK8qr2uj5T"
+        ],
+        "id": "1QKoKTBaoxPDKP-cMdHZ-y7q60OHPpwvY",
+        "name": "01 - May 15 - Austin -Dean Dan Schwartz",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1QKoKTBaoxPDKP-cMdHZ-y7q60OHPpwvY"
+      },
+      {
+        "parents": [
+          "1HvoGm0iZoYwqfNd1FU2wA2wK8qr2uj5T"
+        ],
+        "id": "1_XL7fulSKWyiDaJR_6v9c0BIT-NLeET5",
+        "name": "08 - Oct 22 - Dr. Yeager - AZ",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1_XL7fulSKWyiDaJR_6v9c0BIT-NLeET5"
+      },
+      {
+        "parents": [
+          "1HvoGm0iZoYwqfNd1FU2wA2wK8qr2uj5T"
+        ],
+        "id": "1Cgsh4JyxlKK8iIH2lCkzDjrhw9KzViol",
+        "name": "05 - Sept 25 - Dr. Yeager - NYC",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1Cgsh4JyxlKK8iIH2lCkzDjrhw9KzViol"
+      }
+    ],
+    "other": [
+      {
+        "parents": [
+          "1HvoGm0iZoYwqfNd1FU2wA2wK8qr2uj5T"
+        ],
+        "id": "1J_kVKmXN4EtZYFez_3gU5Co_8MY4R9l2",
+        "name": "00 - All Dr Yeager Events",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1J_kVKmXN4EtZYFez_3gU5Co_8MY4R9l2/view?usp=drivesdk"
+      }
+    ]
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 2,
+    "folders": 8,
+    "other": 1,
+    "total": 11
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "school": {
+    "name": "Alpha School | Fort Worth",
+    "id": "alpha-school-fort-worth",
+    "extractionDate": "2025-08-03T21:49:33.133Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [],
+    "folders": [
+      {
+        "parents": [
+          "1QOhq17a0N_U8HUEu-nALSI1ia5CRi5Nl"
+        ],
+        "id": "1jLLbv9Qpg9_KDdUTr1i3MRM_X1o3NVQa",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1jLLbv9Qpg9_KDdUTr1i3MRM_X1o3NVQa"
+      },
+      {
+        "parents": [
+          "1QOhq17a0N_U8HUEu-nALSI1ia5CRi5Nl"
+        ],
+        "id": "19Mnr4q6o7cwXgIDM-lx0xdMV3N3ew3yx",
+        "name": "25/26 Calendar",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/19Mnr4q6o7cwXgIDM-lx0xdMV3N3ew3yx"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 0,
+    "folders": 2,
+    "other": 0,
+    "total": 2
+  }
+}

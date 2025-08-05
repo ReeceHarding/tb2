@@ -1,0 +1,22 @@
+{
+  "school": {
+    "name": "Montessorium",
+    "id": "montessorium",
+    "city": "Unknown",
+    "state": "Unknown",
+    "type": "other",
+    "extractionDate": "2025-08-03T21:49:17.175Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [],
+    "totalAssets": 0
+  },
+  "metadata": {
+    "hasMarketingFolder": true,
+    "marketingFolderId": "1E2Yzqf4o7h_RjxeDAWhKeQ16ChkcMCdA",
+    "contentCategories": [],
+    "lastUpdated": "2025-08-03T21:55:20.954Z"
+  }
+}

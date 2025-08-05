@@ -1,0 +1,46 @@
+{
+  "school": {
+    "name": "Novatio School",
+    "id": "1w7M-uijZy5nyb2d4ypmOJjWPfyzKB2lx",
+    "extractionDate": "2025-08-03T21:37:11.832Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1JQaR1Q6-x9o2Ov-t2cL-z-rHgAtPr8Ps",
+        "name": "25-26 Novatio School Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1JQaR1Q6-x9o2Ov-t2cL-z-rHgAtPr8Ps"
+      },
+      {
+        "id": "1ezE2jynMHmliOb_p0GRciKz4S7dyP63p",
+        "name": "24-25 Novatio School Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1ezE2jynMHmliOb_p0GRciKz4S7dyP63p"
+      },
+      {
+        "id": "1Vjd8VVkVg7nv_YyIaj8CCPimHS0Hjj3JBZBVM97-iJc",
+        "name": "ESA 2025Q2 by Zip",
+        "mimeType": "application/vnd.google-apps.spreadsheet",
+        "size": "3635",
+        "webViewLink": "https://docs.google.com/spreadsheets/d/1Vjd8VVkVg7nv_YyIaj8CCPimHS0Hjj3JBZBVM97-iJc/edit?usp=drivesdk"
+      },
+      {
+        "id": "1O5P7Vl7rrFMvhpg05LL6m5et4YT6zlYQ",
+        "name": "Staff IVP Cards",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1O5P7Vl7rrFMvhpg05LL6m5et4YT6zlYQ"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 0,
+    "other": 4,
+    "total": 4
+  }
+}

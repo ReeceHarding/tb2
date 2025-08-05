@@ -1,0 +1,21 @@
+{
+  "school": {
+    "name": "Limitless Education",
+    "id": "limitless-education",
+    "city": "Unknown",
+    "state": "Unknown",
+    "type": "other",
+    "extractionDate": "2025-08-03T21:49:18.087Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [],
+    "totalAssets": 0
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [],
+    "lastUpdated": "2025-08-03T21:55:20.954Z"
+  }
+}

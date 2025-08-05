@@ -1,0 +1,27 @@
+{
+  "school": {
+    "name": "Limitless Education",
+    "id": "1_J5EzrXKp9MMXlcvqGbEj5ICrjnZlraF",
+    "extractionDate": "2025-08-03T21:37:08.471Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1RKfmGLleEu6ydgsqjrzV28zK8-eiYKax",
+        "name": "Logo",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1RKfmGLleEu6ydgsqjrzV28zK8-eiYKax"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 0,
+    "other": 1,
+    "total": 1
+  }
+}

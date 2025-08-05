@@ -1,0 +1,110 @@
+{
+  "school": {
+    "name": "NextGen Academy | Austin",
+    "id": "nextgen-academy-austin",
+    "extractionDate": "2025-08-03T21:49:25.124Z"
+  },
+  "marketingFolder": {
+    "id": "1LlnwWGXoq9tnhr43HNtYDvHH7duWDjFW",
+    "name": "Marketing",
+    "webViewLink": "https://drive.google.com/drive/folders/1LlnwWGXoq9tnhr43HNtYDvHH7duWDjFW"
+  },
+  "media": {
+    "images": [
+      {
+        "parents": [
+          "115xrnqW3vswtZsOX6P79kmYVV1gyceyo"
+        ],
+        "id": "1Ylo3jBMTVtAGIT893IligOwQ8nlfCt_6",
+        "name": "Option 02.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1Ylo3jBMTVtAGIT893IligOwQ8nlfCt_6/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBO-hcxXVy6zNT79NR2nJR73L7YTLmZOpBnX3Zu8DnDBxXXUCl1_CoTUd891mojqXDW733s9tRc4nbrpLpnDXyev8gpin3uGbrRD=s220",
+        "size": "2163901"
+      },
+      {
+        "parents": [
+          "115xrnqW3vswtZsOX6P79kmYVV1gyceyo"
+        ],
+        "id": "141Q9veeuZCO_2MTCDh0vD6gT21DFRGZw",
+        "name": "Option 01.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/141Q9veeuZCO_2MTCDh0vD6gT21DFRGZw/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNYjP-ZKBS_dU46nP31p1AS6oudZOD9FgndEnm6oDAcKH0dSNHE3BnjOV4_nQBZqYziikcVxr2Bo5THTrFA5VCcN5DsAeMvYyAt=s220",
+        "size": "1198206"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1LlnwWGXoq9tnhr43HNtYDvHH7duWDjFW"
+        ],
+        "id": "1uQvbzF-gM4p1cNQdYlV9iJTUqbS5S1Ex",
+        "name": "Next Gen Academy - Strategy Deck.pdf",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1uQvbzF-gM4p1cNQdYlV9iJTUqbS5S1Ex/view?usp=drivesdk"
+      },
+      {
+        "parents": [
+          "1LlnwWGXoq9tnhr43HNtYDvHH7duWDjFW"
+        ],
+        "id": "1sA3IFLaI_BTNJk963fiwIAwMcbp0fA0N",
+        "name": "Next Gen Academy - Strategy Deck.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1sA3IFLaI_BTNJk963fiwIAwMcbp0fA0N/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNmvmFgTv7Dvxc1F8SbqUpDxdH5KLKUySf6XozZhQHwug0rTcSQQNGuFyfmAYo4s19vF8D--XJEM3fkru_5LssUb3tptJ-pIrkgOA=s220",
+        "size": "14660795"
+      },
+      {
+        "parents": [
+          "1tgaIZgyfoonUoN4xsUjDOFx3Hk0gP3TA"
+        ],
+        "id": "1OkjO1SqJUbfVxLgX3Dqh31WOPInUT-mO",
+        "name": "NextGen - TNT Handouts.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1OkjO1SqJUbfVxLgX3Dqh31WOPInUT-mO/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNiW0RS1lBlDSnPTRMWZVacDnVZHWy0IbQpbO7P9-mzEgUAwwGaMqVOePB9vE4m8PL-YOO1WFxsYK7qlr8AeBDBwagf5DJMgP71=s220",
+        "size": "10144364"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1LlnwWGXoq9tnhr43HNtYDvHH7duWDjFW"
+        ],
+        "id": "115xrnqW3vswtZsOX6P79kmYVV1gyceyo",
+        "name": "Community Night Ads",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/115xrnqW3vswtZsOX6P79kmYVV1gyceyo"
+      },
+      {
+        "parents": [
+          "1LlnwWGXoq9tnhr43HNtYDvHH7duWDjFW"
+        ],
+        "id": "1tgaIZgyfoonUoN4xsUjDOFx3Hk0gP3TA",
+        "name": "TNT Handouts",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1tgaIZgyfoonUoN4xsUjDOFx3Hk0gP3TA"
+      },
+      {
+        "parents": [
+          "1LlnwWGXoq9tnhr43HNtYDvHH7duWDjFW"
+        ],
+        "id": "1Rzd04zJFHTKOhH05YFzLYpIEVpXM8631",
+        "name": "Video",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1Rzd04zJFHTKOhH05YFzLYpIEVpXM8631"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 2,
+    "videos": 0,
+    "documents": 3,
+    "folders": 3,
+    "other": 0,
+    "total": 8
+  }
+}

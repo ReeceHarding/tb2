@@ -1,0 +1,48 @@
+{
+  "school": {
+    "name": "Alpha School | Folsom",
+    "id": "alpha-folsom",
+    "city": "Folsom",
+    "state": "Unknown",
+    "type": "alpha",
+    "extractionDate": "2025-08-03T21:49:18.804Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "Alpha Folsom - Now Enrolling 2025.2026 (2).pdf",
+        "organizedName": "alpha-folsom_1_Alpha_Folsom_-_Now_Enrolling_2025.2026__2_.pdf",
+        "localPath": "/alpha-schools/documents/alpha-folsom_1_Alpha_Folsom_-_Now_Enrolling_2025.2026__2_.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 12921723,
+        "googleDriveId": "1LP3KhKzlCg_1iq3_HPSW93hIkYrwg-ru",
+        "downloadUrl": "https://drive.google.com/uc?id=1LP3KhKzlCg_1iq3_HPSW93hIkYrwg-ru&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1LP3KhKzlCg_1iq3_HPSW93hIkYrwg-ru/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "Alpha Folsom Tuition.pdf",
+        "organizedName": "alpha-folsom_2_Alpha_Folsom_Tuition.pdf",
+        "localPath": "/alpha-schools/documents/alpha-folsom_2_Alpha_Folsom_Tuition.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 1177512,
+        "googleDriveId": "1bISLg2XhFGgxHnJqNwhTqyS9T2LRxhnK",
+        "downloadUrl": "https://drive.google.com/uc?id=1bISLg2XhFGgxHnJqNwhTqyS9T2LRxhnK&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1bISLg2XhFGgxHnJqNwhTqyS9T2LRxhnK/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      }
+    ],
+    "totalAssets": 2
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [
+      "Marketing Documents"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.949Z"
+  }
+}

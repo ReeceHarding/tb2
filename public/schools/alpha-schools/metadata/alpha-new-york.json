@@ -1,0 +1,38 @@
+{
+  "school": {
+    "name": "Alpha School | New York",
+    "id": "alpha-new-york",
+    "city": "New York",
+    "state": "Unknown",
+    "type": "alpha",
+    "extractionDate": "2025-08-03T21:49:43.866Z"
+  },
+  "marketing": {
+    "images": [
+      {
+        "originalName": "Alpha New York - 1 Pager V2.png",
+        "organizedName": "alpha-new-york_1_Alpha_New_York_-_1_Pager_V2.png",
+        "localPath": "/alpha-schools/images/alpha-new-york_1_Alpha_New_York_-_1_Pager_V2.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 2081797,
+        "googleDriveId": "1p527U7LNQKKx3tvd5E_QQAG3RS2h33TA",
+        "downloadUrl": "https://drive.google.com/uc?id=1p527U7LNQKKx3tvd5E_QQAG3RS2h33TA&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1p527U7LNQKKx3tvd5E_QQAG3RS2h33TA/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPz641IJoUVrjq3IPtvdfnetqo_x6Vm_cN9TNIGBHcGFpuSm-ciEm_vKZ52U0eTwYZ2GMOmYzlRQ2HzaC32rnT3mqCw8Hv_Ay02=s220",
+        "category": "Marketing Content"
+      }
+    ],
+    "videos": [],
+    "documents": [],
+    "totalAssets": 1
+  },
+  "metadata": {
+    "hasMarketingFolder": true,
+    "marketingFolderId": "1_wY26xlfq6rOJvUcYIRAT_2ox_m7DPl6",
+    "contentCategories": [
+      "Marketing Content"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.951Z"
+  }
+}

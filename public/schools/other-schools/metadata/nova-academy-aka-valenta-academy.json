@@ -1,0 +1,114 @@
+{
+  "school": {
+    "name": "Nova Academy (aka Valenta Academy)",
+    "id": "nova-academy-aka-valenta-academy",
+    "city": "Unknown",
+    "state": "Unknown",
+    "type": "other",
+    "extractionDate": "2025-08-03T21:49:16.899Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [
+      {
+        "originalName": "Valenta Sizzle Reel - Short - 16x9.mp4",
+        "organizedName": "nova-academy-aka-valenta-academy_1_Valenta_Sizzle_Reel_-_Short_-_16x9.mp4",
+        "localPath": "/other-schools/videos/nova-academy-aka-valenta-academy_1_Valenta_Sizzle_Reel_-_Short_-_16x9.mp4",
+        "fileType": "video",
+        "mimeType": "video/mp4",
+        "size": 65920139,
+        "googleDriveId": "1-gSI7TFiyYE4rNFcIR6VfzIy6y6nYhyV",
+        "downloadUrl": "https://drive.google.com/uc?id=1-gSI7TFiyYE4rNFcIR6VfzIy6y6nYhyV&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1-gSI7TFiyYE4rNFcIR6VfzIy6y6nYhyV/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPSMslebRjUWaXCoTVPQNibkeylt9O0V4C1iFH6Gac-y9s0sKxYsVSAlXCTv353aRwDGEkbYRmTrbdd00R1ILzR45KXZMulqDgotA=s220",
+        "category": "Promotional"
+      },
+      {
+        "originalName": "Valenta Sizzle Reel - Long - 16x9.mp4",
+        "organizedName": "nova-academy-aka-valenta-academy_2_Valenta_Sizzle_Reel_-_Long_-_16x9.mp4",
+        "localPath": "/other-schools/videos/nova-academy-aka-valenta-academy_2_Valenta_Sizzle_Reel_-_Long_-_16x9.mp4",
+        "fileType": "video",
+        "mimeType": "video/mp4",
+        "size": 164500219,
+        "googleDriveId": "1wqystaQj6m4o0juhhiUpAAGIsGce2_vh",
+        "downloadUrl": "https://drive.google.com/uc?id=1wqystaQj6m4o0juhhiUpAAGIsGce2_vh&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1wqystaQj6m4o0juhhiUpAAGIsGce2_vh/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNP_5kxoV7_JyeVR2FmW0FzVYyaMZr34lsgp4ADr3HUQmkanYI2kbn_pK67XcHntdxAhozPi5VxtZat_oMj3PFvC3cGwZY2NXzdgw=s220",
+        "category": "Promotional"
+      }
+    ],
+    "documents": [
+      {
+        "originalName": "Valenta Flyer 8.5 x 11 in.pdf",
+        "organizedName": "nova-academy-aka-valenta-academy_1_Valenta_Flyer_8.5_x_11_in.pdf",
+        "localPath": "/other-schools/documents/nova-academy-aka-valenta-academy_1_Valenta_Flyer_8.5_x_11_in.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 990374,
+        "googleDriveId": "173epdgvBCKJszaq6DgsmN8e80-PibqYI",
+        "downloadUrl": "https://drive.google.com/uc?id=173epdgvBCKJszaq6DgsmN8e80-PibqYI&export=download",
+        "webViewLink": "https://drive.google.com/file/d/173epdgvBCKJszaq6DgsmN8e80-PibqYI/view?usp=drivesdk",
+        "category": "Event Flyers"
+      },
+      {
+        "originalName": "Valenta Flyer 5.5x8.5.pdf",
+        "organizedName": "nova-academy-aka-valenta-academy_2_Valenta_Flyer_5.5x8.5.pdf",
+        "localPath": "/other-schools/documents/nova-academy-aka-valenta-academy_2_Valenta_Flyer_5.5x8.5.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 566913,
+        "googleDriveId": "1sirK9lPvboSDN-GycPdefIdoYhBCpLyN",
+        "downloadUrl": "https://drive.google.com/uc?id=1sirK9lPvboSDN-GycPdefIdoYhBCpLyN&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1sirK9lPvboSDN-GycPdefIdoYhBCpLyN/view?usp=drivesdk",
+        "category": "Event Flyers"
+      },
+      {
+        "originalName": "Valenta Academy Flyer 8.5 x 5.5 in-pages-1.pdf",
+        "organizedName": "nova-academy-aka-valenta-academy_3_Valenta_Academy_Flyer_8.5_x_5.5_in-pages-1.pdf",
+        "localPath": "/other-schools/documents/nova-academy-aka-valenta-academy_3_Valenta_Academy_Flyer_8.5_x_5.5_in-pages-1.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 1758961,
+        "googleDriveId": "1-KjWfs6iRUTHX7PpkV31nBWB3pXLvwsh",
+        "downloadUrl": "https://drive.google.com/uc?id=1-KjWfs6iRUTHX7PpkV31nBWB3pXLvwsh&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1-KjWfs6iRUTHX7PpkV31nBWB3pXLvwsh/view?usp=drivesdk",
+        "category": "Event Flyers"
+      },
+      {
+        "originalName": "Valenta Academy Flyer 8.5 x 5.5 in-pages-2.pdf",
+        "organizedName": "nova-academy-aka-valenta-academy_4_Valenta_Academy_Flyer_8.5_x_5.5_in-pages-2.pdf",
+        "localPath": "/other-schools/documents/nova-academy-aka-valenta-academy_4_Valenta_Academy_Flyer_8.5_x_5.5_in-pages-2.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 1748363,
+        "googleDriveId": "138wERKe9gI6XA0SaYod7aeZWQOmRVub-",
+        "downloadUrl": "https://drive.google.com/uc?id=138wERKe9gI6XA0SaYod7aeZWQOmRVub-&export=download",
+        "webViewLink": "https://drive.google.com/file/d/138wERKe9gI6XA0SaYod7aeZWQOmRVub-/view?usp=drivesdk",
+        "category": "Event Flyers"
+      },
+      {
+        "originalName": "Valenta Academy Billboard 15'x49.pdf",
+        "organizedName": "nova-academy-aka-valenta-academy_5_Valenta_Academy_Billboard_15_x49.pdf",
+        "localPath": "/other-schools/documents/nova-academy-aka-valenta-academy_5_Valenta_Academy_Billboard_15_x49.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 3966316,
+        "googleDriveId": "1DucL8tznZAWZQ7NtK9sHACbcl6Fp5GFk",
+        "downloadUrl": "https://drive.google.com/uc?id=1DucL8tznZAWZQ7NtK9sHACbcl6Fp5GFk&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1DucL8tznZAWZQ7NtK9sHACbcl6Fp5GFk/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      }
+    ],
+    "totalAssets": 7
+  },
+  "metadata": {
+    "hasMarketingFolder": true,
+    "marketingFolderId": "1oa-lZKV-nw47lZqWa_9FzjijJRD9xMB_",
+    "contentCategories": [
+      "Promotional",
+      "Event Flyers",
+      "Marketing Documents"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.955Z"
+  }
+}

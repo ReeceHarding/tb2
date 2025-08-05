@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-08-03T23:32:19.647Z",
+  "marketingIndex": {
+    "totalSchools": 33,
+    "alphaSchools": 24,
+    "otherSchools": 8,
+    "specialPrograms": 1
+  },
+  "database": {
+    "totalSchools": 11,
+    "schoolsWithAddresses": 10,
+    "schoolsWithPhones": 10,
+    "schoolsWithWebsites": 10
+  },
+  "coverage": {
+    "indexToDbRatio": "11/33",
+    "coveragePercentage": 33
+  },
+  "qualityMetrics": {
+    "completeProfiles": 10
+  }
+}

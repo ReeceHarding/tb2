@@ -1,0 +1,203 @@
+{
+  "extraction": {
+    "date": "2025-08-03T21:37:07.087Z",
+    "totalFolders": 40,
+    "schools": [
+      {
+        "name": "Alpha School | Miami",
+        "id": "1TYH0JVXdVodPQlE2IztRD_E_yh4vONPP",
+        "extractionDate": "2025-08-03T21:37:07.439Z"
+      },
+      {
+        "name": "Nova Academy (aka Valenta Academy)",
+        "id": "1DBJ-nv1bDsmw2hKgLEhw8lwsBtJwVT5p",
+        "extractionDate": "2025-08-03T21:37:07.725Z"
+      },
+      {
+        "name": "Montessorium",
+        "id": "1lbaYMkZMljTqY2TkVZPm0uvZPWqxYt7T",
+        "extractionDate": "2025-08-03T21:37:07.862Z"
+      },
+      {
+        "name": "Alpha School | Bethesda",
+        "id": "1mf_Txk2Q3QyvyWmdSa6YhMiRl7Otddy2",
+        "extractionDate": "2025-08-03T21:37:07.979Z"
+      },
+      {
+        "name": "Alpha School | San Francisco",
+        "id": "1XCXRz6IAgvDmBVTGvlO7wSqdiIK9Qy6V",
+        "extractionDate": "2025-08-03T21:37:08.236Z"
+      },
+      {
+        "name": "Alpha School | Chicago",
+        "id": "16k2DMaHR65HqgdZhx1-T0jjHsnq8NoCs",
+        "extractionDate": "2025-08-03T21:37:08.338Z"
+      },
+      {
+        "name": "Limitless Education",
+        "id": "1_J5EzrXKp9MMXlcvqGbEj5ICrjnZlraF",
+        "extractionDate": "2025-08-03T21:37:08.471Z"
+      },
+      {
+        "name": "Alpha School | Folsom",
+        "id": "1o0vHEC0DWFneTJ9LDSzV1wV15nbrEghr",
+        "extractionDate": "2025-08-03T21:37:08.754Z"
+      },
+      {
+        "name": "Alpha School | Chantilly",
+        "id": "1PbV3NsBpWHXaOs6mAIOdI4SGK6K6BEtt",
+        "extractionDate": "2025-08-03T21:37:08.938Z"
+      },
+      {
+        "name": "Alpha School | Lake Forest",
+        "id": "1-xidtvWFYnSpDWhe-uoZytppCjQyTe6s",
+        "extractionDate": "2025-08-03T21:37:09.552Z"
+      },
+      {
+        "name": "Alpha School | Palm Beach",
+        "id": "1yoJosOFbVXq2FR_k0Gd--ncWnVyle06k",
+        "extractionDate": "2025-08-03T21:37:09.878Z"
+      },
+      {
+        "name": "Alpha School | Raleigh ",
+        "id": "1XxNPdYH7O8NnQW7CadJZMFoEm1QugJzk",
+        "extractionDate": "2025-08-03T21:37:10.092Z"
+      },
+      {
+        "name": "Alpha School | Plano ",
+        "id": "1XVwcatoJyR-2bgx2M1nvEpUtF-8yAnHQ",
+        "extractionDate": "2025-08-03T21:37:10.318Z"
+      },
+      {
+        "name": "Alpha School | Charlotte ",
+        "id": "1XNz0qXWiAjGsU69oXTbA0rO6RTCpqxOP",
+        "extractionDate": "2025-08-03T21:37:10.497Z"
+      },
+      {
+        "name": "Thought Leadership Events",
+        "id": "1HvoGm0iZoYwqfNd1FU2wA2wK8qr2uj5T",
+        "extractionDate": "2025-08-03T21:37:10.952Z"
+      },
+      {
+        "name": "Alpha School | Scottsdale",
+        "id": "15_hwRBAHXa_QUHUAW6uU-0WVguYbjydI",
+        "extractionDate": "2025-08-03T21:37:11.326Z"
+      },
+      {
+        "name": "NextGen Academy | Austin",
+        "id": "1RC1x9-lfLsDpPhN1cILQ_Tq1HMlaDOc1",
+        "extractionDate": "2025-08-03T21:37:11.565Z"
+      },
+      {
+        "name": "Novatio School",
+        "id": "1w7M-uijZy5nyb2d4ypmOJjWPfyzKB2lx",
+        "extractionDate": "2025-08-03T21:37:11.832Z"
+      },
+      {
+        "name": "Texas Sports Academy",
+        "id": "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L",
+        "extractionDate": "2025-08-03T21:37:12.156Z"
+      },
+      {
+        "name": "SAT Level Up",
+        "id": "1sNx1_R0Vf0NTNQotRko5kpJ9X5p1hsA3",
+        "extractionDate": "2025-08-03T21:37:12.293Z"
+      },
+      {
+        "name": "Alpha School | Houston",
+        "id": "1ctV-hh0ddbxIGU82NeJqHRzksL52HcOv",
+        "extractionDate": "2025-08-03T21:37:12.414Z"
+      },
+      {
+        "name": "Learn + Earn",
+        "id": "1hu3eOcTwcFv3HornMy-YBAxNw084YexH",
+        "extractionDate": "2025-08-03T21:37:12.550Z"
+      },
+      {
+        "name": "Press & Media",
+        "id": "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN",
+        "extractionDate": "2025-08-03T21:37:12.885Z"
+      },
+      {
+        "name": "Waypoint Academy",
+        "id": "1k0Gumvm-Gbg-v6LxDyKHdSlW7eqiG2Er",
+        "extractionDate": "2025-08-03T21:37:13.277Z"
+      },
+      {
+        "name": "2 Hour Learning",
+        "id": "1ubJInFcaBiBX1rX5eL3xJTYaikZiABPm",
+        "extractionDate": "2025-08-03T21:37:13.685Z"
+      },
+      {
+        "name": "Unbound",
+        "id": "1oHffPdT_ozZMnAZq8qbptcLEDsOdkAdf",
+        "extractionDate": "2025-08-03T21:37:13.899Z"
+      },
+      {
+        "name": "Alpha School | Orlando",
+        "id": "1u8n2RGBiNviKsx8A7hoo_sac5aizP5ZN",
+        "extractionDate": "2025-08-03T21:37:14.080Z"
+      },
+      {
+        "name": "Alpha School | Denver",
+        "id": "1GURyQciIEI6EcMJhfNHQoTfECHGCSweT",
+        "extractionDate": "2025-08-03T21:37:14.205Z"
+      },
+      {
+        "name": "Internal",
+        "id": "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      },
+      {
+        "name": "Alpha School | Brownsville",
+        "id": "1LGKw7ITduVlqsfEqOijaIX5QQzXNl5h6",
+        "extractionDate": "2025-08-03T21:37:14.778Z"
+      },
+      {
+        "name": "Alpha School | Tampa",
+        "id": "1MjTMUS3D42d3aZuzc-NNVIOFOt0gAPqm",
+        "extractionDate": "2025-08-03T21:37:14.910Z"
+      },
+      {
+        "name": "Alpha School | Silicon Valley",
+        "id": "16Gr7x546KUpirgQMl570IwQcBO8Iwu9A",
+        "extractionDate": "2025-08-03T21:37:15.051Z"
+      },
+      {
+        "name": "Alpha School | Fort Worth",
+        "id": "1QOhq17a0N_U8HUEu-nALSI1ia5CRi5Nl",
+        "extractionDate": "2025-08-03T21:37:15.187Z"
+      },
+      {
+        "name": "Alpha High School | Austin",
+        "id": "15D3ZT1AAt60W1k7uOBw9tV2CTf4CCw1A",
+        "extractionDate": "2025-08-03T21:37:15.476Z"
+      },
+      {
+        "name": "Alpha School | Austin",
+        "id": "16EZHXKWdK8h4SZR2kRbXyIU-IDMJbofV",
+        "extractionDate": "2025-08-03T21:37:15.887Z"
+      },
+      {
+        "name": "GT School",
+        "id": "14fDN3jWyTjh9-1vmMGJH_aDPmRRPQvBM",
+        "extractionDate": "2025-08-03T21:37:16.243Z"
+      },
+      {
+        "name": "Alpha School | Santa Barbara",
+        "id": "1L2oi_v5U7b_2DlIcewo2xHheBGKrjehU",
+        "extractionDate": "2025-08-03T21:37:16.384Z"
+      },
+      {
+        "name": "Alpha School | Microschools",
+        "id": "1-61aiPkwjdsnsSGwUEUFCOl7Gzgf5Ftl",
+        "extractionDate": "2025-08-03T21:37:16.700Z"
+      },
+      {
+        "name": "Alpha School | New York",
+        "id": "143USdMMJu3ngWnr1t2FdH8TsYk-8VtBa",
+        "extractionDate": "2025-08-03T21:37:16.952Z"
+      }
+    ]
+  }
+}

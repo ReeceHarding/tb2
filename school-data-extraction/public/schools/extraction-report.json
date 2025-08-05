@@ -1,0 +1,2422 @@
+{
+  "summary": {
+    "totalSchools": 25,
+    "totalFiles": 102,
+    "extractionDate": "2025-08-03T21:05:54.184Z",
+    "status": "complete"
+  },
+  "schools": [
+    {
+      "school": {
+        "id": "alpha-austin",
+        "name": "Alpha High School",
+        "city": "Austin",
+        "state": "TX",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-austin_1754255154189_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-austin_1754255154189_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha High School",
+                "Austin",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-austin_1754255154189_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-austin_1754255154189_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha High School",
+                "Austin",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-austin_1754255154188_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-austin_1754255154188_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha High School",
+                "Austin",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-austin_1754255154190_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-austin_1754255154190_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha High School",
+                "Austin",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.187Z",
+        "extractionDate": "2025-08-03T21:05:54.187Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-austin-main",
+        "name": "Alpha School",
+        "city": "Austin",
+        "state": "TX",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-austin-main_1754255154192_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-austin-main_1754255154192_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Austin",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-austin-main_1754255154192_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-austin-main_1754255154192_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Austin",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-austin-main_1754255154191_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-austin-main_1754255154191_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Austin",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-austin-main_1754255154192_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-austin-main_1754255154192_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Austin",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.191Z",
+        "extractionDate": "2025-08-03T21:05:54.191Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-bethesda",
+        "name": "Alpha School",
+        "city": "Bethesda",
+        "state": "MD",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-bethesda_1754255154193_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-bethesda_1754255154193_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Bethesda",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-bethesda_1754255154193_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-bethesda_1754255154193_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Bethesda",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-bethesda_1754255154193_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-bethesda_1754255154193_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Bethesda",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-bethesda_1754255154193_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-bethesda_1754255154193_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Bethesda",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.193Z",
+        "extractionDate": "2025-08-03T21:05:54.193Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-brownsville",
+        "name": "Alpha School",
+        "city": "Brownsville",
+        "state": "TX",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-brownsville_1754255154194_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-brownsville_1754255154194_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Brownsville",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-brownsville_1754255154194_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-brownsville_1754255154194_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Brownsville",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-brownsville_1754255154194_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-brownsville_1754255154194_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Brownsville",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-brownsville_1754255154194_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-brownsville_1754255154194_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Brownsville",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.194Z",
+        "extractionDate": "2025-08-03T21:05:54.194Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-chantilly",
+        "name": "Alpha School",
+        "city": "Chantilly",
+        "state": "VA",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-chantilly_1754255154195_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-chantilly_1754255154195_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Chantilly",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-chantilly_1754255154195_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-chantilly_1754255154195_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Chantilly",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-chantilly_1754255154194_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-chantilly_1754255154194_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Chantilly",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-chantilly_1754255154195_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-chantilly_1754255154195_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Chantilly",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.194Z",
+        "extractionDate": "2025-08-03T21:05:54.194Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-charlotte",
+        "name": "Alpha School",
+        "city": "Charlotte",
+        "state": "NC",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-charlotte_1754255154196_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-charlotte_1754255154196_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Charlotte",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-charlotte_1754255154196_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-charlotte_1754255154196_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Charlotte",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-charlotte_1754255154196_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-charlotte_1754255154196_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Charlotte",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-charlotte_1754255154196_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-charlotte_1754255154196_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Charlotte",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.195Z",
+        "extractionDate": "2025-08-03T21:05:54.195Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-chicago",
+        "name": "Alpha School",
+        "city": "Chicago",
+        "state": "IL",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-chicago_1754255154197_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-chicago_1754255154197_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Chicago",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-chicago_1754255154197_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-chicago_1754255154197_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Chicago",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-chicago_1754255154197_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-chicago_1754255154197_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Chicago",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-chicago_1754255154197_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-chicago_1754255154197_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Chicago",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.197Z",
+        "extractionDate": "2025-08-03T21:05:54.197Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-denver",
+        "name": "Alpha School",
+        "city": "Denver",
+        "state": "CO",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-denver_1754255154198_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-denver_1754255154198_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Denver",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-denver_1754255154198_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-denver_1754255154198_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Denver",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-denver_1754255154198_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-denver_1754255154198_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Denver",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-denver_1754255154198_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-denver_1754255154198_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Denver",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.198Z",
+        "extractionDate": "2025-08-03T21:05:54.198Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-folsom",
+        "name": "Alpha School",
+        "city": "Folsom",
+        "state": "CA",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-folsom_1754255154199_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-folsom_1754255154199_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Folsom",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-folsom_1754255154199_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-folsom_1754255154199_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Folsom",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-folsom_1754255154199_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-folsom_1754255154199_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Folsom",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-folsom_1754255154199_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-folsom_1754255154199_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Folsom",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.198Z",
+        "extractionDate": "2025-08-03T21:05:54.198Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-fort-worth",
+        "name": "Alpha School",
+        "city": "Fort Worth",
+        "state": "TX",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-fort-worth_1754255154200_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-fort-worth_1754255154200_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Fort Worth",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-fort-worth_1754255154199_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-fort-worth_1754255154199_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Fort Worth",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-fort-worth_1754255154199_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-fort-worth_1754255154199_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Fort Worth",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-fort-worth_1754255154200_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-fort-worth_1754255154200_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Fort Worth",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.199Z",
+        "extractionDate": "2025-08-03T21:05:54.199Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-houston",
+        "name": "Alpha School",
+        "city": "Houston",
+        "state": "TX",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-houston_1754255154201_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-houston_1754255154201_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Houston",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-houston_1754255154200_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-houston_1754255154200_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Houston",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-houston_1754255154200_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-houston_1754255154200_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Houston",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-houston_1754255154201_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-houston_1754255154201_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Houston",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.200Z",
+        "extractionDate": "2025-08-03T21:05:54.200Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-lake-forest",
+        "name": "Alpha School",
+        "city": "Lake Forest",
+        "state": "CA",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-lake-forest_1754255154201_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-lake-forest_1754255154201_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Lake Forest",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-lake-forest_1754255154201_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-lake-forest_1754255154201_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Lake Forest",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-lake-forest_1754255154201_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-lake-forest_1754255154201_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Lake Forest",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-lake-forest_1754255154201_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-lake-forest_1754255154201_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Lake Forest",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.201Z",
+        "extractionDate": "2025-08-03T21:05:54.201Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-miami",
+        "name": "Alpha School",
+        "city": "Miami",
+        "state": "FL",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-miami_1754255154202_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-miami_1754255154202_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Miami",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-miami_1754255154202_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-miami_1754255154202_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Miami",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-miami_1754255154202_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-miami_1754255154202_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Miami",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-miami_1754255154202_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-miami_1754255154202_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Miami",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.202Z",
+        "extractionDate": "2025-08-03T21:05:54.202Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-new-york",
+        "name": "Alpha School",
+        "city": "New York",
+        "state": "NY",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-new-york_1754255154203_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-new-york_1754255154203_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "New York",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-new-york_1754255154203_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-new-york_1754255154203_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "New York",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-new-york_1754255154202_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-new-york_1754255154202_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "New York",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-new-york_1754255154203_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-new-york_1754255154203_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "New York",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.202Z",
+        "extractionDate": "2025-08-03T21:05:54.202Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-orlando",
+        "name": "Alpha School",
+        "city": "Orlando",
+        "state": "FL",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-orlando_1754255154204_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-orlando_1754255154204_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Orlando",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-orlando_1754255154203_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-orlando_1754255154203_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Orlando",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-orlando_1754255154203_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-orlando_1754255154203_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Orlando",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-orlando_1754255154204_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-orlando_1754255154204_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Orlando",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.203Z",
+        "extractionDate": "2025-08-03T21:05:54.203Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-palm-beach",
+        "name": "Alpha School",
+        "city": "Palm Beach",
+        "state": "FL",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-palm-beach_1754255154205_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-palm-beach_1754255154205_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Palm Beach",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-palm-beach_1754255154204_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-palm-beach_1754255154204_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Palm Beach",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-palm-beach_1754255154204_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-palm-beach_1754255154204_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Palm Beach",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-palm-beach_1754255154205_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-palm-beach_1754255154205_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Palm Beach",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.204Z",
+        "extractionDate": "2025-08-03T21:05:54.204Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-plano",
+        "name": "Alpha School",
+        "city": "Plano",
+        "state": "TX",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-plano_1754255154205_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-plano_1754255154205_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Plano",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-plano_1754255154205_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-plano_1754255154205_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Plano",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-plano_1754255154205_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-plano_1754255154205_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Plano",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-plano_1754255154205_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-plano_1754255154205_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Plano",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.205Z",
+        "extractionDate": "2025-08-03T21:05:54.205Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-raleigh",
+        "name": "Alpha School",
+        "city": "Raleigh",
+        "state": "NC",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-raleigh_1754255154206_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-raleigh_1754255154206_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Raleigh",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-raleigh_1754255154206_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-raleigh_1754255154206_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Raleigh",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-raleigh_1754255154206_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-raleigh_1754255154206_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Raleigh",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-raleigh_1754255154206_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-raleigh_1754255154206_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Raleigh",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.206Z",
+        "extractionDate": "2025-08-03T21:05:54.206Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-san-francisco",
+        "name": "Alpha School",
+        "city": "San Francisco",
+        "state": "CA",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-san-francisco_1754255154207_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-san-francisco_1754255154207_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "San Francisco",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-san-francisco_1754255154207_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-san-francisco_1754255154207_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "San Francisco",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-san-francisco_1754255154207_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-san-francisco_1754255154207_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "San Francisco",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-san-francisco_1754255154207_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-san-francisco_1754255154207_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "San Francisco",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.207Z",
+        "extractionDate": "2025-08-03T21:05:54.207Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-santa-barbara",
+        "name": "Alpha School",
+        "city": "Santa Barbara",
+        "state": "CA",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-santa-barbara_1754255154208_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-santa-barbara_1754255154208_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Santa Barbara",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-santa-barbara_1754255154208_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-santa-barbara_1754255154208_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Santa Barbara",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-santa-barbara_1754255154208_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-santa-barbara_1754255154208_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Santa Barbara",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-santa-barbara_1754255154208_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-santa-barbara_1754255154208_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Santa Barbara",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.208Z",
+        "extractionDate": "2025-08-03T21:05:54.208Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-scottsdale",
+        "name": "Alpha School",
+        "city": "Scottsdale",
+        "state": "AZ",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-scottsdale_1754255154208_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-scottsdale_1754255154208_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Scottsdale",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-scottsdale_1754255154208_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-scottsdale_1754255154208_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Scottsdale",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-scottsdale_1754255154208_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-scottsdale_1754255154208_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Scottsdale",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-scottsdale_1754255154208_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-scottsdale_1754255154208_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Scottsdale",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.208Z",
+        "extractionDate": "2025-08-03T21:05:54.208Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-silicon-valley",
+        "name": "Alpha School",
+        "city": "Silicon Valley",
+        "state": "CA",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-silicon-valley_1754255154209_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-silicon-valley_1754255154209_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Silicon Valley",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-silicon-valley_1754255154209_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-silicon-valley_1754255154209_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Silicon Valley",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-silicon-valley_1754255154209_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-silicon-valley_1754255154209_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Silicon Valley",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-silicon-valley_1754255154209_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-silicon-valley_1754255154209_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Silicon Valley",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.209Z",
+        "extractionDate": "2025-08-03T21:05:54.209Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "alpha-tampa",
+        "name": "Alpha School",
+        "city": "Tampa",
+        "state": "FL",
+        "type": "alpha-school",
+        "isMainBrand": true
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "alpha-tampa_1754255154210_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/alpha-schools/videos/alpha-tampa_1754255154210_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Tampa",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "alpha-tampa_1754255154210_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/alpha-schools/images/alpha-tampa_1754255154210_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Tampa",
+                "alpha-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "alpha-tampa_1754255154210_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/alpha-schools/documents/alpha-tampa_1754255154210_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Tampa",
+                "alpha-school"
+              ]
+            }
+          },
+          {
+            "filename": "alpha-tampa_1754255154210_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/alpha-schools/documents/alpha-tampa_1754255154210_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "Alpha School",
+                "Tampa",
+                "alpha-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.209Z",
+        "extractionDate": "2025-08-03T21:05:54.209Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "gt-school",
+        "name": "GT School",
+        "city": "Unknown",
+        "type": "other-school",
+        "isMainBrand": false
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "gt-school_1754255154211_promo-video.mp4",
+            "originalPath": "downloads/GT School/promo-video.mp4",
+            "localPath": "/schools/other-schools/videos/gt-school_1754255154211_promo-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "promo-video",
+              "dateCreated": "2025-08-03T20:48:15.297Z",
+              "lastModified": "2025-08-03T20:48:31.060Z",
+              "tags": [
+                "GT School",
+                "Unknown",
+                "other-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "gt-school_1754255154210_logo.svg",
+            "originalPath": "downloads/GT School/logo.svg",
+            "localPath": "/schools/other-schools/images/gt-school_1754255154210_logo.svg",
+            "fileType": "image",
+            "mimeType": "application/octet-stream",
+            "fileSize": 21,
+            "metadata": {
+              "title": "logo",
+              "dateCreated": "2025-08-03T20:48:15.297Z",
+              "lastModified": "2025-08-03T20:48:31.060Z",
+              "tags": [
+                "GT School",
+                "Unknown",
+                "other-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "gt-school_1754255154210_fact-sheet.pdf",
+            "originalPath": "downloads/GT School/fact-sheet.pdf",
+            "localPath": "/schools/other-schools/documents/gt-school_1754255154210_fact-sheet.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "fact-sheet",
+              "dateCreated": "2025-08-03T20:48:15.298Z",
+              "lastModified": "2025-08-03T20:48:31.060Z",
+              "tags": [
+                "GT School",
+                "Unknown",
+                "other-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 3,
+        "lastUpdated": "2025-08-03T21:05:54.210Z",
+        "extractionDate": "2025-08-03T21:05:54.210Z",
+        "googleDriveFolder": "GT School"
+      },
+      "marketing": {}
+    },
+    {
+      "school": {
+        "id": "nextgen-austin",
+        "name": "NextGen Academy",
+        "city": "Austin",
+        "state": "TX",
+        "type": "other-school",
+        "isMainBrand": false
+      },
+      "media": {
+        "videos": [
+          {
+            "filename": "nextgen-austin_1754255154212_intro-video.mp4",
+            "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+            "localPath": "/schools/other-schools/videos/nextgen-austin_1754255154212_intro-video.mp4",
+            "fileType": "video",
+            "mimeType": "video/mp4",
+            "fileSize": 21,
+            "metadata": {
+              "title": "intro-video",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "NextGen Academy",
+                "Austin",
+                "other-school"
+              ]
+            }
+          }
+        ],
+        "images": [
+          {
+            "filename": "nextgen-austin_1754255154211_campus-photo.jpg",
+            "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+            "localPath": "/schools/other-schools/images/nextgen-austin_1754255154211_campus-photo.jpg",
+            "fileType": "image",
+            "mimeType": "image/jpeg",
+            "fileSize": 21,
+            "metadata": {
+              "title": "campus-photo",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "NextGen Academy",
+                "Austin",
+                "other-school"
+              ]
+            }
+          }
+        ],
+        "documents": [
+          {
+            "filename": "nextgen-austin_1754255154211_brochure.pdf",
+            "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+            "localPath": "/schools/other-schools/documents/nextgen-austin_1754255154211_brochure.pdf",
+            "fileType": "document",
+            "mimeType": "application/pdf",
+            "fileSize": 24,
+            "metadata": {
+              "title": "brochure",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "NextGen Academy",
+                "Austin",
+                "other-school"
+              ]
+            }
+          },
+          {
+            "filename": "nextgen-austin_1754255154212_school-overview.pptx",
+            "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+            "localPath": "/schools/other-schools/documents/nextgen-austin_1754255154212_school-overview.pptx",
+            "fileType": "document",
+            "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "fileSize": 20,
+            "metadata": {
+              "title": "school-overview",
+              "dateCreated": "2025-08-03T20:48:15.294Z",
+              "lastModified": "2025-08-03T20:48:20.911Z",
+              "tags": [
+                "NextGen Academy",
+                "Austin",
+                "other-school"
+              ]
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "totalFiles": 4,
+        "lastUpdated": "2025-08-03T21:05:54.211Z",
+        "extractionDate": "2025-08-03T21:05:54.211Z",
+        "googleDriveFolder": "Alpha School | Austin"
+      },
+      "marketing": {}
+    }
+  ],
+  "errors": [],
+  "fileTypes": {
+    "videos": 25,
+    "images": 25,
+    "documents": 49
+  }
+}

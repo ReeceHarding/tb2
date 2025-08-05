@@ -9,6 +9,7 @@ import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "react-hot-toast";
 import { Tooltip } from "react-tooltip";
 import config from "@/config";
+import { PostHogProvider } from "@/components/PostHogProvider";
 
 // Crisp customer chat support:
 // This component is separated from ClientLayout because it needs to be wrapped with <SessionProvider> to use useSession() hook
@@ -17,7 +18,8 @@ const CrispChat = (): null => {
   const { data } = useSession();
 
   useEffect(() => {
-    if (config?.crisp?.id) {
+    // Only initialize Crisp if a valid ID is provided (not empty string)
+    if (config?.crisp?.id && config.crisp.id.trim() !== "") {
       // Set up Crisp
       Crisp.configure(config.crisp.id);
 
@@ -37,7 +39,8 @@ const CrispChat = (): null => {
 
   // Add User Unique ID to Crisp to easily identify users when reaching support (optional)
   useEffect(() => {
-    if (data?.user && config?.crisp?.id) {
+    // Only set user data if Crisp is properly initialized with a valid ID
+    if (data?.user && config?.crisp?.id && config.crisp.id.trim() !== "") {
       Crisp.session.setData({ userId: data.user?.id });
     }
   }, [data]);
@@ -53,7 +56,7 @@ const CrispChat = (): null => {
 // 5. CrispChat: Set Crisp customer chat support (see above)
 const ClientLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <>
+    <PostHogProvider>
       <SessionProvider>
         {/* Show a progress bar at the top when navigating between pages */}
         <NextTopLoader color={config.colors.main} showSpinner={false} />
@@ -71,13 +74,13 @@ const ClientLayout = ({ children }: { children: ReactNode }) => {
         {/* Show a tooltip if any JSX element has these 2 attributes: data-tooltip-id="tooltip" data-tooltip-content="" */}
         <Tooltip
           id="tooltip"
-          className="z-[60] !opacity-100 max-w-sm shadow-lg"
+          className="z-[60] !opacity-100 max-w-sm shadow-2xl"
         />
 
         {/* Set Crisp customer chat support */}
         <CrispChat />
       </SessionProvider>
-    </>
+    </PostHogProvider>
   );
 };
 

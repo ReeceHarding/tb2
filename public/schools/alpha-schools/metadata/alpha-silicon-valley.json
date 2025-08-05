@@ -1,0 +1,21 @@
+{
+  "school": {
+    "name": "Alpha School | Silicon Valley",
+    "id": "alpha-silicon-valley",
+    "city": "Silicon Valley",
+    "state": "Unknown",
+    "type": "alpha",
+    "extractionDate": "2025-08-03T21:49:32.956Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [],
+    "totalAssets": 0
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [],
+    "lastUpdated": "2025-08-03T21:55:20.953Z"
+  }
+}

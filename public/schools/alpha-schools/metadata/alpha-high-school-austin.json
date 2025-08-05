@@ -1,0 +1,80 @@
+{
+  "school": {
+    "id": "alpha-high-school-austin",
+    "name": "Alpha High School | Austin",
+    "originalName": "Alpha High School | Austin",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "15D3ZT1AAt60W1k7uOBw9tV2CTf4CCw1A"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1n8hsyOTkIB-8PkAN4JNGsr_l3j2_xm1y",
+        "originalName": "Alpha High School  Admissions Document V1.pdf",
+        "organizedName": "alpha-high-school-austin_1_Alpha-High-School-Admissions-Document-V1.pdf",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1n8hsyOTkIB-8PkAN4JNGsr_l3j2_xm1y/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1n8hsyOTkIB-8PkAN4JNGsr_l3j2_xm1y&export=download",
+        "localPath": "/alpha-schools/documents/alpha-high-school-austin_1_Alpha-High-School-Admissions-Document-V1.pdf",
+        "extractionDate": "2025-08-03T21:37:15.476Z"
+      }
+    ],
+    "other": [
+      {
+        "id": "1s82xYPkP38femGG-W3TVWDYMh38ibbUi",
+        "originalName": "Marketing Campaigns",
+        "organizedName": "alpha-high-school-austin_2_Marketing-Campaigns",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1s82xYPkP38femGG-W3TVWDYMh38ibbUi",
+        "downloadUrl": "https://drive.google.com/uc?id=1s82xYPkP38femGG-W3TVWDYMh38ibbUi&export=download",
+        "localPath": "/alpha-schools/other/alpha-high-school-austin_2_Marketing-Campaigns",
+        "extractionDate": "2025-08-03T21:37:15.476Z"
+      },
+      {
+        "id": "1wmsqOf6sxut7Y_skKSp3LOywwc9bIuiz",
+        "originalName": "School Documents",
+        "organizedName": "alpha-high-school-austin_3_School-Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1wmsqOf6sxut7Y_skKSp3LOywwc9bIuiz",
+        "downloadUrl": "https://drive.google.com/uc?id=1wmsqOf6sxut7Y_skKSp3LOywwc9bIuiz&export=download",
+        "localPath": "/alpha-schools/other/alpha-high-school-austin_3_School-Documents",
+        "extractionDate": "2025-08-03T21:37:15.476Z"
+      },
+      {
+        "id": "1HMwvmx8GcWPhBk1p-ohj5-L43lM1jUkM",
+        "originalName": "Photography",
+        "organizedName": "alpha-high-school-austin_4_Photography",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1HMwvmx8GcWPhBk1p-ohj5-L43lM1jUkM",
+        "downloadUrl": "https://drive.google.com/uc?id=1HMwvmx8GcWPhBk1p-ohj5-L43lM1jUkM&export=download",
+        "localPath": "/alpha-schools/other/alpha-high-school-austin_4_Photography",
+        "extractionDate": "2025-08-03T21:37:15.476Z"
+      },
+      {
+        "id": "1GIBj27FYPxjzuktf6Yv_hCjQVZ7mEmpg",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-high-school-austin_5_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1GIBj27FYPxjzuktf6Yv_hCjQVZ7mEmpg",
+        "downloadUrl": "https://drive.google.com/uc?id=1GIBj27FYPxjzuktf6Yv_hCjQVZ7mEmpg&export=download",
+        "localPath": "/alpha-schools/other/alpha-high-school-austin_5_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:15.476Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 5,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 1,
+    "otherCount": 4
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:15.476Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

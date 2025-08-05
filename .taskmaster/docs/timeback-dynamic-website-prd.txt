@@ -1,0 +1,299 @@
+<context>
+# Overview
+TimeBack Dynamic Website is an AI-powered educational platform that proves to skeptical parents that children can learn their schoolwork in just 2 hours daily through learning science. The platform dynamically generates personalized content using AI, adapting to each parent's specific concerns and child's situation. It transforms website visitors into TimeBack believers by showing them proof relevant to their specific school and child.
+
+The website uses a conversational flow where parents answer questions about their child, and the AI generates compelling proof components showing how TimeBack would work for their specific situation. Each section builds on previous answers, creating a personalized journey that addresses skepticism with data and testimonials.
+
+# Core Features
+
+## Google Authentication System
+- Sign-in with Google as the only authentication method
+- Extract first name for personalization
+- Session management using NextAuth.js
+- Prevent abuse through authentication requirement
+
+## Dynamic AI Content Generation
+- XML-based prompt system that feeds user context to Claude AI
+- Component schema picker that selects appropriate UI components based on context
+- Real-time streaming of AI-generated content
+- Personalized content based on child's grade, school, and parent concerns
+
+## Component Schema System
+- Define JSON schemas for each UI component
+- AI schema picker to select the right component for each section
+- Dynamic component renderer that hydrates components with AI-generated data
+- Support for 30+ existing UI components
+
+## Conversational Question Flow
+- Show 3 questions at each stage
+- Track answers to build user context
+- Optimistically pre-generate content for likely paths
+- Progressive disclosure of information based on engagement
+
+## School Data Integration
+- SchoolDigger API integration for real school data
+- Show actual test scores and rankings for user's school
+- Compare user's school performance to TimeBack results
+- Location-based school finder
+
+## Real-time Data Storage
+- Supabase integration for storing user sessions
+- Track user journey and responses
+- Store generated content for analytics
+- Real-time updates as users progress
+
+## Personalization Engine
+- Use whitepaper data to generate relevant content
+- Filter testimonials by grade level and concerns
+- Show time savings specific to their school schedule
+- Generate personalized lesson examples
+
+# User Experience
+
+## User Personas
+- **Skeptical Parent**: Doubts 2-hour learning claim, wants proof
+- **Academic-Focused Parent**: Concerned about test scores and college prep
+- **Time-Conscious Parent**: Frustrated with homework and wasted time
+- **Special Needs Parent**: Worried about individualized attention
+
+## Key User Flows
+1. Landing → Google Auth → Initial Questions → Above-fold Hero
+2. Answer Questions → View Personalized Proof → Explore Options
+3. See School Comparison → View Testimonials → Schedule Tour
+4. Generate Sample Lesson → Calculate Time Savings → Contact
+
+## UI/UX Considerations
+- Mobile-first responsive design
+- Smooth animations between sections
+- Loading states during AI generation
+- Clear CTAs at each stage
+- Trust indicators throughout
+</context>
+<PRD>
+# Technical Architecture
+
+## System Components
+
+### Frontend (Next.js 14+)
+- App Router for server components
+- Tailwind CSS for styling
+- Framer Motion for animations
+- React components with TypeScript
+- Vercel deployment
+
+### Authentication
+- NextAuth.js with Google provider
+- Session storage in cookies
+- Protected routes for authenticated content
+
+### AI Integration
+- Claude 3.5 Sonnet API via Anthropic SDK
+- Vercel AI SDK for streaming responses
+- XML prompt templates with variable substitution
+- Component schema validation
+
+### Data Storage
+- Supabase for real-time database
+- User sessions table
+- Generated content cache
+- Analytics events tracking
+
+### External APIs
+- SchoolDigger API for school data
+- Google OAuth for authentication
+- Claude API for content generation
+
+## Data Models
+
+### User Session
+```typescript
+interface UserSession {
+  id: string
+  googleId: string
+  firstName: string
+  email: string
+  childGrade?: string
+  schoolName?: string
+  schoolCity?: string
+  schoolState?: string
+  mainConcerns?: string[]
+  questionsAnswered: Question[]
+  sectionsViewed: string[]
+  createdAt: Date
+  updatedAt: Date
+}
+```
+
+### Generated Content
+```typescript
+interface GeneratedContent {
+  id: string
+  sessionId: string
+  componentType: string
+  componentData: any
+  userContext: any
+  timestamp: Date
+}
+```
+
+### Component Schema
+```typescript
+interface ComponentSchema {
+  name: string
+  schema: JSONSchema
+  category: string
+  description: string
+}
+```
+
+## APIs and Integrations
+
+### Component Selection API
+- POST /api/select-component
+- Inputs: user context, previous sections
+- Output: selected component type
+
+### Content Generation API
+- POST /api/generate-content
+- Inputs: component type, schema, user context
+- Output: streaming JSON content
+
+### School Data API
+- GET /api/schools/search
+- GET /api/schools/:id
+- Proxy to SchoolDigger with caching
+
+# Development Roadmap
+
+## MVP Phase 1: Core Infrastructure
+- Next.js project setup with TypeScript
+- Google OAuth authentication
+- Basic component schema definitions (5-10 core components)
+- Claude AI integration with streaming
+- Supabase database setup
+- Landing page with authentication flow
+
+## MVP Phase 2: Dynamic Content Generation
+- XML prompt template system
+- Component schema picker AI
+- Dynamic component renderer
+- User context tracking
+- Question flow system (3 questions per stage)
+- First 5 component implementations
+
+## MVP Phase 3: Personalization Engine
+- SchoolDigger API integration
+- School data comparison components
+- Whitepaper data integration
+- Testimonial filtering system
+- Personalized content generation
+- 10 more component implementations
+
+## MVP Phase 4: Optimization & Polish
+- Optimistic content pre-generation
+- Caching and performance optimization
+- Mobile responsiveness
+- Analytics integration
+- Error handling and fallbacks
+- Remaining component implementations
+
+## Future Enhancements
+- A/B testing different question flows
+- Advanced analytics dashboard
+- Multi-language support
+- Email nurture campaigns
+- Chat support integration
+- Video testimonials
+- Virtual school tours
+
+# Logical Dependency Chain
+
+## Foundation (Must Build First)
+1. Next.js project structure with TypeScript
+2. Google Authentication system
+3. Supabase database connection
+4. Basic UI component library setup
+
+## Core Functionality (Build Second)
+1. Component schema definition system
+2. Claude AI integration with prompt templates
+3. Dynamic component renderer
+4. User session tracking
+5. Question flow engine
+
+## Content Generation (Build Third)
+1. XML prompt template parser
+2. Component schema picker AI
+3. Streaming content generation
+4. Component data validation
+5. Error handling for AI responses
+
+## Personalization (Build Fourth)
+1. SchoolDigger API integration
+2. School data caching layer
+3. Whitepaper data processing
+4. Testimonial categorization
+5. Context-aware content filtering
+
+## User Experience (Build Fifth)
+1. Smooth section transitions
+2. Loading states and skeletons
+3. Mobile optimization
+4. Performance optimization
+5. Analytics tracking
+
+# Risks and Mitigations
+
+## Technical Challenges
+- **AI Response Quality**: Implement strict schema validation and fallback content
+- **API Rate Limits**: Add caching layers and request queuing
+- **Performance**: Use Next.js ISR and edge caching
+- **Component Complexity**: Start with simple components, iterate
+
+## User Experience Risks
+- **Authentication Friction**: Clear value prop before auth requirement
+- **AI Generation Time**: Show loading states, pre-generate likely paths
+- **Mobile Performance**: Progressive enhancement, lazy loading
+- **Content Relevance**: Extensive prompt testing and refinement
+
+## Data and Privacy
+- **COPPA Compliance**: Don't collect child data directly
+- **Data Security**: Use Supabase RLS and encryption
+- **API Key Management**: Environment variables, never client-side
+
+## Business Risks
+- **SchoolDigger API Costs**: Implement aggressive caching
+- **Claude API Costs**: Monitor usage, implement limits
+- **Conversion Tracking**: Clear analytics from day one
+
+# Appendix
+
+## Component List for Schema Definition
+- Hero, Problem, ShockingTruthHero
+- SchoolDayBreakdown, TestScoreComparison
+- LearningScience7Principles, SimpleLearningScience
+- ParentTestimonials, TestimonialCard
+- QuestionSelector, PathSelector
+- ScheduleBuilder, SchoolFinder
+- PersonalizedLesson, CostCalculator
+- ContactForm, NextStepsGuide
+- FAQ, FeaturesGrid, FeaturesAccordion
+- SuccessMetrics, TimeComparison
+- And 15+ more components
+
+## Whitepaper Integration Points
+- Student achievement data (MAP scores)
+- Learning speed multipliers (2x, 2.6x, 3.9x)
+- Grade level comparisons
+- Time spent learning statistics
+- Parent testimonials
+- Success stories by grade/concern
+
+## Critical Success Metrics
+- Landing → Auth conversion rate
+- Questions answered per session
+- Sections viewed before contact
+- Time on site
+- Contact form submissions
+- Demo bookings
+</PRD>

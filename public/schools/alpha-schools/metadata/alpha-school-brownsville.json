@@ -1,0 +1,59 @@
+{
+  "school": {
+    "id": "alpha-school-brownsville",
+    "name": "Alpha School | Brownsville",
+    "originalName": "Alpha School | Brownsville",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1LGKw7ITduVlqsfEqOijaIX5QQzXNl5h6"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "105b69Mbl5qoEY8QaVhn_1zH1ZxHO5GFT",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-brownsville_1_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/105b69Mbl5qoEY8QaVhn_1zH1ZxHO5GFT",
+        "downloadUrl": "https://drive.google.com/uc?id=105b69Mbl5qoEY8QaVhn_1zH1ZxHO5GFT&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-brownsville_1_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:14.778Z"
+      },
+      {
+        "id": "1EXEGlsFzbKyLCeepNoogoFCILQ9HhVgN",
+        "originalName": "Marketing",
+        "organizedName": "alpha-school-brownsville_2_Marketing",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1EXEGlsFzbKyLCeepNoogoFCILQ9HhVgN",
+        "downloadUrl": "https://drive.google.com/uc?id=1EXEGlsFzbKyLCeepNoogoFCILQ9HhVgN&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-brownsville_2_Marketing",
+        "extractionDate": "2025-08-03T21:37:14.778Z"
+      },
+      {
+        "id": "13VLKGUpJQAF5jSYyPjIbteaCLPP60XgW",
+        "originalName": "Admissions Packet",
+        "organizedName": "alpha-school-brownsville_3_Admissions-Packet",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/13VLKGUpJQAF5jSYyPjIbteaCLPP60XgW",
+        "downloadUrl": "https://drive.google.com/uc?id=13VLKGUpJQAF5jSYyPjIbteaCLPP60XgW&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-brownsville_3_Admissions-Packet",
+        "extractionDate": "2025-08-03T21:37:14.778Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 3,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 3
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:14.778Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

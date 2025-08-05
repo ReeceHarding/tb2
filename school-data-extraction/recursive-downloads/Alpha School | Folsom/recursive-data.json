@@ -1,0 +1,55 @@
+{
+  "school": {
+    "name": "Alpha School | Folsom",
+    "id": "alpha-school-folsom",
+    "extractionDate": "2025-08-03T21:49:18.804Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1o0vHEC0DWFneTJ9LDSzV1wV15nbrEghr"
+        ],
+        "id": "1LP3KhKzlCg_1iq3_HPSW93hIkYrwg-ru",
+        "name": "Alpha Folsom - Now Enrolling 2025.2026 (2).pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1LP3KhKzlCg_1iq3_HPSW93hIkYrwg-ru/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPm3zJkRz8_IMkMuDMzjTCkvvCLNwJmGwZkWEqJTyY_XGSvy4AgVgPt4me5yoqMNKfHEq6my3u8EgWpZtlZYARJgbhc_jpT0Kwf7Q=s220",
+        "size": "12921723"
+      },
+      {
+        "parents": [
+          "1o0vHEC0DWFneTJ9LDSzV1wV15nbrEghr"
+        ],
+        "id": "1bISLg2XhFGgxHnJqNwhTqyS9T2LRxhnK",
+        "name": "Alpha Folsom Tuition.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1bISLg2XhFGgxHnJqNwhTqyS9T2LRxhnK/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBM5xM7CAgRHbkDcMhmCy6pH06oPwqzyrTPbdq6jPfnwvkkmogkw2b5YSjxtUChrIqpSEzxXRnPk26aVGSoplEwf54zAFVENDbcjAQ=s220",
+        "size": "1177512"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1o0vHEC0DWFneTJ9LDSzV1wV15nbrEghr"
+        ],
+        "id": "1chRVj74Nw2qlVUEDH8XvrsLW87B5mo0r",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1chRVj74Nw2qlVUEDH8XvrsLW87B5mo0r"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 2,
+    "folders": 1,
+    "other": 0,
+    "total": 3
+  }
+}

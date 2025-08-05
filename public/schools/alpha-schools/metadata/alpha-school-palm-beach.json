@@ -1,0 +1,72 @@
+{
+  "school": {
+    "id": "alpha-school-palm-beach",
+    "name": "Alpha School | Palm Beach",
+    "originalName": "Alpha School | Palm Beach",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1yoJosOFbVXq2FR_k0Gd--ncWnVyle06k"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1nmPlTTpaExG9-eu-VpWoo6ewxVQJJ1b2",
+        "originalName": "Palm Beach .pdf",
+        "organizedName": "alpha-school-palm-beach_1_Palm-Beach-.pdf",
+        "mimeType": "application/pdf",
+        "size": 1178170,
+        "webViewLink": "https://drive.google.com/file/d/1nmPlTTpaExG9-eu-VpWoo6ewxVQJJ1b2/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1nmPlTTpaExG9-eu-VpWoo6ewxVQJJ1b2&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-palm-beach_1_Palm-Beach-.pdf",
+        "extractionDate": "2025-08-03T21:37:09.878Z"
+      },
+      {
+        "id": "1WXlCjv21WUKIdnW4EhsD0tO_nc65s4m3",
+        "originalName": "Alpha Palm Beach - Now Enrolling 2025.2026 (FinalPrint) (1).pdf",
+        "organizedName": "alpha-school-palm-beach_2_Alpha-Palm-Beach-Now-Enrolling-20252026-FinalPrint-1.pdf",
+        "mimeType": "application/pdf",
+        "size": 13035573,
+        "webViewLink": "https://drive.google.com/file/d/1WXlCjv21WUKIdnW4EhsD0tO_nc65s4m3/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1WXlCjv21WUKIdnW4EhsD0tO_nc65s4m3&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-palm-beach_2_Alpha-Palm-Beach-Now-Enrolling-20252026-FinalPrint-1.pdf",
+        "extractionDate": "2025-08-03T21:37:09.878Z"
+      }
+    ],
+    "other": [
+      {
+        "id": "1sgGLEz5-atiVoinaFXkQlFXkd132JC82",
+        "originalName": "Ads",
+        "organizedName": "alpha-school-palm-beach_3_Ads",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1sgGLEz5-atiVoinaFXkQlFXkd132JC82",
+        "downloadUrl": "https://drive.google.com/uc?id=1sgGLEz5-atiVoinaFXkQlFXkd132JC82&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-palm-beach_3_Ads",
+        "extractionDate": "2025-08-03T21:37:09.878Z"
+      },
+      {
+        "id": "1h5Q3Sy1MA_Ks-UWQX-lQRswFkh9DtTQW",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-palm-beach_4_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1h5Q3Sy1MA_Ks-UWQX-lQRswFkh9DtTQW",
+        "downloadUrl": "https://drive.google.com/uc?id=1h5Q3Sy1MA_Ks-UWQX-lQRswFkh9DtTQW&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-palm-beach_4_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:09.878Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 4,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 2,
+    "otherCount": 2
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:09.878Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

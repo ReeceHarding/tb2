@@ -1,511 +1,409 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { animationVariants } from "@/libs/animations";
 import type { JSX } from "react";
 
-// List of features to display:
-// - name: name of the feature
-// - description: description of the feature (can be any JSX)
-// - svg: icon of the feature
+// Learning science-based features following research from Bloom, Vygotsky, and mastery learning
 const features: {
   name: string;
-  description: JSX.Element;
+  title: string;
+  content: {
+    paragraphs: string[];
+  };
+  bullets: string[];
+  result: string;
+  researchLink?: {
+    text: string;
+    url: string;
+  };
   svg: JSX.Element;
 }[] = [
   {
-    name: "Emails",
-    description: (
-      <>
-        <ul className="space-y-1">
-          {[
-            "Send transactional emails",
-            "DNS setup to avoid spam folder (DKIM, DMARC, SPF in subdomain)",
-            "Webhook to receive & forward emails",
-          ].map((item) => (
-            <li key={item} className="flex items-center gap-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-[18px] h-[18px] inline shrink-0 opacity-80"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                  clipRule="evenodd"
-                />
-              </svg>
-
-              {item}
-            </li>
-          ))}
-          <li className="flex items-center gap-3 text-accent font-medium">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-[18px] h-[18px] inline shrink-0"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Time saved: 2 hours
-          </li>
-        </ul>
-      </>
-    ),
+    name: "1-on-1 AI Tutoring",
+    title: "Bloom's 2 Sigma Problem: The Power of Individual Tutoring",
+    content: {
+      paragraphs: [
+        "Benjamin Bloom's landmark 1984 research found that students receiving 1-on-1 tutoring performed two standard deviations better than classroom students. This moves average students to the 98th percentile.",
+        "TimeBack provides each child with their own AI tutor that delivers the individualized instruction Bloom identified as transformational. Unlike classroom teachers managing 30+ students, AI gives 100% focus to your child's unique learning needs.",
+        "Alpha School data confirms Bloom's findings: students average 2.47x faster learning with top performers reaching nearly 4x acceleration through personalized AI tutoring."
+      ]
+    },
+    bullets: [
+      "Proven by 40+ years of research",
+      "Moves average students to top 2%", 
+      "1:1 attention impossible in classrooms",
+      "AI provides infinite patience and precision"
+    ],
+    result: "2x faster learning",
+    researchLink: {
+      text: "Read Bloom's original 2 Sigma research",
+      url: "http://www.ascd.org/ASCD/pdf/journals/ed_lead/el_198405_bloom.pdf"
+    },
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        strokeWidth={1.5}
+        strokeWidth={2}
         stroke="currentColor"
-        className="w-8 h-8"
+        className="w-6 h-6"
       >
         <path
           strokeLinecap="round"
-          d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25"
+          strokeLinejoin="round"
+          d="M12 7v14m0-14l-4 4m4-4l4 4"
         />
       </svg>
     ),
   },
   {
-    name: "Payments",
-    description: (
-      <>
-        <ul className="space-y-2">
-          {[
-            "Create checkout sessions",
-            "Handle webhooks to update user's account",
-            "Tips to setup your account & reduce chargebacks",
-          ].map((item) => (
-            <li key={item} className="flex items-center gap-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-[18px] h-[18px] inline shrink-0 opacity-80"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                  clipRule="evenodd"
-                />
-              </svg>
-
-              {item}
-            </li>
-          ))}
-          <li className="flex items-center gap-3 text-accent font-medium">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-[18px] h-[18px] inline shrink-0"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Time saved: 2 hours
-          </li>
-        </ul>
-      </>
-    ),
+    name: "Mastery Learning", 
+    title: "Mastery Learning Theory: Building Unshakeable Foundations",
+    content: {
+      paragraphs: [
+        "Educational researcher James Block demonstrated that when students master 90-95% of prerequisite knowledge before advancing, they can learn subsequent material much faster and with greater retention.",
+        "Traditional schools move all students forward regardless of understanding, creating cumulative knowledge gaps. TimeBack requires 100% mastery before progression, ensuring every concept becomes a solid foundation for future learning.",
+        "The whitepaper shows this approach prevents the learning decay where average high school seniors perform at the same level as top 3rd graders on standardized tests."
+      ]
+    },
+    bullets: [
+      "100% mastery required before advancing",
+      "Prevents cumulative knowledge gaps", 
+      "Builds exponential learning growth",
+      "Research-proven for 50+ years"
+    ],
+    result: "Rock-solid foundations",
+    researchLink: {
+      text: "Read Block's Mastery Learning research",
+      url: "https://gwern.net/doc/psychology/1971-block-masterylearningtheoryandpractice.pdf"
+    },
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        strokeWidth={1.5}
+        strokeWidth={2}
         stroke="currentColor"
-        className="w-8 h-8"
+        className="w-6 h-6"
       >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
+          d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"
+        />
+        <circle cx="9" cy="7" r="4" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"
         />
       </svg>
     ),
   },
   {
-    name: "Login",
-    description: (
-      <>
-        <ul className="space-y-2">
-          {[
-            "Magic links setup",
-            "Login with Google walkthrough",
-            "Save user data in MongoDB",
-            "Private/protected pages & API calls",
-          ].map((item) => (
-            <li key={item} className="flex items-center gap-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-[18px] h-[18px] inline shrink-0 opacity-80"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                  clipRule="evenodd"
-                />
-              </svg>
-
-              {item}
-            </li>
-          ))}
-          <li className="flex items-center gap-3 text-accent font-medium">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-[18px] h-[18px] inline shrink-0"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Time saved: 3 hours
-          </li>
-        </ul>
-      </>
-    ),
+    name: "Optimal Challenge",
+    title: "Zone of Proximal Development: Perfect Difficulty Calibration", 
+    content: {
+      paragraphs: [
+        "Lev Vygotsky's Zone of Proximal Development theory shows learning accelerates when content is challenging enough to engage students but not so difficult as to overwhelm them.",
+        "TimeBack's AI continuously monitors student performance and adjusts difficulty in real-time. If accuracy drops below 80%, material becomes easier. If above 95%, it increases challenge to maintain optimal learning velocity.",
+        "This dynamic difficulty adjustment keeps students in their peak learning zone, maximizing engagement and knowledge acquisition speed."
+      ]
+    },
+    bullets: [
+      "Real-time difficulty adjustment",
+      "Maintains 80-95% accuracy sweet spot",
+      "Prevents boredom and frustration", 
+      "Maximizes learning velocity"
+    ],
+    result: "Peak performance",
+    researchLink: {
+      text: "Read Vygotsky's Zone of Proximal Development research",
+      url: "https://blogs.ubc.ca/vygotsky/files/2013/11/chaiklin.zpd_.pdf"
+    },
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        strokeWidth={1.5}
+        strokeWidth={2}
         stroke="currentColor"
-        className="w-8 h-8"
+        className="w-6 h-6"
       >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+          d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.563.563 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.563.563 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5z"
         />
       </svg>
     ),
   },
   {
-    name: "Database",
-    description: (
-      <>
-        <ul className="space-y-2">
-          {["Mongoose schema", "Mongoose plugins to make your life easier"].map(
-            (item) => (
-              <li key={item} className="flex items-center gap-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="w-[18px] h-[18px] inline shrink-0 opacity-80"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-
-                {item}
-              </li>
-            )
-          )}
-          <li className="flex items-center gap-3 text-accent font-medium">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-[18px] h-[18px] inline shrink-0"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Time saved: 2 hours
-          </li>
-        </ul>
-      </>
-    ),
+    name: "Struggle Detection",
+    title: "AI Struggle Detection: Immediate Intervention System",
+    content: {
+      paragraphs: [
+        "TimeBack's AI continuously monitors student behavior patterns to detect learning struggles before they become barriers. The system tracks response time, error patterns, and engagement metrics.",
+        "When struggles are detected, the AI immediately provides targeted interventions: simpler explanations, additional practice problems, or prerequisite concept review to address the root cause.",
+        "This prevents the cascade effect where small knowledge gaps compound into major learning deficits, ensuring every student maintains forward momentum."
+      ]
+    },
+    bullets: [
+      "Real-time struggle detection",
+      "Immediate targeted interventions",
+      "Prevents knowledge gaps from compounding",
+      "Maintains continuous learning momentum"
+    ],
+    result: "No student left behind",
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        strokeWidth={1.5}
+        strokeWidth={2}
         stroke="currentColor"
-        className="w-8 h-8"
+        className="w-6 h-6"
       >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"
+          d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
         />
       </svg>
     ),
   },
   {
-    name: "SEO",
-    description: (
-      <>
-        <ul className="space-y-2">
-          {[
-            "All meta tags to rank on Google",
-            "OpenGraph tags to share on social media",
-            "Automated sitemap generation to fasten Google indexing",
-            "Structured data markup for Rich Snippets",
-            "SEO-optimized UI components",
-          ].map((item) => (
-            <li key={item} className="flex items-center gap-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-[18px] h-[18px] inline shrink-0 opacity-80"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                  clipRule="evenodd"
-                />
-              </svg>
-
-              {item}
-            </li>
-          ))}
-          <li className="flex items-center gap-3 text-accent font-medium">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-[18px] h-[18px] inline shrink-0"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Time saved: 6 hours
-          </li>
-        </ul>
-      </>
-    ),
+    name: "Spaced Repetition",
+    title: "Spaced Repetition Science: Long-Term Memory Formation",
+    content: {
+      paragraphs: [
+        "Hermann Ebbinghaus's forgetting curve research shows that without reinforcement, students forget 50% of new information within one hour and 90% within one week.",
+        "TimeBack implements scientifically-optimized spaced repetition, reviewing concepts at precisely calculated intervals to move knowledge from short-term to long-term memory.",
+        "This ensures information retention rates above 95% compared to traditional schools where students often forget material immediately after tests."
+      ]
+    },
+    bullets: [
+      "Scientifically-timed review intervals", 
+      "95% long-term retention rate",
+      "Prevents forgetting curve decay",
+      "Builds permanent knowledge base"
+    ],
+    result: "Permanent learning",
+    researchLink: {
+      text: "Read Ebbinghaus's Forgetting Curve research",
+      url: "https://psychclassics.yorku.ca/Ebbinghaus/memory7.htm"
+    },
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        strokeWidth={1.5}
+        strokeWidth={2}
         stroke="currentColor"
-        className="w-8 h-8"
+        className="w-6 h-6"
       >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9zm3.75 11.625a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
+          d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"
         />
       </svg>
     ),
   },
   {
-    name: "Style",
-    description: (
-      <>
-        <ul className="space-y-2">
-          {[
-            "Components, animations & sections (like the pricing page below)",
-            "20+ themes with daisyUI",
-            "Automatic dark mode",
-          ].map((item) => (
-            <li key={item} className="flex items-center gap-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-[18px] h-[18px] inline shrink-0 opacity-80"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                  clipRule="evenodd"
-                />
-              </svg>
-
-              {item}
-            </li>
-          ))}
-          <li className="flex items-center gap-3 text-accent font-medium">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-[18px] h-[18px] inline shrink-0"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Time saved: 5 hours
-          </li>
-        </ul>
-      </>
-    ),
+    name: "Active Learning",
+    title: "Active Learning Theory: Engagement Through Interaction",
+    content: {
+      paragraphs: [
+        "Educational research consistently shows that active learning—where students engage with material through problem-solving, discussion, and application—produces significantly better outcomes than passive listening.",
+        "TimeBack eliminates passive learning entirely. Students must actively respond to questions, solve problems, and demonstrate understanding before progressing, creating constant engagement.",
+        "The Pomodoro Technique's 25-minute focused sessions combined with active learning principles maximize concentration and knowledge retention while preventing cognitive overload."
+      ]
+    },
+    bullets: [
+      "100% active engagement required",
+      "Eliminates passive learning", 
+      "25-minute focused sessions",
+      "Prevents cognitive overload"
+    ],
+    result: "Deep engagement",
+    researchLink: {
+      text: "Read Freeman's Active Learning research",
+      url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4060654/"
+    },
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        strokeWidth={1.5}
+        strokeWidth={2}
         stroke="currentColor"
-        className="w-8 h-8"
+        className="w-6 h-6"
       >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"
+          d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"
         />
       </svg>
     ),
   },
 ];
 
-// A list of features with a listicle style.
-// - Click on a feature to display its description.
-// - Good to use when multiples features are available.
-// - Autoscroll the list of features (optional).
+// Interactive features component with split layout design
 const FeaturesListicle = () => {
-  const featuresEndRef = useRef<null>(null);
-  const [featureSelected, setFeatureSelected] = useState<string>(
-    features[0].name
+  const [featureSelected, setFeatureSelected] = useState(0);
+  
+  const selectedFeature = features[featureSelected];
+
+  const FeatureButton = ({ feature, index, isActive }: { 
+    feature: typeof features[0]; 
+    index: number; 
+    isActive: boolean; 
+  }) => (
+    <button
+      onClick={() => setFeatureSelected(index)}
+              className={`w-full flex items-center justify-between p-4 md:p-6 rounded-xl border transition-all duration-300 text-left transform hover:scale-[1.02] ${
+        isActive 
+                          ? "bg-timeback-primary text-white border-timeback-primary shadow-2xl shadow-timeback-primary/25"
+                          : "bg-white text-timeback-primary border-timeback-primary hover:border-timeback-primary hover:shadow-2xl hover:bg-timeback-bg/50"
+      }`}
+    >
+      <div className="flex items-center gap-4">
+        <div className={`p-2 rounded-xl transition-colors duration-300 ${isActive ? "bg-white/20" : "bg-timeback-bg"}`}>
+          <div className={`transition-colors duration-300 ${isActive ? "text-white" : "text-timeback-primary"}`}>
+            {feature.svg}
+          </div>
+        </div>
+        <span className="font-semibold text-base md:text-lg font-cal">
+          {feature.name}
+        </span>
+      </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={`transition-transform duration-300 ${isActive ? "rotate-90" : ""}`}
+      >
+        <path d="m9 18 6-6-6-6" />
+      </svg>
+    </button>
   );
-  const [hasClicked, setHasClicked] = useState<boolean>(false);
-
-  // (Optional) Autoscroll the list of features so user know it's interactive.
-  // Stop scrolling when user scroll after the featuresEndRef element (end of section)
-  // emove useEffect is not needed.
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!hasClicked) {
-        const index = features.findIndex(
-          (feature) => feature.name === featureSelected
-        );
-        const nextIndex = (index + 1) % features.length;
-        setFeatureSelected(features[nextIndex].name);
-      }
-    }, 5000);
-
-    try {
-      // stop the interval when the user scroll after the featuresRef element
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            console.log("STOP AUTO CHANGE");
-            clearInterval(interval);
-          }
-        },
-        {
-          root: null,
-          rootMargin: "0px",
-          threshold: 0.5,
-        }
-      );
-      if (featuresEndRef.current) {
-        observer.observe(featuresEndRef.current);
-      }
-    } catch (e) {
-      console.error(e);
-    }
-
-    return () => clearInterval(interval);
-  }, [featureSelected, hasClicked]);
 
   return (
-    <section className="py-24" id="features">
-      <div className="max-w-3xl mx-auto">
-        <div className="bg-base-100 max-md:px-8 max-w-3xl">
-          <p className="text-accent font-medium text-sm font-mono mb-3">
-            {/* Pure decoration, you can remove it */}
-            const launch_time = &quot;Today&quot;;
-          </p>
-          <h2 className="font-extrabold text-3xl lg:text-5xl tracking-tight mb-8">
-            {/* 💡 COPY TIP: Remind visitors about the value of your product. Why do they need it? */}
-            Supercharge your app instantly, launch faster, make $
+    <section className="bg-gradient-to-br from-timeback-bg via-white to-white relative">
+      <div className="max-w-7xl mx-auto px-8 py-16 md:py-32 relative">
+        {/* Header */}
+        <motion.div 
+          variants={animationVariants.fadeInUp}
+          whileInView="animate"
+          initial="initial"
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-12 md:mb-20 font-cal"
+        >
+          <h2 className="font-extrabold text-3xl md:text-5xl tracking-tight mb-6 bg-gradient-to-r from-timeback-primary via-timeback-primary to-timeback-primary bg-clip-text text-transparent font-cal">
+            The Learning Science Behind TimeBack
           </h2>
-          <div className="text-base-content/80 leading-relaxed mb-8 lg:text-lg">
-            {/* 💡 COPY TIP: Explain how your product delivers what you promise in the headline. */}
-            Login users, process payments and send emails at lightspeed. Spend
-            your time building your startup, not integrating APIs. ShipFast
-            provides you with the boilerplate code you need to launch, FAST.
-          </div>
-        </div>
-      </div>
+          <p className="text-lg md:text-xl text-timeback-primary max-w-2xl mx-auto leading-relaxed font-cal">
+            Six research-proven learning theories transformed into AI-powered education
+          </p>
+        </motion.div>
 
-      <div>
-        <div className="grid grid-cols-4 md:flex justify-start gap-4 md:gap-12 max-md:px-8 max-w-3xl mx-auto mb-8">
-          {features.map((feature) => (
-            <span
-              key={feature.name}
-              onClick={() => {
-                if (!hasClicked) setHasClicked(true);
-                setFeatureSelected(feature.name);
-              }}
-              className={`flex flex-col items-center justify-center gap-3 select-none cursor-pointer p-2 duration-200 group`}
-            >
-              <span
-                className={`duration-100 ${
-                  featureSelected === feature.name
-                    ? "text-primary"
-                    : "text-base-content/30 group-hover:text-base-content/50"
-                }`}
-              >
-                {feature.svg}
-              </span>
-              <span
-                className={`font-semibold text-sm ${
-                  featureSelected === feature.name
-                    ? "text-primary"
-                    : "text-base-content/50"
-                }`}
-              >
-                {feature.name}
-              </span>
-            </span>
-          ))}
-        </div>
-        <div className="bg-base-200">
-          <div className="max-w-3xl mx-auto flex flex-col md:flex-row justify-center md:justify-start md:items-center gap-12">
-            <div
-              className="text-base-content/80 leading-relaxed space-y-4 px-12 md:px-0 py-12 max-w-xl animate-opacity"
-              key={featureSelected}
-            >
-              <h3 className="font-semibold text-base-content text-lg">
-                {features.find((f) => f.name === featureSelected)["name"]}
-              </h3>
+        {/* Main Content Area */}
+        <motion.div 
+          variants={animationVariants.fadeInUp}
+          whileInView="animate"
+          initial="initial"
+          viewport={{ once: true, margin: "-50px" }}
+          className="flex flex-col lg:flex-row gap-8 md:gap-12"
+        >
+          {/* Content Panel - Desktop: Left side, Mobile: Top */}
+          <div className="lg:w-3/5 order-2 lg:order-1">
+            <div className="bg-white rounded-xl border border-timeback-primary shadow-2xl shadow-timeback-primary/10 p-8 md:p-12 min-h-[500px] lg:min-h-[600px] backdrop-blur-sm">
+              <div className="h-full flex flex-col">
+                <div className="flex-1">
+                  <h3 className="text-2xl md:text-3xl font-bold text-timeback-primary mb-6 font-cal">
+                    {selectedFeature.title}
+                  </h3>
+                  
+                  <div className="space-y-4 mb-8">
+                    {selectedFeature.content.paragraphs.map((paragraph, index) => (
+                      <p key={index} className="text-base md:text-lg text-timeback-primary leading-relaxed font-cal">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </div>
 
-              {features.find((f) => f.name === featureSelected)["description"]}
+                {selectedFeature.researchLink && (
+                  <div className="border-t border-timeback-primary pt-6">
+                    <a
+                      href={selectedFeature.researchLink.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-timeback-primary font-semibold hover:text-timeback-primary transition-colors font-cal"
+                    >
+                      {selectedFeature.researchLink.text}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M15 3h6v6" />
+                        <path d="M10 14 21 3" />
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                      </svg>
+                    </a>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
+
+          {/* Feature Navigation - Desktop: Right side, Mobile: Bottom */}
+          <div className="lg:w-2/5 order-1 lg:order-2">
+            {/* Desktop Layout */}
+            <div className="hidden lg:block space-y-4">
+              {features.map((feature, index) => (
+                <FeatureButton
+                  key={index}
+                  feature={feature}
+                  index={index}
+                  isActive={featureSelected === index}
+                />
+              ))}
+            </div>
+
+            {/* Mobile Layout */}
+            <div className="lg:hidden">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {features.map((feature, index) => (
+                  <FeatureButton
+                    key={index}
+                    feature={feature}
+                    index={index}
+                    isActive={featureSelected === index}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
-      {/* Just used to know it's the end of the autoscroll feature (optional, see useEffect) */}
-      <p className="opacity-0" ref={featuresEndRef}></p>
     </section>
   );
 };

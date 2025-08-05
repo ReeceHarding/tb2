@@ -1,0 +1,277 @@
+{
+  "school": {
+    "name": "2 Hour Learning",
+    "id": "2-hour-learning",
+    "city": "Unknown",
+    "state": "Unknown",
+    "type": "special",
+    "extractionDate": "2025-08-03T21:49:30.901Z"
+  },
+  "marketing": {
+    "images": [
+      {
+        "originalName": "Kids Happiness.png",
+        "organizedName": "2-hour-learning_1_Kids_Happiness.png",
+        "localPath": "/special-schools/images/2-hour-learning_1_Kids_Happiness.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 61586,
+        "googleDriveId": "1TEKXpE68LdWKum3ykp-QZL-THgnlmuUA",
+        "downloadUrl": "https://drive.google.com/uc?id=1TEKXpE68LdWKum3ykp-QZL-THgnlmuUA&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1TEKXpE68LdWKum3ykp-QZL-THgnlmuUA/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBO5qP_zs4DCa7UMR6x2ZTmXoY1B3SsCtCI49ZVZJ0QTglgdhTvxMTGKvKQ889lGte1cD00m-A5VTt4uZPfY2gMG7Drd2uATqfy20Q=s220",
+        "category": "Marketing Content"
+      },
+      {
+        "originalName": "Grade Knowledge Range.png",
+        "organizedName": "2-hour-learning_2_Grade_Knowledge_Range.png",
+        "localPath": "/special-schools/images/2-hour-learning_2_Grade_Knowledge_Range.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 121876,
+        "googleDriveId": "18VgIZRlvNzz7QCf4TyWj8Odj8mtIV4LW",
+        "downloadUrl": "https://drive.google.com/uc?id=18VgIZRlvNzz7QCf4TyWj8Odj8mtIV4LW&export=download",
+        "webViewLink": "https://drive.google.com/file/d/18VgIZRlvNzz7QCf4TyWj8Odj8mtIV4LW/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMhPApbAGd7UZkG6Q2K79KXy8xhXJpfDvvJ-zSbrkIeApa_UNnA7gI9saZ4x6jCQTsrlAJw1ue10nwGoeaXjWmcXeIXS6o73LXgAw=s220",
+        "category": "Marketing Content"
+      },
+      {
+        "originalName": "Map Results.png",
+        "organizedName": "2-hour-learning_3_Map_Results.png",
+        "localPath": "/special-schools/images/2-hour-learning_3_Map_Results.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 68136,
+        "googleDriveId": "1BVDp7SGzVdLHO_NDLoLYqAxVyXGz1jNx",
+        "downloadUrl": "https://drive.google.com/uc?id=1BVDp7SGzVdLHO_NDLoLYqAxVyXGz1jNx&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1BVDp7SGzVdLHO_NDLoLYqAxVyXGz1jNx/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMjW4N5SZF569QnC4V_E4sg_EixN1iggYp3c1_FhDy--FRE2MM-1dPyoBlYy6sB5xrs9-BlXPi1W_j9ecDRohR2-iOfGy9acgjwBQ=s220",
+        "category": "Marketing Content"
+      },
+      {
+        "originalName": "2HL_Linktree (1).svg",
+        "organizedName": "2-hour-learning_4_2HL_Linktree__1_.svg",
+        "localPath": "/special-schools/images/2-hour-learning_4_2HL_Linktree__1_.svg",
+        "fileType": "image",
+        "mimeType": "image/svg+xml",
+        "size": 48437,
+        "googleDriveId": "14AhYf2VbrGikZn9mL5aKnIPewNl040UA",
+        "downloadUrl": "https://drive.google.com/uc?id=14AhYf2VbrGikZn9mL5aKnIPewNl040UA&export=download",
+        "webViewLink": "https://drive.google.com/file/d/14AhYf2VbrGikZn9mL5aKnIPewNl040UA/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBM72l34TdKF8Hw5JmG9fbETIPEfzr_UKwg-x9Ic6ojqfP2yX1dpEiwdRuRLLEg8XbT1nxMLkyco7KUmXMiq21ce0gCJeP4rP73jvQ=s220",
+        "category": "Marketing Content"
+      },
+      {
+        "originalName": "2HL_Website.svg",
+        "organizedName": "2-hour-learning_5_2HL_Website.svg",
+        "localPath": "/special-schools/images/2-hour-learning_5_2HL_Website.svg",
+        "fileType": "image",
+        "mimeType": "image/svg+xml",
+        "size": 50132,
+        "googleDriveId": "1ALjiFllkDn0V1bCFS_9HId31fayDyrDv",
+        "downloadUrl": "https://drive.google.com/uc?id=1ALjiFllkDn0V1bCFS_9HId31fayDyrDv&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1ALjiFllkDn0V1bCFS_9HId31fayDyrDv/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPMApwkUzn5R99Y1KNs4bjGc2E79RqK_Q1WBo_P4cnq73TItWp08w1xfhxqUX8y5XCF4V0h8ElyJId3lRyXPhbZ2W3lxj042NTpKA=s220",
+        "category": "Marketing Content"
+      }
+    ],
+    "videos": [
+      {
+        "originalName": "2 Hour Learning Deep Dive.mp4",
+        "organizedName": "2-hour-learning_1_2_Hour_Learning_Deep_Dive.mp4",
+        "localPath": "/special-schools/videos/2-hour-learning_1_2_Hour_Learning_Deep_Dive.mp4",
+        "fileType": "video",
+        "mimeType": "video/mp4",
+        "size": 339107005,
+        "googleDriveId": "1-3zGQbrq-cQ75dBNAiV8A-tFigYGB9eu",
+        "downloadUrl": "https://drive.google.com/uc?id=1-3zGQbrq-cQ75dBNAiV8A-tFigYGB9eu&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1-3zGQbrq-cQ75dBNAiV8A-tFigYGB9eu/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPk4oI2fvrbvIlTNQMW89cChC_1o9R2UzkpvAVFTZw1BRu0Cr_HURo6X0AkRMFXyThQBcRCoE6muD_LKMfGDiEbzNYZoya7JMg2=s220",
+        "category": "Marketing Video"
+      }
+    ],
+    "documents": [
+      {
+        "originalName": "2 Hour Learning | Deep Dive Document",
+        "organizedName": "2-hour-learning_1_2_Hour_Learning___Deep_Dive_Document",
+        "localPath": "/special-schools/documents/2-hour-learning_1_2_Hour_Learning___Deep_Dive_Document",
+        "fileType": "document",
+        "mimeType": "application/vnd.google-apps.document",
+        "size": 370274,
+        "googleDriveId": "1qnrf13FhM2MnSXRQ2g4W-gYmpppBk3aJbCq-WYCapto",
+        "downloadUrl": "https://drive.google.com/uc?id=1qnrf13FhM2MnSXRQ2g4W-gYmpppBk3aJbCq-WYCapto&export=download",
+        "webViewLink": "https://docs.google.com/document/d/1qnrf13FhM2MnSXRQ2g4W-gYmpppBk3aJbCq-WYCapto/edit?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "2HL Canva Templates",
+        "organizedName": "2-hour-learning_2_2HL_Canva_Templates",
+        "localPath": "/special-schools/documents/2-hour-learning_2_2HL_Canva_Templates",
+        "fileType": "document",
+        "mimeType": "application/vnd.google-apps.document",
+        "size": 1263,
+        "googleDriveId": "1452KbLrCBkssusVqYWnlGTGlatkVKogmkg7m8hJjOOQ",
+        "downloadUrl": "https://drive.google.com/uc?id=1452KbLrCBkssusVqYWnlGTGlatkVKogmkg7m8hJjOOQ&export=download",
+        "webViewLink": "https://docs.google.com/document/d/1452KbLrCBkssusVqYWnlGTGlatkVKogmkg7m8hJjOOQ/edit?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "Dr Yeager V3.pptx",
+        "organizedName": "2-hour-learning_3_Dr_Yeager_V3.pptx",
+        "localPath": "/special-schools/documents/2-hour-learning_3_Dr_Yeager_V3.pptx",
+        "fileType": "document",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "size": 576007836,
+        "googleDriveId": "1XMKZQnHZEbO4cbr68FxTvFUYxlBT3gnX",
+        "downloadUrl": "https://drive.google.com/uc?id=1XMKZQnHZEbO4cbr68FxTvFUYxlBT3gnX&export=download",
+        "webViewLink": "https://docs.google.com/presentation/d/1XMKZQnHZEbO4cbr68FxTvFUYxlBT3gnX/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "category": "Presentations"
+      },
+      {
+        "originalName": "2 Hour Learning 1-2 Pager Outline.docx",
+        "organizedName": "2-hour-learning_4_2_Hour_Learning_1-2_Pager_Outline.docx",
+        "localPath": "/special-schools/documents/2-hour-learning_4_2_Hour_Learning_1-2_Pager_Outline.docx",
+        "fileType": "document",
+        "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "size": 1525067,
+        "googleDriveId": "1xCyLwEpVOjEOb7pSAb48dKETBzIM7zLu",
+        "downloadUrl": "https://drive.google.com/uc?id=1xCyLwEpVOjEOb7pSAb48dKETBzIM7zLu&export=download",
+        "webViewLink": "https://docs.google.com/document/d/1xCyLwEpVOjEOb7pSAb48dKETBzIM7zLu/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "2 Hour Learning | Deep Dive Document.pdf",
+        "organizedName": "2-hour-learning_5_2_Hour_Learning___Deep_Dive_Document.pdf",
+        "localPath": "/special-schools/documents/2-hour-learning_5_2_Hour_Learning___Deep_Dive_Document.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 9618083,
+        "googleDriveId": "1FdlSKgl5Z_6j95cnHVd4DXBpSrvEsqTl",
+        "downloadUrl": "https://drive.google.com/uc?id=1FdlSKgl5Z_6j95cnHVd4DXBpSrvEsqTl&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1FdlSKgl5Z_6j95cnHVd4DXBpSrvEsqTl/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "2 Hour Learning | MAP Results | Fall 23-24.pdf",
+        "organizedName": "2-hour-learning_6_2_Hour_Learning___MAP_Results___Fall_23-24.pdf",
+        "localPath": "/special-schools/documents/2-hour-learning_6_2_Hour_Learning___MAP_Results___Fall_23-24.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 5397388,
+        "googleDriveId": "1-FggDNer_Q1Ew3xmI3LbFIjbUw9mES2S",
+        "downloadUrl": "https://drive.google.com/uc?id=1-FggDNer_Q1Ew3xmI3LbFIjbUw9mES2S&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1-FggDNer_Q1Ew3xmI3LbFIjbUw9mES2S/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "Austin Summer Camps 2025.pdf",
+        "organizedName": "2-hour-learning_7_Austin_Summer_Camps_2025.pdf",
+        "localPath": "/special-schools/documents/2-hour-learning_7_Austin_Summer_Camps_2025.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 117064,
+        "googleDriveId": "1R99gk7xEcKzGUR0ofg89bfceNfk0TddY",
+        "downloadUrl": "https://drive.google.com/uc?id=1R99gk7xEcKzGUR0ofg89bfceNfk0TddY&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1R99gk7xEcKzGUR0ofg89bfceNfk0TddY/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "Example Student Motivational Tracker.pdf",
+        "organizedName": "2-hour-learning_8_Example_Student_Motivational_Tracker.pdf",
+        "localPath": "/special-schools/documents/2-hour-learning_8_Example_Student_Motivational_Tracker.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 49014,
+        "googleDriveId": "1B-bnP3IuIoYjWNlQCZoAY66EKDB2U4te",
+        "downloadUrl": "https://drive.google.com/uc?id=1B-bnP3IuIoYjWNlQCZoAY66EKDB2U4te&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1B-bnP3IuIoYjWNlQCZoAY66EKDB2U4te/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "2HL Example School Calendar.pdf",
+        "organizedName": "2-hour-learning_9_2HL_Example_School_Calendar.pdf",
+        "localPath": "/special-schools/documents/2-hour-learning_9_2HL_Example_School_Calendar.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 233805,
+        "googleDriveId": "1lCwWe53KUsZdLIbpauU96K7xia6y0Xrh",
+        "downloadUrl": "https://drive.google.com/uc?id=1lCwWe53KUsZdLIbpauU96K7xia6y0Xrh&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1lCwWe53KUsZdLIbpauU96K7xia6y0Xrh/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "2HLPresentation Template 2024.pptx",
+        "organizedName": "2-hour-learning_10_2HLPresentation_Template_2024.pptx",
+        "localPath": "/special-schools/documents/2-hour-learning_10_2HLPresentation_Template_2024.pptx",
+        "fileType": "document",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "size": 323234,
+        "googleDriveId": "17J_IbgPe0FW09oI2UWGGwiPWD4DRg9hD",
+        "downloadUrl": "https://drive.google.com/uc?id=17J_IbgPe0FW09oI2UWGGwiPWD4DRg9hD&export=download",
+        "webViewLink": "https://docs.google.com/presentation/d/17J_IbgPe0FW09oI2UWGGwiPWD4DRg9hD/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "category": "Presentations"
+      },
+      {
+        "originalName": "2HLPresentation Template 2025.pptx",
+        "organizedName": "2-hour-learning_11_2HLPresentation_Template_2025.pptx",
+        "localPath": "/special-schools/documents/2-hour-learning_11_2HLPresentation_Template_2025.pptx",
+        "fileType": "document",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "size": 267027,
+        "googleDriveId": "1L_eyrMNL7zeXpgmAsTDYFJFAwIaPTEWq",
+        "downloadUrl": "https://drive.google.com/uc?id=1L_eyrMNL7zeXpgmAsTDYFJFAwIaPTEWq&export=download",
+        "webViewLink": "https://docs.google.com/presentation/d/1L_eyrMNL7zeXpgmAsTDYFJFAwIaPTEWq/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "category": "Presentations"
+      },
+      {
+        "originalName": "2HLPresentation Basic Deck 2024.pptx",
+        "organizedName": "2-hour-learning_12_2HLPresentation_Basic_Deck_2024.pptx",
+        "localPath": "/special-schools/documents/2-hour-learning_12_2HLPresentation_Basic_Deck_2024.pptx",
+        "fileType": "document",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "size": 13040932,
+        "googleDriveId": "17c2Hv1N29lGSWiUxHwtwXh2QvAdmRJ0O",
+        "downloadUrl": "https://drive.google.com/uc?id=17c2Hv1N29lGSWiUxHwtwXh2QvAdmRJ0O&export=download",
+        "webViewLink": "https://docs.google.com/presentation/d/17c2Hv1N29lGSWiUxHwtwXh2QvAdmRJ0O/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "category": "Presentations"
+      },
+      {
+        "originalName": "2 Hour Learning - Business Card 3.5x2 inch - Joanna V1.pdf",
+        "organizedName": "2-hour-learning_13_2_Hour_Learning_-_Business_Card_3.5x2_inch_-_Joanna_V1.pdf",
+        "localPath": "/special-schools/documents/2-hour-learning_13_2_Hour_Learning_-_Business_Card_3.5x2_inch_-_Joanna_V1.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 151864,
+        "googleDriveId": "18gsV1-HH5Bh9cAHzkpQjp6A-AYpL33yn",
+        "downloadUrl": "https://drive.google.com/uc?id=18gsV1-HH5Bh9cAHzkpQjp6A-AYpL33yn&export=download",
+        "webViewLink": "https://drive.google.com/file/d/18gsV1-HH5Bh9cAHzkpQjp6A-AYpL33yn/view?usp=drivesdk",
+        "category": "Business Materials"
+      },
+      {
+        "originalName": "2 Hour Learning - Business Card 3.5x2 inch - MacKenzie V1.pdf",
+        "organizedName": "2-hour-learning_14_2_Hour_Learning_-_Business_Card_3.5x2_inch_-_MacKenzie_V1.pdf",
+        "localPath": "/special-schools/documents/2-hour-learning_14_2_Hour_Learning_-_Business_Card_3.5x2_inch_-_MacKenzie_V1.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 150463,
+        "googleDriveId": "1LIYhUdOBMM-kruN6pMWEVrgq5yYXamie",
+        "downloadUrl": "https://drive.google.com/uc?id=1LIYhUdOBMM-kruN6pMWEVrgq5yYXamie&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1LIYhUdOBMM-kruN6pMWEVrgq5yYXamie/view?usp=drivesdk",
+        "category": "Business Materials"
+      }
+    ],
+    "totalAssets": 20
+  },
+  "metadata": {
+    "hasMarketingFolder": true,
+    "marketingFolderId": "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8",
+    "contentCategories": [
+      "Marketing Content",
+      "Marketing Video",
+      "Marketing Documents",
+      "Presentations",
+      "Business Materials"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.944Z"
+  }
+}

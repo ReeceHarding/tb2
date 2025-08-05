@@ -1,0 +1,65 @@
+{
+  "fileName": "0803 (1)-1.mp4",
+  "transcription": "My name is Chloe and I'm an L2. I love Alpha because I can learn at my own pace whether I'm ahead or behind the glass.",
+  "fullTranscript": {
+    "text": " My name is Chloe and I'm an L2. I love Alpha because I can learn at my own pace whether I'm ahead or behind the glass.",
+    "segments": [
+      {
+        "id": 0,
+        "seek": 0,
+        "start": 0,
+        "end": 7,
+        "text": " My name is Chloe and I'm an L2. I love Alpha because I can learn at my own pace whether I'm ahead or behind the glass.",
+        "tokens": [
+          50364,
+          1222,
+          1315,
+          307,
+          29694,
+          293,
+          286,
+          478,
+          364,
+          441,
+          17,
+          13,
+          286,
+          959,
+          20588,
+          570,
+          286,
+          393,
+          1466,
+          412,
+          452,
+          1065,
+          11638,
+          1968,
+          286,
+          478,
+          2286,
+          420,
+          2261,
+          264,
+          4276,
+          13,
+          50714
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.23589310926549575,
+        "compression_ratio": 1.1346153846153846,
+        "no_speech_prob": 0.0034592703450471163
+      }
+    ],
+    "language": "en"
+  },
+  "timestamp": "2025-08-03T23:07:30.023Z",
+  "duration": null,
+  "metadata": {
+    "duration": 7,
+    "fileSize": 7508705,
+    "width": 1920,
+    "height": 1080,
+    "bitrate": 8705744
+  }
+}

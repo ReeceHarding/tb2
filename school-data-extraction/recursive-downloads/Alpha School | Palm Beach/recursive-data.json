@@ -1,0 +1,64 @@
+{
+  "school": {
+    "name": "Alpha School | Palm Beach",
+    "id": "alpha-school-palm-beach",
+    "extractionDate": "2025-08-03T21:49:19.590Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1yoJosOFbVXq2FR_k0Gd--ncWnVyle06k"
+        ],
+        "id": "1nmPlTTpaExG9-eu-VpWoo6ewxVQJJ1b2",
+        "name": "Palm Beach .pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1nmPlTTpaExG9-eu-VpWoo6ewxVQJJ1b2/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMO37wDC_JXpg3WiVpR-S56cDm-LTNX3tNlrgvz2Nd9FM7e-Ts-_5HB4xZHbikCXRh9OJaTg4T-uUPbgiBfzHNGwsPnvYxF_lnDnQ=s220",
+        "size": "1178170"
+      },
+      {
+        "parents": [
+          "1yoJosOFbVXq2FR_k0Gd--ncWnVyle06k"
+        ],
+        "id": "1WXlCjv21WUKIdnW4EhsD0tO_nc65s4m3",
+        "name": "Alpha Palm Beach - Now Enrolling 2025.2026 (FinalPrint) (1).pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1WXlCjv21WUKIdnW4EhsD0tO_nc65s4m3/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMSNQ2a5G64JYzN9Mz5QkI9jxvQR9Ulqb02bmpNL4Exc02nPbbZ0lpILNBdhjZScpGvX2_ZzVzX6sMfw0dFcc0t3_JSJ6mEfmq3Dw=s220",
+        "size": "13035573"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1yoJosOFbVXq2FR_k0Gd--ncWnVyle06k"
+        ],
+        "id": "1sgGLEz5-atiVoinaFXkQlFXkd132JC82",
+        "name": "Ads",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1sgGLEz5-atiVoinaFXkQlFXkd132JC82"
+      },
+      {
+        "parents": [
+          "1yoJosOFbVXq2FR_k0Gd--ncWnVyle06k"
+        ],
+        "id": "1h5Q3Sy1MA_Ks-UWQX-lQRswFkh9DtTQW",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1h5Q3Sy1MA_Ks-UWQX-lQRswFkh9DtTQW"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 2,
+    "folders": 2,
+    "other": 0,
+    "total": 4
+  }
+}

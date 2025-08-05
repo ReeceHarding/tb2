@@ -5,11 +5,81 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./styles/globals.css",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        'cal': ['Cal Sans', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        'satoshi': ['Satoshi', 'Inter', 'system-ui', 'sans-serif'], 
+        'crimson': ['Crimson Pro', 'Georgia', 'serif'],
+      },
+      colors: {
+        // TimeBack Color Scheme
+        'timeback': {
+          'bg': '#1abeff',     // Light blue background
+          'primary': '#0f33bb', // Dark blue primary
+          'white': '#ffffff',   // White accents
+        },
+        // Replace old brand colors with TimeBack equivalents
+        'brand': {
+          'primary': '#0f33bb', // Dark blue (main brand color)
+          'secondary': '#1abeff', // Light blue
+          'accent': '#0f33bb', // Dark blue accent
+          'dark': '#0f33bb', // Dark blue
+        },
+        // Update existing corn colors to blue variants
+        'corn': {
+          '50': '#e6f3ff', // Very light blue
+          '100': '#cce7ff', // Light blue
+          '200': '#99d5ff', // Soft blue
+          '300': '#66c2ff', // Sky blue
+          '400': '#33b0ff', // Medium blue
+          '500': '#1abeff', // TimeBack background blue
+        },
+        // CSS Variables compatibility
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))'
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))'
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))'
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))'
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))'
+        },
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))'
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))'
+        },
+      },
       backgroundImage: {
-        gradient:
-          "linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82)",
+        gradient: "linear-gradient(60deg, #0f33bb, #1abeff, #0f33bb)",
+        'timeback-gradient': "linear-gradient(135deg, #1abeff 0%, #0f33bb 100%)",
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+        xl: '12px', // TimeBack rounded-xl
       },
       animation: {
         opacity: "opacity 0.25s ease-in-out",

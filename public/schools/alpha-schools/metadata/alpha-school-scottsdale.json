@@ -1,0 +1,61 @@
+{
+  "school": {
+    "id": "alpha-school-scottsdale",
+    "name": "Alpha School | Scottsdale",
+    "originalName": "Alpha School | Scottsdale",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "15_hwRBAHXa_QUHUAW6uU-0WVguYbjydI"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1Ir_DxxsVWTW002KTcBrVODW_439U8Bwb",
+        "originalName": "Alpha Scottsdale - Now Enrolling 2025.2026 (3).pdf",
+        "organizedName": "alpha-school-scottsdale_1_Alpha-Scottsdale-Now-Enrolling-20252026-3.pdf",
+        "mimeType": "application/pdf",
+        "size": 12952390,
+        "webViewLink": "https://drive.google.com/file/d/1Ir_DxxsVWTW002KTcBrVODW_439U8Bwb/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1Ir_DxxsVWTW002KTcBrVODW_439U8Bwb&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-scottsdale_1_Alpha-Scottsdale-Now-Enrolling-20252026-3.pdf",
+        "extractionDate": "2025-08-03T21:37:11.326Z"
+      }
+    ],
+    "other": [
+      {
+        "id": "1_Ze0QWK9AledVhi7e4zFVrd1O5c-434J",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-scottsdale_2_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1_Ze0QWK9AledVhi7e4zFVrd1O5c-434J",
+        "downloadUrl": "https://drive.google.com/uc?id=1_Ze0QWK9AledVhi7e4zFVrd1O5c-434J&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-scottsdale_2_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:11.326Z"
+      },
+      {
+        "id": "1CY69E6JDGxlVjl3qJdVLBvVvv6gEyyz3",
+        "originalName": "25 / 26 Calendar",
+        "organizedName": "alpha-school-scottsdale_3_-26-Calendar",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1CY69E6JDGxlVjl3qJdVLBvVvv6gEyyz3",
+        "downloadUrl": "https://drive.google.com/uc?id=1CY69E6JDGxlVjl3qJdVLBvVvv6gEyyz3&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-scottsdale_3_-26-Calendar",
+        "extractionDate": "2025-08-03T21:37:11.326Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 3,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 1,
+    "otherCount": 2
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:11.326Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

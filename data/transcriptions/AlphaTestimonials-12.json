@@ -1,0 +1,120 @@
+{
+  "fileName": "AlphaTestimonials-12.mp4",
+  "transcription": "I'm Shepard and I'm nine years old. What I love about Alpha is the freedom we get here that isn't like another school and how we get rewarded for our ambition and hard work.",
+  "fullTranscript": {
+    "text": " I'm Shepard and I'm nine years old. What I love about Alpha is the freedom we get here that isn't like another school and how we get rewarded for our ambition and hard work.",
+    "segments": [
+      {
+        "id": 0,
+        "seek": 0,
+        "start": 0,
+        "end": 1.6400000000000001,
+        "text": " I'm Shepard and I'm nine years old.",
+        "tokens": [
+          50364,
+          286,
+          478,
+          1160,
+          595,
+          515,
+          293,
+          286,
+          478,
+          4949,
+          924,
+          1331,
+          13,
+          50446
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.27049907684326174,
+        "compression_ratio": 1.3206106870229009,
+        "no_speech_prob": 0.013356940820813179
+      },
+      {
+        "id": 1,
+        "seek": 0,
+        "start": 1.6400000000000001,
+        "end": 3.7600000000000002,
+        "text": " What I love about Alpha is the freedom we get here",
+        "tokens": [
+          50446,
+          708,
+          286,
+          959,
+          466,
+          20588,
+          307,
+          264,
+          5645,
+          321,
+          483,
+          510,
+          50552
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.27049907684326174,
+        "compression_ratio": 1.3206106870229009,
+        "no_speech_prob": 0.013356940820813179
+      },
+      {
+        "id": 2,
+        "seek": 0,
+        "start": 3.7600000000000002,
+        "end": 5.08,
+        "text": " that isn't like another school",
+        "tokens": [
+          50552,
+          300,
+          1943,
+          380,
+          411,
+          1071,
+          1395,
+          50618
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.27049907684326174,
+        "compression_ratio": 1.3206106870229009,
+        "no_speech_prob": 0.013356940820813179
+      },
+      {
+        "id": 3,
+        "seek": 0,
+        "start": 5.08,
+        "end": 7.84,
+        "text": " and how we get rewarded for our ambition and hard work.",
+        "tokens": [
+          50618,
+          293,
+          577,
+          321,
+          483,
+          29105,
+          337,
+          527,
+          22814,
+          293,
+          1152,
+          589,
+          13,
+          50756
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.27049907684326174,
+        "compression_ratio": 1.3206106870229009,
+        "no_speech_prob": 0.013356940820813179
+      }
+    ],
+    "language": "en"
+  },
+  "timestamp": "2025-08-03T23:11:55.196Z",
+  "duration": null,
+  "metadata": {
+    "duration": 8,
+    "fileSize": 9795216,
+    "width": 1920,
+    "height": 1080,
+    "bitrate": 10310753
+  }
+}

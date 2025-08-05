@@ -1,0 +1,27 @@
+{
+  "school": {
+    "name": "Alpha School | Tampa",
+    "id": "1MjTMUS3D42d3aZuzc-NNVIOFOt0gAPqm",
+    "extractionDate": "2025-08-03T21:37:14.910Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1brCEBe1OEfc79PA_h0eK1dX91jBajWQE",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1brCEBe1OEfc79PA_h0eK1dX91jBajWQE"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 0,
+    "other": 1,
+    "total": 1
+  }
+}

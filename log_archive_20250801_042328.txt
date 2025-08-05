@@ -1,0 +1,613 @@
+================================================================================
+LOG FILE ROTATED AT 2025-08-01T09:22:48.123Z
+================================================================================
+Previous log archived to: logs/log-2025-08-01T09-22-47-956Z.txt.gz
+Continuing logging in new file...
+================================================================================
+
+
+================================================================================
+NEW TERMINAL SESSION STARTED
+================================================================================
+Session started at: 2025-08-01T09:22:47.950Z
+Working directory: /Users/reeceharding/ship-fast-ts-3
+Command: next build
+Node version: v20.19.2
+Platform: darwin
+Log cleared: NO
+================================================================================
+
+[2025-08-01T09:22:48.123Z] [COMMAND] Executing command: next build
+[2025-08-01T09:22:48.747Z] [STDOUT] ▲ Next.js 14.1.4
+[2025-08-01T09:22:48.747Z] [STDOUT] - Environments: .env.local
+[2025-08-01T09:22:48.795Z] [STDOUT] Creating an optimized production build ...
+[2025-08-01T09:22:52.790Z] [STDERR] Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[2025-08-01T09:22:52.863Z] [STDOUT] 
+[2025-08-01T09:22:52.864Z] [STDOUT] 🌼   daisyUI 4.10.1
+[2025-08-01T09:22:52.919Z] [STDOUT] ├─ ✔︎ 2 themes added		https://daisyui.com/docs/themes
+[2025-08-01T09:22:52.920Z] [STDOUT] ╰─ ❤︎ Support daisyUI project:	https://opencollective.com/daisyui
+[2025-08-01T09:22:53.860Z] [STDERR] Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[2025-08-01T09:22:54.242Z] [STDOUT] ✓ Compiled successfully
+[2025-08-01T09:22:54.242Z] [STDOUT] Linting and checking validity of types ...
+[2025-08-01T09:22:55.581Z] [STDOUT] ./app/ai-experience/lib/schooldigger.ts
+259:10  Warning: 'combineAndRankResults' is defined but never used.  no-unused-vars
+645:13  Warning: 'query' is defined but never used.  no-unused-vars
+645:28  Warning: 'state' is defined but never used.  no-unused-vars
+
+./app/ai-experience/schemas/example-usage.ts
+9:7  Warning: 'heroExample' is assigned a value but never used.  no-unused-vars
+20:7  Warning: 'problemExample' is assigned a value but never used.  no-unused-vars
+34:7  Warning: 'faqExample' is assigned a value but never used.  no-unused-vars
+
+./app/ai-experience/test/page.tsx
+113:6  Warning: React Hook useEffect has a missing dependency: 'searchForSchools'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./app/api/ai/generate-research-explanations/route.ts
+198:11  Warning: 'primaryGoalFallback' is assigned a value but never used.  no-unused-vars
+
+./app/api/lead/route.ts
+3:8  Warning: 'Lead' is defined but never used.  no-unused-vars
+
+./components/CTA.tsx
+3:8  Warning: 'config' is defined but never used.  no-unused-vars
+
+./components/Footer.tsx
+1:8  Warning: 'Link' is defined but never used.  no-unused-vars
+2:8  Warning: 'Image' is defined but never used.  no-unused-vars
+3:8  Warning: 'config' is defined but never used.  no-unused-vars
+4:8  Warning: 'logo' is defined but never used.  no-unused-vars
+
+./components/VideoGallery.tsx
+278:6  Warning: React Hook useEffect has a missing dependency: 'quizData'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+376:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/WithWithout.tsx
+48:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+51:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+54:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+58:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+167:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+208:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+247:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+287:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/personalized/AfternoonActivities.tsx
+8:17  Warning: 'section' is defined but never used.  no-unused-vars
+
+./components/personalized/ClosestSchools.tsx
+4:30  Warning: 'getSchoolDisplayName' is defined but never used.  no-unused-vars
+60:6  Warning: React Hook useEffect has a missing dependency: 'primarySchool'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+100:38  Warning: 'index' is defined but never used.  no-unused-vars
+
+./components/personalized/HowWeGetResults.tsx
+9:17  Warning: 'section' is defined but never used.  no-unused-vars
+17:3  Warning: 'onLearnMore' is defined but never used.  no-unused-vars
+45:6  Warning: React Hook useEffect has a missing dependency: 'generateContent'. Either include it or remove the dependency array.  react-hooks/exhaustive-deps
+
+./components/personalized/LearningScienceSection.tsx
+10:17  Warning: 'section' is defined but never used.  no-unused-vars
+20:3  Warning: 'quizData' is defined but never used.  no-unused-vars
+21:3  Warning: 'gradeLevel' is defined but never used.  no-unused-vars
+
+./components/personalized/PersonalizedCTA.tsx
+22:17  Warning: 'section' is defined but never used.  no-unused-vars
+32:53  Warning: 'onLearnMore' is defined but never used.  no-unused-vars
+
+./components/personalized/PersonalizedSubjectExamples.tsx
+18:17  Warning: 'section' is defined but never used.  no-unused-vars
+75:29  Warning: 'setQuestionResponses' is assigned a value but never used.  no-unused-vars
+199:6  Warning: React Hook useEffect has missing dependencies: 'generateQuestion', 'loadingStates', and 'questions'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+./components/personalized/SchoolReportCard.tsx
+15:17  Warning: 'section' is defined but never used.  no-unused-vars
+
+./components/personalized/SpeedComparison.tsx
+7:17  Warning: 'section' is defined but never used.  no-unused-vars
+
+./components/personalized/TimeBackIntroVideo.tsx
+3:8  Warning: 'React' is defined but never used.  no-unused-vars
+22:17  Warning: 'section' is defined but never used.  no-unused-vars
+25:56  Warning: 'onLearnMore' is defined but never used.  no-unused-vars
+
+./components/personalized/TimeBackVsCompetitors.tsx
+6:17  Warning: 'section' is defined but never used.  no-unused-vars
+40:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+43:19  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+50:21  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+194:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+243:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+289:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically opti
+[2025-08-01T09:22:55.582Z] [STDOUT] mize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+336:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/quiz/QuizFlow.tsx
+65:9  Warning: The 'getNextStep' function makes the dependencies of useCallback Hook (at line 158) change on every render. Move it inside the useCallback callback. Alternatively, wrap the definition of 'getNextStep' in its own useCallback() Hook.  react-hooks/exhaustive-deps
+84:9  Warning: The 'getPrevStep' function makes the dependencies of useCallback Hook (at line 180) change on every render. Move it inside the useCallback callback. Alternatively, wrap the definition of 'getPrevStep' in its own useCallback() Hook.  react-hooks/exhaustive-deps
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+[2025-08-01T09:22:56.588Z] [STDOUT] Collecting page data ...
+[2025-08-01T09:22:56.864Z] [STDERR] Airtable credentials not configured. Streaming features will use mock data.
+[2025-08-01T09:22:56.875Z] [STDERR] Airtable credentials not configured. Streaming features will use mock data.
+[2025-08-01T09:22:57.049Z] [STDERR] Error: querySrv ENOTFOUND _mongodb._tcp.cluster0.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:291:17) {
+  errno: undefined,
+  code: 'ENOTFOUND',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster0.mongodb.net'
+}
+[2025-08-01T09:22:57.055Z] [STDERR] Error: querySrv ENOTFOUND _mongodb._tcp.cluster0.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:291:17)
+    at QueryReqWrap.callbackTrampoline (node:internal/async_hooks:130:17) {
+  errno: undefined,
+  code: 'ENOTFOUND',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster0.mongodb.net'
+}
+[2025-08-01T09:22:57.213Z] [STDERR] Error: querySrv ENOTFOUND _mongodb._tcp.cluster0.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:291:17)
+    at QueryReqWrap.callbackTrampoline (node:internal/async_hooks:130:17) {
+  errno: undefined,
+  code: 'ENOTFOUND',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster0.mongodb.net'
+}
+[2025-08-01T09:22:57.218Z] [STDERR] Error: querySrv ENOTFOUND _mongodb._tcp.cluster0.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:291:17) {
+  errno: undefined,
+  code: 'ENOTFOUND',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster0.mongodb.net'
+}
+[2025-08-01T09:22:57.236Z] [STDERR] Error: querySrv ENOTFOUND _mongodb._tcp.cluster0.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:291:17)
+    at QueryReqWrap.callbackTrampoline (node:internal/async_hooks:130:17) {
+  errno: undefined,
+  code: 'ENOTFOUND',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster0.mongodb.net'
+}
+[2025-08-01T09:22:57.243Z] [STDERR] Error: querySrv ENOTFOUND _mongodb._tcp.cluster0.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:291:17) {
+  errno: undefined,
+  code: 'ENOTFOUND',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster0.mongodb.net'
+}
+[2025-08-01T09:22:57.257Z] [STDERR] Error: querySrv ENOTFOUND _mongodb._tcp.cluster0.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:291:17) {
+  errno: undefined,
+  code: 'ENOTFOUND',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster0.mongodb.net'
+}
+[2025-08-01T09:22:57.265Z] [STDERR] Error: querySrv ENOTFOUND _mongodb._tcp.cluster0.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:291:17)
+    at QueryReqWrap.callbackTrampoline (node:internal/async_hooks:130:17) {
+  errno: undefined,
+  code: 'ENOTFOUND',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster0.mongodb.net'
+}
+[2025-08-01T09:22:58.297Z] [STDOUT] Generating static pages (0/35) ...
+[2025-08-01T09:22:58.402Z] [STDERR] [API] School search error: ex [Error]: Dynamic server usage: Page couldn't be rendered statically because it used `request.url`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at Object.eP [as staticGenerationBailout] (/Users/reeceharding/ship-fast-ts-3/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:29358)
+    at i (/Users/reeceharding/ship-fast-ts-3/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:34692)
+    at Object.get (/Users/reeceharding/ship-fast-ts-3/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:34788)
+    at c (/Users/reeceharding/ship-fast-ts-3/.next/server/app/api/schools/search/route.js:1:517)
+    at /Users/reeceharding/ship-fast-ts-3/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:42490
+    at /Users/reeceharding/ship-fast-ts-3/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/reeceharding/ship-fast-ts-3/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/reeceharding/ship-fast-ts-3/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/reeceharding/ship-fast-ts-3/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/reeceharding/ship-fast-ts-3/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Page couldn't be rendered statically because it used `request.url`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_PUBLIC_KEY - Stripe publishable key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_SECRET_KEY - Stripe secret key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_WEBHOOK_SECRET - Stripe webhook secret for payment verification
+[EnvValidation] ⚠️ Optional environment variable not set: RESEND_API_KEY - Resend API key for transactional emails
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_PUBLIC_KEY - Stripe publishable key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_SECRET_KEY - Stripe secret key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_WEBHOOK_SECRET - Stripe webhook secret for payment verification
+[EnvValidation] ⚠️ Optional environment variable not set: RESEND_API_KEY - Resend API key for transactional emails
+Airtable credentials not configured. Streaming features will use mock data.
+[2025-08-01T09:22:58.417Z] [STDOUT] Generating static pages (8/35) 
+[EnvValidation] Starting environment variable validation...
+[EnvValidation] ✅ NEXTAUTH_URL is valid
+[EnvValidation] ✅ NEXTAUTH_SECRET is valid
+[EnvValidation] ✅ GOOGLE_ID is valid
+[EnvValidation] ✅ GOOGLE_SECRET is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_URL is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is valid
+[EnvValidation] ✅ SUPABASE_SERVICE_ROLE_KEY is valid
+[EnvValidation] ✅ ANTHROPIC_API_KEY is valid
+[EnvValidation] ✅ SCHOOLDIGGER_APP_ID is valid
+[EnvValidation] ✅ SCHOOLDIGGER_API_KEY is valid
+[EnvValidation] ✅ GENDER_API_KEY is valid
+[EnvValidation] ✅ MONGODB_URI is valid
+[EnvValidation] ✅ Environment validation completed successfully
+[EnvValidation] Found 4 optional variables that could be configured
+[EnvValidation] Starting environment variable validation...
+[EnvValidation] ✅ NEXTAUTH_URL is valid
+[EnvValidation] ✅ NEXTAUTH_SECRET is valid
+[EnvValidation] ✅ GOOGLE_ID is valid
+[EnvValidation] ✅ GOOGLE_SECRET is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_URL is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is valid
+[EnvValidation] ✅ SUPABASE_SERVICE_ROLE_KEY is valid
+[EnvValidation] ✅ ANTHROPIC_API_KEY is valid
+[EnvValidation] ✅ SCHOOLDIGGER_APP_ID is valid
+[EnvValidation] ✅ SCHOOLDIGGER_API_KEY is valid
+[EnvValidation] ✅ GENDER_API_KEY is valid
+[EnvValidation] ✅ MONGODB_URI is valid
+[EnvValidation] ✅ Environment validation completed successfully
+[EnvValidation] Found 4 optional variables that could be configured
+[2025-08-01T09:22:58.462Z] [STDOUT] [video-categories-api] Processing GET request for video categories
+[videoService] Generating dynamic video categories based on available content
+[2025-08-01T09:22:58.462Z] [STDOUT] [EnvValidation] Starting environment variable validation...
+[EnvValidation] ✅ NEXTAUTH_URL is valid
+[EnvValidation] ✅ NEXTAUTH_SECRET is valid
+[EnvValidation] ✅ GOOGLE_ID is valid
+[EnvValidation] ✅ GOOGLE_SECRET is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_URL is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is valid
+[EnvValidation] ✅ SUPABASE_SERVICE_ROLE_KEY is valid
+[EnvValidation] ✅ ANTHROPIC_API_KEY is valid
+[EnvValidation] ✅ SCHOOLDIGGER_APP_ID is valid
+[EnvValidation] ✅ SCHOOLDIGGER_API_KEY is valid
+[EnvValidation] ✅ GENDER_API_KEY is valid
+[EnvValidation] ✅ MONGODB_URI is valid
+[EnvValidation] ✅ Environment validation completed successfully
+[EnvValidation] Found 4 optional variables that could be configured
+[EnvValidation] Starting environment variable validation...
+[EnvValidation] ✅ NEXTAUTH_URL is valid
+[EnvValidation] ✅ NEXTAUTH_SECRET is valid
+[EnvValidation] ✅ GOOGLE_ID is valid
+[EnvValidation] ✅ GOOGLE_SECRET is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_URL is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is valid
+[EnvValidation] ✅ SUPABASE_SERVICE_ROLE_KEY is valid
+[EnvValidation] ✅ ANTHROPIC_API_KEY is valid
+[EnvValidation] ✅ SCHOOLDIGGER_APP_ID is valid
+[EnvValidation] ✅ SCHOOLDIGGER_API_KEY is valid
+[EnvValidation] ✅ GENDER_API_KEY is valid
+[EnvValidation] ✅ MONGODB_URI is valid
+[EnvValidation] ✅ Environment validation completed successfully
+[EnvValidation] Found 4 optional variables that could be configured
+[EnvValidation] Starting environment variable validation...
+[EnvValidation] ✅ NEXTAUTH_URL is valid
+[EnvValidation] ✅ NEXTAUTH_SECRET is valid
+[EnvValidation] ✅ GOOGLE_ID is valid
+[EnvValidation] ✅ GOOGLE_SECRET is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_URL is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is valid
+[EnvValidation] ✅ SUPABASE_SERVICE_ROLE_KEY is valid
+[EnvValidation] ✅ ANTHROPIC_API_KEY is valid
+[EnvValidation] ✅ SCHOOLDIGGER_APP_ID is valid
+[EnvValidation] ✅ SCHOOLDIGGER_API_KEY is valid
+[EnvValidation] ✅ GENDER_API_KEY is valid
+[EnvValidation] ✅ MONGODB_URI is valid
+[EnvValidation] ✅ Environment validation completed successfully
+[EnvValidation] Found 4 optional variables that could be configured
+[EnvValidation] Starting environment variable validation...
+[EnvValidation] ✅ NEXTAUTH_URL is valid
+[EnvValidation] ✅ NEXTAUTH_SECRET is valid
+[EnvValidation] ✅ GOOGLE_ID is valid
+[EnvValidation] ✅ GOOGLE_SECRET is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_URL is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is valid
+[EnvValidation] ✅ SUPABASE_SERVICE_ROLE_KEY is valid
+[EnvValidation] ✅ ANTHROPIC_API_KEY is valid
+[EnvValidation] ✅ SCHOOLDIGGER_APP_ID is valid
+[EnvValidation] ✅ SCHOOLDIGGER_API_KEY is valid
+[EnvValidation] ✅ GENDER_API_KEY is valid
+[EnvValidation] ✅ MONGODB_URI is valid
+[EnvValidation] ✅ Environment validation completed successfully
+[EnvValidation] Found 4 optional variables that could be configured
+[2025-08-01T09:22:58.463Z] [STDERR] [EnvValidation] ⚠️ Optional environment variable not set: STRIPE_PUBLIC_KEY - Stripe publishable key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_SECRET_KEY - Stripe secret key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_WEBHOOK_SECRET - Stripe webhook secret for payment verification
+[EnvValidation] ⚠️ Optional environment variable not set: RESEND_API_KEY - Resend API key for transactional emails
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_PUBLIC_KEY - Stripe publishable key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_SECRET_KEY - Stripe secret key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_WEBHOOK_SECRET - Stripe webhook secret for payment verification
+[EnvValidation] ⚠️ Optional environment variable not set: RESEND_API_KEY - Resend API key for transactional emails
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_PUBLIC_KEY - Stripe publishable key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_SECRET_KEY - Stripe secret key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_WEBHOOK_SECRET - Stripe webhook secret for payment verification
+[EnvValidation] ⚠️ Optional environment variable not set: RESEND_API_KEY - Resend API key for transactional emails
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_PUBLIC_KEY - Stripe publishable key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_SECRET_KEY - Stripe secret key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_WEBHOOK_SECRET - Stripe webhook secret for payment verification
+[EnvValidation] ⚠️ Optional environment variable not set: RESEND_API_KEY - Resend API key for transactional emails
+[videos-api] Error fetching videos: ex [Error]: Dynamic server usage: Page couldn't be rendered statically because it used `request.url`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error
+    at Object.eP [as staticGenerationBailout] (/Users/reeceharding/ship-fast-ts-3/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:29358)
+    at i (/Users/reeceharding/ship-fast-ts-3/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:34692)
+    at Object.get (/Users/reeceharding/ship-fast-ts-3/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:34788)
+    at c (/Users/reeceharding/ship-fast-ts-3/.next/server/app/api/videos/route.js:1:1183)
+    at /Users/reeceharding/ship-fast-ts-3/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:42490
+    at /Users/reeceharding/ship-fast-ts-3/node_modules/next/dist/server/lib/trace/tracer.js:133:36
+    at NoopContextManager.with (/Users/reeceharding/ship-fast-ts-3/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:25:19)
+    at ContextAPI.with (/Users/reeceharding/ship-fast-ts-3/node_modules/@opentelemetry/api/build/src/api/context.js:60:46)
+    at NoopTracer.startActiveSpan (/Users/reeceharding/ship-fast-ts-3/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:65:31)
+    at ProxyTracer.startActiveSpan (/Users/reeceharding/ship-fast-ts-3/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:36:24) {
+  description: "Page couldn't be rendered statically because it used `request.url`. See more info here: https://nextjs.org/docs/messages/dynamic-server-error",
+  digest: 'DYNAMIC_SERVER_USAGE'
+}
+[2025-08-01T09:22:58.463Z] [STDOUT] Generating static pages (17/35) 
+[videos-api] Processing GET request for videos
+[EnvValidation] Starting environment variable validation...
+[EnvValidation] ✅ NEXTAUTH_URL is valid
+[EnvValidation] ✅ NEXTAUTH_SECRET is valid
+[EnvValidation] ✅ GOOGLE_ID is valid
+[EnvValidation] ✅ GOOGLE_SECRET is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_URL is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is valid
+[EnvValidation] ✅ SUPABASE_SERVICE_ROLE_KEY is valid
+[EnvValidation] ✅ ANTHROPIC_API_KEY is valid
+[EnvValidation] ✅ SCHOOLDIGGER_APP_ID is valid
+[EnvValidation] ✅ SCHOOLDIGGER_API_KEY is valid
+[EnvValidation] ✅ GENDER_API_KEY is valid
+[EnvValidation] ✅ MONGODB_URI is valid
+[EnvValidation] ✅ Environment validation completed successfully
+[EnvValidation] Found 4 optional variables that could be configured
+[EnvValidation] Starting environment variable validation...
+[EnvValidation] ✅ NEXTAUTH_URL is valid
+[EnvValidation] ✅ NEXTAUTH_SECRET is valid
+[EnvValidation] ✅ GOOGLE_ID is valid
+[EnvValidation] ✅ GOOGLE_SECRET is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_URL is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is valid
+[EnvValidation] ✅ SUPABASE_SERVICE_ROLE_KEY is valid
+[EnvValidation] ✅ ANTHROPIC_API_KEY is valid
+[EnvValidation] ✅ SCHOOLDIGGER_APP_ID is valid
+[EnvValidation] ✅ SCHOOLDIGGER_API_KEY is valid
+[EnvValidation] ✅ GENDER_API_KEY is valid
+[EnvValidation] ✅ MONGODB_URI is valid
+[EnvValidation] ✅ Environment validation completed successfully
+[EnvValidation] Found 4 optional variables that could be configured
+[2025-08-01T09:22:58.476Z] [STDERR] [EnvValidation] ⚠️ Optional environment variable not set: STRIPE_PUBLIC_KEY - Stripe publishable key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_SECRET_KEY - Stripe secret key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_WEBHOOK_SECRET - Stripe webhook secret for payment verification
+[EnvValidation] ⚠️ Optional environment variable not set: RESEND_API_KEY - Resend API key for transactional emails
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_PUBLIC_KEY - Stripe publishable key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_SECRET_KEY - Stripe secret key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_WEBHOOK_SECRET - Stripe webhook secret for payment verification
+[EnvValidation] ⚠️ Optional environment variable not set: RESEND_API_KEY - Resend API key for transactional emails
+[2025-08-01T09:22:58.485Z] [STDOUT] [EnvValidation] Starting environment variable validation...
+[EnvValidation] ✅ NEXTAUTH_URL is valid
+[EnvValidation] ✅ NEXTAUTH_SECRET is valid
+[EnvValidation] ✅ GOOGLE_ID is valid
+[EnvValidation] ✅ GOOGLE_SECRET is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_URL is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is valid
+[EnvValidation] ✅ SUPABASE_SERVICE_ROLE_KEY is valid
+[EnvValidation] ✅ ANTHROPIC_API_KEY is valid
+[EnvValidation] ✅ SCHOOLDIGGER_APP_ID is valid
+[EnvValidation] ✅ SCHOOLDIGGER_API_KEY is valid
+[EnvValidation] ✅ GENDER_API_KEY is valid
+[EnvValidation] ✅ MONGODB_URI is valid
+[EnvValidation] ✅ Environment validation completed successfully
+[EnvValidation] Found 4 optional variables that could be configured
+[2025-08-01T09:22:58.485Z] [STDERR] [EnvValidation] ⚠️ Optional environment variable not set: STRIPE_PUBLIC_KEY - Stripe publishable key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_SECRET_KEY - Stripe secret key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_WEBHOOK_SECRET - Stripe webhook secret for payment verification
+[EnvValidation] ⚠️ Optional environment variable not set: RESEND_API_KEY - Resend API key for transactional emails
+[2025-08-01T09:22:58.492Z] [STDOUT] [EnvValidation] Starting environment variable validation...
+[EnvValidation] ✅ NEXTAUTH_URL is valid
+[EnvValidation] ✅ NEXTAUTH_SECRET is valid
+[EnvValidation] ✅ GOOGLE_ID is valid
+[EnvValidation] ✅ GOOGLE_SECRET is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_URL is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is valid
+[EnvValidation] ✅ SUPABASE_SERVICE_ROLE_KEY is valid
+[EnvValidation] ✅ ANTHROPIC_API_KEY is valid
+[EnvValidation] ✅ SCHOOLDIGGER_APP_ID is valid
+[EnvValidation] ✅ SCHOOLDIGGER_API_KEY is valid
+[EnvValidation] ✅ GENDER_API_KEY is valid
+[EnvValidation] ✅ MONGODB_URI is valid
+[EnvValidation] ✅ Environment validation completed successfully
+[EnvValidation] Found 4 optional variables that could be configured
+[EnvValidation] Starting environment variable validation...
+[EnvValidation] ✅ NEXTAUTH_URL is valid
+[EnvValidation] ✅ NEXTAUTH_SECRET is valid
+[EnvValidation] ✅ GOOGLE_ID is valid
+[EnvValidation] ✅ GOOGLE_SECRET is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_URL is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is valid
+[EnvValidation] ✅ SUPABASE_SERVICE_ROLE_KEY is valid
+[EnvValidation] ✅ ANTHROPIC_API_KEY is valid
+[EnvValidation] ✅ SCHOOLDIGGER_APP_ID is valid
+[EnvValidation] ✅ SCHOOLDIGGER_API_KEY is valid
+[EnvValidation] ✅ GENDER_API_KEY is valid
+[EnvValidation] ✅ MONGODB_URI is valid
+[EnvValidation] ✅ Environment validation completed successfully
+[EnvValidation] Found 4 optional variables that could be configured
+[2025-08-01T09:22:58.494Z] [STDERR] [EnvValidation] ⚠️ Optional environment variable not set: STRIPE_PUBLIC_KEY - Stripe publishable key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_SECRET_KEY - Stripe secret key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_WEBHOOK_SECRET - Stripe webhook secret for payment verification
+[EnvValidation] ⚠️ Optional environment variable not set: RESEND_API_KEY - Resend API key for transactional emails
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_PUBLIC_KEY - Stripe publishable key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_SECRET_KEY - Stripe secret key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_WEBHOOK_SECRET - Stripe webhook secret for payment verification
+[EnvValidation] ⚠️ Optional environment variable not set: RESEND_API_KEY - Resend API key for transactional emails
+[2025-08-01T09:22:58.497Z] [STDOUT] [EnvValidation] Starting environment variable validation...
+[EnvValidation] ✅ NEXTAUTH_URL is valid
+[EnvValidation] ✅ NEXTAUTH_SECRET is valid
+[EnvValidation] ✅ GOOGLE_ID is valid
+[EnvValidation] ✅ GOOGLE_SECRET is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_URL is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is valid
+[EnvValidation] ✅ SUPABASE_SERVICE_ROLE_KEY is valid
+[EnvValidation] ✅ ANTHROPIC_API_KEY is valid
+[EnvValidation] ✅ SCHOOLDIGGER_APP_ID is valid
+[EnvValidation] ✅ SCHOOLDIGGER_API_KEY is valid
+[EnvValidation] ✅ GENDER_API_KEY is valid
+[EnvValidation] ✅ MONGODB_URI is valid
+[EnvValidation] ✅ Environment validation completed successfully
+[EnvValidation] Found 4 optional variables that could be configured
+[2025-08-01T09:22:58.498Z] [STDERR] [EnvValidation] ⚠️ Optional environment variable not set: STRIPE_PUBLIC_KEY - Stripe publishable key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_SECRET_KEY - Stripe secret key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_WEBHOOK_SECRET - Stripe webhook secret for payment verification
+[EnvValidation] ⚠️ Optional environment variable not set: RESEND_API_KEY - Resend API key for transactional emails
+[2025-08-01T09:22:58.520Z] [STDOUT] Generating static pages (26/35)
+[2025-08-01T09:22:58.552Z] [STDOUT] [EnvValidation] Starting environment variable validation...
+[EnvValidation] ✅ NEXTAUTH_URL is valid
+[EnvValidation] ✅ NEXTAUTH_SECRET is valid
+[EnvValidation] ✅ GOOGLE_ID is valid
+[EnvValidation] ✅ GOOGLE_SECRET is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_URL is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is valid
+[EnvValidation] ✅ SUPABASE_SERVICE_ROLE_KEY is valid
+[EnvValidation] ✅ ANTHROPIC_API_KEY is valid
+[EnvValidation] ✅ SCHOOLDIGGER_APP_ID is valid
+[EnvValidation] ✅ SCHOOLDIGGER_API_KEY is valid
+[EnvValidation] ✅ GENDER_API_KEY is valid
+[EnvValidation] ✅ MONGODB_URI is valid
+[EnvValidation] ✅ Environment validation completed successfully
+[EnvValidation] Found 4 optional variables that could be configured
+[2025-08-01T09:22:58.552Z] [STDERR] Error: querySrv ENOTFOUND _mongodb._tcp.cluster0.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:291:17)
+    at QueryReqWrap.callbackTrampoline (node:internal/async_hooks:130:17) {
+  errno: undefined,
+  code: 'ENOTFOUND',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster0.mongodb.net'
+}
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_PUBLIC_KEY - Stripe publishable key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_SECRET_KEY - Stripe secret key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_WEBHOOK_SECRET - Stripe webhook secret for payment verification
+[EnvValidation] ⚠️ Optional environment variable not set: RESEND_API_KEY - Resend API key for transactional emails
+[2025-08-01T09:22:58.564Z] [STDOUT] [EnvValidation] Starting environment variable validation...
+[EnvValidation] ✅ NEXTAUTH_URL is valid
+[EnvValidation] ✅ NEXTAUTH_SECRET is valid
+[EnvValidation] ✅ GOOGLE_ID is valid
+[EnvValidation] ✅ GOOGLE_SECRET is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_URL is valid
+[EnvValidation] ✅ NEXT_PUBLIC_SUPABASE_ANON_KEY is valid
+[EnvValidation] ✅ SUPABASE_SERVICE_ROLE_KEY is valid
+[EnvValidation] ✅ ANTHROPIC_API_KEY is valid
+[EnvValidation] ✅ SCHOOLDIGGER_APP_ID is valid
+[EnvValidation] ✅ SCHOOLDIGGER_API_KEY is valid
+[EnvValidation] ✅ GENDER_API_KEY is valid
+[EnvValidation] ✅ MONGODB_URI is valid
+[EnvValidation] ✅ Environment validation completed successfully
+[EnvValidation] Found 4 optional variables that could be configured
+[2025-08-01T09:22:58.564Z] [STDERR] [EnvValidation] ⚠️ Optional environment variable not set: STRIPE_PUBLIC_KEY - Stripe publishable key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_SECRET_KEY - Stripe secret key for payments
+[EnvValidation] ⚠️ Optional environment variable not set: STRIPE_WEBHOOK_SECRET - Stripe webhook secret for payment verification
+[EnvValidation] ⚠️ Optional environment variable not set: RESEND_API_KEY - Resend API key for transactional emails
+[2025-08-01T09:22:58.594Z] [STDERR] Error: querySrv ENOTFOUND _mongodb._tcp.cluster0.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:291:17)
+    at QueryReqWrap.callbackTrampoline (node:internal/async_hooks:130:17) {
+  errno: undefined,
+  code: 'ENOTFOUND',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster0.mongodb.net'
+}
+[2025-08-01T09:22:58.880Z] [STDOUT] [videoService] Successfully generated categories: 3
+[video-categories-api] Successfully fetched categories: 3
+[2025-08-01T09:22:58.881Z] [STDOUT] ✓ Generating static pages (35/35)
+[2025-08-01T09:22:59.063Z] [STDOUT] Finalizing page optimization ...
+[2025-08-01T09:22:59.063Z] [STDOUT] Collecting build traces ...
+[2025-08-01T09:23:02.316Z] [STDOUT] 
+[2025-08-01T09:23:02.318Z] [STDOUT] Route (app)                                 Size     First Load JS
+┌ ○ /                                       138 B          96.5 kB
+├ ○ /_not-found                             0 B                0 B
+├ λ /ai-experience                          138 B          96.5 kB
+├ λ /ai-experience/test                     12.1 kB        96.5 kB
+├ λ /api/ai/chat-learn-more                 0 B                0 B
+├ λ /api/ai/chat-tutor                      0 B                0 B
+├ λ /api/ai/generate-afternoon-content      0 B                0 B
+├ λ /api/ai/generate-component              0 B                0 B
+├ λ /api/ai/generate-fallback               0 B                0 B
+├ λ /api/ai/generate-follow-up-questions    0 B                0 B
+├ λ /api/ai/generate-questions              0 B                0 B
+├ λ /api/ai/generate-research-explanations  0 B                0 B
+├ λ /api/airtable/messages                  0 B                0 B
+├ λ /api/airtable/stream                    0 B                0 B
+├ λ /api/auth/[...nextauth]                 0 B                0 B
+├ λ /api/gender                             0 B                0 B
+├ λ /api/lead                               0 B                0 B
+├ λ /api/schools/[id]                       0 B                0 B
+├ λ /api/schools/search                     0 B                0 B
+├ λ /api/stripe/create-checkout             0 B                0 B
+├ λ /api/stripe/create-portal               0 B                0 B
+├ ○ /api/video-categories                   0 B                0 B
+├ λ /api/videos                             0 B                0 B
+├ λ /api/webhook/stripe                     0 B                0 B
+├ ○ /apple-icon.png                         0 B                0 B
+├ ○ /blog                                   818 B            97 kB
+├ λ /blog/[articleId]                       3.16 kB        99.4 kB
+├ λ /blog/author/[authorId]                 818 B            97 kB
+├ λ /blog/category/[categoryId]             818 B            97 kB
+├ λ /dashboard                              20.2 kB         131 kB
+├ ○ /icon.png                               0 B                0 B
+├ ○ /opengraph-image.png                    0 B                0 B
+├ ○ /personalized                           80.6 kB         165 kB
+├ ○ /privacy-policy                         177 B          91.3 kB
+├ λ /quiz                                   55.5 kB         140 kB
+├ ○ /tos                                    177 B          91.3 kB
+└ ○ /twitter-image.png                      0 B                0 B
++ First Load JS shared by all               84.4 kB
+  ├ chunks/69-d866c8208794629f.js           29 kB
+  ├ chunks/fd9d1056-a844682d51486e4a.js     53.4 kB
+  └ other shared chunks (total)             1.99 kB
+[2025-08-01T09:23:02.318Z] [STDOUT] ○  (Static)   prerendered as static content
+λ  (Dynamic)  server-rendered on demand using Node.js
+[2025-08-01T09:23:02.331Z] [EXIT] Process exited with code: 0
+
+================================================================================
+TERMINAL SESSION ENDED
+================================================================================
+Session ended at: 2025-08-01T09:23:02.331Z
+Exit code: 0
+================================================================================
+
+
+================================================================================
+NEW TERMINAL SESSION STARTED
+================================================================================
+Session started at: 2025-08-01T09:23:02.422Z
+Working directory: /Users/reeceharding/ship-fast-ts-3
+Command: next-sitemap
+Node version: v20.19.2
+Platform: darwin
+Log cleared: NO
+================================================================================
+
+[2025-08-01T09:23:02.428Z] [COMMAND] Executing command: next-sitemap
+[2025-08-01T09:23:02.478Z] [STDOUT] ✨ [next-sitemap] Loading next-sitemap config: file:///Users/reeceharding/ship-fast-ts-3/next-sitemap.config.js
+[2025-08-01T09:23:02.484Z] [STDOUT] ✅ [next-sitemap] Generation completed
+[2025-08-01T09:23:02.484Z] [STDOUT] ┌───────────────┬────────┐
+│ (index)       │ Values │
+├───────────────┼────────┤
+│ indexSitemaps │ 1      │
+│ sitemaps      │ 1      │
+└───────────────┴────────┘
+[2025-08-01T09:23:02.485Z] [STDOUT] -----------------------------------------------------
+ SITEMAP INDICES 
+-----------------------------------------------------
+
+   ○ https://shipfa.st/sitemap.xml
+
+
+-----------------------------------------------------
+ SITEMAPS 
+-----------------------------------------------------
+
+   ○ https://shipfa.st/sitemap-0.xml
+[2025-08-01T09:23:02.495Z] [EXIT] Process exited with code: 0
+
+================================================================================
+TERMINAL SESSION ENDED
+================================================================================
+Session ended at: 2025-08-01T09:23:02.495Z
+Exit code: 0
+================================================================================
+

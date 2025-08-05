@@ -1,0 +1,115 @@
+# Vercel deployment exclusions for serverless compatibility
+
+# Development and build tools
+scripts/
+school-data-extraction/
+backups/
+temp/
+logs/
+*.log
+log_archive_*
+
+# Local development files
+.env.local
+.env.development
+.env.test
+*.tmp
+*.cache
+
+# Database and migration files (for local dev only)
+*.sql
+supabase/seed.sql
+
+# Documentation
+*.md
+!README.md
+!CHANGELOG.md
+
+# Development scripts
+upload-*.js
+setup-*.js
+*-extract.ts
+*-extract.js
+migrate-*.ts
+migrate-*.js
+organize-*.ts
+organize-*.js
+comprehensive-*.js
+update-*.js
+test-*.js
+verify-*.js
+fix-*.js
+cleanup-*.js
+deploy-*.js
+recover-*.js
+inspect-*.js
+populate-*.js
+transcribe-*.js
+generate-*.js
+
+# Test files
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+test/
+tests/
+__tests__/
+
+# Local data files
+public/schools/*/downloads/
+public/schools/*/metadata/
+data/transcriptions/
+data/testimonial-copy/
+
+# Sensitive student data files (MUST NOT DEPLOY)
+public/data/raw_data/
+
+# Node modules and dependencies
+node_modules/
+.npm/
+.yarn/
+.pnpm/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git files
+.git/
+.gitignore
+
+# Temporary extraction and processing files
+downloads/
+recursive-downloads/
+temp-thumbnails/
+oauth-tokens.json
+credentials.json
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+
+# Development scripts with hardcoded credentials (EXCLUDED)
+quick-upload.js
+add-address-columns.js
+upload-real-images.js
+comprehensive-data-cleanup.js
+populate-address-data.js
+complete-address-update.js
+update-school-addresses.js
+fix-marketing-tables.js
+upload-marketing-images.js
+scripts/setup-tables-direct.js
+
+# These files contain development-specific configurations
+*.log
+log_archive_*

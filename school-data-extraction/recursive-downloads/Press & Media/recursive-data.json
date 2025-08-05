@@ -1,0 +1,163 @@
+{
+  "school": {
+    "name": "Press & Media",
+    "id": "press-media",
+    "extractionDate": "2025-08-03T21:49:27.028Z"
+  },
+  "media": {
+    "images": [
+      {
+        "parents": [
+          "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+        ],
+        "id": "1-l53RZ10wsJLTTrN8YjEKsNL-UgkE5Ac",
+        "name": "download.jpeg",
+        "mimeType": "image/jpeg",
+        "webViewLink": "https://drive.google.com/file/d/1-l53RZ10wsJLTTrN8YjEKsNL-UgkE5Ac/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBN-SdP4UbbgYrbZf-MqAO0fmzOhrtQXvsWQMoCoKSmqW97WvsvYzk-xmz9HCc2inLq5ZZ01yLKprpPCMjd7BcVbrVK6XVvh80bz=s220",
+        "size": "12473"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+        ],
+        "id": "1dfJKmDSDO5wIJ4b8JDHNIK3WVZKf_DTBKNubBlrF5bQ",
+        "name": "School Descriptions (All Schools)",
+        "mimeType": "application/vnd.google-apps.spreadsheet",
+        "webViewLink": "https://docs.google.com/spreadsheets/d/1dfJKmDSDO5wIJ4b8JDHNIK3WVZKf_DTBKNubBlrF5bQ/edit?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOok-WRtCLrNwH9_p5RPKIYPoz1DbM6WqStW7Y6MStBd4tUtjaY6nqajk2frC4PZRNolqFTniu2aLwUN4etW6XWPZTzrKfznujSomFC4pKt0scQS7ne=s220",
+        "size": "39626"
+      },
+      {
+        "parents": [
+          "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+        ],
+        "id": "1aAtuuG9u9KuXLQ9Eyktr6pz7Ls6YXA6n",
+        "name": "_Alpha High School  8.5x11 (1).pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1aAtuuG9u9KuXLQ9Eyktr6pz7Ls6YXA6n/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBN66ScVGen4D9UwWqjnZ0r_T2Pm09A9uh7-FGX1w5q5KFciZjjc0XTkBySBNusti6_zWju8OKkhcu__eoyvXQCy7WRfgucdlGB5=s220",
+        "size": "4445217"
+      },
+      {
+        "parents": [
+          "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+        ],
+        "id": "1-BMkooi18-5wxeFFnl4VMrfqlgyA_KIs",
+        "name": "austin.lists.bizjournals.com_q_html_aFxZCjXndwPWaqy8Fl899dNxF,lKFCHgClnxMTunpqdDEZZEjSk.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1-BMkooi18-5wxeFFnl4VMrfqlgyA_KIs/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPTKC_n9q5sgzR2Bh7GIHJ7t6lEhEM5CQOEZe1QGZZRaS04zMhPBeeg2xs9-2rB4XWqjvA08g9nL900mBWcMDTW1Oyi2GlxEtc6=s220",
+        "size": "398478"
+      },
+      {
+        "parents": [
+          "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+        ],
+        "id": "1ROz3jg-3zL_37X-G9wpDD0QQGEeWcNrB",
+        "name": "Alpha School Miami  8.5x11.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1ROz3jg-3zL_37X-G9wpDD0QQGEeWcNrB/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBN4cMWsGdKfZL92-bxQzM6T3jkJCoU1JbWH0MZkO3EMDDeIt_h9NuFD9BVDpjq1au8v9KZyWcanZPWgHRc5lHCkBya7X4w9bWz3=s220",
+        "size": "3924082"
+      },
+      {
+        "parents": [
+          "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+        ],
+        "id": "1hnX3Ac3jZgImvw-n1SU0-fenmSa5x-9f",
+        "name": "Alpha School K-8  8.5x11 (1).pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1hnX3Ac3jZgImvw-n1SU0-fenmSa5x-9f/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOdP8k4k3NLLR_L_-VqDYyJhiWBs4svObkr00WAOrhvHCWEJbIEvGqD0tlHOIh6yUu06FqpovDD8QndYCXVlsp4bTtO4nanNB3D=s220",
+        "size": "3661247"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+        ],
+        "id": "1VYr4TZmfCzv35pF7oReV7kNgc5Hbc_MG",
+        "name": "New Locations - Info Ads",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1VYr4TZmfCzv35pF7oReV7kNgc5Hbc_MG"
+      },
+      {
+        "parents": [
+          "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+        ],
+        "id": "1ihwwwo6zy5kg_SANc2aSvHI7EN_xL-m6",
+        "name": "Approved Photos for Media 2HL",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1ihwwwo6zy5kg_SANc2aSvHI7EN_xL-m6"
+      },
+      {
+        "parents": [
+          "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+        ],
+        "id": "1-nVgZouxEXwjLAWctnfuVdVGqQAJ7aFr",
+        "name": "FoE and Podcast",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1-nVgZouxEXwjLAWctnfuVdVGqQAJ7aFr"
+      },
+      {
+        "parents": [
+          "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+        ],
+        "id": "1WROkd6MtvD9PEEhNn_MUKrMSxfh11Smx",
+        "name": "KOAA INfo",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1WROkd6MtvD9PEEhNn_MUKrMSxfh11Smx"
+      },
+      {
+        "parents": [
+          "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+        ],
+        "id": "1Sw_dKx-10s2okiI_Inso-gimokR8FkbF",
+        "name": "Voices",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1Sw_dKx-10s2okiI_Inso-gimokR8FkbF"
+      },
+      {
+        "parents": [
+          "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+        ],
+        "id": "1CGHIMS2UsVs1HajkiNklRpP4bJRoaimK",
+        "name": "Full Page Ads",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1CGHIMS2UsVs1HajkiNklRpP4bJRoaimK"
+      },
+      {
+        "parents": [
+          "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+        ],
+        "id": "1xXiLheU3e8AjkFw6aiaLRJkEq7LfpR25",
+        "name": "Community Impact",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1xXiLheU3e8AjkFw6aiaLRJkEq7LfpR25"
+      },
+      {
+        "parents": [
+          "1ciwee6EOfZTlwiIrQpNsduM-kGRHoibN"
+        ],
+        "id": "1sPzwBlRz3s3fw3YHshdrU8gBAOZ24bUN",
+        "name": "ABJ",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1sPzwBlRz3s3fw3YHshdrU8gBAOZ24bUN"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 1,
+    "videos": 0,
+    "documents": 5,
+    "folders": 8,
+    "other": 0,
+    "total": 14
+  }
+}

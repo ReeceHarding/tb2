@@ -38,3 +38,34 @@ next-env.d.ts
 public/robots.txt
 public/sitemap.xml
 public/sitemap-0.xml
+
+# Logs
+logs
+*.log
+dev-debug.log
+# Large log files
+log.txt
+# Dependency directories
+node_modules/
+# Environment variables
+.env
+# Editor directories and files
+.idea
+.vscode
+.cursor/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+# OS specific
+
+# Task files
+# tasks.json
+# tasks/
+
+# Large media files
+public/videos/
+*.mp4
+*.mov
+*.avi 

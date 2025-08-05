@@ -1,0 +1,59 @@
+{
+  "school": {
+    "name": "Nova Academy (aka Valenta Academy)",
+    "id": "1DBJ-nv1bDsmw2hKgLEhw8lwsBtJwVT5p",
+    "extractionDate": "2025-08-03T21:37:07.725Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "11H582CRZL_Qyy0WXz_oKgTgD1AcCZvCg",
+        "name": "Nova Academy Branding.pdf",
+        "mimeType": "application/pdf",
+        "size": "617388",
+        "webViewLink": "https://drive.google.com/file/d/11H582CRZL_Qyy0WXz_oKgTgD1AcCZvCg/view?usp=drivesdk"
+      }
+    ],
+    "other": [
+      {
+        "id": "1DiiOhWCKrnF70MAgGoo3O8XwZxB2BQ0o",
+        "name": "Valenta",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1DiiOhWCKrnF70MAgGoo3O8XwZxB2BQ0o"
+      },
+      {
+        "id": "1J5XPlsvMV6_AABHUzFZEcMv_NBp5qGjG",
+        "name": "Admissions",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1J5XPlsvMV6_AABHUzFZEcMv_NBp5qGjG"
+      },
+      {
+        "id": "1oa-lZKV-nw47lZqWa_9FzjijJRD9xMB_",
+        "name": "Marketing",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1oa-lZKV-nw47lZqWa_9FzjijJRD9xMB_"
+      },
+      {
+        "id": "10gtv3q7btwHu2HmXLdA_pYIs1eeiRqKK",
+        "name": "Presentations",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/10gtv3q7btwHu2HmXLdA_pYIs1eeiRqKK"
+      },
+      {
+        "id": "1YIN066A9F4REDM96hH7PGdNdlPbtidTC",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1YIN066A9F4REDM96hH7PGdNdlPbtidTC"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 1,
+    "other": 5,
+    "total": 6
+  }
+}

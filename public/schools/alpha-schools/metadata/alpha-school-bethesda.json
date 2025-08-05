@@ -1,0 +1,28 @@
+{
+  "school": {
+    "id": "alpha-school-bethesda",
+    "name": "Alpha School | Bethesda",
+    "originalName": "Alpha School | Bethesda",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1mf_Txk2Q3QyvyWmdSa6YhMiRl7Otddy2"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": []
+  },
+  "stats": {
+    "totalFiles": 0,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 0
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:07.979Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

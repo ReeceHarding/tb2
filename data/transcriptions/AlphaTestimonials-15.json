@@ -1,0 +1,60 @@
+{
+  "fileName": "AlphaTestimonials-15.mp4",
+  "transcription": "One of the reasons I like Alpha is because instead of learning 6 hours, we learn 2 hours and still learn twice as much.",
+  "fullTranscript": {
+    "text": " One of the reasons I like Alpha is because instead of learning 6 hours, we learn 2 hours and still learn twice as much.",
+    "segments": [
+      {
+        "id": 0,
+        "seek": 0,
+        "start": 0,
+        "end": 8,
+        "text": " One of the reasons I like Alpha is because instead of learning 6 hours, we learn 2 hours and still learn twice as much.",
+        "tokens": [
+          50364,
+          1485,
+          295,
+          264,
+          4112,
+          286,
+          411,
+          20588,
+          307,
+          570,
+          2602,
+          295,
+          2539,
+          1386,
+          2496,
+          11,
+          321,
+          1466,
+          568,
+          2496,
+          293,
+          920,
+          1466,
+          6091,
+          382,
+          709,
+          13,
+          50764
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.31245685445851296,
+        "compression_ratio": 1.2142857142857142,
+        "no_speech_prob": 0.0082175824791193
+      }
+    ],
+    "language": "en"
+  },
+  "timestamp": "2025-08-03T23:14:54.232Z",
+  "duration": null,
+  "metadata": {
+    "duration": 8,
+    "fileSize": 9077951,
+    "width": 1920,
+    "height": 1080,
+    "bitrate": 9192861
+  }
+}

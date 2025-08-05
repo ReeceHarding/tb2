@@ -1,0 +1,203 @@
+{
+  "school": {
+    "name": "Texas Sports Academy",
+    "id": "texas-sports-academy",
+    "extractionDate": "2025-08-03T21:49:25.761Z"
+  },
+  "media": {
+    "images": [
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1Nlldxwwqw6bp2pAocn7nTSHhpkYRDtRZ",
+        "name": "TSA Olympics  1x1  Still.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1Nlldxwwqw6bp2pAocn7nTSHhpkYRDtRZ/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPPqfCADFiBLnLGPAbDJ2pFbtsQnhBduC_Qh-_UosARTr42YaC1aGcZJfP7MZw5ZWD1mYI5t9MkpUxR6F_EFMcjzx6dmHrLQORAbw=s220",
+        "size": "6483259"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1SzRFNc8U0bxO8KHAq7FS1q4tweBUjIcyduqkqejSN00",
+        "name": "TSA | Kevin is Fine",
+        "mimeType": "application/vnd.google-apps.document",
+        "webViewLink": "https://docs.google.com/document/d/1SzRFNc8U0bxO8KHAq7FS1q4tweBUjIcyduqkqejSN00/edit?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNwd26UEG8aKwZiT3DFYV_YbSbljjZy17teYuQvfhfNeSQJ32pqG4XUexgm_HKLDeeMky8Rqc4q1-sXaW4Z7Ak-KY-XDYcqtz_QPTYEtnpIDCy7AxK2=s220",
+        "size": "15101"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1W82cjWfI5-0s6olDt7yZjUlAg82nnd5GwmMskUI_l4o",
+        "name": "[PROTO COPY] TSA  Competition Schools",
+        "mimeType": "application/vnd.google-apps.spreadsheet",
+        "webViewLink": "https://docs.google.com/spreadsheets/d/1W82cjWfI5-0s6olDt7yZjUlAg82nnd5GwmMskUI_l4o/edit?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPTY-q41jVrKCGcpLG87g06V9IOYICMVVVhLuBOafGKW4ZW1o46e9UrZGoYaj5_eu4rWYJ0fQo1542E94hZKUENbcG3Ylyz77rpiI29lhKJgSOme-hY=s220",
+        "size": "6940"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1e1id3dTfCv0cIKM8ieEgfnHfq85HzQs1",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1e1id3dTfCv0cIKM8ieEgfnHfq85HzQs1"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "160h8WEWDMyQDa8RuNYq4AF6wj6nSA1_2",
+        "name": "Feeder Events ",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/160h8WEWDMyQDa8RuNYq4AF6wj6nSA1_2"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1nqdMrdbGMGprVPpIfFt7xmpBa5ihYMUF",
+        "name": "Host an Event / Referrals",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1nqdMrdbGMGprVPpIfFt7xmpBa5ihYMUF"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1N5WdxFka2qnRfMDOpyMXcKla5Nuzm_HI",
+        "name": "Olympics",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1N5WdxFka2qnRfMDOpyMXcKla5Nuzm_HI"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1MxNuOtDqjIj8NSRsnf-KeQ4xb9TeOWWI",
+        "name": "Merch",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1MxNuOtDqjIj8NSRsnf-KeQ4xb9TeOWWI"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1uFb2iAWlKdZTyq--dVZltur1CHH_KWUV",
+        "name": "Photography",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1uFb2iAWlKdZTyq--dVZltur1CHH_KWUV"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1nAKIfbp7feIQmnIp4WS-z0Ws16roQFSe",
+        "name": "TSA Coaches",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1nAKIfbp7feIQmnIp4WS-z0Ws16roQFSe"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1n5psYoJvvXIqBQxBZczM8Bu7EbbSqJ30",
+        "name": "Admissions Packet",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1n5psYoJvvXIqBQxBZczM8Bu7EbbSqJ30"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1vPC-mSHbkG1q8BJr2SK5ONeLI_BaI5UW",
+        "name": "Presentations",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1vPC-mSHbkG1q8BJr2SK5ONeLI_BaI5UW"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1VeXRU9opTkhEC3mornFhLpZ3fI8DMA2Y",
+        "name": "Showcase",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1VeXRU9opTkhEC3mornFhLpZ3fI8DMA2Y"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1Oo358E-k0CfUj2bY89Bd2ZXp1BiDUCUR",
+        "name": "Signage",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1Oo358E-k0CfUj2bY89Bd2ZXp1BiDUCUR"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1hP8mO6-lYZWyVeHDM2VHod8S34BLcZjv",
+        "name": "Evergreen",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1hP8mO6-lYZWyVeHDM2VHod8S34BLcZjv"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1cF76aXiIZsgeWUx3owomuuGrjW-6lxD7",
+        "name": "Taste of Texas Sports Academy",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1cF76aXiIZsgeWUx3owomuuGrjW-6lxD7"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1wYrCI1xGttHc2kNHlzoefUHRrEebMyqj",
+        "name": "Afterschool 24-25",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1wYrCI1xGttHc2kNHlzoefUHRrEebMyqj"
+      }
+    ],
+    "other": [
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1oGJbOWQR-RNQ5ZG_V_LBgUfk-SVFghwT",
+        "name": "Questions from Parents on Tours TSA",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1oGJbOWQR-RNQ5ZG_V_LBgUfk-SVFghwT/view?usp=drivesdk"
+      },
+      {
+        "parents": [
+          "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
+        ],
+        "id": "1vDBBu6pzQOwAK9fWL4vY2caVRm4cr6ZS",
+        "name": "Voices",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1vDBBu6pzQOwAK9fWL4vY2caVRm4cr6ZS/view?usp=drivesdk"
+      }
+    ]
+  },
+  "totals": {
+    "images": 1,
+    "videos": 0,
+    "documents": 2,
+    "folders": 14,
+    "other": 2,
+    "total": 19
+  }
+}

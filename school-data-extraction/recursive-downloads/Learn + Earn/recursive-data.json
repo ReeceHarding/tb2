@@ -1,0 +1,41 @@
+{
+  "school": {
+    "name": "Learn + Earn",
+    "id": "learn-earn",
+    "extractionDate": "2025-08-03T21:49:26.698Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [],
+    "folders": [
+      {
+        "parents": [
+          "1hu3eOcTwcFv3HornMy-YBAxNw084YexH"
+        ],
+        "id": "1Gd1sDz16Vo4JI-Pnty_AF9ly17ET1vl8",
+        "name": "Every.org",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1Gd1sDz16Vo4JI-Pnty_AF9ly17ET1vl8"
+      },
+      {
+        "parents": [
+          "1hu3eOcTwcFv3HornMy-YBAxNw084YexH"
+        ],
+        "id": "1p4OLxmEmx5KedPIj3WXTMjsdOGwuzjf4",
+        "name": "Learn  + Earn Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1p4OLxmEmx5KedPIj3WXTMjsdOGwuzjf4"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 0,
+    "folders": 2,
+    "other": 0,
+    "total": 2
+  }
+}

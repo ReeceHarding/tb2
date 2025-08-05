@@ -1,0 +1,99 @@
+{
+  "school": {
+    "id": "alpha-school-miami",
+    "name": "Alpha School | Miami",
+    "originalName": "Alpha School | Miami",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1TYH0JVXdVodPQlE2IztRD_E_yh4vONPP"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1ZpwwNG_W40n1M4ZkvTkrELq2ivx2vOr9",
+        "originalName": "Alpha School Miami",
+        "organizedName": "alpha-school-miami_1_Alpha-School-Miami",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1ZpwwNG_W40n1M4ZkvTkrELq2ivx2vOr9/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1ZpwwNG_W40n1M4ZkvTkrELq2ivx2vOr9&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-miami_1_Alpha-School-Miami",
+        "extractionDate": "2025-08-03T21:37:07.439Z"
+      },
+      {
+        "id": "1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5",
+        "originalName": "Marketing",
+        "organizedName": "alpha-school-miami_2_Marketing",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5",
+        "downloadUrl": "https://drive.google.com/uc?id=1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-miami_2_Marketing",
+        "extractionDate": "2025-08-03T21:37:07.439Z"
+      },
+      {
+        "id": "1qXu83INfRi92N2pItjj8H_GdaGunJjtb",
+        "originalName": "From the Team",
+        "organizedName": "alpha-school-miami_3_From-the-Team",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1qXu83INfRi92N2pItjj8H_GdaGunJjtb/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1qXu83INfRi92N2pItjj8H_GdaGunJjtb&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-miami_3_From-the-Team",
+        "extractionDate": "2025-08-03T21:37:07.439Z"
+      },
+      {
+        "id": "1e6leUsVfaLk569FkZrT1EPwP-fctQILF",
+        "originalName": "Internal",
+        "organizedName": "alpha-school-miami_4_Internal",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1e6leUsVfaLk569FkZrT1EPwP-fctQILF",
+        "downloadUrl": "https://drive.google.com/uc?id=1e6leUsVfaLk569FkZrT1EPwP-fctQILF&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-miami_4_Internal",
+        "extractionDate": "2025-08-03T21:37:07.439Z"
+      },
+      {
+        "id": "1gNKwqGkgw7CXgRYpSAQlohZvY2f8Vl8i",
+        "originalName": "School Documents",
+        "organizedName": "alpha-school-miami_5_School-Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1gNKwqGkgw7CXgRYpSAQlohZvY2f8Vl8i",
+        "downloadUrl": "https://drive.google.com/uc?id=1gNKwqGkgw7CXgRYpSAQlohZvY2f8Vl8i&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-miami_5_School-Documents",
+        "extractionDate": "2025-08-03T21:37:07.439Z"
+      },
+      {
+        "id": "1s2NjILpXAG313pbtJeT1lw4r0aGdevvo",
+        "originalName": "Headshots",
+        "organizedName": "alpha-school-miami_6_Headshots",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1s2NjILpXAG313pbtJeT1lw4r0aGdevvo/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1s2NjILpXAG313pbtJeT1lw4r0aGdevvo&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-miami_6_Headshots",
+        "extractionDate": "2025-08-03T21:37:07.439Z"
+      },
+      {
+        "id": "1tbE1JJbk_ySbYnRi4IbV9XCYYfQoWie-",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-miami_7_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1tbE1JJbk_ySbYnRi4IbV9XCYYfQoWie-",
+        "downloadUrl": "https://drive.google.com/uc?id=1tbE1JJbk_ySbYnRi4IbV9XCYYfQoWie-&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-miami_7_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:07.439Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 7,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 7
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:07.439Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

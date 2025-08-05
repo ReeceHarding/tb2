@@ -7,7 +7,8 @@ import config from "@/config";
 // If Crisp is not enable, it will open the support email in the default email client.
 const ButtonSupport = () => {
   const handleClick = () => {
-    if (config.crisp?.id) {
+    // Only use Crisp if a valid ID is provided (not empty string)
+    if (config.crisp?.id && config.crisp.id.trim() !== "") {
       Crisp.chat.show();
       Crisp.chat.open();
     } else if (config.resend?.supportEmail) {

@@ -1,0 +1,59 @@
+{
+  "school": {
+    "id": "alpha-school-santa-barbara",
+    "name": "Alpha School | Santa Barbara",
+    "originalName": "Alpha School | Santa Barbara",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1L2oi_v5U7b_2DlIcewo2xHheBGKrjehU"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1HcnbcdoJZrgmhkIQLQ86aOenVNlzKEcV",
+        "originalName": "School Documents",
+        "organizedName": "alpha-school-santa-barbara_1_School-Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1HcnbcdoJZrgmhkIQLQ86aOenVNlzKEcV",
+        "downloadUrl": "https://drive.google.com/uc?id=1HcnbcdoJZrgmhkIQLQ86aOenVNlzKEcV&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-santa-barbara_1_School-Documents",
+        "extractionDate": "2025-08-03T21:37:16.384Z"
+      },
+      {
+        "id": "1zT6ZqWLqE2WtuXJVdgCtbkcl7SlHlbsx",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-santa-barbara_2_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1zT6ZqWLqE2WtuXJVdgCtbkcl7SlHlbsx",
+        "downloadUrl": "https://drive.google.com/uc?id=1zT6ZqWLqE2WtuXJVdgCtbkcl7SlHlbsx&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-santa-barbara_2_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:16.384Z"
+      },
+      {
+        "id": "1ZvFwB2LaAmR5YGAcqX3CxOXO7IMYDqjF",
+        "originalName": "Events",
+        "organizedName": "alpha-school-santa-barbara_3_Events",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1ZvFwB2LaAmR5YGAcqX3CxOXO7IMYDqjF",
+        "downloadUrl": "https://drive.google.com/uc?id=1ZvFwB2LaAmR5YGAcqX3CxOXO7IMYDqjF&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-santa-barbara_3_Events",
+        "extractionDate": "2025-08-03T21:37:16.384Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 3,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 3
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:16.384Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

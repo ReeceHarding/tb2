@@ -1,0 +1,78 @@
+{
+  "school": {
+    "id": "gt-school",
+    "name": "GT School",
+    "city": "Unknown",
+    "type": "other-school",
+    "isMainBrand": false
+  },
+  "media": {
+    "videos": [
+      {
+        "filename": "gt-school_1754255154211_promo-video.mp4",
+        "originalPath": "downloads/GT School/promo-video.mp4",
+        "localPath": "/schools/other-schools/videos/gt-school_1754255154211_promo-video.mp4",
+        "fileType": "video",
+        "mimeType": "video/mp4",
+        "fileSize": 21,
+        "metadata": {
+          "title": "promo-video",
+          "dateCreated": "2025-08-03T20:48:15.297Z",
+          "lastModified": "2025-08-03T20:48:31.060Z",
+          "tags": [
+            "GT School",
+            "Unknown",
+            "other-school"
+          ]
+        }
+      }
+    ],
+    "images": [
+      {
+        "filename": "gt-school_1754255154210_logo.svg",
+        "originalPath": "downloads/GT School/logo.svg",
+        "localPath": "/schools/other-schools/images/gt-school_1754255154210_logo.svg",
+        "fileType": "image",
+        "mimeType": "application/octet-stream",
+        "fileSize": 21,
+        "metadata": {
+          "title": "logo",
+          "dateCreated": "2025-08-03T20:48:15.297Z",
+          "lastModified": "2025-08-03T20:48:31.060Z",
+          "tags": [
+            "GT School",
+            "Unknown",
+            "other-school"
+          ]
+        }
+      }
+    ],
+    "documents": [
+      {
+        "filename": "gt-school_1754255154210_fact-sheet.pdf",
+        "originalPath": "downloads/GT School/fact-sheet.pdf",
+        "localPath": "/schools/other-schools/documents/gt-school_1754255154210_fact-sheet.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "fileSize": 24,
+        "metadata": {
+          "title": "fact-sheet",
+          "dateCreated": "2025-08-03T20:48:15.298Z",
+          "lastModified": "2025-08-03T20:48:31.060Z",
+          "tags": [
+            "GT School",
+            "Unknown",
+            "other-school"
+          ]
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "totalFiles": 3,
+    "lastUpdated": "2025-08-03T21:05:54.210Z",
+    "extractionDate": "2025-08-03T21:05:54.210Z",
+    "googleDriveFolder": "GT School"
+  },
+  "marketing": {}
+}

@@ -1,0 +1,57 @@
+{
+  "school": {
+    "name": "GT School",
+    "id": "14fDN3jWyTjh9-1vmMGJH_aDPmRRPQvBM",
+    "extractionDate": "2025-08-03T21:37:16.243Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "13Q8Ug3ilqUhZeOo54qvPqy_NtUjjEXEj",
+        "name": "Videos",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/13Q8Ug3ilqUhZeOo54qvPqy_NtUjjEXEj"
+      },
+      {
+        "id": "1dM5UFMpN8nyOVKjszJvOCT_BSt22FX9s",
+        "name": "Admissions Packet",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1dM5UFMpN8nyOVKjszJvOCT_BSt22FX9s"
+      },
+      {
+        "id": "1IuqwW8zINOk61qduAvbfQm6iOk-_q0OK",
+        "name": "Photography",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1IuqwW8zINOk61qduAvbfQm6iOk-_q0OK"
+      },
+      {
+        "id": "1MMI5xl1q6-nRxD-mnr68ZF15fxQKFBwf",
+        "name": "Guides",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1MMI5xl1q6-nRxD-mnr68ZF15fxQKFBwf"
+      },
+      {
+        "id": "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd",
+        "name": "Marketing",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+      },
+      {
+        "id": "1EHd6C7E0ZNmEXQ-MKgEOBmrWJu6YGWak",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1EHd6C7E0ZNmEXQ-MKgEOBmrWJu6YGWak"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 0,
+    "other": 6,
+    "total": 6
+  }
+}

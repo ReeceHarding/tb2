@@ -36,6 +36,56 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    // Quiz data and personalized content storage
+    quizData: {
+      userType: {
+        type: String,
+        enum: ['parents', 'schools', 'entrepreneur', 'government', 'philanthropist', 'developer', 'student'],
+        default: null,
+      },
+      parentSubType: {
+        type: String,
+        enum: ['timeback-school', 'homeschool', 'tutoring'],
+        default: null,
+      },
+      schoolSubType: {
+        type: String,
+        enum: ['private', 'public'],
+        default: null,
+      },
+      grade: {
+        type: String,
+        enum: ['K', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th'],
+        default: null,
+      },
+      numberOfKids: {
+        type: Number,
+        default: 1,
+        min: 1,
+      },
+      selectedSchools: [{
+        id: { type: String, required: true },
+        name: { type: String, required: true },
+        city: { type: String, required: true },
+        state: { type: String, required: true },
+        level: { type: String, required: true },
+      }],
+      kidsInterests: [String],
+      completedAt: {
+        type: Date,
+        default: null,
+      },
+    },
+    // Generated personalized content from AI
+    generatedContent: {
+      afternoonActivities: { type: mongoose.Schema.Types.Mixed, default: null },
+      subjectExamples: { type: mongoose.Schema.Types.Mixed, default: null },
+      howWeGetResults: { type: mongoose.Schema.Types.Mixed, default: null },
+      followUpQuestions: { type: mongoose.Schema.Types.Mixed, default: null },
+      allCompleted: { type: Boolean, default: false },
+      hasErrors: { type: Boolean, default: false },
+      generatedAt: { type: Date, default: null },
+    },
   },
   {
     timestamps: true,

@@ -1,0 +1,60 @@
+{
+  "school": {
+    "name": "Alpha School | Microschools",
+    "id": "alpha-microschools",
+    "city": "Microschools",
+    "state": "Unknown",
+    "type": "alpha",
+    "extractionDate": "2025-08-03T21:49:43.139Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "Alpha School - General Trifold.pdf",
+        "organizedName": "alpha-microschools_1_Alpha_School_-_General_Trifold.pdf",
+        "localPath": "/alpha-schools/documents/alpha-microschools_1_Alpha_School_-_General_Trifold.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 10723647,
+        "googleDriveId": "1mtIOOPT3TLeHyEdFMWet9BGuWvrnhWIi",
+        "downloadUrl": "https://drive.google.com/uc?id=1mtIOOPT3TLeHyEdFMWet9BGuWvrnhWIi&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1mtIOOPT3TLeHyEdFMWet9BGuWvrnhWIi/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "Tuition Micro.pdf",
+        "organizedName": "alpha-microschools_2_Tuition_Micro.pdf",
+        "localPath": "/alpha-schools/documents/alpha-microschools_2_Tuition_Micro.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 5980096,
+        "googleDriveId": "1QWNbicsvVEZ5oNKCwTObpmsXpThQc_q8",
+        "downloadUrl": "https://drive.google.com/uc?id=1QWNbicsvVEZ5oNKCwTObpmsXpThQc_q8&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1QWNbicsvVEZ5oNKCwTObpmsXpThQc_q8/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "2HL School 2025 - 2026 Calendars.pdf",
+        "organizedName": "alpha-microschools_3_2HL_School_2025_-_2026_Calendars.pdf",
+        "localPath": "/alpha-schools/documents/alpha-microschools_3_2HL_School_2025_-_2026_Calendars.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 2046410,
+        "googleDriveId": "1u1M3GHGO6uyB-ZQcG2EE30inCZD-7_tI",
+        "downloadUrl": "https://drive.google.com/uc?id=1u1M3GHGO6uyB-ZQcG2EE30inCZD-7_tI&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1u1M3GHGO6uyB-ZQcG2EE30inCZD-7_tI/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      }
+    ],
+    "totalAssets": 3
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [
+      "Marketing Documents"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.951Z"
+  }
+}

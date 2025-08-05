@@ -1,0 +1,609 @@
+{
+  "school": {
+    "name": "GT School",
+    "id": "gt-school",
+    "extractionDate": "2025-08-03T21:49:42.607Z"
+  },
+  "marketingFolder": {
+    "id": "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd",
+    "name": "Marketing",
+    "webViewLink": "https://drive.google.com/drive/folders/1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+  },
+  "media": {
+    "images": [
+      {
+        "parents": [
+          "1HlZ7tC6nkyE0beWz9yVar5JtK7-10gDn"
+        ],
+        "id": "1JnV3gF6QGC8LKrLRr1tlmfhXPEtoZV3H",
+        "name": "GT School Email Banner + Headline.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1JnV3gF6QGC8LKrLRr1tlmfhXPEtoZV3H/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPxcriiOs3fbiPc4dRw4Td_OWyMB__xdpWoWre3_rIH-cdVs8Amos_hiA-nuJ-BnMMuC1u1LRdzuRFjhaNM4vEPQby_cFMzJbe93Q=s220",
+        "size": "1773894"
+      },
+      {
+        "parents": [
+          "1HlZ7tC6nkyE0beWz9yVar5JtK7-10gDn"
+        ],
+        "id": "1lk_b4WdhTf23HqwgdgEfvavFkDW3cHwv",
+        "name": "GT School Email Banner - No Headline.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1lk_b4WdhTf23HqwgdgEfvavFkDW3cHwv/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMkBQmysj_CZ9a7TerDYnj9gGNTXShrnKCOICQpslQb3HLXY7rXTBHuai9Szf3DcxDVJZXy1PUFAxt4OD3F67Ce2CGi6ojxTisIJQ=s220",
+        "size": "1896483"
+      },
+      {
+        "parents": [
+          "1F5XE_xBJEo6_bQ2vejRPsX6U56qViOgb"
+        ],
+        "id": "128FNhsrmJDhy69MeSNXgh0NMBOamKnEU",
+        "name": "GT_School_Testing_Event.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/128FNhsrmJDhy69MeSNXgh0NMBOamKnEU/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOSYOcCyGwI4GWEKZEmXdfZ4iDUuwgL34wC4iKlpFDa1Trv8MR4W7Ugz4-SSKlT6ZRMnbn_Iu-V489Rq_IXZWA7B2jl1xE9bLxpfg=s220",
+        "size": "15138"
+      },
+      {
+        "parents": [
+          "1F5XE_xBJEo6_bQ2vejRPsX6U56qViOgb"
+        ],
+        "id": "1EVf6PJ3pitoUKsK56keSEWnF3DOPAUWK",
+        "name": "GT_School_Testing_Event.svg",
+        "mimeType": "image/svg+xml",
+        "webViewLink": "https://drive.google.com/file/d/1EVf6PJ3pitoUKsK56keSEWnF3DOPAUWK/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBN5rd1B37sVNvHcV5hgRw_la7RunSSubQcj8lOXZ5Gst9p-QfmXI7XbodSbRtHR7-wBNVFm0bKfn52ydpgEkScyEFoWcdCxAgKzAQ=s220",
+        "size": "49930"
+      },
+      {
+        "parents": [
+          "1j6HZjRG-nwD-uPufdSaHP7FJqZCOd3uN"
+        ],
+        "id": "1dQP-Jr2mE9ZY8Wegl30yy1pswAsZFS-a",
+        "name": "NASA Logo.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1dQP-Jr2mE9ZY8Wegl30yy1pswAsZFS-a/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOePatmGeLYoYgb4DbNYpztm1cHoXNiZTDEWpK9HnVlHBCZvdlwbfimKSrmQEzUKF0SKW9y2FhwTb2Nja46UzucYXpzdKq96_kE=s220",
+        "size": "57594"
+      },
+      {
+        "parents": [
+          "1PupfLnVeHjXUlWUnCEuQ9FcdUVA-0Ohw"
+        ],
+        "id": "1lDk--fgcvL1BKLSz3dUiNRtEYMRAPHus",
+        "name": "GT_School_Showcases.svg",
+        "mimeType": "image/svg+xml",
+        "webViewLink": "https://drive.google.com/file/d/1lDk--fgcvL1BKLSz3dUiNRtEYMRAPHus/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNOLrB4rDWtIKxrrio9_saWMNKA082NaRpXesLOfOllBUA86-4d5K5Tfnqli2x1LaUs4mPYdLb3cQziqSoXEocNAk3hgfiPHA_wHg=s220",
+        "size": "48507"
+      },
+      {
+        "parents": [
+          "1PupfLnVeHjXUlWUnCEuQ9FcdUVA-0Ohw"
+        ],
+        "id": "1bF0VnhaJy2futjFR30QUKtn9diydCejF",
+        "name": "GT_School_Showcases.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1bF0VnhaJy2futjFR30QUKtn9diydCejF/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPRraTBD6Ua4abYHbrZkO1oFX0CVid7u4rt7aQd9J54iDE5HCEyxyteu16VfDRi15YT7lgBp1mMBS5YQDNp_8-aGqDvONNixfSHKg=s220",
+        "size": "170789"
+      },
+      {
+        "parents": [
+          "17ZLXZif9RRlNktFbAiezjjg-LvMJLGI2"
+        ],
+        "id": "1DhvpXQixYhBOo7KbIN3lHQAexevmQ_em",
+        "name": "GT_School_Grand_Opening.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1DhvpXQixYhBOo7KbIN3lHQAexevmQ_em/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBO9rJwdRpc1EC2AJKC-UJ7RUuy1frEckAyAwcp6mqY-T02YgJG0IQDfdiDFf0JCKw-Rr6LZV7fF_iEOmVA9SyK6xtokPX8cQhFGWA=s220",
+        "size": "15469"
+      },
+      {
+        "parents": [
+          "17ZLXZif9RRlNktFbAiezjjg-LvMJLGI2"
+        ],
+        "id": "1kfHr6lAPMraihvSlaHXr-nV-kQ4hKXva",
+        "name": "GT_School_Grand_Opening.svg",
+        "mimeType": "image/svg+xml",
+        "webViewLink": "https://drive.google.com/file/d/1kfHr6lAPMraihvSlaHXr-nV-kQ4hKXva/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOoiWAyEVvmNAZhd5A_3jqD26QsPQZd9UR4gtNZxAXCmTTeFvLBUgy4B69jiOfjmlEo8W-9LMmKXNk8IcRo392shieEbz3eDDAXlQ=s220",
+        "size": "27267"
+      },
+      {
+        "parents": [
+          "17ZLXZif9RRlNktFbAiezjjg-LvMJLGI2"
+        ],
+        "id": "1I5aodDLQOXScetIGRY-ce5t0B1RFbAVD",
+        "name": "GT_School_Grand_Opening.jpg",
+        "mimeType": "image/jpeg",
+        "webViewLink": "https://drive.google.com/file/d/1I5aodDLQOXScetIGRY-ce5t0B1RFbAVD/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOW0Ihu2eeAqLs7EqoSheYEuyzW5L3aNpCy6LFFZXbTHRdbFdRXGbpJw436ymP0CYxNXeOwGpHmDO-2VNhtnvYDkpAmu3sEy3CBBA=s220",
+        "size": "352310"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "1yQGccrqa1F9cY34gHKqNcis28gYe_ZlG",
+        "name": "GT Trifold Brochure FINAL.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1yQGccrqa1F9cY34gHKqNcis28gYe_ZlG/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBM0gdIXu9MmQatq_IBw1gD5_J1jVeTxGo5XfVb-_0UaaEr-kPpUzGESfoIFohwaNtoZLqEDGFPlCX0tpiTf1VL21uO74nX0pLO11A=s220",
+        "size": "8760257"
+      },
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "1c-rTVkyWHU9eG4nqvsPzqjxpvzxn313X",
+        "name": "GT School General Flyer V2.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1c-rTVkyWHU9eG4nqvsPzqjxpvzxn313X/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMgBCLDOvIxPjM9bhBz20MbQ3Y4XpApHnTH-_ThVUk1HaVJuiWkkeqS7TASZZkVmGyZBUJdpf6yjxG6wuv18KzSD8Uqz-VhuQuMLg=s220",
+        "size": "1817543"
+      },
+      {
+        "parents": [
+          "1aQ6kElJ8HrpZ835YpZA3qhZ4YPP7cbPa"
+        ],
+        "id": "13WTXpJIsYRPxNpKyOWTAmhOWmHBRjxOH",
+        "name": "View 25_04 GT_school.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/13WTXpJIsYRPxNpKyOWTAmhOWmHBRjxOH/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMlSpk_Z9pXfSYAF1d_IXI2qfV2ecqxnj1jPPFplTT_1NwC_JCb7qm7oj8I8H9CraFm0xoPwSIkcdiPztcQLK5OZFB-2NDGYpE2rA=s220",
+        "size": "1332180"
+      },
+      {
+        "parents": [
+          "1aQ6kElJ8HrpZ835YpZA3qhZ4YPP7cbPa"
+        ],
+        "id": "1VZwwOpRo5ILRFVxmpgh2pKt4OT4WIK1y",
+        "name": "GT School.docx",
+        "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "webViewLink": "https://docs.google.com/document/d/1VZwwOpRo5ILRFVxmpgh2pKt4OT4WIK1y/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBM_RxYwEAzjHOOMSFDH6XPQMz0q2zZdiZ5FSrM3ivQwy5msdXIBt2Vy5-iMZ3CUa65BshGH0DjTWnVDY5baa10BleOadr5OTdn39A=s220",
+        "size": "8017"
+      },
+      {
+        "parents": [
+          "1aQ6kElJ8HrpZ835YpZA3qhZ4YPP7cbPa"
+        ],
+        "id": "1kuQvpxVEEu0NTJlRIkEx7Sj-yGktNzG8",
+        "name": "View 25_03 GTSchool.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1kuQvpxVEEu0NTJlRIkEx7Sj-yGktNzG8/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBO2fhEar-DxSxaBt3CipPLeJ5JP8ZL0vsrMexkOlI_SOFRb2pTMBPU-vvPkY5UQxbyaeyRjejl_WajCrqLi3dmQ8lV5IXT8LzDm3w=s220",
+        "size": "155427"
+      },
+      {
+        "parents": [
+          "1hj0_1yNmkBxF8iqxw2_Lg6E7ZtAzX--Z"
+        ],
+        "id": "1aUbydy7-RPMxYhA2mdxp3SVikdwkNJMI",
+        "name": "GT School  - Pop of Genius Workshop Flyer V3.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1aUbydy7-RPMxYhA2mdxp3SVikdwkNJMI/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBN9KsefAmNihYCqeh8BgAd-sBVBjVSwcdS5-T59dWG-DjoTH4xFZyObMobyF4nn-3eF3BjXQiilZfrRn9bg-30lyTJFqjTh79uRoQ=s220",
+        "size": "359110"
+      },
+      {
+        "parents": [
+          "1Z84imBQ_K8hfMyXmLmsXcJH5nlp4xCzg"
+        ],
+        "id": "1jyZJ1ZgXOTHn2Ln1zj0Zi9jgdyeF2xR3",
+        "name": "Georgetown View 8.5x11.375.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1jyZJ1ZgXOTHn2Ln1zj0Zi9jgdyeF2xR3/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOE8ExIm5Ooevq56LXXllruiwrt5QnW1FpdOSfkWNFRky5KIWe2lJmYFsL0vZnNg-eWvhWBVf_98kEupFniLJPVpn2Asm7zchq6=s220",
+        "size": "50918016"
+      },
+      {
+        "parents": [
+          "1HlZ7tC6nkyE0beWz9yVar5JtK7-10gDn"
+        ],
+        "id": "1x6nLCJzGZIJ-7pz8C3WcdNJL8age1DDO",
+        "name": "GT School 10x7inch.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1x6nLCJzGZIJ-7pz8C3WcdNJL8age1DDO/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOFSr3xmyb7dNdRAekLqZder03Fad_EV5rTJrsHOmrAl3irT1uVN1B4ijxDY-kUiIF26rUg9_FB9PlVqz0AkVGWcBIT5C6ZqBnCcQ=s220",
+        "size": "36259275"
+      },
+      {
+        "parents": [
+          "1HlZ7tC6nkyE0beWz9yVar5JtK7-10gDn"
+        ],
+        "id": "1Pb2koev50x1-xscrMtsGXcHSEY_8-csj",
+        "name": "GT Brochure V4.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1Pb2koev50x1-xscrMtsGXcHSEY_8-csj/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBN_pNstz-IkDYNaWP1DhIdPHqE_MpMOQnH-AWfgPg_du_nQEjALmosUIdUHckLU18aB12uiKXMMdcwlX4eT7K6bcHCR9BUS-l_v1w=s220",
+        "size": "8760257"
+      },
+      {
+        "parents": [
+          "1HlZ7tC6nkyE0beWz9yVar5JtK7-10gDn"
+        ],
+        "id": "1KCMnPoQShnIBlkUD4_7sqmjtGHfvOwYv",
+        "name": "GT School - Rubiks Card 1.5 x 1 inch.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1KCMnPoQShnIBlkUD4_7sqmjtGHfvOwYv/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOkud8DK_hQ3zLJyXlUTv50ltSiz5hiLV6tiEHTLehkTlGZ_I1DVmO9WzbalUEh-ZocpPr23KTyVR529lnvaKd5CrZDM2xQKd2ebw=s220",
+        "size": "395845"
+      },
+      {
+        "parents": [
+          "1HlZ7tC6nkyE0beWz9yVar5JtK7-10gDn"
+        ],
+        "id": "1Hb_z36zvYGC4CYXB30TBy21Q81OClEzO",
+        "name": "GT School 6x2.5ft Stretch Table Cloth.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1Hb_z36zvYGC4CYXB30TBy21Q81OClEzO/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPmIKAY8ZmmtJlaTeQCuGXkm_a0OxVev9oiw2-R1MrfMVWYd8tNVziK-4BaZdPXKZj24jNXpkXYoGH63FC4g80ASM_nWhXL8GOGLg=s220",
+        "size": "125252"
+      },
+      {
+        "parents": [
+          "18s7mY0yrpe3_74MrI8uvyFzY0WSbV1jz"
+        ],
+        "id": "1LWTHyBKN7dh79eht5Eek2fVmMVLejIRZ",
+        "name": "GT Austin Woman - Full Page.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1LWTHyBKN7dh79eht5Eek2fVmMVLejIRZ/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOCHgKgnOgeGXrSubw9AY31RXst81FO5DX5E2C-61m0Dwz2Sf4Dme90aE3MMMXxhyEW44D0lcK4IIQMa_4A8o8JlcopJjaf55FXYQ=s220",
+        "size": "1260307"
+      },
+      {
+        "parents": [
+          "1F5XE_xBJEo6_bQ2vejRPsX6U56qViOgb"
+        ],
+        "id": "1Q3x705EezRs9TsTTJ_LhguZCaS1BierH",
+        "name": "GT Testing Event Flyer.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1Q3x705EezRs9TsTTJ_LhguZCaS1BierH/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNl9xZI9ucvyvUYHhwV0AKIZiJWpVLGsb70thr1EbVCfSduUDKAOtNv0-_NNBail1fJ0ZgN_9B9ylzTRfcZW5yJauzwyBrCTj9YeQ=s220",
+        "size": "1809712"
+      },
+      {
+        "parents": [
+          "1j6HZjRG-nwD-uPufdSaHP7FJqZCOd3uN"
+        ],
+        "id": "1d0-VAZjZ6mkIhq8oIQKZh7ZvS2WlQcUD",
+        "name": "GT School PA-2 NASA Paperplane.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1d0-VAZjZ6mkIhq8oIQKZh7ZvS2WlQcUD/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOHhVlCsklImHn0RpASXaTu880XPMQ3lE5P07O2RsGu8WcOB0Kka4BETiymOJWBf-TagTvAaff-uofiN4e3Kpd9DiP3MJE5ICy_=s220",
+        "size": "181029"
+      },
+      {
+        "parents": [
+          "1j6HZjRG-nwD-uPufdSaHP7FJqZCOd3uN"
+        ],
+        "id": "1rDKkQC8IeoZDSmp49jBy900rQSDeexzp",
+        "name": "GT School PA-1 NASA Paperplane.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1rDKkQC8IeoZDSmp49jBy900rQSDeexzp/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNnHfXqxU3LthxGVV9--ruUeZx0npPm2t_pazE9uJ6dZOZoInBOIB9VtlM1Z1qKoYB0Er5Jd1Md4h2LgQUqX4s9XAMrVP2zmJkK=s220",
+        "size": "162667"
+      },
+      {
+        "parents": [
+          "1j6HZjRG-nwD-uPufdSaHP7FJqZCOd3uN"
+        ],
+        "id": "1aoeR81PibmSEJ6G1tJeYO9CWaSpXj7aY",
+        "name": "Airplane1.ppt",
+        "mimeType": "application/vnd.ms-powerpoint",
+        "webViewLink": "https://docs.google.com/presentation/d/1aoeR81PibmSEJ6G1tJeYO9CWaSpXj7aY/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPA9ahCeQBin_GUYrAzvEFSHUm0kxIOJ6hZreue4VVqiynbNXQcv5sbzibY7i1R2a6t8gTCFtX70-YrMZkL6s5tr85G03Udgawq=s220",
+        "size": "123392"
+      },
+      {
+        "parents": [
+          "1j6HZjRG-nwD-uPufdSaHP7FJqZCOd3uN"
+        ],
+        "id": "169Lrv1p4E34gl51W-UGfxCF6HIKdEH6s",
+        "name": "Airplane2.ppt",
+        "mimeType": "application/vnd.ms-powerpoint",
+        "webViewLink": "https://docs.google.com/presentation/d/169Lrv1p4E34gl51W-UGfxCF6HIKdEH6s/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPZiuFK6hEEasEzSFgI0cduwIZSOoYHSu5LKz4jfqu32jIRC17qhgrSYwm2nBnDEHKpQSd5RystgrSlI8n3gPZPMMLPq5DL9wCV=s220",
+        "size": "122368"
+      },
+      {
+        "parents": [
+          "1RxXV9f5UHeFIRM5jlaz3A_dm0H8jGI_D"
+        ],
+        "id": "14a7KYs85gRoa34annlsBNX7-iF5-r_iV",
+        "name": "GT School Circle or Rounded Square.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/14a7KYs85gRoa34annlsBNX7-iF5-r_iV/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNve1N3D6qogR5xx3N237AOsSprQn3jYjaB5vXDX4nu8eg7nPi01qlfrwd5szHIiQbs0iNp7yEVcyqddIi4C6ZXeAXGJU5jEvja=s220",
+        "size": "1194818"
+      },
+      {
+        "parents": [
+          "1RxXV9f5UHeFIRM5jlaz3A_dm0H8jGI_D"
+        ],
+        "id": "1GrRFW6Nj4IXXwFGqyesS11tSHtKWxug2",
+        "name": "GT Stickers Rectangle.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1GrRFW6Nj4IXXwFGqyesS11tSHtKWxug2/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBODVXvcd4XWczatyTSVtuZsmZgVsnlqadg_bUG7d4sR8ZKHcOQQHOI7cYQOlJabr2ErT0Ufc4DRw-nHvfGEtLdwaJcqpBQLh6p0=s220",
+        "size": "1195757"
+      },
+      {
+        "parents": [
+          "1hVXKtV9s-LXPJT9m8z7xPISEWczq25Kc"
+        ],
+        "id": "17cs6SqScdYPnyM9VhtjT92SOejgtFiZG",
+        "name": "GT Student Motivational Tracker.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/17cs6SqScdYPnyM9VhtjT92SOejgtFiZG/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPB6rJZ8jhANEVTz4KKQhMqjqJU5s3HaWbEADFkQ6JTdAIHhnT5BVFg9VMiH9pD6Nrg-GQ1W0IkDnAUwi1tu5b4f8HNnolUvEFOxQ=s220",
+        "size": "196868"
+      },
+      {
+        "parents": [
+          "1hVXKtV9s-LXPJT9m8z7xPISEWczq25Kc"
+        ],
+        "id": "13gG1DQb7SKk09LzwrPPdf2ZwltzkdIoU",
+        "name": "GT Retractable Banners 47x81 inch.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/13gG1DQb7SKk09LzwrPPdf2ZwltzkdIoU/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBM8OEwhARM7MYcjXJlsg3IKz67M6GR3fOttgD9U5kCwweduQiXPzi9e03F7yLQk1tZk-CmRiU51mvopGExqjZ4_huYgVRy1v4pK-A=s220",
+        "size": "5286533"
+      },
+      {
+        "parents": [
+          "1hVXKtV9s-LXPJT9m8z7xPISEWczq25Kc"
+        ],
+        "id": "1wJJQF5sK2JDqZ8kq3oyI0lNQBloa1_d3",
+        "name": "GT School 24x36 Poster.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1wJJQF5sK2JDqZ8kq3oyI0lNQBloa1_d3/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOM_zNDzqlcvH0T7xm5cfiECuyMm5w00vTiwywtZmkQPj3VffTCdzkzhRcJiEM_uhBwIEJtA9x4kOJUZ6Vsd80-thz6wbK5gf-Lwg=s220",
+        "size": "5619371"
+      },
+      {
+        "parents": [
+          "1PupfLnVeHjXUlWUnCEuQ9FcdUVA-0Ohw"
+        ],
+        "id": "1B0l6V8HNDGghJtlOnejs_kCF7hXCbScB",
+        "name": "GT School  - Showcase Flyer 9th.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1B0l6V8HNDGghJtlOnejs_kCF7hXCbScB/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNKJb4YviqHUkpbiyF-QEuX6lm8jSJWXD_SGc5KirXC4Cd3vg5SM4mfMx1pJhAXO-F_gmjoQAabhsVXndA_79uyItHQeucGGVbfiA=s220",
+        "size": "8374041"
+      },
+      {
+        "parents": [
+          "1PupfLnVeHjXUlWUnCEuQ9FcdUVA-0Ohw"
+        ],
+        "id": "1dC3EQDiHobJr8bYc9VLhmVvPKVLq-6Qo",
+        "name": "GT School  - 19th Showcase Flyer V3.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1dC3EQDiHobJr8bYc9VLhmVvPKVLq-6Qo/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOKHkeCW1llgVuOwc2cfQgIgB_yv5ZGeMVDX505-7H5vn78Bcfpxd2_xSohgpHBN_RUwyOpoBvECEJnHkGJyf0-F_pM7iPFfRK14A=s220",
+        "size": "2159900"
+      },
+      {
+        "parents": [
+          "1PupfLnVeHjXUlWUnCEuQ9FcdUVA-0Ohw"
+        ],
+        "id": "1sG9CWUqpQiCif2vCac9tJLhzasnMWgge",
+        "name": "GT School  - Showcase Flyer V2.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1sG9CWUqpQiCif2vCac9tJLhzasnMWgge/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPllprdXqOfJq8ruOfi8mI9WG4A7FPbAmjz4YvX4zv9v5fJ3N0Ww6n1OqBAN3nc4KJfmXbNeFz9xxeTTRe9jYTijwiQsv4JxhQ-kQ=s220",
+        "size": "8370986"
+      },
+      {
+        "parents": [
+          "1PupfLnVeHjXUlWUnCEuQ9FcdUVA-0Ohw"
+        ],
+        "id": "1xuSJnG15iWB80ZCzXEtx-TVECaexkalY",
+        "name": "GT School Showcase Banners 3x10ft.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1xuSJnG15iWB80ZCzXEtx-TVECaexkalY/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOwnkQPoVlhjoEV9T5m489TlG8VCtbjlQJIw7sJcEPJVCOtzVbU7J9SxTKeJfdZx94MLPNTGoTitaeHLtzeyve1PeUE10fAONvi9w=s220",
+        "size": "2700227"
+      },
+      {
+        "parents": [
+          "17ZLXZif9RRlNktFbAiezjjg-LvMJLGI2"
+        ],
+        "id": "1qdIUS0dd2gT4is0Y3N_hIUkozHA5AIdE",
+        "name": "GT Ribbon Cutting Flyer 8.5x11inch V1.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1qdIUS0dd2gT4is0Y3N_hIUkozHA5AIdE/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBM6kez3snJFk-8zyix8l_EBd9vR1Cmjzf-18FdVnximPRherQ5vGC9mKK1sg338dvxPc-GBDWars56uK4qFhMk0moiMhJnn_n2RKA=s220",
+        "size": "3540369"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "1aQ6kElJ8HrpZ835YpZA3qhZ4YPP7cbPa",
+        "name": "Materials from Braden",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1aQ6kElJ8HrpZ835YpZA3qhZ4YPP7cbPa"
+      },
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "1hj0_1yNmkBxF8iqxw2_Lg6E7ZtAzX--Z",
+        "name": "Pop of Genius Girls Event",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1hj0_1yNmkBxF8iqxw2_Lg6E7ZtAzX--Z"
+      },
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "1fmIrYFqOges8HQS6iTA8spnS390bZlWh",
+        "name": "Paid Social",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1fmIrYFqOges8HQS6iTA8spnS390bZlWh"
+      },
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "1Z84imBQ_K8hfMyXmLmsXcJH5nlp4xCzg",
+        "name": "GeorgeTown View",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1Z84imBQ_K8hfMyXmLmsXcJH5nlp4xCzg"
+      },
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "1HlZ7tC6nkyE0beWz9yVar5JtK7-10gDn",
+        "name": "GAACC Ovation Gala",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1HlZ7tC6nkyE0beWz9yVar5JtK7-10gDn"
+      },
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "18s7mY0yrpe3_74MrI8uvyFzY0WSbV1jz",
+        "name": "Print Advertising",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/18s7mY0yrpe3_74MrI8uvyFzY0WSbV1jz"
+      },
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "1F5XE_xBJEo6_bQ2vejRPsX6U56qViOgb",
+        "name": "Testing Event",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1F5XE_xBJEo6_bQ2vejRPsX6U56qViOgb"
+      },
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "1j6HZjRG-nwD-uPufdSaHP7FJqZCOd3uN",
+        "name": "Paper Planes",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1j6HZjRG-nwD-uPufdSaHP7FJqZCOd3uN"
+      },
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "1RxXV9f5UHeFIRM5jlaz3A_dm0H8jGI_D",
+        "name": "Stickers",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1RxXV9f5UHeFIRM5jlaz3A_dm0H8jGI_D"
+      },
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "1hVXKtV9s-LXPJT9m8z7xPISEWczq25Kc",
+        "name": "Signage",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1hVXKtV9s-LXPJT9m8z7xPISEWczq25Kc"
+      },
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "1PupfLnVeHjXUlWUnCEuQ9FcdUVA-0Ohw",
+        "name": "Showcases",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1PupfLnVeHjXUlWUnCEuQ9FcdUVA-0Ohw"
+      },
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "17ZLXZif9RRlNktFbAiezjjg-LvMJLGI2",
+        "name": "Ribbon Cutting",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/17ZLXZif9RRlNktFbAiezjjg-LvMJLGI2"
+      },
+      {
+        "parents": [
+          "1hj0_1yNmkBxF8iqxw2_Lg6E7ZtAzX--Z"
+        ],
+        "id": "1QzavJ-C7v9LlJUj5_qjAfQzNgp7LW97c",
+        "name": "Social",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1QzavJ-C7v9LlJUj5_qjAfQzNgp7LW97c"
+      },
+      {
+        "parents": [
+          "1fmIrYFqOges8HQS6iTA8spnS390bZlWh"
+        ],
+        "id": "1f0u1_U88Swa3BUIqlF8inFBYCUE9SZg5",
+        "name": "Afterschool 25",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1f0u1_U88Swa3BUIqlF8inFBYCUE9SZg5"
+      },
+      {
+        "parents": [
+          "1HlZ7tC6nkyE0beWz9yVar5JtK7-10gDn"
+        ],
+        "id": "1B90duVIR41SWcplE-aPQPgz0kq61UBlq",
+        "name": "Social",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1B90duVIR41SWcplE-aPQPgz0kq61UBlq"
+      },
+      {
+        "parents": [
+          "1PupfLnVeHjXUlWUnCEuQ9FcdUVA-0Ohw"
+        ],
+        "id": "1rQal4uqGbMiXVgGyf1jpU8KZKEcPrahn",
+        "name": "Ads May 2025",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1rQal4uqGbMiXVgGyf1jpU8KZKEcPrahn"
+      },
+      {
+        "parents": [
+          "1PupfLnVeHjXUlWUnCEuQ9FcdUVA-0Ohw"
+        ],
+        "id": "1N-VXOiqM0CmUpwTnqnAyvuLTTRCQ8U-U",
+        "name": "Socials",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1N-VXOiqM0CmUpwTnqnAyvuLTTRCQ8U-U"
+      },
+      {
+        "parents": [
+          "17ZLXZif9RRlNktFbAiezjjg-LvMJLGI2"
+        ],
+        "id": "1FLiO4EK2XiE42uDVSu5q3H-lgWm74kGI",
+        "name": "Photography",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1FLiO4EK2XiE42uDVSu5q3H-lgWm74kGI"
+      }
+    ],
+    "other": [
+      {
+        "parents": [
+          "1yiIh2VywrG_29qPyRcZClMSSxirKYCEd"
+        ],
+        "id": "1hF83TNLb-Tymrszo3Xh6w5ja2okKApwp",
+        "name": "media assets | school recruitment",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1hF83TNLb-Tymrszo3Xh6w5ja2okKApwp/view?usp=drivesdk"
+      }
+    ]
+  },
+  "totals": {
+    "images": 10,
+    "videos": 0,
+    "documents": 27,
+    "folders": 18,
+    "other": 1,
+    "total": 56
+  }
+}

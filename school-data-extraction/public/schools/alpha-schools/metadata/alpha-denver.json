@@ -1,0 +1,97 @@
+{
+  "school": {
+    "id": "alpha-denver",
+    "name": "Alpha School",
+    "city": "Denver",
+    "state": "CO",
+    "type": "alpha-school",
+    "isMainBrand": true
+  },
+  "media": {
+    "videos": [
+      {
+        "filename": "alpha-denver_1754255154198_intro-video.mp4",
+        "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+        "localPath": "/schools/alpha-schools/videos/alpha-denver_1754255154198_intro-video.mp4",
+        "fileType": "video",
+        "mimeType": "video/mp4",
+        "fileSize": 21,
+        "metadata": {
+          "title": "intro-video",
+          "dateCreated": "2025-08-03T20:48:15.294Z",
+          "lastModified": "2025-08-03T20:48:20.911Z",
+          "tags": [
+            "Alpha School",
+            "Denver",
+            "alpha-school"
+          ]
+        }
+      }
+    ],
+    "images": [
+      {
+        "filename": "alpha-denver_1754255154198_campus-photo.jpg",
+        "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+        "localPath": "/schools/alpha-schools/images/alpha-denver_1754255154198_campus-photo.jpg",
+        "fileType": "image",
+        "mimeType": "image/jpeg",
+        "fileSize": 21,
+        "metadata": {
+          "title": "campus-photo",
+          "dateCreated": "2025-08-03T20:48:15.294Z",
+          "lastModified": "2025-08-03T20:48:20.911Z",
+          "tags": [
+            "Alpha School",
+            "Denver",
+            "alpha-school"
+          ]
+        }
+      }
+    ],
+    "documents": [
+      {
+        "filename": "alpha-denver_1754255154198_brochure.pdf",
+        "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+        "localPath": "/schools/alpha-schools/documents/alpha-denver_1754255154198_brochure.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "fileSize": 24,
+        "metadata": {
+          "title": "brochure",
+          "dateCreated": "2025-08-03T20:48:15.294Z",
+          "lastModified": "2025-08-03T20:48:20.911Z",
+          "tags": [
+            "Alpha School",
+            "Denver",
+            "alpha-school"
+          ]
+        }
+      },
+      {
+        "filename": "alpha-denver_1754255154198_school-overview.pptx",
+        "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+        "localPath": "/schools/alpha-schools/documents/alpha-denver_1754255154198_school-overview.pptx",
+        "fileType": "document",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "fileSize": 20,
+        "metadata": {
+          "title": "school-overview",
+          "dateCreated": "2025-08-03T20:48:15.294Z",
+          "lastModified": "2025-08-03T20:48:20.911Z",
+          "tags": [
+            "Alpha School",
+            "Denver",
+            "alpha-school"
+          ]
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "totalFiles": 4,
+    "lastUpdated": "2025-08-03T21:05:54.198Z",
+    "extractionDate": "2025-08-03T21:05:54.198Z",
+    "googleDriveFolder": "Alpha School | Austin"
+  },
+  "marketing": {}
+}

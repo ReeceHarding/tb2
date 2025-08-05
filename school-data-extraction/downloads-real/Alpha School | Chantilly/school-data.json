@@ -1,0 +1,35 @@
+{
+  "school": {
+    "name": "Alpha School | Chantilly",
+    "id": "1PbV3NsBpWHXaOs6mAIOdI4SGK6K6BEtt",
+    "extractionDate": "2025-08-03T21:37:08.938Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "10dGbsJb3PVvtW1hSkBOynP-gYtygWOvH",
+        "name": "OLD and replaced with info packet on website_Alpha Chantilly - Now Enrolling 2025.2026.pdf",
+        "mimeType": "application/pdf",
+        "size": "12886045",
+        "webViewLink": "https://drive.google.com/file/d/10dGbsJb3PVvtW1hSkBOynP-gYtygWOvH/view?usp=drivesdk"
+      }
+    ],
+    "other": [
+      {
+        "id": "1jA1nxa-0kvw2FkX9zqg1ZvaZsAjRrIfE",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1jA1nxa-0kvw2FkX9zqg1ZvaZsAjRrIfE"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 1,
+    "other": 1,
+    "total": 2
+  }
+}

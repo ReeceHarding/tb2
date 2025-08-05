@@ -1,0 +1,49 @@
+{
+  "school": {
+    "id": "alpha-school-denver",
+    "name": "Alpha School | Denver",
+    "originalName": "Alpha School | Denver",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1GURyQciIEI6EcMJhfNHQoTfECHGCSweT"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1RYIpZEHgPgeb4vvbrKwY-hTUpHEo83WL",
+        "originalName": "School Documents",
+        "organizedName": "alpha-school-denver_1_School-Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1RYIpZEHgPgeb4vvbrKwY-hTUpHEo83WL",
+        "downloadUrl": "https://drive.google.com/uc?id=1RYIpZEHgPgeb4vvbrKwY-hTUpHEo83WL&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-denver_1_School-Documents",
+        "extractionDate": "2025-08-03T21:37:14.205Z"
+      },
+      {
+        "id": "1qNZ1HF15_Li3O4ZNn4vx3SK0zi0T0ora",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-denver_2_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1qNZ1HF15_Li3O4ZNn4vx3SK0zi0T0ora",
+        "downloadUrl": "https://drive.google.com/uc?id=1qNZ1HF15_Li3O4ZNn4vx3SK0zi0T0ora&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-denver_2_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:14.205Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 2,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 2
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:14.205Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

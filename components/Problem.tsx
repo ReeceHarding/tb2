@@ -1,32 +1,31 @@
-const Arrow = ({ extraStyle }: { extraStyle: string }) => {
+"use client";
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { animationVariants } from '@/libs/animations';
+import { CpuChipIcon, TrophyIcon, AcademicCapIcon } from '@heroicons/react/24/outline';
+
+
+
+const Step = ({ icon: Icon, title, description }: { icon: React.ComponentType<any>; title: string; description: string }) => {
   return (
-    <svg
-      className={`shrink-0 w-12 fill-neutral-content opacity-70 ${extraStyle}`}
-      viewBox="0 0 138 138"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <motion.div 
+      variants={animationVariants.fadeInUp}
+      whileInView="animate"
+      initial="initial"
+      viewport={{ once: true, margin: "-50px" }}
+      className="flex-1 max-w-sm mx-auto"
     >
-      <g>
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M72.9644 5.31431C98.8774 43.8211 83.3812 88.048 54.9567 120.735C54.4696 121.298 54.5274 122.151 55.0896 122.639C55.6518 123.126 56.5051 123.068 56.9922 122.506C86.2147 88.9044 101.84 43.3918 75.2003 3.80657C74.7866 3.18904 73.9486 3.02602 73.3287 3.44222C72.7113 3.85613 72.5484 4.69426 72.9644 5.31431Z"
-        />
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M56.5084 121.007C56.9835 118.685 57.6119 115.777 57.6736 115.445C59.3456 106.446 59.5323 97.67 58.4433 88.5628C58.3558 87.8236 57.6824 87.2948 56.9433 87.3824C56.2042 87.4699 55.6756 88.1435 55.7631 88.8828C56.8219 97.7138 56.6432 106.225 55.0203 114.954C54.926 115.463 53.5093 121.999 53.3221 123.342C53.2427 123.893 53.3688 124.229 53.4061 124.305C53.5887 124.719 53.8782 124.911 54.1287 125.015C54.4123 125.13 54.9267 125.205 55.5376 124.926C56.1758 124.631 57.3434 123.699 57.6571 123.487C62.3995 120.309 67.4155 116.348 72.791 113.634C77.9171 111.045 83.3769 109.588 89.255 111.269C89.9704 111.475 90.7181 111.057 90.9235 110.342C91.1288 109.626 90.7117 108.878 89.9963 108.673C83.424 106.794 77.3049 108.33 71.5763 111.223C66.2328 113.922 61.2322 117.814 56.5084 121.007Z"
-        />
-      </g>
-    </svg>
-  );
-};
-const Step = ({ emoji, text }: { emoji: string; text: string }) => {
-  return (
-    <div className="w-full md:w-48 flex flex-col gap-2 items-center justify-center">
-      <span className="text-4xl">{emoji}</span>
-      <h3 className="font-bold">{text}</h3>
-    </div>
+      <div className="bg-white rounded-2xl border-2 border-timeback-primary p-8 h-full shadow-2xl">
+        <div className="flex flex-col items-center text-center space-y-6 font-cal">
+          <div className="w-16 h-16 bg-timeback-bg rounded-full flex items-center justify-center border-2 border-timeback-primary">
+            <Icon className="w-8 h-8 text-timeback-primary font-cal" />
+          </div>
+          <h3 className="font-bold text-lg leading-tight font-cal text-timeback-primary">{title}</h3>
+          <p className="text-sm font-cal text-timeback-primary mt-2">{description}</p>
+        </div>
+      </div>
+    </motion.div>
   );
 };
 
@@ -41,26 +40,54 @@ const Step = ({ emoji, text }: { emoji: string; text: string }) => {
 // - Features: "ShipFast has user auth, Stripe, emails all set up for you"
 const Problem = () => {
   return (
-    <section className="bg-neutral text-neutral-content">
-      <div className="max-w-7xl mx-auto px-8 py-16 md:py-32 text-center">
-        <h2 className="max-w-3xl mx-auto font-extrabold text-4xl md:text-5xl tracking-tight mb-6 md:mb-8">
-          80% of startups fail because founders never launch
-        </h2>
-        <p className="max-w-xl mx-auto text-lg opacity-90 leading-relaxed mb-12 md:mb-20">
-          Emails, DNS records, user authentication... There&apos;s so much going
-          on.
-        </p>
+    <section className="bg-white py-20 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        
+        {/* Header Section */}
+        <motion.div 
+          variants={animationVariants.fadeInUp}
+          whileInView="animate"
+          initial="initial"
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-16 lg:mb-24 font-cal"
+        >
+          <h2 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight mb-6 font-cal text-timeback-primary max-w-4xl mx-auto leading-tight">
+            What is TimeBack?
+          </h2>
+          <p className="max-w-3xl mx-auto text-xl sm:text-2xl leading-relaxed font-cal text-timeback-primary font-medium">
+            TimeBack replaces traditional classroom teaching with AI tutors. Your child finishes all their academics in just 2 hours a day while learning twice as fast as kids in regular schools.
+          </p>
+        </motion.div>
 
-        <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-6">
-          <Step emoji="🧑‍💻" text="8 hrs to add Stripe" />
+        {/* Steps Section */}
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+          <Step 
+            icon={CpuChipIcon} 
+            title="AI Finds What Your Child Needs" 
+            description="The AI figures out exactly what your child knows and what they don't. Then it teaches them at the perfect level - not too easy, not too hard." 
+          />
+          <Step 
+            icon={TrophyIcon} 
+            title="Real Results from Real Schools" 
+            description="Alpha School has used TimeBack for 10 years. Their students score in the top 1% nationally on standardized tests and get into top universities." 
+          />
+          <Step 
+            icon={AcademicCapIcon} 
+            title="Everything You Need Included" 
+            description="All subjects from kindergarten through 12th grade. Daily lesson plans, progress tracking, and detailed reports for parents." 
+          />
+        </div>
 
-          <Arrow extraStyle="max-md:-scale-x-100 md:-rotate-90" />
-
-          <Step emoji="😮‍💨" text="Struggle to find time" />
-
-          <Arrow extraStyle="md:-scale-x-100 md:-rotate-90" />
-
-          <Step emoji="😔" text="Quit project" />
+        {/* Additional Value Proposition */}
+        <div className="mt-16 lg:mt-24 text-center font-cal">
+          <div className="bg-timeback-bg border-2 border-timeback-primary rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto">
+            <h3 className="text-2xl lg:text-3xl font-bold text-timeback-primary mb-4 font-cal">
+              The Bottom Line
+            </h3>
+            <p className="text-lg lg:text-xl text-timeback-primary font-cal leading-relaxed">
+              Your child finishes all their school work in 2 hours instead of 8+ hours. They learn more, faster, and have time for family, sports, hobbies, and just being a kid.
+            </p>
+          </div>
         </div>
       </div>
     </section>

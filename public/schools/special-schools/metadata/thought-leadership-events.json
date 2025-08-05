@@ -1,0 +1,48 @@
+{
+  "school": {
+    "name": "Thought Leadership Events",
+    "id": "thought-leadership-events",
+    "city": "Unknown",
+    "state": "Unknown",
+    "type": "special",
+    "extractionDate": "2025-08-03T21:49:21.488Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "Thought Leadership Event - Communication Flows",
+        "organizedName": "thought-leadership-events_1_Thought_Leadership_Event_-_Communication_Flows",
+        "localPath": "/special-schools/documents/thought-leadership-events_1_Thought_Leadership_Event_-_Communication_Flows",
+        "fileType": "document",
+        "mimeType": "application/vnd.google-apps.presentation",
+        "size": 31203,
+        "googleDriveId": "1ZtTpX60TSa7Ner8n-XRfd-E8usxx7b9ldpIGxOOjH6U",
+        "downloadUrl": "https://drive.google.com/uc?id=1ZtTpX60TSa7Ner8n-XRfd-E8usxx7b9ldpIGxOOjH6U&export=download",
+        "webViewLink": "https://docs.google.com/presentation/d/1ZtTpX60TSa7Ner8n-XRfd-E8usxx7b9ldpIGxOOjH6U/edit?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "Event Asset Database",
+        "organizedName": "thought-leadership-events_2_Event_Asset_Database",
+        "localPath": "/special-schools/documents/thought-leadership-events_2_Event_Asset_Database",
+        "fileType": "document",
+        "mimeType": "application/vnd.google-apps.spreadsheet",
+        "size": 2095,
+        "googleDriveId": "1cIncguZh0XTYvloezLhqZUxHQaJFOUkQXmjr2EQSdqo",
+        "downloadUrl": "https://drive.google.com/uc?id=1cIncguZh0XTYvloezLhqZUxHQaJFOUkQXmjr2EQSdqo&export=download",
+        "webViewLink": "https://docs.google.com/spreadsheets/d/1cIncguZh0XTYvloezLhqZUxHQaJFOUkQXmjr2EQSdqo/edit?usp=drivesdk",
+        "category": "Marketing Documents"
+      }
+    ],
+    "totalAssets": 2
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [
+      "Marketing Documents"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.956Z"
+  }
+}

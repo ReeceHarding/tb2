@@ -1,0 +1,91 @@
+{
+  "school": {
+    "name": "Waypoint Academy",
+    "id": "waypoint-academy",
+    "city": "Unknown",
+    "state": "Unknown",
+    "type": "other",
+    "extractionDate": "2025-08-03T21:49:28.191Z"
+  },
+  "marketing": {
+    "images": [
+      {
+        "originalName": "Waypoint_Academy_Home.png",
+        "organizedName": "waypoint-academy_1_Waypoint_Academy_Home.png",
+        "localPath": "/other-schools/images/waypoint-academy_1_Waypoint_Academy_Home.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 170065,
+        "googleDriveId": "1qZSrpIChQYzu8l3h0aTxN7ljuEGfY-kU",
+        "downloadUrl": "https://drive.google.com/uc?id=1qZSrpIChQYzu8l3h0aTxN7ljuEGfY-kU&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1qZSrpIChQYzu8l3h0aTxN7ljuEGfY-kU/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBN6zahL2087ZV4Y4ybBJVWI8fbJBK3uNtpH_iKGa_MObTjW9OUsCHwi1pKXVqb8eEOs_QkxCrW6BKlEYH0ESaYQcNTs4IVaKQo0=s220",
+        "category": "Marketing Content"
+      },
+      {
+        "originalName": "Waypoint_Academy_Home.svg",
+        "organizedName": "waypoint-academy_2_Waypoint_Academy_Home.svg",
+        "localPath": "/other-schools/images/waypoint-academy_2_Waypoint_Academy_Home.svg",
+        "fileType": "image",
+        "mimeType": "image/svg+xml",
+        "size": 50078,
+        "googleDriveId": "1Yxxe-pqRsMYGZ5q6-UKaLR12jcxEXAiL",
+        "downloadUrl": "https://drive.google.com/uc?id=1Yxxe-pqRsMYGZ5q6-UKaLR12jcxEXAiL&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1Yxxe-pqRsMYGZ5q6-UKaLR12jcxEXAiL/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNsmz3R1d45VBfAEFYdajVXu0eAQb8__RMIvtydJpzqzGnVfEvWhRVbMD75hn2PzWhU9s7EVIqpolcVSCO0XqSC-RxCs7VTxZKX=s220",
+        "category": "Marketing Content"
+      },
+      {
+        "originalName": "CommunityImpact  Waypoint Academy - 600x500px.png",
+        "organizedName": "waypoint-academy_3_CommunityImpact__Waypoint_Academy_-_600x500px.png",
+        "localPath": "/other-schools/images/waypoint-academy_3_CommunityImpact__Waypoint_Academy_-_600x500px.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1676060,
+        "googleDriveId": "19fboqURC_E_88lBi8yNNGM7nL2AVc4ie",
+        "downloadUrl": "https://drive.google.com/uc?id=19fboqURC_E_88lBi8yNNGM7nL2AVc4ie&export=download",
+        "webViewLink": "https://drive.google.com/file/d/19fboqURC_E_88lBi8yNNGM7nL2AVc4ie/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOuzfWm1w5rMW4QSl8qAlhq6IC5ADL9Pg5E03fBCcPJQJde7g5tftGeVnPsUiJ3pFQzFx2pFbe7ifpdAee65PYW9VwnCDamss5g=s220",
+        "category": "Marketing Content"
+      },
+      {
+        "originalName": "CommunityImpact  Waypoint Academy - 1456x180px.png",
+        "organizedName": "waypoint-academy_4_CommunityImpact__Waypoint_Academy_-_1456x180px.png",
+        "localPath": "/other-schools/images/waypoint-academy_4_CommunityImpact__Waypoint_Academy_-_1456x180px.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1366362,
+        "googleDriveId": "1spBxlPXj8ztwJscoehQyVVM0NCziF4MQ",
+        "downloadUrl": "https://drive.google.com/uc?id=1spBxlPXj8ztwJscoehQyVVM0NCziF4MQ&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1spBxlPXj8ztwJscoehQyVVM0NCziF4MQ/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMVNMiG95hX2UN5dXlzF3m3ZRfx5BDX2tj9bcxSZOexfuNrqCKyLZx5UGK8Pedyk_htoyYXq1Z8Pfvt7Xgn9Cd5Zv71w7Ge3-NR=s220",
+        "category": "Marketing Content"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "CommunityImpact 1-8 Page Waypoint Academy.pdf",
+        "organizedName": "waypoint-academy_1_CommunityImpact_1-8_Page_Waypoint_Academy.pdf",
+        "localPath": "/other-schools/documents/waypoint-academy_1_CommunityImpact_1-8_Page_Waypoint_Academy.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 296781,
+        "googleDriveId": "1n6eXf6Mtj-eUn6mCd_6hfNb67Qtb5hU3",
+        "downloadUrl": "https://drive.google.com/uc?id=1n6eXf6Mtj-eUn6mCd_6hfNb67Qtb5hU3&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1n6eXf6Mtj-eUn6mCd_6hfNb67Qtb5hU3/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      }
+    ],
+    "totalAssets": 5
+  },
+  "metadata": {
+    "hasMarketingFolder": true,
+    "marketingFolderId": "1P2tkLdsqTTUj8lyn6gh60llACLd9fSlp",
+    "contentCategories": [
+      "Marketing Content",
+      "Marketing Documents"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.957Z"
+  }
+}

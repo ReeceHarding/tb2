@@ -1,0 +1,49 @@
+{
+  "school": {
+    "id": "learn-earn",
+    "name": "Learn + Earn",
+    "originalName": "Learn + Earn",
+    "type": "special",
+    "category": "special",
+    "googleDriveId": "1hu3eOcTwcFv3HornMy-YBAxNw084YexH"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1Gd1sDz16Vo4JI-Pnty_AF9ly17ET1vl8",
+        "originalName": "Every.org",
+        "organizedName": "learn-earn_1_Every.org",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1Gd1sDz16Vo4JI-Pnty_AF9ly17ET1vl8",
+        "downloadUrl": "https://drive.google.com/uc?id=1Gd1sDz16Vo4JI-Pnty_AF9ly17ET1vl8&export=download",
+        "localPath": "/special/other/learn-earn_1_Every.org",
+        "extractionDate": "2025-08-03T21:37:12.550Z"
+      },
+      {
+        "id": "1p4OLxmEmx5KedPIj3WXTMjsdOGwuzjf4",
+        "originalName": "Learn  + Earn Brand Assets",
+        "organizedName": "learn-earn_2_Learn-Earn-Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1p4OLxmEmx5KedPIj3WXTMjsdOGwuzjf4",
+        "downloadUrl": "https://drive.google.com/uc?id=1p4OLxmEmx5KedPIj3WXTMjsdOGwuzjf4&export=download",
+        "localPath": "/special/other/learn-earn_2_Learn-Earn-Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:12.550Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 2,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 2
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:12.550Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

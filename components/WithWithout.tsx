@@ -1,79 +1,422 @@
-// A useful component when your product is challenging the status quo.
-// Highlight the current pain points (left) and how your product is solving them (right)
-// Try to match the lines from left to right, so the user can easily compare the two columns
+'use client';
+
+import SafeImage from "./SafeImage";
+import { motion } from "framer-motion";
+import { animationVariants } from "@/libs/animations";
+
+// Comparison table component showing Timeback vs competitors
 const WithWithout = () => {
+  const CheckIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="inline"
+    >
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+
+  const XIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="inline"
+    >
+      <path d="M18 6 6 18" />
+      <path d="m6 6 12 12" />
+    </svg>
+  );
+
   return (
-    <section className="bg-base-100">
-      <div className="max-w-5xl mx-auto px-8 py-16 md:py-32 ">
-        <h2 className="text-center font-extrabold text-3xl md:text-5xl tracking-tight mb-12 md:mb-20">
-          Tired of managing Stripe invoices?
-        </h2>
+    <section className="bg-white">
+      <motion.div 
+        variants={animationVariants.fadeInUp}
+        whileInView="animate"
+        initial="initial"
+        viewport={{ once: true, margin: "-100px" }}
+        className="max-w-7xl mx-auto px-8 py-16 md:py-32"
+      >
+        {/* Desktop Table */}
+        <div className="hidden lg:block overflow-x-auto">
+          <table className="w-full border-collapse bg-white rounded-xl shadow-2xl overflow-hidden">
+            <thead className="bg-timeback-bg">
+              <tr>
+                <th className="text-left p-6 font-semibold text-timeback-primary border-b border-timeback-primary font-cal"></th>
+                <th className="text-center p-6 font-semibold text-timeback-primary border-b border-timeback-primary bg-timeback-bg font-cal">
+                  <SafeImage alt="Timeback" src="https://igwtslivaqqgiswawdep.supabase.co/storage/v1/object/public/logos/competitors/timeback-logo.png" width={120} height={32} className="h-8 w-auto object-contain mx-auto" />
+                </th>
+                <th className="text-center p-6 font-semibold text-timeback-primary border-b border-timeback-primary font-cal">
+                  <SafeImage alt="Khan Academy" src="https://igwtslivaqqgiswawdep.supabase.co/storage/v1/object/public/logos/competitors/khan-academy-logo.png" width={120} height={32} className="h-8 w-auto object-contain mx-auto" />
+                </th>
+                <th className="text-center p-6 font-semibold text-timeback-primary border-b border-timeback-primary font-cal">
+                  <SafeImage alt="IXL" src="https://igwtslivaqqgiswawdep.supabase.co/storage/v1/object/public/logos/competitors/ixl-logo.svg" width={120} height={32} className="h-8 w-auto object-contain mx-auto" />
+                </th>
+                <th className="text-center p-6 font-semibold text-timeback-primary border-b border-timeback-primary font-cal">
+                  <div className="flex items-center justify-center gap-2">
+                    <SafeImage alt="ChatGPT" src="https://igwtslivaqqgiswawdep.supabase.co/storage/v1/object/public/logos/competitors/chatgpt-logo.png" width={120} height={32} className="h-8 w-auto object-contain" />
+                    <span className="text-sm font-cal">ChatGPT</span>
+                  </div>
+                </th>
+                <th className="text-center p-6 font-semibold text-timeback-primary border-b border-timeback-primary font-cal">
+                  <div className="text-sm font-medium font-cal">Private Tutor</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-timeback-primary">
+                <td className="p-6 font-medium text-timeback-primary font-cal">Learning Speed</td>
+                <td className="p-6 text-center font-bold text-timeback-primary bg-timeback-bg font-cal">10x faster</td>
+                <td className="p-6 text-center text-timeback-primary font-cal">Standard pace</td>
+                <td className="p-6 text-center text-timeback-primary font-cal">Standard pace</td>
+                <td className="p-6 text-center text-timeback-primary font-cal">Unstructured</td>
+                <td className="p-6 text-center text-timeback-primary font-cal">2x faster</td>
+              </tr>
+              <tr className="border-b border-timeback-primary">
+                <td className="p-6 font-medium text-timeback-primary font-cal">Personalization</td>
+                <td className="p-6 text-center bg-timeback-bg font-cal">
+                  <span className="inline-flex items-center gap-1 text-timeback-primary font-medium font-cal">
+                    <CheckIcon /> AI-Powered
+                  </span>
+                </td>
+                <td className="p-6 text-center font-cal">
+                  <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
+                    <XIcon /> One-size-fits-all
+                  </span>
+                </td>
+                <td className="p-6 text-center font-cal">
+                  <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
+                    <XIcon /> One-size-fits-all
+                  </span>
+                </td>
+                <td className="p-6 text-center font-cal">
+                  <span className="text-timeback-primary font-medium font-cal">Conversational</span>
+                </td>
+                <td className="p-6 text-center font-cal">
+                  <span className="inline-flex items-center gap-1 text-timeback-primary font-medium font-cal">
+                    <CheckIcon /> Human-limited
+                  </span>
+                </td>
+              </tr>
+              <tr className="border-b border-timeback-primary">
+                <td className="p-6 font-medium text-timeback-primary font-cal">Mastery Guarantee</td>
+                <td className="p-6 text-center bg-timeback-bg font-cal">
+                  <span className="inline-flex items-center gap-1 text-timeback-primary font-medium font-cal">
+                    <CheckIcon /> 100% Required
+                  </span>
+                </td>
+                <td className="p-6 text-center font-cal">
+                  <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
+                    <XIcon /> Optional
+                  </span>
+                </td>
+                <td className="p-6 text-center font-cal">
+                  <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
+                    <XIcon /> Points-based
+                  </span>
+                </td>
+                <td className="p-6 text-center font-cal">
+                  <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
+                    <XIcon /> None
+                  </span>
+                </td>
+                <td className="p-6 text-center font-cal">
+                  <span className="text-timeback-primary font-medium font-cal">Varies by tutor</span>
+                </td>
+              </tr>
+              <tr className="border-b border-timeback-primary">
+                <td className="p-6 font-medium text-timeback-primary font-cal">Daily Time</td>
+                <td className="p-6 text-center font-bold text-timeback-primary bg-timeback-bg font-cal">2 hours</td>
+                <td className="p-6 text-center text-timeback-primary font-cal">4-6 hours</td>
+                <td className="p-6 text-center text-timeback-primary font-cal">3-5 hours</td>
+                <td className="p-6 text-center text-timeback-primary font-cal">Unlimited</td>
+                <td className="p-6 text-center text-timeback-primary font-cal">1-2 hours</td>
+              </tr>
+              <tr>
+                <td className="p-6 font-medium text-timeback-primary font-cal">Success Rate</td>
+                <td className="p-6 text-center bg-timeback-bg font-cal">
+                  <span className="inline-flex items-center gap-1 text-timeback-primary font-medium font-cal">
+                    <CheckIcon /> 98th percentile
+                  </span>
+                </td>
+                <td className="p-6 text-center font-cal">
+                  <span className="text-timeback-primary font-medium font-cal">No data</span>
+                </td>
+                <td className="p-6 text-center font-cal">
+                  <span className="text-timeback-primary font-medium font-cal">No data</span>
+                </td>
+                <td className="p-6 text-center font-cal">
+                  <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
+                    <XIcon /> Harmful
+                  </span>
+                </td>
+                <td className="p-6 text-center font-cal">
+                  <span className="text-timeback-primary font-medium font-cal">Variable</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-        <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-8 md:gap-12">
-          <div className="bg-error/20 text-error p-8 md:p-12 rounded-lg w-full ">
-            <h3 className="font-bold text-lg mb-4">
-              Stripe invoices without ZenVoice
-            </h3>
-
-            <ul className="list-disc list-inside space-y-1.5 ">
-              {/* Pains the user is experiencing by not using your product */}
-              {[
-                "Manually create invoices",
-                "Or pay up to $2 per invoice",
-                "Waste hours in customer support",
-                "Can’t update details once sent (VAT, Tax ID)",
-                "Can't make invoices for previous purchases",
-              ].map((item, index) => (
-                <li key={index} className="flex gap-2 items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                    className="w-4 h-4 shrink-0 opacity-75"
-                  >
-                    <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
+        {/* Mobile Cards */}
+        <div className="lg:hidden space-y-6">
+          {/* Timeback Card */}
+          <div className="bg-white rounded-xl border-2 border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
+            <div className="flex items-center justify-center mb-6">
+              <SafeImage alt="Timeback" src="https://igwtslivaqqgiswawdep.supabase.co/storage/v1/object/public/logos/competitors/timeback-logo.png" width={120} height={32} className="h-8 w-auto object-contain" />
+            </div>
+            <div className="flex-grow">
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Learning Speed</div>
+                  <div className="font-bold text-timeback-primary font-cal">10x faster</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Personalization</div>
+                  <div>
+                    <span className="inline-flex items-center gap-1 text-timeback-primary font-medium font-cal">
+                      <CheckIcon /> AI-Powered
+                    </span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Mastery Guarantee</div>
+                  <div>
+                    <span className="inline-flex items-center gap-1 text-timeback-primary font-medium font-cal">
+                      <CheckIcon /> 100% Required
+                    </span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Daily Time</div>
+                  <div className="font-bold text-timeback-primary font-cal">2 hours</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Success Rate</div>
+                  <div>
+                    <span className="inline-flex items-center gap-1 text-timeback-primary font-medium font-cal">
+                      <CheckIcon /> 98th percentile
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Adaptive learning paths badge - now sticks to bottom */}
+            <div className="flex justify-center mt-auto pt-4">
+              <div className="bg-timeback-primary text-white px-6 py-3 rounded-full text-lg font-bold shadow-2xl group-hover:scale-105 font-cal transition-transform duration-200" role="status" aria-label="Achievement: Adaptive learning paths">
+                Adaptive learning paths
+              </div>
+            </div>
           </div>
 
-          <div className="bg-success/20 text-success p-8 md:p-12 rounded-lg w-full">
-            <h3 className="font-bold text-lg mb-4">
-              Stripe invoices + ZenVoice
-            </h3>
+          {/* Khan Academy Card */}
+          <div className="bg-white rounded-xl border border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
+            <div className="flex items-center justify-center mb-6">
+              <SafeImage alt="Khan Academy" src="https://igwtslivaqqgiswawdep.supabase.co/storage/v1/object/public/logos/competitors/khan-academy-logo.png" width={120} height={32} className="h-8 w-auto object-contain" />
+            </div>
+            <div className="flex-grow">
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Learning Speed</div>
+                  <div className="text-timeback-primary font-cal">Standard pace</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Personalization</div>
+                  <div>
+                    <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
+                      <XIcon /> One-size-fits-all
+                    </span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Mastery Guarantee</div>
+                  <div>
+                    <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
+                      <XIcon /> Optional
+                    </span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Daily Time</div>
+                  <div className="text-timeback-primary font-cal">4-6 hours</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Success Rate</div>
+                  <div>
+                    <span className="text-timeback-primary font-medium font-cal">No data</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Adaptive learning paths badge - now sticks to bottom */}
+            <div className="flex justify-center mt-auto pt-4">
+              <div className="bg-timeback-primary text-white px-6 py-3 rounded-full text-lg font-bold shadow-2xl group-hover:scale-105 font-cal transition-transform duration-200" role="status" aria-label="Achievement: Adaptive learning paths">
+                Adaptive learning paths
+              </div>
+            </div>
+          </div>
 
-            <ul className="list-disc list-inside space-y-1.5 ">
-              {/* Features of your product fixing the pain (try to match each with/withot lines) */}
-              {[
-                "Self-serve invoices",
-                `One-time payment for unlimited invoices`,
-                "No more customer support",
-                "Editable invoices to stay compliant",
-                "Invoices for any payment, even past ones",
-              ].map((item, index) => (
-                <li key={index} className="flex gap-2 items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                    className="w-4 h-4 shrink-0 opacity-75"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+          {/* IXL Card */}
+          <div className="bg-white rounded-xl border border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
+            <div className="flex items-center justify-center mb-6">
+              <SafeImage alt="IXL" src="https://igwtslivaqqgiswawdep.supabase.co/storage/v1/object/public/logos/competitors/ixl-logo.svg" width={120} height={32} className="h-8 w-auto object-contain" />
+            </div>
+            <div className="flex-grow">
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Learning Speed</div>
+                  <div className="text-timeback-primary font-cal">Standard pace</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Personalization</div>
+                  <div>
+                    <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
+                      <XIcon /> One-size-fits-all
+                    </span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Mastery Guarantee</div>
+                  <div>
+                    <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
+                      <XIcon /> Points-based
+                    </span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Daily Time</div>
+                  <div className="text-timeback-primary font-cal">3-5 hours</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Success Rate</div>
+                  <div>
+                    <span className="text-timeback-primary font-medium font-cal">No data</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Adaptive learning paths badge - now sticks to bottom */}
+            <div className="flex justify-center mt-auto pt-4">
+              <div className="bg-timeback-primary text-white px-6 py-3 rounded-full text-lg font-bold shadow-2xl group-hover:scale-105 font-cal transition-transform duration-200" role="status" aria-label="Achievement: Adaptive learning paths">
+                Adaptive learning paths
+              </div>
+            </div>
+          </div>
 
-                  {item}
-                </li>
-              ))}
-            </ul>
+          {/* ChatGPT Card */}
+          <div className="bg-white rounded-xl border border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
+            <div className="flex items-center justify-center mb-6">
+              <div className="flex items-center gap-2">
+                <SafeImage alt="ChatGPT" src="https://igwtslivaqqgiswawdep.supabase.co/storage/v1/object/public/logos/competitors/chatgpt-logo.png" width={120} height={32} className="h-8 w-auto object-contain" />
+                <span className="font-medium font-cal">ChatGPT</span>
+              </div>
+            </div>
+            <div className="flex-grow">
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Learning Speed</div>
+                  <div className="text-timeback-primary font-cal">Unstructured</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Personalization</div>
+                  <div>
+                    <span className="text-timeback-primary font-medium font-cal">Conversational</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Mastery Guarantee</div>
+                  <div>
+                    <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
+                      <XIcon /> None
+                    </span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Daily Time</div>
+                  <div className="text-timeback-primary font-cal">Unlimited</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Success Rate</div>
+                  <div>
+                    <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
+                      <XIcon /> Harmful
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Adaptive learning paths badge - now sticks to bottom */}
+            <div className="flex justify-center mt-auto pt-4">
+              <div className="bg-timeback-primary text-white px-6 py-3 rounded-full text-lg font-bold shadow-2xl group-hover:scale-105 font-cal transition-transform duration-200" role="status" aria-label="Achievement: Adaptive learning paths">
+                Adaptive learning paths
+              </div>
+            </div>
+          </div>
+
+          {/* Private Tutor Card */}
+          <div className="bg-white rounded-xl border border-timeback-primary shadow-2xl p-6 flex flex-col h-full">
+            <div className="flex items-center justify-center mb-6">
+              <div className="font-medium text-timeback-primary font-cal">Private Tutor</div>
+            </div>
+            <div className="flex-grow">
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Learning Speed</div>
+                  <div className="text-timeback-primary font-cal">2x faster</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Personalization</div>
+                  <div>
+                    <span className="inline-flex items-center gap-1 text-timeback-primary font-medium font-cal">
+                      <CheckIcon /> Human-limited
+                    </span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Mastery Guarantee</div>
+                  <div>
+                    <span className="text-timeback-primary font-medium font-cal">Varies by tutor</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Daily Time</div>
+                  <div className="text-timeback-primary font-cal">1-2 hours</div>
+                </div>
+                <div className="flex justify-between items-center">
+                  <div className="font-medium text-timeback-primary font-cal">Success Rate</div>
+                  <div>
+                    <span className="text-timeback-primary font-medium font-cal">Variable</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Adaptive learning paths badge - now sticks to bottom */}
+            <div className="flex justify-center mt-auto pt-4">
+              <div className="bg-timeback-primary text-white px-6 py-3 rounded-full text-lg font-bold shadow-2xl group-hover:scale-105 font-cal transition-transform duration-200" role="status" aria-label="Achievement: Adaptive learning paths">
+                Adaptive learning paths
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

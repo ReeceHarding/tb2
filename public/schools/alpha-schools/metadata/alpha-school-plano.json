@@ -1,0 +1,51 @@
+{
+  "school": {
+    "id": "alpha-school-plano",
+    "name": "Alpha School | Plano ",
+    "originalName": "Alpha School | Plano ",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1XVwcatoJyR-2bgx2M1nvEpUtF-8yAnHQ"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1Xu95cB8O558gBnLEYvLhRMsM4dT804WY",
+        "originalName": "Alpha Plano.pdf",
+        "organizedName": "alpha-school-plano_1_Alpha-Plano.pdf",
+        "mimeType": "application/pdf",
+        "size": 1177415,
+        "webViewLink": "https://drive.google.com/file/d/1Xu95cB8O558gBnLEYvLhRMsM4dT804WY/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1Xu95cB8O558gBnLEYvLhRMsM4dT804WY&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-plano_1_Alpha-Plano.pdf",
+        "extractionDate": "2025-08-03T21:37:10.318Z"
+      }
+    ],
+    "other": [
+      {
+        "id": "1mAUYLXuh5RvvACgs7eOuwV28iyUwvfv3",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-plano_2_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1mAUYLXuh5RvvACgs7eOuwV28iyUwvfv3",
+        "downloadUrl": "https://drive.google.com/uc?id=1mAUYLXuh5RvvACgs7eOuwV28iyUwvfv3&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-plano_2_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:10.318Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 2,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 1,
+    "otherCount": 1
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:10.318Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

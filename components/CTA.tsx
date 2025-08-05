@@ -1,30 +1,90 @@
-import Image from "next/image";
-import config from "@/config";
+"use client";
+
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import { animationVariants, createStaggerVariants } from "@/libs/animations";
 
 const CTA = () => {
-  return (
-    <section className="relative hero overflow-hidden min-h-screen">
-      <Image
-        src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80"
-        alt="Background"
-        className="object-cover w-full"
-        fill
-      />
-      <div className="relative hero-overlay bg-neutral bg-opacity-70"></div>
-      <div className="relative hero-content text-center text-neutral-content p-8">
-        <div className="flex flex-col items-center max-w-xl p-8 md:p-0">
-          <h2 className="font-bold text-3xl md:text-5xl tracking-tight mb-8 md:mb-12">
-            Boost your app, launch, earn
-          </h2>
-          <p className="text-lg opacity-80 mb-12 md:mb-16">
-            Don&apos;t waste time integrating APIs or designing a pricing
-            section...
-          </p>
+  const router = useRouter();
+  
+  // Animation variants for staggered content reveal
+  const containerVariants = createStaggerVariants(0.2, 0.1);
 
-          <button className="btn btn-primary btn-wide">
-            Get {config.appName}
-          </button>
-        </div>
+  const handleClick = () => {
+    console.log("[CTA] Button clicked - navigating to /quiz");
+    router.push("/quiz");
+  };
+  return (
+    <section className="bg-white py-20 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <motion.div 
+          className="flex flex-col items-center max-w-4xl mx-auto text-center"
+          variants={containerVariants}
+          whileInView="animate"
+          initial="initial"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <motion.div 
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-timeback-primary rounded-xl text-sm font-medium mb-8 font-cal text-timeback-primary"
+            variants={animationVariants.fadeInUp}
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-timeback-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-timeback-primary"></span>
+            </span>
+            Interactive Experience Available
+          </motion.div>
+          
+          <motion.h2 
+            className="font-bold text-3xl md:text-5xl tracking-tight mb-8 md:mb-12 font-cal text-timeback-primary leading-tight"
+            variants={animationVariants.fadeInUp}
+          >
+            Skeptical Your Child Can Learn <br />
+            2x Faster in Just 2 Hours?
+          </motion.h2>
+          
+          <motion.p 
+            className="text-lg mb-12 md:mb-16 max-w-2xl font-cal text-timeback-primary leading-relaxed"
+            variants={animationVariants.fadeInUp}
+          >
+            We know it sounds too good to be true. Let TimeBack&apos;s AI create a personalized mockup 
+            showing exactly what questions we would ask your child and how our adaptive learning system 
+            works in practice.
+          </motion.p>
+
+          <motion.div 
+            className="w-full max-w-2xl"
+            variants={animationVariants.fadeInUp}
+          >
+            <button 
+              className="bg-timeback-primary text-white font-cal rounded-xl px-8 py-4 font-semibold shadow-2xl hover:shadow-2xl transition-all duration-200 hover:bg-opacity-90 focus:outline-none focus:ring-4 focus:ring-timeback-primary focus:ring-opacity-30 w-full max-w-md mx-auto lg:mx-0"
+              onClick={handleClick}
+            >
+              <span className="inline-flex items-center gap-2">
+                <span>See How TimeBack Works for Your Child</span>
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 20 20" 
+                  fill="currentColor" 
+                  className="w-5 h-5"
+                >
+                  <path 
+                    fillRule="evenodd" 
+                    d="M5 10a.75.75 0 01.75-.75h6.638L10.23 7.29a.75.75 0 111.04-1.08l3.5 3.25a.75.75 0 010 1.08l-3.5 3.25a.75.75 0 11-1.04-1.08l2.158-1.96H5.75A.75.75 0 015 10z" 
+                    clipRule="evenodd" 
+                  />
+                </svg>
+              </span>
+            </button>
+          </motion.div>
+          
+          <motion.p 
+            className="text-sm mt-6 font-cal text-timeback-primary"
+            variants={animationVariants.fadeInUp}
+          >
+            Get a personalized AI mockup. No signup required.
+          </motion.p>
+        </motion.div>
       </div>
     </section>
   );

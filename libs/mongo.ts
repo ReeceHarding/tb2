@@ -27,12 +27,25 @@ if (!uri) {
 } else if (process.env.NODE_ENV === "development") {
   if (!global._mongoClientPromise) {
     client = new MongoClient(uri, options);
-    global._mongoClientPromise = client.connect();
+    global._mongoClientPromise = client.connect().catch((error) => {
+      console.error("[MongoDB Client] Connection Error:", error);
+      if (error.message?.includes('querySrv ENOTFOUND')) {
+        console.error("[MongoDB Client] DNS Resolution Error - This usually means:");
+        console.error("- The MongoDB cluster hostname cannot be resolved");
+        console.error("- Check if you're connected to the internet");
+        console.error("- Verify your MongoDB Atlas cluster is active");
+        console.error("- Try using a standard connection string instead of SRV if DNS issues persist");
+      }
+      throw error;
+    });
   }
   clientPromise = global._mongoClientPromise;
 } else {
   client = new MongoClient(uri, options);
-  clientPromise = client.connect();
+  clientPromise = client.connect().catch((error) => {
+    console.error("[MongoDB Client] Production Connection Error:", error);
+    throw error;
+  });
 }
 
 export default clientPromise;

@@ -1,0 +1,39 @@
+{
+  "school": {
+    "id": "alpha-school-tampa",
+    "name": "Alpha School | Tampa",
+    "originalName": "Alpha School | Tampa",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1MjTMUS3D42d3aZuzc-NNVIOFOt0gAPqm"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1brCEBe1OEfc79PA_h0eK1dX91jBajWQE",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-tampa_1_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1brCEBe1OEfc79PA_h0eK1dX91jBajWQE",
+        "downloadUrl": "https://drive.google.com/uc?id=1brCEBe1OEfc79PA_h0eK1dX91jBajWQE&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-tampa_1_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:14.910Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 1,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 1
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:14.910Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

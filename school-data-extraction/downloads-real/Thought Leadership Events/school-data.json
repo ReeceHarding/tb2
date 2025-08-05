@@ -1,0 +1,89 @@
+{
+  "school": {
+    "name": "Thought Leadership Events",
+    "id": "1HvoGm0iZoYwqfNd1FU2wA2wK8qr2uj5T",
+    "extractionDate": "2025-08-03T21:37:10.952Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "11YFTtiWbySypf3TcizV4Ni5WouHzE_4Y",
+        "name": "04 - Sept 18 - Self-Driven Child - Austin + WP",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/11YFTtiWbySypf3TcizV4Ni5WouHzE_4Y"
+      },
+      {
+        "id": "1ZtTpX60TSa7Ner8n-XRfd-E8usxx7b9ldpIGxOOjH6U",
+        "name": "Thought Leadership Event - Communication Flows",
+        "mimeType": "application/vnd.google-apps.presentation",
+        "size": "31203",
+        "webViewLink": "https://docs.google.com/presentation/d/1ZtTpX60TSa7Ner8n-XRfd-E8usxx7b9ldpIGxOOjH6U/edit?usp=drivesdk"
+      },
+      {
+        "id": "1PE7mAgILMM54EmaJst6W4QhUlt_dAMWZ",
+        "name": "02 - Aug 19 - FoE Live Podcast Virtual Event | Thought Leadership Event ",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1PE7mAgILMM54EmaJst6W4QhUlt_dAMWZ"
+      },
+      {
+        "id": "1bUEuB7SMRzcpfdfzksKG9OOll_BUmas9",
+        "name": "07 - Oct 14 - Dr. Yeager - Santa Barbara",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1bUEuB7SMRzcpfdfzksKG9OOll_BUmas9"
+      },
+      {
+        "id": "1cIncguZh0XTYvloezLhqZUxHQaJFOUkQXmjr2EQSdqo",
+        "name": "Event Asset Database",
+        "mimeType": "application/vnd.google-apps.spreadsheet",
+        "size": "2095",
+        "webViewLink": "https://docs.google.com/spreadsheets/d/1cIncguZh0XTYvloezLhqZUxHQaJFOUkQXmjr2EQSdqo/edit?usp=drivesdk"
+      },
+      {
+        "id": "1A7QIrNXKQsak_WllkPM6BN14fuFVb7Zg",
+        "name": "00 - Archive",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1A7QIrNXKQsak_WllkPM6BN14fuFVb7Zg"
+      },
+      {
+        "id": "1bNcTWksj648qeO48sScMRLcbHvdHFvgH",
+        "name": "00 - Operations",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1bNcTWksj648qeO48sScMRLcbHvdHFvgH"
+      },
+      {
+        "id": "1QKoKTBaoxPDKP-cMdHZ-y7q60OHPpwvY",
+        "name": "01 - May 15 - Austin -Dean Dan Schwartz",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1QKoKTBaoxPDKP-cMdHZ-y7q60OHPpwvY"
+      },
+      {
+        "id": "1_XL7fulSKWyiDaJR_6v9c0BIT-NLeET5",
+        "name": "08 - Oct 22 - Dr. Yeager - AZ",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1_XL7fulSKWyiDaJR_6v9c0BIT-NLeET5"
+      },
+      {
+        "id": "1Cgsh4JyxlKK8iIH2lCkzDjrhw9KzViol",
+        "name": "05 - Sept 25 - Dr. Yeager - NYC",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1Cgsh4JyxlKK8iIH2lCkzDjrhw9KzViol"
+      },
+      {
+        "id": "1J_kVKmXN4EtZYFez_3gU5Co_8MY4R9l2",
+        "name": "00 - All Dr Yeager Events",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1J_kVKmXN4EtZYFez_3gU5Co_8MY4R9l2/view?usp=drivesdk"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 0,
+    "other": 11,
+    "total": 11
+  }
+}

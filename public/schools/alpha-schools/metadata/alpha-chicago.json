@@ -1,0 +1,21 @@
+{
+  "school": {
+    "name": "Alpha School | Chicago",
+    "id": "alpha-chicago",
+    "city": "Chicago",
+    "state": "Unknown",
+    "type": "alpha",
+    "extractionDate": "2025-08-03T21:49:17.907Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [],
+    "totalAssets": 0
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [],
+    "lastUpdated": "2025-08-03T21:55:20.949Z"
+  }
+}

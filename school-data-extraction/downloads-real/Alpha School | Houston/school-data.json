@@ -1,0 +1,33 @@
+{
+  "school": {
+    "name": "Alpha School | Houston",
+    "id": "1ctV-hh0ddbxIGU82NeJqHRzksL52HcOv",
+    "extractionDate": "2025-08-03T21:37:12.414Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1qs4jSxeX6MdvEARa-j0ySl2j5_4A4x1t",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1qs4jSxeX6MdvEARa-j0ySl2j5_4A4x1t"
+      },
+      {
+        "id": "1zrOHzlmtz8HUd3GInrLIcBORiwl_2M5X",
+        "name": "Marketing",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1zrOHzlmtz8HUd3GInrLIcBORiwl_2M5X"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 0,
+    "other": 2,
+    "total": 2
+  }
+}

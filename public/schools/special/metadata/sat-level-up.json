@@ -1,0 +1,40 @@
+{
+  "school": {
+    "id": "sat-level-up",
+    "name": "SAT Level Up",
+    "originalName": "SAT Level Up",
+    "type": "special",
+    "category": "special",
+    "googleDriveId": "1sNx1_R0Vf0NTNQotRko5kpJ9X5p1hsA3"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "18Lic70ZkgeJw-pM1cvgTyaeLB_I6yNT8",
+        "originalName": "SAT Level Up Embed Code.rtf",
+        "organizedName": "sat-level-up_1_SAT-Level-Up-Embed-Code.rtf",
+        "mimeType": "text/rtf",
+        "size": 637,
+        "webViewLink": "https://drive.google.com/file/d/18Lic70ZkgeJw-pM1cvgTyaeLB_I6yNT8/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=18Lic70ZkgeJw-pM1cvgTyaeLB_I6yNT8&export=download",
+        "localPath": "/special/other/sat-level-up_1_SAT-Level-Up-Embed-Code.rtf",
+        "extractionDate": "2025-08-03T21:37:12.293Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 1,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 1
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:12.293Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

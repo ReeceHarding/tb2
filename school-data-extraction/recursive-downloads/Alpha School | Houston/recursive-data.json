@@ -1,0 +1,67 @@
+{
+  "school": {
+    "name": "Alpha School | Houston",
+    "id": "alpha-school-houston",
+    "extractionDate": "2025-08-03T21:49:26.523Z"
+  },
+  "marketingFolder": {
+    "id": "1zrOHzlmtz8HUd3GInrLIcBORiwl_2M5X",
+    "name": "Marketing",
+    "webViewLink": "https://drive.google.com/drive/folders/1zrOHzlmtz8HUd3GInrLIcBORiwl_2M5X"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "14W_ioYQVJvlVMiYXeYKUUjiiKT_WEYFI"
+        ],
+        "id": "1kn2iY61wjjpP7C3Pm0XIOncxiW9IdGU4",
+        "name": "Dr Yeager Houston V1.pptx",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "webViewLink": "https://docs.google.com/presentation/d/1kn2iY61wjjpP7C3Pm0XIOncxiW9IdGU4/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPRTAFSFHTHnGLpHRwp6Lzics23EEETgTKRu6FQi5r1xRKvagGq8CBiZFgPOw48BToWHc-gidJJuBWR14IIJGdDbB6krKEw1FrYxg=s220",
+        "size": "5941224"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1zrOHzlmtz8HUd3GInrLIcBORiwl_2M5X"
+        ],
+        "id": "14W_ioYQVJvlVMiYXeYKUUjiiKT_WEYFI",
+        "name": "Dr Yeager Event",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/14W_ioYQVJvlVMiYXeYKUUjiiKT_WEYFI"
+      },
+      {
+        "parents": [
+          "14W_ioYQVJvlVMiYXeYKUUjiiKT_WEYFI"
+        ],
+        "id": "1h0KefsvnNDz9v7mi31iCJLBmMfEp-LWX",
+        "name": "Podcast Ads",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1h0KefsvnNDz9v7mi31iCJLBmMfEp-LWX"
+      },
+      {
+        "parents": [
+          "14W_ioYQVJvlVMiYXeYKUUjiiKT_WEYFI"
+        ],
+        "id": "14fhldoMJHF-aGhqR3jrsimUx64gYGU_p",
+        "name": "Social",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/14fhldoMJHF-aGhqR3jrsimUx64gYGU_p"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 1,
+    "folders": 3,
+    "other": 0,
+    "total": 4
+  }
+}

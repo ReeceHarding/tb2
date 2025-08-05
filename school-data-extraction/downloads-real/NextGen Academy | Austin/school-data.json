@@ -1,0 +1,92 @@
+{
+  "school": {
+    "name": "NextGen Academy | Austin",
+    "id": "1RC1x9-lfLsDpPhN1cILQ_Tq1HMlaDOc1",
+    "extractionDate": "2025-08-03T21:37:11.565Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [
+      {
+        "id": "1CAV51_D6GnzEROiiCvTTeqRjDKeSPEoZ",
+        "name": "Cognia-removebg.webp",
+        "mimeType": "image/webp",
+        "size": "50636",
+        "webViewLink": "https://drive.google.com/file/d/1CAV51_D6GnzEROiiCvTTeqRjDKeSPEoZ/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPtP9Ym1N-uvlM8YtlXVe1m45dbpbrA_2lI252aa9sNp6kJRLkXSBpy_sggqvk0DMJudwMBFS1E4WOGvCaF2mZYbVue86LCuMbbyg=s220"
+      }
+    ],
+    "documents": [
+      {
+        "id": "1SqA4MzjoWWPrYiAD_b6e1HhbjAGYIVJf",
+        "name": "NextGen Academy Showcase.pptx",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "size": "14293430",
+        "webViewLink": "https://docs.google.com/presentation/d/1SqA4MzjoWWPrYiAD_b6e1HhbjAGYIVJf/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true"
+      },
+      {
+        "id": "1EeVYAT4rZm1W7wpUvKtHDxfSo4W7KZY5",
+        "name": "Meet the Guides.pdf",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1EeVYAT4rZm1W7wpUvKtHDxfSo4W7KZY5/view?usp=drivesdk"
+      }
+    ],
+    "other": [
+      {
+        "id": "1UoAieI9EhMTSuT-l8378xD1PTGF1a7_1",
+        "name": "24'-25' Workshops",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1UoAieI9EhMTSuT-l8378xD1PTGF1a7_1"
+      },
+      {
+        "id": "1yMtXe-TClVhcUJaH9CjbFEHZVUesfika",
+        "name": "NextGen Global Structure",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1yMtXe-TClVhcUJaH9CjbFEHZVUesfika/view?usp=drivesdk"
+      },
+      {
+        "id": "1XUkkcbL_AgYOdOW50eL5curyOtbWKU2-",
+        "name": "NextGen Academy Values",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1XUkkcbL_AgYOdOW50eL5curyOtbWKU2-/view?usp=drivesdk"
+      },
+      {
+        "id": "1LlnwWGXoq9tnhr43HNtYDvHH7duWDjFW",
+        "name": "Marketing",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1LlnwWGXoq9tnhr43HNtYDvHH7duWDjFW"
+      },
+      {
+        "id": "19Sju9jtukULe6ch_NX-4irHaDdXwkQfy",
+        "name": "Next_Gen",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/19Sju9jtukULe6ch_NX-4irHaDdXwkQfy"
+      },
+      {
+        "id": "1pwvXrqxOI-e3CRr0fbn5vQQpWDNabc_v",
+        "name": "NextGen -- 24/25 Level Resources",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1pwvXrqxOI-e3CRr0fbn5vQQpWDNabc_v/view?usp=drivesdk"
+      },
+      {
+        "id": "1hI51JEocJEzBPpfVQPemNUbJZKa9N6wo",
+        "name": "Admissions Packet",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1hI51JEocJEzBPpfVQPemNUbJZKa9N6wo"
+      },
+      {
+        "id": "1AssuMkCzBMRP9vWaJHhk_WJsd3u_XAJS",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1AssuMkCzBMRP9vWaJHhk_WJsd3u_XAJS"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 1,
+    "documents": 2,
+    "other": 8,
+    "total": 11
+  }
+}

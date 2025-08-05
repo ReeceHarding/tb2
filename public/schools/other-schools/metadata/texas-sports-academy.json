@@ -1,0 +1,63 @@
+{
+  "school": {
+    "name": "Texas Sports Academy",
+    "id": "texas-sports-academy",
+    "city": "Unknown",
+    "state": "Unknown",
+    "type": "other",
+    "extractionDate": "2025-08-03T21:49:25.761Z"
+  },
+  "marketing": {
+    "images": [
+      {
+        "originalName": "TSA Olympics  1x1  Still.png",
+        "organizedName": "texas-sports-academy_1_TSA_Olympics__1x1__Still.png",
+        "localPath": "/other-schools/images/texas-sports-academy_1_TSA_Olympics__1x1__Still.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 6483259,
+        "googleDriveId": "1Nlldxwwqw6bp2pAocn7nTSHhpkYRDtRZ",
+        "downloadUrl": "https://drive.google.com/uc?id=1Nlldxwwqw6bp2pAocn7nTSHhpkYRDtRZ&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1Nlldxwwqw6bp2pAocn7nTSHhpkYRDtRZ/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPPqfCADFiBLnLGPAbDJ2pFbtsQnhBduC_Qh-_UosARTr42YaC1aGcZJfP7MZw5ZWD1mYI5t9MkpUxR6F_EFMcjzx6dmHrLQORAbw=s220",
+        "category": "Social Media"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "TSA | Kevin is Fine",
+        "organizedName": "texas-sports-academy_1_TSA___Kevin_is_Fine",
+        "localPath": "/other-schools/documents/texas-sports-academy_1_TSA___Kevin_is_Fine",
+        "fileType": "document",
+        "mimeType": "application/vnd.google-apps.document",
+        "size": 15101,
+        "googleDriveId": "1SzRFNc8U0bxO8KHAq7FS1q4tweBUjIcyduqkqejSN00",
+        "downloadUrl": "https://drive.google.com/uc?id=1SzRFNc8U0bxO8KHAq7FS1q4tweBUjIcyduqkqejSN00&export=download",
+        "webViewLink": "https://docs.google.com/document/d/1SzRFNc8U0bxO8KHAq7FS1q4tweBUjIcyduqkqejSN00/edit?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "[PROTO COPY] TSA  Competition Schools",
+        "organizedName": "texas-sports-academy_2__PROTO_COPY__TSA__Competition_Schools",
+        "localPath": "/other-schools/documents/texas-sports-academy_2__PROTO_COPY__TSA__Competition_Schools",
+        "fileType": "document",
+        "mimeType": "application/vnd.google-apps.spreadsheet",
+        "size": 6940,
+        "googleDriveId": "1W82cjWfI5-0s6olDt7yZjUlAg82nnd5GwmMskUI_l4o",
+        "downloadUrl": "https://drive.google.com/uc?id=1W82cjWfI5-0s6olDt7yZjUlAg82nnd5GwmMskUI_l4o&export=download",
+        "webViewLink": "https://docs.google.com/spreadsheets/d/1W82cjWfI5-0s6olDt7yZjUlAg82nnd5GwmMskUI_l4o/edit?usp=drivesdk",
+        "category": "Marketing Documents"
+      }
+    ],
+    "totalAssets": 3
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [
+      "Social Media",
+      "Marketing Documents"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.956Z"
+  }
+}

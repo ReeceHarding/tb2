@@ -5,33 +5,33 @@ const avatars: {
   src: string;
 }[] = [
   {
-    alt: "User",
-    // Ideally, load from a statically generated image for better SEO performance (import userImage from "@/public/userImage.png")
-    src: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3276&q=80",
+    alt: "Student learning",
+    // Using child-friendly illustrated avatars instead of real photos for privacy/safety
+    src: "https://api.dicebear.com/7.x/big-smile/svg?seed=student1&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc,ffdfbf&radius=50",
   },
   {
-    alt: "User",
-    src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    alt: "Student with notebook", 
+    src: "https://api.dicebear.com/7.x/big-smile/svg?seed=student2&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc,ffdfbf&radius=50",
   },
   {
-    alt: "User",
-    src: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    alt: "Young learner",
+    src: "https://api.dicebear.com/7.x/big-smile/svg?seed=student3&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc,ffdfbf&radius=50",
   },
   {
-    alt: "User",
-    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
+    alt: "Student writing",
+    src: "https://api.dicebear.com/7.x/big-smile/svg?seed=student4&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc,ffdfbf&radius=50",
   },
   {
-    alt: "User",
-    src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3376&q=80",
+    alt: "Children learning together",
+    src: "https://api.dicebear.com/7.x/big-smile/svg?seed=student5&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc,ffdfbf&radius=50",
   },
 ];
 
 const TestimonialsAvatars = ({ priority }: { priority?: boolean }) => {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-3">
+    <div className="flex flex-col md:flex-row justify-start items-start gap-3">
       {/* AVATARS */}
-      <div className={`-space-x-5 avatar-group justy-start`}>
+      <div className={`-space-x-5 avatar-group justify-start`}>
         {avatars.map((image, i) => (
           <div className="avatar w-12 h-12" key={i}>
             <Image
@@ -46,14 +46,14 @@ const TestimonialsAvatars = ({ priority }: { priority?: boolean }) => {
       </div>
 
       {/* RATING */}
-      <div className="flex flex-col justify-center items-center md:items-start gap-1">
+      <div className="flex flex-col justify-start items-start gap-1">
         <div className="rating">
           {[...Array(5)].map((_, i) => (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="w-5 h-5 text-yellow-500"
+              className="w-5 h-5 text-yellow-500 font-cal"
               key={i}
             >
               <path
@@ -65,9 +65,9 @@ const TestimonialsAvatars = ({ priority }: { priority?: boolean }) => {
           ))}
         </div>
 
-        <div className="text-base text-base-content/80">
-          <span className="font-semibold text-base-content">32</span> makers
-          ship faster
+        <div className="text-base text-base-content/80 font-cal">
+          <span className="font-semibold text-base-content font-cal">500+</span> students
+          learning on Timeback
         </div>
       </div>
     </div>

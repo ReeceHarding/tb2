@@ -1,0 +1,419 @@
+{
+  "school": {
+    "name": "2 Hour Learning",
+    "id": "2-hour-learning",
+    "extractionDate": "2025-08-03T21:49:30.901Z"
+  },
+  "marketingFolder": {
+    "id": "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8",
+    "name": "Marketing Materials",
+    "webViewLink": "https://drive.google.com/drive/folders/1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+  },
+  "media": {
+    "images": [
+      {
+        "parents": [
+          "1DSRQ3Nb6wIbJswB7ntpu251jXclKUIcu"
+        ],
+        "id": "1TEKXpE68LdWKum3ykp-QZL-THgnlmuUA",
+        "name": "Kids Happiness.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1TEKXpE68LdWKum3ykp-QZL-THgnlmuUA/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBO5qP_zs4DCa7UMR6x2ZTmXoY1B3SsCtCI49ZVZJ0QTglgdhTvxMTGKvKQ889lGte1cD00m-A5VTt4uZPfY2gMG7Drd2uATqfy20Q=s220",
+        "size": "61586"
+      },
+      {
+        "parents": [
+          "1DSRQ3Nb6wIbJswB7ntpu251jXclKUIcu"
+        ],
+        "id": "18VgIZRlvNzz7QCf4TyWj8Odj8mtIV4LW",
+        "name": "Grade Knowledge Range.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/18VgIZRlvNzz7QCf4TyWj8Odj8mtIV4LW/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMhPApbAGd7UZkG6Q2K79KXy8xhXJpfDvvJ-zSbrkIeApa_UNnA7gI9saZ4x6jCQTsrlAJw1ue10nwGoeaXjWmcXeIXS6o73LXgAw=s220",
+        "size": "121876"
+      },
+      {
+        "parents": [
+          "1DSRQ3Nb6wIbJswB7ntpu251jXclKUIcu"
+        ],
+        "id": "1BVDp7SGzVdLHO_NDLoLYqAxVyXGz1jNx",
+        "name": "Map Results.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1BVDp7SGzVdLHO_NDLoLYqAxVyXGz1jNx/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMjW4N5SZF569QnC4V_E4sg_EixN1iggYp3c1_FhDy--FRE2MM-1dPyoBlYy6sB5xrs9-BlXPi1W_j9ecDRohR2-iOfGy9acgjwBQ=s220",
+        "size": "68136"
+      },
+      {
+        "parents": [
+          "1_YTcHdG_VAZSy8v7mYujqaGT_Z9l0xd3"
+        ],
+        "id": "14AhYf2VbrGikZn9mL5aKnIPewNl040UA",
+        "name": "2HL_Linktree (1).svg",
+        "mimeType": "image/svg+xml",
+        "webViewLink": "https://drive.google.com/file/d/14AhYf2VbrGikZn9mL5aKnIPewNl040UA/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBM72l34TdKF8Hw5JmG9fbETIPEfzr_UKwg-x9Ic6ojqfP2yX1dpEiwdRuRLLEg8XbT1nxMLkyco7KUmXMiq21ce0gCJeP4rP73jvQ=s220",
+        "size": "48437"
+      },
+      {
+        "parents": [
+          "1_YTcHdG_VAZSy8v7mYujqaGT_Z9l0xd3"
+        ],
+        "id": "1ALjiFllkDn0V1bCFS_9HId31fayDyrDv",
+        "name": "2HL_Website.svg",
+        "mimeType": "image/svg+xml",
+        "webViewLink": "https://drive.google.com/file/d/1ALjiFllkDn0V1bCFS_9HId31fayDyrDv/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPMApwkUzn5R99Y1KNs4bjGc2E79RqK_Q1WBo_P4cnq73TItWp08w1xfhxqUX8y5XCF4V0h8ElyJId3lRyXPhbZ2W3lxj042NTpKA=s220",
+        "size": "50132"
+      }
+    ],
+    "videos": [
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1-3zGQbrq-cQ75dBNAiV8A-tFigYGB9eu",
+        "name": "2 Hour Learning Deep Dive.mp4",
+        "mimeType": "video/mp4",
+        "webViewLink": "https://drive.google.com/file/d/1-3zGQbrq-cQ75dBNAiV8A-tFigYGB9eu/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPk4oI2fvrbvIlTNQMW89cChC_1o9R2UzkpvAVFTZw1BRu0Cr_HURo6X0AkRMFXyThQBcRCoE6muD_LKMfGDiEbzNYZoya7JMg2=s220",
+        "size": "339107005"
+      }
+    ],
+    "documents": [
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1qnrf13FhM2MnSXRQ2g4W-gYmpppBk3aJbCq-WYCapto",
+        "name": "2 Hour Learning | Deep Dive Document",
+        "mimeType": "application/vnd.google-apps.document",
+        "webViewLink": "https://docs.google.com/document/d/1qnrf13FhM2MnSXRQ2g4W-gYmpppBk3aJbCq-WYCapto/edit?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOfgId-D8LO2OoDyj257n2oFpu4Mdae4z7O3bUeU-YpSn5VwNh1EpkaUbz-1GSUW9Zx9h44M9SsoGa8dndshFc_E7EeLt2XEYoCZkzTEymIo38nhd8=s220",
+        "size": "370274"
+      },
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1452KbLrCBkssusVqYWnlGTGlatkVKogmkg7m8hJjOOQ",
+        "name": "2HL Canva Templates",
+        "mimeType": "application/vnd.google-apps.document",
+        "webViewLink": "https://docs.google.com/document/d/1452KbLrCBkssusVqYWnlGTGlatkVKogmkg7m8hJjOOQ/edit?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNntatoxWRm-CYVvYFvGL9ga3IsfV-yaM1rZups6o2d4Ct6KMTDo9jO_oaJJqCNrrJzp3i4Ps8F0xmzLl5vBfiPAsnRHupA4FJYuWoKvZkLWn-MYWk=s220",
+        "size": "1263"
+      },
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1XMKZQnHZEbO4cbr68FxTvFUYxlBT3gnX",
+        "name": "Dr Yeager V3.pptx",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "webViewLink": "https://docs.google.com/presentation/d/1XMKZQnHZEbO4cbr68FxTvFUYxlBT3gnX/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "size": "576007836"
+      },
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1xCyLwEpVOjEOb7pSAb48dKETBzIM7zLu",
+        "name": "2 Hour Learning 1-2 Pager Outline.docx",
+        "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "webViewLink": "https://docs.google.com/document/d/1xCyLwEpVOjEOb7pSAb48dKETBzIM7zLu/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOYMPEI6os0mHcvLUb7AVEJnsb2rXX-pqahfYScML7U6GXExPFS8P9vMGINTQ3Y1QLPw4pe5Z3YqNCvDOiLuu9UUDA2sC9agH--=s220",
+        "size": "1525067"
+      },
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1FdlSKgl5Z_6j95cnHVd4DXBpSrvEsqTl",
+        "name": "2 Hour Learning | Deep Dive Document.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1FdlSKgl5Z_6j95cnHVd4DXBpSrvEsqTl/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNNoEGA35OVLyyfOZXtjjCNkD33PdMf9qcX7VPPnN--4hFBHk5ot7_GNEQ8xyjdtX3X74Z1Eu44LSMOCJ9S_ivleRlOaapBeu6l=s220",
+        "size": "9618083"
+      },
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1-FggDNer_Q1Ew3xmI3LbFIjbUw9mES2S",
+        "name": "2 Hour Learning | MAP Results | Fall 23-24.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1-FggDNer_Q1Ew3xmI3LbFIjbUw9mES2S/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPHx_DVOTd9ywZLRHW_e_9rZqanAQAA4vBnrj2NuXMk2oGFopuXHdvtwqOd4KM2b65TxW7QVpLT3vP7AHFcRyNxKU10lu1tIyex=s220",
+        "size": "5397388"
+      },
+      {
+        "parents": [
+          "1SwfYiYaT1bOqp9jZMu6U_sxvh_4NEchq"
+        ],
+        "id": "1R99gk7xEcKzGUR0ofg89bfceNfk0TddY",
+        "name": "Austin Summer Camps 2025.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1R99gk7xEcKzGUR0ofg89bfceNfk0TddY/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMW0lQbPSZKRzfS0ckM1c2ymRttu9eX_QKbud1gyjrHUOg3F0w8ityBsgLf9OXW26s9Y0HlnORdiUXw3JaZ4SgxQCsHRqZVXZi8FQ=s220",
+        "size": "117064"
+      },
+      {
+        "parents": [
+          "1e3VbBHm-o-__AFm50C8petBbgqVZ-UdR"
+        ],
+        "id": "1B-bnP3IuIoYjWNlQCZoAY66EKDB2U4te",
+        "name": "Example Student Motivational Tracker.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1B-bnP3IuIoYjWNlQCZoAY66EKDB2U4te/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOVM4w6ciMZGVJ-ENpotJ3NhIUh-1GPj730nOG0gtA2DCHZYeaJJltM0GbXuWdtOhhJ3DeaFem-dyrIhXwVmJbXei13pqOGzJmWZw=s220",
+        "size": "49014"
+      },
+      {
+        "parents": [
+          "1e3VbBHm-o-__AFm50C8petBbgqVZ-UdR"
+        ],
+        "id": "1lCwWe53KUsZdLIbpauU96K7xia6y0Xrh",
+        "name": "2HL Example School Calendar.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1lCwWe53KUsZdLIbpauU96K7xia6y0Xrh/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNh5zCKwgL9DapTA5uDAqcFuYF4BuDNWZNmnpq5rNmk1ademjUwgBB_nSNPUM9D_IvqcG5xzxJqhnSx53VI29zPr66DE8_b-bFpOg=s220",
+        "size": "233805"
+      },
+      {
+        "parents": [
+          "1Zr7bWeVPJVtbUph8fOxn8VMxiAdPoc44"
+        ],
+        "id": "17J_IbgPe0FW09oI2UWGGwiPWD4DRg9hD",
+        "name": "2HLPresentation Template 2024.pptx",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "webViewLink": "https://docs.google.com/presentation/d/17J_IbgPe0FW09oI2UWGGwiPWD4DRg9hD/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNkgoQ-Q4Z7dufgCpK7XspbqqhjS9YjUktDETHcbo2XywULHSX9Qi1SYJHmgHD06HKEly1FBx9J9kt1rtwNj0tv5wU_4DZNT2N9=s220",
+        "size": "323234"
+      },
+      {
+        "parents": [
+          "1Zr7bWeVPJVtbUph8fOxn8VMxiAdPoc44"
+        ],
+        "id": "1L_eyrMNL7zeXpgmAsTDYFJFAwIaPTEWq",
+        "name": "2HLPresentation Template 2025.pptx",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "webViewLink": "https://docs.google.com/presentation/d/1L_eyrMNL7zeXpgmAsTDYFJFAwIaPTEWq/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBP8N5fSaagKtaei6Orqz0pGP10Wqg3lLEXo9T2wcDbqdRs36dtG8sNwiiiRRnmYhdbcZLaE2S3PL_H5ai7BrQI6ae0O9sbKjI9q=s220",
+        "size": "267027"
+      },
+      {
+        "parents": [
+          "1Zr7bWeVPJVtbUph8fOxn8VMxiAdPoc44"
+        ],
+        "id": "17c2Hv1N29lGSWiUxHwtwXh2QvAdmRJ0O",
+        "name": "2HLPresentation Basic Deck 2024.pptx",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "webViewLink": "https://docs.google.com/presentation/d/17c2Hv1N29lGSWiUxHwtwXh2QvAdmRJ0O/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOU9cECvmWxKN_Hpm8WN9EA-qdFef8nfxdjp6m2ar03Cfk0yimFYT27S1ukV7zIDsGgcw4XRXHgFdL6VOJJyvEXoIhQxk7q1gXE=s220",
+        "size": "13040932"
+      },
+      {
+        "parents": [
+          "12tZDidrCoTKqC3oquNYDUJFKUqYHSyAr"
+        ],
+        "id": "18gsV1-HH5Bh9cAHzkpQjp6A-AYpL33yn",
+        "name": "2 Hour Learning - Business Card 3.5x2 inch - Joanna V1.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/18gsV1-HH5Bh9cAHzkpQjp6A-AYpL33yn/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOhIp0hDS7UGLXWEi8Vzj8wcNxLXaFxzBoVmp69A4IrkYM1BcifBPYrxXK_9t5JxQNxbQHdZOLU-ApeiBwurXRDypsLGK4vKrpE=s220",
+        "size": "151864"
+      },
+      {
+        "parents": [
+          "12tZDidrCoTKqC3oquNYDUJFKUqYHSyAr"
+        ],
+        "id": "1LIYhUdOBMM-kruN6pMWEVrgq5yYXamie",
+        "name": "2 Hour Learning - Business Card 3.5x2 inch - MacKenzie V1.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1LIYhUdOBMM-kruN6pMWEVrgq5yYXamie/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMGAtG1wdg6ZIHFrcGDPsATS6QQjDkhwFY7EKuVCgKmcijnVjTHuiyfp582v3sOGovzj7CHuG1AdU1UGFNMGNpAPO7cqi4uSltA=s220",
+        "size": "150463"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1SwfYiYaT1bOqp9jZMu6U_sxvh_4NEchq",
+        "name": "2025 Summer Camp 1-Pager",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1SwfYiYaT1bOqp9jZMu6U_sxvh_4NEchq"
+      },
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1ElJCkhV0GLqwrNyR4T6dt3KAfpPdN4IO",
+        "name": "Events",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1ElJCkhV0GLqwrNyR4T6dt3KAfpPdN4IO"
+      },
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1e3VbBHm-o-__AFm50C8petBbgqVZ-UdR",
+        "name": "Academic",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1e3VbBHm-o-__AFm50C8petBbgqVZ-UdR"
+      },
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1Zr7bWeVPJVtbUph8fOxn8VMxiAdPoc44",
+        "name": "Presentations",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1Zr7bWeVPJVtbUph8fOxn8VMxiAdPoc44"
+      },
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1GXjAKDC1t5LgGvlCCg35m3oAaAheOCM-",
+        "name": "Stationary",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1GXjAKDC1t5LgGvlCCg35m3oAaAheOCM-"
+      },
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1DSRQ3Nb6wIbJswB7ntpu251jXclKUIcu",
+        "name": "Graphs",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1DSRQ3Nb6wIbJswB7ntpu251jXclKUIcu"
+      },
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1_YTcHdG_VAZSy8v7mYujqaGT_Z9l0xd3",
+        "name": "QR Code",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1_YTcHdG_VAZSy8v7mYujqaGT_Z9l0xd3"
+      },
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1NPqHJ0rbIjp0t8qBe4PKZd2FH9VBhh2z",
+        "name": "Social",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1NPqHJ0rbIjp0t8qBe4PKZd2FH9VBhh2z"
+      },
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "12tZDidrCoTKqC3oquNYDUJFKUqYHSyAr",
+        "name": "Business Cards",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/12tZDidrCoTKqC3oquNYDUJFKUqYHSyAr"
+      },
+      {
+        "parents": [
+          "1SwfYiYaT1bOqp9jZMu6U_sxvh_4NEchq"
+        ],
+        "id": "1uxa1s-bREpYGzjuGj51kXhovtBIB4nPS",
+        "name": "00 - Archive",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1uxa1s-bREpYGzjuGj51kXhovtBIB4nPS"
+      },
+      {
+        "parents": [
+          "1ElJCkhV0GLqwrNyR4T6dt3KAfpPdN4IO"
+        ],
+        "id": "1XpjNoOiL9Y37w3DdJBZmfcOSmx72xBkE",
+        "name": "ASU+GSV",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1XpjNoOiL9Y37w3DdJBZmfcOSmx72xBkE"
+      },
+      {
+        "parents": [
+          "1Zr7bWeVPJVtbUph8fOxn8VMxiAdPoc44"
+        ],
+        "id": "1zx5R-r4QmKYsyzaAlBJNU87lVLYlEH11",
+        "name": "Alpha - Useful",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1zx5R-r4QmKYsyzaAlBJNU87lVLYlEH11"
+      },
+      {
+        "parents": [
+          "1NPqHJ0rbIjp0t8qBe4PKZd2FH9VBhh2z"
+        ],
+        "id": "1qf7sBis5eAJT8H3gl745oRmV_7mgPytc",
+        "name": "FOE 2HL Banners - LinkedIn V1",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1qf7sBis5eAJT8H3gl745oRmV_7mgPytc"
+      },
+      {
+        "parents": [
+          "12tZDidrCoTKqC3oquNYDUJFKUqYHSyAr"
+        ],
+        "id": "14pc47eB8z4rUlTdz9vb3h7v4L10Zs6tN",
+        "name": "2 Hour Learning - Business Card 3.5x2 inch_Folder",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/14pc47eB8z4rUlTdz9vb3h7v4L10Zs6tN"
+      }
+    ],
+    "other": [
+      {
+        "parents": [
+          "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+        ],
+        "id": "1ueiurOCsf5y3bRAFLEnI3LmMY3djAnB2",
+        "name": "Content Map // Campaigns Q2 2025",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1ueiurOCsf5y3bRAFLEnI3LmMY3djAnB2/view?usp=drivesdk"
+      },
+      {
+        "parents": [
+          "1GXjAKDC1t5LgGvlCCg35m3oAaAheOCM-"
+        ],
+        "id": "1sl2WKFAoc7Senrvq4eRiCyB4SWloVEeu",
+        "name": "2HL Journals.ai",
+        "mimeType": "application/postscript",
+        "webViewLink": "https://drive.google.com/file/d/1sl2WKFAoc7Senrvq4eRiCyB4SWloVEeu/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBP0n_SC7f6w8f1p1cbhh8dpErLTV7PETK9hzkX5N-uB3THIIWYH4NU4FLbFy0rwvCYoyIdWiaGLXeBZPYl6W0nq1Zav0qHIK12D=s220",
+        "size": "1215915"
+      },
+      {
+        "parents": [
+          "1GXjAKDC1t5LgGvlCCg35m3oAaAheOCM-"
+        ],
+        "id": "1_orKAuM10GBMulSgt0XhTTca4mhype95",
+        "name": "2HL Letterhead.ai",
+        "mimeType": "application/postscript",
+        "webViewLink": "https://drive.google.com/file/d/1_orKAuM10GBMulSgt0XhTTca4mhype95/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNVzUlHphQZdgs1beM9tX9YT1vGWb4V-v1R72O4bk9rIdIRRaZTi0peNozjmpevMoVQZhBr4s4wshnUDGobDP2aOwvlnyRyMjeV=s220",
+        "size": "444324"
+      },
+      {
+        "parents": [
+          "1DSRQ3Nb6wIbJswB7ntpu251jXclKUIcu"
+        ],
+        "id": "1D-e3Wq_bNAARB7ReVEK6NSo4v-dAwZao",
+        "name": "2HL Results Table.ai",
+        "mimeType": "application/postscript",
+        "webViewLink": "https://drive.google.com/file/d/1D-e3Wq_bNAARB7ReVEK6NSo4v-dAwZao/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNKy1BKqQo5pkie9QvxeRpxGr3H_le_7KYaRwbe6ccIQdHrcGgY7BPKSLqplaEQPYXIO8Rf-QA3njhWc2B6q6f6ygCvbravbpoeOw=s220",
+        "size": "395617"
+      }
+    ]
+  },
+  "totals": {
+    "images": 5,
+    "videos": 1,
+    "documents": 14,
+    "folders": 14,
+    "other": 4,
+    "total": 38
+  }
+}

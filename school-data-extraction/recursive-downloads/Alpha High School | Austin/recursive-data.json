@@ -1,0 +1,195 @@
+{
+  "school": {
+    "name": "Alpha High School | Austin",
+    "id": "alpha-high-school-austin",
+    "extractionDate": "2025-08-03T21:49:34.959Z"
+  },
+  "marketingFolder": {
+    "id": "1s82xYPkP38femGG-W3TVWDYMh38ibbUi",
+    "name": "Marketing Campaigns",
+    "webViewLink": "https://drive.google.com/drive/folders/1s82xYPkP38femGG-W3TVWDYMh38ibbUi"
+  },
+  "media": {
+    "images": [
+      {
+        "parents": [
+          "11OHubAkEJR3dB6mb-A7sj21H6HymDt7m"
+        ],
+        "id": "1vKuBXUpTNBR19eosTGqk2LQhc9FOZmg7",
+        "name": "Alpha_High_School.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1vKuBXUpTNBR19eosTGqk2LQhc9FOZmg7/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNgI9qcPsuNadjQPA-tUzlN-UG76qrJ8a3tPcjmEmemKg4QqLzsbP35V5PMnBcBmOjVsSpSd0sxipPuOPg7JRTUo99eRokeO7nv=s220",
+        "size": "164018"
+      },
+      {
+        "parents": [
+          "11OHubAkEJR3dB6mb-A7sj21H6HymDt7m"
+        ],
+        "id": "1t7fpSAE4XrUX1fKfa5XG_vdGmkBbBtrs",
+        "name": "Alpha_High_School.svg",
+        "mimeType": "image/svg+xml",
+        "webViewLink": "https://drive.google.com/file/d/1t7fpSAE4XrUX1fKfa5XG_vdGmkBbBtrs/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMlYbkj1cUVOD6-jLc7GQLMeg0rSRZDqaoBhNbRnCAsPVNeAPTvMgtyws7FIjuQPti-DfwOxKNJ0SXLdLxf1fdEW9E2YiHsmHL6=s220",
+        "size": "49987"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1ghmr_oA6WiBInbhtcy-_-wMmeAUNGfQ5"
+        ],
+        "id": "1qVlw4xPKLtdDue43pSCeziyWYDArYkdQ",
+        "name": "Alpha High Box - Inside.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1qVlw4xPKLtdDue43pSCeziyWYDArYkdQ/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPuCG7z3ao8JP596kYKqexGJg5Di5C3qEjITpGCxTOA-3aF5JgJnUtJEyq7lrYUNSCGlSAxjW6ei7P7psGkzXTPKIn-YrInrfzi5A=s220",
+        "size": "943413"
+      },
+      {
+        "parents": [
+          "1ghmr_oA6WiBInbhtcy-_-wMmeAUNGfQ5"
+        ],
+        "id": "11O7VmWy1NQAGL2ypkYijD73xzptonNdm",
+        "name": "Alpha High Box - Outside.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/11O7VmWy1NQAGL2ypkYijD73xzptonNdm/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMTieRAfjj1h-xNLJtziEukzZqpT367Toh8KZDn6aREAzsv5qQGofN0E-WgspzztL2xwM1S8rxA2TL5Q1EQqIsSwVjnKy-ZlIftgg=s220",
+        "size": "578024"
+      },
+      {
+        "parents": [
+          "11OHubAkEJR3dB6mb-A7sj21H6HymDt7m"
+        ],
+        "id": "1GhRnMvM6zvCbwKQsXb3GwJNqFiRr2AwC",
+        "name": "AHS 24x36 Posters.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1GhRnMvM6zvCbwKQsXb3GwJNqFiRr2AwC/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPunlRhKSoN5xcFbTP7F-0fe34rXXjOcu-6TAIJ5PLl4oMmCT0i6RvIu06ZCBa67KVDfv9vJO7g_ecN0sK3hUrMwAv80_oHbM21=s220",
+        "size": "520989"
+      },
+      {
+        "parents": [
+          "11OHubAkEJR3dB6mb-A7sj21H6HymDt7m"
+        ],
+        "id": "1SCsYbu2DK80795qlnz3rBjfl5G7IKDJS",
+        "name": "AHS Circle Table Stickers.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1SCsYbu2DK80795qlnz3rBjfl5G7IKDJS/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNHzBYS5h9fAkCzVck-7O9RcoBO4gsYlTarkEAwd2Zu1zx5Hm8lSnO_8nbVJd80olwdr82zHBTNAgHiWo86MzqpqRcvRl_U2dk4=s220",
+        "size": "504214"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1s82xYPkP38femGG-W3TVWDYMh38ibbUi"
+        ],
+        "id": "15HhbhR5VYjgtkjlheaZG622bHSqd5Mmc",
+        "name": "TEDx Alpha School Austin",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/15HhbhR5VYjgtkjlheaZG622bHSqd5Mmc"
+      },
+      {
+        "parents": [
+          "1s82xYPkP38femGG-W3TVWDYMh38ibbUi"
+        ],
+        "id": "1YFaBt8omNeec2JnlPwt77xnkMvsEIyYf",
+        "name": "Masterpiece Projects",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1YFaBt8omNeec2JnlPwt77xnkMvsEIyYf"
+      },
+      {
+        "parents": [
+          "1s82xYPkP38femGG-W3TVWDYMh38ibbUi"
+        ],
+        "id": "1DXcJpHoK5m9cAwcXs6K9K4ak2ZqjAYnP",
+        "name": "SXSW EDU",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1DXcJpHoK5m9cAwcXs6K9K4ak2ZqjAYnP"
+      },
+      {
+        "parents": [
+          "1s82xYPkP38femGG-W3TVWDYMh38ibbUi"
+        ],
+        "id": "1dJgqdHQu5cDyA1_96osYpOlTKWx8lX6H",
+        "name": "Paid Social",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1dJgqdHQu5cDyA1_96osYpOlTKWx8lX6H"
+      },
+      {
+        "parents": [
+          "1s82xYPkP38femGG-W3TVWDYMh38ibbUi"
+        ],
+        "id": "1ghmr_oA6WiBInbhtcy-_-wMmeAUNGfQ5",
+        "name": "Admissions Boxes",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1ghmr_oA6WiBInbhtcy-_-wMmeAUNGfQ5"
+      },
+      {
+        "parents": [
+          "1s82xYPkP38femGG-W3TVWDYMh38ibbUi"
+        ],
+        "id": "11OHubAkEJR3dB6mb-A7sj21H6HymDt7m",
+        "name": "Trinity School Fair",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/11OHubAkEJR3dB6mb-A7sj21H6HymDt7m"
+      },
+      {
+        "parents": [
+          "15HhbhR5VYjgtkjlheaZG622bHSqd5Mmc"
+        ],
+        "id": "1qkvfA-kQPGFKSBAlq80ENinAe0xrpwl4",
+        "name": "Flyer",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1qkvfA-kQPGFKSBAlq80ENinAe0xrpwl4"
+      },
+      {
+        "parents": [
+          "1YFaBt8omNeec2JnlPwt77xnkMvsEIyYf"
+        ],
+        "id": "1zIG3RG-Y9xcT-qJg64qYNUQf8L216XtF",
+        "name": "Maddie Price 355 The Musical",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1zIG3RG-Y9xcT-qJg64qYNUQf8L216XtF"
+      },
+      {
+        "parents": [
+          "1DXcJpHoK5m9cAwcXs6K9K4ak2ZqjAYnP"
+        ],
+        "id": "1Jvip2oHYwwdTwQPwjJZ6fWQWD5pdTwBu",
+        "name": "QR Code",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1Jvip2oHYwwdTwQPwjJZ6fWQWD5pdTwBu"
+      },
+      {
+        "parents": [
+          "1dJgqdHQu5cDyA1_96osYpOlTKWx8lX6H"
+        ],
+        "id": "1VKI_t5z7Z4iy4WwJGIsg_wfCBDBO4kI4",
+        "name": "Feb 25",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1VKI_t5z7Z4iy4WwJGIsg_wfCBDBO4kI4"
+      },
+      {
+        "parents": [
+          "11OHubAkEJR3dB6mb-A7sj21H6HymDt7m"
+        ],
+        "id": "1JHDDHXbY7uSQ3TQQD4W_UZXPsELZbXwV",
+        "name": "Hoodies",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1JHDDHXbY7uSQ3TQQD4W_UZXPsELZbXwV"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 2,
+    "videos": 0,
+    "documents": 4,
+    "folders": 11,
+    "other": 0,
+    "total": 17
+  }
+}

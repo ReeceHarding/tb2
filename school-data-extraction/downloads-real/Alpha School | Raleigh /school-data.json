@@ -1,0 +1,42 @@
+{
+  "school": {
+    "name": "Alpha School | Raleigh ",
+    "id": "1XxNPdYH7O8NnQW7CadJZMFoEm1QugJzk",
+    "extractionDate": "2025-08-03T21:37:10.092Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1rrJA5j0yUSmlrSdGiFPN6LRz2PCCM0fV",
+        "name": "Alpha Raleigh - Now Enrolling 2025.2026.pdf",
+        "mimeType": "application/pdf",
+        "size": "12886339",
+        "webViewLink": "https://drive.google.com/file/d/1rrJA5j0yUSmlrSdGiFPN6LRz2PCCM0fV/view?usp=drivesdk"
+      },
+      {
+        "id": "1PkhH2lucA71EJ6YKItQ7mWqkhKCNjcNO",
+        "name": "Alpha Raleigh.pdf",
+        "mimeType": "application/pdf",
+        "size": "1177913",
+        "webViewLink": "https://drive.google.com/file/d/1PkhH2lucA71EJ6YKItQ7mWqkhKCNjcNO/view?usp=drivesdk"
+      }
+    ],
+    "other": [
+      {
+        "id": "1EYmtF3eoSp7gOg1b_KW3CuvfcR73I5mx",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1EYmtF3eoSp7gOg1b_KW3CuvfcR73I5mx"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 2,
+    "other": 1,
+    "total": 3
+  }
+}

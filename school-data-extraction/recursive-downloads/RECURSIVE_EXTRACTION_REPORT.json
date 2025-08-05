@@ -1,0 +1,324 @@
+{
+  "extractionDate": "2025-08-03T21:49:43.866Z",
+  "summary": {
+    "schoolsProcessed": 39,
+    "totalImages": 121,
+    "totalVideos": 6,
+    "totalDocuments": 105,
+    "totalFiles": 232
+  },
+  "schools": [
+    {
+      "name": "Alpha School | Miami",
+      "id": "alpha-school-miami",
+      "images": 5,
+      "videos": 0,
+      "documents": 8,
+      "hasMarketingFolder": true
+    },
+    {
+      "name": "Nova Academy (aka Valenta Academy)",
+      "id": "nova-academy-aka-valenta-academy",
+      "images": 0,
+      "videos": 2,
+      "documents": 5,
+      "hasMarketingFolder": true
+    },
+    {
+      "name": "Montessorium",
+      "id": "montessorium",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "hasMarketingFolder": true
+    },
+    {
+      "name": "Alpha School | Bethesda",
+      "id": "alpha-school-bethesda",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | San Francisco",
+      "id": "alpha-school-san-francisco",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Chicago",
+      "id": "alpha-school-chicago",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Limitless Education",
+      "id": "limitless-education",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Folsom",
+      "id": "alpha-school-folsom",
+      "images": 0,
+      "videos": 0,
+      "documents": 2,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Chantilly",
+      "id": "alpha-school-chantilly",
+      "images": 0,
+      "videos": 0,
+      "documents": 1,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Lake Forest",
+      "id": "alpha-school-lake-forest",
+      "images": 0,
+      "videos": 0,
+      "documents": 2,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Palm Beach",
+      "id": "alpha-school-palm-beach",
+      "images": 0,
+      "videos": 0,
+      "documents": 2,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Raleigh ",
+      "id": "alpha-school-raleigh-",
+      "images": 0,
+      "videos": 0,
+      "documents": 2,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Plano ",
+      "id": "alpha-school-plano-",
+      "images": 0,
+      "videos": 0,
+      "documents": 1,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Charlotte ",
+      "id": "alpha-school-charlotte-",
+      "images": 0,
+      "videos": 0,
+      "documents": 2,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Thought Leadership Events",
+      "id": "thought-leadership-events",
+      "images": 0,
+      "videos": 0,
+      "documents": 2,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Scottsdale",
+      "id": "alpha-school-scottsdale",
+      "images": 0,
+      "videos": 0,
+      "documents": 1,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "NextGen Academy | Austin",
+      "id": "nextgen-academy-austin",
+      "images": 2,
+      "videos": 0,
+      "documents": 3,
+      "hasMarketingFolder": true
+    },
+    {
+      "name": "Novatio School",
+      "id": "novatio-school",
+      "images": 0,
+      "videos": 0,
+      "documents": 1,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Texas Sports Academy",
+      "id": "texas-sports-academy",
+      "images": 1,
+      "videos": 0,
+      "documents": 2,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "SAT Level Up",
+      "id": "sat-level-up",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Houston",
+      "id": "alpha-school-houston",
+      "images": 0,
+      "videos": 0,
+      "documents": 1,
+      "hasMarketingFolder": true
+    },
+    {
+      "name": "Learn + Earn",
+      "id": "learn-earn",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Press & Media",
+      "id": "press-media",
+      "images": 1,
+      "videos": 0,
+      "documents": 5,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Waypoint Academy",
+      "id": "waypoint-academy",
+      "images": 4,
+      "videos": 0,
+      "documents": 1,
+      "hasMarketingFolder": true
+    },
+    {
+      "name": "2 Hour Learning",
+      "id": "2-hour-learning",
+      "images": 5,
+      "videos": 1,
+      "documents": 14,
+      "hasMarketingFolder": true
+    },
+    {
+      "name": "Unbound",
+      "id": "unbound",
+      "images": 0,
+      "videos": 0,
+      "documents": 3,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Orlando",
+      "id": "alpha-school-orlando",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Denver",
+      "id": "alpha-school-denver",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Internal",
+      "id": "internal",
+      "images": 0,
+      "videos": 0,
+      "documents": 1,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Brownsville",
+      "id": "alpha-school-brownsville",
+      "images": 11,
+      "videos": 0,
+      "documents": 1,
+      "hasMarketingFolder": true
+    },
+    {
+      "name": "Alpha School | Tampa",
+      "id": "alpha-school-tampa",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Silicon Valley",
+      "id": "alpha-school-silicon-valley",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Fort Worth",
+      "id": "alpha-school-fort-worth",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha High School | Austin",
+      "id": "alpha-high-school-austin",
+      "images": 2,
+      "videos": 0,
+      "documents": 4,
+      "hasMarketingFolder": true
+    },
+    {
+      "name": "Alpha School | Austin",
+      "id": "alpha-school-austin",
+      "images": 79,
+      "videos": 3,
+      "documents": 11,
+      "hasMarketingFolder": true
+    },
+    {
+      "name": "GT School",
+      "id": "gt-school",
+      "images": 10,
+      "videos": 0,
+      "documents": 27,
+      "hasMarketingFolder": true
+    },
+    {
+      "name": "Alpha School | Santa Barbara",
+      "id": "alpha-school-santa-barbara",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | Microschools",
+      "id": "alpha-school-microschools",
+      "images": 0,
+      "videos": 0,
+      "documents": 3,
+      "hasMarketingFolder": false
+    },
+    {
+      "name": "Alpha School | New York",
+      "id": "alpha-school-new-york",
+      "images": 1,
+      "videos": 0,
+      "documents": 0,
+      "hasMarketingFolder": true
+    }
+  ]
+}

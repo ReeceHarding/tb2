@@ -1,0 +1,49 @@
+{
+  "school": {
+    "id": "alpha-school-houston",
+    "name": "Alpha School | Houston",
+    "originalName": "Alpha School | Houston",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1ctV-hh0ddbxIGU82NeJqHRzksL52HcOv"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1qs4jSxeX6MdvEARa-j0ySl2j5_4A4x1t",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-houston_1_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1qs4jSxeX6MdvEARa-j0ySl2j5_4A4x1t",
+        "downloadUrl": "https://drive.google.com/uc?id=1qs4jSxeX6MdvEARa-j0ySl2j5_4A4x1t&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-houston_1_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:12.414Z"
+      },
+      {
+        "id": "1zrOHzlmtz8HUd3GInrLIcBORiwl_2M5X",
+        "originalName": "Marketing",
+        "organizedName": "alpha-school-houston_2_Marketing",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1zrOHzlmtz8HUd3GInrLIcBORiwl_2M5X",
+        "downloadUrl": "https://drive.google.com/uc?id=1zrOHzlmtz8HUd3GInrLIcBORiwl_2M5X&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-houston_2_Marketing",
+        "extractionDate": "2025-08-03T21:37:12.414Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 2,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 2
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:12.414Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "school": {
+    "name": "Unbound",
+    "id": "unbound",
+    "city": "Unknown",
+    "state": "Unknown",
+    "type": "special",
+    "extractionDate": "2025-08-03T21:49:31.170Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "AI Audit - April 2025 - Unbound",
+        "organizedName": "unbound_1_AI_Audit_-_April_2025_-_Unbound",
+        "localPath": "/special-schools/documents/unbound_1_AI_Audit_-_April_2025_-_Unbound",
+        "fileType": "document",
+        "mimeType": "application/vnd.google-apps.spreadsheet",
+        "size": 9223,
+        "googleDriveId": "1Q_SStRzT2kPusXW6N8H4onlEbNqqk9dBSmxEPBHAfBg",
+        "downloadUrl": "https://drive.google.com/uc?id=1Q_SStRzT2kPusXW6N8H4onlEbNqqk9dBSmxEPBHAfBg&export=download",
+        "webViewLink": "https://docs.google.com/spreadsheets/d/1Q_SStRzT2kPusXW6N8H4onlEbNqqk9dBSmxEPBHAfBg/edit?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "Unbound Academy_Arkansas V1.pptx",
+        "organizedName": "unbound_2_Unbound_Academy_Arkansas_V1.pptx",
+        "localPath": "/special-schools/documents/unbound_2_Unbound_Academy_Arkansas_V1.pptx",
+        "fileType": "document",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "size": 3181361,
+        "googleDriveId": "1ema_Y4jql_jiq1qvfnYotLKDiWfb7CL7",
+        "downloadUrl": "https://drive.google.com/uc?id=1ema_Y4jql_jiq1qvfnYotLKDiWfb7CL7&export=download",
+        "webViewLink": "https://docs.google.com/presentation/d/1ema_Y4jql_jiq1qvfnYotLKDiWfb7CL7/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "category": "Presentations"
+      },
+      {
+        "originalName": "Unbound Academy_Pennsylvania V1.pptx",
+        "organizedName": "unbound_3_Unbound_Academy_Pennsylvania_V1.pptx",
+        "localPath": "/special-schools/documents/unbound_3_Unbound_Academy_Pennsylvania_V1.pptx",
+        "fileType": "document",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "size": 3631471,
+        "googleDriveId": "1lAsS1e9uTPKR7Y7IR_8jq9Xj3FOex4Rs",
+        "downloadUrl": "https://drive.google.com/uc?id=1lAsS1e9uTPKR7Y7IR_8jq9Xj3FOex4Rs&export=download",
+        "webViewLink": "https://docs.google.com/presentation/d/1lAsS1e9uTPKR7Y7IR_8jq9Xj3FOex4Rs/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "category": "Presentations"
+      }
+    ],
+    "totalAssets": 3
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [
+      "Marketing Documents",
+      "Presentations"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.956Z"
+  }
+}

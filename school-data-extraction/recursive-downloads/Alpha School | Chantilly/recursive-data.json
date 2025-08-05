@@ -1,0 +1,44 @@
+{
+  "school": {
+    "name": "Alpha School | Chantilly",
+    "id": "alpha-school-chantilly",
+    "extractionDate": "2025-08-03T21:49:19.034Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1PbV3NsBpWHXaOs6mAIOdI4SGK6K6BEtt"
+        ],
+        "id": "10dGbsJb3PVvtW1hSkBOynP-gYtygWOvH",
+        "name": "OLD and replaced with info packet on website_Alpha Chantilly - Now Enrolling 2025.2026.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/10dGbsJb3PVvtW1hSkBOynP-gYtygWOvH/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBN6tZpst7at1Uj4GeUYXVXkjYczHAgk8Da94e2dJud1zXHT3z_sDMqQtM-9tp5p_xK0sSDkJlmZhIJhXD5jArOVYzvQLL_mYtqu=s220",
+        "size": "12886045"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1PbV3NsBpWHXaOs6mAIOdI4SGK6K6BEtt"
+        ],
+        "id": "1jA1nxa-0kvw2FkX9zqg1ZvaZsAjRrIfE",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1jA1nxa-0kvw2FkX9zqg1ZvaZsAjRrIfE"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 1,
+    "folders": 1,
+    "other": 0,
+    "total": 2
+  }
+}

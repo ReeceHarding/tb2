@@ -1,0 +1,53 @@
+{
+  "school": {
+    "name": "Montessorium",
+    "id": "1lbaYMkZMljTqY2TkVZPm0uvZPWqxYt7T",
+    "extractionDate": "2025-08-03T21:37:07.862Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1ipc7_wD2jSoF8ZSqRmrBt5zmQTVfsX-jItKqpUn3RFM",
+        "name": "Montessorium Website Content",
+        "mimeType": "application/vnd.google-apps.document",
+        "size": "17058808",
+        "webViewLink": "https://docs.google.com/document/d/1ipc7_wD2jSoF8ZSqRmrBt5zmQTVfsX-jItKqpUn3RFM/edit?usp=drivesdk"
+      }
+    ],
+    "other": [
+      {
+        "id": "18wRag2kKoRC9ssefAp3pNQQKWpHtIHrv",
+        "name": "Images",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/18wRag2kKoRC9ssefAp3pNQQKWpHtIHrv"
+      },
+      {
+        "id": "1E2Yzqf4o7h_RjxeDAWhKeQ16ChkcMCdA",
+        "name": "Marketing",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1E2Yzqf4o7h_RjxeDAWhKeQ16ChkcMCdA"
+      },
+      {
+        "id": "1QAeMRBKpTqg8yFvVkYoQNjhFisjTQto3",
+        "name": "Videos",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1QAeMRBKpTqg8yFvVkYoQNjhFisjTQto3"
+      },
+      {
+        "id": "1akT3go1-ITpgHR5SePqkQGx97oj425G-",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1akT3go1-ITpgHR5SePqkQGx97oj425G-"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 1,
+    "other": 4,
+    "total": 5
+  }
+}

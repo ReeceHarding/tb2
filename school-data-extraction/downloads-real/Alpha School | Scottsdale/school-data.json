@@ -1,0 +1,41 @@
+{
+  "school": {
+    "name": "Alpha School | Scottsdale",
+    "id": "15_hwRBAHXa_QUHUAW6uU-0WVguYbjydI",
+    "extractionDate": "2025-08-03T21:37:11.326Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1Ir_DxxsVWTW002KTcBrVODW_439U8Bwb",
+        "name": "Alpha Scottsdale - Now Enrolling 2025.2026 (3).pdf",
+        "mimeType": "application/pdf",
+        "size": "12952390",
+        "webViewLink": "https://drive.google.com/file/d/1Ir_DxxsVWTW002KTcBrVODW_439U8Bwb/view?usp=drivesdk"
+      }
+    ],
+    "other": [
+      {
+        "id": "1_Ze0QWK9AledVhi7e4zFVrd1O5c-434J",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1_Ze0QWK9AledVhi7e4zFVrd1O5c-434J"
+      },
+      {
+        "id": "1CY69E6JDGxlVjl3qJdVLBvVvv6gEyyz3",
+        "name": "25 / 26 Calendar",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1CY69E6JDGxlVjl3qJdVLBvVvv6gEyyz3"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 1,
+    "other": 2,
+    "total": 3
+  }
+}

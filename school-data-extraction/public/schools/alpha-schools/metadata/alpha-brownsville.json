@@ -1,0 +1,97 @@
+{
+  "school": {
+    "id": "alpha-brownsville",
+    "name": "Alpha School",
+    "city": "Brownsville",
+    "state": "TX",
+    "type": "alpha-school",
+    "isMainBrand": true
+  },
+  "media": {
+    "videos": [
+      {
+        "filename": "alpha-brownsville_1754255154194_intro-video.mp4",
+        "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+        "localPath": "/schools/alpha-schools/videos/alpha-brownsville_1754255154194_intro-video.mp4",
+        "fileType": "video",
+        "mimeType": "video/mp4",
+        "fileSize": 21,
+        "metadata": {
+          "title": "intro-video",
+          "dateCreated": "2025-08-03T20:48:15.294Z",
+          "lastModified": "2025-08-03T20:48:20.911Z",
+          "tags": [
+            "Alpha School",
+            "Brownsville",
+            "alpha-school"
+          ]
+        }
+      }
+    ],
+    "images": [
+      {
+        "filename": "alpha-brownsville_1754255154194_campus-photo.jpg",
+        "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+        "localPath": "/schools/alpha-schools/images/alpha-brownsville_1754255154194_campus-photo.jpg",
+        "fileType": "image",
+        "mimeType": "image/jpeg",
+        "fileSize": 21,
+        "metadata": {
+          "title": "campus-photo",
+          "dateCreated": "2025-08-03T20:48:15.294Z",
+          "lastModified": "2025-08-03T20:48:20.911Z",
+          "tags": [
+            "Alpha School",
+            "Brownsville",
+            "alpha-school"
+          ]
+        }
+      }
+    ],
+    "documents": [
+      {
+        "filename": "alpha-brownsville_1754255154194_brochure.pdf",
+        "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+        "localPath": "/schools/alpha-schools/documents/alpha-brownsville_1754255154194_brochure.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "fileSize": 24,
+        "metadata": {
+          "title": "brochure",
+          "dateCreated": "2025-08-03T20:48:15.294Z",
+          "lastModified": "2025-08-03T20:48:20.911Z",
+          "tags": [
+            "Alpha School",
+            "Brownsville",
+            "alpha-school"
+          ]
+        }
+      },
+      {
+        "filename": "alpha-brownsville_1754255154194_school-overview.pptx",
+        "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+        "localPath": "/schools/alpha-schools/documents/alpha-brownsville_1754255154194_school-overview.pptx",
+        "fileType": "document",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "fileSize": 20,
+        "metadata": {
+          "title": "school-overview",
+          "dateCreated": "2025-08-03T20:48:15.294Z",
+          "lastModified": "2025-08-03T20:48:20.911Z",
+          "tags": [
+            "Alpha School",
+            "Brownsville",
+            "alpha-school"
+          ]
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "totalFiles": 4,
+    "lastUpdated": "2025-08-03T21:05:54.194Z",
+    "extractionDate": "2025-08-03T21:05:54.194Z",
+    "googleDriveFolder": "Alpha School | Austin"
+  },
+  "marketing": {}
+}

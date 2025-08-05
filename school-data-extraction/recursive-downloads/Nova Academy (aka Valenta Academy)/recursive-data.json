@@ -1,0 +1,143 @@
+{
+  "school": {
+    "name": "Nova Academy (aka Valenta Academy)",
+    "id": "nova-academy-aka-valenta-academy",
+    "extractionDate": "2025-08-03T21:49:16.899Z"
+  },
+  "marketingFolder": {
+    "id": "1oa-lZKV-nw47lZqWa_9FzjijJRD9xMB_",
+    "name": "Marketing",
+    "webViewLink": "https://drive.google.com/drive/folders/1oa-lZKV-nw47lZqWa_9FzjijJRD9xMB_"
+  },
+  "media": {
+    "images": [],
+    "videos": [
+      {
+        "parents": [
+          "1QCY4ffr5u58kB8PE2_jPNuj6r7x_uQ9K"
+        ],
+        "id": "1-gSI7TFiyYE4rNFcIR6VfzIy6y6nYhyV",
+        "name": "Valenta Sizzle Reel - Short - 16x9.mp4",
+        "mimeType": "video/mp4",
+        "webViewLink": "https://drive.google.com/file/d/1-gSI7TFiyYE4rNFcIR6VfzIy6y6nYhyV/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPSMslebRjUWaXCoTVPQNibkeylt9O0V4C1iFH6Gac-y9s0sKxYsVSAlXCTv353aRwDGEkbYRmTrbdd00R1ILzR45KXZMulqDgotA=s220",
+        "size": "65920139"
+      },
+      {
+        "parents": [
+          "1QCY4ffr5u58kB8PE2_jPNuj6r7x_uQ9K"
+        ],
+        "id": "1wqystaQj6m4o0juhhiUpAAGIsGce2_vh",
+        "name": "Valenta Sizzle Reel - Long - 16x9.mp4",
+        "mimeType": "video/mp4",
+        "webViewLink": "https://drive.google.com/file/d/1wqystaQj6m4o0juhhiUpAAGIsGce2_vh/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNP_5kxoV7_JyeVR2FmW0FzVYyaMZr34lsgp4ADr3HUQmkanYI2kbn_pK67XcHntdxAhozPi5VxtZat_oMj3PFvC3cGwZY2NXzdgw=s220",
+        "size": "164500219"
+      }
+    ],
+    "documents": [
+      {
+        "parents": [
+          "1DOtopgSgnn0CWu7wBisY_jpZK28Rg1v8"
+        ],
+        "id": "173epdgvBCKJszaq6DgsmN8e80-PibqYI",
+        "name": "Valenta Flyer 8.5 x 11 in.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/173epdgvBCKJszaq6DgsmN8e80-PibqYI/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPJro1Q9bcrjn1qZ2q8CdMA-pIOWhbqmIjgxQeQndV2yAcU9WKet7iLfoGFfEIMvUiXfYwQ7WHt1pqBBcmY62A5SI3vtv6pnyCiyA=s220",
+        "size": "990374"
+      },
+      {
+        "parents": [
+          "1DOtopgSgnn0CWu7wBisY_jpZK28Rg1v8"
+        ],
+        "id": "1sirK9lPvboSDN-GycPdefIdoYhBCpLyN",
+        "name": "Valenta Flyer 5.5x8.5.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1sirK9lPvboSDN-GycPdefIdoYhBCpLyN/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOXgUDyZSYf08Jq9jx1CiAdumNM82z5mQMtRjjGNcIldAy4UGNPqDxsvgsSAYmQXXmDhPDeDl78dMPfJLUyI4-CVG7QZ32d-c3_aw=s220",
+        "size": "566913"
+      },
+      {
+        "parents": [
+          "1DOtopgSgnn0CWu7wBisY_jpZK28Rg1v8"
+        ],
+        "id": "1-KjWfs6iRUTHX7PpkV31nBWB3pXLvwsh",
+        "name": "Valenta Academy Flyer 8.5 x 5.5 in-pages-1.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1-KjWfs6iRUTHX7PpkV31nBWB3pXLvwsh/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBO-d5SNup5SB5dnkwcHdQKwHw6ZTjHtjcGY1Kz3T6Gf3estdsYp_q3vIWp3ieebrzkl3geJsHJ3iCTLv3f-RQ8ckeaT2qM6hVm4cQ=s220",
+        "size": "1758961"
+      },
+      {
+        "parents": [
+          "1DOtopgSgnn0CWu7wBisY_jpZK28Rg1v8"
+        ],
+        "id": "138wERKe9gI6XA0SaYod7aeZWQOmRVub-",
+        "name": "Valenta Academy Flyer 8.5 x 5.5 in-pages-2.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/138wERKe9gI6XA0SaYod7aeZWQOmRVub-/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNCoWxkaA6NhmqaKuLSGojm6DwLCLZXvdgkv46qoSxsTzYGt3aK0C9jL0GuW5aq2171pQD6Uc6fq8uRc7TDyYKYaV5Zvj1h0eTpOw=s220",
+        "size": "1748363"
+      },
+      {
+        "parents": [
+          "11K61xu-s_tRBsAJJUEmnM0JNnjXDKlx2"
+        ],
+        "id": "1DucL8tznZAWZQ7NtK9sHACbcl6Fp5GFk",
+        "name": "Valenta Academy Billboard 15'x49.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1DucL8tznZAWZQ7NtK9sHACbcl6Fp5GFk/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMK6_mtdwo9R7TnPqGG5DMtZEDR4Hr_lEFcZZFMwluOh-VMTcWcr4f70hP7jis1eH9QkV4N6Pt1vhu5AKA-oeSKsrb-cbrVK4Fj=s220",
+        "size": "3966316"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1oa-lZKV-nw47lZqWa_9FzjijJRD9xMB_"
+        ],
+        "id": "1QCY4ffr5u58kB8PE2_jPNuj6r7x_uQ9K",
+        "name": "Sizzle Reel",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1QCY4ffr5u58kB8PE2_jPNuj6r7x_uQ9K"
+      },
+      {
+        "parents": [
+          "1oa-lZKV-nw47lZqWa_9FzjijJRD9xMB_"
+        ],
+        "id": "1DOtopgSgnn0CWu7wBisY_jpZK28Rg1v8",
+        "name": "Flyers",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1DOtopgSgnn0CWu7wBisY_jpZK28Rg1v8"
+      },
+      {
+        "parents": [
+          "1oa-lZKV-nw47lZqWa_9FzjijJRD9xMB_"
+        ],
+        "id": "11K61xu-s_tRBsAJJUEmnM0JNnjXDKlx2",
+        "name": "Billboards",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/11K61xu-s_tRBsAJJUEmnM0JNnjXDKlx2"
+      },
+      {
+        "parents": [
+          "11K61xu-s_tRBsAJJUEmnM0JNnjXDKlx2"
+        ],
+        "id": "13D1VSj88DFOUkzKQFvPsd46b80WqbPvJ",
+        "name": "Valenta Academy Billboard 15'x49_Folder",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/13D1VSj88DFOUkzKQFvPsd46b80WqbPvJ"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 2,
+    "documents": 5,
+    "folders": 4,
+    "other": 0,
+    "total": 11
+  }
+}

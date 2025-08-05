@@ -1,0 +1,33 @@
+{
+  "school": {
+    "name": "Alpha School | Silicon Valley",
+    "id": "16Gr7x546KUpirgQMl570IwQcBO8Iwu9A",
+    "extractionDate": "2025-08-03T21:37:15.051Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1clkvNaIG9SqItU9rGz6_VyUG8q3Ua_ce",
+        "name": "School Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1clkvNaIG9SqItU9rGz6_VyUG8q3Ua_ce"
+      },
+      {
+        "id": "13_L3p2xWSYzgKXzbM-S2viuNH6riVgJ1",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/13_L3p2xWSYzgKXzbM-S2viuNH6riVgJ1"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 0,
+    "other": 2,
+    "total": 2
+  }
+}

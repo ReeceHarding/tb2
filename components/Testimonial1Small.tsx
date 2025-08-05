@@ -12,7 +12,7 @@ const Testimonial1Small = () => {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="w-5 h-5 text-warning"
+              className="w-5 h-5 text-warning font-cal"
               key={i}
             >
               <path
@@ -23,7 +23,7 @@ const Testimonial1Small = () => {
             </svg>
           ))}
         </div>
-        <div className="text-base leading-relaxed space-y-2 max-w-md mx-auto text-center">
+        <div className="text-base leading-relaxed space-y-2 max-w-md mx-auto text-center font-cal">
           <p>
             <span className="bg-warning/25 px-1.5">
               I don&apos;t want to pay Stripe $2 for every invoice.
@@ -45,8 +45,8 @@ const Testimonial1Small = () => {
             height={48}
           />
           <div>
-            <p className="font-semibold">Someone Nice</p>
-            <p className="text-base-content/80 text-sm">23.1K followers on 𝕏</p>
+            <p className="font-semibold font-cal">Someone Nice</p>
+            <p className="text-base-content/80 text-sm font-cal">23.1K followers on 𝕏</p>
           </div>
         </div>
       </div>

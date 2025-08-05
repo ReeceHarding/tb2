@@ -1,0 +1,39 @@
+{
+  "school": {
+    "id": "alpha-school-san-francisco",
+    "name": "Alpha School | San Francisco",
+    "originalName": "Alpha School | San Francisco",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1XCXRz6IAgvDmBVTGvlO7wSqdiIK9Qy6V"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1QY_-QhW-A4dYdiFqeI_JhSc9_q-g7i-u",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-san-francisco_1_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1QY_-QhW-A4dYdiFqeI_JhSc9_q-g7i-u",
+        "downloadUrl": "https://drive.google.com/uc?id=1QY_-QhW-A4dYdiFqeI_JhSc9_q-g7i-u&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-san-francisco_1_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:08.236Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 1,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 1
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:08.236Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

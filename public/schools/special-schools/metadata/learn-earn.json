@@ -1,0 +1,21 @@
+{
+  "school": {
+    "name": "Learn + Earn",
+    "id": "learn-earn",
+    "city": "Unknown",
+    "state": "Unknown",
+    "type": "special",
+    "extractionDate": "2025-08-03T21:49:26.698Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [],
+    "totalAssets": 0
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [],
+    "lastUpdated": "2025-08-03T21:55:20.954Z"
+  }
+}

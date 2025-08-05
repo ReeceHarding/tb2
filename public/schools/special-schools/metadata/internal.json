@@ -1,0 +1,36 @@
+{
+  "school": {
+    "name": "Internal",
+    "id": "internal",
+    "city": "Unknown",
+    "state": "Unknown",
+    "type": "special",
+    "extractionDate": "2025-08-03T21:49:31.830Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "Hubspot Sales Funnel & Process",
+        "organizedName": "internal_1_Hubspot_Sales_Funnel___Process",
+        "localPath": "/special-schools/documents/internal_1_Hubspot_Sales_Funnel___Process",
+        "fileType": "document",
+        "mimeType": "application/vnd.google-apps.presentation",
+        "size": 110807,
+        "googleDriveId": "1apiPHIeflyMddDdxprot3S91_IcN2BdHZbPEsFOvK2c",
+        "downloadUrl": "https://drive.google.com/uc?id=1apiPHIeflyMddDdxprot3S91_IcN2BdHZbPEsFOvK2c&export=download",
+        "webViewLink": "https://docs.google.com/presentation/d/1apiPHIeflyMddDdxprot3S91_IcN2BdHZbPEsFOvK2c/edit?usp=drivesdk",
+        "category": "Marketing Documents"
+      }
+    ],
+    "totalAssets": 1
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [
+      "Marketing Documents"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.954Z"
+  }
+}

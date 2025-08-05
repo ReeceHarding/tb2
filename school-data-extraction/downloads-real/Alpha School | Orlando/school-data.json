@@ -1,0 +1,27 @@
+{
+  "school": {
+    "name": "Alpha School | Orlando",
+    "id": "1u8n2RGBiNviKsx8A7hoo_sac5aizP5ZN",
+    "extractionDate": "2025-08-03T21:37:14.080Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1vofGqeAni1lUBqDIwGiwJmr2wuxUDD46",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1vofGqeAni1lUBqDIwGiwJmr2wuxUDD46"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 0,
+    "other": 1,
+    "total": 1
+  }
+}

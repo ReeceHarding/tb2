@@ -1,0 +1,75 @@
+{
+  "school": {
+    "name": "Alpha School | Austin",
+    "id": "16EZHXKWdK8h4SZR2kRbXyIU-IDMJbofV",
+    "extractionDate": "2025-08-03T21:37:15.887Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1XXX0LxLRfcvMnrDtjA--Oe2faSE2UcCJ",
+        "name": "25/26 Calendars A",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1XXX0LxLRfcvMnrDtjA--Oe2faSE2UcCJ"
+      },
+      {
+        "id": "1AJn6TRRpVRnYIXo_iW7ClTIGiGx5DyDb",
+        "name": "Amelia",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1AJn6TRRpVRnYIXo_iW7ClTIGiGx5DyDb"
+      },
+      {
+        "id": "13WnpLTZx-lL1qXHUN3JfGUC9teIBYp9R",
+        "name": "EOY Letter",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/13WnpLTZx-lL1qXHUN3JfGUC9teIBYp9R"
+      },
+      {
+        "id": "11_40NJANuOOxmWt7qXZAiVov26TY1PY8",
+        "name": "Plan II Interns",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/11_40NJANuOOxmWt7qXZAiVov26TY1PY8"
+      },
+      {
+        "id": "1nQm9W_79fgneRDZ7RnWPuYArOTKqxATT",
+        "name": "Admissions Packet",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1nQm9W_79fgneRDZ7RnWPuYArOTKqxATT"
+      },
+      {
+        "id": "1pZ4BnTCPTpKN-C9K3yC35CvthbPlHBlo",
+        "name": "Kindergarten",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1pZ4BnTCPTpKN-C9K3yC35CvthbPlHBlo"
+      },
+      {
+        "id": "1TjqEABA2ikG5ZkZFlOSc0oguKOf7yLj9",
+        "name": "Marketing",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1TjqEABA2ikG5ZkZFlOSc0oguKOf7yLj9"
+      },
+      {
+        "id": "1heNBzWLFQ1t65Ifcy5pq7cM1OY9FDslj",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1heNBzWLFQ1t65Ifcy5pq7cM1OY9FDslj"
+      },
+      {
+        "id": "1jRklYWyj16Q0rsbPUboHNG4hVKHdgRRw",
+        "name": "Photography",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1jRklYWyj16Q0rsbPUboHNG4hVKHdgRRw"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 0,
+    "other": 9,
+    "total": 9
+  }
+}

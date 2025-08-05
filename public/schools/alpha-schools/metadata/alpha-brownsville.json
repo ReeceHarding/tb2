@@ -1,0 +1,182 @@
+{
+  "school": {
+    "name": "Alpha School | Brownsville",
+    "id": "alpha-brownsville",
+    "city": "Brownsville",
+    "state": "Unknown",
+    "type": "alpha",
+    "extractionDate": "2025-08-03T21:49:32.604Z"
+  },
+  "marketing": {
+    "images": [
+      {
+        "originalName": "Alpha School Brownsville - Space Camp Ads - 9.png",
+        "organizedName": "alpha-brownsville_1_Alpha_School_Brownsville_-_Space_Camp_Ads_-_9.png",
+        "localPath": "/alpha-schools/images/alpha-brownsville_1_Alpha_School_Brownsville_-_Space_Camp_Ads_-_9.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1352095,
+        "googleDriveId": "18NKMjreBTkgoFSAsNjpezgqZcK6kN241",
+        "downloadUrl": "https://drive.google.com/uc?id=18NKMjreBTkgoFSAsNjpezgqZcK6kN241&export=download",
+        "webViewLink": "https://drive.google.com/file/d/18NKMjreBTkgoFSAsNjpezgqZcK6kN241/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPghghi5wc0lqJHpPmDGYtcJZbjvhHXtd1_IdB9Ew5i8DIUq4TMZQYmflnHWyPbuiVTeo1xY3nckJwJXCEtatFGfY2SW20iEuagjw=s220",
+        "category": "Summer Camp"
+      },
+      {
+        "originalName": "Alpha School Brownsville - Space Camp Ads - 11.png",
+        "organizedName": "alpha-brownsville_2_Alpha_School_Brownsville_-_Space_Camp_Ads_-_11.png",
+        "localPath": "/alpha-schools/images/alpha-brownsville_2_Alpha_School_Brownsville_-_Space_Camp_Ads_-_11.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1351267,
+        "googleDriveId": "1Jp0yrZQCGe3RWYVEkh-NybxYt9Lb9pbg",
+        "downloadUrl": "https://drive.google.com/uc?id=1Jp0yrZQCGe3RWYVEkh-NybxYt9Lb9pbg&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1Jp0yrZQCGe3RWYVEkh-NybxYt9Lb9pbg/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPolvt_Um425PT1B2GhCOVpxHdLS6qY8hgYcRLetO8oVIsjZipeVYF5IdgK_oFWFBaYgL6J4Mxf2KdZn3NnwpS9dq0qASEeCC9ReQ=s220",
+        "category": "Summer Camp"
+      },
+      {
+        "originalName": "Alpha School Brownsville - Space Camp Ads - 5.png",
+        "organizedName": "alpha-brownsville_3_Alpha_School_Brownsville_-_Space_Camp_Ads_-_5.png",
+        "localPath": "/alpha-schools/images/alpha-brownsville_3_Alpha_School_Brownsville_-_Space_Camp_Ads_-_5.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1421893,
+        "googleDriveId": "18--mmvyr4EbTtsKT0uTQXAkdpIjBikcM",
+        "downloadUrl": "https://drive.google.com/uc?id=18--mmvyr4EbTtsKT0uTQXAkdpIjBikcM&export=download",
+        "webViewLink": "https://drive.google.com/file/d/18--mmvyr4EbTtsKT0uTQXAkdpIjBikcM/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMsktPFOk9sMfyx0Yg6XPuVGBeTIDtSDLZ4sA4pg38WE133u0jz9OUiSciuz2o6yv2DyIRrjz4HFP8dhYuETRltqZbFtB9TOq3C0A=s220",
+        "category": "Summer Camp"
+      },
+      {
+        "originalName": "Alpha School Brownsville - Space Camp Ads - 2.png",
+        "organizedName": "alpha-brownsville_4_Alpha_School_Brownsville_-_Space_Camp_Ads_-_2.png",
+        "localPath": "/alpha-schools/images/alpha-brownsville_4_Alpha_School_Brownsville_-_Space_Camp_Ads_-_2.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1341875,
+        "googleDriveId": "15ewXJGk0nr7c5wekWcCFsI8wMi_fVNaE",
+        "downloadUrl": "https://drive.google.com/uc?id=15ewXJGk0nr7c5wekWcCFsI8wMi_fVNaE&export=download",
+        "webViewLink": "https://drive.google.com/file/d/15ewXJGk0nr7c5wekWcCFsI8wMi_fVNaE/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMjRGNGtRxBt8kwIHRiAJYx3wsqdTwho8Vn6yyE94BX3KlHVHXwSpz9THV8bTgMkMjOLixD-Ru1AWsM3yslnptLVoj_8Ut1-EtIsw=s220",
+        "category": "Summer Camp"
+      },
+      {
+        "originalName": "Alpha School Brownsville - Space Camp Ads - 1.png",
+        "organizedName": "alpha-brownsville_5_Alpha_School_Brownsville_-_Space_Camp_Ads_-_1.png",
+        "localPath": "/alpha-schools/images/alpha-brownsville_5_Alpha_School_Brownsville_-_Space_Camp_Ads_-_1.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1547286,
+        "googleDriveId": "12CSNMGg_AcJslO6RzzvANbuYcb3Wi-ra",
+        "downloadUrl": "https://drive.google.com/uc?id=12CSNMGg_AcJslO6RzzvANbuYcb3Wi-ra&export=download",
+        "webViewLink": "https://drive.google.com/file/d/12CSNMGg_AcJslO6RzzvANbuYcb3Wi-ra/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPLAy9TPVO_7kGIFlyVCLW8uP9xT26q-U2khAI1uss77ZGCluQc5DsnIm-FGZLa7PWACU_Q8XZcjhx1Kujk6DNA7pW5P-42oSud4g=s220",
+        "category": "Summer Camp"
+      },
+      {
+        "originalName": "Alpha School Brownsville - Space Camp Ads - 10.png",
+        "organizedName": "alpha-brownsville_6_Alpha_School_Brownsville_-_Space_Camp_Ads_-_10.png",
+        "localPath": "/alpha-schools/images/alpha-brownsville_6_Alpha_School_Brownsville_-_Space_Camp_Ads_-_10.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1402195,
+        "googleDriveId": "1zyiDX9X7PSz0gAXy6x7tojNnsJqR-JVj",
+        "downloadUrl": "https://drive.google.com/uc?id=1zyiDX9X7PSz0gAXy6x7tojNnsJqR-JVj&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1zyiDX9X7PSz0gAXy6x7tojNnsJqR-JVj/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBODBFrbMHXAMwbimwJ1_O-po4jpqRH21UBcSQlW4GJvuXagAJsD1gVOHpurZpEuxl-IL9jjSOwloxEzRmp_RD5Zee4JnDanb7PRUg=s220",
+        "category": "Summer Camp"
+      },
+      {
+        "originalName": "Alpha School Brownsville - Space Camp Ads - 3.png",
+        "organizedName": "alpha-brownsville_7_Alpha_School_Brownsville_-_Space_Camp_Ads_-_3.png",
+        "localPath": "/alpha-schools/images/alpha-brownsville_7_Alpha_School_Brownsville_-_Space_Camp_Ads_-_3.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1127391,
+        "googleDriveId": "1qMIQpROWLISrOtxxMmWLrx65fgMuhRyF",
+        "downloadUrl": "https://drive.google.com/uc?id=1qMIQpROWLISrOtxxMmWLrx65fgMuhRyF&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1qMIQpROWLISrOtxxMmWLrx65fgMuhRyF/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMCzqelebadaZPOinol4HLg7QNt6E2NT8YSaniX3S1SQkOXUa9gwdolgNFc8W-2Mo7FbscNkj_VjCK7VGNcMKrl53e4C4ljJjOL0A=s220",
+        "category": "Summer Camp"
+      },
+      {
+        "originalName": "Alpha School Brownsville - Space Camp Ads - 6.png",
+        "organizedName": "alpha-brownsville_8_Alpha_School_Brownsville_-_Space_Camp_Ads_-_6.png",
+        "localPath": "/alpha-schools/images/alpha-brownsville_8_Alpha_School_Brownsville_-_Space_Camp_Ads_-_6.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1462711,
+        "googleDriveId": "182wp_QnavGi85nGyw5zPuYcN8mxzG_Us",
+        "downloadUrl": "https://drive.google.com/uc?id=182wp_QnavGi85nGyw5zPuYcN8mxzG_Us&export=download",
+        "webViewLink": "https://drive.google.com/file/d/182wp_QnavGi85nGyw5zPuYcN8mxzG_Us/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNkU9QBY0CmdQazXV-bC9STy4Anlk5fkGQmfv7kUX5eBFGHtu6dexxY4BQkJgaimsyFLxXvF4597hGdVi_RUX1UZ8BRNMJFw8QT0Q=s220",
+        "category": "Summer Camp"
+      },
+      {
+        "originalName": "Alpha School Brownsville - Space Camp Ads - 4.png",
+        "organizedName": "alpha-brownsville_9_Alpha_School_Brownsville_-_Space_Camp_Ads_-_4.png",
+        "localPath": "/alpha-schools/images/alpha-brownsville_9_Alpha_School_Brownsville_-_Space_Camp_Ads_-_4.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1365793,
+        "googleDriveId": "1e3t3NofEon-c1KyhQlmLFa9_h6o-UmoZ",
+        "downloadUrl": "https://drive.google.com/uc?id=1e3t3NofEon-c1KyhQlmLFa9_h6o-UmoZ&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1e3t3NofEon-c1KyhQlmLFa9_h6o-UmoZ/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNVKjmYfK-GOo-1gdouMAc4TQzwEvIpRC8pSfRXNmB0KWTbKa1cqVYKy-lWElYml1M0jU9kH7QBpuknHyA2MOOQU95dD3CrliT7GQ=s220",
+        "category": "Summer Camp"
+      },
+      {
+        "originalName": "Alpha School Brownsville - Space Camp Ads - 8.png",
+        "organizedName": "alpha-brownsville_10_Alpha_School_Brownsville_-_Space_Camp_Ads_-_8.png",
+        "localPath": "/alpha-schools/images/alpha-brownsville_10_Alpha_School_Brownsville_-_Space_Camp_Ads_-_8.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1314883,
+        "googleDriveId": "1_PSrltuJ5XrkR6onmJzKZzzCLrc-Qji8",
+        "downloadUrl": "https://drive.google.com/uc?id=1_PSrltuJ5XrkR6onmJzKZzzCLrc-Qji8&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1_PSrltuJ5XrkR6onmJzKZzzCLrc-Qji8/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBO03icjKhUchDRUqlhvzoSMCbmnbL2JnVHadrgwYONlgFALn1yGQbe3rhWzXigs3kp1WjpeaQ5m8Tkk3DIyUx2-YLGveDDcUh-psA=s220",
+        "category": "Summer Camp"
+      },
+      {
+        "originalName": "Alpha School Brownsville - Space Camp Ads - 7.png",
+        "organizedName": "alpha-brownsville_11_Alpha_School_Brownsville_-_Space_Camp_Ads_-_7.png",
+        "localPath": "/alpha-schools/images/alpha-brownsville_11_Alpha_School_Brownsville_-_Space_Camp_Ads_-_7.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1421789,
+        "googleDriveId": "1LXMInI3Xjc5x_dxJNnwIDxEQiRpTI0sQ",
+        "downloadUrl": "https://drive.google.com/uc?id=1LXMInI3Xjc5x_dxJNnwIDxEQiRpTI0sQ&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1LXMInI3Xjc5x_dxJNnwIDxEQiRpTI0sQ/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOps2xgMIO3fkEvciP_3eyYmjOhUVENwD29qUvr2vmL6ZWeA_zmRtd6uRq5nlfu7v-9ScDipMn1Vf7_4Hy95RjofdyuSisU_DTrbg=s220",
+        "category": "Summer Camp"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "Alpha Preschool.pdf",
+        "organizedName": "alpha-brownsville_1_Alpha_Preschool.pdf",
+        "localPath": "/alpha-schools/documents/alpha-brownsville_1_Alpha_Preschool.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 25999067,
+        "googleDriveId": "19kBR9dsW36lTRAzW4pZd4pjt1JA7NW5-",
+        "downloadUrl": "https://drive.google.com/uc?id=19kBR9dsW36lTRAzW4pZd4pjt1JA7NW5-&export=download",
+        "webViewLink": "https://drive.google.com/file/d/19kBR9dsW36lTRAzW4pZd4pjt1JA7NW5-/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      }
+    ],
+    "totalAssets": 12
+  },
+  "metadata": {
+    "hasMarketingFolder": true,
+    "marketingFolderId": "1EXEGlsFzbKyLCeepNoogoFCILQ9HhVgN",
+    "contentCategories": [
+      "Summer Camp",
+      "Marketing Documents"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.948Z"
+  }
+}

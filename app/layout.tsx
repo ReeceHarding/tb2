@@ -1,12 +1,13 @@
 import { ReactNode } from "react";
-import { Inter } from "next/font/google";
 import { Viewport } from "next";
 import { getSEOTags } from "@/libs/seo";
 import ClientLayout from "@/components/LayoutClient";
 import config from "@/config";
 import "./globals.css";
 
-const font = Inter({ subsets: ["latin"] });
+// Using Cal Sans as the primary font for TimeBack design system
+// Note: Cal Sans needs to be loaded via CDN or @font-face since it's not available on Google Fonts
+// Falling back to sans-serif for now until custom font is loaded
 
 export const viewport: Viewport = {
 	// Will use the primary color of your theme to show a nice theme color in the URL bar of supported browsers
@@ -24,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 		<html
 			lang="en"
 			data-theme={config.colors.theme}
-			className={font.className}
+			className="font-cal"
 		>
 			<body>
 				{/* ClientLayout contains all the client wrappers (Crisp chat support, toast messages, tooltips, etc.) */}

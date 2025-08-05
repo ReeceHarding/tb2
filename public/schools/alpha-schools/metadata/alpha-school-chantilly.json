@@ -1,0 +1,51 @@
+{
+  "school": {
+    "id": "alpha-school-chantilly",
+    "name": "Alpha School | Chantilly",
+    "originalName": "Alpha School | Chantilly",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1PbV3NsBpWHXaOs6mAIOdI4SGK6K6BEtt"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "10dGbsJb3PVvtW1hSkBOynP-gYtygWOvH",
+        "originalName": "OLD and replaced with info packet on website_Alpha Chantilly - Now Enrolling 2025.2026.pdf",
+        "organizedName": "alpha-school-chantilly_1_OLD-and-replaced-with-info-packet-on-websiteAlpha-Chantilly-Now-Enrolling-20252026.pdf",
+        "mimeType": "application/pdf",
+        "size": 12886045,
+        "webViewLink": "https://drive.google.com/file/d/10dGbsJb3PVvtW1hSkBOynP-gYtygWOvH/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=10dGbsJb3PVvtW1hSkBOynP-gYtygWOvH&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-chantilly_1_OLD-and-replaced-with-info-packet-on-websiteAlpha-Chantilly-Now-Enrolling-20252026.pdf",
+        "extractionDate": "2025-08-03T21:37:08.938Z"
+      }
+    ],
+    "other": [
+      {
+        "id": "1jA1nxa-0kvw2FkX9zqg1ZvaZsAjRrIfE",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-chantilly_2_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1jA1nxa-0kvw2FkX9zqg1ZvaZsAjRrIfE",
+        "downloadUrl": "https://drive.google.com/uc?id=1jA1nxa-0kvw2FkX9zqg1ZvaZsAjRrIfE&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-chantilly_2_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:08.938Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 2,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 1,
+    "otherCount": 1
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:08.938Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

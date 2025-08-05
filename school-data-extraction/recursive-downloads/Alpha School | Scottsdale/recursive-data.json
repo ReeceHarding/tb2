@@ -1,0 +1,53 @@
+{
+  "school": {
+    "name": "Alpha School | Scottsdale",
+    "id": "alpha-school-scottsdale",
+    "extractionDate": "2025-08-03T21:49:23.966Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "15_hwRBAHXa_QUHUAW6uU-0WVguYbjydI"
+        ],
+        "id": "1Ir_DxxsVWTW002KTcBrVODW_439U8Bwb",
+        "name": "Alpha Scottsdale - Now Enrolling 2025.2026 (3).pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1Ir_DxxsVWTW002KTcBrVODW_439U8Bwb/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOzCZC1WHahIF8ihxin2Sh0GFKG2Vuvx-qG6CxzpfI0FC77K7i5RGOdyyZR1rjros03HoCAgjGRps4cSc2SJY83sSkATE_Jxq-JOw=s220",
+        "size": "12952390"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "15_hwRBAHXa_QUHUAW6uU-0WVguYbjydI"
+        ],
+        "id": "1_Ze0QWK9AledVhi7e4zFVrd1O5c-434J",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1_Ze0QWK9AledVhi7e4zFVrd1O5c-434J"
+      },
+      {
+        "parents": [
+          "15_hwRBAHXa_QUHUAW6uU-0WVguYbjydI"
+        ],
+        "id": "1CY69E6JDGxlVjl3qJdVLBvVvv6gEyyz3",
+        "name": "25 / 26 Calendar",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1CY69E6JDGxlVjl3qJdVLBvVvv6gEyyz3"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 1,
+    "folders": 2,
+    "other": 0,
+    "total": 3
+  }
+}

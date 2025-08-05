@@ -1,0 +1,42 @@
+{
+  "school": {
+    "name": "Alpha School | Lake Forest",
+    "id": "1-xidtvWFYnSpDWhe-uoZytppCjQyTe6s",
+    "extractionDate": "2025-08-03T21:37:09.552Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1xTeGXomkWfw8I1sLq-BpVwJ-tasAwkRH",
+        "name": "Alpha Lake Forest - Now Enrolling 2025.2026 (2).pdf",
+        "mimeType": "application/pdf",
+        "size": "12917055",
+        "webViewLink": "https://drive.google.com/file/d/1xTeGXomkWfw8I1sLq-BpVwJ-tasAwkRH/view?usp=drivesdk"
+      },
+      {
+        "id": "18dkfUICsBhxjaBBF6CPfPHt0QtYzeD7i",
+        "name": "Alpha Lake Forest Tuition.pdf",
+        "mimeType": "application/pdf",
+        "size": "1177812",
+        "webViewLink": "https://drive.google.com/file/d/18dkfUICsBhxjaBBF6CPfPHt0QtYzeD7i/view?usp=drivesdk"
+      }
+    ],
+    "other": [
+      {
+        "id": "1VK0CqeL3QvrbOwY-yVQibJReqJqiF8B_",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1VK0CqeL3QvrbOwY-yVQibJReqJqiF8B_"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 2,
+    "other": 1,
+    "total": 3
+  }
+}

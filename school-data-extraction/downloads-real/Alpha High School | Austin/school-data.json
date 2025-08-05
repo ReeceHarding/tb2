@@ -1,0 +1,52 @@
+{
+  "school": {
+    "name": "Alpha High School | Austin",
+    "id": "15D3ZT1AAt60W1k7uOBw9tV2CTf4CCw1A",
+    "extractionDate": "2025-08-03T21:37:15.476Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1n8hsyOTkIB-8PkAN4JNGsr_l3j2_xm1y",
+        "name": "Alpha High School  Admissions Document V1.pdf",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1n8hsyOTkIB-8PkAN4JNGsr_l3j2_xm1y/view?usp=drivesdk"
+      }
+    ],
+    "other": [
+      {
+        "id": "1s82xYPkP38femGG-W3TVWDYMh38ibbUi",
+        "name": "Marketing Campaigns",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1s82xYPkP38femGG-W3TVWDYMh38ibbUi"
+      },
+      {
+        "id": "1wmsqOf6sxut7Y_skKSp3LOywwc9bIuiz",
+        "name": "School Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1wmsqOf6sxut7Y_skKSp3LOywwc9bIuiz"
+      },
+      {
+        "id": "1HMwvmx8GcWPhBk1p-ohj5-L43lM1jUkM",
+        "name": "Photography",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1HMwvmx8GcWPhBk1p-ohj5-L43lM1jUkM"
+      },
+      {
+        "id": "1GIBj27FYPxjzuktf6Yv_hCjQVZ7mEmpg",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1GIBj27FYPxjzuktf6Yv_hCjQVZ7mEmpg"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 1,
+    "other": 4,
+    "total": 5
+  }
+}

@@ -174,33 +174,23 @@ const Testimonial = ({ i }: { i: number }) => {
 
   return (
     <li key={i}>
-      <figure className="relative h-full p-6 bg-base-100 rounded-lg">
+      <figure className="relative h-full p-6 rounded-xl border border-timeback-primary bg-white hover:shadow-2xl transition-shadow duration-200">
         <blockquote className="relative">
-          <p className="text-sm text-base-content/80">{testimonial.text}</p>
+          <div className="text-base xl:text-sm text-timeback-primary font-cal">{testimonial.text}</div>
         </blockquote>
-        <figcaption className="relative flex items-center justify-start gap-4 pt-4 mt-4 border-t border-base-content/5">
+        <figcaption className="relative flex items-center justify-start gap-4 pt-4 mt-4 border-t border-timeback-primary/20">
           <div className="overflow-hidden rounded-full bg-base-300 shrink-0">
-            {testimonial.img ? (
-              <Image
-                className="w-10 h-10 rounded-full object-cover"
-                src={list[i].img}
-                alt={`${list[i].name}'s testimonial for ${config.appName}`}
-                width={48}
-                height={48}
-              />
-            ) : (
-              <span className="w-10 h-10 rounded-full flex justify-center items-center text-lg font-medium bg-base-300">
-                {testimonial.name.charAt(0)}
-              </span>
-            )}
+            <span className="w-10 h-10 rounded-full flex justify-center items-center text-lg font-medium bg-base-300 font-cal">
+              {testimonial.name.charAt(0)}
+            </span>
           </div>
           <div className="w-full flex items-end justify-between gap-2">
             <div>
-              <div className="text-sm font-medium text-base-content">
+              <div className="text-sm font-medium text-timeback-primary font-cal">
                 {testimonial.name}
               </div>
               {testimonial.username && (
-                <div className="mt-0.5 text-sm text-base-content/80">
+                <div className="mt-0.5 text-sm text-timeback-primary/60 font-cal">
                   @{testimonial.username}
                 </div>
               )}
@@ -254,16 +244,15 @@ const VideoTestimonial = ({ i }: { i: number }) => {
   return (
     <li
       key={i}
-      className="break-inside-avoid max-md:flex justify-center bg-base-100 rounded-lg overflow-hidden flex flex-col"
+      className="break-inside-avoid max-md:flex justify-center bg-base-100 rounded-xl overflow-hidden flex flex-col"
     >
       <div className="relative w-full">
         {isLoading && (
-          <span className="z-40 !h-24 !w-24 !bg-gray-50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 loading loading-ring"></span>
+          <span className="z-40 !h-24 !w-24 !bg-timeback-bg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 loading loading-ring"></span>
         )}
         <video
           className="w-full"
           ref={vidRef}
-          poster={testimonial.videoPoster}
           preload="metadata"
           playsInline
           width={testimonial.videoWidth}
@@ -281,7 +270,7 @@ const VideoTestimonial = ({ i }: { i: number }) => {
         </video>
 
         {!isPlaying && (
-          <div className="absolute bottom-0 -inset-x-4 bg-gray-900/50 blur-lg h-24 translate-y-1/4 animate-opacity"></div>
+          <div className="absolute bottom-0 -inset-x-4 bg-timeback-primary/50 blur-lg h-24 translate-y-1/4 animate-opacity"></div>
         )}
 
         <div className="absolute w-full bottom-0 z-20">
@@ -299,7 +288,7 @@ const VideoTestimonial = ({ i }: { i: number }) => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className=" w-14 h-14 fill-gray-50 group-hover:scale-[1.05] duration-100 ease-in drop-shadow-lg animate-opacity"
+                  className=" w-14 h-14 fill-gray-50 group-hover:scale-[1.05] duration-100 ease-in drop-shadow-2xl animate-opacity"
                 >
                   <path
                     fillRule="evenodd"
@@ -313,7 +302,7 @@ const VideoTestimonial = ({ i }: { i: number }) => {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  className="w-14 h-14 fill-gray-50 group-hover:scale-[1.05] duration-100 ease-in drop-shadow-lg animate-opacity"
+                  className="w-14 h-14 fill-gray-50 group-hover:scale-[1.05] duration-100 ease-in drop-shadow-2xl animate-opacity"
                 >
                   <path
                     fillRule="evenodd"
@@ -325,8 +314,8 @@ const VideoTestimonial = ({ i }: { i: number }) => {
             </button>
 
             {!isPlaying && (
-              <div className="animate-opacity text-right">
-                <p className="text-gray-50 font-medium drop-shadow">
+              <div className="animate-opacity text-right font-cal">
+                <p className="text-white font-medium drop-shadow font-cal">
                   {testimonial.name}
                 </p>
                 <div className="rating">
@@ -335,7 +324,7 @@ const VideoTestimonial = ({ i }: { i: number }) => {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
                       fill="currentColor"
-                      className="w-5 h-5 text-accent drop-shadow"
+                      className="w-5 h-5 text-accent drop-shadow font-cal"
                       key={i}
                     >
                       <path
@@ -352,8 +341,8 @@ const VideoTestimonial = ({ i }: { i: number }) => {
         </div>
       </div>
 
-      <div className="relative z-20 bg-accent text-accent-content text-base leading-tight font-medium p-4 select-none">
-        <p>&quot;{testimonial.text}&quot;</p>
+      <div className="relative z-20 bg-timeback-primary text-white text-lg font-medium p-4 leading-tight select-none rounded-xl font-cal">
+        <div>&quot;{testimonial.text}&quot;</div>
       </div>
     </li>
   );
@@ -363,13 +352,13 @@ const Testimonials11 = () => {
   return (
     <section className="bg-base-200" id="testimonials">
       <div className="py-24 px-8 max-w-7xl mx-auto">
-        <div className="flex flex-col text-center w-full mb-20">
+        <div className="flex flex-col text-center w-full mb-20 font-cal">
           <div className="mb-8">
-            <h2 className="sm:text-5xl text-4xl font-extrabold text-base-content">
+            <h2 className="sm:text-5xl text-4xl font-extrabold text-base-content font-cal">
               212 makers are already shipping faster!
             </h2>
           </div>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-base-content/80">
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-base-content/80 font-cal">
             Don&apos;t take our word for it. Here&apos;s what they have to say
             about {config.appName}.
           </p>
@@ -391,9 +380,9 @@ const Testimonials11 = () => {
             {/* BIG FEATURED TESTIMONIAL — THE LAST ONE IN THE LIST (11th) */}
             <ul className="col-span-2">
               <li>
-                <figure className="relative h-full p-6 bg-base-100 rounded-lg">
+                <figure className="relative h-full p-6 bg-base-100 rounded-xl">
                   <blockquote className="relative p-4">
-                    <p className="text-lg font-medium text-base-content">
+                    <p className="text-lg font-medium text-base-content font-cal">
                       {list[list.length - 1].text}
                     </p>
                   </blockquote>
@@ -410,17 +399,17 @@ const Testimonials11 = () => {
                           height={48}
                         />
                       ) : (
-                        <span className="w-12 h-12 rounded-full flex justify-center items-center text-xl font-medium bg-base-300">
+                        <span className="w-12 h-12 rounded-full flex justify-center items-center text-xl font-medium bg-base-300 font-cal">
                           {list[list.length - 1].name.charAt(0)}
                         </span>
                       )}
                     </div>
                     <div>
-                      <div className="text-base font-medium text-base-content">
+                      <div className="text-base font-medium text-base-content font-cal">
                         {list[list.length - 1].name}
                       </div>
                       {list[list.length - 1].username && (
-                        <div className="mt-1 text-base text-base-content/80">
+                        <div className="mt-1 text-base text-base-content/80 font-cal">
                           @{list[list.length - 1].username}
                         </div>
                       )}

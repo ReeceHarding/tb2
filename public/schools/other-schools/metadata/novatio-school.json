@@ -1,0 +1,36 @@
+{
+  "school": {
+    "name": "Novatio School",
+    "id": "novatio-school",
+    "city": "Unknown",
+    "state": "Unknown",
+    "type": "other",
+    "extractionDate": "2025-08-03T21:49:25.372Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "ESA 2025Q2 by Zip",
+        "organizedName": "novatio-school_1_ESA_2025Q2_by_Zip",
+        "localPath": "/other-schools/documents/novatio-school_1_ESA_2025Q2_by_Zip",
+        "fileType": "document",
+        "mimeType": "application/vnd.google-apps.spreadsheet",
+        "size": 3635,
+        "googleDriveId": "1Vjd8VVkVg7nv_YyIaj8CCPimHS0Hjj3JBZBVM97-iJc",
+        "downloadUrl": "https://drive.google.com/uc?id=1Vjd8VVkVg7nv_YyIaj8CCPimHS0Hjj3JBZBVM97-iJc&export=download",
+        "webViewLink": "https://docs.google.com/spreadsheets/d/1Vjd8VVkVg7nv_YyIaj8CCPimHS0Hjj3JBZBVM97-iJc/edit?usp=drivesdk",
+        "category": "Marketing Documents"
+      }
+    ],
+    "totalAssets": 1
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [
+      "Marketing Documents"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.955Z"
+  }
+}

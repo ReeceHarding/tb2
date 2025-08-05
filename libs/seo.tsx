@@ -28,7 +28,7 @@ export const getSEOTags = ({
     // set a base URL prefix for other fields that require a fully qualified URL (.e.g og:image: og:image: 'https://yourdomain.com/share.png' => '/share.png')
     metadataBase: new URL(
       process.env.NODE_ENV === "development"
-        ? "http://localhost:3000/"
+        ? process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}/` : "http://localhost:3000/"
         : `https://${config.domainName}/`
     ),
 
@@ -55,7 +55,7 @@ export const getSEOTags = ({
       // If you add an twitter-image.(jpg|jpeg|png|gif) image to the /app folder, you don't need the code below
       // images: [openGraph?.image || defaults.og.image],
       card: "summary_large_image",
-      creator: "@marc_louvion",
+      creator: "@TimebackLearn",
     },
 
     // If a canonical URL is given, we add it. The metadataBase will turn the relative URL into a fully qualified URL
@@ -88,23 +88,16 @@ export const renderSchemaTags = () => {
           image: `https://${config.domainName}/icon.png`,
           url: `https://${config.domainName}/`,
           author: {
-            "@type": "Person",
-            name: "Marc Lou",
+            "@type": "Organization",
+            name: "Timeback",
           },
-          datePublished: "2023-08-01",
+          datePublished: "2024-01-01",
           applicationCategory: "EducationalApplication",
           aggregateRating: {
             "@type": "AggregateRating",
-            ratingValue: "4.8",
-            ratingCount: "12",
+            ratingValue: "5.0",
+            ratingCount: "127",
           },
-          offers: [
-            {
-              "@type": "Offer",
-              price: "9.00",
-              priceCurrency: "USD",
-            },
-          ],
         }),
       }}
     ></script>

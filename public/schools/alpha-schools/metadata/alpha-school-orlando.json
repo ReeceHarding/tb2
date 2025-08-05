@@ -1,0 +1,39 @@
+{
+  "school": {
+    "id": "alpha-school-orlando",
+    "name": "Alpha School | Orlando",
+    "originalName": "Alpha School | Orlando",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1u8n2RGBiNviKsx8A7hoo_sac5aizP5ZN"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1vofGqeAni1lUBqDIwGiwJmr2wuxUDD46",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-orlando_1_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1vofGqeAni1lUBqDIwGiwJmr2wuxUDD46",
+        "downloadUrl": "https://drive.google.com/uc?id=1vofGqeAni1lUBqDIwGiwJmr2wuxUDD46&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-orlando_1_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:14.080Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 1,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 1
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:14.080Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "school": {
+    "name": "Internal",
+    "id": "internal",
+    "extractionDate": "2025-08-03T21:49:31.830Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+        ],
+        "id": "1apiPHIeflyMddDdxprot3S91_IcN2BdHZbPEsFOvK2c",
+        "name": "Hubspot Sales Funnel & Process",
+        "mimeType": "application/vnd.google-apps.presentation",
+        "webViewLink": "https://docs.google.com/presentation/d/1apiPHIeflyMddDdxprot3S91_IcN2BdHZbPEsFOvK2c/edit?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPscBpkOb2c-zBgLsSTe3FPKV6N7oheTyUE90f2IBrpIsOIhf3SoEvZiRe0ghkJnlJXTBUYrWd4vMFr3QwyW79ARmRuzbqYLCtWbWRO-ZTTN69LOMM=s220",
+        "size": "110807"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+        ],
+        "id": "16pGd-x3lmZFMfhGsW690Qy05E7dSp_MO",
+        "name": "2HL Website Wordpress",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/16pGd-x3lmZFMfhGsW690Qy05E7dSp_MO"
+      },
+      {
+        "parents": [
+          "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+        ],
+        "id": "1JzrEY9a2KirTZTXtDTH3mIN4HNhR6szJ",
+        "name": "Airtable Projects",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1JzrEY9a2KirTZTXtDTH3mIN4HNhR6szJ"
+      },
+      {
+        "parents": [
+          "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+        ],
+        "id": "1atPHBiPbZ48vjFZZ48_KCGlBDP89jKXO",
+        "name": "Old 2HL Website Backup",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1atPHBiPbZ48vjFZZ48_KCGlBDP89jKXO"
+      },
+      {
+        "parents": [
+          "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+        ],
+        "id": "1GCocGHrk3UvNPiz9Nxd9-4j1C9Am1v-5",
+        "name": "Videos",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1GCocGHrk3UvNPiz9Nxd9-4j1C9Am1v-5"
+      },
+      {
+        "parents": [
+          "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+        ],
+        "id": "1lBhFTKD5_h57znZPCL_4KmPnfiI0E6yD",
+        "name": "Google Business Proof",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1lBhFTKD5_h57znZPCL_4KmPnfiI0E6yD"
+      },
+      {
+        "parents": [
+          "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+        ],
+        "id": "1ddDiYgq88UogzuxH2u8r1QOem9oif_X7",
+        "name": "Crossover Advertising",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1ddDiYgq88UogzuxH2u8r1QOem9oif_X7"
+      },
+      {
+        "parents": [
+          "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+        ],
+        "id": "1V61C-PLQVUB0d_QtCYCfiXQXb2Wa6ZEs",
+        "name": "ABJ Previous Artwork",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1V61C-PLQVUB0d_QtCYCfiXQXb2Wa6ZEs"
+      },
+      {
+        "parents": [
+          "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+        ],
+        "id": "1nb5fqUxDA5_zScbyKbCYGHBrLDB2xmtS",
+        "name": "Legacy of Education",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1nb5fqUxDA5_zScbyKbCYGHBrLDB2xmtS"
+      },
+      {
+        "parents": [
+          "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+        ],
+        "id": "1japsbjtGy-XoQJ5ZmP0vw6B0OGX_ivM0",
+        "name": "Proto",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1japsbjtGy-XoQJ5ZmP0vw6B0OGX_ivM0"
+      },
+      {
+        "parents": [
+          "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+        ],
+        "id": "15EEjSQc16t0j1xtcJWD6gFt42MIOY8Z4",
+        "name": "Invoices",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/15EEjSQc16t0j1xtcJWD6gFt42MIOY8Z4"
+      },
+      {
+        "parents": [
+          "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+        ],
+        "id": "1sIg0TZv_Q2XA-YvdAr-q7elhgqyq3Q9I",
+        "name": "PageZero - Showcase Asset Library",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1sIg0TZv_Q2XA-YvdAr-q7elhgqyq3Q9I"
+      },
+      {
+        "parents": [
+          "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+        ],
+        "id": "1BszdptJLc8iCTj3ot0_2MO1idkGNqCks",
+        "name": "New Tuition for Review",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1BszdptJLc8iCTj3ot0_2MO1idkGNqCks"
+      }
+    ],
+    "other": [
+      {
+        "parents": [
+          "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+        ],
+        "id": "1VjvBdVORvn9KKd2RGjAWBcBUGUikP2X0",
+        "name": "Admissions Materials",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1VjvBdVORvn9KKd2RGjAWBcBUGUikP2X0/view?usp=drivesdk"
+      }
+    ]
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 1,
+    "folders": 12,
+    "other": 1,
+    "total": 14
+  }
+}

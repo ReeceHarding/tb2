@@ -1,0 +1,42 @@
+{
+  "school": {
+    "name": "Alpha School | Folsom",
+    "id": "1o0vHEC0DWFneTJ9LDSzV1wV15nbrEghr",
+    "extractionDate": "2025-08-03T21:37:08.754Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1LP3KhKzlCg_1iq3_HPSW93hIkYrwg-ru",
+        "name": "Alpha Folsom - Now Enrolling 2025.2026 (2).pdf",
+        "mimeType": "application/pdf",
+        "size": "12921723",
+        "webViewLink": "https://drive.google.com/file/d/1LP3KhKzlCg_1iq3_HPSW93hIkYrwg-ru/view?usp=drivesdk"
+      },
+      {
+        "id": "1bISLg2XhFGgxHnJqNwhTqyS9T2LRxhnK",
+        "name": "Alpha Folsom Tuition.pdf",
+        "mimeType": "application/pdf",
+        "size": "1177512",
+        "webViewLink": "https://drive.google.com/file/d/1bISLg2XhFGgxHnJqNwhTqyS9T2LRxhnK/view?usp=drivesdk"
+      }
+    ],
+    "other": [
+      {
+        "id": "1chRVj74Nw2qlVUEDH8XvrsLW87B5mo0r",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1chRVj74Nw2qlVUEDH8XvrsLW87B5mo0r"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 2,
+    "other": 1,
+    "total": 3
+  }
+}

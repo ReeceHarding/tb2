@@ -1,0 +1,59 @@
+{
+  "school": {
+    "id": "alpha-school-new-york",
+    "name": "Alpha School | New York",
+    "originalName": "Alpha School | New York",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "143USdMMJu3ngWnr1t2FdH8TsYk-8VtBa"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1_Ikx1pjD6bR2rPotu2RRkrvNkbcOz5zG",
+        "originalName": "School Documents",
+        "organizedName": "alpha-school-new-york_1_School-Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1_Ikx1pjD6bR2rPotu2RRkrvNkbcOz5zG",
+        "downloadUrl": "https://drive.google.com/uc?id=1_Ikx1pjD6bR2rPotu2RRkrvNkbcOz5zG&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-new-york_1_School-Documents",
+        "extractionDate": "2025-08-03T21:37:16.952Z"
+      },
+      {
+        "id": "1xYpxycMnktKWTZxUoUIWIlgs42vsAjs1",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-new-york_2_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1xYpxycMnktKWTZxUoUIWIlgs42vsAjs1",
+        "downloadUrl": "https://drive.google.com/uc?id=1xYpxycMnktKWTZxUoUIWIlgs42vsAjs1&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-new-york_2_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:16.952Z"
+      },
+      {
+        "id": "1_wY26xlfq6rOJvUcYIRAT_2ox_m7DPl6",
+        "originalName": "Marketing",
+        "organizedName": "alpha-school-new-york_3_Marketing",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1_wY26xlfq6rOJvUcYIRAT_2ox_m7DPl6",
+        "downloadUrl": "https://drive.google.com/uc?id=1_wY26xlfq6rOJvUcYIRAT_2ox_m7DPl6&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-new-york_3_Marketing",
+        "extractionDate": "2025-08-03T21:37:16.952Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 3,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 3
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:16.952Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

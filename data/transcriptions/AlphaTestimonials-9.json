@@ -1,0 +1,86 @@
+{
+  "fileName": "AlphaTestimonials-9.mp4",
+  "transcription": "Now I am 60 so the night good alpha. Alpha is amazing because they never get bored with me again.",
+  "fullTranscript": {
+    "text": " Now I am 60 so the night good alpha. Alpha is amazing because they never get bored with me again.",
+    "segments": [
+      {
+        "id": 0,
+        "seek": 0,
+        "start": 0,
+        "end": 2.5,
+        "text": " Now I am 60 so the night good alpha.",
+        "tokens": [
+          50364,
+          823,
+          286,
+          669,
+          4060,
+          370,
+          264,
+          1818,
+          665,
+          8961,
+          13,
+          50489
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.6432541156637257,
+        "compression_ratio": 1.0777777777777777,
+        "no_speech_prob": 0.015652688220143318
+      },
+      {
+        "id": 1,
+        "seek": 0,
+        "start": 2.5,
+        "end": 4.9,
+        "text": " Alpha is amazing because",
+        "tokens": [
+          50489,
+          20588,
+          307,
+          2243,
+          570,
+          50609
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.6432541156637257,
+        "compression_ratio": 1.0777777777777777,
+        "no_speech_prob": 0.015652688220143318
+      },
+      {
+        "id": 2,
+        "seek": 0,
+        "start": 4.9,
+        "end": 7,
+        "text": " they never get bored with me again.",
+        "tokens": [
+          50609,
+          436,
+          1128,
+          483,
+          13521,
+          365,
+          385,
+          797,
+          13,
+          50714
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.6432541156637257,
+        "compression_ratio": 1.0777777777777777,
+        "no_speech_prob": 0.015652688220143318
+      }
+    ],
+    "language": "en"
+  },
+  "timestamp": "2025-08-03T23:17:57.416Z",
+  "duration": null,
+  "metadata": {
+    "duration": 7,
+    "fileSize": 8508623,
+    "width": 1920,
+    "height": 1080,
+    "bitrate": 9198511
+  }
+}

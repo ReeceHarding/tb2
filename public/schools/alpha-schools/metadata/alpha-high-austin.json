@@ -1,0 +1,102 @@
+{
+  "school": {
+    "name": "Alpha High School | Austin",
+    "id": "alpha-high-austin",
+    "city": "Austin",
+    "state": "Unknown",
+    "type": "alpha",
+    "extractionDate": "2025-08-03T21:49:34.959Z"
+  },
+  "marketing": {
+    "images": [
+      {
+        "originalName": "Alpha_High_School.png",
+        "organizedName": "alpha-high-austin_1_Alpha_High_School.png",
+        "localPath": "/alpha-schools/images/alpha-high-austin_1_Alpha_High_School.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 164018,
+        "googleDriveId": "1vKuBXUpTNBR19eosTGqk2LQhc9FOZmg7",
+        "downloadUrl": "https://drive.google.com/uc?id=1vKuBXUpTNBR19eosTGqk2LQhc9FOZmg7&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1vKuBXUpTNBR19eosTGqk2LQhc9FOZmg7/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNgI9qcPsuNadjQPA-tUzlN-UG76qrJ8a3tPcjmEmemKg4QqLzsbP35V5PMnBcBmOjVsSpSd0sxipPuOPg7JRTUo99eRokeO7nv=s220",
+        "category": "Marketing Content"
+      },
+      {
+        "originalName": "Alpha_High_School.svg",
+        "organizedName": "alpha-high-austin_2_Alpha_High_School.svg",
+        "localPath": "/alpha-schools/images/alpha-high-austin_2_Alpha_High_School.svg",
+        "fileType": "image",
+        "mimeType": "image/svg+xml",
+        "size": 49987,
+        "googleDriveId": "1t7fpSAE4XrUX1fKfa5XG_vdGmkBbBtrs",
+        "downloadUrl": "https://drive.google.com/uc?id=1t7fpSAE4XrUX1fKfa5XG_vdGmkBbBtrs&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1t7fpSAE4XrUX1fKfa5XG_vdGmkBbBtrs/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMlYbkj1cUVOD6-jLc7GQLMeg0rSRZDqaoBhNbRnCAsPVNeAPTvMgtyws7FIjuQPti-DfwOxKNJ0SXLdLxf1fdEW9E2YiHsmHL6=s220",
+        "category": "Marketing Content"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "Alpha High Box - Inside.pdf",
+        "organizedName": "alpha-high-austin_1_Alpha_High_Box_-_Inside.pdf",
+        "localPath": "/alpha-schools/documents/alpha-high-austin_1_Alpha_High_Box_-_Inside.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 943413,
+        "googleDriveId": "1qVlw4xPKLtdDue43pSCeziyWYDArYkdQ",
+        "downloadUrl": "https://drive.google.com/uc?id=1qVlw4xPKLtdDue43pSCeziyWYDArYkdQ&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1qVlw4xPKLtdDue43pSCeziyWYDArYkdQ/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "Alpha High Box - Outside.pdf",
+        "organizedName": "alpha-high-austin_2_Alpha_High_Box_-_Outside.pdf",
+        "localPath": "/alpha-schools/documents/alpha-high-austin_2_Alpha_High_Box_-_Outside.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 578024,
+        "googleDriveId": "11O7VmWy1NQAGL2ypkYijD73xzptonNdm",
+        "downloadUrl": "https://drive.google.com/uc?id=11O7VmWy1NQAGL2ypkYijD73xzptonNdm&export=download",
+        "webViewLink": "https://drive.google.com/file/d/11O7VmWy1NQAGL2ypkYijD73xzptonNdm/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "AHS 24x36 Posters.pdf",
+        "organizedName": "alpha-high-austin_3_AHS_24x36_Posters.pdf",
+        "localPath": "/alpha-schools/documents/alpha-high-austin_3_AHS_24x36_Posters.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 520989,
+        "googleDriveId": "1GhRnMvM6zvCbwKQsXb3GwJNqFiRr2AwC",
+        "downloadUrl": "https://drive.google.com/uc?id=1GhRnMvM6zvCbwKQsXb3GwJNqFiRr2AwC&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1GhRnMvM6zvCbwKQsXb3GwJNqFiRr2AwC/view?usp=drivesdk",
+        "category": "Event Flyers"
+      },
+      {
+        "originalName": "AHS Circle Table Stickers.pdf",
+        "organizedName": "alpha-high-austin_4_AHS_Circle_Table_Stickers.pdf",
+        "localPath": "/alpha-schools/documents/alpha-high-austin_4_AHS_Circle_Table_Stickers.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 504214,
+        "googleDriveId": "1SCsYbu2DK80795qlnz3rBjfl5G7IKDJS",
+        "downloadUrl": "https://drive.google.com/uc?id=1SCsYbu2DK80795qlnz3rBjfl5G7IKDJS&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1SCsYbu2DK80795qlnz3rBjfl5G7IKDJS/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      }
+    ],
+    "totalAssets": 6
+  },
+  "metadata": {
+    "hasMarketingFolder": true,
+    "marketingFolderId": "1s82xYPkP38femGG-W3TVWDYMh38ibbUi",
+    "contentCategories": [
+      "Marketing Content",
+      "Marketing Documents",
+      "Event Flyers"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.946Z"
+  }
+}

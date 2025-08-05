@@ -1,0 +1,27 @@
+{
+  "school": {
+    "name": "Montessorium",
+    "id": "montessorium",
+    "extractionDate": "2025-08-03T21:49:17.175Z"
+  },
+  "marketingFolder": {
+    "id": "1E2Yzqf4o7h_RjxeDAWhKeQ16ChkcMCdA",
+    "name": "Marketing",
+    "webViewLink": "https://drive.google.com/drive/folders/1E2Yzqf4o7h_RjxeDAWhKeQ16ChkcMCdA"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [],
+    "folders": [],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 0,
+    "folders": 0,
+    "other": 0,
+    "total": 0
+  }
+}

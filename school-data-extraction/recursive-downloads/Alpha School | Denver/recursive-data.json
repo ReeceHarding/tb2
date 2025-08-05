@@ -1,0 +1,41 @@
+{
+  "school": {
+    "name": "Alpha School | Denver",
+    "id": "alpha-school-denver",
+    "extractionDate": "2025-08-03T21:49:31.517Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [],
+    "folders": [
+      {
+        "parents": [
+          "1GURyQciIEI6EcMJhfNHQoTfECHGCSweT"
+        ],
+        "id": "1RYIpZEHgPgeb4vvbrKwY-hTUpHEo83WL",
+        "name": "School Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1RYIpZEHgPgeb4vvbrKwY-hTUpHEo83WL"
+      },
+      {
+        "parents": [
+          "1GURyQciIEI6EcMJhfNHQoTfECHGCSweT"
+        ],
+        "id": "1qNZ1HF15_Li3O4ZNn4vx3SK0zi0T0ora",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1qNZ1HF15_Li3O4ZNn4vx3SK0zi0T0ora"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 0,
+    "folders": 2,
+    "other": 0,
+    "total": 2
+  }
+}

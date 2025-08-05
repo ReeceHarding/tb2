@@ -1,0 +1,99 @@
+{
+  "school": {
+    "name": "Press & Media",
+    "id": "press-media",
+    "city": "Unknown",
+    "state": "Unknown",
+    "type": "special",
+    "extractionDate": "2025-08-03T21:49:27.028Z"
+  },
+  "marketing": {
+    "images": [
+      {
+        "originalName": "download.jpeg",
+        "organizedName": "press-media_1_download.jpeg",
+        "localPath": "/special-schools/images/press-media_1_download.jpeg",
+        "fileType": "image",
+        "mimeType": "image/jpeg",
+        "size": 12473,
+        "googleDriveId": "1-l53RZ10wsJLTTrN8YjEKsNL-UgkE5Ac",
+        "downloadUrl": "https://drive.google.com/uc?id=1-l53RZ10wsJLTTrN8YjEKsNL-UgkE5Ac&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1-l53RZ10wsJLTTrN8YjEKsNL-UgkE5Ac/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBN-SdP4UbbgYrbZf-MqAO0fmzOhrtQXvsWQMoCoKSmqW97WvsvYzk-xmz9HCc2inLq5ZZ01yLKprpPCMjd7BcVbrVK6XVvh80bz=s220",
+        "category": "Marketing Content"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "School Descriptions (All Schools)",
+        "organizedName": "press-media_1_School_Descriptions__All_Schools_",
+        "localPath": "/special-schools/documents/press-media_1_School_Descriptions__All_Schools_",
+        "fileType": "document",
+        "mimeType": "application/vnd.google-apps.spreadsheet",
+        "size": 39626,
+        "googleDriveId": "1dfJKmDSDO5wIJ4b8JDHNIK3WVZKf_DTBKNubBlrF5bQ",
+        "downloadUrl": "https://drive.google.com/uc?id=1dfJKmDSDO5wIJ4b8JDHNIK3WVZKf_DTBKNubBlrF5bQ&export=download",
+        "webViewLink": "https://docs.google.com/spreadsheets/d/1dfJKmDSDO5wIJ4b8JDHNIK3WVZKf_DTBKNubBlrF5bQ/edit?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "_Alpha High School  8.5x11 (1).pdf",
+        "organizedName": "press-media_2__Alpha_High_School__8.5x11__1_.pdf",
+        "localPath": "/special-schools/documents/press-media_2__Alpha_High_School__8.5x11__1_.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 4445217,
+        "googleDriveId": "1aAtuuG9u9KuXLQ9Eyktr6pz7Ls6YXA6n",
+        "downloadUrl": "https://drive.google.com/uc?id=1aAtuuG9u9KuXLQ9Eyktr6pz7Ls6YXA6n&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1aAtuuG9u9KuXLQ9Eyktr6pz7Ls6YXA6n/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "austin.lists.bizjournals.com_q_html_aFxZCjXndwPWaqy8Fl899dNxF,lKFCHgClnxMTunpqdDEZZEjSk.pdf",
+        "organizedName": "press-media_3_austin.lists.bizjournals.com_q_html_aFxZCjXndwPWaqy8Fl899dNxF_lKFCHgClnxMTunpqdDEZZEjSk.pdf",
+        "localPath": "/special-schools/documents/press-media_3_austin.lists.bizjournals.com_q_html_aFxZCjXndwPWaqy8Fl899dNxF_lKFCHgClnxMTunpqdDEZZEjSk.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 398478,
+        "googleDriveId": "1-BMkooi18-5wxeFFnl4VMrfqlgyA_KIs",
+        "downloadUrl": "https://drive.google.com/uc?id=1-BMkooi18-5wxeFFnl4VMrfqlgyA_KIs&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1-BMkooi18-5wxeFFnl4VMrfqlgyA_KIs/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "Alpha School Miami  8.5x11.pdf",
+        "organizedName": "press-media_4_Alpha_School_Miami__8.5x11.pdf",
+        "localPath": "/special-schools/documents/press-media_4_Alpha_School_Miami__8.5x11.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 3924082,
+        "googleDriveId": "1ROz3jg-3zL_37X-G9wpDD0QQGEeWcNrB",
+        "downloadUrl": "https://drive.google.com/uc?id=1ROz3jg-3zL_37X-G9wpDD0QQGEeWcNrB&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1ROz3jg-3zL_37X-G9wpDD0QQGEeWcNrB/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "Alpha School K-8  8.5x11 (1).pdf",
+        "organizedName": "press-media_5_Alpha_School_K-8__8.5x11__1_.pdf",
+        "localPath": "/special-schools/documents/press-media_5_Alpha_School_K-8__8.5x11__1_.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 3661247,
+        "googleDriveId": "1hnX3Ac3jZgImvw-n1SU0-fenmSa5x-9f",
+        "downloadUrl": "https://drive.google.com/uc?id=1hnX3Ac3jZgImvw-n1SU0-fenmSa5x-9f&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1hnX3Ac3jZgImvw-n1SU0-fenmSa5x-9f/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      }
+    ],
+    "totalAssets": 6
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [
+      "Marketing Content",
+      "Marketing Documents"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.956Z"
+  }
+}

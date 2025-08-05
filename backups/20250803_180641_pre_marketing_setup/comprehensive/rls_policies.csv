@@ -1,0 +1,3 @@
+schemaname,tablename,policyname,permissive,roles,cmd,qual
+public,marketing_image_categories,Marketing image categories are publicly readable,PERMISSIVE,{public},SELECT,true
+public,marketing_images,Marketing images are publicly readable,PERMISSIVE,{public},SELECT,true

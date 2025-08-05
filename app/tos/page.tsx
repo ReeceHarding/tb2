@@ -49,7 +49,7 @@ const TOS = () => {
           </svg>
           Back
         </Link>
-        <h1 className="text-3xl font-extrabold pb-6">
+        <h1 className="text-3xl font-extrabold pb-6 font-cal">
           Terms and Conditions for {config.appName}
         </h1>
 

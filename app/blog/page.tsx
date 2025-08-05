@@ -20,11 +20,11 @@ export default async function Blog() {
     .slice(0, 6);
   return (
     <>
-      <section className="text-center max-w-xl mx-auto mt-12 mb-24 md:mb-32">
-        <h1 className="font-extrabold text-3xl lg:text-5xl tracking-tight mb-6">
+      <section className="text-center max-w-xl mx-auto mt-12 mb-24 md:mb-32 font-cal">
+        <h1 className="font-extrabold text-3xl lg:text-5xl tracking-tight mb-6 font-cal">
           The {config.appName} Blog
         </h1>
-        <p className="text-lg opacity-80 leading-relaxed">
+        <p className="text-lg opacity-80 leading-relaxed font-cal">
           Learn how to ship your startup in days, not weeks. And get the latest
           updates about the boilerplate
         </p>
@@ -41,7 +41,7 @@ export default async function Blog() {
       </section>
 
       <section>
-        <p className="font-bold text-2xl lg:text-4xl tracking-tight text-center mb-8 md:mb-12">
+        <p className="font-bold text-2xl lg:text-4xl tracking-tight text-center mb-8 md:mb-12 font-cal">
           Browse articles by category
         </p>
 

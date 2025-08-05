@@ -1,0 +1,101 @@
+{
+  "school": {
+    "name": "2 Hour Learning",
+    "id": "1ubJInFcaBiBX1rX5eL3xJTYaikZiABPm",
+    "extractionDate": "2025-08-03T21:37:13.685Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1q6I-WX0a8mGCmDWEjrF2wQ_En5nGoWQ6",
+        "name": "MacKenzie Podcast 1-pager (1).pdf",
+        "mimeType": "application/pdf",
+        "size": "5462509",
+        "webViewLink": "https://drive.google.com/file/d/1q6I-WX0a8mGCmDWEjrF2wQ_En5nGoWQ6/view?usp=drivesdk"
+      }
+    ],
+    "other": [
+      {
+        "id": "1pX5RGkzFTy3WIVGmicoR8LYjmK0ziuQK",
+        "name": "Presentation Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1pX5RGkzFTy3WIVGmicoR8LYjmK0ziuQK"
+      },
+      {
+        "id": "1GIEzvcKmzraRHTW3IP9MkCpr53k2Kthi",
+        "name": "Blogs",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1GIEzvcKmzraRHTW3IP9MkCpr53k2Kthi"
+      },
+      {
+        "id": "1ttQM00srjfF6s-3-kMK7IcD7gJEKEdtP",
+        "name": "Videos",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1ttQM00srjfF6s-3-kMK7IcD7gJEKEdtP"
+      },
+      {
+        "id": "1-OFpkmlnKZ6Zy5ehwKvbU3oHSTFND7ni",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1-OFpkmlnKZ6Zy5ehwKvbU3oHSTFND7ni"
+      },
+      {
+        "id": "1QYTpkWp1E6g_6e4Rwy65kQFW9IPF8YlT",
+        "name": "Admission Letter",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1QYTpkWp1E6g_6e4Rwy65kQFW9IPF8YlT"
+      },
+      {
+        "id": "14U0ajfPevEutDzK-Cw3TmL34NVQEqCLU",
+        "name": "Alpha Academics K-12 App Continuum - 24-25 School Year",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/14U0ajfPevEutDzK-Cw3TmL34NVQEqCLU/view?usp=drivesdk"
+      },
+      {
+        "id": "1DoYpeVj_2kuh7qknNoj86E20gh5Ex53g",
+        "name": "LinkedIn ",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1DoYpeVj_2kuh7qknNoj86E20gh5Ex53g"
+      },
+      {
+        "id": "10jv0aFZKKnus7Z3kx1lwFVsG_VkvrpVe",
+        "name": "SXSW",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/10jv0aFZKKnus7Z3kx1lwFVsG_VkvrpVe"
+      },
+      {
+        "id": "17muYB9XwIxKioQcYkCxbgUyQW1mKjAG5",
+        "name": "Social Media",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/17muYB9XwIxKioQcYkCxbgUyQW1mKjAG5"
+      },
+      {
+        "id": "1GF5FaaElonU93q6GpmwH6ReV8f1xGlZz",
+        "name": "Press & Media",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1GF5FaaElonU93q6GpmwH6ReV8f1xGlZz"
+      },
+      {
+        "id": "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8",
+        "name": "Marketing Materials",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1opUc0UTFd-CE4qMog6LH9mofb-KTChC8"
+      },
+      {
+        "id": "1tjUarm1PJXGcY8RqH_GAX2Btkz7srYfz",
+        "name": "MacKenzie",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1tjUarm1PJXGcY8RqH_GAX2Btkz7srYfz"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 1,
+    "other": 12,
+    "total": 13
+  }
+}

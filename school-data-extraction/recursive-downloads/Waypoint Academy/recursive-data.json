@@ -1,0 +1,121 @@
+{
+  "school": {
+    "name": "Waypoint Academy",
+    "id": "waypoint-academy",
+    "extractionDate": "2025-08-03T21:49:28.191Z"
+  },
+  "marketingFolder": {
+    "id": "1P2tkLdsqTTUj8lyn6gh60llACLd9fSlp",
+    "name": "Marketing",
+    "webViewLink": "https://drive.google.com/drive/folders/1P2tkLdsqTTUj8lyn6gh60llACLd9fSlp"
+  },
+  "media": {
+    "images": [
+      {
+        "parents": [
+          "1FbRb2OFJJTIn0X-A2hFHxBtBbVdcoJbF"
+        ],
+        "id": "1qZSrpIChQYzu8l3h0aTxN7ljuEGfY-kU",
+        "name": "Waypoint_Academy_Home.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1qZSrpIChQYzu8l3h0aTxN7ljuEGfY-kU/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBN6zahL2087ZV4Y4ybBJVWI8fbJBK3uNtpH_iKGa_MObTjW9OUsCHwi1pKXVqb8eEOs_QkxCrW6BKlEYH0ESaYQcNTs4IVaKQo0=s220",
+        "size": "170065"
+      },
+      {
+        "parents": [
+          "1FbRb2OFJJTIn0X-A2hFHxBtBbVdcoJbF"
+        ],
+        "id": "1Yxxe-pqRsMYGZ5q6-UKaLR12jcxEXAiL",
+        "name": "Waypoint_Academy_Home.svg",
+        "mimeType": "image/svg+xml",
+        "webViewLink": "https://drive.google.com/file/d/1Yxxe-pqRsMYGZ5q6-UKaLR12jcxEXAiL/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNsmz3R1d45VBfAEFYdajVXu0eAQb8__RMIvtydJpzqzGnVfEvWhRVbMD75hn2PzWhU9s7EVIqpolcVSCO0XqSC-RxCs7VTxZKX=s220",
+        "size": "50078"
+      },
+      {
+        "parents": [
+          "1eaOD3XqZ2mXzzcJFJvbqRPA_O-a1KEE2"
+        ],
+        "id": "19fboqURC_E_88lBi8yNNGM7nL2AVc4ie",
+        "name": "CommunityImpact  Waypoint Academy - 600x500px.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/19fboqURC_E_88lBi8yNNGM7nL2AVc4ie/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOuzfWm1w5rMW4QSl8qAlhq6IC5ADL9Pg5E03fBCcPJQJde7g5tftGeVnPsUiJ3pFQzFx2pFbe7ifpdAee65PYW9VwnCDamss5g=s220",
+        "size": "1676060"
+      },
+      {
+        "parents": [
+          "1eaOD3XqZ2mXzzcJFJvbqRPA_O-a1KEE2"
+        ],
+        "id": "1spBxlPXj8ztwJscoehQyVVM0NCziF4MQ",
+        "name": "CommunityImpact  Waypoint Academy - 1456x180px.png",
+        "mimeType": "image/png",
+        "webViewLink": "https://drive.google.com/file/d/1spBxlPXj8ztwJscoehQyVVM0NCziF4MQ/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMVNMiG95hX2UN5dXlzF3m3ZRfx5BDX2tj9bcxSZOexfuNrqCKyLZx5UGK8Pedyk_htoyYXq1Z8Pfvt7Xgn9Cd5Zv71w7Ge3-NR=s220",
+        "size": "1366362"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1eaOD3XqZ2mXzzcJFJvbqRPA_O-a1KEE2"
+        ],
+        "id": "1n6eXf6Mtj-eUn6mCd_6hfNb67Qtb5hU3",
+        "name": "CommunityImpact 1-8 Page Waypoint Academy.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1n6eXf6Mtj-eUn6mCd_6hfNb67Qtb5hU3/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBM7opozNwAkbQ6ol_hhdZfcsfjBuUgmW7suJGsEu37jWTgFaSYRO49gHKtGFRPA3wpmiG470ZRNTGT1ombZYknU0I1ecmMxdRK5=s220",
+        "size": "296781"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1P2tkLdsqTTUj8lyn6gh60llACLd9fSlp"
+        ],
+        "id": "1FbRb2OFJJTIn0X-A2hFHxBtBbVdcoJbF",
+        "name": "QR Codes",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1FbRb2OFJJTIn0X-A2hFHxBtBbVdcoJbF"
+      },
+      {
+        "parents": [
+          "1P2tkLdsqTTUj8lyn6gh60llACLd9fSlp"
+        ],
+        "id": "1eaOD3XqZ2mXzzcJFJvbqRPA_O-a1KEE2",
+        "name": "CommunityImpact",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1eaOD3XqZ2mXzzcJFJvbqRPA_O-a1KEE2"
+      },
+      {
+        "parents": [
+          "1P2tkLdsqTTUj8lyn6gh60llACLd9fSlp"
+        ],
+        "id": "1RNE1hv9ysRHOjOOXYpxJK8DPXJRSBQI4",
+        "name": "Summer Camp 25",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1RNE1hv9ysRHOjOOXYpxJK8DPXJRSBQI4"
+      },
+      {
+        "parents": [
+          "1RNE1hv9ysRHOjOOXYpxJK8DPXJRSBQI4"
+        ],
+        "id": "1NwvLRNXxlshSFetCFxNT2PzRophVxI0i",
+        "name": "Social",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1NwvLRNXxlshSFetCFxNT2PzRophVxI0i"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 4,
+    "videos": 0,
+    "documents": 1,
+    "folders": 4,
+    "other": 0,
+    "total": 9
+  }
+}

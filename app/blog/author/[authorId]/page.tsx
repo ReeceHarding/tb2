@@ -35,14 +35,14 @@ export default async function Author({
     <>
       <section className="max-w-3xl mx-auto flex flex-col md:flex-row gap-8 mt-12 mb-24 md:mb-32">
         <div>
-          <p className="text-xs uppercase tracking-wide text-base-content/80 mb-2">
+          <p className="text-xs uppercase tracking-wide text-base-content/80 mb-2 font-cal">
             Authors
           </p>
-          <h1 className="font-extrabold text-3xl lg:text-5xl tracking-tight mb-2">
+          <h1 className="font-extrabold text-3xl lg:text-5xl tracking-tight mb-2 font-cal">
             {author.name}
           </h1>
-          <p className="md:text-lg mb-6 md:mb-10 font-medium">{author.job}</p>
-          <p className="md:text-lg text-base-content/80">
+          <p className="md:text-lg mb-6 md:mb-10 font-medium font-cal">{author.job}</p>
+          <p className="md:text-lg text-base-content/80 font-cal">
             {author.description}
           </p>
         </div>
@@ -77,7 +77,7 @@ export default async function Author({
       </section>
 
       <section>
-        <h2 className="font-bold text-2xl lg:text-4xl tracking-tight text-center mb-8 md:mb-12">
+        <h2 className="font-bold text-2xl lg:text-4xl tracking-tight text-center mb-8 md:mb-12 font-cal">
           Most recent articles by {author.name}
         </h2>
 

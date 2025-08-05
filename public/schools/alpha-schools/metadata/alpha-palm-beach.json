@@ -1,0 +1,48 @@
+{
+  "school": {
+    "name": "Alpha School | Palm Beach",
+    "id": "alpha-palm-beach",
+    "city": "Palm Beach",
+    "state": "Unknown",
+    "type": "alpha",
+    "extractionDate": "2025-08-03T21:49:19.590Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "Palm Beach .pdf",
+        "organizedName": "alpha-palm-beach_1_Palm_Beach_.pdf",
+        "localPath": "/alpha-schools/documents/alpha-palm-beach_1_Palm_Beach_.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 1178170,
+        "googleDriveId": "1nmPlTTpaExG9-eu-VpWoo6ewxVQJJ1b2",
+        "downloadUrl": "https://drive.google.com/uc?id=1nmPlTTpaExG9-eu-VpWoo6ewxVQJJ1b2&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1nmPlTTpaExG9-eu-VpWoo6ewxVQJJ1b2/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "Alpha Palm Beach - Now Enrolling 2025.2026 (FinalPrint) (1).pdf",
+        "organizedName": "alpha-palm-beach_2_Alpha_Palm_Beach_-_Now_Enrolling_2025.2026__FinalPrint___1_.pdf",
+        "localPath": "/alpha-schools/documents/alpha-palm-beach_2_Alpha_Palm_Beach_-_Now_Enrolling_2025.2026__FinalPrint___1_.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 13035573,
+        "googleDriveId": "1WXlCjv21WUKIdnW4EhsD0tO_nc65s4m3",
+        "downloadUrl": "https://drive.google.com/uc?id=1WXlCjv21WUKIdnW4EhsD0tO_nc65s4m3&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1WXlCjv21WUKIdnW4EhsD0tO_nc65s4m3/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      }
+    ],
+    "totalAssets": 2
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [
+      "Marketing Documents"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.951Z"
+  }
+}

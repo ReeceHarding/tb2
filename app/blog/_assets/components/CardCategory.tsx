@@ -14,12 +14,12 @@ const CardCategory = ({
 
   return (
     <Link
-      className="p-4 bg-base-200 text-base-content rounded-box duration-200 hover:bg-neutral hover:text-neutral-content"
+      className="p-4 bg-white border border-timeback-primary text-timeback-primary rounded-xl duration-200 hover:bg-timeback-bg hover:text-timeback-primary shadow-2xl hover:shadow-2xl font-cal"
       href={`/blog/category/${category.slug}`}
       title={category.title}
       rel="tag"
     >
-      <TitleTag className="md:text-lg font-medium">
+      <TitleTag className="md:text-lg font-medium font-cal">
         {category?.titleShort || category.title}
       </TitleTag>
     </Link>

@@ -1,0 +1,119 @@
+{
+  "school": {
+    "id": "alpha-school-austin",
+    "name": "Alpha School | Austin",
+    "originalName": "Alpha School | Austin",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "16EZHXKWdK8h4SZR2kRbXyIU-IDMJbofV"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1XXX0LxLRfcvMnrDtjA--Oe2faSE2UcCJ",
+        "originalName": "25/26 Calendars A",
+        "organizedName": "alpha-school-austin_1_26-Calendars-A",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1XXX0LxLRfcvMnrDtjA--Oe2faSE2UcCJ",
+        "downloadUrl": "https://drive.google.com/uc?id=1XXX0LxLRfcvMnrDtjA--Oe2faSE2UcCJ&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-austin_1_26-Calendars-A",
+        "extractionDate": "2025-08-03T21:37:15.887Z"
+      },
+      {
+        "id": "1AJn6TRRpVRnYIXo_iW7ClTIGiGx5DyDb",
+        "originalName": "Amelia",
+        "organizedName": "alpha-school-austin_2_Amelia",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1AJn6TRRpVRnYIXo_iW7ClTIGiGx5DyDb",
+        "downloadUrl": "https://drive.google.com/uc?id=1AJn6TRRpVRnYIXo_iW7ClTIGiGx5DyDb&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-austin_2_Amelia",
+        "extractionDate": "2025-08-03T21:37:15.887Z"
+      },
+      {
+        "id": "13WnpLTZx-lL1qXHUN3JfGUC9teIBYp9R",
+        "originalName": "EOY Letter",
+        "organizedName": "alpha-school-austin_3_EOY-Letter",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/13WnpLTZx-lL1qXHUN3JfGUC9teIBYp9R",
+        "downloadUrl": "https://drive.google.com/uc?id=13WnpLTZx-lL1qXHUN3JfGUC9teIBYp9R&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-austin_3_EOY-Letter",
+        "extractionDate": "2025-08-03T21:37:15.887Z"
+      },
+      {
+        "id": "11_40NJANuOOxmWt7qXZAiVov26TY1PY8",
+        "originalName": "Plan II Interns",
+        "organizedName": "alpha-school-austin_4_Plan-II-Interns",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/11_40NJANuOOxmWt7qXZAiVov26TY1PY8",
+        "downloadUrl": "https://drive.google.com/uc?id=11_40NJANuOOxmWt7qXZAiVov26TY1PY8&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-austin_4_Plan-II-Interns",
+        "extractionDate": "2025-08-03T21:37:15.887Z"
+      },
+      {
+        "id": "1nQm9W_79fgneRDZ7RnWPuYArOTKqxATT",
+        "originalName": "Admissions Packet",
+        "organizedName": "alpha-school-austin_5_Admissions-Packet",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1nQm9W_79fgneRDZ7RnWPuYArOTKqxATT",
+        "downloadUrl": "https://drive.google.com/uc?id=1nQm9W_79fgneRDZ7RnWPuYArOTKqxATT&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-austin_5_Admissions-Packet",
+        "extractionDate": "2025-08-03T21:37:15.887Z"
+      },
+      {
+        "id": "1pZ4BnTCPTpKN-C9K3yC35CvthbPlHBlo",
+        "originalName": "Kindergarten",
+        "organizedName": "alpha-school-austin_6_Kindergarten",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1pZ4BnTCPTpKN-C9K3yC35CvthbPlHBlo",
+        "downloadUrl": "https://drive.google.com/uc?id=1pZ4BnTCPTpKN-C9K3yC35CvthbPlHBlo&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-austin_6_Kindergarten",
+        "extractionDate": "2025-08-03T21:37:15.887Z"
+      },
+      {
+        "id": "1TjqEABA2ikG5ZkZFlOSc0oguKOf7yLj9",
+        "originalName": "Marketing",
+        "organizedName": "alpha-school-austin_7_Marketing",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1TjqEABA2ikG5ZkZFlOSc0oguKOf7yLj9",
+        "downloadUrl": "https://drive.google.com/uc?id=1TjqEABA2ikG5ZkZFlOSc0oguKOf7yLj9&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-austin_7_Marketing",
+        "extractionDate": "2025-08-03T21:37:15.887Z"
+      },
+      {
+        "id": "1heNBzWLFQ1t65Ifcy5pq7cM1OY9FDslj",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-austin_8_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1heNBzWLFQ1t65Ifcy5pq7cM1OY9FDslj",
+        "downloadUrl": "https://drive.google.com/uc?id=1heNBzWLFQ1t65Ifcy5pq7cM1OY9FDslj&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-austin_8_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:15.887Z"
+      },
+      {
+        "id": "1jRklYWyj16Q0rsbPUboHNG4hVKHdgRRw",
+        "originalName": "Photography",
+        "organizedName": "alpha-school-austin_9_Photography",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1jRklYWyj16Q0rsbPUboHNG4hVKHdgRRw",
+        "downloadUrl": "https://drive.google.com/uc?id=1jRklYWyj16Q0rsbPUboHNG4hVKHdgRRw&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-austin_9_Photography",
+        "extractionDate": "2025-08-03T21:37:15.887Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 9,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 9
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:15.887Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

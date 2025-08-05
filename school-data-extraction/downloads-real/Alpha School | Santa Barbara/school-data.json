@@ -1,0 +1,39 @@
+{
+  "school": {
+    "name": "Alpha School | Santa Barbara",
+    "id": "1L2oi_v5U7b_2DlIcewo2xHheBGKrjehU",
+    "extractionDate": "2025-08-03T21:37:16.384Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1HcnbcdoJZrgmhkIQLQ86aOenVNlzKEcV",
+        "name": "School Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1HcnbcdoJZrgmhkIQLQ86aOenVNlzKEcV"
+      },
+      {
+        "id": "1zT6ZqWLqE2WtuXJVdgCtbkcl7SlHlbsx",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1zT6ZqWLqE2WtuXJVdgCtbkcl7SlHlbsx"
+      },
+      {
+        "id": "1ZvFwB2LaAmR5YGAcqX3CxOXO7IMYDqjF",
+        "name": "Events",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1ZvFwB2LaAmR5YGAcqX3CxOXO7IMYDqjF"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 0,
+    "other": 3,
+    "total": 3
+  }
+}

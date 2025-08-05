@@ -1,0 +1,174 @@
+"﻿""Campus""",Level,Student,Subject,accuracy (AVG)
+Austin K-8,L1,Anon#057,Reading,
+Austin K-8,L1,Anon#104,Math,0.9125000000000001
+Austin K-8,L1,Anon#137,Reading,0.9550000000000001
+Austin K-8,L1,Anon#374,Math,0.7
+Austin K-8,L1,Anon#462,Language,0.786
+Austin K-8,L1,Anon#462,Math,
+Austin K-8,L1,Anon#462,Science,
+Austin K-8,L1,Anon#522,Math,
+Austin K-8,L1,Anon#522,Reading,0.88
+Austin K-8,L1,Anon#522,Science,0.77
+Austin K-8,L1,Anon#778,Reading,0.9416666666666668
+Austin K-8,L1,Anon#875,Language,0.81
+Austin K-8,L1,Anon#875,Reading,0.83
+Austin K-8,L1,Anon#875,Science,0.81
+Austin K-8,L1,Anon#993,Language,
+Austin K-8,L1,Anon#993,Math,
+Austin K-8,L1,Anon#1326,Language,0.97
+Austin K-8,L1,Anon#1326,Science,
+Austin K-8,L1,Anon#1387,Language,
+Austin K-8,L1,Anon#1387,Math,
+Austin K-8,L1,Anon#1387,Science,0.85
+Austin K-8,L2,Anon#224,Math,0.82
+Austin K-8,L2,Anon#224,Reading,
+Austin K-8,L2,Anon#336,Math,0.895
+Austin K-8,L2,Anon#336,Science,0.755
+Austin K-8,L2,Anon#345,Science,1
+Austin K-8,L2,Anon#450,Language,0.91
+Austin K-8,L2,Anon#450,Math,0.8175
+Austin K-8,L2,Anon#450,Science,0.82
+Austin K-8,L2,Anon#510,Math,
+Austin K-8,L2,Anon#510,Science,
+Austin K-8,L2,Anon#588,Math,
+Austin K-8,L2,Anon#612,Language,
+Austin K-8,L2,Anon#612,Math,0.7999999999999999
+Austin K-8,L2,Anon#612,Science,0.61
+Austin K-8,L2,Anon#612,Writing,0.5
+Austin K-8,L2,Anon#640,Math,0.83
+Austin K-8,L2,Anon#843,Language,0.79
+Austin K-8,L2,Anon#843,Math,0.8400000000000001
+Austin K-8,L2,Anon#1091,Math,
+Austin K-8,L2,Anon#1093,Language,0.9299999999999999
+Austin K-8,L2,Anon#1093,Math,0.755
+Austin K-8,L2,Anon#1093,Reading,0.8566666666666668
+Austin K-8,L2,Anon#1093,Science,0.6
+Austin K-8,L2,Anon#1705,Math,0.7899999999999999
+Austin K-8,L2,Anon#1807,Language,0.9650000000000001
+Austin K-8,L2,Anon#1807,Math,0.84
+Austin K-8,L2,Anon#1807,Reading,0.7466666666666667
+Austin K-8,L2,Anon#1807,Science,0.9099999999999999
+Austin K-8,L2,Anon#1921,Language,0.96
+Austin K-8,L2,Anon#1921,Math,0.76
+Austin K-8,L2,Anon#1921,Reading,0.88
+Austin K-8,L2,Anon#1921,Science,0.85
+Austin K-8,L3,Anon#035,Language,1
+Austin K-8,L3,Anon#035,Science,0.79875
+Austin K-8,L3,Anon#045,Reading,0.8166666666666668
+Austin K-8,L3,Anon#322,Math,
+Austin K-8,L3,Anon#634,Math,
+Austin K-8,L3,Anon#710,Language,0.93
+Austin K-8,L3,Anon#710,Math,0.915
+Austin K-8,L3,Anon#710,Science,
+Austin K-8,L3,Anon#810,Science,
+Austin K-8,L3,Anon#939,Math,
+Austin K-8,L3,Anon#1064,Math,1
+Austin K-8,L3,Anon#1100,Language,0.6066666666666666
+Austin K-8,L3,Anon#1100,Math,0.8925000000000001
+Austin K-8,L3,Anon#1100,Reading,
+Austin K-8,L3,Anon#1803,Math,0.9066666666666666
+Austin K-8,L3,Anon#1803,Science,0.8000000000000002
+Austin K-8,L3,Anon#1832,Language,0.635
+Austin K-8,L3,Anon#1832,Math,0.6875
+Austin K-8,L3,Anon#1832,Reading,0.76
+Austin K-8,L3,Anon#1832,Science,0.83
+Austin K-8,L3,Anon#2409,Math,
+Austin K-8,L3,Anon#2409,Science,0.745
+Austin K-8,LL,Anon#708,Language,
+Austin K-8,LL,Anon#708,Math,0.94
+Austin K-8,LL,Anon#708,Reading,0.65
+Brownsville K-8,Linc,Anon#384,Language,0.9099999999999999
+Brownsville K-8,Linc,Anon#791,Reading,1
+Single-user 2hr learning,L1,Anon#043,Language,0.6399999999999999
+Single-user 2hr learning,L1,Anon#043,Math,0.6483333333333333
+Single-user 2hr learning,L1,Anon#043,Reading,0.7083333333333334
+Single-user 2hr learning,L1,Anon#153,Language,0.7933333333333333
+Single-user 2hr learning,L1,Anon#153,Math,
+Single-user 2hr learning,L1,Anon#153,Science,1
+Single-user 2hr learning,L1,Anon#846,Language,0.89
+Single-user 2hr learning,L1,Anon#846,Math,0.66
+Single-user 2hr learning,L1,Anon#846,Reading,0.79
+Single-user 2hr learning,L1,Anon#846,Science,0.8600000000000001
+Single-user 2hr learning,L1,Anon#1046,Language,0.92
+Single-user 2hr learning,L1,Anon#1046,Math,1
+Single-user 2hr learning,L1,Anon#1046,Reading,0.9
+Single-user 2hr learning,L1,Anon#1237,Language,0.56
+Single-user 2hr learning,L1,Anon#1237,Math,1
+Single-user 2hr learning,L1,Anon#1901,Math,0.66
+Single-user 2hr learning,L1,Anon#1920,Language,0.96
+Single-user 2hr learning,L1,Anon#1920,Math,0.8724999999999999
+Single-user 2hr learning,L1,Anon#1920,Reading,0.88
+Single-user 2hr learning,L1,Anon#1920,Science,0.905
+Single-user 2hr learning,L1,Anon#2193,Language,
+Single-user 2hr learning,L1,Anon#2193,Math,
+Single-user 2hr learning,L1,Anon#2193,Science,0.86
+Single-user 2hr learning,L1,Anon#2312,Language,0.9199999999999999
+Single-user 2hr learning,L1,Anon#2312,Math,0.925
+Single-user 2hr learning,L1,Anon#2312,Reading,0.915
+Single-user 2hr learning,L1,Anon#2312,Science,0.865
+Single-user 2hr learning,L2,Anon#306,Language,
+Single-user 2hr learning,L2,Anon#306,Math,0.8640000000000001
+Single-user 2hr learning,L2,Anon#306,Reading,0.8
+Single-user 2hr learning,L2,Anon#306,Science,0.8125
+Single-user 2hr learning,L2,Anon#397,Language,0.775
+Single-user 2hr learning,L2,Anon#397,Math,0.7575
+Single-user 2hr learning,L2,Anon#397,Reading,0.75
+Single-user 2hr learning,L2,Anon#397,Science,0.7140000000000001
+Single-user 2hr learning,L2,Anon#783,Language,0.768888888888889
+Single-user 2hr learning,L2,Anon#783,Math,0.8199999999999998
+Single-user 2hr learning,L2,Anon#783,Reading,0.73
+Single-user 2hr learning,L2,Anon#859,Language,1
+Single-user 2hr learning,L2,Anon#859,Math,0.87
+Single-user 2hr learning,L2,Anon#859,Reading,0.8725
+Single-user 2hr learning,L2,Anon#859,Science,1
+Single-user 2hr learning,L2,Anon#1073,Language,1
+Single-user 2hr learning,L2,Anon#1073,Math,0.9766666666666666
+Single-user 2hr learning,L2,Anon#1073,Reading,1
+Single-user 2hr learning,L2,Anon#1073,Science,0.9
+Single-user 2hr learning,L2,Anon#1099,Language,0.94
+Single-user 2hr learning,L2,Anon#1099,Math,0.78
+Single-user 2hr learning,L2,Anon#1099,Reading,0.885
+Single-user 2hr learning,L2,Anon#1099,Science,0.9
+Single-user 2hr learning,L2,Anon#1587,Language,0.5633333333333334
+Single-user 2hr learning,L2,Anon#1587,Math,0.975
+Single-user 2hr learning,L2,Anon#1587,Reading,0.64
+Single-user 2hr learning,L2,Anon#1587,Science,0.97
+Single-user 2hr learning,L2,Anon#1897,Language,0.8525
+Single-user 2hr learning,L2,Anon#1897,Math,0.93
+Single-user 2hr learning,L2,Anon#1897,Reading,0.78
+Single-user 2hr learning,L2,Anon#1897,Science,0.7275
+Single-user 2hr learning,L2,Anon#1981,Language,0.8133333333333334
+Single-user 2hr learning,L2,Anon#1981,Math,0.8375
+Single-user 2hr learning,L2,Anon#1981,Reading,0.79
+Single-user 2hr learning,L2,Anon#1981,Science,0.7966666666666667
+Single-user 2hr learning,L2,Anon#2092,Language,0.94
+Single-user 2hr learning,L2,Anon#2092,Math,0.925
+Single-user 2hr learning,L2,Anon#2092,Science,0.8733333333333334
+Single-user 2hr learning,L3,Anon#285,Language,0.8099999999999999
+Single-user 2hr learning,L3,Anon#285,Math,0.924
+Single-user 2hr learning,L3,Anon#285,Reading,0.758
+Single-user 2hr learning,L3,Anon#285,Science,0.86
+Single-user 2hr learning,L3,Anon#1445,Math,0.8299999999999998
+Single-user 2hr learning,L3,Anon#1445,Science,0.72
+Single-user 2hr learning,L3,Anon#1903,Language,0.9112499999999999
+Single-user 2hr learning,L3,Anon#1903,Math,0.8366666666666666
+Single-user 2hr learning,L3,Anon#1903,Reading,0.4714285714285714
+Single-user 2hr learning,L3,Anon#1903,Science,0.8366666666666666
+Single-user 2hr learning,L3,Anon#2119,Math,
+Single-user 2hr learning,L3,Anon#2119,Reading,
+Single-user 2hr learning,Linc,Anon#367,Math,
+Single-user 2hr learning,Linc,Anon#367,Reading,1
+Single-user 2hr learning,Linc,Anon#392,Language,0.7966666666666665
+Single-user 2hr learning,Linc,Anon#392,Math,0.89
+Single-user 2hr learning,Linc,Anon#392,Reading,0.8960000000000001
+Single-user 2hr learning,Linc,Anon#392,Science,0.8987499999999999
+Single-user 2hr learning,Linc,Anon#1154,Language,0.88
+Single-user 2hr learning,Linc,Anon#1154,Math,0.4
+Single-user 2hr learning,Linc,Anon#1154,Reading,0.8049999999999999
+Sports Academy: Lakeway,L1,Anon#996,Language,0.92
+Sports Academy: Lakeway,L1,Anon#996,Science,
+Sports Academy: Lakeway,L1,Anon#2402,Language,0.84
+Sports Academy: Lakeway,L1,Anon#2402,Math,0.8675
+Sports Academy: Lakeway,L1,Anon#2402,Reading,0.9233333333333333
+Sports Academy: Lakeway,L2,Anon#051,Math,
+Sports Academy: Lakeway,L2,Anon#051,Reading,

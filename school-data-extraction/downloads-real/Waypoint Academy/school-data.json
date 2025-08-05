@@ -1,0 +1,51 @@
+{
+  "school": {
+    "name": "Waypoint Academy",
+    "id": "1k0Gumvm-Gbg-v6LxDyKHdSlW7eqiG2Er",
+    "extractionDate": "2025-08-03T21:37:13.277Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1_mOgwxAx4acg5J8d2aTdySTmG-Pe9dnN",
+        "name": "Video",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1_mOgwxAx4acg5J8d2aTdySTmG-Pe9dnN"
+      },
+      {
+        "id": "1qZxfvUdivT2sOj8FLhkIa7DTmiYn39H8",
+        "name": "Photography",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1qZxfvUdivT2sOj8FLhkIa7DTmiYn39H8"
+      },
+      {
+        "id": "15ptOC5R0wJXwsZEueBO01lO0dDAtnLXV",
+        "name": "WPA Images",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/15ptOC5R0wJXwsZEueBO01lO0dDAtnLXV/view?usp=drivesdk"
+      },
+      {
+        "id": "1P2tkLdsqTTUj8lyn6gh60llACLd9fSlp",
+        "name": "Marketing",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1P2tkLdsqTTUj8lyn6gh60llACLd9fSlp"
+      },
+      {
+        "id": "14OA9msKMHaSGOhybl_icRQVmGW1pX4sG",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/14OA9msKMHaSGOhybl_icRQVmGW1pX4sG"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 0,
+    "other": 5,
+    "total": 5
+  }
+}

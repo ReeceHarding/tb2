@@ -40,17 +40,17 @@ export default async function Category({
 
   return (
     <>
-      <section className="mt-12 mb-24 md:mb-32 max-w-3xl mx-auto text-center">
-        <h1 className="font-extrabold text-3xl lg:text-5xl tracking-tight mb-6 md:mb-12">
+      <section className="mt-12 mb-24 md:mb-32 max-w-3xl mx-auto text-center font-cal">
+        <h1 className="font-extrabold text-3xl lg:text-5xl tracking-tight mb-6 md:mb-12 font-cal">
           {category.title}
         </h1>
-        <p className="md:text-lg opacity-80 max-w-xl mx-auto">
+        <p className="md:text-lg opacity-80 max-w-xl mx-auto font-cal">
           {category.description}
         </p>
       </section>
 
       <section className="mb-24">
-        <h2 className="font-bold text-2xl lg:text-4xl tracking-tight text-center mb-8 md:mb-12">
+        <h2 className="font-bold text-2xl lg:text-4xl tracking-tight text-center mb-8 md:mb-12 font-cal">
           Most recent articles in {category.title}
         </h2>
 
@@ -67,7 +67,7 @@ export default async function Category({
       </section>
 
       <section>
-        <h2 className="font-bold text-2xl lg:text-4xl tracking-tight text-center mb-8 md:mb-12">
+        <h2 className="font-bold text-2xl lg:text-4xl tracking-tight text-center mb-8 md:mb-12 font-cal">
           Other categories you might like
         </h2>
 

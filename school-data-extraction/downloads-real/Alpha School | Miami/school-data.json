@@ -1,0 +1,63 @@
+{
+  "school": {
+    "name": "Alpha School | Miami",
+    "id": "1TYH0JVXdVodPQlE2IztRD_E_yh4vONPP",
+    "extractionDate": "2025-08-03T21:37:07.439Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1ZpwwNG_W40n1M4ZkvTkrELq2ivx2vOr9",
+        "name": "Alpha School Miami",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1ZpwwNG_W40n1M4ZkvTkrELq2ivx2vOr9/view?usp=drivesdk"
+      },
+      {
+        "id": "1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5",
+        "name": "Marketing",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5"
+      },
+      {
+        "id": "1qXu83INfRi92N2pItjj8H_GdaGunJjtb",
+        "name": "From the Team",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1qXu83INfRi92N2pItjj8H_GdaGunJjtb/view?usp=drivesdk"
+      },
+      {
+        "id": "1e6leUsVfaLk569FkZrT1EPwP-fctQILF",
+        "name": "Internal",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1e6leUsVfaLk569FkZrT1EPwP-fctQILF"
+      },
+      {
+        "id": "1gNKwqGkgw7CXgRYpSAQlohZvY2f8Vl8i",
+        "name": "School Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1gNKwqGkgw7CXgRYpSAQlohZvY2f8Vl8i"
+      },
+      {
+        "id": "1s2NjILpXAG313pbtJeT1lw4r0aGdevvo",
+        "name": "Headshots",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1s2NjILpXAG313pbtJeT1lw4r0aGdevvo/view?usp=drivesdk"
+      },
+      {
+        "id": "1tbE1JJbk_ySbYnRi4IbV9XCYYfQoWie-",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1tbE1JJbk_ySbYnRi4IbV9XCYYfQoWie-"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 0,
+    "other": 7,
+    "total": 7
+  }
+}

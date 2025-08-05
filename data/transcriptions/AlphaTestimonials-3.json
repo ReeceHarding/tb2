@@ -1,0 +1,147 @@
+{
+  "fileName": "AlphaTestimonials-3.mp4",
+  "transcription": "At Alpha, I use apps to learn and I always stay laser focused. Normally, kids learn what apps at school. It's only the middle of the year. I've already learned 2.8x. That means my reading almost grows three times as much.",
+  "fullTranscript": {
+    "text": " At Alpha, I use apps to learn and I always stay laser focused. Normally, kids learn what apps at school. It's only the middle of the year. I've already learned 2.8x. That means my reading almost grows three times as much.",
+    "segments": [
+      {
+        "id": 0,
+        "seek": 0,
+        "start": 0,
+        "end": 4.8,
+        "text": " At Alpha, I use apps to learn and I always stay laser focused.",
+        "tokens": [
+          50364,
+          1711,
+          20588,
+          11,
+          286,
+          764,
+          7733,
+          281,
+          1466,
+          293,
+          286,
+          1009,
+          1754,
+          12530,
+          5178,
+          13,
+          50604
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.30572816729545593,
+        "compression_ratio": 1.3641975308641976,
+        "no_speech_prob": 0.030187394469976425
+      },
+      {
+        "id": 1,
+        "seek": 0,
+        "start": 4.8,
+        "end": 8.32,
+        "text": " Normally, kids learn what apps at school.",
+        "tokens": [
+          50604,
+          17424,
+          11,
+          2301,
+          1466,
+          437,
+          7733,
+          412,
+          1395,
+          13,
+          50780
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.30572816729545593,
+        "compression_ratio": 1.3641975308641976,
+        "no_speech_prob": 0.030187394469976425
+      },
+      {
+        "id": 2,
+        "seek": 0,
+        "start": 8.32,
+        "end": 10.88,
+        "text": " It's only the middle of the year.",
+        "tokens": [
+          50780,
+          467,
+          311,
+          787,
+          264,
+          2808,
+          295,
+          264,
+          1064,
+          13,
+          50908
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.30572816729545593,
+        "compression_ratio": 1.3641975308641976,
+        "no_speech_prob": 0.030187394469976425
+      },
+      {
+        "id": 3,
+        "seek": 0,
+        "start": 10.88,
+        "end": 14.08,
+        "text": " I've already learned 2.8x.",
+        "tokens": [
+          50908,
+          286,
+          600,
+          1217,
+          3264,
+          568,
+          13,
+          23,
+          87,
+          13,
+          51068
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.30572816729545593,
+        "compression_ratio": 1.3641975308641976,
+        "no_speech_prob": 0.030187394469976425
+      },
+      {
+        "id": 4,
+        "seek": 0,
+        "start": 14.08,
+        "end": 18.400000000000002,
+        "text": " That means my reading almost grows three times as much.",
+        "tokens": [
+          51068,
+          663,
+          1355,
+          452,
+          3760,
+          1920,
+          13156,
+          1045,
+          1413,
+          382,
+          709,
+          13,
+          51284
+        ],
+        "temperature": 0,
+        "avg_logprob": -0.30572816729545593,
+        "compression_ratio": 1.3641975308641976,
+        "no_speech_prob": 0.030187394469976425
+      }
+    ],
+    "language": "en"
+  },
+  "timestamp": "2025-08-03T23:16:03.551Z",
+  "duration": null,
+  "metadata": {
+    "duration": 18,
+    "fileSize": 24989202,
+    "width": 1920,
+    "height": 1080,
+    "bitrate": 10845223
+  }
+}

@@ -1,48 +1,275 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { animationVariants, createStaggerVariants, shouldReduceMotion, getReducedMotionTransition } from "@/libs/animations";
 import TestimonialsAvatars from "./TestimonialsAvatars";
-import config from "@/config";
+import ButtonAIExperience from "./ButtonAIExperience";
+import SafeImage from "./SafeImage";
+
+// Simple array of messages to cycle through
+const typewriterMessages = [
+  "crush academics in just 2 hours a day?",
+  "score in the 98th percentile nationally?", 
+  "choose school over summer vacation?"
+];
+
+// Clean, simple typewriter component
+const TypewriterText = () => {
+  const [messageIndex, setMessageIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    const currentMessage = typewriterMessages[messageIndex];
+    
+    if (isPaused) {
+      const pauseTimer = setTimeout(() => {
+        setIsPaused(false);
+        setIsDeleting(true);
+      }, 2000);
+      return () => clearTimeout(pauseTimer);
+    }
+
+    const speed = isDeleting ? 30 : 80;
+
+    const timer = setTimeout(() => {
+      if (isDeleting) {
+        if (charIndex > 0) {
+          setCharIndex(charIndex - 1);
+        } else {
+          setIsDeleting(false);
+          setMessageIndex((messageIndex + 1) % typewriterMessages.length);
+        }
+      } else {
+        if (charIndex < currentMessage.length) {
+          setCharIndex(charIndex + 1);
+        } else {
+          setIsPaused(true);
+        }
+      }
+    }, speed);
+
+    return () => clearTimeout(timer);
+  }, [charIndex, isDeleting, messageIndex, isPaused]);
+
+  const currentText = typewriterMessages[messageIndex].substring(0, charIndex);
+
+  return (
+    <span className="font-cal text-timeback-primary">
+      {currentText}
+      <span className="animate-pulse">|</span>
+    </span>
+  );
+};
 
 const Hero = () => {
+  // Animation variants for staggered content reveal - Optimized for speed
+  const containerVariants = createStaggerVariants(0.05, 0.05);  // 50ms stagger, 50ms initial delay
+  
+  const heroContentVariants = {
+    initial: shouldReduceMotion() ? { opacity: 0 } : { opacity: 0, y: 20 },  // Respect reduced motion
+    animate: (delay: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: getReducedMotionTransition({
+        duration: 0.25,  // Reduced from 0.8s to 0.25s (industry standard)
+        delay,
+        ease: [0.23, 1, 0.32, 1] as const,
+      })
+    }),
+  };
+
   return (
-    <section className="max-w-7xl mx-auto bg-base-100 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-8 lg:py-20">
-      <div className="flex flex-col gap-10 lg:gap-14 items-center justify-center text-center lg:text-left lg:items-start">
-        <a
-          href="https://www.producthunt.com/posts/shipfast-2?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-shipfast&#0045;2"
-          target="_blank"
-          className=" -mb-4 md:-mb-6 group"
-          title="Product Hunt link"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 122 37"
-            className="w-32 md:w-36 fill-base-content/80 group-hover:fill-base-content"
+    <section className="bg-timeback-bg min-h-screen flex items-center">
+      <div className="max-w-7xl mx-auto w-full px-6 sm:px-8 lg:px-12 py-12 lg:py-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Content */}
+          <motion.div 
+            variants={containerVariants}
+            initial="initial"
+            animate="animate"
+            className="space-y-8 lg:space-y-10 text-center lg:text-left font-cal"
           >
-            <path d="M104.953 36.286c-4.22 1.634-5.936.086-5.936-.891 1.495-.126 5.067-.331 5.936.891Zm5.356-1.336a5.486 5.486 0 0 1-7.083-.497c1.44-.4 5.372-.874 7.083.497Zm-7.139-3.176c.16 2.033-1.922 3.176-4.17 3.341.41-2.045 2.509-2.958 4.17-3.341Zm4.032-1.874c.238.869-.089 3.228-3.323 4.164.139-1.593.986-3.667 3.323-4.164Zm6.413 2.365a5.005 5.005 0 0 1-6.385.571c1.296-.668 4.408-1.57 6.385-.571Zm-3.417-4.706c.443.856.537 3.295-2.326 4.763-.166-1.57.465-4.255 2.326-4.763Zm7.083.948a4.389 4.389 0 0 1-2.657 2.217 4.243 4.243 0 0 1-3.39-.44c1.805-1.697 4.685-2.348 6.047-1.777Zm-4.28-4.547c1.284 2.24-.073 4.798-1.485 5.849-.628-2.082-.052-4.351 1.484-5.849Zm6.662-.097c.155 3.479-3.478 3.29-5.184 3.313.537-.731 3.522-3.381 5.184-3.313Zm-4.48-3.25c.675.743 1.688 3.599-.555 5.929-.703-1.685-.858-4.272.554-5.929Zm6.385-1.542c.116 2.81-2.249 4.232-4.53 4.21.686-1.354 2.52-3.964 4.53-4.21Zm-4.785-1.936c1.512.89 1.34 3.764.448 5.26-1.002-1.393-1.75-3.124-.448-5.26Zm4.884-2.633c.748 2.559-1.45 4.29-2.769 4.438.338-1.222.781-3.387 2.77-4.438Zm-4.607-.851c1.667.835 2.457 2.832 1.833 4.632-1.163-.937-2.564-2.919-1.833-4.632Zm4.685-3.096c1.03 3.113-1.335 4.13-2.215 4.38.105-1.324.947-3.963 2.215-4.38Zm-4.619-.817c.676.195 2.603 1.777 2.254 4.61-1.268-.714-2.808-2.074-2.254-4.61Zm3.921-3.9c1.152 3.826-.77 5.397-1.401 5.71-.1-1.21-.222-4.037 1.401-5.71Zm-4.264.096c1.207.337 2.73 2.553 2.658 4.684-1.196-.548-2.985-2.827-2.658-4.684Zm.36-5.934c2.802 2.896 3.195 5.18 2.376 7.996-1.269-1.142-2.282-4.569-2.376-7.996ZM17.047 36.286c4.22 1.634 5.936.086 5.936-.891-1.495-.126-5.067-.331-5.936.891ZM11.69 34.95a5.486 5.486 0 0 0 7.083-.497c-1.44-.4-5.372-.874-7.083.497Zm7.139-3.176c-.16 2.033 1.922 3.176 4.17 3.341-.41-2.045-2.509-2.958-4.17-3.341ZM14.798 29.9c-.238.869.089 3.228 3.323 4.164-.139-1.593-.986-3.667-3.323-4.164Zm-6.413 2.365a5.005 5.005 0 0 0 6.385.571c-1.296-.668-4.408-1.57-6.385-.571Zm3.417-4.706c-.443.856-.537 3.295 2.326 4.763.166-1.57-.465-4.255-2.326-4.763Zm-7.083.948a4.389 4.389 0 0 0 2.657 2.217 4.243 4.243 0 0 0 3.39-.44c-1.805-1.697-4.685-2.348-6.047-1.777Zm4.28-4.547c-1.284 2.24.073 4.798 1.485 5.849.628-2.082.052-4.351-1.484-5.849Zm-6.662-.097c-.155 3.479 3.478 3.29 5.184 3.313-.537-.731-3.522-3.381-5.184-3.313Zm4.48-3.25c-.675.743-1.688 3.599.555 5.929.703-1.685.858-4.272-.554-5.929ZM.433 19.071c-.116 2.81 2.249 4.232 4.53 4.21-.686-1.354-2.52-3.964-4.53-4.21Zm4.785-1.936c-1.512.89-1.34 3.764-.448 5.26 1.002-1.393 1.75-3.124.448-5.26ZM.333 14.502c-.748 2.559 1.45 4.29 2.769 4.438-.338-1.222-.781-3.387-2.77-4.438Zm4.607-.851c-1.667.835-2.457 2.832-1.833 4.632 1.163-.937 2.564-2.919 1.833-4.632ZM.255 10.555c-1.03 3.113 1.335 4.13 2.215 4.38-.105-1.324-.947-3.963-2.215-4.38Zm4.619-.817c-.676.195-2.603 1.777-2.254 4.61 1.268-.714 2.808-2.074 2.254-4.61Zm-3.921-3.9c-1.152 3.826.77 5.397 1.401 5.71.1-1.21.222-4.037-1.401-5.71Zm4.264.096c-1.207.337-2.73 2.553-2.658 4.684 1.196-.548 2.985-2.827 2.658-4.684ZM4.857 0C2.055 2.896 1.662 5.18 2.481 7.996 3.75 6.854 4.763 3.427 4.857 0Zm47.017 35.234c2.394 0 4.302-1.476 4.302-3.762 0-1.71-1.062-2.7-2.16-3.15.864-.378 1.728-1.26 1.728-2.7 0-2.142-1.818-3.366-3.834-3.366-1.656 0-2.952.81-3.636 1.89a.285.285 0 0 0 .072.396l1.26 1.224c.144.144.306.162.414-.036.324-.576.9-.954 1.602-.954.81 0 1.44.54 1.44 1.332 0 .612-.36 1.296-1.386 1.296h-.486c-.18 0-.306.09-.306.288v1.638c0 .18.126.288.306.288h.504c1.26 0 1.692.846 1.692 1.53 0 .81-.576 1.566-1.692 1.566-.828 0-1.404-.45-1.89-1.026-.144-.144-.288-.144-.396-.036l-1.35 1.242a.258.258 0 0 0-.054.378c.684 1.08 1.998 1.962 3.87 1.962ZM60.208 35c.162 0 .288-.108.288-.27v-4.248c0-1.314.684-2.034 1.818-2.034.27 0 .468.036.648.09.252.054.378 0 .378-.234v-1.746c0-.162-.036-.27-.162-.36-.144-.108-.378-.234-.81-.234-1.026 0-1.584.72-1.872 1.674l-.09-1.17c0-.216-.108-.288-.27-.288h-2.124c-.162 0-.27.108-.27.27v8.28c0 .162.108.27.27.27h2.196Zm8.1.216c1.26 0 2.16-.504 2.754-1.35l.036.864c0 .162.126.27.288.27h1.98c.162 0 .306-.108.306-.27V22.4c0-.162-.126-.27-.288-.27H71.17c-.162 0-.27.108-.27.27v4.662c-.594-.702-1.44-1.098-2.592-1.098-2.448 0-4.14 2.016-4.14 4.626 0 2.628 1.692 4.626 4.14 4.626Zm.594-2.502c-1.17 0-2.052-.828-2.052-2.124 0-1.278.882-2.124 2.052-2.124 1.206 0 2.034.846 2.034 2.106 0 1.296-.828 2.142-2.034 2.142ZM20.72 15c.09 0 .15-.06.15-.15v-2.26h.72c1.69 0 2.49-.93 2.49-2.29 0-1.36-.8-2.3-2.49-2.3h-2.15c-.09 0-.15.06-.15.15v6.7c0 .09.06.15.15.15h1.28Zm.15-5.6h.68c.53 0 1.02.17 1.02.9 0 .72-.49.89-1.02.89h-.68V9.4Zm5.5 5.6c.09 0 .16-.06.16-.15v-2.36c0-.73.38-1.13 1.01-1.13.15 0 .26.02.36.05.14.03.21 0 .21-.13v-.97c0-.09-.02-.15-.09-.2-.08-.06-.21-.13-.45-.13-.57 0-.88.4-1.04.93l-.05-.65c0-.12-.06-.16-.15-.16h-1.18c-.09 0-.15.06-.15.15v4.6c0 .09.06.15.15.15h1.22Zm4.77.12c1.48 0 2.58-1.12 2.58-2.57 0-1.45-1.1-2.57-2.58-2.57s-2.57 1.12-2.57 2.57c0 1.45 1.09 2.57 2.57 2.57Zm0-1.4c-.62 0-1.1-.45-1.1-1.17s.48-1.17 1.1-1.17c.62 0 1.1.45 1.1 1.17s-.48 1.17-1.1 1.17Zm5.49 1.4c.7 0 1.2-.28 1.53-.75l.02.48c0 .09.07.15.16.15h1.1c.09 0 .17-.06.17-.15V8c0-.09-.07-.15-.16-.15h-1.23c-.09 0-.15.06-.15.15v2.59c-.33-.39-.8-.61-1.44-.61-1.36 0-2.3 1.12-2.3 2.57 0 1.46.94 2.57 2.3 2.57Zm.33-1.39c-.65 0-1.14-.46-1.14-1.18 0-.71.49-1.18 1.14-1.18.67 0 1.13.47 1.13 1.17 0 .72-.46 1.19-1.13 1.19Zm5.52 1.39c.71 0 1.16-.35 1.44-.85l.04.57c0 .12.07.16.16.16h1.17c.09 0 .16-.06.16-.15v-4.6c0-.09-.07-.15-.16-.15h-1.21c-.09 0-.16.06-.16.15v2.48c0 .65-.33.99-.85.99-.54 0-.82-.34-.82-.99v-2.48c0-.09-.07-.15-.16-.15h-1.22c-.09 0-.15.06-.15.15v2.84c0 1.28.74 2.03 1.76 2.03Zm6.44 0c.79 0 1.45-.35 1.87-.9.06-.07.05-.15-.01-.21l-.69-.66c-.08-.08-.19-.08-.26-.01-.27.25-.53.38-.86.38-.74 0-1.18-.56-1.18-1.2 0-.63.44-1.14 1.16-1.14.34 0 .6.12.86.38.08.07.19.07.27-.01l.69-.66c.06-.06.07-.15.01-.21-.42-.55-1.08-.9-1.9-.9-1.48 0-2.56 1.1-2.56 2.54 0 1.47 1.1 2.6 2.6 2.6Zm4.77 0c.34 0 .88-.06.88-.31v-.83c0-.1-.08-.15-.18-.14-.13.01-.22.01-.31.01-.25 0-.42-.14-.42-.41v-2.16h.75c.09 0 .15-.06.15-.15v-.88c0-.09-.06-.15-.15-.15h-.75V8.95c0-.09-.07-.15-.16-.15h-1.23c-.09 0-.16.06-.16.15v1.15h-.61c-.09 0-.15.06-.15.15v.88c0 .09.06.15.15.15h.61v2.33c0 1.14.77 1.51 1.58 1.51Zm5.95 0c1.48 0 2.58-1.12 2.58-2.57 0-1.45-1.1-2.57-2.58-2.57s-2.57 1.12-2.57 2.57c0 1.45 1.09 2.57 2.57 2.57Zm0-1.4c-.62 0-1.1-.45-1.1-1.17s.48-1.17 1.1-1.17c.62 0 1.1.45 1.1 1.17s-.48 1.17-1.1 1.17ZM64.79 15c.09 0 .16-.06.16-.15v-3.57h.98c.09 0 .15-.06.15-.15v-.88c0-.09-.06-.15-.15-.15h-.98v-.49c0-.33.11-.57.58-.57.11 0 .25.03.42.06.07.01.13 0 .13-.07V8.02c0-.06-.03-.13-.09-.16-.3-.15-.52-.17-.82-.17-1.09 0-1.76.52-1.76 1.72v.69h-.58c-.09 0-.15.06-.15.15v.88c0 .09.06.15.15.15h.58v3.57c0 .09.06.15.15.15h1.23Zm6.08.12c.34 0 .88-.06.88-.31v-.83c0-.1-.08-.15-.18-.14-.13.01-.22.01-.31.01-.25 0-.42-.14-.42-.41v-2.16h.75c.09 0 .15-.06.15-.15v-.88c0-.09-.06-.15-.15-.15h-.75V8.95c0-.09-.07-.15-.16-.15h-1.23c-.09 0-.16.06-.16.15v1.15h-.61c-.09 0-.15.06-.15.15v.88c0 .09.06.15.15.15h.61v2.33c0 1.14.77 1.51 1.58 1.51Zm4.65-5.14c-.7 0-1.15.35-1.43.85V8c0-.09-.07-.15-.16-.15h-1.22c-.09 0-.15.06-.15.15v6.85c0 .09.06.15.15.15h1.22c.09 0 .16-.06.16-.15v-2.48c0-.65.32-.99.85-.99.54 0 .82.34.82.99v2.48c0 .09.07.15.16.15h1.21c.09 0 .16-.06.16-.15v-2.84c0-1.28-.75-2.03-1.77-2.03Zm5.34 5.14c.69 0 1.32-.2 1.74-.62.09-.08.09-.16.05-.22l-.41-.58c-.06-.07-.1-.09-.18-.05-.41.23-.75.27-1.08.27-.7 0-1.16-.26-1.33-.79h2.82c.45 0 .58-.3.58-.8 0-1.26-.87-2.35-2.37-2.35-1.51 0-2.52 1.11-2.52 2.55 0 1.49 1.09 2.59 2.7 2.59Zm-1.23-3.05c.12-.58.55-.83 1.06-.83s.9.24 1 .83h-2.06Zm8.27 3.05c.7 0 1.2-.28 1.53-.75l.02.48c0 .09.07.15.16.15h1.1c.09 0 .17-.06.17-.15V8c0-.09-.07-.15-.16-.15h-1.23c-.09 0-.15.06-.15.15v2.59c-.33-.39-.8-.61-1.44-.61-1.36 0-2.3 1.12-2.3 2.57 0 1.46.94 2.57 2.3 2.57Zm.33-1.39c-.65 0-1.14-.46-1.14-1.18 0-.71.49-1.18 1.14-1.18.67 0 1.13.47 1.13 1.17 0 .72-.46 1.19-1.13 1.19Zm5.81 1.39c.7 0 1.2-.28 1.53-.75l.02.48c0 .09.07.15.16.15h1.1c.09 0 .17-.06.17-.15v-4.6c0-.09-.07-.15-.16-.15h-1.11c-.09 0-.16.06-.16.15l-.02.47c-.32-.46-.81-.74-1.53-.74-1.36 0-2.3 1.12-2.3 2.57 0 1.46.94 2.57 2.3 2.57Zm.33-1.39c-.65 0-1.14-.46-1.14-1.18 0-.71.49-1.18 1.14-1.18.67 0 1.13.47 1.13 1.17 0 .72-.46 1.19-1.13 1.19Zm5.96 3.17c.08 0 .15-.04.18-.12l2.6-6.51c.04-.11-.02-.17-.13-.17h-1.24c-.08 0-.16.04-.19.12l-1.08 3-1.08-3c-.03-.08-.11-.12-.19-.12h-1.24c-.11 0-.17.06-.13.17l1.9 4.74-.72 1.71c-.05.12.01.18.13.18h1.19Z"></path>
-          </svg>
-        </a>
+            
+            {/* Headline with clean typography */}
+            <motion.div 
+              variants={heroContentVariants}
+              custom={0.05}
+              className="space-y-4"
+            >
+              <h1 className="font-extrabold tracking-tight leading-tight font-cal text-timeback-primary text-3xl sm:text-4xl lg:text-5xl">
+                <span className="block mb-2">
+                  What if your child could 
+                </span>
+                <span className="block min-h-[1.2em]">
+                  <TypewriterText />
+                </span>
+              </h1>
+            </motion.div>
 
-        <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight md:-mb-4">
-          Ship your startup in days, not weeks
-        </h1>
-        <p className="text-lg opacity-80 leading-relaxed">
-          The NextJS boilerplate with all you need to build your SaaS, AI tool,
-          or any other web app. From idea to production in 5 minutes.
-        </p>
-        <button className="btn btn-primary btn-wide">
-          Get {config.appName}
-        </button>
+            {/* Improved subheading with better spacing */}
+            <motion.p 
+              variants={heroContentVariants}
+              custom={0.1}  // Reduced from 1.0s to 100ms stagger
+              className="text-base sm:text-lg lg:text-xl text-timeback-primary leading-relaxed font-cal max-w-2xl mx-auto lg:mx-0 font-medium"
+            >
+              We know it sounds impossible. That&apos;s what every parent thinks—until they see their child mastering 
+              two grade levels in one year, scoring in the top 1% nationally, and actually loving school. 
+              <span className="block mt-3 font-bold font-cal flex items-center justify-center lg:justify-start gap-2">
+                Welcome to 
+                <SafeImage 
+                  alt="Timeback" 
+                  src="/images/logos/BluetimeBackLogo.png" 
+                  width={120} 
+                  height={32} 
+                  className="h-6 w-auto object-contain" 
+                />
+                .
+              </span>
+            </motion.p>
+            
+            {/* CTA Button with improved styling */}
+            <motion.div 
+              variants={heroContentVariants}
+              custom={0.15}  // Reduced from 1.2s to 150ms stagger
+              className="pt-4"
+            >
+              <ButtonAIExperience extraStyle="w-full sm:w-auto px-12 py-4 text-lg font-bold shadow-2xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300" />
+            </motion.div>
 
-        <TestimonialsAvatars priority={true} />
-      </div>
-      <div className="lg:w-full">
-        <Image
-          src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80"
-          alt="Product Demo"
-          className="w-full"
-          priority={true}
-          width={500}
-          height={500}
-        />
+            {/* Social proof moved with better spacing */}
+            <motion.div 
+              variants={heroContentVariants}
+              custom={0.2}  // Reduced from 1.4s to 200ms stagger
+              className="pt-6"
+            >
+              <TestimonialsAvatars priority={true} />
+            </motion.div>
+          </motion.div>
+          {/* Right Content - Professional Report Card */}
+          <motion.div 
+            variants={animationVariants.fadeInRight}
+            initial="initial"
+            animate="animate"
+            className="relative"
+          >
+            {/* Floating badge */}
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+              <div className="bg-timeback-primary text-white px-6 py-2 rounded-full shadow-2xl font-cal">
+                <span className="text-sm font-bold font-cal">REAL DATA • 2024</span>
+              </div>
+            </div>
+
+            {/* Main Report Card */}
+            <div className="bg-white rounded-2xl shadow-2xl border-2 border-timeback-primary overflow-hidden max-w-lg mx-auto">
+              
+              {/* Header Section */}
+              <div className="bg-gradient-to-r from-timeback-primary to-timeback-primary/90 text-white p-6 text-center font-cal">
+                <h3 className="text-2xl font-bold font-cal mb-2">TIMEBACK RESULTS</h3>
+                <p className="text-white/90 font-cal">Alpha School • Academic Year 2023-24</p>
+                <p className="text-white/75 text-sm font-cal mt-1">MAP Standardized Testing</p>
+              </div>
+
+              {/* Achievement Badge */}
+              <div className="relative -mt-6 flex justify-center">
+                <div className="bg-white border-4 border-timeback-primary rounded-full px-6 py-3 shadow-2xl">
+                  <div className="flex items-center gap-2 text-timeback-primary font-cal">
+                    <span className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></span>
+                    <span className="font-bold text-lg font-cal">TOP 1% NATIONALLY</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content Section */}
+              <div className="p-6 pt-8 space-y-6">
+                
+                {/* Comparison Grid */}
+                <div className="grid grid-cols-2 gap-4">
+                  {/* Traditional School */}
+                  <div className="text-center font-cal">
+                    <h4 className="text-timeback-primary font-bold mb-3 font-cal text-sm">Traditional School</h4>
+                    <div className="bg-timeback-bg border-2 border-timeback-primary rounded-xl p-4 space-y-3">
+                      <div className="space-y-2">
+                        <div className="flex justify-between items-center">
+                          <span className="text-xs font-cal text-timeback-primary">Daily Time:</span>
+                          <span className="font-bold text-xs font-cal text-timeback-primary">6-8 hrs</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-xs font-cal text-timeback-primary">Love School:</span>
+                          <span className="font-bold text-xs font-cal text-timeback-primary">~30%</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-xs font-cal text-timeback-primary">At Grade Level:</span>
+                          <span className="font-bold text-xs font-cal text-timeback-primary">&lt;50%</span>
+                        </div>
+                      </div>
+                      <div className="text-xs text-timeback-primary pt-2 border-t border-timeback-primary font-cal">
+                        + 2-3 hrs homework
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* With Timeback */}
+                  <div className="text-center font-cal">
+                    <h4 className="text-timeback-primary font-bold mb-3 font-cal text-sm">With Timeback</h4>
+                    <div className="bg-timeback-bg border-2 border-timeback-primary rounded-xl p-4 space-y-3">
+                      <div className="space-y-2">
+                        <div className="flex justify-between items-center">
+                          <span className="text-xs font-cal text-timeback-primary">Daily Time:</span>
+                          <span className="font-bold text-xs font-cal text-timeback-primary">2 hours</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-xs font-cal text-timeback-primary">Love School:</span>
+                          <span className="font-bold text-xs font-cal text-timeback-primary">90%+</span>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <span className="text-xs font-cal text-timeback-primary">Achievement:</span>
+                          <span className="font-bold text-xs font-cal text-timeback-primary">99th %ile</span>
+                        </div>
+                      </div>
+                      <div className="text-xs text-timeback-primary font-bold pt-2 border-t border-timeback-primary font-cal">
+                        Zero homework
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Test Results Section */}
+                <div className="bg-timeback-bg border-2 border-timeback-primary rounded-xl p-5">
+                  <h4 className="font-bold text-timeback-primary mb-4 text-center font-cal">MAP Test Results (Spring 2024)</h4>
+                  <div className="grid grid-cols-2 gap-3 text-sm font-cal">
+                    <div className="flex justify-between items-center">
+                      <span className="text-timeback-primary font-cal">Reading:</span>
+                      <span className="font-bold text-timeback-primary font-cal">99th %</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-timeback-primary font-cal">Language:</span>
+                      <span className="font-bold text-timeback-primary font-cal">99th %</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-timeback-primary font-cal">Science:</span>
+                      <span className="font-bold text-timeback-primary font-cal">99th %</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-timeback-primary font-cal">SAT Avg:</span>
+                      <span className="font-bold text-timeback-primary font-cal">1470+</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Source Citation */}
+                <div className="text-center pt-2 font-cal">
+                  <p className="text-xs text-timeback-primary font-cal leading-tight opacity-75">
+                    Source: Alpha School Spring 2024 MAP Results<br/>
+                    500+ students • Top 1-2% every subject • &lt;2 hours daily
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

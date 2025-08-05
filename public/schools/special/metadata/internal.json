@@ -1,0 +1,170 @@
+{
+  "school": {
+    "id": "internal",
+    "name": "Internal",
+    "originalName": "Internal",
+    "type": "special",
+    "category": "special",
+    "googleDriveId": "1Hdv-VeBnrk95fvYyWMTkbksWVLXggEms"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1apiPHIeflyMddDdxprot3S91_IcN2BdHZbPEsFOvK2c",
+        "originalName": "Hubspot Sales Funnel & Process",
+        "organizedName": "internal_1_Hubspot-Sales-Funnel-Process",
+        "mimeType": "application/vnd.google-apps.presentation",
+        "size": 110807,
+        "webViewLink": "https://docs.google.com/presentation/d/1apiPHIeflyMddDdxprot3S91_IcN2BdHZbPEsFOvK2c/edit?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1apiPHIeflyMddDdxprot3S91_IcN2BdHZbPEsFOvK2c&export=download",
+        "localPath": "/special/other/internal_1_Hubspot-Sales-Funnel-Process",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      },
+      {
+        "id": "16pGd-x3lmZFMfhGsW690Qy05E7dSp_MO",
+        "originalName": "2HL Website Wordpress",
+        "organizedName": "internal_2_2HL-Website-Wordpress",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/16pGd-x3lmZFMfhGsW690Qy05E7dSp_MO",
+        "downloadUrl": "https://drive.google.com/uc?id=16pGd-x3lmZFMfhGsW690Qy05E7dSp_MO&export=download",
+        "localPath": "/special/other/internal_2_2HL-Website-Wordpress",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      },
+      {
+        "id": "1JzrEY9a2KirTZTXtDTH3mIN4HNhR6szJ",
+        "originalName": "Airtable Projects",
+        "organizedName": "internal_3_Airtable-Projects",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1JzrEY9a2KirTZTXtDTH3mIN4HNhR6szJ",
+        "downloadUrl": "https://drive.google.com/uc?id=1JzrEY9a2KirTZTXtDTH3mIN4HNhR6szJ&export=download",
+        "localPath": "/special/other/internal_3_Airtable-Projects",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      },
+      {
+        "id": "1atPHBiPbZ48vjFZZ48_KCGlBDP89jKXO",
+        "originalName": "Old 2HL Website Backup",
+        "organizedName": "internal_4_Old-2HL-Website-Backup",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1atPHBiPbZ48vjFZZ48_KCGlBDP89jKXO",
+        "downloadUrl": "https://drive.google.com/uc?id=1atPHBiPbZ48vjFZZ48_KCGlBDP89jKXO&export=download",
+        "localPath": "/special/other/internal_4_Old-2HL-Website-Backup",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      },
+      {
+        "id": "1GCocGHrk3UvNPiz9Nxd9-4j1C9Am1v-5",
+        "originalName": "Videos",
+        "organizedName": "internal_5_Videos",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1GCocGHrk3UvNPiz9Nxd9-4j1C9Am1v-5",
+        "downloadUrl": "https://drive.google.com/uc?id=1GCocGHrk3UvNPiz9Nxd9-4j1C9Am1v-5&export=download",
+        "localPath": "/special/other/internal_5_Videos",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      },
+      {
+        "id": "1lBhFTKD5_h57znZPCL_4KmPnfiI0E6yD",
+        "originalName": "Google Business Proof",
+        "organizedName": "internal_6_Google-Business-Proof",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1lBhFTKD5_h57znZPCL_4KmPnfiI0E6yD",
+        "downloadUrl": "https://drive.google.com/uc?id=1lBhFTKD5_h57znZPCL_4KmPnfiI0E6yD&export=download",
+        "localPath": "/special/other/internal_6_Google-Business-Proof",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      },
+      {
+        "id": "1ddDiYgq88UogzuxH2u8r1QOem9oif_X7",
+        "originalName": "Crossover Advertising",
+        "organizedName": "internal_7_Crossover-Advertising",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1ddDiYgq88UogzuxH2u8r1QOem9oif_X7",
+        "downloadUrl": "https://drive.google.com/uc?id=1ddDiYgq88UogzuxH2u8r1QOem9oif_X7&export=download",
+        "localPath": "/special/other/internal_7_Crossover-Advertising",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      },
+      {
+        "id": "1VjvBdVORvn9KKd2RGjAWBcBUGUikP2X0",
+        "originalName": "Admissions Materials",
+        "organizedName": "internal_8_Admissions-Materials",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/1VjvBdVORvn9KKd2RGjAWBcBUGUikP2X0/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1VjvBdVORvn9KKd2RGjAWBcBUGUikP2X0&export=download",
+        "localPath": "/special/other/internal_8_Admissions-Materials",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      },
+      {
+        "id": "1V61C-PLQVUB0d_QtCYCfiXQXb2Wa6ZEs",
+        "originalName": "ABJ Previous Artwork",
+        "organizedName": "internal_9_ABJ-Previous-Artwork",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1V61C-PLQVUB0d_QtCYCfiXQXb2Wa6ZEs",
+        "downloadUrl": "https://drive.google.com/uc?id=1V61C-PLQVUB0d_QtCYCfiXQXb2Wa6ZEs&export=download",
+        "localPath": "/special/other/internal_9_ABJ-Previous-Artwork",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      },
+      {
+        "id": "1nb5fqUxDA5_zScbyKbCYGHBrLDB2xmtS",
+        "originalName": "Legacy of Education",
+        "organizedName": "internal_10_Legacy-of-Education",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1nb5fqUxDA5_zScbyKbCYGHBrLDB2xmtS",
+        "downloadUrl": "https://drive.google.com/uc?id=1nb5fqUxDA5_zScbyKbCYGHBrLDB2xmtS&export=download",
+        "localPath": "/special/other/internal_10_Legacy-of-Education",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      },
+      {
+        "id": "1japsbjtGy-XoQJ5ZmP0vw6B0OGX_ivM0",
+        "originalName": "Proto",
+        "organizedName": "internal_11_Proto",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1japsbjtGy-XoQJ5ZmP0vw6B0OGX_ivM0",
+        "downloadUrl": "https://drive.google.com/uc?id=1japsbjtGy-XoQJ5ZmP0vw6B0OGX_ivM0&export=download",
+        "localPath": "/special/other/internal_11_Proto",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      },
+      {
+        "id": "15EEjSQc16t0j1xtcJWD6gFt42MIOY8Z4",
+        "originalName": "Invoices",
+        "organizedName": "internal_12_Invoices",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/15EEjSQc16t0j1xtcJWD6gFt42MIOY8Z4",
+        "downloadUrl": "https://drive.google.com/uc?id=15EEjSQc16t0j1xtcJWD6gFt42MIOY8Z4&export=download",
+        "localPath": "/special/other/internal_12_Invoices",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      },
+      {
+        "id": "1sIg0TZv_Q2XA-YvdAr-q7elhgqyq3Q9I",
+        "originalName": "PageZero - Showcase Asset Library",
+        "organizedName": "internal_13_PageZero-Showcase-Asset-Library",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1sIg0TZv_Q2XA-YvdAr-q7elhgqyq3Q9I",
+        "downloadUrl": "https://drive.google.com/uc?id=1sIg0TZv_Q2XA-YvdAr-q7elhgqyq3Q9I&export=download",
+        "localPath": "/special/other/internal_13_PageZero-Showcase-Asset-Library",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      },
+      {
+        "id": "1BszdptJLc8iCTj3ot0_2MO1idkGNqCks",
+        "originalName": "New Tuition for Review",
+        "organizedName": "internal_14_New-Tuition-for-Review",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1BszdptJLc8iCTj3ot0_2MO1idkGNqCks",
+        "downloadUrl": "https://drive.google.com/uc?id=1BszdptJLc8iCTj3ot0_2MO1idkGNqCks&export=download",
+        "localPath": "/special/other/internal_14_New-Tuition-for-Review",
+        "extractionDate": "2025-08-03T21:37:14.638Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 14,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 14
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:14.638Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

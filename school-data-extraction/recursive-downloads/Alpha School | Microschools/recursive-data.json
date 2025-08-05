@@ -1,0 +1,75 @@
+{
+  "school": {
+    "name": "Alpha School | Microschools",
+    "id": "alpha-school-microschools",
+    "extractionDate": "2025-08-03T21:49:43.139Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1-61aiPkwjdsnsSGwUEUFCOl7Gzgf5Ftl"
+        ],
+        "id": "1mtIOOPT3TLeHyEdFMWet9BGuWvrnhWIi",
+        "name": "Alpha School - General Trifold.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1mtIOOPT3TLeHyEdFMWet9BGuWvrnhWIi/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNktzsVLX5rLXzjqKyFijDYZiBLAPf_G-yb5LKJO5eSKrLHjsrvg8AS0Ka7Krxg4Gn4eF4z9SYjKLuJG5Ym_ithU3Mb6v-9NcHgIA=s220",
+        "size": "10723647"
+      },
+      {
+        "parents": [
+          "1-61aiPkwjdsnsSGwUEUFCOl7Gzgf5Ftl"
+        ],
+        "id": "1QWNbicsvVEZ5oNKCwTObpmsXpThQc_q8",
+        "name": "Tuition Micro.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1QWNbicsvVEZ5oNKCwTObpmsXpThQc_q8/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBOQU-BeMZvWRvdFMS3xWrEJxV6yCArP3QjvcjlPKDZ_yg1NmlTa6cX4ChOriNQhU43q3dUID0TGlv_KtGhCXywcln750n3P3Z856g=s220",
+        "size": "5980096"
+      },
+      {
+        "parents": [
+          "1-61aiPkwjdsnsSGwUEUFCOl7Gzgf5Ftl"
+        ],
+        "id": "1u1M3GHGO6uyB-ZQcG2EE30inCZD-7_tI",
+        "name": "2HL School 2025 - 2026 Calendars.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1u1M3GHGO6uyB-ZQcG2EE30inCZD-7_tI/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBP0HP4-deAL7bS6GdmG1tl_ghJAsiwu-xjEe9CuiWHs_N007BH4duzvbmNHQQBmfX8mzlCUcyStTaKLtuAtUAUT8bTsuuSfWWmoqw=s220",
+        "size": "2046410"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1-61aiPkwjdsnsSGwUEUFCOl7Gzgf5Ftl"
+        ],
+        "id": "1S7w7cZfTMnDB5SHvtnvVgfESpKQXDqL4",
+        "name": "City Pictures_26",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1S7w7cZfTMnDB5SHvtnvVgfESpKQXDqL4"
+      },
+      {
+        "parents": [
+          "1-61aiPkwjdsnsSGwUEUFCOl7Gzgf5Ftl"
+        ],
+        "id": "1bYRvAdkG_lt647Oq-PnhyQwK7wMzEE0-",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1bYRvAdkG_lt647Oq-PnhyQwK7wMzEE0-"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 3,
+    "folders": 2,
+    "other": 0,
+    "total": 5
+  }
+}

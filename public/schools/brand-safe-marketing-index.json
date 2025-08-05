@@ -1,0 +1,756 @@
+{
+  "lastUpdated": "2025-08-03T23:32:17.102Z",
+  "summary": {
+    "totalSchools": 39,
+    "totalImages": 121,
+    "totalVideos": 6,
+    "totalDocuments": 105,
+    "totalAssets": 232
+  },
+  "schools": [
+    {
+      "id": "2-hour-learning",
+      "name": "2 Hour Learning",
+      "type": "special",
+      "city": "Austin",
+      "state": "TX",
+      "images": 5,
+      "videos": 1,
+      "documents": 14,
+      "totalAssets": 20,
+      "categories": [
+        "Marketing Content",
+        "Marketing Video",
+        "Marketing Documents",
+        "Presentations",
+        "Business Materials"
+      ],
+      "address": "Virtual/Multiple Locations",
+      "zipCode": "78701",
+      "phone": "(512) 555-0200",
+      "email": "info@2hourlearning.com",
+      "website": "https://2hourlearning.com/",
+      "fullAddress": "Virtual/Multiple Locations, Austin, TX 78701",
+      "description": "Revolutionary AI-powered educational methodology enabling students to complete coursework in 2 hours."
+    },
+    {
+      "id": "alpha-high-austin",
+      "name": "Alpha High School | Austin",
+      "type": "alpha",
+      "city": "Austin",
+      "state": "TX",
+      "images": 2,
+      "videos": 0,
+      "documents": 4,
+      "totalAssets": 6,
+      "categories": [
+        "Marketing Content",
+        "Marketing Documents",
+        "Event Flyers"
+      ],
+      "address": "201 Colorado Street",
+      "zipCode": "78701",
+      "phone": "(512) 555-0102",
+      "email": "admissions.austin@alpha.school",
+      "website": "https://go.alpha.school/high-school",
+      "fullAddress": "201 Colorado Street, Austin, TX 78701",
+      "description": "Alpha High School (6th-8th Grade) - Advanced AI-powered education for high school students."
+    },
+    {
+      "id": "alpha-austin",
+      "name": "Alpha School | Austin",
+      "type": "alpha",
+      "city": "Austin",
+      "state": "TX",
+      "images": 79,
+      "videos": 3,
+      "documents": 11,
+      "totalAssets": 93,
+      "categories": [
+        "Event Flyers",
+        "Brand Assets",
+        "Social Media",
+        "Marketing Content",
+        "Educational",
+        "Marketing Documents"
+      ],
+      "address": "1201 Spyglass Drive",
+      "zipCode": "78746",
+      "phone": "(512) 555-0101",
+      "email": "admissions.austin@alpha.school",
+      "website": "https://alpha.school/austin/",
+      "fullAddress": "1201 Spyglass Drive, Austin, TX 78746",
+      "description": "Alpha Austin (PK4-5th Grade) - Revolutionary 2 Hour Learning model with AI-powered education."
+    },
+    {
+      "id": "alpha-bethesda",
+      "name": "Alpha School | Bethesda",
+      "type": "alpha",
+      "city": "Bethesda",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "totalAssets": 0,
+      "categories": []
+    },
+    {
+      "id": "alpha-brownsville",
+      "name": "Alpha School | Brownsville",
+      "type": "alpha",
+      "city": "Brownsville",
+      "state": "TX",
+      "images": 11,
+      "videos": 0,
+      "documents": 1,
+      "totalAssets": 12,
+      "categories": [
+        "Summer Camp",
+        "Marketing Documents"
+      ],
+      "address": "591 N. Central Ave.",
+      "zipCode": "78521",
+      "phone": "(956) 555-0103",
+      "email": "admissions.brownsville@alpha.school",
+      "website": "https://alpha.school/brownsville/",
+      "fullAddress": "591 N. Central Ave., Brownsville, TX 78521",
+      "description": "Alpha Brownsville (PK-8) - Affordable AI-powered education with $10,000 tuition."
+    },
+    {
+      "id": "alpha-chantilly",
+      "name": "Alpha School | Chantilly",
+      "type": "alpha",
+      "city": "Chantilly",
+      "state": "VA",
+      "images": 0,
+      "videos": 0,
+      "documents": 1,
+      "totalAssets": 1,
+      "categories": [
+        "Marketing Documents"
+      ],
+      "address": "4550 Walney Road",
+      "zipCode": "20151",
+      "phone": "(703) 555-0112",
+      "email": "admissions@alpha.school",
+      "website": "https://alpha.school/locations/",
+      "fullAddress": "4550 Walney Road, Chantilly, VA 20151",
+      "description": "Alpha Chantilly (K-3) - Premium education in the DC area."
+    },
+    {
+      "id": "alpha-charlotte-",
+      "name": "Alpha School | Charlotte",
+      "type": "alpha",
+      "city": "Charlotte",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 2,
+      "totalAssets": 2,
+      "categories": [
+        "Marketing Documents"
+      ]
+    },
+    {
+      "id": "alpha-chicago",
+      "name": "Alpha School | Chicago",
+      "type": "alpha",
+      "city": "Chicago",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "totalAssets": 0,
+      "categories": []
+    },
+    {
+      "id": "alpha-denver",
+      "name": "Alpha School | Denver",
+      "type": "alpha",
+      "city": "Denver",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "totalAssets": 0,
+      "categories": []
+    },
+    {
+      "id": "alpha-folsom",
+      "name": "Alpha School | Folsom",
+      "type": "alpha",
+      "city": "Folsom",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 2,
+      "totalAssets": 2,
+      "categories": [
+        "Marketing Documents"
+      ]
+    },
+    {
+      "id": "alpha-fort-worth",
+      "name": "Alpha School | Fort Worth",
+      "type": "alpha",
+      "city": "Fort Worth",
+      "state": "TX",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "totalAssets": 0,
+      "categories": [],
+      "address": "3300 Bryant Irvin Rd.",
+      "zipCode": "76109",
+      "phone": "(817) 555-0106",
+      "email": "admissions@alpha.school",
+      "website": "https://alpha.school/locations/",
+      "fullAddress": "3300 Bryant Irvin Rd., Fort Worth, TX 76109",
+      "description": "Alpha Fort Worth (K-8) - Opening Fall 2025 with cutting-edge education."
+    },
+    {
+      "id": "alpha-houston",
+      "name": "Alpha School | Houston",
+      "type": "alpha",
+      "city": "Houston",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 1,
+      "totalAssets": 1,
+      "categories": [
+        "Presentations"
+      ]
+    },
+    {
+      "id": "alpha-lake-forest",
+      "name": "Alpha School | Lake Forest",
+      "type": "alpha",
+      "city": "Foothill Ranch",
+      "state": "CA",
+      "images": 0,
+      "videos": 0,
+      "documents": 2,
+      "totalAssets": 2,
+      "categories": [
+        "Marketing Documents"
+      ],
+      "address": "26462 Towne Centre Dr",
+      "zipCode": "92610",
+      "phone": "(949) 555-0109",
+      "email": "admissions@alpha.school",
+      "website": "https://alpha.school/locations/",
+      "fullAddress": "26462 Towne Centre Dr, Foothill Ranch, CA 92610",
+      "description": "Alpha Lake Forest (K-3) - Opening Fall 2025 in Orange County."
+    },
+    {
+      "id": "alpha-miami",
+      "name": "Alpha School | Miami",
+      "type": "alpha",
+      "city": "Miami",
+      "state": "FL",
+      "images": 5,
+      "videos": 0,
+      "documents": 8,
+      "totalAssets": 13,
+      "categories": [
+        "Marketing Content",
+        "Summer Camp",
+        "Event Flyers",
+        "Presentations",
+        "Marketing Documents"
+      ],
+      "address": "8000 SW 56th St.",
+      "zipCode": "33155",
+      "phone": "(305) 555-0104",
+      "email": "admissions.miami@alpha.school",
+      "website": "https://alpha.school/miami/",
+      "fullAddress": "8000 SW 56th St., Miami, FL 33155",
+      "description": "Alpha Miami (K-10) - Revolutionary education in South Florida."
+    },
+    {
+      "id": "alpha-microschools",
+      "name": "Alpha School | Microschools",
+      "type": "alpha",
+      "city": "Microschools",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 3,
+      "totalAssets": 3,
+      "categories": [
+        "Marketing Documents"
+      ]
+    },
+    {
+      "id": "alpha-new-york",
+      "name": "Alpha School | New York",
+      "type": "alpha",
+      "city": "New York",
+      "state": "NY",
+      "images": 1,
+      "videos": 0,
+      "documents": 0,
+      "totalAssets": 1,
+      "categories": [
+        "Marketing Content"
+      ],
+      "address": "180 Maiden Ln.",
+      "zipCode": "10038",
+      "phone": "(212) 555-0105",
+      "email": "admissions@alpha.school",
+      "website": "https://alpha.school/locations/",
+      "fullAddress": "180 Maiden Ln., New York, NY 10038",
+      "description": "Alpha New York (K-8) - Premium education in the heart of Manhattan."
+    },
+    {
+      "id": "alpha-orlando",
+      "name": "Alpha School | Orlando",
+      "type": "alpha",
+      "city": "Orlando",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "totalAssets": 0,
+      "categories": []
+    },
+    {
+      "id": "alpha-palm-beach",
+      "name": "Alpha School | Palm Beach",
+      "type": "alpha",
+      "city": "Palm Beach Gardens",
+      "state": "FL",
+      "images": 0,
+      "videos": 0,
+      "documents": 2,
+      "totalAssets": 2,
+      "categories": [
+        "Marketing Documents"
+      ],
+      "address": "353 Hiatt Drive",
+      "zipCode": "33418",
+      "phone": "(561) 555-0108",
+      "email": "admissions@alpha.school",
+      "website": "https://alpha.school/locations/",
+      "fullAddress": "353 Hiatt Drive, Palm Beach Gardens, FL 33418",
+      "description": "Alpha Palm Beach (K-3) - Premium education in South Florida."
+    },
+    {
+      "id": "alpha-plano-",
+      "name": "Alpha School | Plano",
+      "type": "alpha",
+      "city": "Plano",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 1,
+      "totalAssets": 1,
+      "categories": [
+        "Marketing Documents"
+      ]
+    },
+    {
+      "id": "alpha-raleigh-",
+      "name": "Alpha School | Raleigh",
+      "type": "alpha",
+      "city": "Raleigh",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 2,
+      "totalAssets": 2,
+      "categories": [
+        "Marketing Documents"
+      ]
+    },
+    {
+      "id": "alpha-san-francisco",
+      "name": "Alpha School | San Francisco",
+      "type": "alpha",
+      "city": "San Francisco",
+      "state": "CA",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "totalAssets": 0,
+      "categories": [],
+      "address": "3741 Buchanan St",
+      "zipCode": "94123",
+      "phone": "(415) 555-0114",
+      "email": "admissions@alpha.school",
+      "website": "https://alpha.school/locations/",
+      "fullAddress": "3741 Buchanan St, San Francisco, CA 94123",
+      "description": "Alpha San Francisco (K-8) - Premium education in the Bay Area."
+    },
+    {
+      "id": "alpha-santa-barbara",
+      "name": "Alpha School | Santa Barbara",
+      "type": "alpha",
+      "city": "Santa Barbara",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "totalAssets": 0,
+      "categories": []
+    },
+    {
+      "id": "alpha-scottsdale",
+      "name": "Alpha School | Scottsdale",
+      "type": "alpha",
+      "city": "Scottsdale",
+      "state": "AZ",
+      "images": 0,
+      "videos": 0,
+      "documents": 1,
+      "totalAssets": 1,
+      "categories": [
+        "Marketing Documents"
+      ],
+      "address": "20624 N 76th St",
+      "zipCode": "85255",
+      "phone": "(480) 555-0107",
+      "email": "admissions@alpha.school",
+      "website": "https://alpha.school/locations/",
+      "fullAddress": "20624 N 76th St, Scottsdale, AZ 85255",
+      "description": "Alpha Scottsdale (K-8) - Opening Fall 2025 in beautiful Arizona."
+    },
+    {
+      "id": "alpha-silicon-valley",
+      "name": "Alpha School | Silicon Valley",
+      "type": "alpha",
+      "city": "Silicon Valley",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "totalAssets": 0,
+      "categories": []
+    },
+    {
+      "id": "alpha-tampa",
+      "name": "Alpha School | Tampa",
+      "type": "alpha",
+      "city": "Tampa",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "totalAssets": 0,
+      "categories": []
+    },
+    {
+      "id": "gt-school",
+      "name": "GT School",
+      "type": "other",
+      "city": "Texas",
+      "state": "TX",
+      "images": 10,
+      "videos": 0,
+      "documents": 27,
+      "totalAssets": 37,
+      "categories": [
+        "Signage",
+        "Marketing Content",
+        "Brand Assets",
+        "Print Materials",
+        "Event Flyers",
+        "Marketing Documents",
+        "Business Materials",
+        "Presentations"
+      ],
+      "address": "Multiple Locations",
+      "zipCode": "75000",
+      "phone": "(972) 555-0300",
+      "email": "info@gtschool.org",
+      "website": "https://gtschool.org/",
+      "fullAddress": "Multiple Locations, Texas, TX 75000",
+      "description": "Gifted and Talented school focusing on accelerated learning for exceptional students."
+    },
+    {
+      "id": "limitless-education",
+      "name": "Limitless Education",
+      "type": "other",
+      "city": "Location TBD",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "totalAssets": 0,
+      "categories": []
+    },
+    {
+      "id": "montessorium",
+      "name": "Montessorium",
+      "type": "other",
+      "city": "Location TBD",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 0,
+      "totalAssets": 0,
+      "categories": []
+    },
+    {
+      "id": "nextgen-academy-austin",
+      "name": "NextGen Academy | Austin",
+      "type": "other",
+      "city": "Austin",
+      "state": "TX",
+      "images": 2,
+      "videos": 0,
+      "documents": 3,
+      "totalAssets": 5,
+      "categories": [
+        "Marketing Content",
+        "Marketing Documents",
+        "Print Materials"
+      ],
+      "address": "13915 US-183",
+      "zipCode": "78717",
+      "phone": "(512) 222-4065",
+      "email": "info@nextgenacademy.school",
+      "website": "https://nextgenacademy.school/",
+      "fullAddress": "13915 US-183, Austin, TX 78717",
+      "description": "NextGen Academy (3rd-8th Grade) - Unlocking potential through gamification and 2-hour AI learning model."
+    },
+    {
+      "id": "nova-academy-aka-valenta-academy",
+      "name": "Nova Academy (aka Valenta Academy)",
+      "type": "other",
+      "city": "Location TBD",
+      "state": "",
+      "images": 0,
+      "videos": 2,
+      "documents": 5,
+      "totalAssets": 7,
+      "categories": [
+        "Promotional",
+        "Event Flyers",
+        "Marketing Documents"
+      ]
+    },
+    {
+      "id": "novatio-school",
+      "name": "Novatio School",
+      "type": "other",
+      "city": "Location TBD",
+      "state": "",
+      "images": 0,
+      "videos": 0,
+      "documents": 1,
+      "totalAssets": 1,
+      "categories": [
+        "Marketing Documents"
+      ]
+    },
+    {
+      "id": "texas-sports-academy",
+      "name": "Texas Sports Academy",
+      "type": "other",
+      "city": "Texas",
+      "state": "TX",
+      "images": 1,
+      "videos": 0,
+      "documents": 2,
+      "totalAssets": 3,
+      "categories": [
+        "Social Media",
+        "Marketing Documents"
+      ],
+      "address": "To Be Determined",
+      "zipCode": "75000",
+      "phone": "(214) 555-0500",
+      "email": "info@texassportsacademy.org",
+      "website": "https://texassportsacademy.org/",
+      "fullAddress": "To Be Determined, Texas, TX 75000",
+      "description": "Combines rigorous academics with elite athletic training, fostering discipline and excellence."
+    },
+    {
+      "id": "waypoint-academy",
+      "name": "Waypoint Academy",
+      "type": "other",
+      "city": "Austin",
+      "state": "TX",
+      "images": 4,
+      "videos": 0,
+      "documents": 1,
+      "totalAssets": 5,
+      "categories": [
+        "Marketing Content",
+        "Marketing Documents"
+      ],
+      "address": "To Be Determined",
+      "zipCode": "78701",
+      "phone": "(512) 555-0400",
+      "email": "info@waypointacademy.org",
+      "website": "https://waypointacademy.org/",
+      "fullAddress": "To Be Determined, Austin, TX 78701",
+      "description": "Innovative educational pathways designed to guide students toward unique academic and personal goals."
+    }
+  ],
+  "alphaSchools": [
+    {
+      "id": "alpha-high-austin",
+      "name": "Alpha High School | Austin"
+    },
+    {
+      "id": "alpha-austin",
+      "name": "Alpha School | Austin"
+    },
+    {
+      "id": "alpha-bethesda",
+      "name": "Alpha School | Bethesda"
+    },
+    {
+      "id": "alpha-brownsville",
+      "name": "Alpha School | Brownsville"
+    },
+    {
+      "id": "alpha-chantilly",
+      "name": "Alpha School | Chantilly"
+    },
+    {
+      "id": "alpha-charlotte-",
+      "name": "Alpha School | Charlotte "
+    },
+    {
+      "id": "alpha-chicago",
+      "name": "Alpha School | Chicago"
+    },
+    {
+      "id": "alpha-denver",
+      "name": "Alpha School | Denver"
+    },
+    {
+      "id": "alpha-folsom",
+      "name": "Alpha School | Folsom"
+    },
+    {
+      "id": "alpha-fort-worth",
+      "name": "Alpha School | Fort Worth"
+    },
+    {
+      "id": "alpha-houston",
+      "name": "Alpha School | Houston"
+    },
+    {
+      "id": "alpha-lake-forest",
+      "name": "Alpha School | Lake Forest"
+    },
+    {
+      "id": "alpha-miami",
+      "name": "Alpha School | Miami"
+    },
+    {
+      "id": "alpha-microschools",
+      "name": "Alpha School | Microschools"
+    },
+    {
+      "id": "alpha-new-york",
+      "name": "Alpha School | New York"
+    },
+    {
+      "id": "alpha-orlando",
+      "name": "Alpha School | Orlando"
+    },
+    {
+      "id": "alpha-palm-beach",
+      "name": "Alpha School | Palm Beach"
+    },
+    {
+      "id": "alpha-plano-",
+      "name": "Alpha School | Plano "
+    },
+    {
+      "id": "alpha-raleigh-",
+      "name": "Alpha School | Raleigh "
+    },
+    {
+      "id": "alpha-san-francisco",
+      "name": "Alpha School | San Francisco"
+    },
+    {
+      "id": "alpha-santa-barbara",
+      "name": "Alpha School | Santa Barbara"
+    },
+    {
+      "id": "alpha-scottsdale",
+      "name": "Alpha School | Scottsdale"
+    },
+    {
+      "id": "alpha-silicon-valley",
+      "name": "Alpha School | Silicon Valley"
+    },
+    {
+      "id": "alpha-tampa",
+      "name": "Alpha School | Tampa"
+    }
+  ],
+  "otherSchools": [
+    {
+      "id": "gt-school",
+      "name": "GT School"
+    },
+    {
+      "id": "limitless-education",
+      "name": "Limitless Education"
+    },
+    {
+      "id": "montessorium",
+      "name": "Montessorium"
+    },
+    {
+      "id": "nextgen-academy-austin",
+      "name": "NextGen Academy | Austin"
+    },
+    {
+      "id": "nova-academy-aka-valenta-academy",
+      "name": "Nova Academy (aka Valenta Academy)"
+    },
+    {
+      "id": "novatio-school",
+      "name": "Novatio School"
+    },
+    {
+      "id": "texas-sports-academy",
+      "name": "Texas Sports Academy"
+    },
+    {
+      "id": "waypoint-academy",
+      "name": "Waypoint Academy"
+    }
+  ],
+  "specialCategories": [
+    {
+      "id": "2-hour-learning",
+      "name": "2 Hour Learning"
+    },
+    {
+      "id": "internal",
+      "name": "Internal"
+    },
+    {
+      "id": "learn-earn",
+      "name": "Learn + Earn"
+    },
+    {
+      "id": "press-media",
+      "name": "Press & Media"
+    },
+    {
+      "id": "sat-level-up",
+      "name": "SAT Level Up"
+    },
+    {
+      "id": "thought-leadership-events",
+      "name": "Thought Leadership Events"
+    },
+    {
+      "id": "unbound",
+      "name": "Unbound"
+    }
+  ],
+  "totalSchools": 33
+}

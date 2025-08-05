@@ -1,0 +1,62 @@
+{
+  "school": {
+    "id": "alpha-school-lake-forest",
+    "name": "Alpha School | Lake Forest",
+    "originalName": "Alpha School | Lake Forest",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1-xidtvWFYnSpDWhe-uoZytppCjQyTe6s"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1xTeGXomkWfw8I1sLq-BpVwJ-tasAwkRH",
+        "originalName": "Alpha Lake Forest - Now Enrolling 2025.2026 (2).pdf",
+        "organizedName": "alpha-school-lake-forest_1_Alpha-Lake-Forest-Now-Enrolling-20252026-2.pdf",
+        "mimeType": "application/pdf",
+        "size": 12917055,
+        "webViewLink": "https://drive.google.com/file/d/1xTeGXomkWfw8I1sLq-BpVwJ-tasAwkRH/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1xTeGXomkWfw8I1sLq-BpVwJ-tasAwkRH&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-lake-forest_1_Alpha-Lake-Forest-Now-Enrolling-20252026-2.pdf",
+        "extractionDate": "2025-08-03T21:37:09.552Z"
+      },
+      {
+        "id": "18dkfUICsBhxjaBBF6CPfPHt0QtYzeD7i",
+        "originalName": "Alpha Lake Forest Tuition.pdf",
+        "organizedName": "alpha-school-lake-forest_2_Alpha-Lake-Forest-Tuition.pdf",
+        "mimeType": "application/pdf",
+        "size": 1177812,
+        "webViewLink": "https://drive.google.com/file/d/18dkfUICsBhxjaBBF6CPfPHt0QtYzeD7i/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=18dkfUICsBhxjaBBF6CPfPHt0QtYzeD7i&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-lake-forest_2_Alpha-Lake-Forest-Tuition.pdf",
+        "extractionDate": "2025-08-03T21:37:09.552Z"
+      }
+    ],
+    "other": [
+      {
+        "id": "1VK0CqeL3QvrbOwY-yVQibJReqJqiF8B_",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-lake-forest_3_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1VK0CqeL3QvrbOwY-yVQibJReqJqiF8B_",
+        "downloadUrl": "https://drive.google.com/uc?id=1VK0CqeL3QvrbOwY-yVQibJReqJqiF8B_&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-lake-forest_3_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:09.552Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 3,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 2,
+    "otherCount": 1
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:09.552Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

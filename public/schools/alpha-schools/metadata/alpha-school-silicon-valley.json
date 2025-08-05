@@ -1,0 +1,49 @@
+{
+  "school": {
+    "id": "alpha-school-silicon-valley",
+    "name": "Alpha School | Silicon Valley",
+    "originalName": "Alpha School | Silicon Valley",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "16Gr7x546KUpirgQMl570IwQcBO8Iwu9A"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "1clkvNaIG9SqItU9rGz6_VyUG8q3Ua_ce",
+        "originalName": "School Documents",
+        "organizedName": "alpha-school-silicon-valley_1_School-Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1clkvNaIG9SqItU9rGz6_VyUG8q3Ua_ce",
+        "downloadUrl": "https://drive.google.com/uc?id=1clkvNaIG9SqItU9rGz6_VyUG8q3Ua_ce&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-silicon-valley_1_School-Documents",
+        "extractionDate": "2025-08-03T21:37:15.051Z"
+      },
+      {
+        "id": "13_L3p2xWSYzgKXzbM-S2viuNH6riVgJ1",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-silicon-valley_2_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/13_L3p2xWSYzgKXzbM-S2viuNH6riVgJ1",
+        "downloadUrl": "https://drive.google.com/uc?id=13_L3p2xWSYzgKXzbM-S2viuNH6riVgJ1&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-silicon-valley_2_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:15.051Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 2,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 0,
+    "otherCount": 2
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:15.051Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

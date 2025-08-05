@@ -1,0 +1,1771 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Restructure App Routing for New Personalized Landing Page Flow",
+        "description": "Reorganize the application's routing structure to move the Hero section from /ai-experience to root (/), update navigation flows, and create new routes for the personalized landing page experience.",
+        "details": "This task involves significant changes to the application's routing architecture to support a new personalized landing page flow:\n\n1. **Root Route Restructuring**:\n   - Move the Hero section currently at `/ai-experience` to the root route (`/`)\n   - Ensure all existing landing page content is preserved at the root\n   - Update any imports, references, and component hierarchies affected by this move\n   - Adjust any styling or layout that might be affected by the component relocation\n\n2. **ButtonAIExperience Component Update**:\n   - Locate all instances of the ButtonAIExperience component\n   - Modify the component to redirect users to `/quiz` instead of its current destination\n   - Update any related event handlers, onClick functions, or navigation logic\n   - Ensure proper navigation state management (history, params, etc.)\n\n3. **New Route Creation**:\n   - Create a new route for `/quiz` that will host the quiz experience\n   - Create a new route for `/personalized` that will display personalized content\n   - Set up appropriate route configurations, including any necessary route guards or parameters\n   - Implement proper lazy loading for these routes to optimize performance\n\n4. **Navigation Flow Updates**:\n   - Update the navigation flow to support the new user journey:\n     - Root (/) → Quiz (/quiz) → Personalized (/personalized)\n   - Ensure back/forward browser navigation works correctly with the new flow\n   - Update any breadcrumbs, navigation indicators, or progress trackers\n\n5. **Route Testing and Validation**:\n   - Verify all routes are accessible and render the correct components\n   - Test navigation between routes, including browser history behavior\n   - Ensure no 404 errors or broken links exist after the restructuring\n\nImplementation should follow React Router best practices (assuming a React application), with clean separation of routing logic and component rendering. Use appropriate hooks like `useNavigate` or `useHistory` for programmatic navigation. Consider implementing route-based code splitting to improve initial load performance.",
+        "testStrategy": "1. **Unit Testing**:\n   - Write unit tests for the ButtonAIExperience component to verify it correctly navigates to `/quiz`\n   - Test any utility functions created for route management\n   - Verify route components render correctly in isolation\n\n2. **Integration Testing**:\n   - Test the complete navigation flow from root through quiz to personalized page\n   - Verify all components render correctly within their new route contexts\n   - Test browser history functionality (back/forward navigation)\n   - Verify route parameters are correctly passed and processed\n\n3. **Manual Testing Checklist**:\n   - Visit the root route (/) and confirm the Hero section appears correctly\n   - Click the ButtonAIExperience component and verify redirection to /quiz\n   - Complete the quiz flow and verify navigation to /personalized\n   - Test browser back/forward buttons at each step\n   - Verify direct URL access to each route works correctly\n   - Test on multiple browsers (Chrome, Firefox, Safari) to ensure cross-browser compatibility\n   - Test on mobile devices to verify responsive behavior with the new routing\n\n4. **Regression Testing**:\n   - Verify all existing functionality continues to work after routing changes\n   - Check that no other navigation flows in the application are broken\n   - Ensure all links throughout the application point to correct destinations\n\n5. **Performance Testing**:\n   - Measure and compare load times before and after the routing changes\n   - Verify that lazy loading is working correctly for the new routes\n   - Check for any unnecessary re-renders caused by the routing changes\n\nDocument all test results with screenshots and performance metrics for review.",
+        "status": "done",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Move Hero Section from /ai-experience to Root Route",
+            "description": "Relocate the Hero section component from the /ai-experience route to the root (/) route while preserving all existing landing page content.",
+            "dependencies": [],
+            "details": "Identify all Hero section components and related files in the /ai-experience route. Create a copy of these components in the root route directory. Update imports and references to maintain component hierarchy. Ensure styling and layout remain consistent after relocation. Remove duplicate code once the migration is verified working. Test that all functionality of the Hero section works correctly at the root route.",
+            "status": "done",
+            "testStrategy": "Verify Hero section renders correctly at root route. Confirm all interactive elements function properly. Test responsive behavior across different screen sizes. Ensure no console errors appear related to the component move. Validate that SEO metadata is properly updated for the root route."
+          },
+          {
+            "id": 2,
+            "title": "Update ButtonAIExperience Component Navigation",
+            "description": "Modify the ButtonAIExperience component to redirect users to the new /quiz route instead of its current destination.",
+            "dependencies": [],
+            "details": "Locate all instances of the ButtonAIExperience component throughout the codebase. Update the onClick handlers or navigation logic to redirect to '/quiz' instead of the current destination. Ensure proper navigation state management using appropriate React Router hooks (useNavigate or useHistory). Update any related event handlers that might be affected by this change. Test the updated navigation flow to confirm it works as expected.",
+            "status": "done",
+            "testStrategy": "Create unit tests to verify ButtonAIExperience correctly navigates to /quiz. Test edge cases like rapid clicking or navigation during loading states. Verify browser history is properly updated after navigation. Ensure any query parameters are handled correctly if applicable."
+          },
+          {
+            "id": 3,
+            "title": "Create New Routes for Quiz and Personalized Experiences",
+            "description": "Implement new routes for /quiz and /personalized with appropriate configurations and lazy loading.",
+            "dependencies": [],
+            "details": "Set up route configuration for the new /quiz path that will host the quiz experience. Create route configuration for the /personalized path that will display personalized content. Implement React.lazy() and Suspense for both routes to optimize initial load performance. Configure any necessary route guards or parameters for these routes. Create placeholder components for both routes until the actual implementations are ready. Update the main routing configuration file to include these new routes.",
+            "status": "done",
+            "testStrategy": "Test that both routes are accessible and render their respective components. Verify lazy loading works correctly by monitoring network requests. Test route parameters and query string handling if applicable. Ensure loading states display appropriately during component loading."
+          },
+          {
+            "id": 4,
+            "title": "Update Navigation Flow for New User Journey",
+            "description": "Modify the application's navigation flow to support the new user journey from Root (/) → Quiz (/quiz) → Personalized (/personalized).",
+            "dependencies": [],
+            "details": "Update any navigation menus, breadcrumbs, or navigation indicators to reflect the new route structure. Ensure back/forward browser navigation works correctly with the new flow. Implement any necessary progress trackers for the multi-step journey. Add appropriate navigation buttons within each route to guide users to the next step. Consider implementing route transition animations for a smoother user experience. Update any site maps or navigation documentation.",
+            "status": "done",
+            "testStrategy": "Test complete user journey from root through quiz to personalized page. Verify browser back/forward navigation works as expected. Test navigation on different devices and browsers. Ensure navigation state is preserved if the page is refreshed. Validate that any progress indicators accurately reflect the user's position in the flow."
+          },
+          {
+            "id": 5,
+            "title": "Perform Route Testing and Validation",
+            "description": "Thoroughly test all routes to ensure they are accessible, render correctly, and maintain proper navigation history.",
+            "dependencies": [],
+            "details": "Create a comprehensive test plan covering all routes and navigation paths. Verify all routes are accessible and render the correct components. Test navigation between routes, including browser history behavior. Check for any 404 errors or broken links after the restructuring. Validate that all route transitions work smoothly. Test edge cases such as direct URL access to inner routes. Ensure any route guards or authentication requirements function correctly. Document any issues found and create tickets for necessary fixes.",
+            "status": "done",
+            "testStrategy": "Implement end-to-end tests using Cypress or similar tool to verify complete navigation flows. Create a test matrix covering all possible navigation paths. Test direct URL access to each route. Verify proper handling of invalid routes. Test performance metrics like Time to Interactive for each route. Validate SEO aspects like proper page titles and meta tags for each route."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Create Interactive Quiz Flow Component with Progress Indicator",
+        "description": "Develop a multi-step quiz component with shadcn progress indicator that guides users through 6 questions about user type, number of kids, school preferences, learning goals, interests, and includes a loading animation.",
+        "details": "This task involves building a comprehensive interactive quiz flow component that will be a core part of the personalized user experience:\n\n1. **Component Structure**:\n   - Create a `QuizFlow` parent component that manages the overall state and progression\n   - Implement individual step components for each of the 6 questions\n   - Use shadcn/ui components for consistent styling and accessibility\n   - Ensure the component integrates with the new routing structure from Task #1\n\n2. **Quiz Steps Implementation**:\n   - **Step 1 (User Type)**: Create a selection interface for user types (Parents/Schools/etc.) with conditional follow-up questions based on selection\n   - **Step 2 (Number of Kids)**: Implement a number input or selection component with validation\n   - **Step 3 (School Search)**: Integrate with SchoolDigger API to allow school searching and selection\n     - Implement search functionality with autocomplete\n     - Handle API errors gracefully\n     - Store selected school(s) in state\n   - **Step 4 (Learning Goals)**: Create a multi-select component for learning goals with appropriate categories\n   - **Step 5 (Kids' Interests)**: Implement a popup modal with interest selection options\n   - **Step 6 (Loading Screen)**: Create a loading screen with Lottie animation while processing user inputs\n\n3. **State Management**:\n   - Use React's Context API or a state management library (Redux, Zustand) to maintain quiz state\n   - Implement a reducer pattern to handle state transitions between steps\n   - Persist state to allow users to return to the quiz if they navigate away\n   - Structure the state to be easily consumable by other components that need user preference data\n\n4. **Progress Indicator**:\n   - Implement the shadcn progress indicator component to show completion status\n   - Ensure the indicator updates correctly as users progress through steps\n   - Add animations for transitions between steps\n\n5. **Validation & Error Handling**:\n   - Implement form validation for each step before allowing progression\n   - Display appropriate error messages for invalid inputs\n   - Handle API errors during school search with user-friendly messages\n\n6. **Responsive Design**:\n   - Ensure all quiz components are fully responsive for mobile devices\n   - Implement touch-friendly UI elements for mobile users\n   - Use CSS media queries and flexible layouts to adapt to different screen sizes\n   - Test on various device sizes to ensure optimal user experience\n\n7. **Accessibility**:\n   - Ensure all form elements have proper labels and ARIA attributes\n   - Implement keyboard navigation support\n   - Test with screen readers to verify accessibility\n\n8. **Performance Optimization**:\n   - Lazy load components to minimize initial load time\n   - Implement debouncing for search inputs\n   - Optimize API calls to reduce unnecessary requests",
+        "testStrategy": "1. **Unit Testing**:\n   - Write unit tests for each quiz step component in isolation\n   - Test state transitions and validation logic\n   - Mock the SchoolDigger API responses for testing the school search functionality\n   - Verify that form validation correctly identifies valid and invalid inputs\n\n2. **Integration Testing**:\n   - Test the complete quiz flow from start to finish\n   - Verify that state is correctly maintained between steps\n   - Test navigation between steps (forward and backward)\n   - Ensure the progress indicator correctly reflects the current step\n\n3. **API Integration Testing**:\n   - Test the SchoolDigger API integration with real API calls in a staging environment\n   - Verify proper handling of API responses, including error cases\n   - Test search functionality with various input patterns\n\n4. **Responsive Design Testing**:\n   - Test the quiz flow on multiple device sizes (mobile, tablet, desktop)\n   - Verify that all UI elements are properly sized and positioned on small screens\n   - Test touch interactions on mobile devices\n\n5. **Accessibility Testing**:\n   - Run automated accessibility tests using tools like Axe or Lighthouse\n   - Perform keyboard navigation testing to ensure all interactions can be completed without a mouse\n   - Test with screen readers to verify proper ARIA attributes and focus management\n\n6. **User Flow Testing**:\n   - Verify that conditional logic works correctly (e.g., follow-up questions based on user type)\n   - Test that the quiz state is properly saved if a user refreshes or navigates away\n   - Ensure the loading animation displays correctly while processing final submission\n\n7. **Performance Testing**:\n   - Measure and optimize component render times\n   - Test the application's performance with the quiz component on lower-end devices\n   - Verify that lazy loading is working as expected",
+        "status": "done",
+        "dependencies": [
+          1
+        ],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Set up QuizFlow component structure and state management",
+            "description": "Create the parent QuizFlow component with state management implementation using Context API or state management library, and establish the component hierarchy for the 6 quiz steps.",
+            "dependencies": [],
+            "details": "Implement the QuizFlow parent component that will manage state transitions between steps. Set up a reducer pattern for state management using Context API or a library like Zustand. Create the basic structure for all 6 step components (UserType, KidsCount, SchoolSearch, LearningGoals, Interests, and LoadingScreen). Implement state persistence to allow users to return to the quiz if they navigate away. Ensure the component structure integrates with the routing system from Task #1.",
+            "status": "done",
+            "testStrategy": "Write unit tests for the state management implementation, testing state transitions between steps. Verify that the reducer correctly updates state based on different actions. Test state persistence functionality to ensure quiz progress is properly saved and retrieved."
+          },
+          {
+            "id": 2,
+            "title": "Implement shadcn progress indicator with animations",
+            "description": "Develop the progress indicator component using shadcn/ui that visually shows users their progression through the quiz steps with smooth animations for transitions.",
+            "dependencies": [
+              "2.1"
+            ],
+            "details": "Integrate the shadcn progress indicator component to display completion status across the 6 quiz steps. Implement animations for transitions between steps using CSS transitions or a library like Framer Motion. Ensure the indicator updates correctly as users progress through or navigate back in the quiz flow. Make the progress indicator responsive for different screen sizes and accessible for all users with appropriate ARIA attributes.",
+            "status": "done",
+            "testStrategy": "Test the progress indicator's visual representation at each step of the quiz. Verify animations work correctly during transitions. Ensure the component is accessible by testing with screen readers and keyboard navigation. Test responsive behavior across different viewport sizes."
+          },
+          {
+            "id": 3,
+            "title": "Develop the first three quiz step components with validation",
+            "description": "Create and implement the first three quiz steps: User Type selection, Number of Kids input, and School Search with SchoolDigger API integration.",
+            "dependencies": [
+              "2.1",
+              "2.2"
+            ],
+            "details": "Implement Step 1 (User Type) with a selection interface for different user types (Parents/Schools/etc.) and conditional follow-up questions. Create Step 2 (Number of Kids) with a number input component and validation logic. Develop Step 3 (School Search) by integrating with SchoolDigger API, implementing search functionality with autocomplete, handling API errors gracefully, and storing selected schools in state. Implement form validation for each step before allowing progression to the next step.",
+            "status": "done",
+            "testStrategy": "Write unit tests for each step component, testing validation logic and user interactions. For the School Search step, mock the SchoolDigger API responses to test search functionality, autocomplete behavior, and error handling. Verify that form validation correctly identifies valid and invalid inputs."
+          },
+          {
+            "id": 4,
+            "title": "Develop the final three quiz step components with validation",
+            "description": "Create and implement the final three quiz steps: Learning Goals selection, Kids' Interests selection, and the Loading Screen with animation.",
+            "dependencies": [
+              "2.1",
+              "2.2",
+              "2.3"
+            ],
+            "details": "Implement Step 4 (Learning Goals) with a multi-select component for learning goals categorized appropriately. Create Step 5 (Kids' Interests) with a popup modal containing interest selection options. Develop Step 6 (Loading Screen) with a Lottie animation that displays while processing user inputs. Implement form validation for the Learning Goals and Interests steps. Ensure all components maintain consistent styling using shadcn/ui components.",
+            "status": "done",
+            "testStrategy": "Test each component for proper rendering and state management. Verify that the multi-select components correctly track selected items. Test the modal functionality for the Interests step. For the Loading Screen, verify that the Lottie animation loads and plays correctly. Test validation logic for all form inputs."
+          },
+          {
+            "id": 5,
+            "title": "Implement responsive design and accessibility features",
+            "description": "Ensure the entire quiz flow is fully responsive across all device sizes and implement comprehensive accessibility features throughout all components.",
+            "dependencies": [
+              "2.1",
+              "2.2",
+              "2.3",
+              "2.4"
+            ],
+            "details": "Apply responsive design principles to all quiz components using CSS media queries and flexible layouts. Implement touch-friendly UI elements for mobile users. Test on various device sizes to ensure optimal user experience. Add proper accessibility features including appropriate labels, ARIA attributes, and keyboard navigation support for all interactive elements. Test with screen readers to verify accessibility compliance. Implement focus management to ensure users can navigate the quiz using only a keyboard.",
+            "status": "done",
+            "testStrategy": "Test responsive behavior across multiple device sizes and orientations. Verify touch interactions work correctly on mobile devices. Use accessibility testing tools to check for WCAG compliance. Test keyboard navigation to ensure all interactive elements can be accessed and operated without a mouse. Verify screen reader compatibility by testing with popular screen readers."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Implement Claude AI Integration for Personalized Content Generation",
+        "description": "Develop a backend service that leverages Claude AI to generate personalized educational content based on user quiz responses and school data, with streaming responses and proper error handling.",
+        "details": "This task involves implementing a robust Claude AI integration to generate personalized educational content:\n\n1. **API Integration Setup**:\n   - Set up Anthropic Claude API client with proper authentication\n   - Configure environment variables for API keys and endpoints\n   - Implement rate limiting and usage tracking to manage API costs\n\n2. **Data Processing Layer**:\n   - Create a data processing service that transforms quiz responses (from Task #2) into structured context\n   - Implement school data formatting from SchoolDigger API results\n   - Design a context-building function that combines user preferences, school data, and educational parameters\n\n3. **Prompt Engineering**:\n   - Design system prompts that instruct Claude on educational content generation\n   - Create templates for different content types:\n     - School report card summaries with key metrics highlighted\n     - Subject examples tailored to user interests (e.g., math problems, science concepts)\n     - Learning science explanations that match stated learning goals\n     - Personalized calls-to-action based on user type (parent, teacher, etc.)\n   - Implement prompt versioning to track and improve prompts over time\n\n4. **Streaming Response Handler**:\n   - Implement server-sent events (SSE) or WebSocket connection for streaming AI responses\n   - Create a client-side renderer that progressively displays content as it's generated\n   - Add typing animation effect for more engaging user experience\n   - Implement proper connection management (timeouts, reconnection logic)\n\n5. **Error Handling and Fallbacks**:\n   - Implement comprehensive error handling for API failures, timeout issues, and content moderation\n   - Create fallback content templates for cases where AI generation fails\n   - Add logging and monitoring to track generation quality and issues\n   - Implement content safety checks and filtering\n\n6. **Performance Optimization**:\n   - Add caching layer for similar queries to reduce API calls\n   - Implement background processing for non-critical content generation\n   - Optimize prompt size to reduce token usage while maintaining quality\n\n7. **Integration with Frontend**:\n   - Create API endpoints for the frontend to request personalized content\n   - Document the API interface for frontend developers\n   - Implement authentication and user session management for personalized requests\n\n8. **Educational Content Quality**:\n   - Implement educational content guidelines in prompts\n   - Add fact-checking suggestions in system prompts\n   - Create domain-specific knowledge enhancement for educational topics",
+        "testStrategy": "1. **Unit Testing**:\n   - Write unit tests for data processing functions that transform quiz responses into context\n   - Test prompt template generation with various input scenarios\n   - Verify error handling functions correctly handle different API failure modes\n   - Test caching mechanisms for expected behavior\n\n2. **Integration Testing**:\n   - Test end-to-end flow from quiz response to content generation\n   - Verify streaming response handling with simulated delays and chunks\n   - Test integration with the quiz component from Task #2\n   - Validate proper handling of school data in generated content\n\n3. **Performance Testing**:\n   - Measure response times for different content generation scenarios\n   - Test system under load with multiple concurrent requests\n   - Verify caching improves performance for similar requests\n   - Monitor token usage efficiency with different prompt structures\n\n4. **Content Quality Testing**:\n   - Create a rubric for evaluating generated educational content quality\n   - Perform manual review of sample generations across different subjects\n   - Test edge cases with unusual quiz responses or school data\n   - Verify factual accuracy of generated educational content\n\n5. **Security Testing**:\n   - Verify API keys are properly secured and not exposed\n   - Test for potential prompt injection vulnerabilities\n   - Ensure user data is properly handled and not exposed in prompts\n   - Validate content moderation is working as expected\n\n6. **User Acceptance Testing**:\n   - Conduct sessions with educational stakeholders to review content quality\n   - Gather feedback on personalization effectiveness\n   - Test with different user personas (parents, teachers, students)\n   - Measure engagement metrics with generated content",
+        "status": "pending",
+        "dependencies": [
+          1,
+          2
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "Build Dynamic Component Renderer for Personalized Content",
+        "description": "Develop a flexible component renderer that displays AI-generated personalized content including school report cards, TimeBack introduction, subject examples, learning science sections, and interactive CTAs with \"learn more\" functionality.",
+        "details": "This task involves building a comprehensive dynamic component renderer to display personalized content generated by the Claude AI integration:\n\n1. **Component Architecture**:\n   - Create a `DynamicContentRenderer` parent component that accepts structured content from the Claude AI integration\n   - Implement specialized sub-components for each content type:\n     - `SchoolReportCard`: Displays school performance metrics and comparisons\n     - `TimeBackIntroduction`: Explains the TimeBack concept and personalized benefits\n     - `SubjectExamples`: Shows customized learning examples for different subjects\n     - `LearningScience`: Presents relevant learning science concepts tailored to the user\n     - `CallToAction`: Displays personalized CTAs based on user profile\n   - Use a component registry pattern to map content types to their respective components\n   - Implement lazy loading for components to optimize initial page load\n\n2. **Interactive Features**:\n   - Add \"Learn More\" buttons to each section that trigger additional content generation\n   - Implement a content expansion system that calls the Claude API with context from the current section\n   - Create loading states and animations for when additional content is being generated\n   - Design a collapsible/expandable UI pattern for displaying follow-up content\n   - Implement a history mechanism to track and cache previously generated follow-up content\n\n3. **Styling and Responsiveness**:\n   - Follow the established blue/gray color scheme from the existing application\n   - Implement responsive design patterns that work across mobile, tablet, and desktop\n   - Use CSS Grid and Flexbox for adaptive layouts\n   - Ensure proper spacing and typography hierarchy for readability\n   - Implement smooth transitions between content states\n   - Use shadcn/ui components for consistent styling with the rest of the application\n\n4. **State Management**:\n   - Implement a context provider for managing the state of all dynamic content\n   - Create reducers for handling content loading, expansion, and user interactions\n   - Set up caching mechanisms to prevent unnecessary re-fetching of content\n   - Implement error boundaries to gracefully handle rendering failures\n\n5. **Performance Optimization**:\n   - Use React.memo and useMemo to prevent unnecessary re-renders\n   - Implement virtualization for long content sections\n   - Set up code-splitting for the different content components\n   - Optimize images and media content with next-generation formats and lazy loading\n\n6. **Accessibility Considerations**:\n   - Ensure all interactive elements have proper ARIA attributes\n   - Implement keyboard navigation for all interactive elements\n   - Ensure proper heading hierarchy and semantic HTML\n   - Test with screen readers and other assistive technologies\n   - Maintain appropriate color contrast ratios",
+        "testStrategy": "1. **Unit Testing**:\n   - Write unit tests for each specialized content component in isolation\n   - Test the component registry to ensure proper mapping of content types to components\n   - Verify that \"Learn More\" functionality correctly triggers API calls with the right context\n   - Test state transitions during content loading, expansion, and collapse\n   - Verify error handling and fallback UI for failed content loads\n\n2. **Integration Testing**:\n   - Test the integration between the DynamicContentRenderer and the Claude AI service\n   - Verify that the renderer correctly processes and displays the structured content from the API\n   - Test the interactive features with mocked API responses\n   - Ensure proper state management across multiple component interactions\n   - Verify that caching mechanisms work correctly for previously generated content\n\n3. **Responsive Testing**:\n   - Test the component renderer across different viewport sizes and devices\n   - Verify that layouts adapt appropriately to different screen sizes\n   - Test touch interactions on mobile devices\n   - Ensure content remains readable and accessible at all breakpoints\n   - Verify that interactive elements maintain usability across devices\n\n4. **Performance Testing**:\n   - Measure and optimize component render times\n   - Test memory usage during extended user sessions\n   - Verify that lazy loading and code splitting work as expected\n   - Measure Time to Interactive for the initial content load\n   - Test performance with large amounts of content\n\n5. **Accessibility Testing**:\n   - Run automated accessibility tests using tools like Axe or Lighthouse\n   - Conduct manual testing with screen readers (NVDA, VoiceOver)\n   - Verify keyboard navigation works for all interactive elements\n   - Test with different color contrast settings\n   - Ensure all interactive elements have appropriate focus states\n\n6. **User Acceptance Testing**:\n   - Create test scenarios that cover all content types and interactions\n   - Verify that the content is displayed in a clear and understandable manner\n   - Test the \"Learn More\" functionality with real API responses\n   - Ensure the UI follows the established design patterns and color scheme\n   - Gather feedback on the overall user experience",
+        "status": "pending",
+        "dependencies": [
+          3
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Integrate SchoolDigger API for School Search Functionality",
+        "description": "Implement SchoolDigger API integration to enable school search capabilities within the quiz flow, including a popup interface, school data display, and report card generation comparing test scores with TimeBack results.",
+        "details": "This task involves implementing a comprehensive SchoolDigger API integration to provide school search functionality:\n\n1. **API Integration Setup**:\n   - Configure SchoolDigger API client using environment variables (SCHOOLDIGGER_APP_ID and SCHOOLDIGGER_API_KEY)\n   - Create a service layer that abstracts API calls to SchoolDigger endpoints\n   - Implement proper request throttling to comply with API rate limits\n   - Set up environment variables for credentials with appropriate fallbacks\n\n2. **School Search Popup Interface**:\n   - Develop a modal component using shadcn/ui Dialog component for the search interface\n   - Implement a debounced search input field that triggers API calls as users type\n   - Create a responsive grid/list view to display search results\n   - Include pagination controls for navigating through multiple pages of results\n   - Add filters for narrowing results by school type, grade levels, and distance\n\n3. **School Data Display**:\n   - Design and implement components to display comprehensive school information:\n     - Basic details (name, address, district, grades served)\n     - Demographic information\n     - Academic performance metrics\n     - Ranking data (state and national)\n   - Create a \"select school\" action that stores the chosen school in the quiz state\n\n4. **Report Card Generation**:\n   - Develop a data processing utility that combines SchoolDigger test scores with TimeBack results\n   - Create visualization components (charts, graphs) to compare actual school performance vs. TimeBack projected improvements\n   - Implement a PDF export feature for the generated report cards\n   - Design a shareable link functionality for report cards\n\n5. **Location-Based School Finder**:\n   - Implement geolocation services to detect user's current location (with permission)\n   - Create a radius-based search feature to find schools near the user\n   - Develop a map visualization component showing school locations\n   - Add distance calculation and sorting capabilities\n\n6. **Caching and Performance Optimization**:\n   - Implement client-side caching of search results using React Query\n   - Set up a server-side cache for frequently requested school data\n   - Create a background prefetching mechanism for likely school selections\n   - Optimize image and data loading with lazy loading patterns\n\n7. **Error Handling and Edge Cases**:\n   - Implement comprehensive error handling for API failures\n   - Create fallback UI states for when the API is unavailable\n   - Handle edge cases like no results, slow connections, and partial data\n   - Add retry mechanisms for transient failures\n\n8. **Integration with Quiz Flow**:\n   - Connect the school search functionality to the appropriate quiz step from Task #2\n   - Ensure selected school data is properly stored in the quiz state\n   - Pass school data to the Claude AI integration (Task #3) for content generation\n   - Update the dynamic content renderer (Task #4) to display school-specific information",
+        "testStrategy": "1. **Unit Testing**:\n   - Write unit tests for the SchoolDigger API service layer\n   - Test search functionality with various input patterns\n   - Verify error handling for different API failure scenarios\n   - Test data transformation functions for report card generation\n   - Validate geolocation and distance calculation functions\n\n2. **Integration Testing**:\n   - Test the search popup integration within the quiz flow\n   - Verify that selected school data is correctly passed to subsequent components\n   - Test the end-to-end flow from school selection to report card generation\n   - Validate that the dynamic content renderer correctly displays school data\n\n3. **API Mock Testing**:\n   - Create mock responses for SchoolDigger API endpoints\n   - Test the UI with various response scenarios (empty results, large result sets, malformed data)\n   - Simulate API failures and verify graceful degradation\n\n4. **Performance Testing**:\n   - Measure and optimize API call frequency during user typing\n   - Test caching mechanisms for effectiveness\n   - Verify that large result sets don't impact UI performance\n   - Test report card generation with various school data sizes\n\n5. **User Acceptance Testing**:\n   - Verify the search experience is intuitive and responsive\n   - Test on various devices to ensure the popup interface is mobile-friendly\n   - Confirm that school data is presented clearly and accurately\n   - Validate that report card comparisons effectively communicate the value proposition\n\n6. **Security Testing**:\n   - Verify API credentials are properly secured\n   - Test for potential data leakage in client-side code\n   - Ensure user location data is handled securely\n   - Validate that shared report cards don't expose sensitive information\n\n7. **Accessibility Testing**:\n   - Test the search interface with screen readers\n   - Verify keyboard navigation works throughout the search experience\n   - Ensure color contrast meets WCAG standards\n   - Test with various font sizes and zoom levels",
+        "status": "pending",
+        "dependencies": [
+          2,
+          3,
+          4
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "Enhance Google OAuth Authentication with Gender API Integration",
+        "description": "Enhance the Google OAuth authentication flow to include Gender API integration for personalized content, ensure seamless transition from authentication to quiz flow, extract user profile data, and implement proper session management.",
+        "details": "This task involves enhancing the existing Google OAuth authentication flow with Gender API integration and improved session management:\n\n1. **Google OAuth Configuration**:\n   - Review and update the existing NextAuth.js configuration to ensure it's properly set up for Google OAuth\n   - Configure the necessary scopes to access user profile information (name, email, profile picture)\n   - Implement proper error handling for authentication failures\n   - Set up environment variables for Google OAuth credentials (CLIENT_ID, CLIENT_SECRET)\n\n2. **Gender API Integration**:\n   - Set up Gender API client using appropriate credentials\n   - Create a service layer that abstracts API calls to Gender API endpoints\n   - Implement a function to determine gender based on the user's first name extracted from Google profile\n   - Cache gender results to minimize API calls and improve performance\n   - Handle edge cases where gender cannot be determined with confidence\n\n3. **User Profile Data Extraction**:\n   - Extract first name from Google profile data during authentication\n   - Implement proper data sanitization and validation\n   - Store relevant user information in the session for personalization purposes\n   - Create utility functions to access user profile data throughout the application\n\n4. **Session Management**:\n   - Configure NextAuth.js session handling for optimal performance and security\n   - Implement proper session persistence across the application\n   - Set up appropriate session timeouts and refresh mechanisms\n   - Create middleware to protect routes that require authentication\n   - Handle session expiration gracefully with automatic redirects to login\n\n5. **Authentication to Quiz Flow Transition**:\n   - Implement a seamless redirect from successful authentication to the quiz flow\n   - Preserve any pre-authentication state or parameters during the transition\n   - Add loading states during authentication to improve user experience\n   - Create a mechanism to skip authentication for returning users with valid sessions\n\n6. **User Experience Enhancements**:\n   - Add clear error messages for authentication failures\n   - Implement loading indicators during the authentication process\n   - Create a consistent visual style for authentication components\n   - Ensure the authentication flow is responsive across different devices\n\n7. **Security Considerations**:\n   - Implement CSRF protection for authentication flows\n   - Ensure proper validation of OAuth tokens and state parameters\n   - Follow OAuth security best practices for token storage and transmission\n   - Implement rate limiting for authentication attempts to prevent abuse",
+        "testStrategy": "1. **Unit Testing**:\n   - Write unit tests for the Gender API service layer\n   - Test user profile data extraction functions with various input patterns\n   - Verify error handling for different authentication failure scenarios\n   - Test session management utilities and middleware\n   - Validate the authentication to quiz flow transition logic\n\n2. **Integration Testing**:\n   - Test the complete authentication flow from start to finish\n   - Verify that Google OAuth authentication works correctly in different browsers\n   - Test the Gender API integration with real and mock data\n   - Ensure session persistence works correctly across multiple requests\n   - Verify that protected routes correctly redirect unauthenticated users\n\n3. **End-to-End Testing**:\n   - Create E2E tests that simulate a user logging in with Google OAuth\n   - Test the complete flow from authentication to quiz completion\n   - Verify that user profile data is correctly displayed throughout the application\n   - Test session expiration and renewal scenarios\n   - Ensure authentication state is preserved during page refreshes\n\n4. **Security Testing**:\n   - Perform security audits on the authentication implementation\n   - Test CSRF protection mechanisms\n   - Verify that sensitive data is not exposed in client-side code\n   - Test rate limiting functionality for authentication endpoints\n   - Ensure proper validation of all authentication parameters\n\n5. **Performance Testing**:\n   - Measure authentication flow completion time\n   - Test session management performance under load\n   - Verify that Gender API caching mechanisms work correctly\n   - Ensure the authentication process doesn't introduce significant latency",
+        "status": "pending",
+        "dependencies": [
+          1,
+          2
+        ],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "Optimize Mobile Experience for Quiz Flow and Personalized Landing Page",
+        "description": "Enhance the entire quiz flow and personalized landing page for mobile devices, ensuring responsive design, touch-friendly interactions, optimal performance, and progressive web app capabilities.",
+        "details": "This task involves comprehensive mobile optimization of the quiz flow and personalized landing page:\n\n1. **Responsive Design Implementation**:\n   - Audit all existing components for mobile responsiveness using Chrome DevTools and real device testing\n   - Implement mobile-first CSS using Tailwind's responsive modifiers for all quiz components\n   - Create custom breakpoints for critical UI transitions if needed\n   - Ensure text remains readable on small screens (minimum 16px font size for body text)\n   - Optimize spacing and padding for touch targets (minimum 44x44px)\n\n2. **Touch Interaction Enhancements**:\n   - Replace hover states with appropriate touch interactions\n   - Implement touch-friendly form elements (larger input areas, custom select components)\n   - Add swipe gestures for quiz navigation using libraries like react-swipeable\n   - Ensure all interactive elements have appropriate touch feedback (visual state changes)\n   - Test and optimize touch target sizes for all buttons and interactive elements\n\n3. **Performance Optimization**:\n   - Implement code splitting for quiz flow components using Next.js dynamic imports\n   - Optimize and lazy-load images with next/image and proper sizing\n   - Implement resource hints (preconnect, prefetch) for critical resources\n   - Minimize main thread work by optimizing JavaScript execution\n   - Reduce CSS and JavaScript bundle sizes through tree-shaking and minification\n   - Implement skeleton loading states for asynchronous content\n\n4. **Progressive Web App Features**:\n   - Create and configure a web manifest file (manifest.json)\n   - Implement service workers for offline functionality\n   - Add appropriate app icons for various platforms\n   - Configure proper caching strategies for API responses\n   - Implement \"Add to Home Screen\" prompts at appropriate moments\n   - Ensure the application meets PWA audit requirements\n\n5. **Animation and Transition Optimization**:\n   - Use CSS transitions instead of JavaScript animations where possible\n   - Implement hardware-accelerated animations (transform, opacity)\n   - Optimize animation frame rates (target 60fps)\n   - Add reduced motion options for accessibility\n   - Ensure animations don't block user interaction\n\n6. **Mobile-specific UI Adjustments**:\n   - Redesign the progress indicator for smaller screens\n   - Create mobile-optimized layouts for the school search popup\n   - Implement a mobile-friendly navigation pattern for the personalized content\n   - Ensure all modals and popups are properly sized and dismissible on mobile\n   - Adapt the report card visualization for smaller screens\n\n7. **Testing and Validation**:\n   - Create a device testing matrix covering iOS and Android devices\n   - Implement Lighthouse CI for automated performance monitoring\n   - Use Chrome User Experience Report data to track real-world performance\n   - Set up cross-browser testing with BrowserStack or similar services\n   - Document mobile-specific edge cases and their solutions",
+        "testStrategy": "1. **Device Testing Matrix**:\n   - Test on at least 3 iOS devices (different screen sizes and iOS versions)\n   - Test on at least 3 Android devices (different manufacturers and Android versions)\n   - Test on tablet devices (iPad and Android tablets)\n   - Document and address any device-specific issues\n\n2. **Performance Testing**:\n   - Run Lighthouse audits for mobile performance, accessibility, best practices, and PWA\n   - Set performance budgets: Time to Interactive < 3.5s, First Contentful Paint < 1.5s\n   - Test on slow network connections (3G throttling)\n   - Measure and optimize Core Web Vitals (LCP, FID, CLS)\n   - Use WebPageTest for detailed performance analysis\n\n3. **Touch Interaction Testing**:\n   - Verify all interactive elements are easily tappable on small screens\n   - Test swipe gestures and custom touch interactions\n   - Ensure form elements are usable with on-screen keyboards\n   - Verify that no functionality is dependent on hover states\n   - Test with different input methods (stylus, gloves)\n\n4. **Responsive Design Testing**:\n   - Verify layouts at standard breakpoints (320px, 375px, 414px, 768px)\n   - Test orientation changes (portrait to landscape)\n   - Verify text readability and form usability at all sizes\n   - Check for horizontal scrolling issues or overflow problems\n   - Test with different font size settings and zoom levels\n\n5. **PWA Feature Testing**:\n   - Verify offline functionality works as expected\n   - Test \"Add to Home Screen\" flow on iOS and Android\n   - Verify app icon appears correctly on home screens\n   - Test service worker update process\n   - Verify cached content is properly invalidated when needed\n\n6. **Accessibility Testing**:\n   - Test with screen readers on mobile (VoiceOver, TalkBack)\n   - Verify touch targets meet WCAG requirements\n   - Test with reduced motion settings enabled\n   - Verify color contrast ratios on mobile screens\n   - Test with different text size settings\n\n7. **User Testing**:\n   - Conduct usability testing with at least 5 mobile users\n   - Record and analyze user interaction patterns\n   - Collect feedback on mobile-specific pain points\n   - Measure task completion rates on mobile vs desktop\n   - Iterate on design based on user feedback",
+        "status": "pending",
+        "dependencies": [
+          2,
+          4,
+          6
+        ],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "Create Content Database with Vector Search and Analytics Infrastructure",
+        "description": "Develop a content database system for videos, testimonials, and activities with vector embedding search capabilities, implement analytics tracking, A/B testing functionality, and performance monitoring for the personalized landing page flow.",
+        "details": "This task involves building a comprehensive content management and analytics infrastructure:\n\n1. **Vector Database Implementation**:\n   - Set up a PostgreSQL database with pgvector extension for vector embeddings storage\n   - Create schema for different content types (videos, testimonials, afternoon activities)\n   - Implement content metadata tables with appropriate relationships and indexes\n   - Design a flexible tagging system for content categorization\n\n2. **Vector Embedding Generation**:\n   - Integrate with OpenAI's text-embedding-ada-002 model for generating embeddings\n   - Create a processing pipeline to automatically generate embeddings for new content\n   - Implement batch processing for existing content\n   - Set up scheduled jobs to update embeddings when content changes\n\n3. **Search API Development**:\n   - Create RESTful endpoints for semantic search across content types\n   - Implement similarity search using cosine distance on vector embeddings\n   - Add filtering capabilities based on content metadata and tags\n   - Develop relevance scoring algorithm that combines semantic and metadata matching\n   - Implement pagination and result limiting for efficient queries\n\n4. **Analytics Tracking System**:\n   - Set up a comprehensive event tracking system using Segment or a custom solution\n   - Track key user interactions:\n     - Quiz completion rates and drop-off points\n     - Content engagement metrics (views, time spent, interactions)\n     - Conversion events (sign-ups, downloads, etc.)\n   - Implement user session tracking with anonymous ID persistence\n   - Create a data pipeline for analytics processing and storage\n\n5. **A/B Testing Framework**:\n   - Develop a configurable A/B testing system for content variations\n   - Implement experiment definition schema with variant allocation rules\n   - Create server-side variant assignment logic with consistent user bucketing\n   - Build reporting infrastructure to measure variant performance\n   - Ensure proper statistical analysis for experiment results\n\n6. **Performance Monitoring**:\n   - Set up application performance monitoring using New Relic or similar tool\n   - Implement custom metrics for critical user flows\n   - Create dashboards for key performance indicators\n   - Configure alerting for performance degradation\n   - Add distributed tracing for end-to-end flow analysis\n\n7. **Integration with Existing Components**:\n   - Connect the content database with the Dynamic Component Renderer (Task #4)\n   - Integrate analytics with the quiz flow component (Task #2)\n   - Ensure compatibility with Claude AI content generation (Task #3)\n   - Support mobile optimization requirements (Task #7)\n\n8. **Admin Interface**:\n   - Create a simple admin interface for content management\n   - Implement CRUD operations for all content types\n   - Add bulk import/export functionality\n   - Include preview capabilities for content variations",
+        "testStrategy": "1. **Database Testing**:\n   - Verify database schema with unit tests for model constraints and relationships\n   - Benchmark vector search performance with various dataset sizes\n   - Test concurrent read/write operations for potential race conditions\n   - Validate data integrity constraints and cascading operations\n\n2. **Vector Embedding Testing**:\n   - Test embedding generation with various content types and lengths\n   - Verify consistency of embeddings for similar content\n   - Benchmark embedding generation performance\n   - Test error handling for embedding generation failures\n\n3. **Search API Testing**:\n   - Create automated tests for all search endpoints with various query parameters\n   - Verify search relevance with predefined test cases\n   - Test edge cases like empty queries, special characters, and very large result sets\n   - Perform load testing to ensure search performance under high concurrency\n\n4. **Analytics Testing**:\n   - Implement end-to-end tests for event tracking across user flows\n   - Verify data consistency between client events and server storage\n   - Test analytics in various browser environments and network conditions\n   - Validate proper anonymization of personally identifiable information\n\n5. **A/B Testing Validation**:\n   - Test variant assignment consistency across multiple sessions\n   - Verify proper distribution of users across experiment variants\n   - Test experiment activation/deactivation functionality\n   - Validate statistical analysis calculations with known datasets\n\n6. **Performance Testing**:\n   - Conduct load testing on the entire personalized landing page flow\n   - Measure and optimize database query performance\n   - Test CDN caching effectiveness for content delivery\n   - Verify monitoring alerts trigger appropriately under simulated conditions\n\n7. **Integration Testing**:\n   - Test integration with the Dynamic Component Renderer using mock data\n   - Verify analytics capture during quiz flow completion\n   - Test content recommendation accuracy with the Claude AI integration\n   - Validate mobile experience with the content database\n\n8. **User Acceptance Testing**:\n   - Create test scenarios for content managers using the admin interface\n   - Verify content updates properly propagate through the system\n   - Test the end-to-end user experience with real content\n   - Validate reporting accuracy for business stakeholders",
+        "status": "pending",
+        "dependencies": [
+          2,
+          3,
+          4
+        ],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Create New Route Structure",
+        "description": "Set up the new route '/ai-experience-v2' and modify ButtonAIExperience component to route to this new page.",
+        "details": "1. Create a new page component at pages/ai-experience-v2.tsx\n2. Set up the route in the Next.js router configuration\n3. Modify the ButtonAIExperience component to direct users to the new route instead of the existing /quiz flow\n4. Implement the basic page structure with progressive data collection capability as users scroll\n5. Set up state management for collecting user data throughout the page\n6. Create a container layout that will house all the sections described in the PRD",
+        "testStrategy": "1. Unit test the ButtonAIExperience component to verify it routes to the correct path\n2. Test navigation to ensure the new route is accessible\n3. Verify that the page structure renders correctly\n4. Test the scroll behavior and ensure the progressive data collection state is maintained",
+        "priority": "high",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create AI Experience V2 Page Component",
+            "description": "Create a new page component at app/ai-experience-v2/page.tsx that will serve as the entry point for the new AI experience flow.",
+            "dependencies": [],
+            "details": "Create the directory structure app/ai-experience-v2/ and implement the page.tsx file. Use the Next.js App Router structure. The initial implementation should include a basic layout with a title and placeholder sections for the content that will be added later. Export a default React component that returns the page structure.",
+            "status": "pending",
+            "testStrategy": "Verify the page renders correctly without errors. Test navigation to the page using Next.js Link or direct URL access."
+          },
+          {
+            "id": 2,
+            "title": "Modify ButtonAIExperience Component",
+            "description": "Update the ButtonAIExperience component to direct users to the new /ai-experience-v2 route instead of the existing /quiz flow.",
+            "dependencies": [
+              "9.1"
+            ],
+            "details": "Locate the ButtonAIExperience component in the codebase. Change the routing logic to navigate to '/ai-experience-v2' instead of the current path. Update any related text or tooltips to reflect the new experience. Ensure the component maintains all existing functionality except for the route change.",
+            "status": "pending",
+            "testStrategy": "Unit test the ButtonAIExperience component to verify it routes to the correct path. Test the component in isolation using React Testing Library to confirm the correct href or navigation function is called."
+          },
+          {
+            "id": 3,
+            "title": "Implement Container Layout for Page Sections",
+            "description": "Create a container layout component that will house all the sections described in the PRD for the AI experience page.",
+            "dependencies": [
+              "9.1"
+            ],
+            "details": "Create a layout component that will be used in the page.tsx file. The layout should include responsive container elements for each major section of the page. Implement a grid or flex-based layout system that adapts to different screen sizes. Include placeholder components for each section that will be implemented in future tasks.",
+            "status": "pending",
+            "testStrategy": "Test the layout's responsiveness across different viewport sizes. Verify that the container properly houses placeholder content and maintains appropriate spacing and alignment."
+          },
+          {
+            "id": 4,
+            "title": "Set Up State Management for Progressive Data Collection",
+            "description": "Implement state management to collect and store user data progressively as they interact with different sections of the page.",
+            "dependencies": [
+              "9.3"
+            ],
+            "details": "Create a state management solution using React Context or a similar approach to maintain user data across the entire page. Implement functions for updating state as users scroll through sections and provide inputs. The state should persist during the session and be accessible to all components within the page. Include initial state values and type definitions for the collected data.",
+            "status": "pending",
+            "testStrategy": "Test state updates with mock user interactions. Verify that data persists correctly as users navigate between different sections of the page. Test edge cases like partial data submission and form validation."
+          },
+          {
+            "id": 5,
+            "title": "Implement Scroll-Based Progressive Data Collection",
+            "description": "Create a mechanism that detects user scroll position and triggers data collection components as users progress through the page.",
+            "dependencies": [
+              "9.3",
+              "9.4"
+            ],
+            "details": "Implement an Intersection Observer or scroll event handler to detect when specific sections enter the viewport. Connect these scroll events to the state management system to trigger data collection at appropriate points. Create smooth transitions between sections as users scroll. Implement a visual indicator of progress through the experience.",
+            "status": "pending",
+            "testStrategy": "Test scroll detection with various scroll speeds and browser dimensions. Verify that the correct components are activated at the appropriate scroll positions. Test that data collection is triggered correctly based on scroll position."
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Implement AI Tutor Introduction Section",
+        "description": "Create the initial section that introduces the AI tutor concept with the headline 'How We Get Your Child to the 98th Percentile in Only 2 Hours a Day'.",
+        "details": "1. Create a new component for the introduction section\n2. Implement the headline and explanatory text about 1-on-1 AI tutoring\n3. Design and implement an interactive visualization showing the AI tutoring concept\n4. Ensure the section is responsive and visually appealing\n5. Add animations for enhanced user engagement\n6. Include a transition to the next section",
+        "testStrategy": "1. Unit test the component rendering\n2. Verify that all text content is displayed correctly\n3. Test the interactive visualization functionality\n4. Ensure responsive design works across different screen sizes\n5. Test animations and transitions",
+        "priority": "high",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 11,
+        "title": "Develop Subject Completion Times Comparison Chart",
+        "description": "Create an interactive visual chart comparing Alpha student completion times versus traditional school across Math, Language, and Science subjects for grades K-12.",
+        "details": "1. Create a reusable chart component using a library like Chart.js or D3.js\n2. Parse and format the XML data provided for subject completion times\n3. Implement interactive tooltips showing detailed breakdowns\n4. Add filters for different subjects and grade levels\n5. Ensure the chart is responsive and accessible\n6. Implement color coding to highlight the differences between Alpha and traditional schools\n7. Add animations for data transitions when filters are applied",
+        "testStrategy": "1. Unit test the chart component with mock data\n2. Test data parsing and formatting functions\n3. Verify tooltip functionality and content accuracy\n4. Test filter interactions and state management\n5. Ensure accessibility standards are met (keyboard navigation, screen reader support)\n6. Test responsive behavior across devices",
+        "priority": "medium",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 12,
+        "title": "Create Test Results Showcase Visualization",
+        "description": "Implement interactive visualizations for MAP test results across all grades and SAT comparison for high schoolers.",
+        "details": "1. Create a component for displaying test results visualizations\n2. Implement MAP test results visualization showing 99th percentile achievements\n3. Add an interactive grade selector to display grade-specific results\n4. Create SAT comparison visualization (1474 vs 1028 national average) for high school students\n5. Implement smooth transitions between different data views\n6. Ensure all visualizations are responsive and accessible\n7. Add data tooltips for detailed information",
+        "testStrategy": "1. Unit test the visualization components\n2. Test the grade selector functionality\n3. Verify data accuracy in all visualizations\n4. Test responsive design across different screen sizes\n5. Ensure accessibility standards are met\n6. Test transitions and animations",
+        "priority": "medium",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 13,
+        "title": "Implement 'How Is This Possible?' Section",
+        "description": "Create a preview/table of contents section explaining the process of how the system achieves results through diagnostic tests, personalized questions, AI tutoring, and test-out capabilities.",
+        "details": "1. Design and implement a visually appealing process flow or table of contents\n2. Create content blocks for each step in the process:\n   - Diagnostic test to determine aptitude\n   - Personalized questions based on interests\n   - AI tutor matching student level\n   - Test-out capability for mastered subjects\n3. Add visual icons or illustrations for each step\n4. Implement subtle animations or transitions between steps\n5. Ensure the section is responsive and accessible",
+        "testStrategy": "1. Unit test the component rendering\n2. Verify all content is displayed correctly\n3. Test responsive design across different screen sizes\n4. Ensure accessibility standards are met\n5. Test animations and transitions",
+        "priority": "medium",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 14,
+        "title": "Build Interactive Demo Application",
+        "description": "Create a live example of the diagnostic test preview with interest input field and real-time question generation based on interests.",
+        "details": "1. Create a form component for interest input\n2. Implement API integration with the AI question generation endpoint\n3. Create a display component for generated questions\n4. Add loading states for AI-generated content\n5. Implement examples of personalized questions (physics with football, math with soccer)\n6. Add error handling for API failures\n7. Ensure the demo is interactive and responsive\n8. Implement debouncing for API calls during typing",
+        "testStrategy": "1. Unit test the form component\n2. Mock API calls for testing question generation\n3. Test loading states and error handling\n4. Verify that generated questions match the input interests\n5. Test responsiveness across different devices\n6. Perform integration tests with the actual API endpoint",
+        "priority": "high",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 15,
+        "title": "Develop Daily Learning Hours Visualization",
+        "description": "Create an interactive chart showing that students study less than 2 hours per day, with data visualization of hours per student and highlighting the average of 1.8 hours.",
+        "details": "1. Design and implement a chart component using a charting library\n2. Create or integrate with data source for student study hours\n3. Implement interactive elements like hover effects and tooltips\n4. Highlight the average study time of 1.8 hours\n5. Add annotations or callouts to emphasize key points\n6. Ensure the visualization is responsive and accessible\n7. Implement smooth animations for data presentation",
+        "testStrategy": "1. Unit test the chart component with mock data\n2. Verify data calculations and average display\n3. Test interactive elements and tooltips\n4. Ensure accessibility standards are met\n5. Test responsive behavior across different screen sizes",
+        "priority": "medium",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 16,
+        "title": "Create 'Why It Works' Section with Learning Science Explanation",
+        "description": "Implement a section explaining the learning science behind the system, including Bloom's 2 Sigma, interactive boxplot showing classroom diversity, and individualized learning paths visualization.",
+        "details": "1. Create content explaining Bloom's 2 Sigma principle\n2. Design and implement an interactive boxplot visualization for classroom diversity\n3. Create a visualization for individualized learning paths\n4. Add interactive elements to enhance understanding\n5. Ensure all visualizations are responsive and accessible\n6. Implement smooth transitions and animations\n7. Add tooltips or popovers for additional information",
+        "testStrategy": "1. Unit test the component rendering\n2. Test interactive elements and visualizations\n3. Verify content accuracy\n4. Test responsive design across different screen sizes\n5. Ensure accessibility standards are met\n6. Test animations and transitions",
+        "priority": "medium",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 17,
+        "title": "Implement 'Day in the Life' Visual Schedule",
+        "description": "Create a visual breakdown of 120-minute learning blocks with an interactive schedule showing 4x 25-minute subject sessions, 20 minutes additional math/strategies, and included breaks.",
+        "details": "1. Design and implement a timeline or schedule visualization\n2. Create interactive elements to show details for each time block\n3. Implement color coding for different types of activities\n4. Add animations or transitions for enhanced user experience\n5. Ensure the schedule is responsive and accessible\n6. Add tooltips or expandable sections for additional information about each time block",
+        "testStrategy": "1. Unit test the schedule component\n2. Test interactive elements and state management\n3. Verify time calculations and display\n4. Test responsive design across different screen sizes\n5. Ensure accessibility standards are met\n6. Test animations and transitions",
+        "priority": "medium",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 18,
+        "title": "Develop Student Experience Dashboard Preview",
+        "description": "Create a preview of student dashboards showing visual progress tracking (Jenga tower), goal setting interface, and daily rings completion tracker.",
+        "details": "1. Design and implement a mock student dashboard\n2. Create a visual Jenga tower component for progress tracking\n3. Implement a goal setting interface preview\n4. Create daily rings completion tracker visualization\n5. Add interactive elements to demonstrate functionality\n6. Ensure the dashboard preview is responsive and visually appealing\n7. Implement animations to simulate real dashboard interactions",
+        "testStrategy": "1. Unit test dashboard components\n2. Test interactive elements and animations\n3. Verify visual consistency across browsers\n4. Test responsive design across different screen sizes\n5. Ensure accessibility standards are met",
+        "priority": "medium",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 19,
+        "title": "Create Parent Monitoring Portal Preview",
+        "description": "Implement a preview of the parent monitoring portal showing real-time learning analytics, detailed progress reports, accuracy metrics, and time efficiency tracking.",
+        "details": "1. Design and implement a mock parent monitoring portal\n2. Create visualizations for learning analytics\n3. Implement detailed progress report previews\n4. Create accuracy metrics and time efficiency tracking visualizations\n5. Add interactive elements to demonstrate functionality\n6. Ensure the portal preview is responsive and visually appealing\n7. Implement animations to simulate real portal interactions",
+        "testStrategy": "1. Unit test portal components\n2. Test interactive elements and animations\n3. Verify visual consistency across browsers\n4. Test responsive design across different screen sizes\n5. Ensure accessibility standards are met",
+        "priority": "medium",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 20,
+        "title": "Implement Progressive Data Collection System",
+        "description": "Create a system for progressively collecting user data throughout the page, including child's grade level, current school performance, learning challenges, interests, and parent contact information.",
+        "details": "1. Design and implement form fields that appear at strategic points throughout the page\n2. Create a state management system to store collected data\n3. Implement validation for each form field\n4. Create smooth transitions for form field appearance\n5. Implement data persistence to maintain state during page navigation\n6. Add a final submission form for parent contact information\n7. Create API integration to store collected data\n8. Implement privacy controls and consent mechanisms",
+        "testStrategy": "1. Unit test form components and validation\n2. Test state management for data collection\n3. Verify data persistence during navigation\n4. Test form submission and API integration\n5. Ensure accessibility standards are met for all form fields\n6. Test responsive design across different screen sizes",
+        "priority": "high",
+        "dependencies": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-07-31T14:23:19.920Z",
+      "updated": "2025-08-01T18:34:40.862Z",
+      "description": "Tasks for master context"
+    }
+  },
+  "ai-personalized-experience": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Setup Next.js 14 Project with TypeScript and Tailwind CSS",
+        "description": "Initialize the project repository with Next.js 14 app router, TypeScript, and Tailwind CSS configurations.",
+        "details": "1. Create a new Next.js 14 project using the app router: `npx create-next-app@latest timeback-ai --typescript --tailwind --eslint --app`\n2. Set up project structure with appropriate folders:\n   - `/app` - for app router pages\n   - `/components` - for reusable UI components\n   - `/lib` - for utility functions\n   - `/types` - for TypeScript type definitions\n   - `/public` - for static assets\n3. Configure Tailwind CSS with appropriate theme extensions for the TimeBack brand colors and typography\n4. Set up ESLint and Prettier for code quality\n5. Initialize Git repository and create initial commit",
+        "testStrategy": "Verify project setup by running the development server and confirming that the app compiles without errors. Check that TypeScript and Tailwind CSS are properly configured by creating a simple test component.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create Next.js 14 Project with TypeScript",
+            "description": "Initialize a new Next.js 14 project with TypeScript, Tailwind CSS, and ESLint using the app router.",
+            "dependencies": [],
+            "details": "Run `npx create-next-app@latest timeback-ai --typescript --tailwind --eslint --app` to create the project. Verify the installation completed successfully by checking the generated files and directories. Ensure Next.js 14 features are properly configured in the package.json.",
+            "status": "done",
+            "testStrategy": "Run `npm run dev` to verify the development server starts without errors. Check that the default Next.js page loads correctly in the browser."
+          },
+          {
+            "id": 2,
+            "title": "Set Up Project Folder Structure",
+            "description": "Organize the project with appropriate folders for components, utilities, types, and static assets.",
+            "dependencies": [],
+            "details": "Create the following directory structure: `/app` for app router pages, `/components` for reusable UI components, `/lib` for utility functions, `/types` for TypeScript type definitions, and `/public` for static assets. Add README files in each directory explaining its purpose.",
+            "status": "done",
+            "testStrategy": "Verify all directories are created with the correct structure. Ensure the project still builds without errors after creating the folder structure."
+          },
+          {
+            "id": 3,
+            "title": "Configure Tailwind CSS with Brand Theme",
+            "description": "Extend Tailwind CSS configuration with TimeBack brand colors and typography settings.",
+            "dependencies": [],
+            "details": "Modify the tailwind.config.js file to add custom color palette for TimeBack brand. Configure typography settings including font families, sizes, and weights. Set up responsive breakpoints that align with the design requirements. Create a base styles file for global CSS rules.",
+            "status": "done",
+            "testStrategy": "Create a test component that uses the custom theme values to verify they're properly applied. Check that the Tailwind classes work correctly across different screen sizes."
+          },
+          {
+            "id": 4,
+            "title": "Set Up ESLint and Prettier",
+            "description": "Configure code quality tools including ESLint and Prettier with appropriate rules.",
+            "dependencies": [],
+            "details": "Install Prettier: `npm install --save-dev prettier eslint-config-prettier`. Create configuration files: .eslintrc.json and .prettierrc. Set up rules for TypeScript, React, and Next.js best practices. Add scripts to package.json for linting and formatting. Configure VS Code settings for the project.",
+            "status": "done",
+            "testStrategy": "Run `npm run lint` to verify ESLint is working correctly. Test Prettier formatting on sample files to ensure consistent code style."
+          },
+          {
+            "id": 5,
+            "title": "Initialize Git Repository",
+            "description": "Set up version control with Git, create initial commit, and configure .gitignore file.",
+            "dependencies": [],
+            "details": "Initialize Git repository with `git init`. Create a comprehensive .gitignore file for Next.js projects, including node_modules, .next, build outputs, and environment files. Create initial commit with all configured files. Set up a remote repository on GitHub or similar platform. Add README.md with project description and setup instructions.",
+            "status": "done",
+            "testStrategy": "Verify that the .gitignore file correctly excludes build artifacts and sensitive files. Check that the initial commit includes all necessary configuration files but excludes node_modules and other ignored directories."
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Implement Claude Sonnet 4 API Integration with Vercel AI SDK",
+        "description": "Set up the integration with Claude Sonnet 4 API using Vercel AI SDK for streaming responses.",
+        "details": "1. Install Vercel AI SDK: `npm install ai @vercel/ai`\n2. Create API route in `/app/api/chat/route.ts` for Claude Sonnet 4 integration\n3. Configure the API with the claude-sonnet-4-20250514 model\n4. Implement streaming response handling using Vercel AI SDK\n5. Set up environment variables for API keys\n6. Create a utility function in `/lib/claude.ts` for reusable API calls\n7. Implement error handling and rate limiting protection\n8. Add TypeScript interfaces for request/response types",
+        "testStrategy": "Create a simple test endpoint that verifies the connection to Claude API. Test streaming functionality by building a minimal chat interface. Verify that responses are properly streamed and that the correct model (claude-sonnet-4-20250514) is being used.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Set up Vercel AI SDK and environment variables",
+            "description": "Install the Vercel AI SDK package and configure necessary environment variables for Claude API integration",
+            "dependencies": [],
+            "details": "Install Vercel AI SDK using npm install ai @vercel/ai. Create a .env.local file to store the Anthropic API key. Add ANTHROPIC_API_KEY to the environment variables. Update the .env.example file with the required variables. Configure Next.js to use the environment variables.",
+            "status": "done",
+            "testStrategy": "Verify that the SDK is properly installed by checking package.json. Confirm environment variables are properly loaded by creating a simple test endpoint that logs the existence of the API key (without exposing it)."
+          },
+          {
+            "id": 2,
+            "title": "Create TypeScript interfaces for Claude API",
+            "description": "Define TypeScript interfaces for request and response types to ensure type safety when working with the Claude API",
+            "dependencies": [
+              "2.1"
+            ],
+            "details": "Create a types directory if it doesn't exist. Define interfaces for ChatRequest and ChatResponse types. Include types for streaming responses. Define model configuration types for claude-sonnet-4-20250514. Create types for error handling responses. Document each interface with JSDoc comments.",
+            "status": "done",
+            "testStrategy": "Verify type correctness by implementing a simple function that uses these types and check for TypeScript errors. Ensure the interfaces match the actual Claude API documentation."
+          },
+          {
+            "id": 3,
+            "title": "Implement utility function in /lib/claude.ts",
+            "description": "Create a reusable utility function for making API calls to Claude Sonnet 4",
+            "dependencies": [
+              "2.1",
+              "2.2"
+            ],
+            "details": "Create the /lib directory if it doesn't exist. Implement claude.ts with a function that handles API calls to Claude. Configure the function to use claude-sonnet-4-20250514 model. Add proper error handling with try/catch blocks. Implement timeout handling. Add documentation for the utility function. Include parameter validation.",
+            "status": "done",
+            "testStrategy": "Create a simple test that calls the utility function with mock data and verifies the response structure. Test error handling by simulating API failures."
+          },
+          {
+            "id": 4,
+            "title": "Create API route for Claude integration",
+            "description": "Implement the API route in /app/api/chat/route.ts that will handle requests to Claude API",
+            "dependencies": [
+              "2.1",
+              "2.2",
+              "2.3"
+            ],
+            "details": "Create the /app/api/chat directory if it doesn't exist. Implement route.ts with POST handler for chat requests. Use the Vercel AI SDK to configure the Claude API with claude-sonnet-4-20250514 model. Implement request validation. Set up proper CORS headers. Add rate limiting protection to prevent abuse. Use the utility function from /lib/claude.ts for API calls.",
+            "status": "done",
+            "testStrategy": "Test the API route with Postman or a similar tool to verify it accepts requests and returns proper responses. Test rate limiting by sending multiple requests in quick succession."
+          },
+          {
+            "id": 5,
+            "title": "Implement streaming response handling",
+            "description": "Configure the API to handle streaming responses from Claude Sonnet 4 using Vercel AI SDK",
+            "dependencies": [
+              "2.1",
+              "2.2",
+              "2.3",
+              "2.4"
+            ],
+            "details": "Use Vercel AI SDK's streaming capabilities to implement streaming responses. Configure the API route to use streaming mode. Implement proper error handling for stream interruptions. Add event listeners for stream events. Implement backpressure handling for efficient streaming. Test streaming with various payload sizes.",
+            "status": "done",
+            "testStrategy": "Build a minimal chat interface that consumes the streaming API. Verify that responses appear incrementally rather than all at once. Test with long responses to ensure the stream works properly. Verify that the stream closes properly when the response is complete."
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Create Responsive Layout and Navigation Structure",
+        "description": "Develop the mobile-first responsive layout structure for the TimeBack experience with navigation components.",
+        "details": "1. Create a responsive layout component with header, main content area, and footer\n2. Implement mobile-first design approach using Tailwind CSS breakpoints\n3. Design navigation components for section navigation\n4. Create smooth scrolling between sections\n5. Implement progress tracking as user scrolls through content\n6. Add accessibility attributes (aria-labels, semantic HTML)\n7. Create loading states and skeleton screens for content\n8. Implement responsive typography system",
+        "testStrategy": "Test layout on multiple device sizes (mobile, tablet, desktop) to ensure responsive behavior. Verify accessibility using automated tools like Lighthouse. Test navigation and scrolling behavior to ensure smooth transitions between sections.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create responsive layout component structure",
+            "description": "Develop the core layout component with header, main content area, and footer using Tailwind CSS",
+            "dependencies": [],
+            "details": "Implement a responsive layout component using Tailwind CSS with a fixed header, scrollable main content area, and footer. Use semantic HTML5 elements (header, main, footer) and ensure the layout adapts to different screen sizes. Create container components for consistent padding and maximum width constraints.",
+            "status": "done",
+            "testStrategy": "Test the layout on multiple device sizes (mobile, tablet, desktop) to verify responsive behavior. Check that header remains fixed while content scrolls appropriately. Validate HTML structure using accessibility tools."
+          },
+          {
+            "id": 2,
+            "title": "Implement mobile-first design with Tailwind breakpoints",
+            "description": "Apply mobile-first responsive design principles using Tailwind CSS breakpoints for different device sizes",
+            "dependencies": [
+              "3.1"
+            ],
+            "details": "Configure Tailwind CSS breakpoints (sm, md, lg, xl) for responsive design. Start with mobile layout as the default and progressively enhance for larger screens. Create utility classes for responsive spacing, sizing, and positioning. Implement responsive grid layouts using Tailwind's grid system.",
+            "status": "done",
+            "testStrategy": "Test the responsive behavior by resizing browser window and using device emulation in developer tools. Verify that layouts adapt correctly at each breakpoint. Check for any overflow issues or layout shifts during transition between breakpoints."
+          },
+          {
+            "id": 3,
+            "title": "Design and implement navigation components",
+            "description": "Create navigation components for section navigation with mobile and desktop variations",
+            "dependencies": [
+              "3.1",
+              "3.2"
+            ],
+            "details": "Design and implement a navigation system with both mobile (hamburger menu) and desktop variations. Include section links, active state indicators, and smooth scrolling functionality. Create a sticky navigation bar that remains accessible while scrolling. Implement dropdown/expandable navigation for mobile views.",
+            "status": "done",
+            "testStrategy": "Test navigation on different device sizes to ensure proper display and functionality. Verify that active states update correctly as user scrolls through content. Test mobile menu opening/closing and interaction behaviors."
+          },
+          {
+            "id": 4,
+            "title": "Implement scroll tracking and progress indicators",
+            "description": "Create a system to track user scroll position and display visual progress indicators",
+            "dependencies": [
+              "3.3"
+            ],
+            "details": "Implement scroll position tracking using Intersection Observer API. Create visual indicators (progress bar, active navigation highlighting) that update as user scrolls through content sections. Add scroll-to-top functionality. Implement scroll-based animations or transitions between sections.",
+            "status": "done",
+            "testStrategy": "Test scroll tracking by navigating through the page and verifying that progress indicators update correctly. Check that active section highlighting works properly in navigation. Verify smooth scrolling behavior between sections."
+          },
+          {
+            "id": 5,
+            "title": "Add accessibility features and loading states",
+            "description": "Implement accessibility attributes, responsive typography, and loading states for content",
+            "dependencies": [
+              "3.1",
+              "3.2",
+              "3.3",
+              "3.4"
+            ],
+            "details": "Add proper accessibility attributes including aria-labels, roles, and semantic HTML throughout the layout. Implement a responsive typography system using Tailwind CSS. Create skeleton screens and loading states for content areas. Ensure keyboard navigation works properly. Add focus styles for interactive elements.",
+            "status": "done",
+            "testStrategy": "Run accessibility audits using tools like Lighthouse and axe. Test keyboard navigation through the entire interface. Verify that screen readers can properly interpret the content structure. Test loading states by simulating slow network conditions."
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Implement Fixed AI Chatbot Component",
+        "description": "Create the fixed chatbot component at the bottom of the site with TimeBack whitepaper knowledge integration.",
+        "details": "1. Create a fixed position chat interface component at the bottom of the page\n2. Design expandable/collapsible chat window with TimeBack branding\n3. Implement chat message display with user/AI distinction\n4. Create input field for user questions\n5. Connect to Claude API using the utility function from Task 2\n6. Implement real-time token streaming for responses\n7. Add loading indicators during API calls\n8. Store chat history in local state\n9. Add context awareness based on current page section\n10. Implement error handling for failed API calls",
+        "testStrategy": "Test chatbot functionality by asking various questions and verifying responses. Check that the chatbot correctly uses context from the current page section. Verify streaming behavior of responses. Test error handling by simulating API failures.",
+        "priority": "high",
+        "dependencies": [
+          2,
+          3
+        ],
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create Fixed Position Chat Interface",
+            "description": "Develop the core chat interface component with expandable/collapsible functionality and TimeBack branding",
+            "dependencies": [],
+            "details": "Create a React component for the fixed position chat interface at the bottom of the page. Implement expandable/collapsible functionality with smooth transitions. Apply TimeBack branding including colors, logo, and typography. Ensure the component is responsive across different screen sizes. Position the chat icon in the bottom right corner when collapsed.",
+            "status": "done",
+            "testStrategy": "Test the component's positioning across different viewport sizes. Verify expand/collapse functionality works smoothly. Ensure TimeBack branding is correctly applied. Test responsiveness on mobile, tablet, and desktop devices."
+          },
+          {
+            "id": 2,
+            "title": "Implement Chat Message Display and Input Field",
+            "description": "Create the message display area with user/AI distinction and implement the user input field",
+            "dependencies": [
+              "4.1"
+            ],
+            "details": "Design and implement the chat message display area with clear visual distinction between user and AI messages. Create a text input field for user questions with appropriate placeholder text. Add a send button with proper hover states. Implement auto-scroll functionality to show the most recent messages. Ensure proper spacing and typography for readability.",
+            "status": "done",
+            "testStrategy": "Test message display with various message lengths. Verify visual distinction between user and AI messages is clear. Test input field functionality including character limits if applicable. Ensure auto-scroll works correctly when new messages are added."
+          },
+          {
+            "id": 3,
+            "title": "Connect to Claude API with Token Streaming",
+            "description": "Integrate the Claude API utility function with real-time token streaming for responses",
+            "dependencies": [
+              "4.2"
+            ],
+            "details": "Connect the chatbot to the Claude API using the utility function from Task 2. Implement real-time token streaming to display AI responses progressively. Add loading indicators during API calls. Implement proper error handling for failed API calls with user-friendly error messages. Set up request timeout handling.",
+            "status": "done",
+            "testStrategy": "Test API connection with various queries. Verify token streaming displays text progressively. Test error handling by simulating API failures. Ensure loading indicators display correctly during API calls. Verify timeout handling works as expected."
+          },
+          {
+            "id": 4,
+            "title": "Implement Chat History and State Management",
+            "description": "Set up state management for storing chat history and handling user interactions",
+            "dependencies": [
+              "4.3"
+            ],
+            "details": "Implement state management for storing chat history using React hooks or a state management library. Create functions for adding new messages, updating message status, and clearing history if needed. Implement persistence of chat history using localStorage to maintain conversations between page refreshes. Add a clear conversation option for users.",
+            "status": "done",
+            "testStrategy": "Test adding and displaying multiple messages in sequence. Verify chat history persists between page refreshes. Test the clear conversation functionality. Ensure state updates correctly reflect in the UI."
+          },
+          {
+            "id": 5,
+            "title": "Add Context Awareness and Page Integration",
+            "description": "Implement context awareness based on current page section and integrate with the overall site",
+            "dependencies": [
+              "4.4"
+            ],
+            "details": "Add context awareness by detecting the current page section the user is viewing. Modify API calls to include relevant context from the current section. Implement a system to extract and use key information from the TimeBack whitepaper based on the user's current focus. Ensure the chatbot integrates seamlessly with the rest of the site's design and functionality.",
+            "status": "done",
+            "testStrategy": "Test context awareness by navigating to different sections and verifying the chatbot provides relevant responses. Check that the chatbot correctly uses information from the TimeBack whitepaper. Test integration with the overall site design and functionality."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Develop Whitepaper Knowledge Base Integration",
+        "description": "Integrate the TimeBack whitepaper content as a knowledge base for the AI chatbot system.",
+        "details": "1. Create a parser for the whitepaper.md file\n2. Extract structured content from the whitepaper\n3. Organize content into searchable sections\n4. Create a context provider for the whitepaper data\n5. Implement functions to retrieve relevant whitepaper sections based on user queries\n6. Add this context to Claude API calls\n7. Create a caching mechanism for frequently accessed content\n8. Implement fallback responses for queries outside the whitepaper scope",
+        "testStrategy": "Test knowledge base integration by querying for specific information from the whitepaper and verifying accurate responses. Check edge cases where information might not be in the whitepaper. Verify that the context is properly passed to the Claude API.",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          4
+        ],
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create Whitepaper Parser",
+            "description": "Develop a parser to extract and structure content from the whitepaper.md file",
+            "dependencies": [],
+            "details": "Implement a Markdown parser that can read the whitepaper.md file and convert it into a structured format. Use a library like 'remark' or 'marked' for parsing. Create functions to identify headings, paragraphs, lists, and other content elements. Ensure the parser can handle special formatting and maintain the hierarchical structure of the document.",
+            "status": "done",
+            "testStrategy": "Test the parser with sample markdown content to verify it correctly identifies all document elements. Validate the structure of the parsed output against expected results. Test with edge cases like complex nested lists, code blocks, and special characters."
+          },
+          {
+            "id": 2,
+            "title": "Organize Content into Searchable Sections",
+            "description": "Structure the extracted whitepaper content into searchable sections with metadata",
+            "dependencies": [
+              "5.1"
+            ],
+            "details": "Create a data structure to organize the parsed whitepaper content into logical sections. Add metadata to each section including title, keywords, and relevance tags. Implement a hierarchical organization that preserves the document structure. Create indexes for efficient searching and retrieval. Design a schema that allows for semantic understanding of content relationships.",
+            "status": "done",
+            "testStrategy": "Verify that all content is properly categorized and indexed. Test search functionality with various queries to ensure relevant sections are retrieved. Validate that the hierarchical structure is maintained and navigable."
+          },
+          {
+            "id": 3,
+            "title": "Implement Whitepaper Context Provider",
+            "description": "Create a context provider that can retrieve and format relevant whitepaper sections for the AI",
+            "dependencies": [
+              "5.2"
+            ],
+            "details": "Develop a context provider module that can query the organized whitepaper content. Implement functions to retrieve relevant sections based on user queries using semantic matching. Create methods to format the retrieved content for inclusion in Claude API calls. Add functionality to rank and prioritize content sections by relevance to the query.",
+            "status": "done",
+            "testStrategy": "Test the context provider with various query types to ensure it retrieves the most relevant content. Verify that the formatted output is properly structured for Claude API consumption. Measure retrieval accuracy and relevance scoring against predefined test cases."
+          },
+          {
+            "id": 4,
+            "title": "Integrate with Claude API",
+            "description": "Add whitepaper context to Claude API calls and implement response handling",
+            "dependencies": [
+              "5.3"
+            ],
+            "details": "Modify the existing Claude API integration to include relevant whitepaper context in prompts. Implement logic to determine when whitepaper context should be included. Create a system to track which whitepaper sections were used in responses. Develop fallback mechanisms for queries that fall outside the whitepaper scope. Ensure the context is properly formatted according to Claude's context window requirements.",
+            "status": "done",
+            "testStrategy": "Test API calls with and without whitepaper context to verify proper integration. Validate that responses correctly incorporate whitepaper information. Test edge cases where queries partially match or don't match whitepaper content. Verify fallback mechanisms work as expected."
+          },
+          {
+            "id": 5,
+            "title": "Implement Caching and Performance Optimization",
+            "description": "Create a caching system for frequently accessed whitepaper content and optimize performance",
+            "dependencies": [
+              "5.3",
+              "5.4"
+            ],
+            "details": "Develop a caching mechanism to store frequently accessed whitepaper sections. Implement cache invalidation strategies. Optimize search and retrieval algorithms for better performance. Add telemetry to track which sections are most frequently accessed. Create a preloading system for anticipated content needs based on user interaction patterns.",
+            "status": "done",
+            "testStrategy": "Measure performance improvements with and without caching. Test cache hit rates with simulated user queries. Verify that cache invalidation works correctly when content is updated. Conduct load testing to ensure the system performs well under high demand."
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Implement Interactive Follow-Up Questions System",
+        "description": "Create the system for generating and displaying 3 AI-generated follow-up questions per content section with pre-generation for instant display.",
+        "details": "1. Create a component for displaying follow-up questions\n2. Implement the blue outline/text transparent button design\n3. Create a pre-generation system for optimistic display of questions\n4. Implement click-to-expand functionality for inline content expansion\n5. Add custom question input option\n6. Connect questions to Claude API for answers\n7. Implement caching for pre-generated questions\n8. Create animations for question expansion\n9. Add loading states for custom questions\n10. Implement context awareness for question generation",
+        "testStrategy": "Test pre-generation of questions by navigating between sections and verifying instant display. Test click-to-expand functionality and verify that answers are correctly displayed. Test custom question input and verify appropriate responses. Check animations and loading states.",
+        "priority": "high",
+        "dependencies": [
+          2,
+          3,
+          5
+        ],
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create Follow-Up Questions Component",
+            "description": "Develop a React component for displaying AI-generated follow-up questions with the specified blue outline/transparent button design.",
+            "dependencies": [],
+            "details": "Build a reusable React component that displays 3 follow-up questions per content section. Implement the blue outline with transparent background button design according to specifications. Include hover states and focus indicators for accessibility. Ensure the component is responsive across all device sizes.",
+            "status": "done",
+            "testStrategy": "Verify component renders correctly across different screen sizes. Test keyboard navigation and focus states. Ensure the design matches specifications with proper blue outline and transparent background."
+          },
+          {
+            "id": 2,
+            "title": "Implement Pre-Generation System",
+            "description": "Create a system to pre-generate follow-up questions for optimistic display and implement caching for these questions.",
+            "dependencies": [
+              "6.1"
+            ],
+            "details": "Develop a pre-generation system that creates follow-up questions for upcoming content sections before the user reaches them. Implement a caching mechanism to store pre-generated questions for quick retrieval. Create a queue system to prioritize pre-generation of questions for sections the user is likely to visit next. Ensure the system handles errors gracefully if pre-generation fails.",
+            "status": "done",
+            "testStrategy": "Test navigation between sections to verify instant display of pre-generated questions. Verify caching works by checking network requests. Test error handling by simulating API failures."
+          },
+          {
+            "id": 3,
+            "title": "Implement Click-to-Expand Functionality",
+            "description": "Create the interactive functionality for expanding follow-up questions inline with smooth animations.",
+            "dependencies": [
+              "6.1",
+              "6.2"
+            ],
+            "details": "Implement click handlers for follow-up question buttons that expand to show answers inline. Create smooth animations for the expansion/collapse transitions. Ensure expanded content maintains proper document flow and doesn't disrupt layout. Add appropriate ARIA attributes for accessibility during expansion states.",
+            "status": "done",
+            "testStrategy": "Test click interactions to verify proper expansion behavior. Verify animations are smooth and respect user preferences for reduced motion. Test keyboard accessibility for expansion functionality."
+          },
+          {
+            "id": 4,
+            "title": "Connect to Claude API for Answers",
+            "description": "Integrate with Claude API to fetch answers for both pre-generated and custom follow-up questions.",
+            "dependencies": [
+              "6.2",
+              "6.3"
+            ],
+            "details": "Create API service functions to connect to Claude API for generating answers. Implement proper error handling and retry logic for API calls. Set up context-aware prompting to ensure questions receive relevant answers based on the content section. Optimize API usage by batching requests where possible and implementing proper rate limiting.",
+            "status": "done",
+            "testStrategy": "Test API integration by verifying answers are correctly fetched and displayed. Test error handling by simulating API failures. Verify context-awareness by checking if answers are relevant to the current section."
+          },
+          {
+            "id": 5,
+            "title": "Implement Custom Question Input",
+            "description": "Add functionality for users to input and submit their own custom questions with appropriate loading states.",
+            "dependencies": [
+              "6.3",
+              "6.4"
+            ],
+            "details": "Create an input field component for users to type custom questions. Implement form validation and submission handling. Add loading states and animations while waiting for answers. Implement error handling for failed submissions. Ensure the custom question input is fully accessible with proper ARIA attributes and keyboard navigation.",
+            "status": "done",
+            "testStrategy": "Test custom question submission with various inputs. Verify loading states display correctly during API calls. Test error handling by simulating network failures. Verify accessibility compliance for the input component."
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Develop Main Content Sections (1-5)",
+        "description": "Implement the first half of the main content flow sections with responsive design and interactive elements.",
+        "details": "1. Create components for each of the first 5 content sections:\n   - Hero: \"How to get your child to 98th percentile in 2 hours/day\"\n   - Section 1: AI 1-on-1 tutor explanation\n   - Section 2: Subject completion times vs traditional school (with data viz)\n   - Section 3: Test results (MAP scores, SAT for high school)\n   - Section 4: \"How is this possible?\" diagnostic test preview\n   - Section 5: Personalized learning demonstration\n2. Implement responsive layouts for each section\n3. Create data visualization components for Section 2 and 3\n4. Add interactive elements where appropriate\n5. Implement smooth transitions between sections\n6. Ensure accessibility for all content\n7. Add integration points for follow-up questions",
+        "testStrategy": "Test each section for responsive behavior across device sizes. Verify data visualizations render correctly. Test interactive elements and transitions. Perform accessibility testing on all sections. Verify integration with follow-up questions system.",
+        "priority": "medium",
+        "dependencies": [
+          3,
+          6
+        ],
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implement Hero Section",
+            "description": "Create the hero section with the headline 'How to get your child to 98th percentile in 2 hours/day' with responsive design and call-to-action elements.",
+            "dependencies": [],
+            "details": "Design and implement the hero section as the first visual element users see. Include an attention-grabbing headline, supporting subtext, and prominent call-to-action buttons. Ensure the design is responsive across all device sizes using Tailwind breakpoints. Add subtle animations for text and button elements to increase engagement. Implement A/B testing capability for different headline variations.",
+            "status": "done",
+            "testStrategy": "Test responsive behavior across mobile, tablet, and desktop viewports. Verify animations work correctly across browsers. Ensure all text is readable at all screen sizes. Test accessibility with screen readers and keyboard navigation."
+          },
+          {
+            "id": 2,
+            "title": "Develop AI Tutor and Subject Completion Sections",
+            "description": "Implement Section 1 (AI 1-on-1 tutor explanation) and Section 2 (Subject completion times visualization) with interactive elements.",
+            "dependencies": [
+              "7.1"
+            ],
+            "details": "For Section 1, create an engaging explanation of the AI tutor with illustrations showing the interaction model. For Section 2, develop an interactive data visualization component comparing subject completion times between TimeBack and traditional schooling. Use Chart.js or D3.js for the visualization. Implement filters allowing users to select different subjects and grade levels to see customized comparisons. Ensure both sections have responsive layouts and smooth transitions.",
+            "status": "done",
+            "testStrategy": "Test data visualization rendering across devices. Verify interactive elements work on both touch and mouse interfaces. Test with sample data sets to ensure visualization accuracy. Check accessibility of interactive elements."
+          },
+          {
+            "id": 3,
+            "title": "Create Test Results and Diagnostic Preview Sections",
+            "description": "Implement Section 3 (Test results with MAP scores and SAT data) and Section 4 ('How is this possible?' diagnostic test preview).",
+            "dependencies": [
+              "7.2"
+            ],
+            "details": "For Section 3, create compelling data visualizations showing MAP score improvements and SAT results for high school students. Include comparison charts and success metrics. For Section 4, develop an interactive preview of the diagnostic test process with sample questions and explanations of how the system identifies learning gaps. Add animated transitions between steps of the diagnostic process explanation.",
+            "status": "done",
+            "testStrategy": "Verify data visualizations display correctly with various data inputs. Test interactive diagnostic preview on different devices. Ensure animations perform well on lower-end devices. Test screen reader compatibility for all data visualizations."
+          },
+          {
+            "id": 4,
+            "title": "Implement Personalized Learning Demonstration",
+            "description": "Create Section 5 showcasing the personalized learning approach with interactive demonstrations of the adaptive learning system.",
+            "dependencies": [
+              "7.3"
+            ],
+            "details": "Design and implement an interactive demonstration that shows how the TimeBack system adapts to individual student needs. Include animated flowcharts or step-by-step visualizations of the personalization process. Create interactive elements allowing users to see how different student profiles would receive customized learning paths. Implement a simplified simulation of the adaptive algorithm with sample student data. Ensure all interactive elements are responsive and accessible.",
+            "status": "done",
+            "testStrategy": "Test the interactive demonstration across devices. Verify that all interactive elements function correctly. Test with various sample profiles to ensure the demonstration accurately represents the personalization process. Perform accessibility testing on all interactive elements."
+          },
+          {
+            "id": 5,
+            "title": "Implement Cross-Section Features and Integration",
+            "description": "Add smooth transitions between sections, ensure accessibility compliance, and implement integration points for follow-up questions across all sections.",
+            "dependencies": [
+              "7.1",
+              "7.2",
+              "7.3",
+              "7.4"
+            ],
+            "details": "Implement smooth scroll behavior and visual transitions between all five content sections. Add intersection observers to trigger animations when sections come into view. Ensure all sections meet WCAG 2.1 AA accessibility standards with proper semantic HTML, ARIA attributes, and keyboard navigation. Create integration points for the follow-up questions system, with data attributes marking content that can trigger contextual questions. Implement a unified styling system across all sections for visual consistency.",
+            "status": "done",
+            "testStrategy": "Test scroll behavior and transitions across browsers and devices. Run automated accessibility tests using tools like axe or Lighthouse. Manually test keyboard navigation through all sections. Verify that integration points for follow-up questions are correctly implemented by testing with the question system."
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Develop Main Content Sections (6-11)",
+        "description": "Implement the second half of the main content flow sections with responsive design and interactive elements.",
+        "details": "1. Create components for each of the remaining 6 content sections:\n   - Section 6: Academic engagement stats\n   - Section 7: Why 2-hour learning works (research backing)\n   - Section 8: Day in the life\n   - Section 9: Student experience with app screenshots\n   - Section 10: Parent monitoring dashboard\n   - Section 11: Supabase video testimonials\n2. Implement responsive layouts for each section\n3. Create data visualization components for Section 6\n4. Add interactive elements where appropriate\n5. Implement smooth transitions between sections\n6. Ensure accessibility for all content\n7. Add integration points for follow-up questions\n8. Implement lazy loading for images and videos",
+        "testStrategy": "Test each section for responsive behavior across device sizes. Verify data visualizations render correctly. Test interactive elements and transitions. Perform accessibility testing on all sections. Verify integration with follow-up questions system. Test lazy loading behavior for media content.",
+        "priority": "medium",
+        "dependencies": [
+          3,
+          6,
+          7
+        ],
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implement Academic Engagement Stats Section",
+            "description": "Create Section 6 with data visualization components for academic engagement statistics",
+            "dependencies": [],
+            "details": "1. Design and implement responsive layout for Section 6\n2. Create data visualization components (charts, graphs) to display engagement metrics\n3. Implement interactive tooltips for data points\n4. Ensure mobile-friendly visualization alternatives\n5. Add animations for data presentation\n6. Implement accessibility features for data visualizations",
+            "status": "done",
+            "testStrategy": "Test data visualization rendering across devices. Verify interactive elements work correctly. Test screen reader compatibility for accessibility. Ensure animations don't interfere with performance."
+          },
+          {
+            "id": 2,
+            "title": "Develop Research-Backed Learning and Student Experience Sections",
+            "description": "Implement Sections 7-9 covering research backing, day in the life, and student experience",
+            "dependencies": [
+              "8.1"
+            ],
+            "details": "1. Create Section 7 with research citations and evidence for 2-hour learning effectiveness\n2. Implement Section 8 with timeline visualization for 'Day in the life' content\n3. Build Section 9 with responsive image gallery for app screenshots\n4. Add interactive carousel for student testimonials\n5. Implement lazy loading for media content\n6. Ensure smooth transitions between subsections",
+            "status": "done",
+            "testStrategy": "Test responsive behavior across devices. Verify lazy loading works correctly. Test carousel navigation and accessibility. Check transition animations for smoothness."
+          },
+          {
+            "id": 3,
+            "title": "Create Parent Dashboard and Video Testimonials Sections",
+            "description": "Implement Sections 10-11 for parent monitoring dashboard and Supabase video testimonials",
+            "dependencies": [
+              "8.2"
+            ],
+            "details": "1. Design and implement Section 10 with interactive dashboard preview\n2. Create Section 11 with embedded video player for testimonials\n3. Implement video lazy loading and preloading\n4. Add interactive controls for video playback\n5. Create responsive layout for both sections\n6. Implement fallback content for browsers with limited video support",
+            "status": "done",
+            "testStrategy": "Test video loading and playback across browsers. Verify dashboard interactive elements work correctly. Test responsive layout at various breakpoints. Check video performance metrics."
+          },
+          {
+            "id": 4,
+            "title": "Implement Cross-Section Interactive Elements",
+            "description": "Add interactive elements and smooth transitions across all sections",
+            "dependencies": [
+              "8.1",
+              "8.2",
+              "8.3"
+            ],
+            "details": "1. Implement scroll-triggered animations between sections\n2. Create interactive question prompts at key content points\n3. Add hover effects and micro-interactions\n4. Implement smooth scrolling navigation\n5. Create transition effects between sections\n6. Ensure all interactive elements have keyboard navigation support",
+            "status": "done",
+            "testStrategy": "Test all interactive elements for touch and mouse input. Verify keyboard navigation works correctly. Test animations and transitions for performance impact. Ensure accessibility compliance for all interactive features."
+          },
+          {
+            "id": 5,
+            "title": "Optimize Performance and Accessibility",
+            "description": "Ensure all sections meet performance and accessibility standards",
+            "dependencies": [
+              "8.1",
+              "8.2",
+              "8.3",
+              "8.4"
+            ],
+            "details": "1. Implement comprehensive ARIA attributes across all sections\n2. Optimize image and video loading with proper sizing and formats\n3. Add semantic HTML structure for screen readers\n4. Implement color contrast compliance\n5. Test and optimize for Core Web Vitals metrics\n6. Create fallback experiences for users with JavaScript disabled",
+            "status": "done",
+            "testStrategy": "Run accessibility audits using WAVE and Lighthouse. Test with screen readers. Measure performance metrics including LCP, FID, and CLS. Verify functionality with JavaScript disabled where possible."
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Implement Supabase Integration for Video Testimonials",
+        "description": "Integrate Supabase for video testimonials in Section 11 with smooth loading and playback.",
+        "details": "1. Install Supabase client: `npm install @supabase/supabase-js`\n2. Set up Supabase client configuration\n3. Create API functions to fetch video testimonials\n4. Implement video player component with controls\n5. Add lazy loading for videos to improve performance\n6. Create thumbnail generation/display for videos\n7. Implement error handling for failed video loads\n8. Add fallback content for when videos cannot be loaded\n9. Create loading states for video content\n10. Implement analytics tracking for video engagement",
+        "testStrategy": "Test video loading and playback across different devices and connection speeds. Verify error handling by simulating connection issues. Test lazy loading behavior to ensure videos only load when needed. Check analytics tracking for video engagement events.",
+        "priority": "medium",
+        "dependencies": [
+          1,
+          8
+        ],
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Set up Supabase client and configuration",
+            "description": "Install Supabase client library and configure it with proper environment variables for the video testimonials feature",
+            "dependencies": [],
+            "details": "Install @supabase/supabase-js using npm. Create a client configuration file with environment variables for Supabase URL and API key. Set up proper security measures for API keys using Next.js environment variables. Test the connection to ensure proper authentication with the Supabase backend.",
+            "status": "done",
+            "testStrategy": "Verify successful connection to Supabase by making a test query. Ensure environment variables are properly loaded in different environments (development, production)."
+          },
+          {
+            "id": 2,
+            "title": "Create API functions for video testimonial management",
+            "description": "Develop API functions to fetch, filter, and sort video testimonials from Supabase",
+            "dependencies": [
+              "9.1"
+            ],
+            "details": "Create reusable API functions to fetch video testimonials with pagination support. Implement filtering by categories or tags. Add sorting options (newest, most popular). Create functions to handle video metadata retrieval. Implement proper error handling and response formatting.",
+            "status": "done",
+            "testStrategy": "Test API functions with various query parameters. Verify pagination works correctly. Test error handling by simulating network failures and invalid responses."
+          },
+          {
+            "id": 3,
+            "title": "Implement video player component with controls",
+            "description": "Create a responsive video player component with custom controls and thumbnail support",
+            "dependencies": [
+              "9.2"
+            ],
+            "details": "Develop a reusable video player component with play/pause, volume, and fullscreen controls. Implement thumbnail generation and display for video previews. Add support for different video formats. Ensure responsive design for various screen sizes. Implement accessibility features for video controls.",
+            "status": "done",
+            "testStrategy": "Test video playback across different browsers and devices. Verify all controls work properly. Test accessibility of video controls with keyboard navigation and screen readers."
+          },
+          {
+            "id": 4,
+            "title": "Implement lazy loading and performance optimizations",
+            "description": "Add lazy loading for videos to improve performance and implement loading states",
+            "dependencies": [
+              "9.3"
+            ],
+            "details": "Implement intersection observer for lazy loading videos only when they come into viewport. Create loading states and skeleton screens for video content. Implement proper error handling for failed video loads with user-friendly error messages. Add fallback content for when videos cannot be loaded.",
+            "status": "done",
+            "testStrategy": "Test lazy loading behavior by scrolling through the page. Verify videos only load when needed. Test with throttled network connections to ensure loading states display properly. Simulate errors to verify error handling works correctly."
+          },
+          {
+            "id": 5,
+            "title": "Implement analytics tracking for video engagement",
+            "description": "Add analytics tracking for video interactions to measure user engagement",
+            "dependencies": [
+              "9.3",
+              "9.4"
+            ],
+            "details": "Implement event tracking for video plays, pauses, and completions. Track watch duration and drop-off points. Add custom events for user interactions with video controls. Create dashboard-ready data for video engagement analysis. Ensure analytics respect user privacy settings.",
+            "status": "done",
+            "testStrategy": "Verify all video events are properly tracked by checking analytics dashboard. Test different user interactions to ensure all events are captured. Verify that analytics respect user privacy settings and consent."
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Implement Data Visualization Components",
+        "description": "Create interactive data visualization components for displaying student performance data, subject completion times, and academic engagement statistics.",
+        "details": "1. Select and install appropriate data visualization library (e.g., Chart.js, D3.js)\n2. Create reusable chart components for different visualization types:\n   - Bar charts for subject completion times\n   - Line charts for test score progression\n   - Pie/donut charts for engagement statistics\n3. Implement responsive design for visualizations\n4. Add interactive elements (tooltips, hover states)\n5. Create animations for data presentation\n6. Implement accessibility features for visualizations\n7. Add color schemes consistent with TimeBack branding\n8. Create loading states and fallbacks",
+        "testStrategy": "Test visualizations with various data sets to ensure correct rendering. Verify responsive behavior across device sizes. Test interactive elements and animations. Perform accessibility testing to ensure screen readers can interpret the data. Test loading states and fallbacks.",
+        "priority": "medium",
+        "dependencies": [
+          3,
+          7,
+          8
+        ],
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Select and Implement Visualization Library",
+            "description": "Research, select, and integrate an appropriate data visualization library that supports all required chart types and interactive features.",
+            "dependencies": [],
+            "details": "Compare Chart.js, D3.js, and other visualization libraries based on performance, flexibility, and community support. Install the selected library and set up base configuration. Create a wrapper component to standardize library usage across the application.",
+            "status": "done",
+            "testStrategy": "Verify successful library integration by rendering a simple chart. Test compatibility with React and Next.js. Benchmark performance with large datasets."
+          },
+          {
+            "id": 2,
+            "title": "Develop Core Chart Components",
+            "description": "Create reusable chart components for bar charts, line charts, and pie/donut charts with consistent styling and behavior.",
+            "dependencies": [
+              "10.1"
+            ],
+            "details": "Implement bar charts for subject completion times with customizable axes and labels. Create line charts for test score progression with zoom capabilities. Develop pie/donut charts for engagement statistics with legend support. Ensure all components follow a consistent API pattern.",
+            "status": "done",
+            "testStrategy": "Test each chart type with various data structures. Verify correct rendering of axes, labels, and data points. Test edge cases like empty datasets and extreme values."
+          },
+          {
+            "id": 3,
+            "title": "Implement Interactive Features and Animations",
+            "description": "Add interactive elements such as tooltips, hover states, and animations to enhance data visualization components.",
+            "dependencies": [
+              "10.2"
+            ],
+            "details": "Implement tooltips showing detailed information on hover. Add click interactions for drilling down into data. Create smooth transitions for data updates. Implement animations for initial chart rendering and data changes. Ensure all interactions are intuitive and enhance data understanding.",
+            "status": "done",
+            "testStrategy": "Test all interactive elements across different browsers and devices. Verify animations run smoothly and don't interfere with data interpretation. Test keyboard accessibility of interactive features."
+          },
+          {
+            "id": 4,
+            "title": "Ensure Responsive and Accessible Visualizations",
+            "description": "Make all visualization components fully responsive across device sizes and accessible to users with disabilities.",
+            "dependencies": [
+              "10.2",
+              "10.3"
+            ],
+            "details": "Implement responsive sizing and layout adjustments for all chart types. Add ARIA attributes and roles to make charts screen-reader friendly. Ensure sufficient color contrast and provide alternative text representations of data. Implement keyboard navigation for interactive elements.",
+            "status": "done",
+            "testStrategy": "Test visualizations across various screen sizes and devices. Verify accessibility using screen readers and keyboard-only navigation. Validate against WCAG 2.1 AA standards."
+          },
+          {
+            "id": 5,
+            "title": "Integrate with TimeBack Branding and Data Sources",
+            "description": "Apply TimeBack color schemes to visualizations and connect components to actual data sources with appropriate loading states.",
+            "dependencies": [
+              "10.2",
+              "10.3",
+              "10.4"
+            ],
+            "details": "Implement TimeBack color palette and styling guidelines across all chart types. Create loading states and error fallbacks for data fetching. Connect visualization components to API endpoints or data stores. Implement data transformation utilities to format API responses for visualization components.",
+            "status": "done",
+            "testStrategy": "Verify color schemes match TimeBack branding guidelines. Test loading states and error handling with simulated network conditions. Validate data transformation accuracy with various API response formats."
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "title": "Implement PostHog Analytics Integration",
+        "description": "Integrate PostHog for user journey tracking, event tracking, conversion funnel analysis, and time spent per section.",
+        "details": "1. Install PostHog client: `npm install posthog-js`\n2. Set up PostHog configuration with environment variables\n3. Create a PostHog provider component\n4. Implement event tracking for key user interactions:\n   - Section views\n   - Chatbot interactions\n   - Follow-up question clicks\n   - Video plays\n   - Custom question submissions\n5. Set up conversion funnel tracking\n6. Implement time tracking for sections\n7. Create custom properties for user segments\n8. Add session recording configuration\n9. Implement privacy controls (GDPR compliance)\n10. Create a dashboard for analytics visualization",
+        "testStrategy": "Verify that all events are properly tracked by checking the PostHog dashboard. Test conversion funnel by simulating user journeys. Verify time tracking accuracy for sections. Test privacy controls to ensure compliance with regulations.",
+        "priority": "medium",
+        "dependencies": [
+          4,
+          6,
+          7,
+          8
+        ],
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Set up PostHog infrastructure",
+            "description": "Install PostHog client, configure environment variables, and create a PostHog provider component",
+            "dependencies": [],
+            "details": "Install PostHog client using npm install posthog-js. Create environment variables for PostHog API key and host URL in .env.local. Implement a PostHog provider component that wraps the application and initializes the PostHog client with proper configuration. Ensure the provider is added to _app.js or equivalent.",
+            "status": "done",
+            "testStrategy": "Verify PostHog is properly initialized by checking the network tab for successful API connections. Confirm environment variables are correctly loaded in different environments."
+          },
+          {
+            "id": 2,
+            "title": "Implement core event tracking",
+            "description": "Set up tracking for key user interactions including section views, chatbot interactions, and content engagement",
+            "dependencies": [
+              "11.1"
+            ],
+            "details": "Create utility functions for tracking events. Implement event tracking for section views, chatbot interactions, follow-up question clicks, video plays, and custom question submissions. Add event properties to capture relevant context for each interaction. Ensure events are properly categorized for analysis.",
+            "status": "done",
+            "testStrategy": "Manually trigger each event type and verify they appear in the PostHog dashboard with correct properties. Create a test suite that simulates user interactions to confirm events are captured."
+          },
+          {
+            "id": 3,
+            "title": "Set up conversion funnel tracking",
+            "description": "Create and configure conversion funnels to analyze user journey completion rates",
+            "dependencies": [
+              "11.2"
+            ],
+            "details": "Define key conversion paths in the application. Implement specific event tracking for funnel entry and exit points. Configure funnel visualization in PostHog dashboard. Create documentation for the defined funnels and their business significance. Implement at least 3 critical funnels: onboarding completion, content engagement, and chatbot interaction completion.",
+            "status": "done",
+            "testStrategy": "Simulate complete user journeys through each funnel and verify all steps are tracked correctly. Check funnel visualizations in PostHog dashboard to confirm data accuracy."
+          },
+          {
+            "id": 4,
+            "title": "Implement time tracking and user segmentation",
+            "description": "Add time tracking for sections and create custom properties for user segmentation",
+            "dependencies": [
+              "11.2"
+            ],
+            "details": "Implement time tracking for user engagement with different sections. Create start/end time tracking functions. Calculate and send time spent metrics to PostHog. Define and implement custom user properties for segmentation (e.g., user role, content preferences, engagement level). Create cohorts based on user behavior patterns.",
+            "status": "done",
+            "testStrategy": "Test time tracking accuracy by comparing calculated times with actual usage. Verify custom properties are correctly assigned to users and appear in the PostHog dashboard for segmentation."
+          },
+          {
+            "id": 5,
+            "title": "Configure privacy controls and analytics dashboard",
+            "description": "Implement GDPR compliance features and create a custom analytics dashboard",
+            "dependencies": [
+              "11.1",
+              "11.2",
+              "11.3",
+              "11.4"
+            ],
+            "details": "Add opt-in/opt-out mechanisms for tracking. Implement data anonymization where appropriate. Create consent management UI components. Configure session recording with privacy considerations. Build a custom PostHog dashboard with key metrics and visualizations. Document privacy controls and compliance measures. Create an internal analytics guide for team members.",
+            "status": "done",
+            "testStrategy": "Test opt-out functionality to ensure tracking stops when users decline. Verify GDPR compliance by checking data collection with and without consent. Ensure dashboard displays accurate data and is accessible to team members."
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "title": "Implement Performance Optimizations",
+        "description": "Optimize the application for performance to ensure page loads in under 2 seconds and smooth user experience.",
+        "details": "1. Implement code splitting for all major components\n2. Set up dynamic imports for non-critical components\n3. Optimize image loading with next/image\n4. Implement proper caching strategies\n5. Add service worker for offline capabilities\n6. Optimize font loading with font-display swap\n7. Minimize JavaScript bundle size\n8. Implement preloading for critical resources\n9. Add prefetching for likely navigation paths\n10. Optimize API calls with debouncing and throttling\n11. Implement memoization for expensive computations\n12. Set up CDN configuration for static assets",
+        "testStrategy": "Measure page load times using Lighthouse and WebPageTest. Verify that the page loads in under 2 seconds on various devices and connection speeds. Test offline capabilities with service worker. Analyze JavaScript bundle size and ensure it's minimized.",
+        "priority": "high",
+        "dependencies": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Optimize JavaScript and Component Loading",
+            "description": "Implement code splitting, dynamic imports, and bundle size optimization to reduce initial load time.",
+            "dependencies": [],
+            "details": "Implement code splitting for all major components using React.lazy and Suspense. Set up dynamic imports for non-critical components to reduce initial bundle size. Minimize JavaScript bundle size through tree shaking, dead code elimination, and proper dependency management. Use tools like webpack-bundle-analyzer to identify large dependencies.",
+            "status": "pending",
+            "testStrategy": "Measure bundle size before and after optimization using webpack-bundle-analyzer. Verify load time improvements using Lighthouse performance metrics. Test code splitting functionality by monitoring network requests during navigation."
+          },
+          {
+            "id": 2,
+            "title": "Optimize Asset Loading and Delivery",
+            "description": "Implement optimized image loading, font loading strategies, and CDN configuration for static assets.",
+            "dependencies": [
+              "12.1"
+            ],
+            "details": "Optimize image loading with next/image component including proper sizing, formats (WebP/AVIF), and lazy loading. Implement font loading optimization with font-display: swap and preloading critical fonts. Set up CDN configuration for static assets to improve global delivery speed. Implement proper caching strategies with appropriate cache headers.",
+            "status": "pending",
+            "testStrategy": "Use Lighthouse to measure LCP (Largest Contentful Paint) improvements. Verify image optimization using tools like PageSpeed Insights. Test CDN delivery by accessing the application from different geographic locations."
+          },
+          {
+            "id": 3,
+            "title": "Implement Resource Preloading and Prefetching",
+            "description": "Set up preloading for critical resources and prefetching for likely navigation paths to improve perceived performance.",
+            "dependencies": [
+              "12.1",
+              "12.2"
+            ],
+            "details": "Implement preloading for critical resources using <link rel=\"preload\"> for essential assets needed for initial render. Add prefetching for likely navigation paths using <link rel=\"prefetch\"> based on user behavior analysis. Prioritize loading of above-the-fold content. Implement resource hints like dns-prefetch and preconnect for third-party domains.",
+            "status": "pending",
+            "testStrategy": "Verify preloading and prefetching implementation by analyzing network waterfall charts. Test navigation speed between commonly accessed routes. Measure improvements in FCP (First Contentful Paint) and TTI (Time to Interactive)."
+          },
+          {
+            "id": 4,
+            "title": "Implement API Optimization Techniques",
+            "description": "Optimize API calls with debouncing, throttling, and memoization to reduce unnecessary network requests and improve responsiveness.",
+            "dependencies": [
+              "12.3"
+            ],
+            "details": "Implement debouncing for search inputs and form fields to reduce API calls during typing. Apply throttling for scroll events and window resizing. Implement memoization for expensive computations using React.memo, useMemo, and useCallback hooks. Set up data caching for API responses to prevent redundant network requests.",
+            "status": "pending",
+            "testStrategy": "Monitor network requests during user interactions to verify debouncing and throttling. Measure response time improvements for memoized functions. Test application performance under heavy user interaction."
+          },
+          {
+            "id": 5,
+            "title": "Implement Offline Capabilities and Progressive Enhancement",
+            "description": "Add service worker for offline functionality and implement progressive enhancement techniques for a smooth user experience.",
+            "dependencies": [
+              "12.1",
+              "12.2",
+              "12.3",
+              "12.4"
+            ],
+            "details": "Add service worker for offline capabilities using Workbox or Next.js built-in PWA support. Implement proper caching strategies for different types of assets. Create offline fallback pages and notifications. Implement progressive enhancement to ensure core functionality works even with limited browser capabilities. Add loading states and skeleton screens for perceived performance improvements.",
+            "status": "pending",
+            "testStrategy": "Test offline functionality by simulating network disconnection. Verify cached assets are properly served when offline. Test progressive enhancement by disabling JavaScript and verifying core content is still accessible. Measure overall performance improvements using Lighthouse and WebPageTest."
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "title": "Implement Animations and Transitions",
+        "description": "Add smooth animations and transitions for content expansion, section navigation, and interactive elements.",
+        "details": "1. Install animation library (e.g., Framer Motion): `npm install framer-motion`\n2. Create reusable animation components\n3. Implement page transitions between sections\n4. Add entrance animations for content as it scrolls into view\n5. Create micro-interactions for buttons and interactive elements\n6. Implement smooth expansions for follow-up questions\n7. Add loading animations for API calls\n8. Create transitions for chatbot expansion/collapse\n9. Implement progress indicators with animations\n10. Ensure animations respect reduced motion preferences",
+        "testStrategy": "Test animations across different devices to ensure smooth performance. Verify that animations respect user preferences for reduced motion. Test transitions between sections and for interactive elements. Ensure animations don't negatively impact performance.",
+        "priority": "low",
+        "dependencies": [
+          3,
+          4,
+          6,
+          7,
+          8
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Set Up Animation Library and Core Components",
+            "description": "Install Framer Motion and create reusable animation components that will be used throughout the application",
+            "dependencies": [],
+            "details": "Install Framer Motion using npm install framer-motion. Create base animation components for fade-in, slide-in, scale, and other common animations. Implement a central animation context to manage animation settings and reduced motion preferences. Document usage patterns for other developers.",
+            "status": "pending",
+            "testStrategy": "Verify that animation components render correctly across browsers. Test that reduced motion preferences are properly respected. Ensure animation components are properly exported and can be imported by other components."
+          },
+          {
+            "id": 2,
+            "title": "Implement Page and Section Transitions",
+            "description": "Create smooth transitions between pages and sections to improve navigation experience",
+            "dependencies": [
+              "13.1"
+            ],
+            "details": "Implement page transition animations using Framer Motion's AnimatePresence. Create smooth transitions for section navigation with appropriate timing and easing. Add exit animations for elements leaving the viewport. Ensure transitions are consistent across the application.",
+            "status": "pending",
+            "testStrategy": "Test transitions between all major sections. Verify that transitions work with both mouse and keyboard navigation. Check that transitions don't cause layout shifts or performance issues."
+          },
+          {
+            "id": 3,
+            "title": "Add Content Entrance and Scroll Animations",
+            "description": "Implement animations for content as it enters the viewport during scrolling",
+            "dependencies": [
+              "13.1"
+            ],
+            "details": "Create an intersection observer utility to detect when elements enter the viewport. Implement staggered animations for list items and grid elements. Add fade-in and slide-in animations for content blocks. Ensure animations only trigger once per page load unless explicitly reset.",
+            "status": "pending",
+            "testStrategy": "Test scroll animations at various scroll speeds. Verify animations work correctly on mobile and desktop. Ensure animations don't trigger performance issues on lower-end devices."
+          },
+          {
+            "id": 4,
+            "title": "Create Interactive Element Animations",
+            "description": "Implement micro-interactions for buttons, inputs, and other interactive elements",
+            "dependencies": [
+              "13.1"
+            ],
+            "details": "Add hover, focus, and active state animations for buttons and interactive elements. Implement smooth expansions for follow-up questions and accordion components. Create loading animations for API calls and data fetching states. Add feedback animations for form submissions and user actions.",
+            "status": "pending",
+            "testStrategy": "Test all interactive animations with both mouse and keyboard interactions. Verify that animations provide appropriate feedback for user actions. Ensure animations don't interfere with accessibility features."
+          },
+          {
+            "id": 5,
+            "title": "Implement Chatbot and Progress Animations",
+            "description": "Add animations for the chatbot interface and progress indicators throughout the application",
+            "dependencies": [
+              "13.1",
+              "13.4"
+            ],
+            "details": "Create smooth expansion/collapse animations for the chatbot interface. Implement typing animations for chatbot responses. Add progress indicators with animations for multi-step processes. Create transitions for notification elements and alerts. Ensure all animations have appropriate timing and easing.",
+            "status": "pending",
+            "testStrategy": "Test chatbot animations with various interaction patterns. Verify that progress animations accurately reflect system state. Ensure animations are smooth and don't cause layout shifts during critical user interactions."
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "title": "Implement Accessibility Features",
+        "description": "Ensure the application is fully accessible with proper ARIA attributes, keyboard navigation, and screen reader support.",
+        "details": "1. Add proper ARIA attributes to all interactive elements\n2. Implement keyboard navigation for all interactive components\n3. Ensure proper focus management\n4. Add skip links for navigation\n5. Implement proper heading hierarchy\n6. Ensure sufficient color contrast\n7. Add alt text for all images\n8. Implement screen reader announcements for dynamic content\n9. Create accessible form inputs for chatbot and custom questions\n10. Test with screen readers (NVDA, VoiceOver)\n11. Implement focus visible styles\n12. Add aria-live regions for dynamic content",
+        "testStrategy": "Test with screen readers to ensure all content is properly announced. Verify keyboard navigation works for all interactive elements. Check color contrast ratios meet WCAG standards. Test focus management and ensure focus is visible at all times.",
+        "priority": "high",
+        "dependencies": [
+          3,
+          4,
+          6,
+          7,
+          8,
+          13
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implement ARIA Attributes and Keyboard Navigation",
+            "description": "Add proper ARIA attributes to all interactive elements and implement keyboard navigation throughout the application",
+            "dependencies": [],
+            "details": "Add role, aria-label, aria-expanded, aria-controls, and other relevant ARIA attributes to interactive components. Implement keyboard navigation with proper tab order, focus management, and keyboard shortcuts. Ensure all interactive elements can be operated with keyboard only. Add skip links to bypass navigation and go directly to main content.",
+            "status": "pending",
+            "testStrategy": "Test with keyboard-only navigation to verify all interactive elements are accessible. Validate ARIA attributes using accessibility testing tools like axe or WAVE. Verify skip links function correctly."
+          },
+          {
+            "id": 2,
+            "title": "Enhance Visual Accessibility",
+            "description": "Implement proper heading hierarchy, ensure sufficient color contrast, and add focus visible styles",
+            "dependencies": [
+              "14.1"
+            ],
+            "details": "Structure content with semantic HTML and proper heading levels (h1-h6) in logical order. Audit and fix color contrast issues to meet WCAG AA standards (minimum 4.5:1 for normal text, 3:1 for large text). Implement visible focus indicators for all interactive elements that are clearly distinguishable from unfocused states.",
+            "status": "pending",
+            "testStrategy": "Use contrast checkers to verify all text meets WCAG AA standards. Validate heading structure with accessibility tools. Test focus visibility by navigating with keyboard and ensuring focus state is always visible."
+          },
+          {
+            "id": 3,
+            "title": "Implement Screen Reader Support",
+            "description": "Add alt text for images and implement screen reader announcements for dynamic content",
+            "dependencies": [
+              "14.1"
+            ],
+            "details": "Add descriptive alt text for all images and icons. Implement aria-live regions for dynamic content updates, including chatbot responses and form validation messages. Use appropriate aria-live politeness levels (polite, assertive) based on content importance. Ensure all non-text content has text alternatives.",
+            "status": "pending",
+            "testStrategy": "Test with screen readers (NVDA, VoiceOver, JAWS) to verify all content is properly announced. Verify dynamic content updates are announced appropriately. Check that all images have meaningful alt text."
+          },
+          {
+            "id": 4,
+            "title": "Create Accessible Form Components",
+            "description": "Implement accessible form inputs for chatbot and custom questions with proper labels and error handling",
+            "dependencies": [
+              "14.1",
+              "14.3"
+            ],
+            "details": "Associate labels with form controls using for/id attributes. Implement error messages that are programmatically associated with inputs using aria-describedby. Add clear validation feedback that works with screen readers. Ensure form controls have accessible names and proper roles. Implement autocomplete attributes where appropriate.",
+            "status": "pending",
+            "testStrategy": "Test form submission with screen readers to verify error messages are properly announced. Validate form markup with accessibility tools. Test keyboard navigation through form elements."
+          },
+          {
+            "id": 5,
+            "title": "Conduct Comprehensive Accessibility Testing",
+            "description": "Perform thorough testing with assistive technologies and fix identified issues",
+            "dependencies": [
+              "14.1",
+              "14.2",
+              "14.3",
+              "14.4"
+            ],
+            "details": "Test the application with screen readers (NVDA, VoiceOver) on different browsers. Conduct keyboard-only navigation testing. Use automated testing tools (axe, Lighthouse) to identify issues. Perform manual testing with the WCAG 2.1 AA checklist. Document and fix all identified accessibility issues. Test with reduced motion preferences enabled.",
+            "status": "pending",
+            "testStrategy": "Create a comprehensive test plan covering all WCAG 2.1 AA success criteria. Document test results and issues found. Verify fixes address the identified issues. Perform regression testing after implementing fixes."
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "title": "Implement End-to-End Testing and Quality Assurance",
+        "description": "Create comprehensive end-to-end tests to ensure all features work together correctly and meet the success criteria.",
+        "details": "1. Set up Cypress for end-to-end testing: `npm install cypress --save-dev`\n2. Create test scenarios for key user journeys:\n   - Navigating through all sections\n   - Interacting with the chatbot\n   - Expanding follow-up questions\n   - Watching video testimonials\n   - Submitting custom questions\n3. Implement tests for success criteria:\n   - Verify AI responses stream in real-time\n   - Check page load times are under 2 seconds\n   - Confirm all follow-up questions are pre-generated\n   - Test video section loads smoothly\n   - Verify analytics tracking for all interactions\n4. Create visual regression tests\n5. Implement performance testing\n6. Add accessibility testing in CI pipeline\n7. Create documentation for all tests",
+        "testStrategy": "Run end-to-end tests on multiple browsers and devices to ensure consistent behavior. Verify all success criteria are met through automated tests. Perform manual testing for user experience aspects that are difficult to automate.",
+        "priority": "high",
+        "dependencies": [
+          4,
+          5,
+          6,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Set up Cypress and configure test environment",
+            "description": "Install Cypress, configure the test environment, and establish the basic test structure for end-to-end testing",
+            "dependencies": [],
+            "details": "1. Install Cypress with npm install cypress --save-dev\n2. Set up Cypress configuration in cypress.config.js\n3. Create base test fixtures and commands\n4. Configure viewport sizes for responsive testing\n5. Set up test reporting and screenshot capabilities\n6. Create environment configuration for different test environments",
+            "status": "pending",
+            "testStrategy": "Verify Cypress installation by running npx cypress open and ensuring the test runner launches correctly. Test basic configuration by creating and running a simple smoke test."
+          },
+          {
+            "id": 2,
+            "title": "Implement user journey test scenarios",
+            "description": "Create comprehensive test scenarios for all key user journeys through the application",
+            "dependencies": [
+              "15.1"
+            ],
+            "details": "1. Create tests for navigating through all sections\n2. Implement tests for chatbot interactions including response validation\n3. Create tests for expanding and interacting with follow-up questions\n4. Implement tests for video testimonial playback and controls\n5. Create tests for submitting custom questions and validating responses",
+            "status": "pending",
+            "testStrategy": "Run tests across multiple browsers (Chrome, Firefox, Safari) to ensure consistent behavior. Use test data fixtures to simulate various user inputs and validate expected outcomes."
+          },
+          {
+            "id": 3,
+            "title": "Implement success criteria validation tests",
+            "description": "Create tests that specifically validate all project success criteria are being met",
+            "dependencies": [
+              "15.1",
+              "15.2"
+            ],
+            "details": "1. Create tests to verify AI responses stream in real-time\n2. Implement performance tests to verify page load times are under 2 seconds\n3. Create tests to confirm all follow-up questions are pre-generated correctly\n4. Implement tests to verify video section loads smoothly and plays without issues\n5. Create tests to verify analytics tracking for all user interactions",
+            "status": "pending",
+            "testStrategy": "Use Cypress's network interception capabilities to validate API responses and streaming behavior. Implement performance timing assertions to verify load times. Use mock data where appropriate to ensure consistent test results."
+          },
+          {
+            "id": 4,
+            "title": "Implement visual regression and accessibility testing",
+            "description": "Set up visual regression testing and accessibility validation to ensure UI consistency and compliance",
+            "dependencies": [
+              "15.1",
+              "15.2"
+            ],
+            "details": "1. Install and configure visual regression testing tools (e.g., cypress-image-snapshot)\n2. Create baseline screenshots for all key components and pages\n3. Implement accessibility tests using cypress-axe\n4. Create tests for WCAG compliance across all components\n5. Implement tests for keyboard navigation and screen reader compatibility\n6. Configure CI pipeline integration for accessibility testing",
+            "status": "pending",
+            "testStrategy": "Compare visual snapshots against baselines to detect unintended UI changes. Run accessibility tests against WCAG 2.1 AA standards. Test with various screen sizes to ensure responsive design maintains accessibility."
+          },
+          {
+            "id": 5,
+            "title": "Implement performance testing and documentation",
+            "description": "Create performance tests and comprehensive test documentation for the entire test suite",
+            "dependencies": [
+              "15.1",
+              "15.2",
+              "15.3",
+              "15.4"
+            ],
+            "details": "1. Implement performance testing for critical user paths\n2. Create load tests for chatbot and API interactions\n3. Implement memory usage monitoring during tests\n4. Create comprehensive documentation for all test scenarios\n5. Document test coverage and success criteria validation\n6. Create onboarding documentation for new team members to run and extend tests",
+            "status": "pending",
+            "testStrategy": "Use Lighthouse integration with Cypress to measure performance metrics. Implement custom performance timing assertions. Validate documentation by having team members follow it to run tests successfully."
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "created": "2025-08-01T18:53:20.146Z",
+      "updated": "2025-08-01T19:14:44.993Z",
+      "description": "Tasks for ai-personalized-experience context"
+    }
+  },
+  "color-scheme-conversion": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Analyze Reference Repository",
+        "description": "Clone and analyze the TimeBack reference repository to understand the exact color scheme and design system implementation details.",
+        "details": "1. Clone the TimeBack repository from https://github.com/dillonmurti/timeback-official-0b5aa02b.git\n2. Analyze the CSS/Tailwind configuration files to extract exact color values and design patterns\n3. Document the usage patterns of colors across different components\n4. Identify any custom animations or transitions\n5. Create a comprehensive style guide document with screenshots for reference\n6. Use tools like Chrome DevTools to inspect computed styles\n7. Document font usage patterns across different UI elements\n8. Note any responsive design considerations specific to the color scheme",
+        "testStrategy": "Create a detailed documentation with screenshots comparing the reference repository's design elements with the current Ship Fast TS app. Include color hex codes, font usage, and component styling patterns.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Update Tailwind Configuration",
+        "description": "Modify the Tailwind configuration file to incorporate the new color scheme and typography requirements.",
+        "details": "1. Update tailwind.config.js with the new color palette:\n```javascript\nmodule.exports = {\n  theme: {\n    extend: {\n      colors: {\n        background: '#1abeff',\n        foreground: '#0f33bb',\n        primary: '#0f33bb',\n        'primary-foreground': '#ffffff',\n        secondary: '#ffffff',\n        'secondary-foreground': '#0f33bb',\n      },\n      borderRadius: {\n        xl: '12px',\n      },\n      fontFamily: {\n        'cal': ['Cal Sans', 'sans-serif'],\n        'satoshi': ['Satoshi', 'sans-serif'],\n        'crimson': ['Crimson Pro', 'serif'],\n      },\n    },\n  },\n  // Ensure dark mode is configured properly\n  darkMode: 'class',\n}\n```\n2. Remove any existing red/green color definitions or create aliases that map to appropriate blue variants\n3. Update any custom gradient definitions to match the blue/purple reference gradients\n4. Ensure the configuration supports both light and dark modes",
+        "testStrategy": "Verify the Tailwind configuration by running the build process and checking for any errors. Create a simple test page that uses all the new color variables and font families to ensure they're properly defined and accessible.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "Integrate Required Fonts",
+        "description": "Add Cal Sans, Satoshi, and Crimson Pro fonts to the project and configure them for use throughout the application.",
+        "details": "1. Download or import the required fonts:\n   - Cal Sans: https://github.com/calcom/font\n   - Satoshi: https://www.fontshare.com/fonts/satoshi\n   - Crimson Pro: https://fonts.google.com/specimen/Crimson+Pro\n2. Add the fonts to the project in a '/public/fonts/' directory\n3. Create a fonts.css file with proper @font-face declarations:\n```css\n@font-face {\n  font-family: 'Cal Sans';\n  src: url('/fonts/CalSans-SemiBold.woff2') format('woff2');\n  font-weight: 600;\n  font-style: normal;\n  font-display: swap;\n}\n\n@font-face {\n  font-family: 'Satoshi';\n  src: url('/fonts/Satoshi-Variable.woff2') format('woff2');\n  font-weight: 300 900;\n  font-style: normal;\n  font-display: swap;\n}\n\n@font-face {\n  font-family: 'Crimson Pro';\n  src: url('/fonts/CrimsonPro-Variable.woff2') format('woff2');\n  font-weight: 200 900;\n  font-style: normal;\n  font-display: swap;\n}\n```\n4. Import the fonts.css file in the main layout or global CSS file\n5. Update the default font-family in the global CSS to use Cal Sans as the primary font",
+        "testStrategy": "Create a test page that displays text in each of the three fonts at various weights. Verify that the fonts are loading correctly across different browsers and devices. Check for any font loading performance issues.",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "Create CSS Variables for Color Scheme",
+        "description": "Define CSS custom properties (variables) for the new color scheme to ensure consistent application throughout the codebase.",
+        "details": "1. Update the global CSS file with the new color variables:\n```css\n:root {\n  --background: #1abeff;\n  --foreground: #0f33bb;\n  --primary: #0f33bb;\n  --primary-foreground: #ffffff;\n  --secondary: #ffffff;\n  --secondary-foreground: #0f33bb;\n  \n  /* Add additional variables for gradients */\n  --gradient-blue-purple: linear-gradient(135deg, #1abeff 0%, #7b61ff 100%);\n  \n  /* Add variables for rounded corners */\n  --border-radius: 12px;\n}\n\n.dark {\n  --background: #0a0a1e;\n  --foreground: #1abeff;\n  --primary: #1abeff;\n  --primary-foreground: #ffffff;\n  --secondary: #0f33bb;\n  --secondary-foreground: #ffffff;\n}\n```\n2. Ensure these variables are accessible throughout the application\n3. Create a color utility module that provides functions for accessing these colors programmatically if needed\n4. Document the color system for other developers",
+        "testStrategy": "Create a test component that uses all the CSS variables in different contexts (text, backgrounds, borders, etc.). Verify that the variables are applied correctly in both light and dark modes. Test with browser dev tools to ensure the variables are properly defined.",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Update Button Components",
+        "description": "Modify all button components to use the new color scheme with white backgrounds and dark blue text for CTAs.",
+        "details": "1. Locate all button component definitions (likely in a components/ui/button.tsx or similar)\n2. Update the button styles to use the new color scheme:\n```jsx\n// Primary button (white background, dark blue text)\nconst Button = ({ children, variant = 'primary', ...props }) => {\n  const variants = {\n    primary: 'bg-secondary text-primary font-cal rounded-xl transition-all hover:bg-opacity-90',\n    secondary: 'bg-primary text-primary-foreground font-cal rounded-xl transition-all hover:bg-opacity-90',\n    outline: 'border border-primary text-primary bg-transparent font-cal rounded-xl transition-all hover:bg-primary hover:bg-opacity-10',\n    // Add other variants as needed\n  };\n  \n  return (\n    <button className={variants[variant]} {...props}>\n      {children}\n    </button>\n  );\n};\n```\n3. Ensure all button hover and focus states use appropriate color variations\n4. Add subtle animations for button interactions (hover, focus, active)\n5. Update any icon colors within buttons to match the new scheme\n6. Ensure consistent rounded corners (12px/rounded-xl) across all buttons",
+        "testStrategy": "Create a test page with all button variants and states (default, hover, focus, active, disabled). Verify that all buttons match the reference design in both light and dark modes. Test across different browsers and screen sizes to ensure consistency.",
+        "priority": "high",
+        "dependencies": [
+          2,
+          3,
+          4
+        ],
+        "status": "in-progress",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "Update Form Components",
+        "description": "Modify all form components (inputs, selects, checkboxes, etc.) to use the new color scheme.",
+        "details": "1. Update input field styles:\n```css\n.input {\n  border: 1px solid var(--primary);\n  border-radius: var(--border-radius);\n  color: var(--primary);\n  background-color: var(--secondary);\n}\n\n.input:focus {\n  outline: 2px solid var(--primary);\n  outline-offset: 2px;\n}\n```\n2. Update select dropdowns, checkboxes, radio buttons, and other form elements\n3. Ensure form validation states use appropriate blue variants instead of red/green\n4. For error states, use darker blue (#0a2080) instead of red\n5. For success states, use lighter blue (#5cc7ff) instead of green\n6. Update focus and hover states to use the appropriate blue variants\n7. Ensure consistent rounded corners (12px) across all form elements\n8. Apply Cal Sans font to form labels and Satoshi for input text",
+        "testStrategy": "Create a test form with all input types and states (default, focus, hover, filled, error, disabled). Verify that all form elements match the reference design in both light and dark modes. Test form validation to ensure error states use the correct colors.",
+        "priority": "high",
+        "dependencies": [
+          2,
+          3,
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "Update Navigation and Header Components",
+        "description": "Modify the navigation bar, header, and menu components to use the new color scheme and typography.",
+        "details": "1. Update the main navigation bar:\n```jsx\n<nav className=\"bg-background text-foreground font-cal\">\n  {/* Navigation content */}\n</nav>\n```\n2. Update dropdown menus and mobile navigation components\n3. Apply Cal Sans font to navigation items\n4. Update active/hover states to use appropriate color variations\n5. Ensure consistent rounded corners for dropdown menus\n6. Update any navigation icons to use the primary color (#0f33bb)\n7. Add subtle transitions for hover/active states\n8. Ensure the header is responsive and maintains the color scheme across all breakpoints",
+        "testStrategy": "Test the navigation components in various states (default, active, hover) and at different screen sizes. Verify that the mobile navigation works correctly with the new color scheme. Check that all dropdown menus and navigation elements match the reference design.",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          3,
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "Update Card and Container Components",
+        "description": "Modify all card, panel, and container components to use the new color scheme with appropriate backgrounds and borders.",
+        "details": "1. Update card components:\n```jsx\n<div className=\"bg-secondary text-primary rounded-xl shadow-sm border border-primary border-opacity-10\">\n  {/* Card content */}\n</div>\n```\n2. Apply consistent rounded corners (12px/rounded-xl) to all containers\n3. Update any card headers or footers to use appropriate color variations\n4. Ensure proper contrast between card backgrounds and content\n5. Add subtle border or shadow effects as seen in the reference design\n6. Update any card hover or interactive states\n7. Apply appropriate typography: Cal Sans for headings, Satoshi for body text\n8. Ensure cards are responsive and maintain the color scheme across all breakpoints",
+        "testStrategy": "Create a test page with various card and container layouts. Verify that all containers match the reference design in both light and dark modes. Test at different screen sizes to ensure responsive behavior is maintained.",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          3,
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Update Modal and Dialog Components",
+        "description": "Modify all modal, dialog, and popup components to use the new color scheme and design patterns.",
+        "details": "1. Update modal components:\n```jsx\n<div className=\"fixed inset-0 bg-foreground bg-opacity-50 flex items-center justify-center z-50\">\n  <div className=\"bg-background text-foreground rounded-xl p-6 max-w-md w-full\">\n    <h2 className=\"font-cal text-xl mb-4\">Modal Title</h2>\n    {/* Modal content */}\n    <div className=\"mt-6 flex justify-end space-x-4\">\n      <button className=\"bg-secondary text-primary font-cal px-4 py-2 rounded-xl\">Action</button>\n      <button className=\"bg-primary text-secondary font-cal px-4 py-2 rounded-xl\">Close</button>\n    </div>\n  </div>\n</div>\n```\n2. Apply consistent rounded corners (12px/rounded-xl) to all modals and dialogs\n3. Update backdrop colors and opacity to match reference design\n4. Add appropriate animations for modal entry/exit\n5. Ensure proper contrast between modal backgrounds and content\n6. Apply appropriate typography: Cal Sans for headings, Satoshi for body text\n7. Update any confirmation or alert dialogs to use blue variants instead of red/green\n8. Ensure modals are responsive and maintain the color scheme across all breakpoints",
+        "testStrategy": "Create test scenarios that trigger various modals and dialogs. Verify that all modals match the reference design in both light and dark modes. Test modal animations and responsive behavior across different screen sizes.",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 10,
+        "title": "Update Landing Page",
+        "description": "Convert the homepage/landing page to use the new color scheme, typography, and design patterns.",
+        "details": "1. Update the hero section to use the light blue background (#1abeff) with dark blue text (#0f33bb)\n2. Apply Cal Sans font to all headings and CTAs\n3. Apply Satoshi font to body text and Crimson Pro for any decorative or quote text\n4. Update all buttons to use white backgrounds with dark blue text\n5. Replace any existing gradients with the blue/purple gradients from the reference design\n6. Update all icons and illustrations to use the new color scheme\n7. Ensure consistent rounded corners (12px) for all elements\n8. Add subtle animations and transitions as seen in the reference design\n9. Ensure the landing page is responsive and maintains the color scheme across all breakpoints\n10. Remove any red/green elements and replace with appropriate blue variants",
+        "testStrategy": "Perform a visual comparison between the updated landing page and the reference design. Test the page at various screen sizes to ensure responsive behavior. Verify that all animations and interactions work as expected.",
+        "priority": "high",
+        "dependencies": [
+          2,
+          3,
+          4,
+          5,
+          8
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 11,
+        "title": "Update Quiz Flow Pages",
+        "description": "Convert all quiz flow pages to use the new color scheme, typography, and design patterns.",
+        "details": "1. Update quiz container backgrounds to light blue (#1abeff)\n2. Apply Cal Sans font to all question headings and buttons\n3. Apply Satoshi font to question text and answer options\n4. Update progress indicators to use dark blue (#0f33bb)\n5. Replace any success/error indicators with blue variants\n6. Update all buttons and interactive elements to match the new design system\n7. Add appropriate animations for question transitions\n8. Ensure consistent rounded corners (12px) for all elements\n9. Update any quiz result visualizations to use the new color scheme\n10. Ensure the quiz flow is responsive and maintains the color scheme across all breakpoints",
+        "testStrategy": "Test the complete quiz flow from start to finish. Verify that all pages and states match the reference design. Test with various answer selections to ensure all states (correct, incorrect, etc.) use the appropriate colors. Test on different devices to ensure responsive behavior.",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 12,
+        "title": "Update Dashboard and Authentication Pages",
+        "description": "Convert dashboard, profile, and authentication pages to use the new color scheme, typography, and design patterns.",
+        "details": "1. Update dashboard background to light blue (#1abeff)\n2. Apply Cal Sans font to all dashboard headings and navigation\n3. Apply Satoshi font to dashboard content and data\n4. Update all data visualizations (charts, graphs) to use the new color palette\n5. Update authentication forms (login, signup, forgot password) to use the new design system\n6. Replace any status indicators with blue variants\n7. Update all buttons and interactive elements to match the new design system\n8. Ensure consistent rounded corners (12px) for all elements\n9. Update any profile or settings pages to use the new color scheme\n10. Ensure all pages are responsive and maintain the color scheme across all breakpoints",
+        "testStrategy": "Test all dashboard features and authentication flows. Verify that all pages and states match the reference design. Test with various user roles to ensure all dashboard views are properly styled. Test on different devices to ensure responsive behavior.",
+        "priority": "high",
+        "dependencies": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          8
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 13,
+        "title": "Update AI Experience Pages",
+        "description": "Convert all AI experience pages to use the new color scheme, typography, and design patterns.",
+        "details": "1. Update AI chat interface to use light blue background (#1abeff) with dark blue text (#0f33bb)\n2. Apply Cal Sans font to all headings and user inputs\n3. Apply Satoshi font to AI responses and system messages\n4. Update message bubbles to use appropriate background colors:\n   - User messages: dark blue background (#0f33bb) with white text\n   - AI messages: white background (#ffffff) with dark blue text\n5. Update loading/thinking animations to use the new color scheme\n6. Replace any status indicators with blue variants\n7. Update all buttons and interactive elements to match the new design system\n8. Ensure consistent rounded corners (12px) for all elements\n9. Add subtle animations for message transitions\n10. Ensure the AI experience is responsive and maintains the color scheme across all breakpoints",
+        "testStrategy": "Test the AI experience with various conversation flows. Verify that all message types and states match the reference design. Test loading states and error handling to ensure they use the appropriate colors. Test on different devices to ensure responsive behavior.",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 14,
+        "title": "Update Loading States and Animations",
+        "description": "Convert all loading states, spinners, progress indicators, and animations to use the new color scheme.",
+        "details": "1. Update loading spinners to use dark blue (#0f33bb):\n```jsx\n<div className=\"animate-spin rounded-full h-6 w-6 border-2 border-primary border-t-transparent\"></div>\n```\n2. Update progress bars to use the new color scheme:\n```jsx\n<div className=\"bg-secondary bg-opacity-30 rounded-full h-2 w-full\">\n  <div className=\"bg-primary h-full rounded-full\" style={{ width: `${progress}%` }}></div>\n</div>\n```\n3. Update skeleton loaders to use light blue with dark blue shimmer\n4. Replace any loading text with Cal Sans font\n5. Update any success/error animations to use blue variants\n6. Add subtle transitions for state changes (loading → loaded)\n7. Ensure all animations are performant and accessible\n8. Update any toast notifications or alerts to use the new color scheme",
+        "testStrategy": "Create test scenarios that trigger various loading states and animations. Verify that all loading indicators match the reference design in both light and dark modes. Test performance to ensure animations run smoothly. Test with reduced motion preferences enabled to ensure accessibility.",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          3,
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 15,
+        "title": "Accessibility and Final Testing",
+        "description": "Ensure the new color scheme meets accessibility standards and perform comprehensive testing across all pages and components.",
+        "details": "1. Verify color contrast ratios meet WCAG AA standards (minimum 4.5:1 for normal text, 3:1 for large text)\n2. Test with screen readers to ensure all elements are properly accessible\n3. Verify focus states are clearly visible with the new color scheme\n4. Test keyboard navigation throughout the application\n5. Verify that no red/green colors remain in the application\n6. Test the application in both light and dark modes\n7. Perform cross-browser testing (Chrome, Firefox, Safari, Edge)\n8. Test on various devices and screen sizes\n9. Create a comprehensive report documenting any accessibility issues and their resolutions\n10. Verify that all success criteria from the PRD have been met",
+        "testStrategy": "Use accessibility testing tools like Axe, WAVE, or Lighthouse to audit the application. Manually test with screen readers and keyboard navigation. Create a test matrix covering all major browsers and devices. Document and address any accessibility issues found.",
+        "priority": "high",
+        "dependencies": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-08-03T23:37:09.369Z",
+      "updated": "2025-08-03T23:42:33.203Z",
+      "description": "Tasks for color-scheme-conversion context"
+    }
+  }
+}

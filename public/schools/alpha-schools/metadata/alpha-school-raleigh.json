@@ -1,0 +1,62 @@
+{
+  "school": {
+    "id": "alpha-school-raleigh",
+    "name": "Alpha School | Raleigh ",
+    "originalName": "Alpha School | Raleigh ",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1XxNPdYH7O8NnQW7CadJZMFoEm1QugJzk"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1rrJA5j0yUSmlrSdGiFPN6LRz2PCCM0fV",
+        "originalName": "Alpha Raleigh - Now Enrolling 2025.2026.pdf",
+        "organizedName": "alpha-school-raleigh_1_Alpha-Raleigh-Now-Enrolling-20252026.pdf",
+        "mimeType": "application/pdf",
+        "size": 12886339,
+        "webViewLink": "https://drive.google.com/file/d/1rrJA5j0yUSmlrSdGiFPN6LRz2PCCM0fV/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1rrJA5j0yUSmlrSdGiFPN6LRz2PCCM0fV&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-raleigh_1_Alpha-Raleigh-Now-Enrolling-20252026.pdf",
+        "extractionDate": "2025-08-03T21:37:10.092Z"
+      },
+      {
+        "id": "1PkhH2lucA71EJ6YKItQ7mWqkhKCNjcNO",
+        "originalName": "Alpha Raleigh.pdf",
+        "organizedName": "alpha-school-raleigh_2_Alpha-Raleigh.pdf",
+        "mimeType": "application/pdf",
+        "size": 1177913,
+        "webViewLink": "https://drive.google.com/file/d/1PkhH2lucA71EJ6YKItQ7mWqkhKCNjcNO/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1PkhH2lucA71EJ6YKItQ7mWqkhKCNjcNO&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-raleigh_2_Alpha-Raleigh.pdf",
+        "extractionDate": "2025-08-03T21:37:10.092Z"
+      }
+    ],
+    "other": [
+      {
+        "id": "1EYmtF3eoSp7gOg1b_KW3CuvfcR73I5mx",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-raleigh_3_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1EYmtF3eoSp7gOg1b_KW3CuvfcR73I5mx",
+        "downloadUrl": "https://drive.google.com/uc?id=1EYmtF3eoSp7gOg1b_KW3CuvfcR73I5mx&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-raleigh_3_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:10.092Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 3,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 2,
+    "otherCount": 1
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:10.092Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

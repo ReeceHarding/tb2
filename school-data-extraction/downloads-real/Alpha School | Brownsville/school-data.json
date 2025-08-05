@@ -1,0 +1,39 @@
+{
+  "school": {
+    "name": "Alpha School | Brownsville",
+    "id": "1LGKw7ITduVlqsfEqOijaIX5QQzXNl5h6",
+    "extractionDate": "2025-08-03T21:37:14.778Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [],
+    "other": [
+      {
+        "id": "105b69Mbl5qoEY8QaVhn_1zH1ZxHO5GFT",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/105b69Mbl5qoEY8QaVhn_1zH1ZxHO5GFT"
+      },
+      {
+        "id": "1EXEGlsFzbKyLCeepNoogoFCILQ9HhVgN",
+        "name": "Marketing",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1EXEGlsFzbKyLCeepNoogoFCILQ9HhVgN"
+      },
+      {
+        "id": "13VLKGUpJQAF5jSYyPjIbteaCLPP60XgW",
+        "name": "Admissions Packet",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/13VLKGUpJQAF5jSYyPjIbteaCLPP60XgW"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 0,
+    "other": 3,
+    "total": 3
+  }
+}

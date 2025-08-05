@@ -1,0 +1,102 @@
+{
+  "processedAt": "2025-08-03T23:29:26.336Z",
+  "summary": {
+    "totalTranscriptions": 15,
+    "totalApiCalls": 15,
+    "successfulGenerations": 0,
+    "failedGenerations": 15
+  },
+  "testimonials": [],
+  "allResults": [
+    {
+      "fileName": "0803 (1)-1.json",
+      "originalTranscription": "My name is Chloe and I'm an L2. I love Alpha because I can learn at my own pace whether I'm ahead or behind the glass.",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:28:55.811Z"
+    },
+    {
+      "fileName": "AlphaTestimonials-10.json",
+      "originalTranscription": "I love Alpha because, even though I'm second grade, I've mastered all the second grade skills. My apps let me learn fourth grade content. I actually don't have teachers. I learned from my computer using apps so far this year. I've already learned double than I would in normal school. Technically, two-point tricks. I like math because of the content. I like challenges and sometimes math can be a way harder than reading. Because like in reading, you have to memorize vocabulary and stuff which is pretty easy to memorize. I love a challenge so whenever I work in my math apps, I'm never bored.",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:28:57.986Z"
+    },
+    {
+      "fileName": "AlphaTestimonials-11.json",
+      "originalTranscription": "Hi, my name is Warsaw. I'm seven years old and I go to Alpha. Before I came to Alpha, I didn't think I was a good reader. Whenever I was reading, I got stuck a lot and it was tough. At Alpha, I actually don't have a teacher. I learn from apps every single day. My reading app is great because when I get something wrong, it helps me figure out why I got it wrong. At a normal school, I would have grown 1x this year. But Alpha, the year's not over. And I've already grown 2.6x. That's double what I would at a normal school. I don't have to stick just a second grade. I can learn third and fourth grade content too.",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:29:00.162Z"
+    },
+    {
+      "fileName": "AlphaTestimonials-12.json",
+      "originalTranscription": "I'm Shepard and I'm nine years old. What I love about Alpha is the freedom we get here that isn't like another school and how we get rewarded for our ambition and hard work.",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:29:02.352Z"
+    },
+    {
+      "fileName": "AlphaTestimonials-13.json",
+      "originalTranscription": "Hi my name is Kai and I am in fourth grade. I love alpha because it's taught me to be limitless. I learned hard work and ambition. I don't have a teacher at alpha but in six months I learned 4x. That's four times faster than you will learn in a normal school.",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:29:04.525Z"
+    },
+    {
+      "fileName": "AlphaTestimonials-14.json",
+      "originalTranscription": "My name is Lulu and I'm an L2. One of the reasons I love Alpha is because we have our own currency that motivates us to do more work.",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:29:06.700Z"
+    },
+    {
+      "fileName": "AlphaTestimonials-15.json",
+      "originalTranscription": "One of the reasons I like Alpha is because instead of learning 6 hours, we learn 2 hours and still learn twice as much.",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:29:08.869Z"
+    },
+    {
+      "fileName": "AlphaTestimonials-16.json",
+      "originalTranscription": "Hi, I'm 6 years old and I go to Alpha. Every day, I use apps to learn. When I get scared, I use my tools to help me. I have to be independent and to focus. I work for 25 minutes on each app. When working, I'm super independent. Guess how much I grew so far this year? 4.5x in reading. 5.6x in math. Alpha is awesome because I'm learning how to learn. Not everybody learns this fast. But that's okay, some kids need more time. At Alpha, I don't have to go slow. I can work at my own pace.",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:29:11.055Z"
+    },
+    {
+      "fileName": "AlphaTestimonials-3.json",
+      "originalTranscription": "At Alpha, I use apps to learn and I always stay laser focused. Normally, kids learn what apps at school. It's only the middle of the year. I've already learned 2.8x. That means my reading almost grows three times as much.",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:29:13.245Z"
+    },
+    {
+      "fileName": "AlphaTestimonials-4.json",
+      "originalTranscription": "Hi, I'm 6 years old and I go to Alpha. When I woke up my apps, I have to focus a lot. Sometimes I get stuck in my app helps me when I get it warm. Normally at school, everyone has to learn the same thing together. And Alpha, I can learn my next skill whenever I'm ready. Guess how much I grew this year? I learned 4x in reading. And I learned 3x in math. My apps really helped me learn how to...",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:29:15.420Z"
+    },
+    {
+      "fileName": "AlphaTestimonials-5.json",
+      "originalTranscription": "I'm Rosie, and I'm 8 years old, and I'm in a 1. I love alpha because I'm surrounded by kids that like to work as hard as me.",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:29:17.593Z"
+    },
+    {
+      "fileName": "AlphaTestimonials-6.json",
+      "originalTranscription": "I go to Alpha and I've seven years old. Alpha is not like a normal school. We use apps to learn. When I'm working with my apps, if I get something wrong it's okay. The app just explains how to do it correctly. That way I can learn from my mistakes. You're not going to believe this but it's true. I grew 8 apps in reading. As I keep mastering new skills I get to level up. Some kids don't learn this fast but that's okay. Alpha everybody learns at their own pace. Guess what? I also grew 4 apps in the back. I like Alpha because I get to bring home like a computer.",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:29:19.764Z"
+    },
+    {
+      "fileName": "AlphaTestimonials-7.json",
+      "originalTranscription": "Hi, my name is Reed Argo de Alfa. I'm six years old. My favorite workshop is Hello World because I learned how to code. At Alfa, everybody learns on that. So they can learn on their own speed. I also learned three times as much in reading. I learned two X math. I also learned a lot of checks this session. I'm so proud of myself.",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:29:21.940Z"
+    },
+    {
+      "fileName": "AlphaTestimonials-8.json",
+      "originalTranscription": "My name is Silas, and I'm in L2, and I love Alpha because I get to learn four times your amount of material in three months. I, you get to learn at your own pace, and it's complete at your own pace because in my last school, it was like I was often waiting for a lot of people to finish the subject. I love Alpha because there's no hand holding, and I get to learn at my own pace.",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:29:24.170Z"
+    },
+    {
+      "fileName": "AlphaTestimonials-9.json",
+      "originalTranscription": "Now I am 60 so the night good alpha. Alpha is amazing because they never get bored with me again.",
+      "error": "The provided model identifier is invalid.",
+      "timestamp": "2025-08-03T23:29:26.335Z"
+    }
+  ]
+}

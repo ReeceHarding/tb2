@@ -1,0 +1,90 @@
+{
+  "school": {
+    "name": "NextGen Academy | Austin",
+    "id": "nextgen-academy-austin",
+    "city": "Austin",
+    "state": "Unknown",
+    "type": "other",
+    "extractionDate": "2025-08-03T21:49:25.124Z"
+  },
+  "marketing": {
+    "images": [
+      {
+        "originalName": "Option 02.png",
+        "organizedName": "nextgen-academy-austin_1_Option_02.png",
+        "localPath": "/other-schools/images/nextgen-academy-austin_1_Option_02.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 2163901,
+        "googleDriveId": "1Ylo3jBMTVtAGIT893IligOwQ8nlfCt_6",
+        "downloadUrl": "https://drive.google.com/uc?id=1Ylo3jBMTVtAGIT893IligOwQ8nlfCt_6&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1Ylo3jBMTVtAGIT893IligOwQ8nlfCt_6/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBO-hcxXVy6zNT79NR2nJR73L7YTLmZOpBnX3Zu8DnDBxXXUCl1_CoTUd891mojqXDW733s9tRc4nbrpLpnDXyev8gpin3uGbrRD=s220",
+        "category": "Marketing Content"
+      },
+      {
+        "originalName": "Option 01.png",
+        "organizedName": "nextgen-academy-austin_2_Option_01.png",
+        "localPath": "/other-schools/images/nextgen-academy-austin_2_Option_01.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1198206,
+        "googleDriveId": "141Q9veeuZCO_2MTCDh0vD6gT21DFRGZw",
+        "downloadUrl": "https://drive.google.com/uc?id=141Q9veeuZCO_2MTCDh0vD6gT21DFRGZw&export=download",
+        "webViewLink": "https://drive.google.com/file/d/141Q9veeuZCO_2MTCDh0vD6gT21DFRGZw/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNYjP-ZKBS_dU46nP31p1AS6oudZOD9FgndEnm6oDAcKH0dSNHE3BnjOV4_nQBZqYziikcVxr2Bo5THTrFA5VCcN5DsAeMvYyAt=s220",
+        "category": "Marketing Content"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "Next Gen Academy - Strategy Deck.pdf",
+        "organizedName": "nextgen-academy-austin_1_Next_Gen_Academy_-_Strategy_Deck.pdf",
+        "localPath": "/other-schools/documents/nextgen-academy-austin_1_Next_Gen_Academy_-_Strategy_Deck.pdf",
+        "fileType": "document",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "size": 0,
+        "googleDriveId": "1uQvbzF-gM4p1cNQdYlV9iJTUqbS5S1Ex",
+        "downloadUrl": "https://drive.google.com/uc?id=1uQvbzF-gM4p1cNQdYlV9iJTUqbS5S1Ex&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1uQvbzF-gM4p1cNQdYlV9iJTUqbS5S1Ex/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "Next Gen Academy - Strategy Deck.pdf",
+        "organizedName": "nextgen-academy-austin_2_Next_Gen_Academy_-_Strategy_Deck.pdf",
+        "localPath": "/other-schools/documents/nextgen-academy-austin_2_Next_Gen_Academy_-_Strategy_Deck.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 14660795,
+        "googleDriveId": "1sA3IFLaI_BTNJk963fiwIAwMcbp0fA0N",
+        "downloadUrl": "https://drive.google.com/uc?id=1sA3IFLaI_BTNJk963fiwIAwMcbp0fA0N&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1sA3IFLaI_BTNJk963fiwIAwMcbp0fA0N/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "NextGen - TNT Handouts.pdf",
+        "organizedName": "nextgen-academy-austin_3_NextGen_-_TNT_Handouts.pdf",
+        "localPath": "/other-schools/documents/nextgen-academy-austin_3_NextGen_-_TNT_Handouts.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 10144364,
+        "googleDriveId": "1OkjO1SqJUbfVxLgX3Dqh31WOPInUT-mO",
+        "downloadUrl": "https://drive.google.com/uc?id=1OkjO1SqJUbfVxLgX3Dqh31WOPInUT-mO&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1OkjO1SqJUbfVxLgX3Dqh31WOPInUT-mO/view?usp=drivesdk",
+        "category": "Print Materials"
+      }
+    ],
+    "totalAssets": 5
+  },
+  "metadata": {
+    "hasMarketingFolder": true,
+    "marketingFolderId": "1LlnwWGXoq9tnhr43HNtYDvHH7duWDjFW",
+    "contentCategories": [
+      "Marketing Content",
+      "Marketing Documents",
+      "Print Materials"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.955Z"
+  }
+}

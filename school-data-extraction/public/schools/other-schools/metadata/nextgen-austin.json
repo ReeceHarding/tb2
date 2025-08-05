@@ -1,0 +1,97 @@
+{
+  "school": {
+    "id": "nextgen-austin",
+    "name": "NextGen Academy",
+    "city": "Austin",
+    "state": "TX",
+    "type": "other-school",
+    "isMainBrand": false
+  },
+  "media": {
+    "videos": [
+      {
+        "filename": "nextgen-austin_1754255154212_intro-video.mp4",
+        "originalPath": "downloads/Alpha School | Austin/intro-video.mp4",
+        "localPath": "/schools/other-schools/videos/nextgen-austin_1754255154212_intro-video.mp4",
+        "fileType": "video",
+        "mimeType": "video/mp4",
+        "fileSize": 21,
+        "metadata": {
+          "title": "intro-video",
+          "dateCreated": "2025-08-03T20:48:15.294Z",
+          "lastModified": "2025-08-03T20:48:20.911Z",
+          "tags": [
+            "NextGen Academy",
+            "Austin",
+            "other-school"
+          ]
+        }
+      }
+    ],
+    "images": [
+      {
+        "filename": "nextgen-austin_1754255154211_campus-photo.jpg",
+        "originalPath": "downloads/Alpha School | Austin/campus-photo.jpg",
+        "localPath": "/schools/other-schools/images/nextgen-austin_1754255154211_campus-photo.jpg",
+        "fileType": "image",
+        "mimeType": "image/jpeg",
+        "fileSize": 21,
+        "metadata": {
+          "title": "campus-photo",
+          "dateCreated": "2025-08-03T20:48:15.294Z",
+          "lastModified": "2025-08-03T20:48:20.911Z",
+          "tags": [
+            "NextGen Academy",
+            "Austin",
+            "other-school"
+          ]
+        }
+      }
+    ],
+    "documents": [
+      {
+        "filename": "nextgen-austin_1754255154211_brochure.pdf",
+        "originalPath": "downloads/Alpha School | Austin/brochure.pdf",
+        "localPath": "/schools/other-schools/documents/nextgen-austin_1754255154211_brochure.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "fileSize": 24,
+        "metadata": {
+          "title": "brochure",
+          "dateCreated": "2025-08-03T20:48:15.294Z",
+          "lastModified": "2025-08-03T20:48:20.911Z",
+          "tags": [
+            "NextGen Academy",
+            "Austin",
+            "other-school"
+          ]
+        }
+      },
+      {
+        "filename": "nextgen-austin_1754255154212_school-overview.pptx",
+        "originalPath": "downloads/Alpha School | Austin/school-overview.pptx",
+        "localPath": "/schools/other-schools/documents/nextgen-austin_1754255154212_school-overview.pptx",
+        "fileType": "document",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "fileSize": 20,
+        "metadata": {
+          "title": "school-overview",
+          "dateCreated": "2025-08-03T20:48:15.294Z",
+          "lastModified": "2025-08-03T20:48:20.911Z",
+          "tags": [
+            "NextGen Academy",
+            "Austin",
+            "other-school"
+          ]
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "totalFiles": 4,
+    "lastUpdated": "2025-08-03T21:05:54.211Z",
+    "extractionDate": "2025-08-03T21:05:54.211Z",
+    "googleDriveFolder": "Alpha School | Austin"
+  },
+  "marketing": {}
+}

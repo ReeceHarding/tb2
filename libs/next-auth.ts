@@ -7,7 +7,7 @@ import config from "@/config";
 import connectMongo from "./mongo";
 
 interface NextAuthOptionsExtended extends NextAuthOptions {
-  adapter: any;
+  adapter?: any;
 }
 
 export const authOptions: NextAuthOptionsExtended = {
@@ -49,7 +49,17 @@ export const authOptions: NextAuthOptionsExtended = {
   // New users will be saved in Database (MongoDB Atlas). Each user (model) has some fields like name, email, image, etc..
   // Requires a MongoDB database. Set MONOGODB_URI env variable.
   // Learn more about the model type: https://next-auth.js.org/v3/adapters/models
-  ...(connectMongo && { adapter: MongoDBAdapter(connectMongo) }),
+  // Conditionally use MongoDB adapter - fallback to JWT-only if connection fails
+  ...(connectMongo && process.env.MONGODB_URI ? 
+    (() => {
+      try {
+        return { adapter: MongoDBAdapter(connectMongo) };
+      } catch (error) {
+        console.error("[NextAuth] MongoDB adapter setup failed, using JWT-only:", error);
+        return {};
+      }
+    })() 
+    : {}),
 
   callbacks: {
     session: async ({ session, token }) => {

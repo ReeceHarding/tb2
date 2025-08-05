@@ -1,0 +1,62 @@
+{
+  "school": {
+    "id": "alpha-school-charlotte",
+    "name": "Alpha School | Charlotte ",
+    "originalName": "Alpha School | Charlotte ",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1XNz0qXWiAjGsU69oXTbA0rO6RTCpqxOP"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1YhnOGHM_cKj-4hS2WWXebjYIOqGe4qsp",
+        "originalName": "Alpha Charlotte - Now Enrolling 2025.2026 (1).pdf",
+        "organizedName": "alpha-school-charlotte_1_Alpha-Charlotte-Now-Enrolling-20252026-1.pdf",
+        "mimeType": "application/pdf",
+        "size": 12915333,
+        "webViewLink": "https://drive.google.com/file/d/1YhnOGHM_cKj-4hS2WWXebjYIOqGe4qsp/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1YhnOGHM_cKj-4hS2WWXebjYIOqGe4qsp&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-charlotte_1_Alpha-Charlotte-Now-Enrolling-20252026-1.pdf",
+        "extractionDate": "2025-08-03T21:37:10.497Z"
+      },
+      {
+        "id": "1CPr7vtq47wG5KkqTk6UuO7VeRM8SYQ4i",
+        "originalName": "Alpha Charlotte.pdf",
+        "organizedName": "alpha-school-charlotte_2_Alpha-Charlotte.pdf",
+        "mimeType": "application/pdf",
+        "size": 1177783,
+        "webViewLink": "https://drive.google.com/file/d/1CPr7vtq47wG5KkqTk6UuO7VeRM8SYQ4i/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1CPr7vtq47wG5KkqTk6UuO7VeRM8SYQ4i&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-charlotte_2_Alpha-Charlotte.pdf",
+        "extractionDate": "2025-08-03T21:37:10.497Z"
+      }
+    ],
+    "other": [
+      {
+        "id": "1yxPAD7fZuAx0hmLzgMvgrw5tsI-5Ehmz",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-charlotte_3_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1yxPAD7fZuAx0hmLzgMvgrw5tsI-5Ehmz",
+        "downloadUrl": "https://drive.google.com/uc?id=1yxPAD7fZuAx0hmLzgMvgrw5tsI-5Ehmz&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-charlotte_3_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:10.497Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 3,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 2,
+    "otherCount": 1
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:10.497Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

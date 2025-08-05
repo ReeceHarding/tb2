@@ -1,0 +1,191 @@
+{
+  "school": {
+    "name": "Alpha School | Miami",
+    "id": "alpha-miami",
+    "city": "Miami",
+    "state": "Unknown",
+    "type": "alpha",
+    "extractionDate": "2025-08-03T21:49:15.858Z"
+  },
+  "marketing": {
+    "images": [
+      {
+        "originalName": "305 Hive 600x400 Acosta.png",
+        "organizedName": "alpha-miami_1_305_Hive_600x400_Acosta.png",
+        "localPath": "/alpha-schools/images/alpha-miami_1_305_Hive_600x400_Acosta.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 1308429,
+        "googleDriveId": "1leDwmLXP1vc5Io2gd0BEP6RVzeH4R1jC",
+        "downloadUrl": "https://drive.google.com/uc?id=1leDwmLXP1vc5Io2gd0BEP6RVzeH4R1jC&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1leDwmLXP1vc5Io2gd0BEP6RVzeH4R1jC/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPgZ2fKX2KGrn2enjELALKLh_qaCbwAdWxKomdU1vy_-vjauwxn-Ak7xFB4tycYC8pcQ7mYinkyQNyhJIZ3OoPWJtaTlzjTynUDKA=s220",
+        "category": "Marketing Content"
+      },
+      {
+        "originalName": "Alpha_Miami_Speaker_2_Summer_Success (1).png",
+        "organizedName": "alpha-miami_2_Alpha_Miami_Speaker_2_Summer_Success__1_.png",
+        "localPath": "/alpha-schools/images/alpha-miami_2_Alpha_Miami_Speaker_2_Summer_Success__1_.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 151189,
+        "googleDriveId": "1rVq26BxSO655CI_CJD8BQNl51vz82a0j",
+        "downloadUrl": "https://drive.google.com/uc?id=1rVq26BxSO655CI_CJD8BQNl51vz82a0j&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1rVq26BxSO655CI_CJD8BQNl51vz82a0j/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPlfaJgLeobrUA78drboI_LGvhyAhuMnvuWxntljNoo6gKIhKw25Mq4GVwBGlun9pNWrt_MBgxYAMfTFZ-r3b7kJ1fHqLJhm4OG5Q=s220",
+        "category": "Summer Camp"
+      },
+      {
+        "originalName": "Alpha_Miami_Website.png",
+        "organizedName": "alpha-miami_3_Alpha_Miami_Website.png",
+        "localPath": "/alpha-schools/images/alpha-miami_3_Alpha_Miami_Website.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 167041,
+        "googleDriveId": "1lfs9UB346rTpw3Xf1NpNFH7uRTvDNxlx",
+        "downloadUrl": "https://drive.google.com/uc?id=1lfs9UB346rTpw3Xf1NpNFH7uRTvDNxlx&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1lfs9UB346rTpw3Xf1NpNFH7uRTvDNxlx/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMBz-yg8cVKWgc4ySvFl_8ficESEuwIhtNAn6Fq5nhjfvbnabGEbs4oOHsZGkD-n9HkepAd3pTwrBmpTf5aYI_nAG02GXs8e6B70A=s220",
+        "category": "Marketing Content"
+      },
+      {
+        "originalName": "Miami_Showcases.png",
+        "organizedName": "alpha-miami_4_Miami_Showcases.png",
+        "localPath": "/alpha-schools/images/alpha-miami_4_Miami_Showcases.png",
+        "fileType": "image",
+        "mimeType": "image/png",
+        "size": 14798,
+        "googleDriveId": "1MlS3VlV2D-UMGxmJcoNJ44yvVkJZvH-Y",
+        "downloadUrl": "https://drive.google.com/uc?id=1MlS3VlV2D-UMGxmJcoNJ44yvVkJZvH-Y&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1MlS3VlV2D-UMGxmJcoNJ44yvVkJZvH-Y/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBMnafhdnY8XFmFfnmYX7R9nFjCaE2Cq5NUhRszU1z2RY9tZtXh1eQDdFN7B7fVgqNpYHRRYj0BGEOpQwH5nEjXQMXxxch-OVHs4=s220",
+        "category": "Marketing Content"
+      },
+      {
+        "originalName": "Miami_Showcases.svg",
+        "organizedName": "alpha-miami_5_Miami_Showcases.svg",
+        "localPath": "/alpha-schools/images/alpha-miami_5_Miami_Showcases.svg",
+        "fileType": "image",
+        "mimeType": "image/svg+xml",
+        "size": 26255,
+        "googleDriveId": "14CqJNjuJhyqPeM1h9IZT8gblMb-6P7ce",
+        "downloadUrl": "https://drive.google.com/uc?id=14CqJNjuJhyqPeM1h9IZT8gblMb-6P7ce&export=download",
+        "webViewLink": "https://drive.google.com/file/d/14CqJNjuJhyqPeM1h9IZT8gblMb-6P7ce/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNgwITwBlrdFIdHKVAzQwooN8pbZwPJ6bAWrcSbhxxqzZN4bbZ_sYWTSoGuTFf0BNjmQbP7k7zW3RVEbYBRkF5amlS8mh0on95W=s220",
+        "category": "Marketing Content"
+      }
+    ],
+    "videos": [],
+    "documents": [
+      {
+        "originalName": "Alpha Miami Speaker #2 - Lobby Posters 3.pdf",
+        "organizedName": "alpha-miami_1_Alpha_Miami_Speaker__2_-_Lobby_Posters_3.pdf",
+        "localPath": "/alpha-schools/documents/alpha-miami_1_Alpha_Miami_Speaker__2_-_Lobby_Posters_3.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 5413446,
+        "googleDriveId": "1z5jKcAQJz34elVE97rar-9Nz19Cy6-QH",
+        "downloadUrl": "https://drive.google.com/uc?id=1z5jKcAQJz34elVE97rar-9Nz19Cy6-QH&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1z5jKcAQJz34elVE97rar-9Nz19Cy6-QH/view?usp=drivesdk",
+        "category": "Event Flyers"
+      },
+      {
+        "originalName": "Dr Yeager Miami - V4.pptx",
+        "organizedName": "alpha-miami_2_Dr_Yeager_Miami_-_V4.pptx",
+        "localPath": "/alpha-schools/documents/alpha-miami_2_Dr_Yeager_Miami_-_V4.pptx",
+        "fileType": "document",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "size": 5197380,
+        "googleDriveId": "1slTAi2qc8JJ4yUPiY93ydBmYP7YyUWVL",
+        "downloadUrl": "https://drive.google.com/uc?id=1slTAi2qc8JJ4yUPiY93ydBmYP7YyUWVL&export=download",
+        "webViewLink": "https://docs.google.com/presentation/d/1slTAi2qc8JJ4yUPiY93ydBmYP7YyUWVL/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "category": "Presentations"
+      },
+      {
+        "originalName": "Alpha Miami 24x36 Poster.pdf",
+        "organizedName": "alpha-miami_3_Alpha_Miami_24x36_Poster.pdf",
+        "localPath": "/alpha-schools/documents/alpha-miami_3_Alpha_Miami_24x36_Poster.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 1978093,
+        "googleDriveId": "1226ClmhRn42vY5B5K3uPkMUQdiFXIOn9",
+        "downloadUrl": "https://drive.google.com/uc?id=1226ClmhRn42vY5B5K3uPkMUQdiFXIOn9&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1226ClmhRn42vY5B5K3uPkMUQdiFXIOn9/view?usp=drivesdk",
+        "category": "Event Flyers"
+      },
+      {
+        "originalName": "Alpha Miami Retractable Banners 47x81 inch.pdf",
+        "organizedName": "alpha-miami_4_Alpha_Miami_Retractable_Banners_47x81_inch.pdf",
+        "localPath": "/alpha-schools/documents/alpha-miami_4_Alpha_Miami_Retractable_Banners_47x81_inch.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 1891596,
+        "googleDriveId": "11VzK2ufH3cmsiFlevpKIxV-twlK8Fu8A",
+        "downloadUrl": "https://drive.google.com/uc?id=11VzK2ufH3cmsiFlevpKIxV-twlK8Fu8A&export=download",
+        "webViewLink": "https://drive.google.com/file/d/11VzK2ufH3cmsiFlevpKIxV-twlK8Fu8A/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      },
+      {
+        "originalName": "Alpha School - Miami Introduction.pptx",
+        "organizedName": "alpha-miami_5_Alpha_School_-_Miami_Introduction.pptx",
+        "localPath": "/alpha-schools/documents/alpha-miami_5_Alpha_School_-_Miami_Introduction.pptx",
+        "fileType": "document",
+        "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        "size": 241700403,
+        "googleDriveId": "1TYQOCfZxRRf2QogO8MaHN8cULqKXR58l",
+        "downloadUrl": "https://drive.google.com/uc?id=1TYQOCfZxRRf2QogO8MaHN8cULqKXR58l&export=download",
+        "webViewLink": "https://docs.google.com/presentation/d/1TYQOCfZxRRf2QogO8MaHN8cULqKXR58l/edit?usp=drivesdk&ouid=0&rtpof=true&sd=true",
+        "category": "Presentations"
+      },
+      {
+        "originalName": "Alpha School Miami  - Afterschoo Flyerl.pdf",
+        "organizedName": "alpha-miami_6_Alpha_School_Miami__-_Afterschoo_Flyerl.pdf",
+        "localPath": "/alpha-schools/documents/alpha-miami_6_Alpha_School_Miami__-_Afterschoo_Flyerl.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 3574479,
+        "googleDriveId": "1uPkeOLOAdV2LNnzRZTsFhQdpus0VEYev",
+        "downloadUrl": "https://drive.google.com/uc?id=1uPkeOLOAdV2LNnzRZTsFhQdpus0VEYev&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1uPkeOLOAdV2LNnzRZTsFhQdpus0VEYev/view?usp=drivesdk",
+        "category": "Event Flyers"
+      },
+      {
+        "originalName": "Alpha General Miami Flyer 2024 - Website QR.pdf",
+        "organizedName": "alpha-miami_7_Alpha_General_Miami_Flyer_2024_-_Website_QR.pdf",
+        "localPath": "/alpha-schools/documents/alpha-miami_7_Alpha_General_Miami_Flyer_2024_-_Website_QR.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 20471686,
+        "googleDriveId": "1iTh8XqbqbjYHQMy0B-2aSCErhXKLq9H2",
+        "downloadUrl": "https://drive.google.com/uc?id=1iTh8XqbqbjYHQMy0B-2aSCErhXKLq9H2&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1iTh8XqbqbjYHQMy0B-2aSCErhXKLq9H2/view?usp=drivesdk",
+        "category": "Event Flyers"
+      },
+      {
+        "originalName": "Alpha Half Page - 8x5.125 V1.pdf",
+        "organizedName": "alpha-miami_8_Alpha_Half_Page_-_8x5.125_V1.pdf",
+        "localPath": "/alpha-schools/documents/alpha-miami_8_Alpha_Half_Page_-_8x5.125_V1.pdf",
+        "fileType": "document",
+        "mimeType": "application/pdf",
+        "size": 115072,
+        "googleDriveId": "1EtpkwmSTaTWNKb-2pysMabCdjGJDELAb",
+        "downloadUrl": "https://drive.google.com/uc?id=1EtpkwmSTaTWNKb-2pysMabCdjGJDELAb&export=download",
+        "webViewLink": "https://drive.google.com/file/d/1EtpkwmSTaTWNKb-2pysMabCdjGJDELAb/view?usp=drivesdk",
+        "category": "Marketing Documents"
+      }
+    ],
+    "totalAssets": 13
+  },
+  "metadata": {
+    "hasMarketingFolder": true,
+    "marketingFolderId": "1AQPUrDom8nwkjWOy-kktuEmo9yJEhOO5",
+    "contentCategories": [
+      "Marketing Content",
+      "Summer Camp",
+      "Event Flyers",
+      "Presentations",
+      "Marketing Documents"
+    ],
+    "lastUpdated": "2025-08-03T21:55:20.950Z"
+  }
+}

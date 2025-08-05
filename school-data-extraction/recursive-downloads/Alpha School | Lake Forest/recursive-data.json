@@ -1,0 +1,55 @@
+{
+  "school": {
+    "name": "Alpha School | Lake Forest",
+    "id": "alpha-school-lake-forest",
+    "extractionDate": "2025-08-03T21:49:19.253Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1-xidtvWFYnSpDWhe-uoZytppCjQyTe6s"
+        ],
+        "id": "1xTeGXomkWfw8I1sLq-BpVwJ-tasAwkRH",
+        "name": "Alpha Lake Forest - Now Enrolling 2025.2026 (2).pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/1xTeGXomkWfw8I1sLq-BpVwJ-tasAwkRH/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBPC4B5fR3dU-tFNajFdl69koTkUbF1QbWBKHgrKFMfdvokHGjBTT8Alhs2buVzPebVIuhKM9kFt050DpJX13owMRWOLZjGnyzVn7w=s220",
+        "size": "12917055"
+      },
+      {
+        "parents": [
+          "1-xidtvWFYnSpDWhe-uoZytppCjQyTe6s"
+        ],
+        "id": "18dkfUICsBhxjaBBF6CPfPHt0QtYzeD7i",
+        "name": "Alpha Lake Forest Tuition.pdf",
+        "mimeType": "application/pdf",
+        "webViewLink": "https://drive.google.com/file/d/18dkfUICsBhxjaBBF6CPfPHt0QtYzeD7i/view?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNFgLf2W6RvcvyDQaXVCGsvIagIYi1ArPbEZ7YL7x3oWCAFXU2O3QwMP0W4T5zOF-626Xqdn56lMhqiUkNj9DCHzo9oU1M5OdnpqQ=s220",
+        "size": "1177812"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1-xidtvWFYnSpDWhe-uoZytppCjQyTe6s"
+        ],
+        "id": "1VK0CqeL3QvrbOwY-yVQibJReqJqiF8B_",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1VK0CqeL3QvrbOwY-yVQibJReqJqiF8B_"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 2,
+    "folders": 1,
+    "other": 0,
+    "total": 3
+  }
+}

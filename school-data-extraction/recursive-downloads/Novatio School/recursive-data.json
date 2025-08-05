@@ -1,0 +1,62 @@
+{
+  "school": {
+    "name": "Novatio School",
+    "id": "novatio-school",
+    "extractionDate": "2025-08-03T21:49:25.372Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [
+      {
+        "parents": [
+          "1w7M-uijZy5nyb2d4ypmOJjWPfyzKB2lx"
+        ],
+        "id": "1Vjd8VVkVg7nv_YyIaj8CCPimHS0Hjj3JBZBVM97-iJc",
+        "name": "ESA 2025Q2 by Zip",
+        "mimeType": "application/vnd.google-apps.spreadsheet",
+        "webViewLink": "https://docs.google.com/spreadsheets/d/1Vjd8VVkVg7nv_YyIaj8CCPimHS0Hjj3JBZBVM97-iJc/edit?usp=drivesdk",
+        "thumbnailLink": "https://lh3.googleusercontent.com/drive-storage/AJQWtBNfBqcZNbFc8vZlXWiOA2eAF6uEk8REjxZBCq04KHdqA-Bug1l2R_NOQXFaAsP-kuBeR09ws2Q8gMMjK7-mGi4BiOui7z4TittkoO4-n6CDM4mHnz75=s220",
+        "size": "3635"
+      }
+    ],
+    "folders": [
+      {
+        "parents": [
+          "1w7M-uijZy5nyb2d4ypmOJjWPfyzKB2lx"
+        ],
+        "id": "1JQaR1Q6-x9o2Ov-t2cL-z-rHgAtPr8Ps",
+        "name": "25-26 Novatio School Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1JQaR1Q6-x9o2Ov-t2cL-z-rHgAtPr8Ps"
+      },
+      {
+        "parents": [
+          "1w7M-uijZy5nyb2d4ypmOJjWPfyzKB2lx"
+        ],
+        "id": "1ezE2jynMHmliOb_p0GRciKz4S7dyP63p",
+        "name": "24-25 Novatio School Documents",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1ezE2jynMHmliOb_p0GRciKz4S7dyP63p"
+      },
+      {
+        "parents": [
+          "1w7M-uijZy5nyb2d4ypmOJjWPfyzKB2lx"
+        ],
+        "id": "1O5P7Vl7rrFMvhpg05LL6m5et4YT6zlYQ",
+        "name": "Staff IVP Cards",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1O5P7Vl7rrFMvhpg05LL6m5et4YT6zlYQ"
+      }
+    ],
+    "other": []
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 1,
+    "folders": 3,
+    "other": 0,
+    "total": 4
+  }
+}

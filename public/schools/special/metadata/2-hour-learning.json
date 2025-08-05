@@ -1,0 +1,161 @@
+{
+  "school": {
+    "id": "2-hour-learning",
+    "name": "2 Hour Learning",
+    "originalName": "2 Hour Learning",
+    "type": "special",
+    "category": "special",
+    "googleDriveId": "1ubJInFcaBiBX1rX5eL3xJTYaikZiABPm"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1q6I-WX0a8mGCmDWEjrF2wQ_En5nGoWQ6",
+        "originalName": "MacKenzie Podcast 1-pager (1).pdf",
+        "organizedName": "2-hour-learning_1_MacKenzie-Podcast-1pager-1.pdf",
+        "mimeType": "application/pdf",
+        "size": 5462509,
+        "webViewLink": "https://drive.google.com/file/d/1q6I-WX0a8mGCmDWEjrF2wQ_En5nGoWQ6/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1q6I-WX0a8mGCmDWEjrF2wQ_En5nGoWQ6&export=download",
+        "localPath": "/special/documents/2-hour-learning_1_MacKenzie-Podcast-1pager-1.pdf",
+        "extractionDate": "2025-08-03T21:37:13.685Z"
+      }
+    ],
+    "other": [
+      {
+        "id": "1pX5RGkzFTy3WIVGmicoR8LYjmK0ziuQK",
+        "originalName": "Presentation Assets",
+        "organizedName": "2-hour-learning_2_Presentation-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1pX5RGkzFTy3WIVGmicoR8LYjmK0ziuQK",
+        "downloadUrl": "https://drive.google.com/uc?id=1pX5RGkzFTy3WIVGmicoR8LYjmK0ziuQK&export=download",
+        "localPath": "/special/other/2-hour-learning_2_Presentation-Assets",
+        "extractionDate": "2025-08-03T21:37:13.685Z"
+      },
+      {
+        "id": "1GIEzvcKmzraRHTW3IP9MkCpr53k2Kthi",
+        "originalName": "Blogs",
+        "organizedName": "2-hour-learning_3_Blogs",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1GIEzvcKmzraRHTW3IP9MkCpr53k2Kthi",
+        "downloadUrl": "https://drive.google.com/uc?id=1GIEzvcKmzraRHTW3IP9MkCpr53k2Kthi&export=download",
+        "localPath": "/special/other/2-hour-learning_3_Blogs",
+        "extractionDate": "2025-08-03T21:37:13.685Z"
+      },
+      {
+        "id": "1ttQM00srjfF6s-3-kMK7IcD7gJEKEdtP",
+        "originalName": "Videos",
+        "organizedName": "2-hour-learning_4_Videos",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1ttQM00srjfF6s-3-kMK7IcD7gJEKEdtP",
+        "downloadUrl": "https://drive.google.com/uc?id=1ttQM00srjfF6s-3-kMK7IcD7gJEKEdtP&export=download",
+        "localPath": "/special/other/2-hour-learning_4_Videos",
+        "extractionDate": "2025-08-03T21:37:13.685Z"
+      },
+      {
+        "id": "1-OFpkmlnKZ6Zy5ehwKvbU3oHSTFND7ni",
+        "originalName": "Brand Assets",
+        "organizedName": "2-hour-learning_5_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1-OFpkmlnKZ6Zy5ehwKvbU3oHSTFND7ni",
+        "downloadUrl": "https://drive.google.com/uc?id=1-OFpkmlnKZ6Zy5ehwKvbU3oHSTFND7ni&export=download",
+        "localPath": "/special/other/2-hour-learning_5_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:13.685Z"
+      },
+      {
+        "id": "1QYTpkWp1E6g_6e4Rwy65kQFW9IPF8YlT",
+        "originalName": "Admission Letter",
+        "organizedName": "2-hour-learning_6_Admission-Letter",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1QYTpkWp1E6g_6e4Rwy65kQFW9IPF8YlT",
+        "downloadUrl": "https://drive.google.com/uc?id=1QYTpkWp1E6g_6e4Rwy65kQFW9IPF8YlT&export=download",
+        "localPath": "/special/other/2-hour-learning_6_Admission-Letter",
+        "extractionDate": "2025-08-03T21:37:13.685Z"
+      },
+      {
+        "id": "14U0ajfPevEutDzK-Cw3TmL34NVQEqCLU",
+        "originalName": "Alpha Academics K-12 App Continuum - 24-25 School Year",
+        "organizedName": "2-hour-learning_7_Alpha-Academics-K12-App-Continuum-2425-School-Year",
+        "mimeType": "application/vnd.google-apps.shortcut",
+        "webViewLink": "https://drive.google.com/file/d/14U0ajfPevEutDzK-Cw3TmL34NVQEqCLU/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=14U0ajfPevEutDzK-Cw3TmL34NVQEqCLU&export=download",
+        "localPath": "/special/other/2-hour-learning_7_Alpha-Academics-K12-App-Continuum-2425-School-Year",
+        "extractionDate": "2025-08-03T21:37:13.685Z"
+      },
+      {
+        "id": "1DoYpeVj_2kuh7qknNoj86E20gh5Ex53g",
+        "originalName": "LinkedIn ",
+        "organizedName": "2-hour-learning_8_LinkedIn-",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1DoYpeVj_2kuh7qknNoj86E20gh5Ex53g",
+        "downloadUrl": "https://drive.google.com/uc?id=1DoYpeVj_2kuh7qknNoj86E20gh5Ex53g&export=download",
+        "localPath": "/special/other/2-hour-learning_8_LinkedIn-",
+        "extractionDate": "2025-08-03T21:37:13.685Z"
+      },
+      {
+        "id": "10jv0aFZKKnus7Z3kx1lwFVsG_VkvrpVe",
+        "originalName": "SXSW",
+        "organizedName": "2-hour-learning_9_SXSW",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/10jv0aFZKKnus7Z3kx1lwFVsG_VkvrpVe",
+        "downloadUrl": "https://drive.google.com/uc?id=10jv0aFZKKnus7Z3kx1lwFVsG_VkvrpVe&export=download",
+        "localPath": "/special/other/2-hour-learning_9_SXSW",
+        "extractionDate": "2025-08-03T21:37:13.685Z"
+      },
+      {
+        "id": "17muYB9XwIxKioQcYkCxbgUyQW1mKjAG5",
+        "originalName": "Social Media",
+        "organizedName": "2-hour-learning_10_Social-Media",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/17muYB9XwIxKioQcYkCxbgUyQW1mKjAG5",
+        "downloadUrl": "https://drive.google.com/uc?id=17muYB9XwIxKioQcYkCxbgUyQW1mKjAG5&export=download",
+        "localPath": "/special/other/2-hour-learning_10_Social-Media",
+        "extractionDate": "2025-08-03T21:37:13.685Z"
+      },
+      {
+        "id": "1GF5FaaElonU93q6GpmwH6ReV8f1xGlZz",
+        "originalName": "Press & Media",
+        "organizedName": "2-hour-learning_11_Press-Media",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1GF5FaaElonU93q6GpmwH6ReV8f1xGlZz",
+        "downloadUrl": "https://drive.google.com/uc?id=1GF5FaaElonU93q6GpmwH6ReV8f1xGlZz&export=download",
+        "localPath": "/special/other/2-hour-learning_11_Press-Media",
+        "extractionDate": "2025-08-03T21:37:13.685Z"
+      },
+      {
+        "id": "1opUc0UTFd-CE4qMog6LH9mofb-KTChC8",
+        "originalName": "Marketing Materials",
+        "organizedName": "2-hour-learning_12_Marketing-Materials",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1opUc0UTFd-CE4qMog6LH9mofb-KTChC8",
+        "downloadUrl": "https://drive.google.com/uc?id=1opUc0UTFd-CE4qMog6LH9mofb-KTChC8&export=download",
+        "localPath": "/special/other/2-hour-learning_12_Marketing-Materials",
+        "extractionDate": "2025-08-03T21:37:13.685Z"
+      },
+      {
+        "id": "1tjUarm1PJXGcY8RqH_GAX2Btkz7srYfz",
+        "originalName": "MacKenzie",
+        "organizedName": "2-hour-learning_13_MacKenzie",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1tjUarm1PJXGcY8RqH_GAX2Btkz7srYfz",
+        "downloadUrl": "https://drive.google.com/uc?id=1tjUarm1PJXGcY8RqH_GAX2Btkz7srYfz&export=download",
+        "localPath": "/special/other/2-hour-learning_13_MacKenzie",
+        "extractionDate": "2025-08-03T21:37:13.685Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 13,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 1,
+    "otherCount": 12
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:13.685Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

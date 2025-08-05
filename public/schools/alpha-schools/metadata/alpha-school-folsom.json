@@ -1,0 +1,62 @@
+{
+  "school": {
+    "id": "alpha-school-folsom",
+    "name": "Alpha School | Folsom",
+    "originalName": "Alpha School | Folsom",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1o0vHEC0DWFneTJ9LDSzV1wV15nbrEghr"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1LP3KhKzlCg_1iq3_HPSW93hIkYrwg-ru",
+        "originalName": "Alpha Folsom - Now Enrolling 2025.2026 (2).pdf",
+        "organizedName": "alpha-school-folsom_1_Alpha-Folsom-Now-Enrolling-20252026-2.pdf",
+        "mimeType": "application/pdf",
+        "size": 12921723,
+        "webViewLink": "https://drive.google.com/file/d/1LP3KhKzlCg_1iq3_HPSW93hIkYrwg-ru/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1LP3KhKzlCg_1iq3_HPSW93hIkYrwg-ru&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-folsom_1_Alpha-Folsom-Now-Enrolling-20252026-2.pdf",
+        "extractionDate": "2025-08-03T21:37:08.754Z"
+      },
+      {
+        "id": "1bISLg2XhFGgxHnJqNwhTqyS9T2LRxhnK",
+        "originalName": "Alpha Folsom Tuition.pdf",
+        "organizedName": "alpha-school-folsom_2_Alpha-Folsom-Tuition.pdf",
+        "mimeType": "application/pdf",
+        "size": 1177512,
+        "webViewLink": "https://drive.google.com/file/d/1bISLg2XhFGgxHnJqNwhTqyS9T2LRxhnK/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1bISLg2XhFGgxHnJqNwhTqyS9T2LRxhnK&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-folsom_2_Alpha-Folsom-Tuition.pdf",
+        "extractionDate": "2025-08-03T21:37:08.754Z"
+      }
+    ],
+    "other": [
+      {
+        "id": "1chRVj74Nw2qlVUEDH8XvrsLW87B5mo0r",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-folsom_3_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1chRVj74Nw2qlVUEDH8XvrsLW87B5mo0r",
+        "downloadUrl": "https://drive.google.com/uc?id=1chRVj74Nw2qlVUEDH8XvrsLW87B5mo0r&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-folsom_3_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:08.754Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 3,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 2,
+    "otherCount": 1
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:08.754Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

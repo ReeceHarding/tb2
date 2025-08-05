@@ -1,0 +1,48 @@
+{
+  "name": "school-data-extraction",
+  "version": "1.0.0",
+  "description": "Automated extraction and organization of school marketing materials from Google Drive",
+  "scripts": {
+    "organize-brand-safe": "ts-node organize-brand-safe-content.ts",
+    "recursive": "ts-node recursive-extract.ts",
+    "organize-real": "ts-node organize-real-data.ts",
+    "simple": "ts-node simple-api-setup.ts",
+    "browser": "ts-node browser-extract.ts",
+    "organize-manual": "ts-node organize-manual.ts",
+    "public": "ts-node public-extract.ts",
+    "demo": "ts-node demo-extraction.ts",
+    "setup": "ts-node quick-setup.ts",
+    "auto-extract": "ts-node auto-extract.ts",
+    "extract-drive": "ts-node extractors/google-drive-extractor.ts",
+    "organize-schools": "ts-node scripts/organize-school-data.ts",
+    "full-extraction": "npm run extract-drive && npm run organize-schools",
+    "extract-schools": "npm run public",
+    "test-connection": "ts-node -e \"import GoogleDriveExtractor from './extractors/google-drive-extractor'; const e = new GoogleDriveExtractor('test'); e.testConnection();\"",
+    "clean-downloads": "rm -rf downloads/*",
+    "clean-output": "rm -rf ../public/schools/*",
+    "clean-all": "npm run clean-downloads && npm run clean-output",
+    "validate-schemas": "tsc --noEmit schemas/*.ts",
+    "generate-report": "ts-node -e \"import SchoolDataOrganizer from './scripts/organize-school-data'; const o = new SchoolDataOrganizer(); o.organize();\"",
+    "test-system": "ts-node test-system.ts"
+  },
+  "dependencies": {
+    "@types/dotenv": "^6.1.1",
+    "dotenv": "^17.2.1",
+    "google-auth-library": "^8.8.0",
+    "googleapis": "^118.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "google-drive",
+    "extraction",
+    "automation",
+    "school-marketing",
+    "data-organization"
+  ],
+  "author": "Timeback Development Team",
+  "license": "MIT"
+}

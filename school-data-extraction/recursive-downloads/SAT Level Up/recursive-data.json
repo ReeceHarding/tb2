@@ -1,0 +1,33 @@
+{
+  "school": {
+    "name": "SAT Level Up",
+    "id": "sat-level-up",
+    "extractionDate": "2025-08-03T21:49:25.937Z"
+  },
+  "media": {
+    "images": [],
+    "videos": [],
+    "documents": [],
+    "folders": [],
+    "other": [
+      {
+        "parents": [
+          "1sNx1_R0Vf0NTNQotRko5kpJ9X5p1hsA3"
+        ],
+        "id": "18Lic70ZkgeJw-pM1cvgTyaeLB_I6yNT8",
+        "name": "SAT Level Up Embed Code.rtf",
+        "mimeType": "text/rtf",
+        "webViewLink": "https://drive.google.com/file/d/18Lic70ZkgeJw-pM1cvgTyaeLB_I6yNT8/view?usp=drivesdk",
+        "size": "637"
+      }
+    ]
+  },
+  "totals": {
+    "images": 0,
+    "videos": 0,
+    "documents": 0,
+    "folders": 0,
+    "other": 1,
+    "total": 1
+  }
+}

@@ -1,0 +1,132 @@
+# TimeBack Personalized Landing Page Flow - PRD
+
+## Overview
+Create an interactive, personalized landing page experience that transforms skeptical parents into TimeBack believers through a guided quiz flow and AI-generated content tailored to their specific situation.
+
+## Core User Flow
+1. **Root Landing Page** (/) - Hero section with "Try our interactive AI experience" button
+2. **Authentication** - Google OAuth + Gender API integration  
+3. **Interactive Quiz** - Progressive disclosure with shadcn progress indicator
+4. **Personalized Content Generation** - AI builds custom landing page
+5. **Interactive Exploration** - Each section has "learn more" functionality
+
+## Quiz Flow Structure
+
+### Introduction Screen
+- Explain that AI tailors questions to kids' interests and level
+- "Why not do the same for our website? Answer 6 quick questions and we'll create a site tailored to you!"
+
+### Question 1: Who Are You?
+- **Parents** (enabled)
+  - Follow-ups: "I want to go to a TimeBack school" | "I want to homeschool" | "I want after school tutoring"
+- **Schools** (coming soon)
+- **Entrepreneur** (coming soon) 
+- **Gov't/Countries** (coming soon)
+- **Philanthropist** (coming soon)
+- **EdTech developer** (coming soon)
+
+### Question 2: Family Details
+- How many kids do you have?
+
+### Question 3: School Information  
+- What school does each kid go to? (SchoolDigger API popup search)
+- If not found: What city/zip code do you live in?
+
+### Question 4: Learning Goals
+- What are you primarily hoping to learn from this site?
+- Option to type or select from 5 LLM-generated options based on previous answers
+
+### Question 5: Kids' Interests
+- Popup with checkboxes of interests they can select
+
+### Question 6: Loading & Generation
+- Lottie loading animation
+- "Building your personalized site..."
+- Pass all context to LLM for content generation
+
+## Personalized Landing Page Components
+
+### 1. School Report Card
+- Use SchoolDigger API to get test scores for their specific school
+- Compare to TimeBack results
+- Show actual data vs TimeBack outcomes
+
+### 2. TimeBack Introduction Video
+- Show video explaining what TimeBack is
+- Examples of flagship school success stories
+- How AI tutors work (grade-level examples)
+
+### 3. Personalized Subject Examples
+- Physics question about football (if they selected football interest)
+- Math question about soccer (if they selected soccer)
+- Use Claude to generate questions based on their interests
+
+### 4. Learning Science Deep Dive
+- Show whitepapers and methodology
+- Explain the science behind TimeBack approach
+- Interactive elements for deeper exploration
+
+### 5. Interactive "Learn More" Sections
+- Each section has animated blue outline button
+- "What would you like to learn more about?"
+- 3 LLM-generated follow-up questions OR custom text input
+- Generate additional content with same styling
+
+### 6. Why Different from ChatGPT
+- Explain structured learning vs unstructured
+- Mastery enforcement (90% mastery rate)
+- Motivational model differences
+
+### 7. Afternoon Activities
+- Based on interests selected in quiz
+- Show what kids can do with 5-6 extra hours
+- Database of videos with vector embedding search
+- "Your kid likes football, soccer, theatre - here's what they could do..."
+
+### 8. Tailored Call-to-Action
+- **Want a school**: Show closest schools, search functionality
+- **No schools nearby**: Waitlist form with expansion interest
+- **Follow-up questionnaire**: Pricing willingness, school type preferences
+- School types: Alpha (entrepreneurial), GT (test scores), Gaming, Sports
+
+## Technical Requirements
+
+### Routing Changes
+- Move Hero from `/ai-experience` to `/` (root)
+- Create new routes: `/quiz`, `/personalized` 
+- Update ButtonAIExperience to point to `/quiz`
+
+### APIs Needed
+- Google OAuth (existing)
+- Gender API (existing) 
+- SchoolDigger API (existing credentials)
+- Claude for content generation
+- LLM for follow-up question generation
+
+### UI Components Needed
+- Progress indicator (shadcn)
+- Quiz flow components
+- School search popup
+- Interest selection popup
+- Loading animation (Lottie)
+- Interactive "learn more" components
+- Personalized content renderers
+
+### Data Flow
+- Quiz responses → User context object
+- Context + School data → Claude prompt
+- Generated content → Dynamic component rendering
+- User interactions → Follow-up LLM calls
+
+## Success Metrics
+- Quiz completion rate
+- Time spent on personalized page
+- "Learn more" interaction rate
+- CTA conversion by user type
+- School search usage
+
+## Implementation Priority
+1. **Critical**: Root page restructure, quiz flow, basic personalization
+2. **High**: SchoolDigger integration, content generation, interactive elements  
+3. **Medium**: Advanced personalization, video integration, follow-up questions
+4. **Nice-to-have**: Advanced analytics, A/B testing, optimization

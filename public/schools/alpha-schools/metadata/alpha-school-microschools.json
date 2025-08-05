@@ -1,0 +1,83 @@
+{
+  "school": {
+    "id": "alpha-school-microschools",
+    "name": "Alpha School | Microschools",
+    "originalName": "Alpha School | Microschools",
+    "type": "alpha",
+    "category": "alpha-schools",
+    "googleDriveId": "1-61aiPkwjdsnsSGwUEUFCOl7Gzgf5Ftl"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1mtIOOPT3TLeHyEdFMWet9BGuWvrnhWIi",
+        "originalName": "Alpha School - General Trifold.pdf",
+        "organizedName": "alpha-school-microschools_1_Alpha-School-General-Trifold.pdf",
+        "mimeType": "application/pdf",
+        "size": 10723647,
+        "webViewLink": "https://drive.google.com/file/d/1mtIOOPT3TLeHyEdFMWet9BGuWvrnhWIi/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1mtIOOPT3TLeHyEdFMWet9BGuWvrnhWIi&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-microschools_1_Alpha-School-General-Trifold.pdf",
+        "extractionDate": "2025-08-03T21:37:16.700Z"
+      },
+      {
+        "id": "1QWNbicsvVEZ5oNKCwTObpmsXpThQc_q8",
+        "originalName": "Tuition Micro.pdf",
+        "organizedName": "alpha-school-microschools_2_Tuition-Micro.pdf",
+        "mimeType": "application/pdf",
+        "size": 5980096,
+        "webViewLink": "https://drive.google.com/file/d/1QWNbicsvVEZ5oNKCwTObpmsXpThQc_q8/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1QWNbicsvVEZ5oNKCwTObpmsXpThQc_q8&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-microschools_2_Tuition-Micro.pdf",
+        "extractionDate": "2025-08-03T21:37:16.700Z"
+      },
+      {
+        "id": "1u1M3GHGO6uyB-ZQcG2EE30inCZD-7_tI",
+        "originalName": "2HL School 2025 - 2026 Calendars.pdf",
+        "organizedName": "alpha-school-microschools_3_2HL-School-2025-2026-Calendars.pdf",
+        "mimeType": "application/pdf",
+        "size": 2046410,
+        "webViewLink": "https://drive.google.com/file/d/1u1M3GHGO6uyB-ZQcG2EE30inCZD-7_tI/view?usp=drivesdk",
+        "downloadUrl": "https://drive.google.com/uc?id=1u1M3GHGO6uyB-ZQcG2EE30inCZD-7_tI&export=download",
+        "localPath": "/alpha-schools/documents/alpha-school-microschools_3_2HL-School-2025-2026-Calendars.pdf",
+        "extractionDate": "2025-08-03T21:37:16.700Z"
+      }
+    ],
+    "other": [
+      {
+        "id": "1S7w7cZfTMnDB5SHvtnvVgfESpKQXDqL4",
+        "originalName": "City Pictures_26",
+        "organizedName": "alpha-school-microschools_4_City-Pictures26",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1S7w7cZfTMnDB5SHvtnvVgfESpKQXDqL4",
+        "downloadUrl": "https://drive.google.com/uc?id=1S7w7cZfTMnDB5SHvtnvVgfESpKQXDqL4&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-microschools_4_City-Pictures26",
+        "extractionDate": "2025-08-03T21:37:16.700Z"
+      },
+      {
+        "id": "1bYRvAdkG_lt647Oq-PnhyQwK7wMzEE0-",
+        "originalName": "Brand Assets",
+        "organizedName": "alpha-school-microschools_5_Brand-Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1bYRvAdkG_lt647Oq-PnhyQwK7wMzEE0-",
+        "downloadUrl": "https://drive.google.com/uc?id=1bYRvAdkG_lt647Oq-PnhyQwK7wMzEE0-&export=download",
+        "localPath": "/alpha-schools/other/alpha-school-microschools_5_Brand-Assets",
+        "extractionDate": "2025-08-03T21:37:16.700Z"
+      }
+    ]
+  },
+  "stats": {
+    "totalFiles": 5,
+    "videoCount": 0,
+    "imageCount": 0,
+    "documentCount": 3,
+    "otherCount": 2
+  },
+  "extraction": {
+    "date": "2025-08-03T21:37:16.700Z",
+    "source": "google-drive-api",
+    "version": "1.0"
+  }
+}

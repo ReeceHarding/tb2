@@ -20,7 +20,7 @@ const CardArticle = ({
   const TitleTag = tag;
 
   return (
-    <article className="card bg-base-200 rounded-box overflow-hidden">
+    <article className="card bg-white border border-timeback-primary rounded-xl overflow-hidden shadow-2xl hover:shadow-2xl transition-all duration-200">
       {article.image?.src && (
         <Link
           href={`/blog/${article.slug}`}
@@ -52,7 +52,7 @@ const CardArticle = ({
         )}
 
         {/* TITLE WITH RIGHT TAG */}
-        <TitleTag className="mb-1 text-xl md:text-2xl font-bold">
+        <TitleTag className="mb-1 text-xl md:text-2xl font-bold text-timeback-primary font-cal">
           <Link
             href={`/blog/${article.slug}`}
             className="link link-hover hover:link-primary"
@@ -63,12 +63,12 @@ const CardArticle = ({
           </Link>
         </TitleTag>
 
-        <div className=" text-base-content/80 space-y-4">
+        <div className="text-timeback-primary space-y-4 font-cal">
           {/* DESCRIPTION */}
-          <p className="">{article.description}</p>
+          <p className="font-cal">{article.description}</p>
 
           {/* AUTHOR & DATE */}
-          <div className="flex items-center gap-4 text-sm">
+          <div className="flex items-center gap-4 text-sm font-cal">
             <Avatar article={article} />
 
             <span itemProp="datePublished">

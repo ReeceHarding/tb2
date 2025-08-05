@@ -21,7 +21,7 @@ const ButtonLead = ({ extraStyle }: { extraStyle?: string }) => {
     try {
       await apiClient.post("/lead", { email });
 
-      toast.success("Thanks for joining the waitlist!");
+      toast.success("Welcome to Timeback! We'll notify you when enrollment opens.");
 
       // just remove the focus on the input
       inputRef.current.blur();
@@ -44,19 +44,19 @@ const ButtonLead = ({ extraStyle }: { extraStyle?: string }) => {
         value={email}
         ref={inputRef}
         autoComplete="email"
-        placeholder="tom@cruise.com"
-        className="input input-bordered w-full placeholder:opacity-60"
+        placeholder="parent@example.com"
+        className="w-full px-4 py-3 font-cal rounded-xl border-2 border-timeback-primary text-timeback-primary placeholder:text-timeback-primary placeholder:opacity-60 bg-white focus:outline-none focus:ring-4 focus:ring-timeback-primary focus:ring-opacity-30 focus:border-timeback-primary transition-all duration-200"
         onChange={(e) => setEmail(e.target.value)}
       />
 
       <button
-        className="btn btn-primary btn-block"
+        className="bg-white text-timeback-primary font-cal rounded-xl px-8 py-4 font-semibold shadow-2xl hover:shadow-2xl transition-all duration-200 hover:bg-opacity-90 focus:outline-none focus:ring-4 focus:ring-timeback-primary focus:ring-opacity-30 w-full disabled:opacity-50 disabled:cursor-not-allowed"
         type="submit"
         disabled={isDisabled}
       >
         Join waitlist
         {isLoading ? (
-          <span className="loading loading-spinner loading-xs"></span>
+          <span className="loading loading-spinner loading-xs text-timeback-primary font-cal"></span>
         ) : (
           <svg
             xmlns="http://www.w3.org/2000/svg"

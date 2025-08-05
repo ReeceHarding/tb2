@@ -1,0 +1,21 @@
+{
+  "school": {
+    "name": "SAT Level Up",
+    "id": "sat-level-up",
+    "city": "Unknown",
+    "state": "Unknown",
+    "type": "special",
+    "extractionDate": "2025-08-03T21:49:25.937Z"
+  },
+  "marketing": {
+    "images": [],
+    "videos": [],
+    "documents": [],
+    "totalAssets": 0
+  },
+  "metadata": {
+    "hasMarketingFolder": false,
+    "contentCategories": [],
+    "lastUpdated": "2025-08-03T21:55:20.956Z"
+  }
+}

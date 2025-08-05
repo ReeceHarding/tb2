@@ -5,7 +5,7 @@ import React from "react";
 // By default, it's using your primary color for styling
 const BetterIcon = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-primary/20 text-primary">
+    <div className="w-14 h-14 inline-flex items-center justify-center rounded-full bg-timeback-bg text-timeback-primary shadow-2xl hover:shadow-2xl transition-all duration-200 transform hover:scale-110 border border-timeback-primary font-cal">
       {children}
     </div>
   );

@@ -1,0 +1,42 @@
+{
+  "school": {
+    "name": "Alpha School | Charlotte ",
+    "id": "1XNz0qXWiAjGsU69oXTbA0rO6RTCpqxOP",
+    "extractionDate": "2025-08-03T21:37:10.497Z"
+  },
+  "media": {
+    "videos": [],
+    "images": [],
+    "documents": [
+      {
+        "id": "1YhnOGHM_cKj-4hS2WWXebjYIOqGe4qsp",
+        "name": "Alpha Charlotte - Now Enrolling 2025.2026 (1).pdf",
+        "mimeType": "application/pdf",
+        "size": "12915333",
+        "webViewLink": "https://drive.google.com/file/d/1YhnOGHM_cKj-4hS2WWXebjYIOqGe4qsp/view?usp=drivesdk"
+      },
+      {
+        "id": "1CPr7vtq47wG5KkqTk6UuO7VeRM8SYQ4i",
+        "name": "Alpha Charlotte.pdf",
+        "mimeType": "application/pdf",
+        "size": "1177783",
+        "webViewLink": "https://drive.google.com/file/d/1CPr7vtq47wG5KkqTk6UuO7VeRM8SYQ4i/view?usp=drivesdk"
+      }
+    ],
+    "other": [
+      {
+        "id": "1yxPAD7fZuAx0hmLzgMvgrw5tsI-5Ehmz",
+        "name": "Brand Assets",
+        "mimeType": "application/vnd.google-apps.folder",
+        "webViewLink": "https://drive.google.com/drive/folders/1yxPAD7fZuAx0hmLzgMvgrw5tsI-5Ehmz"
+      }
+    ]
+  },
+  "totals": {
+    "videos": 0,
+    "images": 0,
+    "documents": 2,
+    "other": 1,
+    "total": 3
+  }
+}
