@@ -7,12 +7,6 @@ const log = (message: string, data?: any) => {
   console.log(`[CerebrasClient] ${timestamp} ${message}`, data || '');
 };
 
-// Initialize Cerebras client using OpenAI SDK (Cerebras is OpenAI-compatible)
-const cerebrasClient = new OpenAI({
-  baseURL: 'https://api.cerebras.ai/v1',
-  apiKey: process.env.CEREBRAS_API_KEY || '',
-});
-
 // Initialize OpenAI client as fallback
 const openaiClient = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || '',
@@ -47,11 +41,11 @@ export async function generateContent(options: GenerateContentOptions): Promise<
     stream: options.stream
   });
 
-  // First, try Cerebras (fastest inference)
+  // First, try Cerebras (fastest inference) with direct API call
   try {
-    log('Attempting generation with Cerebras...');
+    log('Attempting generation with Cerebras (direct API)...');
     
-    const messages: OpenAI.Chat.ChatCompletionMessageParam[] = [];
+    const messages = [];
     
     if (options.systemPrompt) {
       messages.push({ role: 'system', content: options.systemPrompt });
@@ -59,13 +53,26 @@ export async function generateContent(options: GenerateContentOptions): Promise<
     
     messages.push({ role: 'user', content: options.prompt });
     
-    const completion = await cerebrasClient.chat.completions.create({
-      model: 'qwen-3-coder-480b', // Using the recommended model from the TODO
-      messages,
-      max_tokens: options.maxTokens || 40000,
-      temperature: options.temperature || 0.7,
-      stream: false, // Always false for now
+    const response = await fetch('https://api.cerebras.ai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.CEREBRAS_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'qwen-3-235b-a22b-instruct-2507', // Using the latest Qwen3 235B model
+        messages,
+        max_tokens: options.maxTokens || 40000,
+        temperature: options.temperature || 0.7
+      })
     });
+
+    if (!response.ok) {
+      const error = await response.text();
+      throw new Error(`Cerebras API error: ${response.status} - ${error}`);
+    }
+
+    const completion = await response.json();
 
     if (options.stream) {
       // For streaming responses, we'd need to handle differently
@@ -173,7 +180,7 @@ export async function* streamContent(options: GenerateContentOptions): AsyncGene
     messages.push({ role: 'user', content: options.prompt });
     
     const stream = await cerebrasClient.chat.completions.create({
-      model: 'qwen-3-coder-480b',
+      model: 'qwen-3-235b-a22b-instruct-2507',
       messages,
       max_tokens: options.maxTokens || 40000,
       temperature: options.temperature || 0.7,
