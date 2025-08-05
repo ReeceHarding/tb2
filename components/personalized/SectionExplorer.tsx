@@ -182,7 +182,7 @@ export default function SectionExplorer({
 
           {/* Progress indicator showing how much of the report has been built */}
           <div className="mt-12 text-center">
-            <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3">
+            <div className="inline-flex items-center gap-2 backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-full px-6 py-3 shadow-lg">
               <div className="w-3 h-3 bg-timeback-primary rounded-full"></div>
               <span className="text-timeback-primary font-bold text-sm font-cal">
                 {viewedComponents.length} sections added to your personalized report

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { PROGRESSIVE_DISCLOSURE_MAPPING, MainSection } from './ProgressiveDisclosureMapping';
+import CustomQuestionSection from './CustomQuestionSection';
 
 interface ProgressiveDisclosureHeroProps {
   onSectionSelect: (sectionId: string) => void;
@@ -37,7 +38,7 @@ export default function ProgressiveDisclosureHero({ onSectionSelect, quizData }:
 
       {/* Main Exploration Buttons - Condensed to 2 rows */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
-        {PROGRESSIVE_DISCLOSURE_MAPPING.map((section: MainSection, index: number) => (
+        {PROGRESSIVE_DISCLOSURE_MAPPING.filter(sec => sec.id !== 'custom-questions').map((section: MainSection, index: number) => (
           <button
             key={section.id}
             onClick={() => {
@@ -51,6 +52,11 @@ export default function ProgressiveDisclosureHero({ onSectionSelect, quizData }:
             </h3>
           </button>
         ))}
+      </div>
+
+      {/* Custom Question Section */}
+      <div className="mt-16">
+        <CustomQuestionSection quizData={quizData} />
       </div>
 
       {/* Bottom CTA */}

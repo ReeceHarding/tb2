@@ -423,7 +423,7 @@ export default function PersonalizedPage() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-timeback-bg to-white flex items-center justify-center p-4">
         <div className="text-center font-cal">
-          <div className="bg-white rounded-xl shadow-2xl border border-timeback-primary p-8 max-w-md mx-auto">
+          <div className="bg-white rounded-xl shadow-2xl border border-timeback-primary p-8 w-96 mx-auto">
             {/* Minimalistic TimeBack logo */}
             <div className="w-16 h-16 bg-timeback-primary rounded-xl flex items-center justify-center mx-auto mb-6">
               <span className="text-white font-bold text-xl font-cal">T</span>
