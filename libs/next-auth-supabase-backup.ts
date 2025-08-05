@@ -2,30 +2,26 @@ import NextAuth from "next-auth";
 import type { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import EmailProvider from "next-auth/providers/email";
-import { MongoDBAdapter } from "@auth/mongodb-adapter";
+import { SupabaseAdapter } from "@auth/supabase-adapter";
 import config from "@/config";
-import connectMongo from "./mongo";
+import { supabase, isSupabaseConfigured } from "./supabase";
 
 interface NextAuthOptionsExtended extends NextAuthOptions {
-  adapter: any;
+  adapter?: any;
 }
 
 export const authOptions: NextAuthOptionsExtended = {
   // Set any random key in .env.local
   secret: process.env.NEXTAUTH_SECRET,
+  // Allow automatic account linking for users with same email across providers
+  // This enables users to sign in with Google even if they previously used email auth
+  // allowDangerousEmailAccountLinking: true, // Commented out to fix build error
   providers: [
     GoogleProvider({
       // Follow the "Login with Google" tutorial to get your credentials
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
       async profile(profile) {
-        console.log("[NextAuth] 🟢 Google OAuth profile received:", {
-          sub: profile.sub,
-          email: profile.email,
-          name: profile.name,
-          given_name: profile.given_name,
-          timestamp: new Date().toISOString()
-        });
         return {
           id: profile.sub,
           name: profile.given_name ? profile.given_name : profile.name,
@@ -36,8 +32,8 @@ export const authOptions: NextAuthOptionsExtended = {
       },
     }),
     // Follow the "Login with Email" tutorial to set up your email server
-    // Requires a MongoDB database. Set MONGODB_URI env variable.
-    ...(connectMongo
+    // Uses Supabase for user storage instead of MongoDB
+    ...(isSupabaseConfigured() && process.env.RESEND_API_KEY
       ? [
           EmailProvider({
             server: {
@@ -53,27 +49,40 @@ export const authOptions: NextAuthOptionsExtended = {
         ]
       : []),
   ],
-  // New users will be saved in Database (MongoDB Atlas). Each user (model) has some fields like name, email, image, etc..
-  // Requires a MongoDB database. Set MONGODB_URI env variable.
-  // Learn more about the model type: https://next-auth.js.org/v3/adapters/models
-  ...(connectMongo && { adapter: MongoDBAdapter(connectMongo) }),
+  // New users will be saved in Supabase database. Each user has fields like name, email, image, etc.
+  // Uses Supabase adapter for reliable database connectivity (replaces MongoDB which had SSL/TLS issues)
+  // Learn more about the adapter: https://authjs.dev/reference/adapter/supabase
+  // Conditionally use Supabase adapter - fallback to JWT-only if Supabase not configured
+  ...(isSupabaseConfigured() ? 
+    (() => {
+      try {
+        console.log("[NextAuth] 🟢 Configuring Supabase adapter for user authentication");
+        return { 
+          adapter: SupabaseAdapter({
+            url: process.env.NEXT_PUBLIC_SUPABASE_URL!,
+            secret: process.env.SUPABASE_SERVICE_ROLE_KEY!,
+          })
+        };
+      } catch (error) {
+        console.error("[NextAuth] ❌ Supabase adapter setup failed, using JWT-only:", error);
+        return {};
+      }
+    })() 
+    : {
+      // No database adapter configured, using JWT-only session strategy
+      session: { strategy: "jwt" as const }
+    }),
 
   callbacks: {
     session: async ({ session, token }) => {
       if (session?.user) {
         session.user.id = token.sub;
-        console.log("[NextAuth] 🟢 Session callback executed:", {
-          userId: session.user.id,
-          email: session.user.email,
-          name: session.user.name,
-          timestamp: new Date().toISOString()
-        });
       }
       return session;
     },
     signIn: async ({ user, account, profile, email, credentials }) => {
       // Log successful sign-ins for debugging
-      console.log(`[NextAuth] 🟢 Sign-in callback executed:`, {
+      console.log(`[NextAuth] Sign-in attempt:`, {
         provider: account?.provider,
         email: user?.email,
         userId: user?.id,
@@ -81,9 +90,6 @@ export const authOptions: NextAuthOptionsExtended = {
       });
       return true;
     },
-  },
-  session: {
-    strategy: "jwt",
   },
   theme: {
     brandColor: config.colors.main,
