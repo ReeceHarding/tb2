@@ -52,8 +52,8 @@ const VideoTestimonial = ({
         </div>
       </blockquote>
       <figcaption className="relative flex items-center justify-start gap-4 pt-4 mt-4 border-t border-timeback-primary/20">
-        <div className="overflow-hidden rounded-full bg-base-300 shrink-0">
-          <span className="w-10 h-10 rounded-full flex justify-center items-center text-lg font-medium bg-base-300 font-cal">
+        <div className="overflow-hidden rounded-full bg-timeback-bg shrink-0">
+          <span className="w-10 h-10 rounded-full flex justify-center items-center text-lg font-medium bg-timeback-bg font-cal">
             {name.charAt(0)}
           </span>
         </div>
@@ -166,8 +166,8 @@ const TestimonialWithHighlight = ({
         </div>
       </blockquote>
       <figcaption className="relative flex items-center justify-start gap-4 pt-4 mt-4 border-t border-timeback-primary/20">
-        <div className="overflow-hidden rounded-full bg-base-300 shrink-0">
-          <span className="w-10 h-10 rounded-full flex justify-center items-center text-lg font-medium bg-base-300 font-cal">
+        <div className="overflow-hidden rounded-full bg-timeback-bg shrink-0">
+          <span className="w-10 h-10 rounded-full flex justify-center items-center text-lg font-medium bg-timeback-bg font-cal">
             {name.charAt(0)}
           </span>
         </div>
@@ -238,7 +238,7 @@ const SimpleTestimonial = ({
 }) => {
   const content = (
     <figure 
-      className={`relative h-full w-full max-w-[550px] p-6 rounded-xl border border-base-content/20 ${
+              className={`relative h-full w-full max-w-[550px] p-6 rounded-xl border border-timeback-primary/20 ${
         theme === "dark" ? "bg-[#2d1e1a]" : "bg-white"
       } ${sourceLink ? "cursor-pointer hover:shadow-2xl transition-shadow duration-200" : ""}`}
     >
@@ -246,8 +246,8 @@ const SimpleTestimonial = ({
         <div className="text-base xl:text-sm text-timeback-primary font-cal">{text}</div>
       </blockquote>
       <figcaption className="relative flex items-center justify-start gap-4 pt-4 mt-4 border-t border-timeback-primary/20">
-        <div className="overflow-hidden rounded-full bg-base-300 shrink-0">
-          <span className="w-10 h-10 rounded-full flex justify-center items-center text-lg font-medium bg-base-300 font-cal">
+        <div className="overflow-hidden rounded-full bg-timeback-bg shrink-0">
+          <span className="w-10 h-10 rounded-full flex justify-center items-center text-lg font-medium bg-timeback-bg font-cal">
             {name.charAt(0)}
           </span>
         </div>

@@ -15,8 +15,8 @@ const Testimonial = () => {
             </div>
           </blockquote>
           <figcaption className="relative flex items-center justify-start gap-4 pt-4 mt-4 border-t border-timeback-primary/20">
-            <div className="overflow-hidden rounded-full bg-base-300 shrink-0">
-              <span className="w-10 h-10 rounded-full flex justify-center items-center text-lg font-medium bg-base-300 font-cal">
+            <div className="overflow-hidden rounded-full bg-timeback-bg shrink-0">
+              <span className="w-10 h-10 rounded-full flex justify-center items-center text-lg font-medium bg-timeback-bg font-cal">
                 A
               </span>
             </div>

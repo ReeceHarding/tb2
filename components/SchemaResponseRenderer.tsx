@@ -45,12 +45,12 @@ export default function SchemaResponseRenderer({
         {/* Skeleton Animation with Staggered Effects */}
         <div className="space-y-8">
           {/* Header Skeleton */}
-          <div className="h-6 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-xl w-1/3 animate-pulse shadow-md"></div>
+          <div className="h-6 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-xl w-1/3 animate-pulse shadow-lg"></div>
           
           {/* Main Heading Skeleton */}
           <div className="space-y-3">
-            <div className="h-8 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-xl w-3/4 animate-pulse shadow-md" style={{animationDelay: '0.1s'}}></div>
-            <div className="h-8 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-xl w-1/2 animate-pulse shadow-md" style={{animationDelay: '0.15s'}}></div>
+            <div className="h-8 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-xl w-3/4 animate-pulse shadow-lg" style={{animationDelay: '0.1s'}}></div>
+            <div className="h-8 bg-gradient-to-r from-timeback-bg via-timeback-bg/70 to-timeback-bg rounded-xl w-1/2 animate-pulse shadow-lg" style={{animationDelay: '0.15s'}}></div>
           </div>
           
           {/* Description Skeleton */}
@@ -181,7 +181,7 @@ export default function SchemaResponseRenderer({
 
       {/* Enhanced Trust Indicator */}
       <div className="flex items-center gap-4 text-sm text-timeback-primary bg-gradient-to-r from-timeback-bg via-white to-timeback-bg border-2 border-timeback-primary rounded-2xl p-4 shadow-lg animate-in slide-in-from-bottom-4 delay-900">
-        <div className="flex-shrink-0 w-8 h-8 bg-timeback-primary rounded-full flex items-center justify-center shadow-md">
+        <div className="flex-shrink-0 w-8 h-8 bg-timeback-primary rounded-full flex items-center justify-center shadow-lg">
           <Check className="w-4 h-4 text-white" />
         </div>
         <span className="font-medium">All information sourced from TimeBack research and real student data</span>
