@@ -21,15 +21,15 @@ NEXTAUTH_SECRET=your_nextauth_secret_here_use_openssl_rand_base64_32
 GOOGLE_ID=your_google_oauth_client_id_here
 GOOGLE_SECRET=your_google_oauth_secret_here
 
-# AWS Bedrock for Claude API
-AWS_ACCESS_KEY_ID=your_aws_access_key_id_here
-AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key_here
-AWS_REGION=us-east-1
-
-# Other API Keys
-OPENAI_API_KEY=your_openai_api_key_here
-ANTHROPIC_API_KEY=your_anthropic_api_key_here
+# AI API Key (Cerebras - primary AI provider)
 CEREBRAS_API_KEY=your_cerebras_api_key_here
+
+# Legacy AI Keys (no longer required - using Cerebras for all AI)
+# AWS_ACCESS_KEY_ID=your_aws_access_key_id_here
+# AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key_here
+# AWS_REGION=us-east-1
+# OPENAI_API_KEY=your_openai_api_key_here
+# ANTHROPIC_API_KEY=your_anthropic_api_key_here
 GENDER_API_KEY=your_gender_api_key_here
 
 # SchoolDigger API

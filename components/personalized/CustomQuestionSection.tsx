@@ -252,7 +252,7 @@ export default function CustomQuestionSection({
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             placeholder="Ask me anything about TimeBack..."
-            className="w-full px-6 py-4 bg-white/50 border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/50 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal text-lg shadow-lg backdrop-blur-sm"
+            className="w-full px-6 py-4 bg-timeback-bg/50 border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/50 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal text-lg shadow-lg backdrop-blur-sm"
             disabled={isLoading}
           />
           <button

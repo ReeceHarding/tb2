@@ -61,7 +61,7 @@ export default function AIChatbot({ userData, onClose }: AIChatbotProps) {
     setMessages(prev => [...prev, assistantMessage]);
 
     try {
-      console.log('[AIChatbot] Sending question to chat-tutor API with JSON response handling');
+      console.log('[AIChatbot] Sending question to chat-tutor API with streaming response handling');
       const response = await fetch('/api/ai/chat-tutor', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -72,24 +72,67 @@ export default function AIChatbot({ userData, onClose }: AIChatbotProps) {
             content: m.content
           })),
           userData,
-          context: 'timeback-whitepaper'
+          context: 'timeback-whitepaper',
+          stream: true // Enable streaming
         })
       });
 
       if (!response.ok) throw new Error('Failed to get response');
 
-      const data = await response.json();
-      console.log('[AIChatbot] Received JSON response from chat-tutor API');
-
-      if (data.success && data.response) {
-        const content = data.response;
-        setMessages(prev => prev.map(msg => 
-          msg.id === assistantId 
-            ? { ...msg, content } 
-            : msg
-        ));
+      // Handle streaming response
+      if (response.headers.get('content-type')?.includes('text/event-stream')) {
+        console.log('[AIChatbot] Receiving streaming response');
+        const reader = response.body?.getReader();
+        const decoder = new TextDecoder();
+        
+        if (!reader) throw new Error('No response body reader');
+        
+        let content = '';
+        
+        let done = false;
+        while (!done) {
+          const result = await reader.read();
+          done = result.done || false;
+          const value = result.value;
+          if (done) break;
+          
+          const chunk = decoder.decode(value);
+          const lines = chunk.split('\n');
+          
+          for (const line of lines) {
+            if (line.startsWith('data: ')) {
+              const data = line.slice(6);
+              try {
+                const parsed = JSON.parse(data);
+                if (parsed.content) {
+                  content += parsed.content;
+                  setMessages(prev => prev.map(msg => 
+                    msg.id === assistantId 
+                      ? { ...msg, content } 
+                      : msg
+                  ));
+                }
+              } catch (e) {
+                // Skip parsing errors
+              }
+            }
+          }
+        }
       } else {
-        throw new Error(data.error || 'Failed to get AI response');
+        // Fallback to JSON response
+        const data = await response.json();
+        console.log('[AIChatbot] Received JSON response from chat-tutor API');
+
+        if (data.success && data.response) {
+          const content = data.response;
+          setMessages(prev => prev.map(msg => 
+            msg.id === assistantId 
+              ? { ...msg, content } 
+              : msg
+          ));
+        } else {
+          throw new Error(data.error || 'Failed to get AI response');
+        }
       }
     } catch (error) {
       console.error('[AIChatbot] Error:', error);

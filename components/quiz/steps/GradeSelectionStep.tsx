@@ -55,7 +55,7 @@ export default function GradeSelectionStep({ onNext }: GradeSelectionStepProps) 
               className={`p-4 rounded-xl border-2 text-center transition-all duration-200 ${
                 state.grade === option.id
                   ? 'border-timeback-primary bg-timeback-bg'
-                  : 'border-timeback-primary bg-white hover:border-timeback-primary hover:bg-timeback-bg'
+                  : 'border-timeback-primary bg-timeback-bg/50 hover:border-timeback-primary hover:bg-timeback-bg'
               }`}
             >
               <h3 className={`font-semibold mb-1 font-cal ${

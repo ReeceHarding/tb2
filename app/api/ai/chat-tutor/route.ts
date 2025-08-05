@@ -1,6 +1,5 @@
 import { NextRequest } from 'next/server';
 import { trackLLMUsage } from '@/libs/llm-analytics';
-import { invokeClaude, formatClaudeResponse, ClaudeMessage } from '@/libs/bedrock-claude';
 import OpenAI from 'openai';
 import fs from 'fs';
 import path from 'path';
@@ -125,10 +124,7 @@ function setCachedResponse(cacheKey: string, response: any, ttlMinutes: number =
 
 export const dynamic = 'force-dynamic';
 
-// Initialize OpenAI client for final fallback
-const openaiClient = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY || '',
-});
+// Cerebras configuration - using direct fetch API
 
 export async function POST(req: NextRequest) {
   console.log('[chat-tutor] API route called');
@@ -153,7 +149,7 @@ export async function POST(req: NextRequest) {
       });
     }
     
-    const { question, interests = [], subject, gradeLevel, context, messageHistory, responseFormat, quizData } = body;
+    const { question, interests = [], subject, gradeLevel, context, messageHistory, responseFormat, quizData, stream = false } = body;
     
     console.log('[chat-tutor] Processing question:', question);
     console.log('[chat-tutor] Context:', context);
@@ -406,6 +402,94 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
         }
         cerebrasMessages.push(...messages);
         
+        // Handle streaming if requested
+        if (stream && responseFormat !== 'schema') {
+          console.log('[chat-tutor] Using streaming response');
+          const cerebrasResponse = await fetch('https://api.cerebras.ai/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${process.env.CEREBRAS_API_KEY}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              model: 'gpt-oss-120b',
+              messages: cerebrasMessages,
+              max_completion_tokens: 65536,
+              temperature: 1,
+              top_p: 1,
+              stream: true
+            })
+          });
+
+          if (!cerebrasResponse.ok) {
+            const error = await cerebrasResponse.text();
+            throw new Error(`Cerebras API error: ${cerebrasResponse.status} - ${error}`);
+          }
+
+          // Return early with streaming response
+          const encoder = new TextEncoder();
+          const streamReader = cerebrasResponse.body?.getReader();
+          const decoder = new TextDecoder();
+          
+          const streamResponse = new ReadableStream({
+            async start(controller) {
+              if (!streamReader) {
+                controller.error(new Error('No response body'));
+                return;
+              }
+              
+              let buffer = '';
+              
+              try {
+                let done = false;
+                while (!done) {
+                  const result = await streamReader.read();
+                  done = result.done || false;
+                  const value = result.value;
+                  if (done) break;
+                  
+                  buffer += decoder.decode(value, { stream: true });
+                  const lines = buffer.split('\n');
+                  buffer = lines.pop() || '';
+                  
+                  for (const line of lines) {
+                    if (line.startsWith('data: ')) {
+                      const data = line.slice(6);
+                      if (data === '[DONE]') {
+                        controller.enqueue(encoder.encode('data: {"success":true,"provider":"cerebras"}\n\n'));
+                        continue;
+                      }
+                      
+                      try {
+                        const parsed = JSON.parse(data);
+                        const content = parsed.choices?.[0]?.delta?.content || '';
+                        if (content) {
+                          controller.enqueue(encoder.encode(`data: {"content":"${content.replace(/"/g, '\\"')}"}\n\n`));
+                        }
+                      } catch (e) {
+                        // Skip parsing errors
+                      }
+                    }
+                  }
+                }
+                
+                controller.close();
+              } catch (error) {
+                controller.error(error);
+              }
+            }
+          });
+          
+          return new Response(streamResponse, {
+            headers: {
+              'Content-Type': 'text/event-stream',
+              'Cache-Control': 'no-cache',
+              'Connection': 'keep-alive',
+            },
+          });
+        }
+
+        // Non-streaming response
         const cerebrasResponse = await fetch('https://api.cerebras.ai/v1/chat/completions', {
           method: 'POST',
           headers: {
@@ -413,10 +497,12 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            model: 'qwen-3-235b-a22b-instruct-2507',
+            model: 'gpt-oss-120b',
             messages: cerebrasMessages,
-            max_tokens: 1024,
-            temperature: 0.7
+            max_completion_tokens: 65536,
+            temperature: 1,
+            top_p: 1,
+            stream: false
           })
         });
 
@@ -433,58 +519,13 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
         console.log('[chat-tutor] Cerebras successful, response length:', fullText.length);
         
       } catch (cerebrasError) {
-        console.log('[chat-tutor] Cerebras failed, falling back to AWS Bedrock...', cerebrasError.message);
-        
-        try {
-          // SECOND: Try AWS Bedrock Claude (fallback #1)
-          console.log('[chat-tutor] Attempting AWS Bedrock...');
-          
-          const claudeMessages: ClaudeMessage[] = messages;
-          const response = await invokeClaude(claudeMessages, {
-            maxTokens: 1024,
-            temperature: 0.7,
-            system: systemPrompt
-          });
-          
-          fullText = formatClaudeResponse(response);
-          tokenUsage = response.usage || {};
-          usedProvider = 'bedrock';
-          
-          console.log('[chat-tutor] AWS Bedrock successful, response length:', fullText.length);
-          
-        } catch (bedrockError) {
-          console.log('[chat-tutor] Bedrock failed, falling back to OpenAI GPT-4 Turbo...', bedrockError.message);
-          
-          // THIRD: Try OpenAI GPT-4 Turbo (final fallback)
-          console.log('[chat-tutor] Attempting OpenAI GPT-4 Turbo...');
-          
-          const openaiMessages: OpenAI.Chat.ChatCompletionMessageParam[] = [];
-          if (systemPrompt) {
-            openaiMessages.push({ role: 'system', content: systemPrompt });
-          }
-          openaiMessages.push(...messages);
-          
-          const completion = await openaiClient.chat.completions.create({
-            model: 'gpt-4-turbo-preview',
-            messages: openaiMessages,
-            max_tokens: 1024,
-            temperature: 0.7,
-            stream: false,
-          });
-
-          fullText = completion.choices[0]?.message?.content || '';
-          tokenUsage = completion.usage || {};
-          usedProvider = 'openai';
-          
-          console.log('[chat-tutor] OpenAI GPT-4 Turbo successful, response length:', fullText.length);
-        }
+        console.log('[chat-tutor] Cerebras failed:', cerebrasError.message);
+        throw cerebrasError;
       }
       
       // Track successful completion with actual provider used
       const modelMap = {
-        cerebras: 'qwen-3-235b-a22b-instruct-2507',
-        bedrock: 'us.anthropic.claude-3-7-sonnet-20250219-v1:0', 
-        openai: 'gpt-4-turbo-preview'
+        cerebras: 'gpt-oss-120b'
       };
       
       await trackLLMUsage({

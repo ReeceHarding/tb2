@@ -144,7 +144,7 @@ export default function InterestsStep({ onNext: _onNext, onPrev: _onPrev }: Inte
                   className={`p-4 rounded-xl border-2 text-left transition-all duration-200 ${
                     isSelected
                       ? 'border-timeback-primary bg-timeback-bg text-timeback-primary shadow-lg'
-                      : 'border-timeback-primary/30 bg-white text-timeback-primary hover:border-timeback-primary hover:bg-timeback-bg'
+                      : 'border-timeback-primary/30 bg-timeback-bg/50 text-timeback-primary hover:border-timeback-primary hover:bg-timeback-bg'
                   }`}
                 >
                   <div className="flex items-center justify-between">
@@ -169,7 +169,7 @@ export default function InterestsStep({ onNext: _onNext, onPrev: _onPrev }: Inte
 
           {/* Full-Width Expanded Row for Subcategories */}
           {expandedCategory && (
-            <div className="bg-white border-2 border-timeback-primary rounded-xl p-6 shadow-xl animate-in slide-in-from-top-2 duration-300">
+            <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-6 shadow-xl animate-in slide-in-from-top-2 duration-300">
               <div className="flex items-center justify-between mb-4">
                 <h4 className="text-lg font-bold text-timeback-primary font-cal">
                   Select from {expandedCategory}:

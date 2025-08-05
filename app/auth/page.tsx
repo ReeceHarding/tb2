@@ -77,7 +77,7 @@ export default function AuthPage() {
                 </div>
 
                 {/* Security explanation */}
-                <div className="mt-12 p-6 bg-white/50 backdrop-blur-sm rounded-xl border border-timeback-primary max-w-2xl mx-auto">
+                <div className="mt-12 p-6 backdrop-blur-md bg-white/10 rounded-xl border-2 border-timeback-primary max-w-2xl mx-auto">
                   <h2 className="text-2xl font-bold text-timeback-primary mb-3 font-cal">
                     Why Sign In?
                   </h2>
@@ -93,7 +93,7 @@ export default function AuthPage() {
               <div className="relative">
                 <button
                   onClick={handleGoogleSignIn}
-                  className="group relative inline-flex items-center justify-center px-10 py-5 text-lg font-semibold bg-white hover:bg-gray-50 text-timeback-primary border-2 border-timeback-primary rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-timeback-bg font-cal"
+                  className="group relative inline-flex items-center justify-center px-10 py-5 text-lg font-semibold bg-timeback-bg hover:bg-timeback-bg/80 text-timeback-primary border-2 border-timeback-primary rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-timeback-primary/30 transform hover:scale-105 font-cal"
                 >
                   {/* Google Icon */}
                   <svg className="w-6 h-6 mr-3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

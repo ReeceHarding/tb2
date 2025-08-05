@@ -52,22 +52,18 @@ GOOGLE_SECRET=your-google-oauth-client-secret
 
 ### AI Services (if used)
 ```bash
-# OpenAI API Key
-OPENAI_API_KEY=sk-...
-
-# Anthropic API Key (Claude)
-ANTHROPIC_API_KEY=sk-ant-...
-
-# Perplexity API Key (for research features)
-PERPLEXITY_API_KEY=pplx-...
-
-# Cerebras API Key (fastest inference)
+# Cerebras API Key (primary AI provider for fastest inference)
 CEREBRAS_API_KEY=your-cerebras-api-key
 
-# AWS Bedrock (for Claude Sonnet)
-AWS_ACCESS_KEY_ID=your-aws-access-key
-AWS_SECRET_ACCESS_KEY=your-aws-secret-key
-AWS_REGION=us-east-1
+# Perplexity API Key (for research features - if used)
+PERPLEXITY_API_KEY=pplx-...
+
+# Legacy API Keys (no longer required - using Cerebras for all AI)
+# OPENAI_API_KEY=sk-...
+# ANTHROPIC_API_KEY=sk-ant-...
+# AWS_ACCESS_KEY_ID=your-aws-access-key
+# AWS_SECRET_ACCESS_KEY=your-aws-secret-key
+# AWS_REGION=us-east-1
 ```
 
 ### Email Services (if configured)

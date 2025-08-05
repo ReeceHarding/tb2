@@ -371,7 +371,7 @@ export default function QuizFlow() {
             filter: currentBlur
           }}
         >
-          <div className="bg-white rounded-3xl shadow-2xl border-2 border-timeback-primary p-8 lg:p-12">
+                        <div className="backdrop-blur-md bg-white/10 rounded-3xl shadow-2xl border-2 border-timeback-primary p-8 lg:p-12">
             {renderStepComponent(state.currentStep, false)}
           </div>
         </div>
@@ -408,7 +408,7 @@ export default function QuizFlow() {
       {/* Enhanced Professional Header with Progress */}
       {state.currentStep > 0 && (
         <motion.div 
-          className="sticky top-0 z-20 bg-white/98 backdrop-blur-md border-b-2 border-timeback-primary shadow-2xl"
+                          className="sticky top-0 z-20 bg-timeback-bg/98 backdrop-blur-md border-b-2 border-timeback-primary shadow-2xl"
           initial={{ opacity: 0, y: -30, filter: 'blur(8px)' }}
           animate={{ 
             opacity: 1, 

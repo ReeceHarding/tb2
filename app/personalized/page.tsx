@@ -489,22 +489,11 @@ export default function PersonalizedPage() {
 
           {/* Custom Question Section */}
           <div className="mt-16">
-            <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
-              <div className="backdrop-blur-md bg-white/10 rounded-2xl p-8 border-2 border-timeback-primary mb-8 shadow-2xl">
-                <h2 className="text-3xl font-bold text-timeback-primary font-cal mb-4">
-                  Have a Specific Question?
-                </h2>
-                <p className="text-lg text-timeback-primary font-cal mb-6">
-                  Ask anything about TimeBack and get a personalized answer based on your child&apos;s needs.
-                </p>
-                <button
-                  onClick={() => handleSectionSelect('custom-question')}
-                  className="w-full bg-timeback-primary text-white px-6 py-4 rounded-xl font-bold hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl font-cal text-lg"
-                >
-                  Ask My Question
-                </button>
-              </div>
-            </div>
+            <CustomQuestionSection 
+              quizData={userData as QuizData}
+              interests={userData.kidsInterests}
+              gradeLevel={userData.selectedSchools?.[0]?.level || 'high school'}
+            />
           </div>
         </section>
 

@@ -314,7 +314,7 @@ export default function SchoolSearchStep({ onNext }: SchoolSearchStepProps) {
                 className={`p-3 rounded-xl border cursor-pointer transition-colors ${
                   state.selectedSchools.some(s => s.id === school.id)
                     ? 'bg-timeback-bg border-timeback-primary'
-                    : 'bg-white border-timeback-primary hover:border-timeback-primary'
+                    : 'bg-timeback-bg/50 border-timeback-primary hover:border-timeback-primary hover:bg-timeback-bg'
                 }`}
               >
                 <div className="flex justify-between items-center">

@@ -15,6 +15,7 @@ console.log('[Test] Using base URL:', CEREBRAS_BASE_URL);
 
 // Available models based on recent documentation:
 const models = [
+  'gpt-oss-120b',                   // NEW: Main model we're using
   'qwen-3-coder-480b',              // Coding model
   'qwen-3-235b-a22b-instruct-2507', // Latest Qwen3 235B
   'qwen-3-32b',                     // Smaller 32B model
@@ -38,8 +39,10 @@ async function testModel(model: string) {
         content: 'Say hello in one word.'
       }
     ],
-    max_tokens: 10,
-    temperature: 0.7
+    max_completion_tokens: model === 'gpt-oss-120b' ? 10 : undefined,
+    max_tokens: model !== 'gpt-oss-120b' ? 10 : undefined,
+    temperature: model === 'gpt-oss-120b' ? 1 : 0.7,
+    top_p: model === 'gpt-oss-120b' ? 1 : undefined
   });
 
   try {

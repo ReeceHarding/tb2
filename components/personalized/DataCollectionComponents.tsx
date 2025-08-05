@@ -45,7 +45,7 @@ export function SchoolSearchCollector({
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg">
+    <div className="max-w-2xl mx-auto p-6 backdrop-blur-md bg-white/10 rounded-xl shadow-lg border-2 border-timeback-primary">
       <h2 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">
         Which school does your child attend?
       </h2>
@@ -138,7 +138,7 @@ export function GradeCollector({
   ];
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg">
+    <div className="max-w-2xl mx-auto p-6 backdrop-blur-md bg-white/10 rounded-xl shadow-lg border-2 border-timeback-primary">
       <h2 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">
         What grade is your child in?
       </h2>
@@ -204,7 +204,7 @@ export function InterestsCollector({
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-xl shadow-lg">
+    <div className="max-w-2xl mx-auto p-6 backdrop-blur-md bg-white/10 rounded-xl shadow-lg border-2 border-timeback-primary">
       <h2 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">
         What are your child&apos;s interests?
       </h2>

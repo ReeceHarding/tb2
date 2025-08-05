@@ -382,7 +382,7 @@ export default function AuthStep({ onNext, quizData, generatedContent }: AuthSte
           disabled={isSigningIn}
           whileHover={!isSigningIn ? { scale: 1.02 } : undefined}
           whileTap={!isSigningIn ? { scale: 0.98 } : undefined}
-          className={`group w-full bg-white border-2 border-timeback-primary text-timeback-primary px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center space-x-4 font-cal relative overflow-hidden ${
+                  className={`group w-full bg-timeback-bg border-2 border-timeback-primary text-timeback-primary px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center justify-center space-x-4 font-cal relative overflow-hidden ${
             isSigningIn 
               ? 'opacity-60 cursor-not-allowed' 
               : 'hover:bg-timeback-bg hover:shadow-2xl hover:border-timeback-primary focus:outline-none focus:ring-4 focus:ring-timeback-primary/20'

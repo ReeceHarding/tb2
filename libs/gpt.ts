@@ -1,55 +1,90 @@
-import axios from 'axios';
+import OpenAI from 'openai';
 
-// Use this if you want to make a call to OpenAI GPT-4 for instance. userId is used to identify the user on openAI side.
-export const sendOpenAi = async (
-  messages: any[], // TODO: type this
-  userId: number,
-  max = 100,
-  temp = 1
-) => {
-  const url = 'https://api.openai.com/v1/chat/completions';
+// Cerebras client configuration
+const cerebrasClient = new OpenAI({
+  apiKey: process.env.CEREBRAS_API_KEY || '',
+  baseURL: 'https://api.cerebras.ai/v1',
+});
 
-  console.log('Ask GPT >>>');
-  messages.map((m) =>
-    console.log(' - ' + m.role.toUpperCase() + ': ' + m.content)
+interface SendCerebrasOptions {
+  messages: Array<{ role: 'system' | 'user' | 'assistant'; content: string }>;
+  maxTokens?: number;
+  temperature?: number;
+  stream?: boolean;
+}
+
+// Use this to make a call to Cerebras gpt-oss-120b model
+export const sendCerebras = async ({
+  messages,
+  maxTokens = 65536,
+  temperature = 1,
+  stream = false
+}: SendCerebrasOptions) => {
+  console.log('[Cerebras] Request >>>');
+  messages.forEach((m) =>
+    console.log(' - ' + m.role.toUpperCase() + ': ' + m.content.substring(0, 100) + '...')
   );
 
-  const body = JSON.stringify({
-    model: 'gpt-4',
-    messages,
-    max_tokens: max,
-    temperature: temp,
-    user: userId,
-  });
-
-  const options = {
-    headers: {
-      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-  };
-
   try {
-    const res = await axios.post(url, body, options);
+    if (stream) {
+      // Streaming response
+      console.log('[Cerebras] Using streaming mode');
+      const streamResponse = await cerebrasClient.chat.completions.create({
+        model: 'gpt-oss-120b',
+        messages,
+        max_completion_tokens: maxTokens,
+        temperature,
+        top_p: 1,
+        stream: true,
+      });
 
-    const answer = res.data.choices[0].message.content;
-    const usage = res?.data?.usage;
+      return streamResponse;
+    } else {
+      // Non-streaming response
+      const response = await cerebrasClient.chat.completions.create({
+        model: 'gpt-oss-120b',
+        messages,
+        max_completion_tokens: maxTokens,
+        temperature,
+        top_p: 1,
+        stream: false,
+      });
 
-    console.log('>>> ' + answer);
-    console.log(
-      'TOKENS USED: ' +
-        usage?.total_tokens +
-        ' (prompt: ' +
-        usage?.prompt_tokens +
-        ' / response: ' +
-        usage?.completion_tokens +
-        ')'
-    );
-    console.log('\n');
+      const answer = response.choices[0]?.message?.content || '';
+      const usage = response.usage;
 
-    return answer;
-  } catch (e) {
-    console.error('GPT Error: ' + e?.response?.status, e?.response?.data);
+      console.log('[Cerebras] Response >>>', answer.substring(0, 100) + '...');
+      console.log(
+        '[Cerebras] TOKENS USED: ' +
+          usage?.total_tokens +
+          ' (prompt: ' +
+          usage?.prompt_tokens +
+          ' / response: ' +
+          usage?.completion_tokens +
+          ')'
+      );
+      console.log('\n');
+
+      return answer;
+    }
+  } catch (error) {
+    console.error('[Cerebras] Error:', error);
     return null;
   }
+};
+
+// Legacy function name for backward compatibility
+export const sendOpenAi = async (
+  messages: any[],
+  userId: number,
+  max = 65536,
+  temp = 1
+) => {
+  console.log('[Legacy] sendOpenAi called, redirecting to Cerebras');
+  return sendCerebras({
+    messages,
+    maxTokens: max,
+    temperature: temp,
+    stream: false
+  });
 };

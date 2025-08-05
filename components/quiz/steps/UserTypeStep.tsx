@@ -80,7 +80,7 @@ export default function UserTypeStep({ onNext }: UserTypeStepProps) {
               className={`group p-8 rounded-2xl border-2 text-center transition-all duration-300 transform hover:scale-105 ${
                 isSelected
                   ? 'border-timeback-primary bg-timeback-bg shadow-2xl scale-105'
-                  : 'border-timeback-primary/30 bg-white hover:border-timeback-primary hover:bg-timeback-bg hover:shadow-2xl'
+                  : 'border-timeback-primary/30 bg-timeback-bg/50 hover:border-timeback-primary hover:bg-timeback-bg hover:shadow-2xl'
               }`}
             >
               {/* Icon Container */}
