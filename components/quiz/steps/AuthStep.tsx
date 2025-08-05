@@ -337,6 +337,12 @@ export default function AuthStep({ onNext, quizData, generatedContent }: AuthSte
           <p className="text-xl text-timeback-primary font-cal max-w-lg mx-auto leading-relaxed">
             Save your personalized results and access them from anywhere, anytime
           </p>
+          <div className="mt-4 p-4 bg-timeback-bg/30 border border-timeback-primary/20 rounded-xl max-w-md mx-auto">
+            <p className="text-sm text-timeback-primary font-cal">
+              <span className="font-semibold">🔒 Why authentication?</span> To prevent automated abuse and deliver personalized content, 
+              we require authentication. Your data is secure and never shared.
+            </p>
+          </div>
         </motion.div>
       </div>
 
