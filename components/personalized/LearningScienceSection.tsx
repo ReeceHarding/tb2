@@ -28,7 +28,7 @@ export default function LearningScienceSection({
   console.log('[LearningScienceSection] Interests:', interests);
 
   return (
-    <section className="max-w-7xl mx-auto bg-gradient-to-br from-timeback-bg to-white py-20 lg:py-32 px-6 lg:px-12">
+    <section className="max-w-7xl mx-auto  py-20 lg:py-32 px-6 lg:px-12">
       {/* Header */}
       <div className="text-center mb-16 font-cal">
         <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3 mb-8">
@@ -64,7 +64,7 @@ export default function LearningScienceSection({
               {/* Bloom's 2 Sigma Problem - Research Paper Card */}
               <div className="backdrop-blur-md bg-white/10 rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-timeback-primary">
                 {/* Paper preview image */}
-                <div className="relative h-48 bg-gradient-to-br from-timeback-bg to-white overflow-hidden">
+                <div className="relative h-48  overflow-hidden">
                   <div className="absolute inset-0 p-6">
                     <div className="backdrop-blur-sm bg-white/30 rounded-xl shadow-sm p-4 transform rotate-3 group-hover:rotate-2 transition-transform border border-timeback-primary">
                       <div className="space-y-2">
@@ -154,7 +154,7 @@ export default function LearningScienceSection({
               {/* Mastery Learning - Research Paper Card */}
               <div className="backdrop-blur-md bg-white/10 rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-timeback-primary">
                 {/* Paper preview image */}
-                <div className="relative h-48 bg-gradient-to-br from-timeback-bg to-white overflow-hidden">
+                <div className="relative h-48  overflow-hidden">
                   <div className="absolute inset-0 p-6">
                     <div className="backdrop-blur-sm bg-white/30 rounded-xl shadow-sm p-4 transform -rotate-3 group-hover:-rotate-2 transition-transform border border-timeback-primary">
                       <div className="space-y-2">
@@ -246,7 +246,7 @@ export default function LearningScienceSection({
               {/* Zone of Proximal Development - Research Paper Card */}
               <div className="backdrop-blur-md bg-white/10 rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-timeback-primary">
                 {/* Paper preview image */}
-                <div className="relative h-48 bg-gradient-to-br from-timeback-bg to-white overflow-hidden">
+                <div className="relative h-48  overflow-hidden">
                   <div className="absolute inset-0 p-6">
                     <div className="backdrop-blur-sm bg-white/30 rounded-xl shadow-sm p-4 transform rotate-2 group-hover:rotate-1 transition-transform border border-timeback-primary">
                       <div className="space-y-2">
@@ -338,7 +338,7 @@ export default function LearningScienceSection({
               {/* Adaptive Learning Technology - Research Paper Card */}
               <div className="backdrop-blur-md bg-white/10 rounded-xl shadow-2xl hover:shadow-2xl transition-all duration-300 overflow-hidden group border-2 border-timeback-primary">
                 {/* Paper preview image */}
-                <div className="relative h-48 bg-gradient-to-br from-timeback-bg to-white overflow-hidden">
+                <div className="relative h-48  overflow-hidden">
                   <div className="absolute inset-0 p-6">
                     <div className="backdrop-blur-sm bg-white/30 rounded-xl shadow-sm p-4 transform -rotate-2 group-hover:-rotate-1 transition-transform border border-timeback-primary">
                       <div className="space-y-2">

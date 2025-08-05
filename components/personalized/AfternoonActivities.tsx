@@ -142,7 +142,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
   // Loading state
   if (isLoading) {
     return (
-      <section className="max-w-7xl mx-auto bg-gradient-to-br from-timeback-bg to-white py-20 lg:py-32 px-6 lg:px-12">
+      <section className="max-w-7xl mx-auto  py-20 lg:py-32 px-6 lg:px-12">
         <div className="text-center font-cal">
           <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary p-12 shadow-2xl max-w-md mx-auto">
             <div className="animate-pulse">
@@ -160,7 +160,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
   // Error state (should not normally happen due to fallback)
   if (error && !content) {
     return (
-      <section className="max-w-7xl mx-auto bg-gradient-to-br from-timeback-bg to-white py-20 lg:py-32 px-6 lg:px-12">
+      <section className="max-w-7xl mx-auto  py-20 lg:py-32 px-6 lg:px-12">
         <div className="text-center font-cal">
           <div className="backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary p-12 shadow-2xl max-w-md mx-auto">
             <p className="text-timeback-primary font-cal text-xl font-bold">Unable to generate personalized content. Please try again later.</p>
@@ -174,7 +174,7 @@ export default function AfternoonActivities({ interests, quizData, onLearnMore, 
   if (!content) return null;
 
   return (
-    <section className="max-w-7xl mx-auto bg-gradient-to-br from-timeback-bg to-white py-20 lg:py-32 px-6 lg:px-12">
+    <section className="max-w-7xl mx-auto  py-20 lg:py-32 px-6 lg:px-12">
       <div className="text-center mb-16 font-cal">
         <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3 mb-8">
           <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
