@@ -20,7 +20,7 @@ export default function ProgressiveDisclosureHero({ onSectionSelect, quizData }:
   return (
     <section className="max-w-7xl mx-auto py-20 lg:py-32 px-6 lg:px-12">
       <div className="text-center mb-16 font-cal">
-        <div className="inline-flex items-center gap-2 bg-white border border-timeback-primary rounded-full px-6 py-3 mb-8">
+        <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3 mb-8">
           <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
           <span className="text-timeback-primary font-bold text-sm font-cal">PERSONALIZED FOR YOU</span>
         </div>
@@ -44,7 +44,7 @@ export default function ProgressiveDisclosureHero({ onSectionSelect, quizData }:
               console.log(`[ProgressiveDisclosureHero] User clicked section: ${section.id}`);
               onSectionSelect(section.id);
             }}
-            className="bg-white border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-timeback-bg transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
               {section.buttonText}
@@ -55,7 +55,7 @@ export default function ProgressiveDisclosureHero({ onSectionSelect, quizData }:
 
       {/* Bottom CTA */}
       <div className="text-center mt-16">
-        <div className="bg-timeback-bg border border-timeback-primary rounded-xl p-8 max-w-2xl mx-auto">
+        <div className="backdrop-blur-md bg-white/10 border border-timeback-primary rounded-xl p-8 max-w-2xl mx-auto">
           <h3 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">
             Ready to dive deeper?
           </h3>

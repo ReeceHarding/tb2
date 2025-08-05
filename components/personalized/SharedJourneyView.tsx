@@ -81,21 +81,23 @@ export default function SharedJourneyView({
       <div className="container mx-auto max-w-6xl">
         {/* Journey Timeline Header */}
         <div className="text-center mb-12">
-          <h2 className="font-cal text-3xl text-timeback-primary mb-4">
-            {parentName}&apos;s Learning Journey
-          </h2>
-          <p className="font-cal text-timeback-primary text-lg max-w-2xl mx-auto">
-            Explore the personalized content sections that {parentName} discovered about TimeBack&apos;s revolutionary approach to education.
-          </p>
+          <div className="backdrop-blur-md bg-white/30 rounded-3xl shadow-2xl border border-timeback-primary/20 p-8 max-w-3xl mx-auto">
+            <h2 className="font-cal text-4xl font-bold text-timeback-primary mb-4">
+              {parentName}&apos;s Learning Journey
+            </h2>
+            <p className="font-cal text-timeback-primary text-lg max-w-2xl mx-auto">
+              Explore the personalized content sections that {parentName} discovered about TimeBack&apos;s revolutionary approach to education.
+            </p>
+          </div>
         </div>
 
         {/* Render sections in the order they were viewed */}
         <div className="space-y-8">
           {Object.entries(groupedSections).map(([sectionId, group]) => (
-            <div key={sectionId} className="bg-white rounded-3xl shadow-2xl border-2 border-timeback-primary overflow-hidden">
+            <div key={sectionId} className="backdrop-blur-md bg-white/80 rounded-3xl shadow-2xl border-2 border-timeback-primary overflow-hidden transform transition-transform hover:scale-[1.02]">
               {/* Section Header */}
-              <div className="bg-timeback-primary text-white p-6">
-                <h3 className="font-cal text-2xl">{group.mainSection.buttonText}</h3>
+              <div className="bg-gradient-to-r from-timeback-primary to-timeback-primary/90 text-white p-8">
+                <h3 className="font-cal text-2xl font-bold">{group.mainSection.buttonText}</h3>
                 <p className="font-cal text-sm opacity-90 mt-2">{group.mainSection.description}</p>
               </div>
 
@@ -145,8 +147,13 @@ export default function SharedJourneyView({
         {/* Empty State */}
         {viewedSections.length === 0 && (
           <div className="text-center py-16">
-            <div className="bg-white rounded-3xl shadow-2xl border-2 border-timeback-primary p-12 max-w-2xl mx-auto">
-              <p className="font-cal text-timeback-primary text-xl">
+            <div className="backdrop-blur-md bg-white/80 rounded-3xl shadow-2xl border-2 border-timeback-primary p-12 max-w-2xl mx-auto">
+              <div className="w-20 h-20 bg-timeback-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-10 h-10 text-timeback-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <p className="font-cal text-timeback-primary text-xl font-semibold">
                 This journey doesn&apos;t have any explored sections yet.
               </p>
             </div>

@@ -338,7 +338,8 @@ export const getComponentByName = (name: string) => {
     'ImmediateDataShock': ImmediateDataShock,
     'MechanismSection': MechanismSection,
     'CompletionTimeData': CompletionTimeData,
-    'StudentJourneyCarousel': StudentJourneyCarousel
+    'StudentJourneyCarousel': StudentJourneyCarousel,
+    'CustomQuestionSection': CustomQuestionSection
   };
   
   return componentMap[name];

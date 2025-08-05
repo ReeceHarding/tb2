@@ -121,12 +121,12 @@ export default function ShareJourneyButton({ viewedComponents, className = '' }:
           className="bg-timeback-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all duration-200 shadow-2xl hover:shadow-2xl transform hover:scale-105 font-cal disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isGenerating ? (
-            <span className="flex items-center">
+            <span className="flex items-center font-cal">
               <span className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></span>
               Creating Share Link...
             </span>
           ) : (
-            '🔗 Share Your Journey'
+            <span className="font-cal">Share Your Journey</span>
           )}
         </button>
       ) : (
@@ -136,19 +136,26 @@ export default function ShareJourneyButton({ viewedComponents, className = '' }:
             className="bg-timeback-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-opacity-90 transition-all duration-200 shadow-2xl hover:shadow-2xl transform hover:scale-105 font-cal w-full"
           >
             {copyStatus === 'copying' ? (
-              '📋 Copying...'
+              <span className="font-cal">Copying...</span>
             ) : copyStatus === 'copied' ? (
-              '✅ Link Copied!'
+              <span className="font-cal flex items-center justify-center">
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                Link Copied!
+              </span>
             ) : (
-              '📋 Copy Share Link'
+              <span className="font-cal">Copy Share Link</span>
             )}
           </button>
           
-          <div className="bg-timeback-bg rounded-xl p-4">
-            <p className="font-cal text-timeback-primary text-sm mb-2">Your shareable link:</p>
-            <p className="font-cal text-timeback-primary text-xs break-all bg-white rounded-lg p-3 border border-timeback-primary">
-              {shareUrl}
-            </p>
+          <div className="backdrop-blur-md bg-white/20 border border-timeback-primary rounded-xl p-4 shadow-lg">
+            <p className="font-cal text-timeback-primary text-sm mb-2 font-semibold">Your shareable link:</p>
+            <div className="backdrop-blur-sm bg-white/90 rounded-xl p-3 border border-timeback-primary shadow-lg">
+              <p className="font-cal text-timeback-primary text-xs break-all font-mono">
+                {shareUrl}
+              </p>
+            </div>
           </div>
 
           {hasExistingShare && (
@@ -164,8 +171,8 @@ export default function ShareJourneyButton({ viewedComponents, className = '' }:
       )}
 
       {error && (
-        <div className="mt-4 bg-red-50 border border-red-200 rounded-xl p-4">
-          <p className="font-cal text-red-600 text-sm">{error}</p>
+        <div className="mt-4 backdrop-blur-md bg-white/20 border border-timeback-primary rounded-xl p-4 shadow-lg">
+          <p className="font-cal text-timeback-primary text-sm font-semibold">{error}</p>
         </div>
       )}
     </div>

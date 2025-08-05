@@ -5,11 +5,11 @@ import { smoothScrollTo } from '@/libs/ui-animations';
 
 interface CustomQuestionSectionProps {
   quizData: any;
-  viewedComponents: Array<{
-    mainSectionId: string;
-    componentName: string;
-    timestamp: number;
-  }>;
+  interests?: string[];
+  gradeLevel?: string;
+  learningGoals?: string[];
+  preGeneratedContent?: any;
+  onLearnMore?: () => void;
 }
 
 interface GeneratedResponse {
@@ -23,7 +23,14 @@ interface GeneratedResponse {
   next_options: string[];
 }
 
-export default function CustomQuestionSection({ quizData, viewedComponents }: CustomQuestionSectionProps) {
+export default function CustomQuestionSection({ 
+  quizData, 
+  interests,
+  gradeLevel,
+  learningGoals,
+  preGeneratedContent,
+  onLearnMore 
+}: CustomQuestionSectionProps) {
   const [question, setQuestion] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [generatedResponse, setGeneratedResponse] = useState<GeneratedResponse | null>(null);
@@ -54,11 +61,11 @@ export default function CustomQuestionSection({ quizData, viewedComponents }: Cu
         body: JSON.stringify({
           question,
           quizData,
-          viewedComponentsSummary: viewedComponents.map(vc => vc.componentName).join(', '),
+          viewedComponentsSummary: 'Personalized report sections',
           currentUser: {
             name: quizData.userType || 'Parent',
-            student_grade: quizData.grade || 'K-12',
-            interest_subjects: quizData.kidsInterests?.join(', ') || 'General learning',
+            student_grade: gradeLevel || quizData.grade || 'K-12',
+            interest_subjects: interests?.join(', ') || quizData.kidsInterests?.join(', ') || 'General learning',
             main_concerns: 'Understanding TimeBack educational approach',
             school_name: quizData.selectedSchools?.[0]?.name || 'Local school',
             school_city: quizData.selectedSchools?.[0]?.city || '',
