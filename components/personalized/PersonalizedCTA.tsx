@@ -204,10 +204,14 @@ export default function PersonalizedCTA({ quizData, onLearnMore }: PersonalizedC
     }
   };
 
-  const handleNextOptionClick = (option: string) => {
+  const handleNextOptionClick = async (option: string) => {
     console.log('[PersonalizedCTA] Next option clicked:', option);
     setQuestion(option);
-    // Don't auto-submit, let user review and modify the question if needed
+    // Auto-submit the selected question for seamless flow
+    // Use setTimeout to ensure state update completes before submission
+    setTimeout(() => {
+      handleQuestionSubmit({ preventDefault: () => {} } as React.FormEvent);
+    }, 50);
   };
 
   return (

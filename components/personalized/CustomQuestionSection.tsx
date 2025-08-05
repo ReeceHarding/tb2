@@ -179,19 +179,23 @@ export default function CustomQuestionSection({
     }
   };
 
-  const handleNextOptionClick = (option: string) => {
+  const handleNextOptionClick = async (option: string) => {
     console.log('[CustomQuestionSection] Next option clicked:', option);
     setQuestion(option);
+    // Auto-submit the selected question for seamless flow
+    setTimeout(() => {
+      handleQuestionSubmit({ preventDefault: () => {} } as React.FormEvent);
+    }, 50);
   };
 
   return (
-    <section className="max-w-7xl mx-auto py-16 px-6 lg:px-12">
+    <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
       {/* Simple Question Input */}
-      <div className="backdrop-blur-md bg-white/10 rounded-xl p-8 border-2 border-timeback-primary mb-8">
+      <div className="backdrop-blur-md bg-white/10 rounded-2xl p-8 border-2 border-timeback-primary mb-8 shadow-2xl">
         <h2 className="text-3xl font-bold text-timeback-primary font-cal mb-4">
           Have a Specific Question?
         </h2>
-        <p className="text-lg text-timeback-primary opacity-75 font-cal mb-6">
+        <p className="text-lg text-timeback-primary font-cal mb-6">
           Ask anything about TimeBack and get a personalized answer based on your child&apos;s needs.
         </p>
         
@@ -201,7 +205,7 @@ export default function CustomQuestionSection({
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             placeholder="Ask me anything about TimeBack..."
-            className="w-full px-6 py-4 bg-white border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/50 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal text-lg shadow-lg"
+            className="w-full px-6 py-4 bg-white/50 border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/50 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal text-lg shadow-lg backdrop-blur-sm"
             disabled={isLoading}
           />
           <button
@@ -222,16 +226,20 @@ export default function CustomQuestionSection({
 
         {/* Schema Response Display */}
         {(schemaResponse || isLoading) && (
-          <div className="mt-8 bg-white rounded-xl p-6 border border-timeback-primary shadow-lg">
-            <h3 className="text-xl font-bold text-timeback-primary mb-4 font-cal">Your Personalized Answer:</h3>
-            <SchemaResponseRenderer 
-              response={schemaResponse}
-              onNextOptionClick={handleNextOptionClick}
-              isLoading={isLoading}
-            />
+          <div className="mt-8 backdrop-blur-md bg-white/10 rounded-2xl border-2 border-timeback-primary shadow-2xl overflow-hidden">
+            <div className="p-6 bg-timeback-primary">
+              <h3 className="text-xl font-bold text-white text-center font-cal">Your Personalized Answer</h3>
+            </div>
+            <div className="p-6">
+              <SchemaResponseRenderer 
+                response={schemaResponse}
+                onNextOptionClick={handleNextOptionClick}
+                isLoading={isLoading}
+              />
+            </div>
           </div>
         )}
       </div>
-    </section>
+    </div>
   );
 }

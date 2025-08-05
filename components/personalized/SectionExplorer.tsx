@@ -172,9 +172,13 @@ export default function SectionExplorer({
     }
   };
 
-  const handleNextOptionClick = (option: string) => {
+  const handleNextOptionClick = async (option: string) => {
     console.log('[SectionExplorer] Next option clicked:', option);
     setQuestion(option);
+    // Auto-submit the selected question for seamless flow
+    setTimeout(() => {
+      handleQuestionSubmit({ preventDefault: () => {} } as React.FormEvent);
+    }, 50);
   };
 
   return (
