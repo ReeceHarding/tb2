@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ErrorBoundary from './ErrorBoundary';
 import TrackedSection from './TrackedSection';
 import SchoolReportCard from './personalized/SchoolReportCard';

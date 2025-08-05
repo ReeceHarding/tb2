@@ -86,6 +86,36 @@ const userSchema = new mongoose.Schema(
       hasErrors: { type: Boolean, default: false },
       generatedAt: { type: Date, default: null },
     },
+    // Shareable journey data for public sharing
+    shareableJourney: {
+      shareId: {
+        type: String,
+        unique: true,
+        sparse: true, // Allow null values while maintaining uniqueness
+        index: true,
+      },
+      isPublic: {
+        type: Boolean,
+        default: false,
+      },
+      viewedSections: [{
+        sectionId: { type: String, required: true },
+        componentId: { type: String, required: true },
+        timestamp: { type: Date, default: Date.now },
+      }],
+      createdAt: {
+        type: Date,
+        default: Date.now,
+      },
+      lastUpdatedAt: {
+        type: Date,
+        default: Date.now,
+      },
+      viewCount: {
+        type: Number,
+        default: 0,
+      },
+    },
   },
   {
     timestamps: true,

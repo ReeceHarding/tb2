@@ -4,6 +4,7 @@ import React from 'react';
 import ErrorBoundary from '../ErrorBoundary';
 import TrackedSection from '../TrackedSection';
 import { getComponentByName, PROGRESSIVE_DISCLOSURE_MAPPING } from './ProgressiveDisclosureMapping';
+import CustomQuestionSection from './CustomQuestionSection';
 
 interface SectionExplorerProps {
   viewedComponents: Array<{
@@ -190,24 +191,32 @@ export default function SectionExplorer({
 
       {/* End of report message when all components viewed */}
       {availableComponents.length === 0 && (
-        <section className="max-w-7xl mx-auto py-16 px-6 lg:px-12 text-center">
-          <div className="bg-gradient-to-br from-timeback-bg to-white rounded-xl p-8 border border-timeback-primary">
-            <h3 className="text-3xl font-bold text-timeback-primary font-cal mb-4">
-              Your Complete Personalized Report is Ready!
-            </h3>
-            <p className="text-lg text-timeback-primary opacity-75 font-cal mb-6">
-              You have explored all available insights. This page is now ready to share with friends and family.
-            </p>
-            <div className="inline-flex items-center gap-2 bg-timeback-primary text-white rounded-full px-6 py-3">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              <span className="font-bold text-sm font-cal">
-                Complete Report - {viewedComponents.length} Sections
-              </span>
+        <>
+          <section className="max-w-7xl mx-auto py-16 px-6 lg:px-12 text-center">
+            <div className="bg-gradient-to-br from-timeback-bg to-white rounded-xl p-8 border border-timeback-primary">
+              <h3 className="text-3xl font-bold text-timeback-primary font-cal mb-4">
+                Your Complete Personalized Report is Ready!
+              </h3>
+              <p className="text-lg text-timeback-primary opacity-75 font-cal mb-6">
+                You have explored all available insights. This page is now ready to share with friends and family.
+              </p>
+              <div className="inline-flex items-center gap-2 bg-timeback-primary text-white rounded-full px-6 py-3">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="font-bold text-sm font-cal">
+                  Complete Report - {viewedComponents.length} Sections
+                </span>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+
+          {/* Custom Question Section */}
+          <CustomQuestionSection 
+            quizData={quizData}
+            viewedComponents={viewedComponents}
+          />
+        </>
       )}
     </div>
   );
