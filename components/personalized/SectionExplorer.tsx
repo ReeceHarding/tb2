@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
+import SchemaResponseRenderer from '@/components/SchemaResponseRenderer';
 import ErrorBoundary from '../ErrorBoundary';
 import TrackedSection from '../TrackedSection';
 import { getComponentByName, PROGRESSIVE_DISCLOSURE_MAPPING } from './ProgressiveDisclosureMapping';
@@ -32,8 +32,9 @@ export default function SectionExplorer({
 
   // Simple question answer states - must be at top level
   const [question, setQuestion] = useState('');
-  const [answer, setAnswer] = useState('');
+  const [schemaResponse, setSchemaResponse] = useState<any>(null);
   const [isLoadingQA, setIsLoadingQA] = useState(false);
+  const [conversationHistory, setConversationHistory] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
 
   console.log('[SectionExplorer] Rendering cumulative components:', {
     viewedComponents: viewedComponents?.map(c => c.componentName) || [],
@@ -68,30 +69,112 @@ export default function SectionExplorer({
   const handleQuestionSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!question.trim() || isLoadingQA) return;
+    
+    const currentQuestion = question.trim();
+    console.log('[SectionExplorer] Processing question with schema format:', currentQuestion);
     setIsLoadingQA(true);
+    setSchemaResponse(null);
+    
+    // Create previous content summary for context
+    const previousContentSummary = conversationHistory.length > 0 
+      ? conversationHistory.map((msg, index) => 
+          `${msg.role === 'user' ? 'Q' : 'A'}${Math.floor(index/2) + 1}: ${msg.content}`
+        ).join('\n')
+      : 'No previous interactions';
+    
     try {
       const res = await fetch('/api/ai/chat-tutor', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          question: question.trim(),
+          question: currentQuestion,
           interests: quizData?.kidsInterests,
+          responseFormat: 'schema',
+          quizData: {
+            ...quizData,
+            previousContent: previousContentSummary
+          },
+          messageHistory: conversationHistory,
           context: {
             parentType: quizData?.parentSubType,
             school: quizData?.selectedSchools?.[0]?.name,
-            numberOfKids: quizData?.numberOfKids
+            numberOfKids: quizData?.numberOfKids,
+            selectedSchools: quizData?.selectedSchools,
+            kidsInterests: quizData?.kidsInterests,
+            previousContent: previousContentSummary
           }
         })
       });
       const data = await res.json();
-      if (data.success) setAnswer(data.response);
-      else setAnswer('Sorry, something went wrong.');
+      
+      if (data.success && data.responseFormat === 'schema') {
+        console.log('[SectionExplorer] Got schema response:', data.response);
+        setSchemaResponse(data.response);
+        
+        // Add to conversation history
+        const newHistory = [
+          ...conversationHistory,
+          { role: 'user' as const, content: currentQuestion },
+          { role: 'assistant' as const, content: JSON.stringify(data.response) }
+        ];
+        setConversationHistory(newHistory);
+      } else if (data.success) {
+        console.log('[SectionExplorer] Got plain text, creating fallback schema');
+        const fallbackResponse = {
+          header: 'TIMEBACK | PERSONALIZED ANSWER',
+          main_heading: 'Your Question Answered',
+          description: data.response,
+          key_points: [
+            { label: 'Key Insight', description: 'Based on your specific situation and interests' },
+            { label: 'Personalized Approach', description: 'Tailored to your child\'s needs' },
+            { label: 'Next Steps', description: 'Ready to learn more about TimeBack?' }
+          ],
+          next_options: ['Tell me about TimeBack results', 'How does the daily schedule work?', 'What about my child\'s specific interests?']
+        };
+        setSchemaResponse(fallbackResponse);
+        
+        // Add to conversation history
+        const newHistory = [
+          ...conversationHistory,
+          { role: 'user' as const, content: currentQuestion },
+          { role: 'assistant' as const, content: data.response }
+        ];
+        setConversationHistory(newHistory);
+      } else {
+        throw new Error(data.error || data.validationError || 'Failed to get response');
+      }
     } catch (err) {
       console.error('[SectionExplorer] QA error', err);
-      setAnswer('Sorry, something went wrong.');
+      const errorMessage = 'Sorry, something went wrong. Please try asking your question again.';
+      
+      setSchemaResponse({
+        header: 'TIMEBACK | ERROR',
+        main_heading: 'Something went wrong',
+        description: errorMessage,
+        key_points: [
+          { label: 'Try Again', description: 'Please rephrase your question and try again' },
+          { label: 'Contact Support', description: 'If the issue persists, our team is here to help' },
+          { label: 'Browse Resources', description: 'Explore our other resources while we resolve this' }
+        ],
+        next_options: ['Ask a different question', 'Learn about TimeBack basics', 'Contact our team']
+      });
+      
+      // Add error to conversation history
+      const newHistory = [
+        ...conversationHistory,
+        { role: 'user' as const, content: currentQuestion },
+        { role: 'assistant' as const, content: errorMessage }
+      ];
+      setConversationHistory(newHistory);
     } finally {
       setIsLoadingQA(false);
+      setQuestion(''); // Clear the question input after submission
     }
+  };
+
+  const handleNextOptionClick = (option: string) => {
+    console.log('[SectionExplorer] Next option clicked:', option);
+    setQuestion(option);
   };
 
   return (
@@ -234,9 +317,13 @@ export default function SectionExplorer({
                 {isLoadingQA ? 'Getting answer...' : 'Get Personalized Answer'}
               </button>
             </form>
-            {answer && (
-              <div className="mt-6 bg-white rounded-xl p-6 border border-timeback-primary shadow-lg text-left max-w-2xl mx-auto">
-                <ReactMarkdown>{answer}</ReactMarkdown>
+            {(schemaResponse || isLoadingQA) && (
+              <div className="mt-6 bg-white rounded-xl p-6 border border-timeback-primary shadow-lg text-left max-w-4xl mx-auto">
+                <SchemaResponseRenderer 
+                  response={schemaResponse}
+                  onNextOptionClick={handleNextOptionClick}
+                  isLoading={isLoadingQA}
+                />
               </div>
             )}
           </div>

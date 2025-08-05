@@ -2,6 +2,8 @@ import { NextRequest } from 'next/server';
 import { trackLLMUsage } from '@/libs/llm-analytics';
 import { invokeClaude, formatClaudeResponse, ClaudeMessage } from '@/libs/bedrock-claude';
 import OpenAI from 'openai';
+import fs from 'fs';
+import path from 'path';
 
 export const dynamic = 'force-dynamic';
 
@@ -33,15 +35,70 @@ export async function POST(req: NextRequest) {
       });
     }
     
-    const { question, interests = [], subject, gradeLevel, context, messageHistory } = body;
+    const { question, interests = [], subject, gradeLevel, context, messageHistory, responseFormat, quizData } = body;
     
     console.log('[chat-tutor] Processing question:', question);
     console.log('[chat-tutor] Context:', context);
+    console.log('[chat-tutor] Response format:', responseFormat);
 
     let systemPrompt = '';
     let userPrompt = '';
 
-    if (context === 'timeback-whitepaper') {
+    if (responseFormat === 'schema' || context === 'schema-generation') {
+      // Schema generation context using XML prompt template
+      console.log('[chat-tutor] Using schema generation context with XML template');
+      
+      try {
+        // Read XML prompt template
+        const xmlTemplatePath = path.join(process.cwd(), 'public/docs/prompt-example.xml');
+        const xmlTemplate = fs.readFileSync(xmlTemplatePath, 'utf8');
+        
+        // Read whitepaper content
+        const whitepaperPath = path.join(process.cwd(), 'public/data/timeback-whitepaper.md');
+        const whitepaperContent = fs.readFileSync(whitepaperPath, 'utf8');
+        
+        // Extract user context from quizData or context object
+        const userContext = quizData || context || {};
+        const schoolInfo = userContext.selectedSchools?.[0] || {};
+        
+        // Populate XML template placeholders
+        const populatedTemplate = xmlTemplate
+          .replace('{{WHITE_PAPER_CONTENT}}', whitepaperContent.substring(0, 8000)) // Limit for token constraints
+          .replace('{{USER_FIRST_NAME}}', userContext.userFirstName || userContext.firstName || 'Parent')
+          .replace('{{STUDENT_GRADE_LEVEL}}', userContext.childGrade || gradeLevel || 'elementary')
+          .replace('{{STUDENT_SUBJECTS_OF_INTEREST}}', Array.isArray(interests) ? interests.join(', ') : (userContext.kidsInterests?.join(', ') || 'math, science'))
+          .replace('{{PARENT_CONCERNS}}', userContext.learningGoals?.join(', ') || userContext.mainConcerns?.join(', ') || 'academic achievement')
+          .replace('{{SCHOOL_NAME}}', schoolInfo.name || userContext.schoolName || 'Current School')
+          .replace('{{SCHOOL_CITY}}', schoolInfo.city || userContext.schoolCity || 'Unknown')
+          .replace('{{SCHOOL_STATE}}', schoolInfo.state || userContext.schoolState || 'Unknown')
+          .replace('{{PREVIOUS_COMPONENTS_SUMMARY}}', userContext.previousContent || 'No previous interactions')
+          .replace('{{USER_LATEST_CHOICE}}', question || 'General inquiry about TimeBack');
+        
+        console.log('[chat-tutor] XML template populated with user context');
+        
+        // Use the populated template as the system prompt
+        systemPrompt = populatedTemplate;
+        userPrompt = `Generate a compelling response for this question: "${question}"`;
+        
+      } catch (error) {
+        console.error('[chat-tutor] Error reading XML template or whitepaper:', error);
+        // Fallback to simple schema prompt
+        systemPrompt = `You are a TimeBack education data analyst. Generate ONLY a JSON response using this exact schema:
+{
+  "header": "TIMEBACK | INSIGHT #1",
+  "main_heading": "Primary heading that captures the key message",
+  "description": "Brief paragraph explaining the main concept",
+  "key_points": [
+    {"label": "Point 1 Label", "description": "Detailed explanation"},
+    {"label": "Point 2 Label", "description": "Detailed explanation"}, 
+    {"label": "Point 3 Label", "description": "Detailed explanation"}
+  ],
+  "next_options": ["Follow-up option 1", "Follow-up option 2", "Follow-up option 3"]
+}
+RESPOND WITH ONLY THE JSON OBJECT - no explanations, no markdown, no additional text.`;
+        userPrompt = question;
+      }
+    } else if (context === 'timeback-whitepaper') {
       // Chatbot context
       systemPrompt = `You are a helpful TimeBack education assistant. Answer questions about TimeBack's educational approach based on the white paper content.
 
@@ -215,7 +272,86 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
         }
       });
 
-      // Return JSON response that matches UI expectations
+      // Handle schema response format with JSON validation
+      if (responseFormat === 'schema' || context === 'schema-generation') {
+        console.log('[chat-tutor] Processing schema response, validating JSON...');
+        
+        try {
+          // Try to parse the response as JSON to validate structure
+          let parsedResponse;
+          
+          // Clean up response if it has extra text around JSON
+          let cleanedResponse = fullText.trim();
+          
+          // Find JSON object boundaries
+          const jsonStart = cleanedResponse.indexOf('{');
+          const jsonEnd = cleanedResponse.lastIndexOf('}') + 1;
+          
+          if (jsonStart !== -1 && jsonEnd > jsonStart) {
+            cleanedResponse = cleanedResponse.substring(jsonStart, jsonEnd);
+          }
+          
+          parsedResponse = JSON.parse(cleanedResponse);
+          
+          // Validate required schema fields
+          const requiredFields = ['header', 'main_heading', 'description', 'key_points', 'next_options'];
+          const missingFields = requiredFields.filter(field => !parsedResponse[field]);
+          
+          if (missingFields.length > 0) {
+            throw new Error(`Missing required fields: ${missingFields.join(', ')}`);
+          }
+          
+          // Validate key_points structure (should be array of 3 objects with label and description)
+          if (!Array.isArray(parsedResponse.key_points) || parsedResponse.key_points.length !== 3) {
+            throw new Error('key_points must be an array of exactly 3 objects');
+          }
+          
+          for (const point of parsedResponse.key_points) {
+            if (!point.label || !point.description) {
+              throw new Error('Each key_point must have both label and description');
+            }
+          }
+          
+          // Validate next_options structure (should be array of 3 strings)
+          if (!Array.isArray(parsedResponse.next_options) || parsedResponse.next_options.length !== 3) {
+            throw new Error('next_options must be an array of exactly 3 strings');
+          }
+          
+          console.log('[chat-tutor] Schema response validated successfully');
+          
+          // Return validated schema response
+          return new Response(JSON.stringify({
+            success: true,
+            response: parsedResponse,
+            responseFormat: 'schema',
+            provider: usedProvider
+          }), {
+            status: 200,
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          });
+          
+        } catch (validationError) {
+          console.error('[chat-tutor] Schema validation failed:', validationError);
+          console.error('[chat-tutor] Raw response was:', fullText);
+          
+          // Return error with fallback
+          return new Response(JSON.stringify({
+            success: false,
+            error: 'Failed to generate valid schema response',
+            validationError: validationError.message,
+            rawResponse: fullText
+          }), {
+            status: 500,
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          });
+        }
+      }
+
+      // Return standard plain text response
       return new Response(JSON.stringify({
         success: true,
         response: fullText,
