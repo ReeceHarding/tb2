@@ -48,7 +48,7 @@ const testOptimisticCaching = async () => {
     afternoonActivities: { 
       mainTitle: 'Robotics Afternoon Activities',
       subtitle: 'With 6 hours saved daily...',
-      specificActivities: []
+      specificActivities: [] as { activity: string; description: string; timeRequired: string; }[]
     },
     subjectExamples: { 
       math: 'Math through robotics',

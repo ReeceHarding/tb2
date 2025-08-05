@@ -107,7 +107,7 @@ export default function ProgressiveDisclosureContainer({
             // Reveal content with instant animation
             const contentElements = newComponentElement.querySelectorAll('.content-section');
             if (contentElements.length > 0) {
-              instantReveal(contentElements as NodeListOf<HTMLElement>, {
+              instantReveal(contentElements as any, {
                 staggerDelay: 100,
                 from: 'bottom'
               });

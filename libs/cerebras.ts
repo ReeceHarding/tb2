@@ -7,6 +7,12 @@ const log = (message: string, data?: any) => {
   console.log(`[CerebrasClient] ${timestamp} ${message}`, data || '');
 };
 
+// Initialize Cerebras client (uses OpenAI-compatible API)
+const cerebrasClient = new OpenAI({
+  apiKey: process.env.CEREBRAS_API_KEY || '',
+  baseURL: 'https://api.cerebras.ai/v1',
+});
+
 // Initialize OpenAI client as fallback
 const openaiClient = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || '',

@@ -22,9 +22,9 @@ function TypewriterText({ text, speed = 100 }: { text: string; speed?: number })
 
       return () => clearTimeout(timer);
     } else {
-      console.log(`[TypewriterText] Typewriter effect completed. Final text: "${displayText}"`);
+      console.log(`[TypewriterText] Typewriter effect completed. Final text: "${text.slice(0, currentIndex)}"`);
     }
-  }, [currentIndex, text, speed, displayText]);
+  }, [currentIndex, text, speed]);
 
   useEffect(() => {
     console.log(`[TypewriterText] Text prop changed, resetting typewriter effect`);

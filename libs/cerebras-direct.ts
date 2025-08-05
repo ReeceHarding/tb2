@@ -114,7 +114,7 @@ export async function generateContent(options: GenerateContentOptions): Promise<
         content: bedrockResponse.text,
         provider: 'bedrock',
         latencyMs,
-        tokenCount: bedrockResponse.usage?.totalTokens
+        tokenCount: bedrockResponse.usage ? (bedrockResponse.usage.input_tokens + bedrockResponse.usage.output_tokens) : undefined
       };
     } catch (bedrockError) {
       log('Bedrock failed, falling back to OpenAI', bedrockError);
