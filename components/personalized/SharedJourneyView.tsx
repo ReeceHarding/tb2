@@ -2,34 +2,35 @@
 
 import React from 'react';
 import { QuizData, GeneratedContent, ShareableJourneySection } from '@/types/quiz';
-import { PROGRESSIVE_DISCLOSURE_MAPPING, getComponentByName } from './ProgressiveDisclosureMapping';
+import { PROGRESSIVE_DISCLOSURE_MAPPING } from './ProgressiveDisclosureMapping';
 import dynamic from 'next/dynamic';
 
 // Dynamic imports for all possible components
-const AfternoonActivities = dynamic(() => import('./AfternoonActivities'));
+const TimeBackVsCompetitors = dynamic(() => import('./TimeBackVsCompetitors'));
+const LearningScienceSection = dynamic(() => import('./LearningScienceSection'));
+const MechanismSection = dynamic(() => import('./MechanismSection'));
 const HowWeGetResults = dynamic(() => import('./HowWeGetResults'));
-const LearningScience = dynamic(() => import('./LearningScience'));
-const DataShock = dynamic(() => import('./DataShock'));
-const SubjectExamples = dynamic(() => import('./SubjectExamples'));
-const ClosestSchools = dynamic(() => import('./ClosestSchools'));
-const WhatsNext = dynamic(() => import('./WhatsNext'));
-const DeeperDiveIntro = dynamic(() => import('./DeeperDiveIntro'));
-const MoreSchoolOptions = dynamic(() => import('./MoreSchoolOptions'));
-const TeacherSupport = dynamic(() => import('./TeacherSupport'));
+const ImmediateDataShock = dynamic(() => import('./ImmediateDataShock'));
+const CompletionTimeData = dynamic(() => import('./CompletionTimeData'));
+const SpeedComparison = dynamic(() => import('./SpeedComparison'));
+const PersonalizedSubjectExamples = dynamic(() => import('./PersonalizedSubjectExamples'));
+const StudentJourneyCarousel = dynamic(() => import('./StudentJourneyCarousel'));
+const AfternoonActivities = dynamic(() => import('./AfternoonActivities'));
 const CustomQuestionSection = dynamic(() => import('./CustomQuestionSection'));
 
 // Component mapping for dynamic rendering
 const componentMap: Record<string, React.ComponentType<any>> = {
-  AfternoonActivities,
+  TimeBackVsCompetitors,
+  LearningScienceSection,
+  MechanismSection,
   HowWeGetResults,
-  LearningScience,
-  DataShock,
-  SubjectExamples,
-  ClosestSchools,
-  WhatsNext,
-  DeeperDiveIntro,
-  MoreSchoolOptions,
-  TeacherSupport,
+  ImmediateDataShock,
+  CompletionTimeData,
+  SpeedComparison,
+  PersonalizedSubjectExamples,
+  StudentJourneyCarousel,
+  AfternoonActivities,
+  AfternoonActivitiesExpanded: AfternoonActivities, // Same component with different context
   CustomQuestionSection,
 };
 
@@ -81,10 +82,10 @@ export default function SharedJourneyView({
         {/* Journey Timeline Header */}
         <div className="text-center mb-12">
           <h2 className="font-cal text-3xl text-timeback-primary mb-4">
-            {parentName}'s Learning Journey
+            {parentName}&apos;s Learning Journey
           </h2>
           <p className="font-cal text-timeback-primary text-lg max-w-2xl mx-auto">
-            Explore the personalized content sections that {parentName} discovered about TimeBack's revolutionary approach to education.
+            Explore the personalized content sections that {parentName} discovered about TimeBack&apos;s revolutionary approach to education.
           </p>
         </div>
 
@@ -94,8 +95,8 @@ export default function SharedJourneyView({
             <div key={sectionId} className="bg-white rounded-3xl shadow-2xl border-2 border-timeback-primary overflow-hidden">
               {/* Section Header */}
               <div className="bg-timeback-primary text-white p-6">
-                <h3 className="font-cal text-2xl">{group.mainSection.title}</h3>
-                <p className="font-cal text-sm opacity-90 mt-2">{group.mainSection.subtitle}</p>
+                <h3 className="font-cal text-2xl">{group.mainSection.buttonText}</h3>
+                <p className="font-cal text-sm opacity-90 mt-2">{group.mainSection.description}</p>
               </div>
 
               {/* Section Components */}
@@ -146,7 +147,7 @@ export default function SharedJourneyView({
           <div className="text-center py-16">
             <div className="bg-white rounded-3xl shadow-2xl border-2 border-timeback-primary p-12 max-w-2xl mx-auto">
               <p className="font-cal text-timeback-primary text-xl">
-                This journey doesn't have any explored sections yet.
+                This journey doesn&apos;t have any explored sections yet.
               </p>
             </div>
           </div>
