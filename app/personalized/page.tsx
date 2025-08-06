@@ -37,7 +37,7 @@ export default function PersonalizedPage() {
   
   // State for UI - simplified
   const [viewedComponents, setViewedComponents] = useState<string[]>([]);
-
+  
   // Track component lifecycle
   useEffect(() => {
     const timestamp = new Date().toISOString();
@@ -388,8 +388,8 @@ export default function PersonalizedPage() {
         newTotal: newViewedComponents.length
       });
       
-      setViewedComponents(newViewedComponents);
-      
+          setViewedComponents(newViewedComponents);
+          
       console.log(`⏰ [PersonalizedPage-${instanceId}] Setting 100ms delay for scroll operation`);
       setTimeout(() => {
         const targetElementId = `viewed-component-${sectionId}`;
@@ -403,7 +403,7 @@ export default function PersonalizedPage() {
           console.error(`❌ [PersonalizedPage-${instanceId}] SCROLL ERROR:`, scrollError);
         }
       }, 100);
-    } else {
+      } else {
       console.log(`🔄 [PersonalizedPage-${instanceId}] ${timestamp} REVISITING EXISTING COMPONENT`);
       const targetElementId = `viewed-component-${sectionId}`;
       const existingIndex = viewedComponents.indexOf(sectionId);
@@ -469,15 +469,15 @@ export default function PersonalizedPage() {
                 <h3 className="text-2xl font-bold text-timeback-primary mb-4 font-cal">Traditional School</h3>
                 <ul className="space-y-3 text-timeback-primary font-cal">
                   <li className="flex items-center gap-3">
-                    <span className="text-red-500">✗</span>
+                    <span className="text-timeback-primary">✗</span>
                     6+ hours of wasted time daily
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="text-red-500">✗</span>
+                    <span className="text-timeback-primary">✗</span>
                     One-size-fits-all approach
                   </li>
                   <li className="flex items-center gap-3">
-                    <span className="text-red-500">✗</span>
+                    <span className="text-timeback-primary">✗</span>
                     Students fall behind or get bored
                   </li>
                 </ul>
@@ -753,6 +753,44 @@ export default function PersonalizedPage() {
               </h3>
             </button>
           </div>
+
+          {/* Custom Question Form */}
+          <div className="backdrop-blur-md bg-white/10 rounded-2xl p-8 border-2 border-timeback-primary mb-8 shadow-2xl max-w-4xl mx-auto mt-12">
+            <h2 className="text-3xl font-bold text-timeback-primary font-cal mb-4">
+              Have a Specific Question?
+            </h2>
+            <p className="text-lg text-timeback-primary font-cal mb-6">
+              Ask anything about TimeBack and get a personalized answer based on your child&apos;s needs.
+            </p>
+            <form className="space-y-4" onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const question = formData.get('question') as string;
+              if (question.trim()) {
+                handleSectionSelect('custom-question');
+                // Scroll to custom question section after a brief delay
+                setTimeout(() => {
+                  const customSection = document.getElementById('questions-section');
+                  if (customSection) {
+                    customSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }, 100);
+              }
+            }}>
+              <input 
+                name="question"
+                placeholder="Ask me anything about TimeBack..." 
+                className="w-full px-6 py-4 bg-timeback-bg/50 border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/50 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal text-lg shadow-lg backdrop-blur-sm" 
+                type="text" 
+              />
+              <button 
+                type="submit" 
+                className="w-full bg-timeback-primary text-white px-6 py-4 rounded-xl font-bold hover:bg-timeback-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl font-cal text-lg"
+              >
+                Get My Personalized Answer
+              </button>
+            </form>
+          </div>
         </section>
 
         {/* Render viewed components in order with follow-up questions */}
@@ -797,20 +835,20 @@ export default function PersonalizedPage() {
           });
           
           return (
-            <section 
+          <section 
               key={componentIdString} 
               id={`viewed-component-${componentIdString}`} 
-              className="max-w-7xl mx-auto px-6 lg:px-12 pb-20"
-            >
-              <div className="mb-8">
-                <div className="text-center mb-8">
-                  <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3">
-                    <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
-                    <span className="text-timeback-primary font-bold text-sm font-cal">
-                      SECTION {index + 1}
-                    </span>
-                  </div>
+            className="max-w-7xl mx-auto px-6 lg:px-12 pb-20"
+          >
+            <div className="mb-8">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3">
+                  <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
+                  <span className="text-timeback-primary font-bold text-sm font-cal">
+                    SECTION {index + 1}
+                  </span>
                 </div>
+              </div>
                 
                 {/* Component content */}
                 {(() => {
@@ -861,11 +899,11 @@ export default function PersonalizedPage() {
                   <div className="text-center mt-12">
                     <p className="text-timeback-primary text-sm font-cal opacity-70">
                       No follow-up questions available for this section
-                    </p>
-                  </div>
-                )}
+                </p>
               </div>
-            </section>
+            )}
+              </div>
+          </section>
           );
         })}
 
@@ -894,11 +932,11 @@ export default function PersonalizedPage() {
             
             try {
               return (
-                <CustomQuestionSection 
-                  quizData={userData as QuizData}
-                  interests={userData.kidsInterests}
-                  gradeLevel={userData.selectedSchools?.[0]?.level || 'high school'}
-                />
+          <CustomQuestionSection 
+            quizData={userData as QuizData}
+            interests={userData.kidsInterests}
+            gradeLevel={userData.selectedSchools?.[0]?.level || 'high school'}
+          />
               );
             } catch (error) {
               console.error(`❌ [PersonalizedPage-${instanceId}] CUSTOM QUESTION SECTION RENDER ERROR:`, error);
@@ -913,8 +951,8 @@ export default function PersonalizedPage() {
               });
               
               return (
-                <div className="backdrop-blur-md bg-white/10 border-2 border-red-500 rounded-xl p-8 shadow-xl text-center">
-                  <h3 className="text-xl font-bold text-red-600 mb-4 font-cal">
+                <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-8 shadow-xl text-center">
+                  <h3 className="text-xl font-bold text-timeback-primary mb-4 font-cal">
                     Question Section Error
                   </h3>
                   <p className="text-timeback-primary font-cal">

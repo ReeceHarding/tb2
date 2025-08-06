@@ -125,10 +125,10 @@ export default function ClosestSchools({ quizData }: ClosestSchoolsProps) {
               {/* Rating and rank info */}
               <div className="flex items-center gap-4 mb-4">
                 {school.rating > 0 && (
-                  <div className="flex items-center">
-                    <span className="text-yellow-500 mr-1 font-cal">★</span>
-                    <span className="text-sm font-medium font-cal">{school.rating}/10</span>
-                  </div>
+                                            <div className="flex items-center">
+                            <span className="text-timeback-primary mr-1 font-cal">★</span>
+                            <span className="text-sm font-medium font-cal">{school.rating}/10</span>
+                          </div>
                 )}
                 {school.rank && school.rankTotal && (
                   <div className="text-sm text-timeback-primary font-cal">
