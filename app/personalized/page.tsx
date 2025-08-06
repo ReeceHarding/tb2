@@ -862,67 +862,95 @@ export default function PersonalizedPage() {
                   return renderedComponent;
                 })()}
                 
-                {/* Have a Specific Question form */}
-                <div className="backdrop-blur-md bg-white/10 rounded-2xl p-8 border-2 border-timeback-primary mb-8 shadow-2xl">
-                  <h2 className="text-3xl font-bold text-timeback-primary font-cal mb-4">Have a Specific Question?</h2>
-                  <p className="text-lg text-timeback-primary font-cal mb-6">Ask anything about TimeBack and get a personalized answer based on your child&apos;s needs.</p>
-                  <form className="space-y-4">
-                    <input 
-                      placeholder="Ask me anything about TimeBack..." 
-                      className="w-full px-6 py-4 bg-timeback-bg/50 border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/50 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal text-lg shadow-xl backdrop-blur-sm" 
-                      type="text" 
-                      value=""
-                    />
-                    <button 
-                      type="submit" 
-                      disabled 
-                      className="w-full bg-timeback-primary text-white px-6 py-4 rounded-xl font-bold hover:bg-timeback-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-xl hover:shadow-2xl font-cal text-lg"
-                    >
-                      Get My Personalized Answer
-                    </button>
-                  </form>
-                </div>
-
-                {/* Follow-up questions after each component */}
-                {followUpQuestions.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mt-12">
-                    {followUpQuestions.map((question: { id: string; text: string; }, qIndex: number) => {
-                      console.log(`🔘 [PersonalizedPage-${instanceId}] ${new Date().toISOString()} RENDERING FOLLOW-UP BUTTON`, {
-                        componentId: componentIdString,
-                        questionIndex: qIndex,
-                        questionId: question.id,
-                        questionText: question.text,
-                        isAlreadyViewed: viewedComponents.includes(question.id)
-                      });
-                      
-                      return (
-                        <button
-                          key={question.id}
-                          onClick={() => {
-                            console.log(`🖱️ [PersonalizedPage-${instanceId}] ${new Date().toISOString()} FOLLOW-UP QUESTION CLICKED`, {
-                              sourceComponent: componentIdString,
-                              targetComponent: question.id,
+                {/* Combined Question Suggestions and Form Component - Hides after new content is generated */}
+                {(() => {
+                  // Only show if this is the last (most recent) component in the list
+                  const isLastComponent = index === viewedComponents.length - 1;
+                  
+                  if (!isLastComponent) {
+                    console.log(`🚫 [PersonalizedPage-${instanceId}] ${new Date().toISOString()} HIDING QUESTIONS SECTION - Not last component`, {
+                      componentIndex: index,
+                      totalComponents: viewedComponents.length,
+                      isLast: isLastComponent
+                    });
+                    return null;
+                  }
+                  
+                  console.log(`✅ [PersonalizedPage-${instanceId}] ${new Date().toISOString()} SHOWING QUESTIONS SECTION - Is last component`, {
+                    componentIndex: index,
+                    totalComponents: viewedComponents.length,
+                    hasFollowUpQuestions: followUpQuestions.length > 0
+                  });
+                  
+                  return (
+                    <div className="mt-12">
+                      {/* Follow-up questions - Now appears ABOVE the form */}
+                      {followUpQuestions.length > 0 && (
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                          {followUpQuestions.map((question: { id: string; text: string; }, qIndex: number) => {
+                            console.log(`🔘 [PersonalizedPage-${instanceId}] ${new Date().toISOString()} RENDERING FOLLOW-UP BUTTON`, {
+                              componentId: componentIdString,
+                              questionIndex: qIndex,
+                              questionId: question.id,
                               questionText: question.text,
-                              clickContext: 'follow-up-question'
+                              isAlreadyViewed: viewedComponents.includes(question.id)
                             });
-                            handleSectionSelect(question.id);
-                          }}
-                          className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
-                        >
-                          <h3 className="text-sm font-bold text-timeback-primary font-cal leading-tight">
-                            {question.text}
-                          </h3>
-                        </button>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  <div className="text-center mt-12">
-                    <p className="text-timeback-primary text-sm font-cal opacity-70">
-                      No follow-up questions available for this section
-                </p>
-              </div>
-            )}
+                            
+                            return (
+                              <button
+                                key={question.id}
+                                onClick={() => {
+                                  console.log(`🖱️ [PersonalizedPage-${instanceId}] ${new Date().toISOString()} FOLLOW-UP QUESTION CLICKED`, {
+                                    sourceComponent: componentIdString,
+                                    targetComponent: question.id,
+                                    questionText: question.text,
+                                    clickContext: 'follow-up-question'
+                                  });
+                                  handleSectionSelect(question.id);
+                                }}
+                                className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
+                              >
+                                <h3 className="text-sm font-bold text-timeback-primary font-cal leading-tight">
+                                  {question.text}
+                                </h3>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      )}
+                      
+                      {/* Have a Specific Question form - Now appears BELOW the questions */}
+                      <div className="backdrop-blur-md bg-white/10 rounded-2xl p-8 border-2 border-timeback-primary shadow-2xl">
+                        <h2 className="text-3xl font-bold text-timeback-primary font-cal mb-4">Have a Specific Question?</h2>
+                        <p className="text-lg text-timeback-primary font-cal mb-6">Ask anything about TimeBack and get a personalized answer based on your child&apos;s needs.</p>
+                        <form className="space-y-4">
+                          <input 
+                            placeholder="Ask me anything about TimeBack..." 
+                            className="w-full px-6 py-4 bg-timeback-bg/50 border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/50 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal text-lg shadow-xl backdrop-blur-sm" 
+                            type="text" 
+                            value=""
+                          />
+                          <button 
+                            type="submit" 
+                            disabled 
+                            className="w-full bg-timeback-primary text-white px-6 py-4 rounded-xl font-bold hover:bg-timeback-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-xl hover:shadow-2xl font-cal text-lg"
+                          >
+                            Get My Personalized Answer
+                          </button>
+                        </form>
+                      </div>
+                      
+                      {/* Show message when no follow-up questions are available */}
+                      {followUpQuestions.length === 0 && (
+                        <div className="text-center mt-8">
+                          <p className="text-timeback-primary text-sm font-cal opacity-70">
+                            No follow-up questions available for this section
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
               </div>
           </section>
           );
