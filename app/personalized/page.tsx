@@ -38,6 +38,9 @@ export default function PersonalizedPage() {
   // State for UI - simplified
   const [viewedComponents, setViewedComponents] = useState<string[]>([]);
   
+  // State for generated content from database
+  const [generatedContent, setGeneratedContent] = useState<any>(null);
+  
   // Track component lifecycle
   useEffect(() => {
     const timestamp = new Date().toISOString();
@@ -253,6 +256,21 @@ export default function PersonalizedPage() {
               }
             } else {
               console.log(`📭 [PersonalizedPage-${instanceId}] No quiz data found in database response`);
+            }
+            
+            // Handle generated content from database
+            if (result.success && result.data?.generatedContent) {
+              console.log(`🤖 [PersonalizedPage-${instanceId}] Generated content found in database:`, {
+                hasContent: !!result.data.generatedContent,
+                generatedAt: result.data.generatedContent.generatedAt,
+                hasSubjectExamples: !!result.data.generatedContent.subjectExamples,
+                hasAfternoonActivities: !!result.data.generatedContent.afternoonActivities,
+                allCompleted: result.data.generatedContent.allCompleted
+              });
+              setGeneratedContent(result.data.generatedContent);
+            } else {
+              console.log(`📭 [PersonalizedPage-${instanceId}] No generated content found in database`);
+              setGeneratedContent(null);
             }
           } else {
             console.error(`❌ [PersonalizedPage-${instanceId}] Database request failed:`, {
@@ -571,6 +589,8 @@ export default function PersonalizedPage() {
         return <PersonalizedSubjectExamples 
           interests={userData.kidsInterests} 
           onLearnMore={() => {}}
+          preGeneratedContent={generatedContent}
+          contentReady={!!generatedContent}
         />;
 
       case 'find-school':
