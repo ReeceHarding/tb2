@@ -273,9 +273,28 @@ Example outputs for different interests:
   // Track if questions have been initialized to prevent infinite re-renders
   const questionsInitialized = useRef(false);
 
+  // Reset initialization when interests change
+  const prevInterests = useRef<string[]>([]);
   useEffect(() => {
-    // Only generate questions once on mount, not on every state change
-    if (questionsInitialized.current || Object.keys(questions).length > 0) {
+    const interestsChanged = JSON.stringify(prevInterests.current) !== JSON.stringify(interests);
+    if (interestsChanged) {
+      console.log('[PersonalizedSubjectExamples] Interests changed, resetting initialization:', {
+        previous: prevInterests.current,
+        current: interests
+      });
+      questionsInitialized.current = false;
+      setQuestions({}); // Clear existing questions
+      setLoadingStates({}); // Clear loading states
+      prevInterests.current = [...interests];
+    }
+  }, [interests]);
+
+  useEffect(() => {
+    console.log('[PersonalizedSubjectExamples] useEffect triggered with interests:', interests);
+    
+    // Only generate questions once per interests change
+    if (questionsInitialized.current) {
+      console.log('[PersonalizedSubjectExamples] Questions already initialized, skipping generation');
       return;
     }
 
@@ -295,9 +314,10 @@ Example outputs for different interests:
         })
         .catch(error => {
           console.error('[PersonalizedSubjectExamples] Error in parallel question generation:', error);
+          questionsInitialized.current = false; // Reset on error so user can retry
         });
     }
-  }, [interests, generateQuestion, loadingStates, questions]);
+  }, [interests]); // Only depend on interests, not the other values that change inside this effect
 
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
