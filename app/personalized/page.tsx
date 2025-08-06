@@ -76,7 +76,7 @@ export default function PersonalizedPage() {
         sessionEmail: session?.user?.email || 'none'
       });
     }
-  });
+  }, [renderCount]);
 
   // Check if user is authenticated
   useEffect(() => {

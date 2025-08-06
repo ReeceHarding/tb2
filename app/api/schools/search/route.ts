@@ -23,6 +23,14 @@ export async function GET(request: NextRequest) {
     // Common single-letter prefixes that should allow search
     const allowedSingleCharPrefixes = ['w', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'l', 'm', 'n', 'p', 'r', 's', 't'];
     
+    // Check for location-based search parameters
+    const nearLatitude = searchParams.get('nearLatitude');
+    const nearLongitude = searchParams.get('nearLongitude');
+    const distanceMiles = searchParams.get('distanceMiles');
+    
+    // For location-based searches, allow wildcard queries
+    const isLocationBasedSearch = nearLatitude && nearLongitude;
+    
     if (!query) {
       return NextResponse.json(
         { error: 'Query parameter "q" is required' },
@@ -32,23 +40,34 @@ export async function GET(request: NextRequest) {
     
     const trimmedQuery = query.trim().toLowerCase();
     
-    // Allow single character searches for common prefixes
-    if (trimmedQuery.length === 1 && !allowedSingleCharPrefixes.includes(trimmedQuery)) {
-      return NextResponse.json(
-        { error: 'Single character searches are only allowed for common city prefixes' },
-        { status: 400 }
-      );
-    }
-    
-    if (trimmedQuery.length === 0) {
-      return NextResponse.json(
-        { error: 'Query cannot be empty' },
-        { status: 400 }
-      );
+    // Allow wildcard (*) for location-based searches
+    let effectiveQuery: string;
+    if (isLocationBasedSearch && (query === '*' || trimmedQuery === '*')) {
+      console.log('[API] Location-based wildcard search detected, proceeding with geographic search');
+      // For location searches, we'll use a generic term that works with the search algorithm
+      effectiveQuery = 'school';
+    } else {
+      effectiveQuery = trimmedQuery;
+      
+      // Allow single character searches for common prefixes
+      if (trimmedQuery.length === 1 && !allowedSingleCharPrefixes.includes(trimmedQuery)) {
+        return NextResponse.json(
+          { error: 'Single character searches are only allowed for common city prefixes' },
+          { status: 400 }
+        );
+      }
+      
+      if (trimmedQuery.length === 0) {
+        return NextResponse.json(
+          { error: 'Query cannot be empty' },
+          { status: 400 }
+        );
+      }
     }
 
     console.log('[API] Enhanced school search request:', { 
       query, 
+      effectiveQuery,
       state, 
       city, 
       level, 
@@ -57,7 +76,11 @@ export async function GET(request: NextRequest) {
       enableFuzzySearch,
       enableGeographicSearch,
       includeTestScores,
-      sortBy
+      sortBy,
+      isLocationBasedSearch,
+      nearLatitude,
+      nearLongitude,
+      distanceMiles
     });
 
     if (optimized) {
@@ -65,7 +88,7 @@ export async function GET(request: NextRequest) {
       console.log('[API] Using advanced optimized search algorithm');
       
       // Build search query with additional context
-      let enhancedQuery = query.trim();
+      let enhancedQuery = effectiveQuery;
       if (city && !enhancedQuery.toLowerCase().includes(city.toLowerCase())) {
         enhancedQuery += ` ${city}`;
       }
@@ -95,7 +118,7 @@ export async function GET(request: NextRequest) {
       }
 
       // Filter by city if specified and not already in query
-      if (city && !query.toLowerCase().includes(city.toLowerCase())) {
+      if (city && !effectiveQuery.toLowerCase().includes(city.toLowerCase())) {
         filteredSchools = filteredSchools.filter(school => 
           school.city.toLowerCase().includes(city.toLowerCase())
         );
@@ -118,7 +141,7 @@ export async function GET(request: NextRequest) {
       });
       
       // Enhanced logging for debugging city searches
-      if (query.length <= 3) {
+      if (effectiveQuery.length <= 3) {
         console.log('[API] Short query search - Top 5 results with scores:');
         finalResults.slice(0, 5).forEach((school, index) => {
           console.log(`[API] ${index + 1}. ${school.name} (${school.city}, ${school.state})`, {
@@ -134,6 +157,7 @@ export async function GET(request: NextRequest) {
         searchType: 'advanced-optimized',
         searchMetrics: {
           originalQuery: query,
+          effectiveQuery,
           enhancedQuery,
           totalFound: schools.length,
           afterFiltering: filteredSchools.length,
@@ -156,7 +180,7 @@ export async function GET(request: NextRequest) {
     } else {
       // Use legacy search for backward compatibility
       console.log('[API] Using legacy search for backward compatibility');
-      const schools = await searchSchools(query, state || undefined, limit);
+      const schools = await searchSchools(effectiveQuery, state || undefined, limit);
       console.log('[API] Returning', schools.length, 'legacy school results');
       return NextResponse.json({ 
         schoolMatches: schools,
