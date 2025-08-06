@@ -311,7 +311,7 @@ export default function QuizFlow() {
       case 5:
         console.log(`[QuizFlow] ${compTimestamp} Rendering InterestsStep with callbacks`);
         return <InterestsStep onNext={stepNextCallback} onPrev={stepPrevCallback} />;
-      case 6:
+      case 6: {
         console.log(`🚨 [CRITICAL-QUIZ-FLOW] ${compTimestamp} *** AUTHSTEP REACHED - STEP 6 (LOADING REMOVED) ***`);
         console.log(`[QuizFlow] ${compTimestamp} Rendering AuthStep with callbacks`);
         
@@ -343,6 +343,7 @@ export default function QuizFlow() {
           onPrev={stepPrevCallback} 
           generatedContent={generatedContent}
         />;
+      }
       default:
         console.error(`[QuizFlow] ${compTimestamp} UNKNOWN STEP ERROR:`, stepNumber);
         return (
