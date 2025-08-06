@@ -862,6 +862,27 @@ export default function PersonalizedPage() {
                   return renderedComponent;
                 })()}
                 
+                {/* Have a Specific Question form */}
+                <div className="backdrop-blur-md bg-white/10 rounded-2xl p-8 border-2 border-timeback-primary mb-8 shadow-2xl">
+                  <h2 className="text-3xl font-bold text-timeback-primary font-cal mb-4">Have a Specific Question?</h2>
+                  <p className="text-lg text-timeback-primary font-cal mb-6">Ask anything about TimeBack and get a personalized answer based on your child's needs.</p>
+                  <form className="space-y-4">
+                    <input 
+                      placeholder="Ask me anything about TimeBack..." 
+                      className="w-full px-6 py-4 bg-timeback-bg/50 border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/50 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal text-lg shadow-lg backdrop-blur-sm" 
+                      type="text" 
+                      value=""
+                    />
+                    <button 
+                      type="submit" 
+                      disabled 
+                      className="w-full bg-timeback-primary text-white px-6 py-4 rounded-xl font-bold hover:bg-timeback-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl font-cal text-lg"
+                    >
+                      Get My Personalized Answer
+                    </button>
+                  </form>
+                </div>
+
                 {/* Follow-up questions after each component */}
                 {followUpQuestions.length > 0 ? (
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mt-12">
