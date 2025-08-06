@@ -869,14 +869,14 @@ export default function PersonalizedPage() {
                   <form className="space-y-4">
                     <input 
                       placeholder="Ask me anything about TimeBack..." 
-                      className="w-full px-6 py-4 bg-timeback-bg/50 border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/50 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal text-lg shadow-lg backdrop-blur-sm" 
+                      className="w-full px-6 py-4 bg-timeback-bg/50 border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/50 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal text-lg shadow-xl backdrop-blur-sm" 
                       type="text" 
                       value=""
                     />
                     <button 
                       type="submit" 
                       disabled 
-                      className="w-full bg-timeback-primary text-white px-6 py-4 rounded-xl font-bold hover:bg-timeback-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl font-cal text-lg"
+                      className="w-full bg-timeback-primary text-white px-6 py-4 rounded-xl font-bold hover:bg-timeback-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-xl hover:shadow-2xl font-cal text-lg"
                     >
                       Get My Personalized Answer
                     </button>
