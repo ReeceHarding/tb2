@@ -393,7 +393,7 @@ Example outputs for different interests:
   const isLoading = loadingStates[activeTab];
 
   return (
-    <section className="w-full bg-gradient-to-br from-white to-timeback-bg py-20 lg:py-32 px-6 lg:px-12">
+    <section className="w-full py-20 lg:py-32 px-6 lg:px-12">
       <div className="text-center mb-16 font-cal">
         <div className="inline-flex items-center gap-2 backdrop-blur-md bg-timeback-bg/80 border border-timeback-primary rounded-full px-6 py-3 mb-8">
           <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>

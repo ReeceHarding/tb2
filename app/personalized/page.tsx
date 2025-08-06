@@ -851,16 +851,7 @@ export default function PersonalizedPage() {
               </div>
                 
                 {/* Component content */}
-                {(() => {
-                  console.log(`🎨 [PersonalizedPage-${instanceId}] ${new Date().toISOString()} CALLING renderComponent for "${componentIdString}"`);
-                  const renderedComponent = renderComponent(componentIdString);
-                  console.log(`📋 [PersonalizedPage-${instanceId}] Component rendered successfully:`, {
-                    componentId: componentIdString,
-                    hasContent: !!renderedComponent,
-                    timestamp: new Date().toISOString()
-                  });
-                  return renderedComponent;
-                })()}
+                {renderComponent(componentIdString)}
                 
                 {/* Combined Question Suggestions and Form Component - Hides after new content is generated */}
                 {(() => {
