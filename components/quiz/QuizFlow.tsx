@@ -4,6 +4,7 @@ import React, { useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useQuiz, quizHelpers } from './QuizContext';
 import QuizProgress from './QuizProgress';
+import { getCachedContent } from '@/libs/optimisticContentGeneration';
 import dynamic from 'next/dynamic';
 
 // Lazy load quiz step components for better performance
@@ -313,7 +314,35 @@ export default function QuizFlow() {
       case 6:
         console.log(`🚨 [CRITICAL-QUIZ-FLOW] ${compTimestamp} *** AUTHSTEP REACHED - STEP 6 (LOADING REMOVED) ***`);
         console.log(`[QuizFlow] ${compTimestamp} Rendering AuthStep with callbacks`);
-        return <AuthStep onNext={stepNextCallback} onPrev={stepPrevCallback} />;
+        
+        // Get cached generated content from optimistic generation
+        const cachedContent = getCachedContent();
+        const generatedContent = cachedContent ? {
+          afternoonActivities: cachedContent.afternoonActivities,
+          subjectExamples: cachedContent.subjectExamples,
+          howWeGetResults: cachedContent.howWeGetResults,
+          learningScience: cachedContent.learningScience,
+          dataShock: cachedContent.dataShock,
+          allCompleted: Object.values(cachedContent.generationStatus || {}).every(status => status === 'completed'),
+          hasErrors: Object.values(cachedContent.generationStatus || {}).some(status => status === 'error'),
+          generatedAt: cachedContent.startTime ? new Date(cachedContent.startTime).toISOString() : new Date().toISOString()
+        } : null;
+        
+        console.log(`[QuizFlow] ${compTimestamp} Generated content for AuthStep:`, {
+          hasGeneratedContent: !!generatedContent,
+          allCompleted: generatedContent?.allCompleted,
+          hasErrors: generatedContent?.hasErrors,
+          sectionsAvailable: generatedContent ? Object.keys(generatedContent).filter(key => 
+            !['allCompleted', 'hasErrors', 'generatedAt'].includes(key) && 
+            (generatedContent as any)[key]
+          ).length : 0
+        });
+        
+        return <AuthStep 
+          onNext={stepNextCallback} 
+          onPrev={stepPrevCallback} 
+          generatedContent={generatedContent}
+        />;
       default:
         console.error(`[QuizFlow] ${compTimestamp} UNKNOWN STEP ERROR:`, stepNumber);
         return (
