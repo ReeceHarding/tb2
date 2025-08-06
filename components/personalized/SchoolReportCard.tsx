@@ -42,8 +42,15 @@ export default function SchoolReportCard({ schoolData, onLearnMore }: SchoolRepo
     
     const fetchSchoolData = async () => {
       if (!schoolData) {
-        console.error('[SchoolReportCard] CRITICAL ERROR: No school data provided - this should never happen');
-        setError('CRITICAL ERROR: No school data provided to SchoolReportCard component');
+        console.error('[SchoolReportCard] No school data provided');
+        setError('No school selected. Please select your school to see personalized data.');
+        setIsLoading(false);
+        return;
+      }
+
+      if (!schoolData.id || schoolData.id === 'PLACEHOLDER_ID') {
+        console.error('[SchoolReportCard] Invalid school ID:', schoolData.id);
+        setError('Please select a valid school from the list to see performance data.');
         setIsLoading(false);
         return;
       }
@@ -56,7 +63,10 @@ export default function SchoolReportCard({ schoolData, onLearnMore }: SchoolRepo
         const response = await fetch(`/api/schools/${schoolData.id}`);
         
         if (!response.ok) {
-          throw new Error('Failed to fetch school data');
+          if (response.status === 404) {
+            throw new Error('School data not found. Please select a different school.');
+          }
+          throw new Error('Unable to load school data. Please try again later.');
         }
 
         const data = await response.json();
@@ -136,9 +146,8 @@ export default function SchoolReportCard({ schoolData, onLearnMore }: SchoolRepo
         });
         
       } catch (err) {
-        console.error('[SchoolReportCard] CRITICAL API FAILURE:', err);
-        setError(`API FAILURE: ${err instanceof Error ? err.message : 'Unknown error fetching school data'}`);
-        // NO FALLBACK DATA - Let it fail visibly so issues are obvious
+        console.error('[SchoolReportCard] Error fetching school data:', err);
+        setError(err instanceof Error ? err.message : 'Unable to load school data');
       } finally {
         setIsLoading(false);
       }
@@ -166,11 +175,23 @@ export default function SchoolReportCard({ schoolData, onLearnMore }: SchoolRepo
     return (
       <div className="w-full max-w-lg mx-auto backdrop-blur-md bg-white/10 rounded-2xl shadow-2xl border-2 border-timeback-primary overflow-hidden">
         <div className="bg-timeback-primary text-white p-6 text-center font-cal">
-          <h3 className="text-xl font-bold font-cal">School Data Unavailable</h3>
+          <h3 className="text-xl font-bold font-cal">School Data Not Available</h3>
         </div>
         <div className="p-6 text-center font-cal">
-          <p className="text-timeback-primary font-cal">{error || 'Unable to load school performance data'}</p>
-          <p className="text-timeback-primary text-sm mt-2 font-cal">We can still show you TimeBack results!</p>
+          <p className="text-timeback-primary font-cal mb-4">{error || 'Unable to load school performance data'}</p>
+          {error?.includes('select') && onLearnMore && (
+            <button 
+              onClick={() => onLearnMore('find-school')}
+              className="px-6 py-3 bg-timeback-primary text-white rounded-xl font-bold hover:bg-opacity-90 transition-all font-cal"
+            >
+              Find Your School
+            </button>
+          )}
+          {!error?.includes('select') && (
+            <p className="text-timeback-primary text-sm mt-2 font-cal">
+              Don&apos;t worry! We can still show you how TimeBack transforms education.
+            </p>
+          )}
         </div>
       </div>
     );
