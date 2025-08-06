@@ -865,7 +865,7 @@ export default function PersonalizedPage() {
                 {/* Have a Specific Question form */}
                 <div className="backdrop-blur-md bg-white/10 rounded-2xl p-8 border-2 border-timeback-primary mb-8 shadow-2xl">
                   <h2 className="text-3xl font-bold text-timeback-primary font-cal mb-4">Have a Specific Question?</h2>
-                  <p className="text-lg text-timeback-primary font-cal mb-6">Ask anything about TimeBack and get a personalized answer based on your child's needs.</p>
+                  <p className="text-lg text-timeback-primary font-cal mb-6">Ask anything about TimeBack and get a personalized answer based on your child&apos;s needs.</p>
                   <form className="space-y-4">
                     <input 
                       placeholder="Ask me anything about TimeBack..." 
@@ -928,62 +928,7 @@ export default function PersonalizedPage() {
           );
         })}
 
-        {/* CustomQuestionSection at bottom */}
-        <section id="questions-section" className="max-w-7xl mx-auto px-6 lg:px-12 pb-20">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-timeback-primary rounded-full px-6 py-3">
-              <div className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></div>
-              <span className="text-timeback-primary font-bold text-sm font-cal">ASK ANYTHING</span>
-            </div>
-          </div>
-          {(() => {
-            const timestamp = new Date().toISOString();
-            const instanceId = componentId.current;
-            
-            console.log(`💬 [PersonalizedPage-${instanceId}] ${timestamp} RENDERING CUSTOM QUESTION SECTION`);
-            console.log(`📊 [PersonalizedPage-${instanceId}] CustomQuestionSection props:`, {
-              hasQuizData: !!userData,
-              userDataKeys: Object.keys(userData),
-              hasInterests: !!(userData.kidsInterests?.length > 0),
-              interestsCount: userData.kidsInterests?.length || 0,
-              hasSchools: !!(userData.selectedSchools?.length > 0),
-              schoolsCount: userData.selectedSchools?.length || 0,
-              gradeLevel: userData.selectedSchools?.[0]?.level || 'high school'
-            });
-            
-            try {
-              return (
-          <CustomQuestionSection 
-            quizData={userData as QuizData}
-            interests={userData.kidsInterests}
-            gradeLevel={userData.selectedSchools?.[0]?.level || 'high school'}
-          />
-              );
-            } catch (error) {
-              console.error(`❌ [PersonalizedPage-${instanceId}] CUSTOM QUESTION SECTION RENDER ERROR:`, error);
-              console.error(`🔍 [PersonalizedPage-${instanceId}] Error details:`, {
-                message: error.message,
-                stack: error.stack,
-                userData: {
-                  hasSchools: !!(userData.selectedSchools?.length > 0),
-                  hasInterests: !!(userData.kidsInterests?.length > 0),
-                  userType: userData.userType
-                }
-              });
-              
-              return (
-                <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-8 shadow-xl text-center">
-                  <h3 className="text-xl font-bold text-timeback-primary mb-4 font-cal">
-                    Question Section Error
-                  </h3>
-                  <p className="text-timeback-primary font-cal">
-                    Unable to load the question section. Please refresh the page.
-                  </p>
-                </div>
-              );
-            }
-          })()}
-        </section>
+
       </main>
       <Footer />
     </>
