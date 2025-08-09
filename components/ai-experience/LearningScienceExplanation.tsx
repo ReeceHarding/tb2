@@ -76,7 +76,7 @@ export default function LearningScienceExplanation() {
           <li className="flex items-start gap-2">
             <div className="w-1.5 h-1.5 bg-timeback-primary rounded-full mt-1.5 flex-shrink-0" />
             <span className="text-sm text-timeback-primary font-cal">
-              Real-time adjustments based on comprehension and retention
+              Real time adjustments based on comprehension and retention
             </span>
           </li>
           <li className="flex items-start gap-2">

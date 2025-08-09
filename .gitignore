@@ -60,12 +60,12 @@ node_modules/
 *.sw?
 # OS specific
 
-# Task files
-# tasks.json
-# tasks/
-
 # Large media files
 public/videos/
 *.mp4
 *.mov
 *.avi 
+
+# Task files
+# tasks.json
+# tasks/ 

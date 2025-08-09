@@ -33,11 +33,11 @@ const PRESET_DATA = {
     }
   ],
   questions: [
-    "What specific challenges is your child facing in school?",
-    "How many hours does your child spend on school and homework daily?",
-    "What would you like your child to have more time for?",
-    "What's your biggest concern about your child's education?",
-    "How does your child feel about school currently?"
+    "Child's school challenges?",
+    "Daily school hours?",
+    "More time for?",
+    "Biggest education concern?",
+    "Child's school feelings?"
   ],
   componentTypes: ["Hero", "Problem", "Testimonials3", "FAQ", "CTA", "FeaturesListicle", "WithWithout"]
 };
@@ -166,7 +166,7 @@ export default function TestPage() {
       
       // Build context
       const context = {
-        whitepaper: whitepaper.substring(0, 5000), // Truncate for demo
+        whitepaper: whitepaper, // Full whitepaper content
         testimonials: JSON.stringify([
           { name: "Sarah Chen", role: "Parent of 3rd grader", text: "My daughter went from 45th to 92nd percentile in 6 months!" },
           { name: "Michael Rodriguez", role: "Parent of 7th grader", text: "2 years behind in reading, caught up in 6 months with AI tutor." },

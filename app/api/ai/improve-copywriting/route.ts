@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { safeBedrockAPI, rateLimiter } from '@/libs/bedrock-helpers';
+// Removed Bedrock imports - using Cerebras directly
 
 export const dynamic = 'force-dynamic';
 
@@ -77,68 +77,142 @@ CRITICAL INSTRUCTIONS:
 Return only the corrected text, nothing else.`;
 
     } else if (type === 'credibility_disclaimer') {
-      prompt = `You are a professional copywriter. Add a brief, reassuring credibility statement that addresses parent skepticism about "AI education being too good to be true."
+      prompt = `<system_role>
+You are a professional educational copywriter specializing in building parent trust through authentic communication.
+</system_role>
 
-Original text: "${rawText}"
-Context: Parents are skeptical this sounds unrealistic
+<task>
+Add a brief credibility statement to address parent skepticism about "AI education being too good to be true."
+</task>
 
-Add a natural disclaimer that:
-1. Acknowledges these are impressive claims
-2. Mentions this system currently works with partner schools
-3. Notes the homeschool version is still in development
-4. Builds trust without undermining the value proposition
+<original_text>
+${rawText}
+</original_text>
 
-CRITICAL INSTRUCTIONS:
-- NEVER use hyphens in your response
-- Keep it brief and natural (1-2 sentences)
-- Don't oversell or make it sound defensive
-- Make it feel authentic and honest
+<context>
+Parents are skeptical these claims sound unrealistic
+</context>
 
-Return the original text plus the credibility addition, seamlessly integrated.`;
+<strict_requirements>
+- Add exactly 1-2 sentences maximum
+- Acknowledge impressive nature of claims
+- Mention current implementation with partner schools
+- Note homeschool version is in development
+- Build trust without undermining value
+- Integrate seamlessly into existing text
+</strict_requirements>
+
+<content_guidelines>
+- Tone: Honest, transparent, reassuring
+- Voice: Professional educator to concerned parent
+- Style: Natural, conversational, not defensive
+- Focus: Building credibility through transparency
+</content_guidelines>
+
+<forbidden_actions>
+- Do NOT use hyphens anywhere
+- Do NOT oversell or exaggerate
+- Do NOT sound defensive or dismissive
+- Do NOT add more than 2 sentences
+- Do NOT change factual claims
+- Do NOT use marketing jargon
+</forbidden_actions>
+
+<output_format>
+Return ONLY the original text with the credibility statement naturally integrated. No explanations or additional text.
+</output_format>`;
 
     } else {
       // Default general improvement
-      prompt = `You are a professional copywriter. Improve this educational marketing copy to be more engaging, credible, and parent-friendly.
+      prompt = `<system_role>
+You are a professional educational copywriter who transforms marketing text into authentic parent conversations.
+</system_role>
 
-Original text: "${rawText}"
-Context: ${context || 'Educational marketing copy for parents'}
+<task>
+Improve educational marketing copy to be more engaging, credible, and parent-friendly.
+</task>
 
-Improve by:
-1. Making it more conversational and warm
-2. Addressing potential parent concerns
-3. Using natural, professional language
-4. Maintaining accuracy while improving flow
-5. Making parents feel confident about the offering
+<original_text>
+${rawText}
+</original_text>
 
-CRITICAL INSTRUCTIONS:
-- NEVER use hyphens in your response
-- Keep all factual claims intact
-- Make it sound like a knowledgeable educator speaking to a parent
-- Focus on building trust and credibility
+<context>
+${context || 'Educational marketing copy for parents'}
+</context>
 
-Return only the improved copy, nothing else.`;
+<improvement_goals>
+1. Conversational warmth: Like educator to parent
+2. Address concerns: Anticipate and resolve doubts
+3. Natural language: Remove marketing speak
+4. Maintain accuracy: Keep all facts intact
+5. Build confidence: Help parents trust the solution
+</improvement_goals>
+
+<writing_principles>
+- Voice: Knowledgeable educator, not salesperson
+- Tone: Warm, professional, understanding
+- Style: Clear, direct, jargon-free
+- Focus: Parent needs and child outcomes
+- Length: Similar to original (±10%)
+</writing_principles>
+
+<forbidden_actions>
+- Do NOT use hyphens anywhere
+- Do NOT change factual claims
+- Do NOT add superlatives or exaggeration
+- Do NOT use corporate buzzwords
+- Do NOT sound pushy or sales-focused
+- Do NOT add unnecessary complexity
+</forbidden_actions>
+
+<quality_standards>
+- Every sentence must add value
+- Address parent pain points naturally
+- Use specific examples over generalizations
+- Include emotional reassurance subtly
+- End with clear next steps or benefits
+</quality_standards>
+
+<output_format>
+Return ONLY the improved copy. No explanations, annotations, or additional text.
+</output_format>`;
     }
 
-    console.log('[Improve Copywriting API] Sending prompt to Claude...');
+    console.log('[Improve Copywriting API] Sending prompt to Cerebras...');
 
-    const result = await rateLimiter.execute(async () => {
-      return await safeBedrockAPI.generateText({
+    // Use Cerebras API directly
+    const cerebrasUrl = 'https://api.cerebras.ai/v1/chat/completions';
+    const cerebrasKey = process.env.CEREBRAS_API_KEY || '';
+    
+    const response = await fetch(cerebrasUrl, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${cerebrasKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'llama-4-scout-17b-16e-instruct',
         messages: [
-          {
-            role: 'user',
-            content: prompt,
-          },
+          { role: 'user', content: prompt }
         ],
-        maxTokens: 500, // Keep responses focused and concise
-        temperature: 0.7, // Some creativity but maintain consistency
-      }, 'improve-copywriting');
+        max_completion_tokens: 500,
+        temperature: 0.2,
+        stream: false
+      })
     });
 
-    console.log('[Improve Copywriting API] Generated improved copy:', result.text);
+    if (!response.ok) {
+      throw new Error(`Cerebras API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const improvedText = data.choices?.[0]?.message?.content || '';
+
+    console.log('[Improve Copywriting API] Generated improved copy:', improvedText);
 
     return NextResponse.json({
       success: true,
-      improvedCopy: result.text.trim(),
+      improvedCopy: improvedText.trim(),
       originalText: rawText,
       improvementType: type,
       metadata: {

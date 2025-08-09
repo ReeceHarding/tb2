@@ -1767,5 +1767,151 @@
       "updated": "2025-08-03T23:42:33.203Z",
       "description": "Tasks for color-scheme-conversion context"
     }
+  },
+  "progressive-ai-content": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Create Supabase Integration Service",
+        "description": "Build a comprehensive Supabase service layer for user data storage and retrieval",
+        "details": "Create libs/supabase-service.ts with methods for:\n- User profile CRUD operations\n- Section data storage\n- Generated content persistence\n- Journey snapshots\n- Email-based data retrieval\nEnsure all operations handle authentication and errors gracefully",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Create Unified Data Service",
+        "description": "Build a unified data access layer that checks both local storage and Supabase",
+        "details": "Create libs/unified-data-service.ts that:\n- Checks local storage first for quick access\n- Falls back to Supabase if not found locally\n- Synchronizes data between both storage systems\n- Handles offline scenarios gracefully\n- Provides consistent API for all data operations",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [
+          1
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "Create Section Schema Registry",
+        "description": "Define comprehensive schemas for all content section types",
+        "details": "Create libs/section-schemas.ts with schemas for:\n- School Performance (charts, metrics, comparisons)\n- Learning Schedule (daily/weekly views, time allocations)\n- Closest Schools (location-based listings)\n- AI Chat Experience (conversation flows)\n- Custom Questions (dynamic Q&A)\n- Each schema should define required data fields and output structure",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "Build XML Prompt Builder with Schema Injection",
+        "description": "Create a system to inject section schemas into XML prompts for AI generation",
+        "details": "Create libs/xml-prompt-builder.ts that:\n- Takes section schema and user data\n- Injects schema into XML template \n- Generates context-aware prompts for Cerebras\n- Handles all section types from schema registry\n- Validates data completeness before prompt generation",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [
+          3
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Implement AI Content Renderer Component",
+        "description": "Build a component to render AI-generated content based on section schemas",
+        "details": "Create components/AIContentRenderer.tsx that:\n- Accepts AI response and section schema\n- Renders different component types (text, chart, list, mixed)\n- Handles dynamic content structure\n- Provides fallback UI for loading/errors\n- Integrates with existing TimeBack design system",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [
+          4
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "Create Progressive Section Manager",
+        "description": "Build the main orchestrator for progressive content generation",
+        "details": "Create components/ProgressiveSectionManager.tsx that:\n- Manages section generation flow\n- Checks for required data using unified data service\n- Shows data collection forms when needed\n- Calls AI to generate content when data is available\n- Accumulates sections on the page\n- Saves generated content to both storages",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [
+          2,
+          4,
+          5
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "Update Chat Tutor API for Schema Integration",
+        "description": "Modify the existing chat-tutor API to use the new schema-based prompt system",
+        "details": "Update app/api/ai/chat-tutor/route.ts to:\n- Accept section schema in request\n- Use XML prompt builder for structured prompts\n- Return responses that match schema structure\n- Handle progressive data collection responses\n- Integrate with unified data service for context",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [
+          4
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "Refactor Personalized Page for Progressive System",
+        "description": "Update the main personalized page to use the new progressive content system",
+        "details": "Refactor app/personalized/page.tsx to:\n- Remove quiz dependencies\n- Use Progressive Section Manager\n- Remove hardcoded component rendering\n- Integrate with unified data service\n- Add journey accumulation logic\n- Fix current build errors",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [
+          6
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Install Supabase Dependencies",
+        "description": "Install required Supabase packages for the project",
+        "details": "Install @supabase/supabase-js and any other required dependencies for Supabase integration",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 10,
+        "title": "Create Journey Sharing Feature",
+        "description": "Implement functionality to share learning journeys via public URLs",
+        "details": "Create:\n- API endpoint to generate shareable journey URLs\n- Public journey viewing page\n- Copy link functionality\n- Social sharing options",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [
+          6
+        ],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 11,
+        "title": "Fix TypeScript Errors and Build Issues",
+        "description": "Resolve all TypeScript compilation errors and ensure the project builds successfully",
+        "details": "Fix:\n- Import errors for unified data service in components\n- Missing type exports \n- Ensure all new components compile correctly\n- Test build process",
+        "testStrategy": "",
+        "status": "done",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-08-06T21:02:33.636Z",
+      "updated": "2025-08-06T21:32:25.282Z",
+      "description": "Progressive data collection and AI-powered content generation system"
+    }
   }
 }

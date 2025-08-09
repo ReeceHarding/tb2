@@ -110,7 +110,7 @@ export const OTHER_SCHOOL_LOCATIONS: SchoolLocation[] = [
   { id: 'novatio-school', name: 'Novatio School', city: 'Unknown', type: 'other-school', isMainBrand: false },
   { id: 'sat-level-up', name: 'SAT Level Up', city: 'Unknown', type: 'other-school', isMainBrand: false },
   { id: 'texas-sports-academy', name: 'Texas Sports Academy', city: 'Texas', state: 'TX', type: 'other-school', isMainBrand: false },
-  { id: 'waypoint-academy', name: 'Waypoint Academy', city: 'Unknown', type: 'other-school', isMainBrand: false },
+
   { id: 'unbound', name: 'Unbound', city: 'Unknown', type: 'other-school', isMainBrand: false },
   { id: 'montessorium', name: 'Montessorium', city: 'Unknown', type: 'other-school', isMainBrand: false },
   { id: 'limitless-education', name: 'Limitless Education', city: 'Unknown', type: 'other-school', isMainBrand: false },

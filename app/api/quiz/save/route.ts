@@ -1,14 +1,39 @@
 import { NextResponse, NextRequest } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/libs/next-auth";
-import connectMongo from "@/libs/mongoose";
-import User from "@/models/User";
-import { QuizSaveRequest, QuizSaveResponse, QuizRetrieveResponse } from "@/types/quiz";
+import { revalidatePath } from "next/cache";
 
 export const dynamic = 'force-dynamic';
 
-// API endpoint to save quiz data and generated content to authenticated user's account
+// This endpoint now redirects to the Supabase version
 export async function POST(req: NextRequest) {
+  // Get the request body to forward
+  const body = await req.json();
+  
+  // Forward to the new Supabase endpoint
+  const response = await fetch(new URL('/api/quiz/save-supabase', req.url).toString(), {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      // Forward cookies for auth
+      'Cookie': req.headers.get('Cookie') || ''
+    },
+    body: JSON.stringify(body)
+  });
+  
+  const data = await response.json();
+  return NextResponse.json(data, { status: response.status });
+}
+
+// Note: MongoDB imports removed. Legacy implementation below is deprecated.
+// To re-enable MongoDB, uncomment the imports:
+// import { getServerSession } from "next-auth";
+// import { authOptions } from "@/libs/next-auth";
+// import connectMongo from "@/libs/mongoose";
+// import User from "@/models/User";
+// import { QuizSaveRequest, QuizSaveResponse, QuizRetrieveResponse } from "@/types/quiz";
+
+// Legacy MongoDB implementation (deprecated)
+/*
+async function legacyPOST(req: NextRequest) {
   const timestamp = new Date().toISOString();
   console.log(`[QuizSaveAPI] ${timestamp} Processing quiz data save request`);
 
@@ -207,9 +232,26 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+*/
 
-// GET endpoint to retrieve saved quiz data for authenticated user
-export async function GET() {
+// GET endpoint now redirects to the Supabase version
+export async function GET(req: NextRequest) {
+  // Forward to the new Supabase endpoint
+  const response = await fetch(new URL('/api/quiz/save-supabase', req.url).toString(), {
+    method: 'GET',
+    headers: {
+      // Forward cookies for auth
+      'Cookie': req.headers.get('Cookie') || ''
+    }
+  });
+  
+  const data = await response.json();
+  return NextResponse.json(data, { status: response.status });
+}
+
+// Legacy MongoDB implementation (deprecated)
+/*
+async function legacyGET() {
   const timestamp = new Date().toISOString();
   console.log(`[QuizSaveAPI] ${timestamp} Processing quiz data retrieval request`);
 
@@ -271,3 +313,4 @@ export async function GET() {
     );
   }
 }
+*/

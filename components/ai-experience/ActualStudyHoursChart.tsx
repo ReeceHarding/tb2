@@ -97,7 +97,7 @@ export default function ActualStudyHoursChart() {
       </div>
 
       {/* Key Stats */}
-      <div className="grid grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
         <div className="bg-white rounded-xl p-3 text-center border border-timeback-primary font-cal">
           <p className="text-xs text-timeback-primary font-cal">Highest</p>
           <p className="text-xl font-bold text-timeback-primary font-cal">2.9h</p>
@@ -157,7 +157,7 @@ export default function ActualStudyHoursChart() {
         <p className="text-xs text-timeback-primary font-cal">
           <strong>Key Finding:</strong> Despite spending less than 2 hours per day on average, 
           Alpha students consistently achieve 99th percentile results. No student needs more 
-          than 3 hours daily to master grade-level content.
+          than 3 hours daily to master grade level content.
         </p>
       </div>
     </div>

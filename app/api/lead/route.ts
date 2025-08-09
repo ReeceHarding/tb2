@@ -1,12 +1,13 @@
 import { NextResponse, NextRequest } from "next/server";
-import connectMongo from "@/libs/mongoose";
+// MongoDB disabled - this endpoint needs to be migrated to Supabase
+// import connectMongo from "@/libs/mongoose";
 // import Lead from "@/models/Lead";
 
 // This route is used to store the leads that are generated from the landing page.
 // The API call is initiated by <ButtonLead /> component
 // Duplicate emails just return 200 OK
 export async function POST(req: NextRequest) {
-  await connectMongo();
+  // await connectMongo();
 
   // Parse request body with error handling
   let body;

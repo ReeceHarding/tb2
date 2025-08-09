@@ -175,22 +175,6 @@ export default function SchoolFinder({ onSchoolSelect }: SchoolFinderProps) {
       fullAddress: '201 Colorado Street, Austin, TX 78701'
     },
     {
-      id: '2-hour-learning',
-      name: '2 Hour Learning',
-      type: 'special',
-      city: 'Austin',
-      state: 'TX',
-      images: 5,
-      totalAssets: 20,
-      description: "Revolutionary education model where students complete traditional coursework in just 2 hours per day.",
-      address: 'Virtual/Multiple Locations',
-      zipCode: '78701',
-      phone: '(512) 555-0200',
-      email: 'info@2hourlearning.com',
-      website: 'https://2hourlearning.com/',
-      fullAddress: 'Virtual/Multiple Locations, Austin, TX 78701'
-    },
-    {
       id: 'gt-school',
       name: 'GT School',
       type: 'other',
@@ -206,22 +190,7 @@ export default function SchoolFinder({ onSchoolSelect }: SchoolFinderProps) {
       website: 'https://gtschool.org/',
       fullAddress: 'Multiple Locations, Texas, TX 75000'
     },
-    {
-      id: 'waypoint-academy',
-      name: 'Waypoint Academy',
-      type: 'special',
-      city: 'Austin',
-      state: 'TX',
-      images: 4,
-      totalAssets: 8,
-      description: "Waypoint Academy provides innovative educational pathways for student success.",
-      address: 'To Be Determined',
-      zipCode: '78701',
-      phone: '(512) 555-0400',
-      email: 'info@waypointacademy.org',
-      website: 'https://waypointacademy.org/',
-      fullAddress: 'To Be Determined, Austin, TX 78701'
-    },
+
     {
       id: 'nextgen-academy-austin',
       name: 'NextGen Academy | Austin',

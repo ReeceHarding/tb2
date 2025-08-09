@@ -31,11 +31,21 @@ export default function SectionExplorer({
 }: SectionExplorerProps) {
 
   // Simple question answer states - must be at top level
-  const [question, setQuestion] = useState('');
+  // Question input removed - replaced with predefined button options only
   const [schemaResponse, setSchemaResponse] = useState<any>(null);
   const [schemaResponses, setSchemaResponses] = useState<any[]>([]);
   const [isLoadingQA, setIsLoadingQA] = useState(false);
   const [conversationHistory, setConversationHistory] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
+  
+  // Predefined questions for button options
+  const predefinedQuestions = [
+    "What makes TimeBack unique?",
+    "How does AI personalization work?",
+    "What are the real results?",
+    "How do kids stay motivated?",
+    "What about socialization?",
+    "Is it right for my child?"
+  ];
 
   console.log('[SectionExplorer] Rendering cumulative components:', {
     viewedComponents: viewedComponents?.map(c => c.componentName) || [],
@@ -67,11 +77,10 @@ export default function SectionExplorer({
 
   const availableComponents = getAllAvailableComponents();
 
-  const handleQuestionSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!question.trim() || isLoadingQA) return;
+  const handlePredefinedQuestion = async (selectedQuestion: string) => {
+    if (isLoadingQA) return;
     
-    const currentQuestion = question.trim();
+    const currentQuestion = selectedQuestion;
     console.log('[SectionExplorer] Processing question with schema format:', currentQuestion);
     setIsLoadingQA(true);
     setSchemaResponse(null);
@@ -185,7 +194,7 @@ export default function SectionExplorer({
       setConversationHistory(newHistory);
     } finally {
       setIsLoadingQA(false);
-      setQuestion(''); // Clear the question input after submission
+      // Question input removed - no need to clear
     }
   };
 
@@ -360,24 +369,25 @@ export default function SectionExplorer({
           </div>
 
           {/* Personalized Q&A */}
-          <div className="mt-12 text-center">
-            <form onSubmit={handleQuestionSubmit} className="flex flex-col gap-4 items-center max-w-xl mx-auto w-full">
-              <input
-                type="text"
-                value={question}
-                onChange={(e)=>setQuestion(e.target.value)}
-                placeholder="Ask anything about TimeBack..."
-                className="w-full px-6 py-4 backdrop-blur-md bg-timeback-bg/80/10 backdrop-blur-md border-2 border-timeback-primary rounded-xl text-timeback-primary placeholder-timeback-primary/60 focus:ring-2 focus:ring-timeback-primary focus:border-transparent outline-none font-cal"
-                disabled={isLoadingQA}
-              />
-              <button
-                type="submit"
-                disabled={!question.trim() || isLoadingQA}
-                className="bg-timeback-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-timeback-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg font-cal"
-              >
-                {isLoadingQA ? 'Getting answer...' : 'Get Personalized Answer'}
-              </button>
-            </form>
+          <div className="mt-12">
+            <h3 className="text-xl font-bold text-timeback-primary mb-6 text-center font-cal">
+              Ask About TimeBack
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+              {predefinedQuestions.map((questionText, index) => (
+                <button
+                  key={index}
+                  onClick={() => handlePredefinedQuestion(questionText)}
+                  disabled={isLoadingQA}
+                  className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 hover:transform hover:-translate-y-0.5 focus:bg-white/20 focus:outline-none focus:ring-2 focus:ring-timeback-primary focus:ring-offset-2 focus:ring-offset-transparent transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                  aria-label={questionText}
+                >
+                  <p className="text-base font-bold text-timeback-primary font-cal">
+                    {questionText}
+                  </p>
+                </button>
+              ))}
+            </div>
             {/* Display all responses in sequence */}
             {(() => {
               console.log('[SectionExplorer] 🎨 RENDERING RESPONSES - Total count:', schemaResponses.length);

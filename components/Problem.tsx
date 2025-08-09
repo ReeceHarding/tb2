@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { animationVariants } from '@/libs/animations';
-import { CpuChipIcon, TrophyIcon, AcademicCapIcon } from '@heroicons/react/24/outline';
+import { ClockIcon, BoltIcon, SparklesIcon } from '@heroicons/react/24/outline';
 
 
 
@@ -40,7 +40,7 @@ const Step = ({ icon: Icon, title, description }: { icon: React.ComponentType<an
 // - Features: "ShipFast has user auth, Stripe, emails all set up for you"
 const Problem = () => {
   return (
-    <section className="py-20 lg:py-32">
+    <section className="py-20 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         
         {/* Header Section */}
@@ -51,43 +51,31 @@ const Problem = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16 lg:mb-24 font-cal"
         >
-          <h2 className="font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight mb-6 font-cal text-timeback-primary max-w-4xl mx-auto leading-tight">
-            AI-Powered Homeschool Curriculum: What is TimeBack?
+          <h2 className="font-extrabold text-3xl md:text-5xl tracking-tight mb-6 bg-gradient-to-r from-timeback-primary via-timeback-primary to-timeback-primary bg-clip-text text-transparent font-cal">
+            What is TimeBack?
           </h2>
-          <p className="max-w-3xl mx-auto text-xl sm:text-2xl leading-relaxed font-cal text-timeback-primary font-medium">
-            TimeBack replaces traditional classroom teaching with personalized AI tutors. Your child finishes all their academics in just 2 hours a day while learning twice as fast as kids in regular schools—proven by real MAP test scores from Alpha School students.
+          <p className="text-lg md:text-xl text-timeback-primary max-w-2xl mx-auto leading-relaxed font-cal">
+            TimeBack is an AI tutor we've developed that customizes the questions to your kid's ability and their interests. The result is that we boil the school day down from eight hours to two hours, and our kids accomplish two times the amount of material as a kid in normal school. Additionally, our kids score in the 98th percentile on standardized tests.
           </p>
         </motion.div>
 
         {/* Steps Section */}
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           <Step 
-            icon={CpuChipIcon} 
-            title="Adaptive AI Tutoring System" 
-            description="Our AI tutoring technology figures out exactly what your child knows and what they don't. Then it provides personalized learning at the perfect difficulty level - not too easy, not too hard." 
+            icon={ClockIcon} 
+            title="The Gift of Time" 
+            description="Complete all academics in just 2 hours, leaving 4 hours daily for life skills, sports, arts, and passions. Traditional schools waste 6-8 hours on inefficient teaching. We give your child their childhood back." 
           />
           <Step 
-            icon={TrophyIcon} 
-            title="Proven 99th Percentile MAP Test Results" 
-            description="Alpha School has used TimeBack for 10 years. Their students consistently score in the 99th percentile on MAP standardized tests and gain admission to top universities like Stanford and Vanderbilt." 
+            icon={BoltIcon} 
+            title="Proven 2x Learning" 
+            description="MAP test data proves it: students average 99th percentile scores. Top performers learn nearly 12x faster. Students falling 2 years behind caught up in just 6 months, learning 13.8x faster than traditional school." 
           />
           <Step 
-            icon={AcademicCapIcon} 
-            title="Complete K-12 Homeschool Curriculum" 
-            description="All subjects from kindergarten through 12th grade included. AI-generated daily lesson plans, real-time progress tracking, and detailed parent reports - everything homeschool families need." 
+            icon={SparklesIcon} 
+            title="True Personalized Mastery" 
+            description="Each child gets their own AI tutor ensuring 100% mastery before advancing. No more teaching to the middle while some fall behind and others are bored. Every concept becomes a solid foundation for exponential growth." 
           />
-        </div>
-
-        {/* Additional Value Proposition */}
-        <div className="mt-16 lg:mt-24 text-center font-cal">
-          <div className="bg-timeback-bg border-2 border-timeback-primary rounded-2xl p-8 lg:p-12 max-w-4xl mx-auto">
-            <h3 className="text-2xl lg:text-3xl font-bold text-timeback-primary mb-4 font-cal">
-              Why Choose AI-Powered Personalized Learning?
-            </h3>
-            <p className="text-lg lg:text-xl text-timeback-primary font-cal leading-relaxed">
-              Your child finishes all their homeschool curriculum in just 2 hours instead of 8+ hours with traditional schooling. They learn more, faster, achieve higher test scores, and have time for family, sports, hobbies, and just being a kid.
-            </p>
-          </div>
         </div>
       </div>
     </section>

@@ -4,6 +4,11 @@ import OpenAI from 'openai';
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
+import { xmlPromptBuilder } from '@/libs/xml-prompt-builder';
+import { unifiedDataService } from '@/libs/unified-data-service';
+import { SectionSchema } from '@/libs/section-schemas';
+import { fieldMapper } from '@/libs/supabase-service';
+import { aiPromptLogger } from '@/libs/ai-prompt-logger';
 
 // Simple in-memory cache for schema responses
 const responseCache = new Map<string, {
@@ -21,7 +26,7 @@ function initializeCommonResponses() {
       response: {
         header: "TIMEBACK | HOW IT WORKS",
         main_heading: "TimeBack's Revolutionary 2-Hour Learning System",
-        description: "TimeBack enables students to learn 2x faster in just 2 hours per day through AI-powered personalized mastery learning. Students work with AI tutors that adapt to their learning style, while human Guides provide motivation and life skills training.",
+        description: "TimeBack enables students to learn 2x the material in just 2 hours per day (≈6x faster learning rate) through AI-powered personalized mastery learning. Students work with AI tutors that adapt to their learning style, while human Guides provide motivation and life skills training.",
         key_points: [
           { label: "AI-Powered Learning", description: "Each student receives personalized instruction from AI tutors that identify knowledge gaps and deliver targeted lessons for deep understanding." },
           { label: "Mastery-Based Progress", description: "Students must achieve 90% proficiency before advancing, ensuring solid foundations and preventing learning gaps that plague traditional education." },
@@ -51,7 +56,9 @@ initializeCommonResponses();
 // Cache for XML template and whitepaper content to avoid filesystem reads
 let xmlTemplateCache: string | null = null;
 let whitepaperCache: string | null = null;
+let schoolInfoCache: string | null = null;
 let templateCacheTimestamp = 0;
+let schoolInfoCacheTimestamp = 0;
 const TEMPLATE_CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 
 // Optimized template and whitepaper loading with caching
@@ -82,6 +89,63 @@ function getWhitepaperContent(): string {
   }
   
   return whitepaperCache;
+}
+
+function getSchoolInfoContent(): string {
+  const now = Date.now();
+  
+  if (!schoolInfoCache || (now - schoolInfoCacheTimestamp) > TEMPLATE_CACHE_TTL) {
+    console.log('[chat-tutor] Loading school info from filesystem (cache miss/expired)');
+    const schoolInfoPath = path.join(process.cwd(), 'public/data/school-info.md');
+    schoolInfoCache = fs.readFileSync(schoolInfoPath, 'utf8');
+    schoolInfoCacheTimestamp = now;
+  } else {
+    console.log('[chat-tutor] Using cached school info content');
+  }
+  
+  return schoolInfoCache;
+}
+
+// Plain-text sanitizer to enforce "no markdown" policy on all returned strings
+function stripMarkdown(input: string): string {
+  if (typeof input !== 'string') return input as unknown as string;
+  let s = input;
+  // Remove common markdown emphases and code formatting
+  s = s
+    .replace(/\*\*([^*]+)\*\*/g, '$1')  // **bold**
+    .replace(/\*([^*]+)\*/g, '$1')        // *italic*
+    .replace(/__([^_]+)__/g, '$1')         // __underline__
+    .replace(/_([^_]+)_/g, '$1')           // _emphasis_
+    .replace(/`([^`]+)`/g, '$1')           // `code`
+    .replace(/~~([^~]+)~~/g, '$1');        // ~~strikethrough~~
+  // Remove any remaining stray multiple asterisks or heading markers
+  s = s
+    .replace(/\*{2,}/g, '')                // **** -> ''
+    .replace(/(^|\n)\s*#{1,6}\s+/g, '$1'); // # Heading -> Heading
+  return s;
+}
+
+function sanitizePlainTextDeep<T = any>(value: T): T {
+  // Recursively walk the object/array and strip markdown from all string fields
+  if (value == null) return value;
+  if (Array.isArray(value)) {
+    return value.map((v) => sanitizePlainTextDeep(v)) as unknown as T;
+  }
+  if (typeof value === 'object') {
+    if (Array.isArray(value)) {
+      const arr = (value as unknown[]).map((v) => sanitizePlainTextDeep(v));
+      return arr as unknown as T;
+    }
+    const output: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(value as Record<string, unknown>)) {
+      output[k] = sanitizePlainTextDeep(v);
+    }
+    return output as T;
+  }
+  if (typeof value === 'string') {
+    return stripMarkdown(value) as unknown as T;
+  }
+  return value;
 }
 
 // Cache helper functions
@@ -125,6 +189,100 @@ function setCachedResponse(cacheKey: string, response: any, ttlMinutes: number =
 export const dynamic = 'force-dynamic';
 
 // Cerebras configuration - using direct fetch API
+const CEREBRAS_API_KEY = process.env.CEREBRAS_API_KEY || '';
+
+// Groq configuration (OpenAI-compatible API)
+const GROQ_API_KEY = process.env.GROQ_API_KEY || '';
+const GROQ_BASE_URL = 'https://api.groq.com/openai/v1';
+
+function log(message: string, meta?: Record<string, unknown>) {
+  const ts = new Date().toISOString();
+  if (meta) {
+    console.log(`[chat-tutor] ${ts} ${message}`, meta);
+  } else {
+    console.log(`[chat-tutor] ${ts} ${message}`);
+  }
+}
+
+async function generateWithGroq(
+  systemPrompt: string,
+  messages: any[],
+  preferJson: boolean = false
+): Promise<{ content: string; provider: string; model: string }> {
+  if (!GROQ_API_KEY) {
+    log('GROQ_API_KEY is not set; cannot use Groq fallback');
+    throw new Error('GROQ_API_KEY is not configured');
+  }
+
+  log('Attempting Groq fallback...');
+
+  const groqMessages = [] as Array<{ role: 'system' | 'user' | 'assistant'; content: string }>;
+  if (systemPrompt) {
+    groqMessages.push({ role: 'system', content: systemPrompt });
+  }
+  // Use the full message history for Groq fallback as requested
+  groqMessages.push(...messages);
+
+  // Diagnostics for Groq input sizes
+  const groqApproxChars = groqMessages.reduce((sum, m) => {
+    const c = typeof m.content === 'string' ? m.content : JSON.stringify(m.content);
+    return sum + c.length;
+  }, 0);
+  log('Groq request prepared', {
+    provider: 'groq',
+    baseUrl: GROQ_BASE_URL,
+    model: 'openai/gpt-oss-120b',
+    systemPromptChars: (systemPrompt?.length || 0),
+    messagesCount: messages.length,
+    approxChars: groqApproxChars
+  });
+
+  const requestBody: any = {
+    model: 'openai/gpt-oss-120b',
+    messages: groqMessages,
+    // Increased max tokens to prevent truncation when falling back from Cerebras (was 1024)
+    max_tokens: 4000,
+    temperature: 0.7,
+    top_p: 1,
+    stream: false
+  };
+
+  if (preferJson) {
+    requestBody.response_format = { type: 'json_object' };
+  }
+
+  const response = await fetch(`${GROQ_BASE_URL}/chat/completions`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${GROQ_API_KEY}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+  });
+
+  log('Groq response received', {
+    provider: 'groq',
+    status: response.status,
+    ok: response.ok,
+    contentType: response.headers.get('content-type') || 'unknown'
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    log('Groq error body snippet', { snippet: errorText.slice(0, 300) });
+    throw new Error(`Groq API error: ${response.status} - ${errorText}`);
+  }
+
+  const completion = await response.json();
+  const content = completion.choices[0]?.message?.content || '';
+  
+  if (!content) {
+    throw new Error('Groq returned empty response');
+  }
+
+  log(`Groq successful, response length: ${content.length}`);
+  return { content, provider: 'groq', model: 'openai/gpt-oss-120b' };
+}
 
 export async function POST(req: NextRequest) {
   console.log('[chat-tutor] API route called');
@@ -149,13 +307,16 @@ export async function POST(req: NextRequest) {
       });
     }
     
-    const { question, interests = [], subject, gradeLevel, context, messageHistory, responseFormat, quizData, stream = false } = body;
+    const { question, interests = [], subject, gradeLevel, context, messageHistory, responseFormat, quizData, stream = false, sectionId, sectionSchema, userData, userContext } = body;
     
     console.log('[chat-tutor] Processing question:', question);
     console.log('[chat-tutor] Context:', context);
     console.log('[chat-tutor] Response format:', responseFormat);
     console.log('[chat-tutor] Message history length:', messageHistory?.length || 0);
     console.log('[chat-tutor] Quiz data keys:', quizData ? Object.keys(quizData) : 'none');
+    console.log('[chat-tutor] Section ID:', sectionId);
+    console.log('[chat-tutor] Has section schema:', !!sectionSchema);
+    console.log('[chat-tutor] Has user data:', !!userData);
 
     // Check cache for schema responses (only cache schema responses, not conversations)
     let cacheKey: string | null = null;
@@ -211,8 +372,56 @@ export async function POST(req: NextRequest) {
 
     let systemPrompt = '';
     let userPrompt = '';
-
-    if (responseFormat === 'schema' || context === 'schema-generation') {
+    
+    // Handle section schema-based generation
+    if (sectionId && sectionSchema) {
+      console.log('[chat-tutor] Using section schema-based generation for:', sectionId);
+      console.log('[chat-tutor] Raw userData:', userData);
+      
+      try {
+        // Map the user data to expected field names
+        const mappedUserData = fieldMapper.mapQuizToAI(userData || {});
+        console.log('[chat-tutor] Mapped userData:', mappedUserData);
+        
+        // Use the XML prompt builder with section schema
+        const promptResult = xmlPromptBuilder.buildPrompt({
+          sectionId,
+          userData: mappedUserData,
+          userContext: userContext || {},
+          messageHistory: messageHistory || [],
+          additionalContext: context || {}
+        });
+        
+        if (!promptResult.success) {
+          if (promptResult.missingData) {
+            console.log('[chat-tutor] Missing required data:', promptResult.missingData);
+            return new Response(JSON.stringify({
+              success: false,
+              error: 'Missing required data',
+              missingData: promptResult.missingData
+            }), {
+              status: 400,
+              headers: { 'Content-Type': 'application/json' }
+            });
+          }
+          
+          return new Response(JSON.stringify({
+            success: false,
+            error: promptResult.error || 'Failed to build prompt'
+          }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' }
+          });
+        }
+        
+        userPrompt = promptResult.prompt!;
+        console.log('[chat-tutor] Built prompt using section schema, length:', userPrompt.length);
+        
+      } catch (error) {
+        console.error('[chat-tutor] Error building prompt with schema:', error);
+        // Fall back to regular schema generation
+      }
+    } else if (responseFormat === 'schema' || context === 'schema-generation') {
       // Schema generation context using XML prompt template
       console.log('[chat-tutor] Using schema generation context with XML template');
       
@@ -237,6 +446,7 @@ export async function POST(req: NextRequest) {
         // Get cached XML template and whitepaper content (optimized)
         const xmlTemplate = getXMLTemplate();
         const whitepaperContent = getWhitepaperContent();
+        const schoolInfoContent = getSchoolInfoContent();
         
         // Extract user context from quizData or context object
         const userContext = quizData || context || {};
@@ -272,7 +482,8 @@ export async function POST(req: NextRequest) {
         
         // Populate XML template placeholders
         const populatedTemplate = xmlTemplate
-          .replace('{{WHITE_PAPER_CONTENT}}', whitepaperContent.substring(0, 8000)) // Limit for token constraints
+          .replace('{{WHITE_PAPER_CONTENT}}', whitepaperContent) // Full whitepaper content
+          .replace('{{SCHOOL_INFO_CONTENT}}', schoolInfoContent.substring(0, 5000)) // School location directory
           .replace('{{USER_FIRST_NAME}}', userContext.userFirstName || userContext.firstName || 'Parent')
           .replace('{{STUDENT_GRADE_LEVEL}}', userContext.childGrade || gradeLevel || 'elementary')
           .replace('{{STUDENT_SUBJECTS_OF_INTEREST}}', Array.isArray(interests) ? interests.join(', ') : (userContext.kidsInterests?.join(', ') || 'math, science'))
@@ -287,27 +498,59 @@ export async function POST(req: NextRequest) {
         
         console.log('[chat-tutor] XML template populated with user context');
         
+        // Log the XML prompt
+        aiPromptLogger.logXMLPrompt('chat-tutor', populatedTemplate, {
+          service: 'chat-tutor',
+          question,
+          hasMessageHistory: !!managedHistory,
+          gradeLevel: userContext.childGrade || gradeLevel,
+          interests: Array.isArray(interests) ? interests : userContext.kidsInterests,
+          userId: userData?.userId || 'anonymous'
+        });
+        
         // Use the populated template as the system prompt
         systemPrompt = populatedTemplate;
+        // Enforce ASCII-only, JSON-only output for schema generation to prevent smart punctuation issues
+        systemPrompt += '\n\nSTRICT OUTPUT CONSTRAINTS: Return a single JSON object using only ASCII characters (U+0020–U+007E). Use straight quotes (\"), no smart quotes/dashes, no non-breaking spaces, and no special symbols. Escape newlines as \\n. Do not include any text before or after the JSON.';
+        // Enforce plain-text only within all string fields to prevent markdown/styling characters from appearing in UI
+        systemPrompt += '\n\nPLAIN TEXT ONLY: All string values in the JSON (e.g., header, main_heading, description, key_points.label, key_points.description, next_options) must use plain text only. Do NOT include any markdown or formatting characters such as **, *, __, _, #, >, `, ~, or list prefixes like - or 1). Write clean human-readable sentences without wrappers.';
+        // Enforce exact cardinality and allowed keys
+        systemPrompt += '\n\nSTRICT CARDINALITY: Return EXACTLY 3 items in key_points (no more, no less) and EXACTLY 3 items in next_options (no more, no less). If you have more candidates, include only the best 3 and omit the rest.';
+        systemPrompt += '\n\nALLOWED KEYS ONLY: Only include these top-level keys: header, main_heading, description, key_points, next_options. Do NOT include any other keys.';
+        systemPrompt += '\n\nARRAY LENGTH ENFORCEMENT: key_points must be an array of length 3 with objects having label and description. next_options must be an array of length 3 of plain strings.';
         userPrompt = `${managedHistory}Generate a compelling response for this question: "${question}"`;
         
         console.log('[chat-tutor] Final user prompt includes conversation history:', !!managedHistory);
       } catch (error) {
         console.error('[chat-tutor] Error reading XML template or whitepaper:', error);
         // Fallback to simple schema prompt
-        systemPrompt = `You are a TimeBack education data analyst. Generate ONLY a JSON response using this exact schema:
+        systemPrompt = `You are a TimeBack education data analyst. 
+
+SPECIAL RULE: If question contains "What is TimeBack?" treat as SIMPLE even if additional context follows - prioritize clear, concise explanation of TimeBack over comprehensive evidence.
+
+MANDATORY for complex questions (NOT "What is TimeBack?" questions): Include specific research citations with study names (e.g., "Benjamin Bloom's 2 Sigma Problem (1984) found..."), exact Alpha School data with specific numbers and percentiles (e.g., "Alpha students averaged 99th percentile on MAP reading with 6.81x faster learning"), and concrete student case studies (e.g., "7 boys who were 2 years behind advanced 13.8x faster, completing 2 grade levels in 6 months"). FORBIDDEN: Vague phrases like "research shows" or "studies indicate" without specifics. 
+
+Generate ONLY a JSON response using this exact schema:
 {
   "header": "TIMEBACK | INSIGHT #1",
   "main_heading": "Primary heading that captures the key message",
-  "description": "Brief paragraph explaining the main concept",
+  "description": "Contextual explanation that matches the question complexity: brief and clear for simple questions (especially 'What is TimeBack?' questions), comprehensive and detailed for complex multi-part questions. SPECIAL: For 'What is TimeBack?' treat as simple regardless of additional context. MANDATORY FORMATTING: Use \\n\\n for paragraph breaks between different concepts to improve readability. Break long explanations into digestible paragraphs.",
   "key_points": [
-    {"label": "Point 1 Label", "description": "Detailed explanation"},
-    {"label": "Point 2 Label", "description": "Detailed explanation"}, 
-    {"label": "Point 3 Label", "description": "Detailed explanation"}
+    {"label": "Point 1 Label", "description": "Detailed explanation. Use \\n\\n for paragraph breaks if explanation is complex"},
+    {"label": "Point 2 Label", "description": "Detailed explanation. Use \\n\\n for paragraph breaks if explanation is complex"}, 
+    {"label": "Point 3 Label", "description": "Detailed explanation. Use \\n\\n for paragraph breaks if explanation is complex"}
   ],
   "next_options": ["Follow-up option 1", "Follow-up option 2", "Follow-up option 3"]
 }
 RESPOND WITH ONLY THE JSON OBJECT - no explanations, no markdown, no additional text.`;
+        // Enforce ASCII-only, JSON-only output for schema generation to prevent smart punctuation issues
+        systemPrompt += '\n\nSTRICT OUTPUT CONSTRAINTS: Return a single JSON object using only ASCII characters (U+0020–U+007E). Use straight quotes (\"), no smart quotes/dashes, no non-breaking spaces, and no special symbols. Escape newlines as \\n. Do not include any text before or after the JSON.';
+        // Enforce plain-text only within all string fields to prevent markdown/styling characters from appearing in UI
+        systemPrompt += '\n\nPLAIN TEXT ONLY: All string values in the JSON (e.g., header, main_heading, description, key_points.label, key_points.description, next_options) must use plain text only. Do NOT include any markdown or formatting characters such as **, *, __, _, #, >, `, ~, or list prefixes like - or 1). Write clean human-readable sentences without wrappers.';
+        // Reinforce exact cardinality and allowed keys
+        systemPrompt += '\n\nSTRICT CARDINALITY: Return EXACTLY 3 items in key_points and EXACTLY 3 items in next_options. Never return 2 or 4+ items.';
+        systemPrompt += '\n\nALLOWED KEYS ONLY: Only include top-level keys header, main_heading, description, key_points, next_options. Do not include any other keys.';
+        systemPrompt += '\n\nARRAY LENGTH ENFORCEMENT: key_points length must be 3 (objects with label and description). next_options length must be 3 (plain strings).';
         userPrompt = question;
       }
     } else if (context === 'timeback-whitepaper') {
@@ -317,7 +560,7 @@ RESPOND WITH ONLY THE JSON OBJECT - no explanations, no markdown, no additional 
       systemPrompt = `You are a helpful TimeBack education assistant. Answer questions about TimeBack's educational approach based on the white paper content.
 
 Key facts about TimeBack:
-- Students learn 2x faster in just 2 hours per day
+- Students learn 2x the material in just 2 hours per day (≈6x faster learning rate)
 - AI-powered personalized learning with 1:1 tutoring
 - Students consistently score in the top 1% nationally
 - Mastery-based learning requiring 90% proficiency before advancement
@@ -367,7 +610,27 @@ EXAMPLES:
 ❌ BAD: "You need to multiply 582 by 0.73 to get 425."
 ✅ GOOD: "You've got the right numbers! Now, when finding 73% of 582 shots, think about what 73% means. Have you learned how to convert percentages to decimals?"
 
-Keep responses encouraging, age-appropriate, and focused on guiding their thinking process.`;
+Keep responses encouraging, age-appropriate, and focused on guiding their thinking process.
+
+## Mathematical Formatting Rules
+CRITICAL: Use ONLY plain text and Unicode symbols for all mathematical expressions:
+- Use × for multiplication (not \\times)
+- Use ÷ for division (not \\div) 
+- Use ½, ⅓, ¼, ⅔, ¾ for common fractions (not \\frac{1}{2})
+- Use ft, in, cm, etc. as plain text (not \\text{ft})
+- Use ± for plus/minus (not \\pm)
+- NEVER use LaTeX notation like \\text{}, \\times, \\frac{}, etc.
+- Write mathematical expressions as readable text that displays correctly
+
+Examples:
+❌ BAD: "(12 \\text{ ft} \\times 9 \\text{ ft})"
+✅ GOOD: "(12 ft × 9 ft)"
+
+❌ BAD: "\\frac{1}{2} of the total area"
+✅ GOOD: "½ of the total area"
+
+❌ BAD: "area \\div 40"
+✅ GOOD: "area ÷ 40"`;
 
       userPrompt = `The student is asking about ${subject || 'a subject'}: "${question}"
 ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
@@ -405,20 +668,31 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
         // Handle streaming if requested
         if (stream && responseFormat !== 'schema') {
           console.log('[chat-tutor] Using streaming response');
+          
+          // Log the API request
+          const requestBody = {
+            model: 'llama-4-scout-17b-16e-instruct',
+            messages: cerebrasMessages,
+            max_completion_tokens: 65536,
+            temperature: 0.2,
+            top_p: 1,
+            stream: true
+          };
+          
+          aiPromptLogger.logAPIRequest('cerebras-streaming', requestBody, {
+            messageCount: cerebrasMessages.length,
+            hasSystemPrompt: !!systemPrompt,
+            question,
+            userId: userData?.userId || 'anonymous'
+          });
+          
           const cerebrasResponse = await fetch('https://api.cerebras.ai/v1/chat/completions', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${process.env.CEREBRAS_API_KEY}`,
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-              model: 'gpt-oss-120b',
-              messages: cerebrasMessages,
-              max_completion_tokens: 65536,
-              temperature: 1,
-              top_p: 1,
-              stream: true
-            })
+            body: JSON.stringify(requestBody)
           });
 
           if (!cerebrasResponse.ok) {
@@ -490,20 +764,31 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
         }
 
         // Non-streaming response
+        const nonStreamRequestBody = {
+          model: 'llama-4-scout-17b-16e-instruct',
+          messages: cerebrasMessages,
+          max_completion_tokens: 65536,
+          // Lower temperature for schema/strict JSON responses to reduce smart punctuation and variability
+          temperature: (responseFormat === 'schema' || context === 'schema-generation') ? 0 : 0.2,
+          top_p: 1,
+          stream: false
+        };
+        
+        // Log the API request
+        aiPromptLogger.logAPIRequest('cerebras-non-streaming', nonStreamRequestBody, {
+          messageCount: cerebrasMessages.length,
+          hasSystemPrompt: !!systemPrompt,
+          question,
+          userId: userData?.userId || 'anonymous'
+        });
+        
         const cerebrasResponse = await fetch('https://api.cerebras.ai/v1/chat/completions', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${process.env.CEREBRAS_API_KEY}`,
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({
-            model: 'gpt-oss-120b',
-            messages: cerebrasMessages,
-            max_completion_tokens: 65536,
-            temperature: 1,
-            top_p: 1,
-            stream: false
-          })
+          body: JSON.stringify(nonStreamRequestBody)
         });
 
         if (!cerebrasResponse.ok) {
@@ -516,16 +801,41 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
         tokenUsage = cerebrasCompletion.usage || {};
         usedProvider = 'cerebras';
         
+        // Log the API response
+        aiPromptLogger.logAPIResponse('cerebras-non-streaming', cerebrasCompletion, {
+          responseLength: fullText.length,
+          promptTokens: tokenUsage.prompt_tokens,
+          completionTokens: tokenUsage.completion_tokens,
+          totalTokens: tokenUsage.total_tokens
+        });
+        
         console.log('[chat-tutor] Cerebras successful, response length:', fullText.length);
         
       } catch (cerebrasError) {
         console.log('[chat-tutor] Cerebras failed:', cerebrasError.message);
-        throw cerebrasError;
+        
+        // Try Groq as fallback
+        try {
+          const groqResult = await generateWithGroq(
+            systemPrompt,
+            messages,
+            responseFormat === 'schema' || context === 'schema-generation'
+          );
+          fullText = groqResult.content;
+          usedProvider = groqResult.provider;
+          tokenUsage = {}; // Groq doesn't provide detailed token usage in this implementation
+          
+          console.log('[chat-tutor] Groq fallback successful, response length:', fullText.length);
+        } catch (groqError) {
+          console.log('[chat-tutor] Groq fallback also failed:', groqError.message);
+          throw cerebrasError; // Throw original Cerebras error
+        }
       }
       
       // Track successful completion with actual provider used
       const modelMap = {
-        cerebras: 'gpt-oss-120b'
+        cerebras: 'llama-4-scout-17b-16e-instruct',
+        groq: 'openai/gpt-oss-120b'
       };
       
       await trackLLMUsage({
@@ -569,7 +879,125 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
             cleanedResponse = cleanedResponse.substring(jsonStart, jsonEnd);
           }
           
-          parsedResponse = JSON.parse(cleanedResponse);
+          // Handle Unicode characters that can break JSON parsing
+          try {
+            parsedResponse = JSON.parse(cleanedResponse);
+          } catch (parseError) {
+            console.log('[chat-tutor] Initial JSON parse failed, attempting Unicode cleanup:', parseError.message);
+            
+            // Clean up common Unicode issues that break JSON parsing
+            let unicodeCleanedResponse = cleanedResponse
+              .replace(/[""]/g, '"')  // Replace smart quotes with regular quotes
+              .replace(/['']/g, "'")  // Replace smart apostrophes
+              .replace(/[–—]/g, '-')  // Replace en-dash and em-dash with regular dash
+              .replace(/×/g, 'x')     // Replace multiplication symbol
+              .replace(/\s+%/g, '%')  // Remove extra spaces before percent
+              .replace(/\u2013/g, '-') // En-dash
+              .replace(/\u2014/g, '-') // Em-dash
+              .replace(/\u2019/g, "'") // Right single quotation mark
+              .replace(/\u201C/g, '"') // Left double quotation mark
+              .replace(/\u201D/g, '"') // Right double quotation mark
+              .replace(/\u2212/g, '-') // Minus sign
+              .replace(/\u00D7/g, 'x') // Multiplication sign
+              .replace(/\u2011/g, '-') // Non-breaking hyphen
+              .replace(/\u00A0/g, ' '); // Non-breaking space
+            
+            // Fix specific structural JSON issues
+            unicodeCleanedResponse = unicodeCleanedResponse
+              // Fix unescaped quotes around specific terms that commonly appear
+              .replace(/"Speed Bumps"/g, '\\"Speed Bumps\\"')
+              .replace(/"one‑size‑fits‑all"/g, '\\"one-size-fits-all\\"')
+              .replace(/"middle of the road"/g, '\\"middle of the road\\"')
+              .replace(/"98th‑percentile"/g, '\\"98th-percentile\\"')
+              .replace(/"A"/g, '\\"A\\"') // For cases like "A" students
+              .replace(/"90%\+"/g, '\\"90%+\\"') // For percentage ranges
+              .replace(/"Benjamin Bloom's 2 Sigma Problem"/g, '\\"Benjamin Bloom\'s 2 Sigma Problem\\"')
+              // Fix markdown-style formatting that might slip through (enhanced detection)
+              .replace(/\*\*([^*]+)\*\*/g, '$1') // Remove **bold** formatting
+              .replace(/\*([^*]+)\*/g, '$1') // Remove *italic* formatting
+              .replace(/_{2,}([^_]+)_{2,}/g, '$1') // Remove __underline__ formatting
+              .replace(/_([^_]+)_/g, '$1') // Remove _emphasis_ formatting
+              .replace(/`([^`]+)`/g, '$1') // Remove `code` formatting
+              .replace(/~~([^~]+)~~/g, '$1') // Remove ~~strikethrough~~ formatting
+              // More aggressive ** detection for edge cases
+              .replace(/\*{2,}/g, '') // Remove any double or multiple asterisks
+              .replace(/\*(?=[A-Z])/g, '') // Remove asterisks before capital letters
+              .replace(/\*(?=\s)/g, '') // Remove asterisks before spaces
+              // Fix double-escaped newlines
+              .replace(/\\\\n\\\\n/g, '\\n\\n')
+              .replace(/\\\\n/g, '\\n')
+              // More aggressive quote fixing for common phrases
+              .replace(/eliminating the "([^"]+)" pacing/g, 'eliminating the \\"$1\\" pacing')
+              .replace(/the "([^"]+)" approach/g, 'the \\"$1\\" approach')
+              .replace(/called "([^"]+)"/g, 'called \\"$1\\"')
+              // Generic fix for any unescaped quotes within string values
+              .replace(/"([^"]*)"([^"]*)"([^"]*)"/g, (match, part1, part2, part3) => {
+                // Only apply if this looks like a JSON string value (not a key-value pair)
+                if (part1.includes(': ') || part1.includes('": ')) {
+                  return match; // Skip if this looks like a JSON key
+                }
+                // If part2 contains common quoted terms, escape them
+                if (part2.match(/\b(Speed Bumps|middle of the road|one.size.fits.all|A|98th.percentile|traditional|approach|model|system)\b/)) {
+                  return `"${part1}\\"${part2}\\"${part3}"`;
+                }
+                return match; // Keep original if no common patterns found
+              });
+            
+            try {
+              parsedResponse = JSON.parse(unicodeCleanedResponse);
+              console.log('[chat-tutor] Successfully parsed after Unicode cleanup');
+            } catch (secondParseError) {
+              // Final fallback: try to fix unescaped quotes within JSON strings more systematically
+              console.log('[chat-tutor] Attempting final quote fix for JSON strings...');
+              
+              try {
+                // More systematic approach: fix quotes within JSON string values
+                let finalCleanedResponse = unicodeCleanedResponse;
+                
+                // Fix unescaped quotes in description fields specifically
+                finalCleanedResponse = finalCleanedResponse.replace(
+                  /"description"\s*:\s*"([^"]*)"([^"]*)"([^"]*)"/g,
+                  (match, prefix, middle, suffix) => {
+                    return `"description": "${prefix}\\"${middle}\\"${suffix}"`;
+                  }
+                );
+                
+                // Fix unescaped quotes in any string field that contains common patterns
+                finalCleanedResponse = finalCleanedResponse.replace(
+                  /("\w+")\s*:\s*"([^"]*)"([^"]*)"([^"]*)"/g,
+                  (match, fieldName, prefix, middle, suffix) => {
+                    // Only escape if middle contains content that looks like it should be quoted
+                    if (middle.length > 0 && middle.match(/\w+/)) {
+                      return `${fieldName}: "${prefix}\\"${middle}\\"${suffix}"`;
+                    }
+                    return match;
+                  }
+                );
+                
+                parsedResponse = JSON.parse(finalCleanedResponse);
+                console.log('[chat-tutor] Successfully parsed after final quote fix');
+              } catch (finalParseError) {
+                console.error('[chat-tutor] Final JSON parse also failed:', finalParseError.message);
+                console.error('[chat-tutor] JSON parse failed even after cleanup:', secondParseError.message);
+                console.error('[chat-tutor] Original response snippet:', cleanedResponse.substring(0, 500));
+                console.error('[chat-tutor] Unicode cleaned snippet:', unicodeCleanedResponse.substring(0, 500));
+                
+                // Log the problematic area around the error position if available
+                if (secondParseError.message.includes('position')) {
+                  const positionMatch = secondParseError.message.match(/position (\d+)/);
+                  if (positionMatch) {
+                    const position = parseInt(positionMatch[1]);
+                    const start = Math.max(0, position - 100);
+                    const end = Math.min(unicodeCleanedResponse.length, position + 100);
+                    console.error('[chat-tutor] Context around error position:', unicodeCleanedResponse.substring(start, end));
+                    console.error('[chat-tutor] Error position marker:', ' '.repeat(Math.min(100, position - start)) + '^');
+                  }
+                }
+                
+                throw new Error(`Failed to parse AI response as JSON after all cleanup attempts: ${finalParseError.message}`);
+              }
+            }
+          }
           
           // Validate required schema fields
           const requiredFields = ['header', 'main_heading', 'description', 'key_points', 'next_options'];
@@ -595,11 +1023,25 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
             throw new Error('next_options must be an array of exactly 3 strings');
           }
           
+          // Enforce plain-text policy by stripping markdown across all string fields
+          const sanitizedResponse = sanitizePlainTextDeep(parsedResponse);
+          if (sanitizedResponse !== parsedResponse) {
+            console.log('[chat-tutor] Applied markdown sanitizer to schema response');
+          }
+
           console.log('[chat-tutor] Schema response validated successfully');
+          
+          // Additional validation for section schema responses
+          if (sectionId && sectionSchema) {
+            const isValid = xmlPromptBuilder.validateResponse(sectionId, parsedResponse);
+            if (!isValid) {
+              console.warn('[chat-tutor] Response does not match section schema structure');
+            }
+          }
           
           // Cache the successful schema response for future use
           if (cacheKey) {
-            setCachedResponse(cacheKey, parsedResponse, 120); // Cache for 2 hours
+            setCachedResponse(cacheKey, sanitizedResponse, 120); // Cache for 2 hours
           }
           
           // Track successful schema response analytics
@@ -630,7 +1072,7 @@ ${context ? `\nContext: ${JSON.stringify(context)}` : ''}`;
           // Return validated schema response
           return new Response(JSON.stringify({
             success: true,
-            response: parsedResponse,
+            response: sanitizedResponse,
             responseFormat: 'schema',
             provider: usedProvider,
             cached: false

@@ -13,11 +13,11 @@ interface SendCerebrasOptions {
   stream?: boolean;
 }
 
-// Use this to make a call to Cerebras gpt-oss-120b model
+// Use this to make a call to Cerebras Llama 4 Scout model
 export const sendCerebras = async ({
   messages,
   maxTokens = 65536,
-  temperature = 1,
+  temperature = 0.2,
   stream = false
 }: SendCerebrasOptions) => {
   console.log('[Cerebras] Request >>>');
@@ -30,7 +30,7 @@ export const sendCerebras = async ({
       // Streaming response
       console.log('[Cerebras] Using streaming mode');
       const streamResponse = await cerebrasClient.chat.completions.create({
-        model: 'gpt-oss-120b',
+        model: 'llama-4-scout-17b-16e-instruct',
         messages,
         max_completion_tokens: maxTokens,
         temperature,
@@ -42,7 +42,7 @@ export const sendCerebras = async ({
     } else {
       // Non-streaming response
       const response = await cerebrasClient.chat.completions.create({
-        model: 'gpt-oss-120b',
+        model: 'llama-4-scout-17b-16e-instruct',
         messages,
         max_completion_tokens: maxTokens,
         temperature,

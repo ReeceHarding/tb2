@@ -1,4 +1,5 @@
 import { BedrockRuntimeClient, InvokeModelCommand } from '@aws-sdk/client-bedrock-runtime';
+import { aiPromptLogger } from './ai-prompt-logger';
 
 // Initialize Bedrock client with environment variables
 const bedrockClient = new BedrockRuntimeClient({
@@ -57,6 +58,15 @@ export async function invokeClaude(
   }
 
   try {
+    // Log the request
+    aiPromptLogger.logAPIRequest('bedrock-claude', requestBody, {
+      modelId: "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+      maxTokens,
+      temperature,
+      hasSystemPrompt: !!system,
+      messageCount: messages.length
+    });
+
     const command = new InvokeModelCommand({
       modelId: "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
       contentType: "application/json",
@@ -71,9 +81,18 @@ export async function invokeClaude(
     }
 
     const responseBody = JSON.parse(new TextDecoder().decode(response.body));
+    
+    // Log the response
+    aiPromptLogger.logAPIResponse('bedrock-claude', responseBody, {
+      inputTokens: responseBody.usage?.input_tokens,
+      outputTokens: responseBody.usage?.output_tokens,
+      stopReason: responseBody.stop_reason
+    });
+    
     return responseBody;
   } catch (error) {
     console.error('Bedrock Claude API Error:', error);
+    aiPromptLogger.logError('bedrock-claude', error, 'invokeClaude');
     throw new Error(`Bedrock Claude API call failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
   }
 }

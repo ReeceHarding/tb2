@@ -13,13 +13,15 @@ import StudentCard, { StudentJourneyData } from './StudentCard';
 import StudentDashboard from './StudentDashboard';
 import StudentJourneyLoader from './StudentJourneyLoader';
 import SkepticalTransition from './SkepticalTransition';
+import GradeSelector from '@/components/GradeSelector';
 
 interface StudentJourneyCarouselProps {
-  grade: Grade;
+  grade?: Grade | null;
   schoolName?: string;
+  onGradeSelected?: (grade: Grade) => void;
 }
 
-export default function StudentJourneyCarousel({ grade, schoolName }: StudentJourneyCarouselProps) {
+export default function StudentJourneyCarousel({ grade, schoolName, onGradeSelected }: StudentJourneyCarouselProps) {
   const [journeys, setJourneys] = useState<StudentJourneyData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -27,15 +29,16 @@ export default function StudentJourneyCarousel({ grade, schoolName }: StudentJou
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedGrade, setSelectedGrade] = useState<Grade | null>(grade || null);
   
   // Convert grade string to number
-  const gradeNumber = gradeToNumber(grade);
+  const gradeNumber = gradeToNumber(selectedGrade);
   
-  // Fetch student journeys on component mount
+  // Fetch student journeys when grade changes
   useEffect(() => {
     const fetchJourneys = async () => {
       if (gradeNumber === null) {
-        setError('Invalid grade provided');
+        console.log('[StudentJourneyCarousel] No grade selected, waiting for user selection');
         setIsLoading(false);
         return;
       }
@@ -67,6 +70,18 @@ export default function StudentJourneyCarousel({ grade, schoolName }: StudentJou
     
     fetchJourneys();
   }, [gradeNumber]);
+  
+  // Handle grade selection
+  const handleGradeSelect = (newGrade: Grade) => {
+    console.log(`[StudentJourneyCarousel] Grade selected: ${newGrade}`);
+    setSelectedGrade(newGrade);
+    setIsLoading(true);
+    setError(null);
+    setJourneys([]);
+    if (onGradeSelected) {
+      onGradeSelected(newGrade);
+    }
+  };
   
   // Carousel navigation functions
   const scrollToIndex = (index: number) => {
@@ -107,11 +122,12 @@ export default function StudentJourneyCarousel({ grade, schoolName }: StudentJou
   
   if (gradeNumber === null) {
     return (
-      <div className="w-full py-16 text-center">
-        <p className="text-lg font-cal text-timeback-primary">
-          Invalid grade provided. Please complete the quiz to see student journeys.
-        </p>
-      </div>
+      <GradeSelector 
+        onGradeSelect={handleGradeSelect}
+        selectedGrade={selectedGrade}
+        title="Select a grade to see student journeys"
+        description="Choose the grade level to view personalized success stories from students"
+      />
     );
   }
   
@@ -161,23 +177,23 @@ export default function StudentJourneyCarousel({ grade, schoolName }: StudentJou
             <>
               {/* Carousel Container */}
               <div className="relative">
-                {/* Previous Button */}
+                {/* Modern Previous Button */}
                 <button
                   onClick={scrollPrev}
                   disabled={currentIndex === 0}
                   className={`
-                    absolute left-0 top-1/2 -translate-y-1/2 z-10 -translate-x-4
-                    w-12 h-12 backdrop-blur-md bg-timeback-bg/80 rounded-full shadow-lg flex items-center justify-center
-                    transition-all duration-200
+                    absolute left-1 top-1/2 -translate-y-1/2 z-20
+                    w-12 h-12 bg-white border-2 border-timeback-primary rounded-xl shadow-xl flex items-center justify-center group
+                    transition-all duration-300
                     ${currentIndex === 0 
-                      ? 'opacity-50 cursor-not-allowed' 
-                      : 'hover:shadow-xl hover:scale-110 cursor-pointer'}
+                      ? 'opacity-40 cursor-not-allowed scale-90' 
+                      : 'hover:bg-timeback-bg hover:scale-105 cursor-pointer'}
                   `}
                   aria-label="Previous student"
                 >
-                  <svg className="w-6 h-6 text-timeback-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
+                  <div className={`w-0 h-0 border-t-[6px] border-b-[6px] border-r-[10px] border-t-transparent border-b-transparent transition-colors duration-200 -translate-x-0.5 ${
+                    currentIndex === 0 ? 'border-r-gray-400' : 'border-r-timeback-primary group-hover:border-r-timeback-primary'
+                  }`}></div>
                 </button>
                 
                 {/* Cards Container */}
@@ -203,23 +219,23 @@ export default function StudentJourneyCarousel({ grade, schoolName }: StudentJou
                   ))}
                 </div>
                 
-                {/* Next Button */}
+                {/* Modern Next Button */}
                 <button
                   onClick={scrollNext}
                   disabled={currentIndex === journeys.length - 1}
                   className={`
-                    absolute right-0 top-1/2 -translate-y-1/2 z-10 translate-x-4
-                    w-12 h-12 backdrop-blur-md bg-timeback-bg/80 rounded-full shadow-lg flex items-center justify-center
-                    transition-all duration-200
+                    absolute right-1 top-1/2 -translate-y-1/2 z-20
+                    w-12 h-12 bg-white border-2 border-timeback-primary rounded-xl shadow-xl flex items-center justify-center group
+                    transition-all duration-300
                     ${currentIndex === journeys.length - 1 
-                      ? 'opacity-50 cursor-not-allowed' 
-                      : 'hover:shadow-xl hover:scale-110 cursor-pointer'}
+                      ? 'opacity-40 cursor-not-allowed scale-90' 
+                      : 'hover:bg-timeback-bg hover:scale-105 cursor-pointer'}
                   `}
                   aria-label="Next student"
                 >
-                  <svg className="w-6 h-6 text-timeback-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                  <div className={`w-0 h-0 border-t-[6px] border-b-[6px] border-l-[10px] border-t-transparent border-b-transparent transition-colors duration-200 translate-x-0.5 ${
+                    currentIndex === journeys.length - 1 ? 'border-l-gray-400' : 'border-l-timeback-primary group-hover:border-l-timeback-primary'
+                  }`}></div>
                 </button>
               </div>
               

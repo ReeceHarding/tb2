@@ -193,28 +193,24 @@ const VideoCarousel: React.FC<VideoCarouselProps> = ({ videos, onVideoSelect }) 
 
   return (
     <div className="relative">
-      {/* Navigation Arrows */}
+      {/* Modern Navigation Arrows */}
       {currentIndex > 0 && (
         <button
           onClick={prevSlide}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 backdrop-blur-md bg-timeback-bg/90 rounded-full p-3 shadow-2xl hover:shadow-2xl transition-all duration-200 border border-timeback-primary"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white border-2 border-timeback-primary rounded-xl shadow-xl hover:bg-timeback-bg hover:scale-105 transition-all duration-300 flex items-center justify-center group"
           aria-label="Previous videos"
         >
-          <svg className="w-6 h-6 text-timeback-primary font-cal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
+          <div className="w-0 h-0 border-t-[6px] border-b-[6px] border-r-[10px] border-t-transparent border-b-transparent border-r-timeback-primary group-hover:border-r-timeback-primary transition-colors duration-200 -translate-x-0.5"></div>
         </button>
       )}
 
       {currentIndex < videos.length - visibleCards && (
         <button
           onClick={nextSlide}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-3 shadow-2xl hover:shadow-2xl transition-all duration-200 border border-timeback-primary"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white border-2 border-timeback-primary rounded-xl shadow-xl hover:bg-timeback-bg hover:scale-105 transition-all duration-300 flex items-center justify-center group"
           aria-label="Next videos"
         >
-          <svg className="w-6 h-6 text-timeback-primary font-cal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
+          <div className="w-0 h-0 border-t-[6px] border-b-[6px] border-l-[10px] border-t-transparent border-b-transparent border-l-timeback-primary group-hover:border-l-timeback-primary transition-colors duration-200 translate-x-0.5"></div>
         </button>
       )}
 
@@ -457,7 +453,7 @@ export default function VideoGallery({ quizData }: VideoGalleryProps) {
           {
             id: '3',
             title: 'The Science Behind Mastery Learning',
-            description: 'Explore the research that powers our 2x faster learning results.',
+            description: 'Explore the research that powers our 2x learning in just 2 hours a day (≈6x faster learning rate).',
             thumbnail_url: '/images/testimonials/maria-garcia-video.jpg',
             video_url: '/demo-video.mp4',
             duration: 300,
@@ -524,7 +520,7 @@ export default function VideoGallery({ quizData }: VideoGalleryProps) {
   }
 
   return (
-    <section className="max-w-7xl mx-auto py-16 lg:py-24 px-12">
+    <section className="max-w-7xl mx-auto py-12 lg:py-24 px-4 sm:px-6 lg:px-12">
       <div className="text-center mb-12 font-cal">
         <h2 className="text-3xl lg:text-5xl font-bold text-timeback-primary mb-6 font-cal">
           Explore Our Video Library

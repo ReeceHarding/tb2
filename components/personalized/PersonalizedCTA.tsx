@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import SchemaResponseRenderer from '@/components/SchemaResponseRenderer';
+import { QuestionBank, MAIN_QUESTIONS, GENERAL_QUESTIONS } from '@/libs/question-bank';
 
 interface QuizData {
   userType: string;
@@ -24,21 +25,26 @@ interface PersonalizedCTAProps {
 }
 
 export default function PersonalizedCTA({ quizData, onLearnMore }: PersonalizedCTAProps) {
-  const [question, setQuestion] = useState('');
+  // Question input removed - replaced with predefined button options only
   const [schemaResponse, setSchemaResponse] = useState<any>(null);
   const [schemaResponses, setSchemaResponses] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [conversationHistory, setConversationHistory] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
+  
+  // Predefined questions for button options - using centralized question bank
+  const predefinedQuestions = [
+    ...QuestionBank.getQuestionTexts('main').slice(0, 3), // First 3 main questions
+    ...QuestionBank.getQuestionTexts('general').slice(0, 3) // First 3 general questions
+  ];
 
   console.log('[PersonalizedCTA] Rendering schema-based Q&A section');
   console.log('[PersonalizedCTA] Quiz data:', quizData);
   console.log('[PersonalizedCTA] Conversation history length:', conversationHistory.length);
 
-  const handleQuestionSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!question.trim() || isLoading) return;
+  const handlePredefinedQuestion = async (selectedQuestion: string) => {
+    if (isLoading) return;
     
-    const currentQuestion = question.trim();
+    const currentQuestion = selectedQuestion;
     console.log('[PersonalizedCTA] Processing question with schema format:', currentQuestion);
     setIsLoading(true);
     setSchemaResponse(null); // Clear previous response
@@ -204,7 +210,7 @@ export default function PersonalizedCTA({ quizData, onLearnMore }: PersonalizedC
       });
     } finally {
       setIsLoading(false);
-      setQuestion(''); // Clear the question input after submission
+      // Question input removed - no need to clear
     }
   };
 
@@ -268,32 +274,23 @@ export default function PersonalizedCTA({ quizData, onLearnMore }: PersonalizedC
           Get instant answers about TimeBack from our AI assistant, trained on everything about our approach.
         </p>
 
-        {/* Simple Question Input */}
-        <div className="max-w-2xl mx-auto">
-          <form onSubmit={handleQuestionSubmit} className="space-y-4">
-            <input
-              type="text"
-              value={question}
-              onChange={(e) => setQuestion(e.target.value)}
-              placeholder="Ask me anything about TimeBack..."
-              className="w-full px-6 py-4 backdrop-blur-md bg-timeback-bg/80/10 backdrop-blur-md border-2 border-timeback-primary rounded-xl text-white placeholder-white/70 focus:ring-2 focus:ring-white/50 focus:border-white/50 outline-none font-cal text-lg shadow-lg"
-              disabled={isLoading}
-            />
-            <button
-              type="submit"
-              disabled={!question.trim() || isLoading}
-              className="w-full backdrop-blur-md bg-timeback-bg/80 text-timeback-primary px-6 py-4 rounded-xl font-bold hover:bg-timeback-bg hover:text-timeback-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl font-cal text-lg"
-            >
-              {isLoading ? (
-                <div className="flex items-center justify-center gap-2">
-                  <div className="w-5 h-5 border-2 border-timeback-primary border-t-transparent rounded-full animate-spin"></div>
-                  Getting your personalized answer...
-                </div>
-              ) : (
-                'Get My Personalized Answer'
-              )}
-            </button>
-          </form>
+        {/* Predefined Question Buttons */}
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {predefinedQuestions.map((questionText, index) => (
+              <button
+                key={index}
+                onClick={() => handlePredefinedQuestion(questionText)}
+                disabled={isLoading}
+                className="backdrop-blur-md bg-white/10 border-2 border-white rounded-xl p-6 text-center hover:bg-white/20 hover:transform hover:-translate-y-1 focus:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent transition-all duration-300 shadow-xl hover:shadow-2xl min-h-[80px] flex items-center justify-center group disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label={questionText}
+              >
+                <h3 className="text-base lg:text-lg font-bold text-white font-cal leading-snug group-hover:scale-105 transition-transform duration-200">
+                  {questionText}
+                </h3>
+              </button>
+            ))}
+          </div>
 
           {/* Display all responses in sequence */}
           {schemaResponses.map((response, index) => (
@@ -305,7 +302,7 @@ export default function PersonalizedCTA({ quizData, onLearnMore }: PersonalizedC
                 <SchemaResponseRenderer 
                   response={response}
                   onNextOptionClick={handleNextOptionClick}
-                  isLoading={false}
+                  isLoading={!response || !response.main_heading || !response.description}
                 />
               </div>
             </div>

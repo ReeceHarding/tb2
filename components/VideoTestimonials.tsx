@@ -116,12 +116,14 @@ interface VideoTestimonialsProps {
   featuredOnly?: boolean;
   limit?: number;
   className?: string;
+  tag?: string; // Add tag filtering support
 }
 
 const VideoTestimonials: React.FC<VideoTestimonialsProps> = ({ 
   featuredOnly = true, 
   limit = 6,
-  className = ''
+  className = '',
+  tag // Add tag parameter
 }) => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -131,10 +133,12 @@ const VideoTestimonials: React.FC<VideoTestimonialsProps> = ({
   const [allTestimonials, setAllTestimonials] = useState<Testimonial[]>([]);
 
   const fetchTestimonials = useCallback(async () => {
+    console.log(`[VideoTestimonials] Fetching testimonials with tag: ${tag}, limit: ${limit}, featuredOnly: ${featuredOnly}`);
     try {
       const params = new URLSearchParams();
       if (featuredOnly) params.append('featured', 'true');
       if (limit) params.append('limit', limit.toString());
+      if (tag) params.append('tag', tag);
       
       const response = await fetch(`/api/testimonials?${params}`);
       
@@ -143,15 +147,18 @@ const VideoTestimonials: React.FC<VideoTestimonialsProps> = ({
       }
       
       const data = await response.json();
+      console.log('[VideoTestimonials] API response data:', data);
       setTestimonials(data.testimonials);
+      console.log('[VideoTestimonials] Testimonials state set to:', data.testimonials.length, 'items');
       setError(null);
     } catch (err) {
       console.error('❌ Error fetching testimonials:', err);
       setError(err instanceof Error ? err.message : 'Failed to load testimonials');
     } finally {
       setIsLoading(false);
+      console.log('[VideoTestimonials] Loading finished. IsLoading:', false);
     }
-  }, [featuredOnly, limit]);
+  }, [featuredOnly, limit, tag]);
 
   const fetchAllTestimonials = async () => {
     try {
@@ -197,6 +204,7 @@ const VideoTestimonials: React.FC<VideoTestimonialsProps> = ({
     setSelectedTestimonial(null);
   };
 
+  console.log('[VideoTestimonials] Rendering. Current testimonials state length:', testimonials.length);
   if (isLoading) {
     return (
       <div className={`flex justify-center items-center py-12 ${className}`}>
@@ -260,7 +268,7 @@ const VideoTestimonials: React.FC<VideoTestimonialsProps> = ({
               
               {/* Play button overlay */}
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-opacity">
-                <div className="backdrop-blur-md bg-timeback-bg/90 bg-opacity-90 rounded-full p-4 group-hover:bg-opacity-100 transition-all transform group-hover:scale-110">
+                <div className="backdrop-blur-md bg-white/90 rounded-full p-4 group-hover:bg-white transition-all transform group-hover:scale-110">
                   <svg className="w-8 h-8 text-timeback-primary ml-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z"/>
                   </svg>

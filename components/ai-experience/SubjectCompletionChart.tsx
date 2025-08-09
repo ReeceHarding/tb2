@@ -41,7 +41,7 @@ export default function SubjectCompletionChart({ selectedGrade }: SubjectComplet
           </h3>
         </div>
         <p className="text-sm text-timeback-primary font-cal">
-          Hours needed to achieve mastery (90%+ competency) for {selectedGrade || 'grade-level'} curriculum
+          Hours needed to achieve mastery (90%+ competency) for {selectedGrade || 'grade level'} curriculum
         </p>
       </div>
 

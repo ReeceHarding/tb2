@@ -33,7 +33,7 @@ const Modal = ({ isModalOpen, setIsModalOpen }: ModalProps) => {
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full overflow-hidden items-start md:items-center justify-center p-2">
+          <div className="flex min-h-full items-start md:items-center justify-center p-2">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -43,7 +43,7 @@ const Modal = ({ isModalOpen, setIsModalOpen }: ModalProps) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="relative w-full max-w-3xl h-full overflow-visible transform text-left align-middle shadow-2xl transition-all rounded-xl backdrop-blur-md bg-timeback-bg/90 border border-timeback-primary p-6 md:p-8 font-cal">
+              <Dialog.Panel className="relative w-full sm:max-w-3xl max-h-[90vh] overflow-y-auto transform text-left align-middle shadow-2xl transition-all rounded-xl backdrop-blur-md bg-timeback-bg/90 border border-timeback-primary p-6 md:p-8 font-cal">
                 <div className="flex justify-between items-center mb-4">
                   <Dialog.Title as="h2" className="font-semibold text-timeback-primary font-cal">
                     I&apos;m a modal
@@ -133,7 +133,7 @@ export const VideoModal = ({ isOpen, onClose, videoUrl, title }: VideoModalProps
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden transform text-left align-middle shadow-2xl transition-all rounded-xl backdrop-blur-md bg-timeback-bg/90 border border-timeback-primary font-cal">
+              <Dialog.Panel className="relative w-full sm:max-w-4xl max-h-[90vh] overflow-y-auto transform text-left align-middle shadow-2xl transition-all rounded-xl backdrop-blur-md bg-timeback-bg/90 border border-timeback-primary font-cal">
                 {/* Header with close button */}
                 <div className="flex justify-between items-center p-4 border-b border-timeback-primary">
                   <Dialog.Title as="h3" className="text-lg font-semibold text-timeback-primary font-cal">

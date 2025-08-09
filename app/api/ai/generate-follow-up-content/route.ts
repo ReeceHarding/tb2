@@ -1,9 +1,8 @@
 import { NextRequest } from 'next/server';
-import { invokeClaude, formatClaudeResponse, ClaudeMessage } from '@/libs/bedrock-claude';
 
 export const dynamic = 'force-dynamic';
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
   console.log('[generate-follow-up-content] API route called');
   
   try {
@@ -33,18 +32,18 @@ You are a TimeBack education expert helping parents understand how TimeBack can 
 - Address the parent directly when appropriate`;
 
     const userPrompt = `<white_paper_content>
-${whitepaperContent || 'TimeBack enables students to learn 2x faster in just 2 hours per day through AI-powered personalized learning'}
+${whitepaperContent || 'TimeBack enables students to learn 2x the material in just 2 hours per day (≈6x faster learning rate) through AI-powered personalized learning'}
 </white_paper_content>
 
 <user_context>
-<name>${userData.name || 'Parent'}</name>
-<school>${userData.school?.name || 'Local school'} in ${userData.school?.city || 'your area'}, ${userData.school?.state || 'USA'}</school>
-<grade>${userData.studentGrade || 'K-12'}</grade>
-<interests>${userData.interests?.join(', ') || 'various subjects'}</interests>
+<name>${userData?.name || 'Parent'}</name>
+<school>${userData?.school?.name || 'Local school'} in ${userData?.school?.city || 'your area'}, ${userData?.school?.state || 'USA'}</school>
+<grade>${userData?.studentGrade || 'K-12'}</grade>
+<interests>${userData?.interests?.join(', ') || 'various subjects'}</interests>
 </user_context>
 
 <section_context>
-Current section: ${section}
+Current section: ${section || 'General inquiry'}
 Previous content shown: ${previousContent || 'Initial explanation'}
 </section_context>
 
@@ -68,40 +67,70 @@ Please provide a helpful, educational response that answers this question based 
       },
     });
 
-    // Generate content with Bedrock Claude and simulate streaming
-    const messages: ClaudeMessage[] = [
-      {
-        role: 'user',
-        content: userPrompt
-      }
-    ];
+    // Start streaming response
 
-    invokeClaude(messages, {
-      maxTokens: 1024,
-      temperature: 0.7,
-      system: systemPrompt
+    // Use Cerebras API for generation
+    const cerebrasUrl = 'https://api.cerebras.ai/v1/chat/completions';
+    const cerebrasKey = process.env.CEREBRAS_API_KEY || '';
+    
+    fetch(cerebrasUrl, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${cerebrasKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'llama-4-scout-17b-16e-instruct',
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userPrompt }
+        ],
+        max_completion_tokens: 1024,
+        temperature: 0.2,
+        stream: true
+      })
     }).then(async (response) => {
-      try {
-        const fullText = formatClaudeResponse(response);
-        
-        // Simulate streaming by sending text in chunks
-        const chunkSize = 5; // Words per chunk
-        const words = fullText.split(' ');
-        
-        for (let i = 0; i < words.length; i += chunkSize) {
-          const chunk = words.slice(i, i + chunkSize).join(' ') + ' ';
-          await writer.write(encoder.encode(`data: ${JSON.stringify({ text: chunk })}\n\n`));
-          // Add small delay to simulate streaming
-          await new Promise(resolve => setTimeout(resolve, 50));
-        }
-        
-        await writer.write(encoder.encode('data: [DONE]\n\n'));
-      } catch (error) {
-        console.error('[generate-follow-up-content] Streaming error:', error);
-        await writer.write(encoder.encode(`data: ${JSON.stringify({ error: 'Streaming error occurred' })}\n\n`));
-      } finally {
-        await writer.close();
+      if (!response.ok) {
+        throw new Error(`Cerebras API error: ${response.status}`);
       }
+      
+      const reader = response.body?.getReader();
+      const decoder = new TextDecoder();
+      
+      if (!reader) {
+        throw new Error('No response body reader');
+      }
+      
+      let done = false;
+      while (!done) {
+        const result = await reader.read();
+        done = result.done;
+        
+        if (result.value) {
+          const chunk = decoder.decode(result.value);
+          const lines = chunk.split('\n').filter(line => line.trim() !== '');
+          
+          for (const line of lines) {
+            if (line.startsWith('data: ')) {
+              const data = line.slice(6);
+              if (data === '[DONE]') continue;
+              
+              try {
+                const parsed = JSON.parse(data);
+                const content = parsed.choices?.[0]?.delta?.content || '';
+                if (content) {
+                  await writer.write(encoder.encode(`data: ${JSON.stringify({ text: content })}\n\n`));
+                }
+              } catch (e) {
+                console.error('[generate-follow-up-content] Parse error:', e);
+              }
+            }
+          }
+        }
+      }
+      
+      await writer.write(encoder.encode('data: [DONE]\n\n'));
+      await writer.close();
     }).catch(async (error) => {
       console.error('[generate-follow-up-content] Error:', error);
       await writer.write(encoder.encode(`data: ${JSON.stringify({ error: 'Failed to generate content' })}\n\n`));

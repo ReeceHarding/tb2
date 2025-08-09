@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from 'next-auth/react';
+import { unifiedDataService } from '@/libs/unified-data-service';
 
 interface PrefilledQuizData {
   userType: string;
@@ -22,6 +24,7 @@ interface PrefilledQuizData {
 
 const ButtonPrefilledQuiz = ({ extraStyle }: { extraStyle?: string }) => {
   const router = useRouter();
+  const { data: session } = useSession();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -95,6 +98,51 @@ const ButtonPrefilledQuiz = ({ extraStyle }: { extraStyle?: string }) => {
       // Save prefilled quiz data to localStorage
       localStorage.setItem('timebackQuizData', JSON.stringify(prefilledQuizData));
       console.log("[ButtonPrefilledQuiz] Quiz data saved to localStorage");
+      
+      // Also save individual items for personalized page compatibility
+      if (prefilledQuizData.selectedSchools && prefilledQuizData.selectedSchools.length > 0) {
+        localStorage.setItem('timebackUserSchool', JSON.stringify(prefilledQuizData.selectedSchools));
+        console.log('[ButtonPrefilledQuiz] Saved schools to timebackUserSchool');
+      }
+      
+      if (prefilledQuizData.selectedSchools?.[0]?.level) {
+        localStorage.setItem('timebackUserGrade', prefilledQuizData.selectedSchools[0].level);
+        console.log('[ButtonPrefilledQuiz] Saved grade to timebackUserGrade:', prefilledQuizData.selectedSchools[0].level);
+      }
+      
+      if (prefilledQuizData.kidsInterests && prefilledQuizData.kidsInterests.length > 0) {
+        localStorage.setItem('timebackUserInterests', JSON.stringify(prefilledQuizData.kidsInterests));
+        console.log('[ButtonPrefilledQuiz] Saved interests to timebackUserInterests:', prefilledQuizData.kidsInterests);
+      }
+
+      // Save to Supabase if authenticated
+      if (session?.user?.email) {
+        try {
+          let userProfile = await unifiedDataService.getUserProfile(session.user.email);
+          if (!userProfile) {
+            // Create profile if it doesn't exist
+            const firstName = session.user.name?.split(' ')[0];
+            const lastName = session.user.name?.split(' ').slice(1).join(' ');
+            userProfile = await unifiedDataService.saveUserProfile(
+              session.user.email,
+              { firstName, lastName }
+            );
+          }
+          if (userProfile) {
+            // Save each piece of data
+            await Promise.all([
+              unifiedDataService.saveSectionData(userProfile.id, 'userType', { value: prefilledQuizData.userType }),
+              unifiedDataService.saveSectionData(userProfile.id, 'parentSubType', { value: prefilledQuizData.parentSubType }),
+              unifiedDataService.saveSectionData(userProfile.id, 'grade', { value: prefilledQuizData.grade }),
+              unifiedDataService.saveSectionData(userProfile.id, 'selectedSchools', { value: prefilledQuizData.selectedSchools }),
+              unifiedDataService.saveSectionData(userProfile.id, 'kidsInterests', { value: prefilledQuizData.kidsInterests })
+            ]);
+            console.log('[ButtonPrefilledQuiz] Saved data to Supabase');
+          }
+        } catch (error) {
+          console.error('[ButtonPrefilledQuiz] Error saving to Supabase:', error);
+        }
+      }
 
       // Navigate to personalized page
       console.log("[ButtonPrefilledQuiz] Navigating to personalized page...");
@@ -122,6 +170,23 @@ const ButtonPrefilledQuiz = ({ extraStyle }: { extraStyle?: string }) => {
       };
 
       localStorage.setItem('timebackQuizData', JSON.stringify(fallbackQuizData));
+      
+      // Also save individual items for personalized page compatibility
+      if (fallbackQuizData.selectedSchools && fallbackQuizData.selectedSchools.length > 0) {
+        localStorage.setItem('timebackUserSchool', JSON.stringify(fallbackQuizData.selectedSchools));
+        console.log('[ButtonPrefilledQuiz] Saved fallback schools to timebackUserSchool');
+      }
+      
+      if (fallbackQuizData.selectedSchools?.[0]?.level) {
+        localStorage.setItem('timebackUserGrade', fallbackQuizData.selectedSchools[0].level);
+        console.log('[ButtonPrefilledQuiz] Saved fallback grade to timebackUserGrade:', fallbackQuizData.selectedSchools[0].level);
+      }
+      
+      if (fallbackQuizData.kidsInterests && fallbackQuizData.kidsInterests.length > 0) {
+        localStorage.setItem('timebackUserInterests', JSON.stringify(fallbackQuizData.kidsInterests));
+        console.log('[ButtonPrefilledQuiz] Saved fallback interests to timebackUserInterests:', fallbackQuizData.kidsInterests);
+      }
+      
       router.push('/personalized');
     } finally {
       setIsLoading(false);

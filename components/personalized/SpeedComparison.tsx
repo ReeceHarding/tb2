@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { TypewriterText } from './FollowUpQuestions';
 
 interface SpeedComparisonProps {
   gradeLevel?: string;
@@ -126,17 +127,29 @@ export default function SpeedComparison({ gradeLevel = '2nd', onLearnMore }: Spe
           <span className="text-timeback-primary font-bold text-sm font-cal">SPEED COMPARISON</span>
         </div>
         <h2 className="text-4xl lg:text-6xl font-bold text-timeback-primary mb-8 font-cal">
-          Your Child Can Master a Full Year in Just 2-3 Months
+          <TypewriterText 
+            text="Your Child Can Master a Full Year in Just 2-3 Months"
+            speed={35}
+            startDelay={200}
+          />
         </h2>
         <p className="text-2xl text-timeback-primary max-w-5xl mx-auto font-cal leading-relaxed">
-          See the dramatic difference in learning speed between traditional schools and TimeBack&apos;s mastery-based approach
+          <TypewriterText 
+            text="See the dramatic difference in learning speed between traditional schools and TimeBack's mastery based approach"
+            speed={25}
+            startDelay={1000}
+          />
         </p>
       </div>
 
       {/* Main comparison chart */}
       <div className="backdrop-blur-md bg-white/10 rounded-2xl shadow-2xl border-2 border-timeback-primary p-12 mb-16">
         <h3 className="text-3xl font-bold text-timeback-primary mb-12 text-center font-cal">
-          Our kids finish their coursework 5-10x faster
+          <TypewriterText 
+            text="Our kids finish their coursework 5-10x faster"
+            speed={30}
+            startDelay={1600}
+          />
         </h3>
         
         {/* Desktop view - Combined Vertical Bar chart */}

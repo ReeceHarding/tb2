@@ -1,22 +1,25 @@
 import { NextResponse, NextRequest } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/libs/next-auth";
-import connectMongo from "@/libs/mongoose";
+// MongoDB disabled - this endpoint needs to be migrated to Supabase
+// import connectMongo from "@/libs/mongoose";
 import { createCustomerPortal } from "@/libs/stripe";
-import User from "@/models/User";
+// import User from "@/models/User";
 
 export async function POST(req: NextRequest) {
   const session = await getServerSession(authOptions);
 
   if (session) {
     try {
-      await connectMongo();
+      // await connectMongo();
 
       const body = await req.json();
 
       const { id } = session.user;
 
-      const user = await User.findById(id);
+      // TODO: Migrate to Supabase
+      // const user = await User.findById(id);
+      const user: any = null;
 
       if (!user?.customerId) {
         return NextResponse.json(

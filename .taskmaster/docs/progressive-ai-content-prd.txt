@@ -1,0 +1,86 @@
+# Progressive AI-Powered Content Generation System PRD
+
+## Overview
+Transform the current quiz-dependent system into a progressive data collection and content generation platform that dynamically builds personalized pages using AI (Cerebras) while storing user data in both local storage and Supabase.
+
+## Core Requirements
+
+### 1. Dual Storage Architecture
+- Implement Supabase integration alongside existing local storage
+- Create a unified data service that checks both local storage and Supabase
+- Ensure data synchronization between local and cloud storage
+- Associate all data with user email for future retrieval
+
+### 2. Progressive Data Collection
+- Remove dependency on upfront quiz data collection
+- Implement "just-in-time" data collection when sections need specific information
+- Show data collection forms when required information is missing
+- Store collected data immediately in both local storage and Supabase
+
+### 3. AI-Powered Content Generation
+- Define schemas for each content section type
+- Feed section-specific schemas to XML prompts
+- Use Cerebras to generate dynamic content based on schemas
+- Replace hardcoded components with AI-generated content
+
+### 4. Persistent Journey Pages
+- Accumulate sections on the page as users progress
+- Save generated content to database for future viewing
+- Create shareable journey URLs
+- Implement journey retrieval by user email
+
+### 5. Schema-Driven Architecture
+- Create comprehensive schemas for all section types:
+  - School Performance Metrics
+  - Learning Schedule
+  - Closest Schools
+  - AI Chat Experience
+  - Custom Questions
+  - Personalized Recommendations
+- Include context requirements for each schema
+- Define data dependencies for each section
+
+### 6. Section Generation Flow
+1. User clicks on a section to generate
+2. System checks for required data in local storage and Supabase
+3. If data missing, show collection form
+4. Once data available, generate prompt with schema
+5. Send to Cerebras for content generation
+6. Display generated content
+7. Save to both storage systems
+8. Add to cumulative journey page
+
+## Technical Implementation
+
+### Data Layer
+- Create Supabase service for CRUD operations
+- Implement local storage wrapper with same interface
+- Build unified data access layer
+- Add data synchronization logic
+
+### Content Generation
+- Build schema registry for all section types
+- Create XML prompt builder with schema injection
+- Implement Cerebras integration for each section
+- Add content caching and retrieval
+
+### UI Components
+- Create generic content renderer for AI responses
+- Build progressive data collection forms
+- Implement journey page accumulator
+- Add sharing and retrieval features
+
+### Storage Schema
+- User profile data
+- Section-specific collected data
+- Generated content history
+- Journey snapshots
+- Sharing metadata
+
+## Success Criteria
+- Zero dependency on upfront quiz completion
+- All sections generateable with progressive data collection
+- 100% AI-generated content (except data visualizations)
+- Full journey persistence and sharing
+- Email-based content retrieval
+- Seamless local/cloud data synchronization

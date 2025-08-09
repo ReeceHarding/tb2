@@ -5,9 +5,9 @@ import { Variants } from "framer-motion";
 // Core animation timing and easing - Optimized for industry best practices
 export const ANIMATION_CONFIG = {
   duration: {
-    fast: 0.15,    // 150ms - snappy interactions
-    medium: 0.25,  // 250ms - standard entrance animations
-    slow: 0.3,     // 300ms - maximum for complex animations
+    fast: 0.1,     // 100ms - snappy interactions
+    medium: 0.15,  // 150ms - standard entrance animations  
+    slow: 0.2,     // 200ms - maximum for complex animations
   },
   easing: {
     smooth: [0.23, 1, 0.32, 1], // Custom cubic-bezier for smooth, natural motion
@@ -19,9 +19,9 @@ export const ANIMATION_CONFIG = {
   },
   delays: {
     none: 0,
-    short: 0.05,   // 50ms - minimal stagger
-    medium: 0.1,   // 100ms - standard stagger
-    long: 0.15,    // 150ms - maximum stagger for accessibility
+    short: 0.03,   // 30ms - minimal stagger
+    medium: 0.05,  // 50ms - standard stagger
+    long: 0.08,    // 80ms - maximum stagger for accessibility
   },
 } as const;
 

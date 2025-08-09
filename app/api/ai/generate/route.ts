@@ -10,12 +10,56 @@ const log = (message: string, data?: any) => {
 const CEREBRAS_API_KEY = process.env.CEREBRAS_API_KEY || '';
 const CEREBRAS_BASE_URL = 'https://api.cerebras.ai/v1';
 
+// Groq configuration (OpenAI-compatible API)
+const GROQ_API_KEY = process.env.GROQ_API_KEY || '';
+const GROQ_BASE_URL = 'https://api.groq.com/openai/v1';
+
 interface GenerateContentOptions {
   prompt: string;
   maxTokens?: number;
   temperature?: number;
   systemPrompt?: string;
   stream?: boolean;
+}
+
+async function generateWithGroq(options: GenerateContentOptions): Promise<{ content: string; provider: string; model: string }> {
+  if (!GROQ_API_KEY) {
+    log('GROQ_API_KEY is not set; cannot use Groq fallback');
+    throw new Error('Groq API key missing');
+  }
+
+  const messages: any[] = [];
+  if (options.systemPrompt) {
+    messages.push({ role: 'system', content: options.systemPrompt });
+  }
+  messages.push({ role: 'user', content: options.prompt });
+
+  const model = 'openai/gpt-oss-120b';
+
+  const resp = await fetch(`${GROQ_BASE_URL}/chat/completions`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${GROQ_API_KEY}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      model,
+      messages,
+      max_tokens: options.maxTokens || 32766,
+      temperature: options.temperature ?? 1,
+      stream: false,
+      ...(options.systemPrompt ? { response_format: { type: 'json_object' } } : {})
+    })
+  });
+
+  if (!resp.ok) {
+    const errText = await resp.text();
+    throw new Error(`Groq API error: ${resp.status} - ${errText}`);
+  }
+
+  const data = await resp.json();
+  const content: string = data?.choices?.[0]?.message?.content || '';
+  return { content, provider: 'groq', model };
 }
 
 async function* generateContentStream(options: GenerateContentOptions) {
@@ -29,7 +73,7 @@ async function* generateContentStream(options: GenerateContentOptions) {
   });
 
   try {
-    log('Attempting generation with Cerebras gpt-oss-120b model...');
+    log('Attempting generation with Cerebras llama-4-scout-17b-16e-instruct model...');
     
     const messages: any[] = [];
     if (options.systemPrompt) {
@@ -44,10 +88,10 @@ async function* generateContentStream(options: GenerateContentOptions) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'gpt-oss-120b',
+        model: 'llama-4-scout-17b-16e-instruct',
         messages,
         max_completion_tokens: options.maxTokens || 65536,
-        temperature: options.temperature || 1,
+        temperature: options.temperature ?? 0.2,
         top_p: 1,
         stream: true
       })
@@ -100,11 +144,23 @@ async function* generateContentStream(options: GenerateContentOptions) {
     
   } catch (error) {
     log('Cerebras streaming failed', error);
-    throw error;
+    // Fallback to Groq (non-stream) and emit as a single chunk
+    try {
+      const { content, provider, model } = await generateWithGroq({ ...options, stream: false });
+      log(`Groq fallback (streaming path) succeeded using ${provider}:${model}`);
+      if (content) {
+        yield content;
+        return;
+      }
+      throw new Error('Groq fallback returned empty content');
+    } catch (fallbackErr) {
+      log('Groq fallback (streaming path) failed', fallbackErr);
+      throw fallbackErr;
+    }
   }
 }
 
-async function generateContent(options: GenerateContentOptions): Promise<string> {
+async function generateContent(options: GenerateContentOptions): Promise<{ content: string; provider: string; model: string }> {
   const startTime = Date.now();
   
   log('Starting non-streaming content generation with options:', {
@@ -114,7 +170,7 @@ async function generateContent(options: GenerateContentOptions): Promise<string>
   });
 
   try {
-    log('Attempting generation with Cerebras gpt-oss-120b model (non-streaming)...');
+    log('Attempting generation with Cerebras llama-4-scout-17b-16e-instruct model (non-streaming)...');
     
     const messages: any[] = [];
     if (options.systemPrompt) {
@@ -129,10 +185,10 @@ async function generateContent(options: GenerateContentOptions): Promise<string>
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: 'gpt-oss-120b',
+        model: 'llama-4-scout-17b-16e-instruct',
         messages,
         max_completion_tokens: options.maxTokens || 65536,
-        temperature: options.temperature || 1,
+        temperature: options.temperature ?? 0.2,
         top_p: 1,
         stream: false
       })
@@ -149,10 +205,13 @@ async function generateContent(options: GenerateContentOptions): Promise<string>
     
     log(`Cerebras generation successful in ${latencyMs}ms`);
     
-    return content;
+    return { content, provider: 'cerebras', model: 'llama-4-scout-17b-16e-instruct' };
   } catch (error) {
     log('Cerebras failed', error);
-    throw error;
+    // Fallback to Groq
+    const { content, provider, model } = await generateWithGroq({ ...options, stream: false });
+    log(`Groq fallback (non-stream) succeeded using ${provider}:${model}`);
+    return { content, provider, model };
   }
 }
 
@@ -192,11 +251,11 @@ export async function POST(req: NextRequest) {
       });
     } else {
       // Non-streaming response
-      const content = await generateContent({ prompt, maxTokens, temperature, systemPrompt });
+      const { content, provider, model } = await generateContent({ prompt, maxTokens, temperature, systemPrompt });
       return NextResponse.json({ 
         content, 
-        provider: 'cerebras',
-        model: 'gpt-oss-120b'
+        provider,
+        model
       });
     }
   } catch (error) {

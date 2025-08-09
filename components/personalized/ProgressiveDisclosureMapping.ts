@@ -2,7 +2,7 @@
 // Maps parent-focused questions to relevant components and sub-sections
 
 import React from 'react';
-import AfternoonActivities from './AfternoonActivities';
+import AfternoonActivities, { PersonalizedDailyTimeline } from './AfternoonActivities';
 import TimeBackVsCompetitors from './TimeBackVsCompetitors';
 import SpeedComparison from './SpeedComparison';
 import PersonalizedSubjectExamples from './PersonalizedSubjectExamples';
@@ -78,13 +78,19 @@ export const PROGRESSIVE_DISCLOSURE_MAPPING: MainSection[] = [
         description: 'The step-by-step process of TimeBack learning',
         components: [
           { component: MechanismSection, name: 'MechanismSection' },
-          { component: HowWeGetResults, name: 'HowWeGetResults' }
+          { component: HowWeGetResults, name: 'HowWeGetResults' },
+          { component: PersonalizedDailyTimeline, name: 'PersonalizedDailyTimeline' }
         ],
         subButtons: [
           {
             id: 'daily-process',
             text: 'What does a typical day look like?',
             targetComponents: ['MechanismSection']
+          },
+          {
+            id: 'personalized-schedule',
+            text: 'Show me my child\'s liberated schedule',
+            targetComponents: ['PersonalizedDailyTimeline']
           },
           {
             id: 'personalization-process',
@@ -329,6 +335,7 @@ export const PROGRESSIVE_DISCLOSURE_MAPPING: MainSection[] = [
 export const getComponentByName = (name: string) => {
   const componentMap: { [key: string]: React.ComponentType<any> } = {
     'AfternoonActivities': AfternoonActivities,
+    'PersonalizedDailyTimeline': PersonalizedDailyTimeline,
     'TimeBackVsCompetitors': TimeBackVsCompetitors,
     'SpeedComparison': SpeedComparison,
     'PersonalizedSubjectExamples': PersonalizedSubjectExamples,

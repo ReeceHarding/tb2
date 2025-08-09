@@ -56,8 +56,7 @@ const EXPECTED_SCHOOLS = [
   'SAT Level Up',
   'Texas Sports Academy',
   'Thought Leadership Events',
-  'Unbound',
-  'Waypoint Academy'
+  'Unbound'
 ];
 
 async function tryServiceAccountAuth() {

@@ -9,17 +9,17 @@ import SafeImage from "./SafeImage";
 
 // Simple array of messages to cycle through
 const typewriterMessages = [
-  "crush academics in just 2 hours a day?",
-  "score in the 98th percentile nationally?", 
-  "choose school over summer vacation?"
+  "learn 2x the material in just 2 hours a day?",
+  "complete 2 grade levels in one year?", 
+  "score in the 99th percentile on MAP tests?"
 ];
 
 // Clean, simple typewriter component
 const TypewriterText = () => {
   const [messageIndex, setMessageIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(typewriterMessages[0].length); // Start with first message fully typed
   const [isDeleting, setIsDeleting] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPaused, setIsPaused] = useState(true); // Start paused to show the first message
 
   useEffect(() => {
     const currentMessage = typewriterMessages[messageIndex];
@@ -116,8 +116,8 @@ const Hero = () => {
               custom={0.1}  // Reduced from 1.0s to 100ms stagger
               className="text-base sm:text-lg lg:text-xl text-timeback-primary leading-relaxed font-cal max-w-2xl mx-auto lg:mx-0 font-medium"
             >
-              We know it sounds impossible. That&apos;s what every homeschool parent thinks—until they see their child mastering 
-              two grade levels in one year with our AI tutoring system, scoring in the 99th percentile on MAP tests, and actually loving their personalized learning experience. 
+              Traditional schools are failing our children—wasting 6+ hours daily on outdated methods while less than 50% perform at grade level. 
+              But what if there was a proven way for your child to excel academically in just 2 hours, leaving 4 hours for life skills, passions, and actually enjoying childhood? 
               <span className="block mt-3 font-bold font-cal flex items-center justify-center lg:justify-start gap-2">
                 Welcome to 
                 <SafeImage 
@@ -154,10 +154,10 @@ const Hero = () => {
             variants={animationVariants.fadeInRight}
             initial="initial"
             animate="animate"
-            className="relative"
+            className="relative pt-6"
           >
             {/* Floating badge */}
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+            <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 z-10">
               <div className="bg-timeback-primary text-white px-6 py-2 rounded-full shadow-2xl font-cal">
                 <span className="text-sm font-bold font-cal">REAL DATA • 2024</span>
               </div>
@@ -175,7 +175,7 @@ const Hero = () => {
 
               {/* Achievement Badge */}
               <div className="relative -mt-6 flex justify-center">
-                <div className="backdrop-blur-md bg-timeback-bg/90 border-4 border-timeback-primary rounded-full px-6 py-3 shadow-2xl">
+                                  <div className="backdrop-blur-md bg-white border-4 border-timeback-primary rounded-full px-6 py-3 shadow-2xl">
                   <div className="flex items-center gap-2 text-timeback-primary font-cal">
                     <span className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></span>
                     <span className="font-bold text-lg font-cal">TOP 1% NATIONALLY</span>
@@ -190,8 +190,8 @@ const Hero = () => {
                 <div className="grid grid-cols-2 gap-4">
                   {/* Traditional School */}
                   <div className="text-center font-cal">
-                    <h4 className="text-timeback-primary font-bold mb-3 font-cal text-sm">Traditional School</h4>
-                    <div className="bg-timeback-bg border-2 border-timeback-primary rounded-xl p-4 space-y-3">
+                    <div className="bg-white border-2 border-timeback-primary rounded-xl p-4 space-y-3">
+                      <h4 className="text-timeback-primary font-bold mb-3 font-cal text-sm">Traditional School</h4>
                       <div className="space-y-2">
                         <div className="flex justify-between items-center">
                           <span className="text-xs font-cal text-timeback-primary">Daily Time:</span>
@@ -214,8 +214,8 @@ const Hero = () => {
 
                   {/* With Timeback */}
                   <div className="text-center font-cal">
-                    <h4 className="text-timeback-primary font-bold mb-3 font-cal text-sm">With Timeback</h4>
-                    <div className="bg-timeback-bg border-2 border-timeback-primary rounded-xl p-4 space-y-3">
+                    <div className="bg-white border-2 border-timeback-primary rounded-xl p-4 space-y-3">
+                      <h4 className="text-timeback-primary font-bold mb-3 font-cal text-sm">With Timeback</h4>
                       <div className="space-y-2">
                         <div className="flex justify-between items-center">
                           <span className="text-xs font-cal text-timeback-primary">Daily Time:</span>
@@ -226,8 +226,8 @@ const Hero = () => {
                           <span className="font-bold text-xs font-cal text-timeback-primary">90%+</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-xs font-cal text-timeback-primary">Achievement:</span>
-                          <span className="font-bold text-xs font-cal text-timeback-primary">99th %ile</span>
+                          <span className="text-xs font-cal text-timeback-primary">At Grade Level:</span>
+                          <span className="font-bold text-xs font-cal text-timeback-primary">99%</span>
                         </div>
                       </div>
                       <div className="text-xs text-timeback-primary font-bold pt-2 border-t border-timeback-primary font-cal">
@@ -238,7 +238,7 @@ const Hero = () => {
                 </div>
 
                 {/* Test Results Section */}
-                <div className="bg-timeback-bg border-2 border-timeback-primary rounded-xl p-5">
+                <div className="bg-white border-2 border-timeback-primary rounded-xl p-5">
                   <h4 className="font-bold text-timeback-primary mb-4 text-center font-cal">MAP Test Results (Spring 2024)</h4>
                   <div className="grid grid-cols-2 gap-3 text-sm font-cal">
                     <div className="flex justify-between items-center">

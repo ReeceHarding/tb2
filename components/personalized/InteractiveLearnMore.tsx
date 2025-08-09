@@ -5,6 +5,52 @@ import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
 import ReactMarkdown from 'react-markdown';
 
+// Custom typewriter hook for LLM-like animation
+const useTypewriter = (text: string, speed = 25, startDelay = 0) => {
+  const [displayText, setDisplayText] = useState('');
+  const [isComplete, setIsComplete] = useState(false);
+
+  useEffect(() => {
+    if (!text) {
+      setDisplayText('');
+      setIsComplete(true);
+      return;
+    }
+
+    setDisplayText('');
+    setIsComplete(false);
+    
+    const timer = setTimeout(() => {
+      let currentIndex = 0;
+      
+      const typeInterval = setInterval(() => {
+        if (currentIndex <= text.length) {
+          setDisplayText(text.slice(0, currentIndex));
+          currentIndex++;
+        } else {
+          setIsComplete(true);
+          clearInterval(typeInterval);
+        }
+      }, speed);
+
+      return () => clearInterval(typeInterval);
+    }, startDelay);
+
+    return () => clearTimeout(timer);
+  }, [text, speed, startDelay]);
+
+  return { displayText, isComplete };
+};
+
+// Hook for multiple questions with staggered animations
+const useQuestionsTypewriter = (questions: string[], speed = 25, baseDelay = 0) => {
+  const questionAnimations = questions.map((question, index) => 
+    useTypewriter(question, speed, baseDelay + (index * 400)) // 400ms between each question
+  );
+
+  return questionAnimations;
+};
+
 interface QuizData {
   userType: string;
   parentSubType: string;
@@ -30,11 +76,11 @@ interface InteractiveLearnMoreProps {
 const getSectionContent = (section: string): string => {
   const contentMap: Record<string, string> = {
     'school-performance': 'Data showing TimeBack students consistently achieve 99th percentile results compared to traditional schools, with detailed analytics and performance metrics.',
-    'timeback-intro': 'Overview of how TimeBack AI tutoring works with personalized learning, mastery-based progression, and adaptive curriculum.',
+    'timeback-intro': 'Overview of how TimeBack AI tutoring works with personalized learning, mastery based progression, and adaptive curriculum.',
     'subject-examples': 'Examples of how TimeBack connects student interests to academic subjects like math, science, English, creating personalized problems and lessons.',
-    'learning-science': 'The research and science behind mastery-based learning, spaced repetition, and personalized education approaches.',
+    'learning-science': 'The research and science behind mastery based learning, spaced repetition, and personalized education approaches.',
     'competitors': 'Comparison between TimeBack and other educational approaches including Khan Academy, traditional tutoring, and other AI platforms.',
-    'afternoon-activities': 'How TimeBack incorporates afternoon activities, real-world experiences, and interest-based learning outside of academics.',
+    'afternoon-activities': 'How TimeBack incorporates afternoon activities, real world experiences, and interest-based learning outside of academics.',
     'speed-comparison': 'Data showing how TimeBack students complete academic subjects 6-10x faster than traditional school while achieving better results.',
             'cta': 'Information about getting started with TimeBack, enrollment process, and next steps for parents.'
   };
@@ -44,7 +90,7 @@ const getSectionContent = (section: string): string => {
 
 export default function InteractiveLearnMore({ section, quizData, onClose }: InteractiveLearnMoreProps) {
   const [selectedQuestion, setSelectedQuestion] = useState<string | null>(null);
-  const [customQuestion, setCustomQuestion] = useState('');
+  // Custom question input removed - replaced with predefined button options only
   const [aiResponse, setAiResponse] = useState<string | null>(null);
   const [isLoadingResponse, setIsLoadingResponse] = useState(false);
   const [generatedQuestions, setGeneratedQuestions] = useState<string[]>([]);
@@ -67,6 +113,62 @@ export default function InteractiveLearnMore({ section, quizData, onClose }: Int
   const isChatLoading = status === 'streaming' || status === 'submitted';
 
   console.log('[InteractiveLearnMore] Showing modal for section:', section);
+
+  // Generate contextual questions based on the section (fallback)
+  const getContextualQuestions = (sectionName: string) => {
+    const questionMap: Record<string, string[]> = {
+      'school-performance': [
+        'How does TimeBack achieve 99th percentile results consistently?',
+        'What specific teaching methods make the difference?',
+        'How long does it typically take to see improvement?'
+      ],
+      'timeback-intro': [
+        'How does the AI adapt to different learning styles?',
+        'What makes TimeBack different from Khan Academy?',
+        'Can you show me a real student example?'
+      ],
+      'subject-examples': [
+        'How do you incorporate my child\'s interests into all subjects?',
+        'What if my child loses interest in their current hobbies?',
+        'Can TimeBack adapt to different grade levels within a family?'
+      ],
+      'learning-science': [
+        'What research backs up the TimeBack approach?',
+        'How does spaced repetition work in practice?',
+        'Why is mastery based learning more effective?'
+      ],
+      'competitors': [
+        'How is TimeBack different from online tutoring?',
+        'What advantages does TimeBack have over traditional school?',
+        'How does TimeBack compare in cost to private school?'
+      ],
+      'afternoon-activities': [
+        'How does TimeBack coordinate with extracurricular activities?',
+        'What if my child wants to change their interests?',
+        'How much time should be dedicated to non-academic pursuits?'
+      ],
+      'speed-comparison': [
+        'How can students really learn faster without gaps?',
+        'What evidence shows TimeBack students outperform peers?',
+        'Is faster learning sustainable long-term?'
+      ],
+      'cta': [
+        'What does the enrollment process look like?',
+        'How quickly can my child start with TimeBack?',
+        'What support is provided during the transition?'
+      ]
+    };
+    
+    return questionMap[sectionName] || [
+      'How can TimeBack help my specific situation?',
+      'What results can I expect for my child?',
+      'How do I get started with TimeBack?'
+    ];
+  };
+
+  // Typewriter animations for questions (using contextualQuestions which includes both generated and fallback)
+  const contextualQuestions = generatedQuestions.length > 0 ? generatedQuestions : getContextualQuestions(section);
+  const questionAnimations = useQuestionsTypewriter(contextualQuestions, 25, 300);
 
   // Always generate questions when component mounts
   useEffect(() => {
@@ -107,53 +209,6 @@ export default function InteractiveLearnMore({ section, quizData, onClose }: Int
     fetchQuestionsFromAPI();
   }, [section, quizData]);
 
-  // Generate contextual questions based on the section (fallback)
-  const getContextualQuestions = (sectionName: string) => {
-    const questionMap: Record<string, string[]> = {
-      'school-performance': [
-        'How does TimeBack achieve 99th percentile results consistently?',
-        'What specific teaching methods make the difference?',
-        'How long does it typically take to see improvement?'
-      ],
-      'timeback-intro': [
-        'How does the AI adapt to different learning styles?',
-        'What makes TimeBack different from Khan Academy?',
-        'Can you show me a real student example?'
-      ],
-      'subject-examples': [
-        'How do you incorporate my child\'s interests into all subjects?',
-        'What if my child loses interest in their current hobbies?',
-        'Can you show more examples for different grade levels?'
-      ],
-      'learning-science': [
-        'What research backs up the mastery-based approach?',
-        'How do you ensure my child doesn\'t get bored?',
-        'What about social learning and interaction with peers?'
-      ],
-      'competitors': [
-        'How is TimeBack different from traditional tutoring?',
-        'What about compared to other AI learning platforms?',
-        'How do you ensure quality control with AI tutors?'
-      ],
-      'afternoon-activities': [
-        'How do you find activities that match my child\'s interests?',
-        'What if there are no activities available in our area?',
-        'How do you track progress in these activities?'
-      ],
-      'cta': [
-        'What are the next steps to get started?',
-        'How much does TimeBack cost?',
-        'What is your money-back guarantee policy?'
-      ]
-    };
-
-    return questionMap[sectionName] || [
-      'Can you tell me more about this?',
-      'How does this specifically apply to my situation?',
-      'What are the next steps?'
-    ];
-  };
-
   const handleQuestionSelect = async (question: string) => {
     console.log('[InteractiveLearnMore] Selected question:', question);
     setSelectedQuestion(question);
@@ -176,29 +231,7 @@ export default function InteractiveLearnMore({ section, quizData, onClose }: Int
     }
   };
 
-  const handleCustomQuestion = async () => {
-    if (!customQuestion.trim()) return;
-    
-    console.log('[InteractiveLearnMore] Custom question:', customQuestion);
-    setSelectedQuestion(customQuestion);
-    setIsLoadingResponse(true);
-    setAiResponse(null);
-
-    try {
-      // TODO: Replace with actual AI API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      const mockResponse = generateMockResponse(customQuestion, section, quizData);
-      setAiResponse(mockResponse);
-      
-    } catch (error) {
-      console.error('[InteractiveLearnMore] Error getting AI response:', error);
-      setAiResponse('Sorry, I couldn\'t process your question right now. Please try again later.');
-    } finally {
-      setIsLoadingResponse(false);
-      setCustomQuestion('');
-    }
-  };
+  // Custom question handler removed - replaced with predefined button options only
 
   // Generate contextual mock responses (will be replaced with real AI)
   const generateMockResponse = (question: string, sectionName: string, quiz: QuizData): string => {
@@ -206,15 +239,15 @@ export default function InteractiveLearnMore({ section, quizData, onClose }: Int
     const primaryInterest = quiz.kidsInterests[0] || 'their interests';
     
     if (question.toLowerCase().includes('99th percentile')) {
-      return `Great question! TimeBack achieves consistent 99th percentile results through our mastery-based learning system. Unlike traditional schools where students move on before fully understanding concepts, TimeBack ensures 90% mastery before progression. 
+      return `Great question! TimeBack achieves consistent 99th percentile results through our mastery based learning system. Unlike traditional schools where students move on before fully understanding concepts, TimeBack ensures 90% mastery before progression. 
 
 For students at ${schoolName}, we've seen similar improvements when they focus on true understanding rather than rushing through curriculum. Your child's interest in ${primaryInterest} becomes a powerful tool for engagement - we use it to make every lesson personally relevant.
 
-The key is our AI tutor that adapts in real-time. If your child struggles with a concept, it automatically provides different explanations, examples, and practice problems until mastery is achieved. This individualized attention is what typically costs $100+ per hour with human tutors.`;
+The key is our AI tutor that adapts in real time. If your child struggles with a concept, it automatically provides different explanations, examples, and practice problems until mastery is achieved. This individualized attention is what typically costs $100+ per hour with human tutors.`;
     }
     
     if (question.toLowerCase().includes('different') || question.toLowerCase().includes('khan academy')) {
-      return `Excellent question! The main difference is structure and accountability. Khan Academy is self-paced, which sounds good but often leads to gaps in learning. Students can watch videos and move on without truly mastering the material.
+      return `Excellent question! The main difference is structure and accountability. Khan Academy is self paced, which sounds good but often leads to gaps in learning. Students can watch videos and move on without truly mastering the material.
 
 TimeBack enforces mastery - your child cannot progress until they demonstrate 90% understanding. This might seem slower at first, but it's actually much faster because they build solid foundations. No more reviewing the same concepts repeatedly because they never fully learned them.
 
@@ -254,8 +287,6 @@ Would you like me to elaborate on any specific aspect of this topic?`;
     
     return titleMap[sectionName] || 'Learn More';
   };
-
-  const contextualQuestions = generatedQuestions.length > 0 ? generatedQuestions : getContextualQuestions(section);
 
   return (
     <div className="fixed inset-0 bg-timeback-primary bg-opacity-50 flex items-center justify-center z-50 p-4">
@@ -309,7 +340,7 @@ Would you like me to elaborate on any specific aspect of this topic?`;
                         className="w-full text-left p-6 border-2 border-timeback-primary rounded-xl hover:bg-timeback-bg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 font-cal"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-timeback-primary font-cal text-lg font-medium">{question}</span>
+                          <span className="text-timeback-primary font-cal text-lg font-medium">{questionAnimations[index]?.displayText || ''}</span>
                           <svg className="w-6 h-6 text-timeback-primary font-cal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
@@ -320,29 +351,7 @@ Would you like me to elaborate on any specific aspect of this topic?`;
                 )}
               </div>
 
-              {/* Custom Question Input */}
-              <div className="border-t-2 border-timeback-primary pt-8">
-                <h3 className="text-2xl font-bold text-timeback-primary mb-6 font-cal">
-                  Or ask your own question
-                </h3>
-                <div className="flex gap-4">
-                  <input
-                    type="text"
-                    value={customQuestion}
-                    onChange={(e) => setCustomQuestion(e.target.value)}
-                    onKeyPress={(e) => e.key === 'Enter' && handleCustomQuestion()}
-                    placeholder="Type your question here..."
-                    className="flex-1 px-6 py-4 border-2 border-timeback-primary rounded-xl focus:border-timeback-primary focus:ring-2 focus:ring-timeback-primary focus:ring-opacity-30 text-timeback-primary placeholder:text-timeback-primary placeholder:opacity-60 font-cal text-lg"
-                  />
-                  <button
-                    onClick={handleCustomQuestion}
-                    disabled={!customQuestion.trim()}
-                    className="px-8 py-4 bg-timeback-primary text-white rounded-xl hover:bg-opacity-90 disabled:opacity-50 disabled:cursor-not-allowed font-bold font-cal text-lg transition-all duration-200 hover:shadow-2xl"
-                  >
-                    Ask
-                  </button>
-                </div>
-              </div>
+              {/* Custom question input removed - replaced with predefined button options only */}
             </>
           ) : (
             <>
@@ -372,7 +381,11 @@ Would you like me to elaborate on any specific aspect of this topic?`;
                         p: ({children}) => <p className="text-timeback-primary leading-relaxed mb-4 font-cal text-lg">{children}</p>,
                         ul: ({children}) => <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>,
                         ol: ({children}) => <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>,
-                        li: ({children}) => <li className="text-timeback-primary font-cal">{children}</li>,
+                        li: ({children}) => (
+                          <li className="text-timeback-primary font-cal [&>p]:inline [&>p]:mr-2 [&>p:last-child]:mr-0">
+                            {children}
+                          </li>
+                        ),
                         strong: ({children}) => <strong className="font-bold text-timeback-primary font-cal">{children}</strong>,
                         em: ({children}) => <em className="italic text-timeback-primary font-cal">{children}</em>,
                         code: ({children}) => <code className="bg-timeback-bg text-timeback-primary px-2 py-1 rounded text-sm font-mono border border-timeback-primary font-cal">{children}</code>,
@@ -466,7 +479,11 @@ Would you like me to elaborate on any specific aspect of this topic?`;
                                       p: ({children}) => <p className="mb-2 last:mb-0 font-cal">{children}</p>,
                                       ul: ({children}) => <ul className="list-disc list-inside mb-2 space-y-1">{children}</ul>,
                                       ol: ({children}) => <ol className="list-decimal list-inside mb-2 space-y-1">{children}</ol>,
-                                      li: ({children}) => <li className="font-cal">{children}</li>,
+                                      li: ({children}) => (
+                                        <li className="font-cal [&>p]:inline [&>p]:mr-2 [&>p:last-child]:mr-0">
+                                          {children}
+                                        </li>
+                                      ),
                                       strong: ({children}) => <strong className="font-bold font-cal">{children}</strong>,
                                       em: ({children}) => <em className="italic font-cal">{children}</em>,
                                       code: ({children}) => <code className="bg-timeback-bg px-1 py-0.5 rounded text-xs font-mono border border-timeback-primary font-cal">{children}</code>,
@@ -524,11 +541,7 @@ Would you like me to elaborate on any specific aspect of this topic?`;
                 >
                   {isChatLoading ? (
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  ) : (
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                    </svg>
-                  )}
+                  ) : null}
                 </button>
               </form>
             </div>

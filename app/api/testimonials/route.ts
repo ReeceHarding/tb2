@@ -19,8 +19,9 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const featuredOnly = searchParams.get('featured') === 'true';
     const limit = searchParams.get('limit') ? parseInt(searchParams.get('limit')!) : undefined;
+    const tag = searchParams.get('tag'); // Add tag filtering support
     
-    console.log('🔍 Query params:', { featuredOnly, limit });
+    console.log('🔍 Query params:', { featuredOnly, limit, tag });
     
     // Build the query
     let query = supabase
@@ -31,6 +32,10 @@ export async function GET(request: NextRequest) {
     // Apply filters
     if (featuredOnly) {
       query = query.eq('featured', true);
+    }
+    
+    if (tag) {
+      query = query.contains('tags', [tag]);
     }
     
     if (limit) {

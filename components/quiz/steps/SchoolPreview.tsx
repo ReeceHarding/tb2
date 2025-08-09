@@ -89,12 +89,12 @@ export default function SchoolPreview({ school, onClose, onBack }: SchoolPreview
   const getSchoolTypeDescription = (type: string, name: string) => {
     if (name.includes('Alpha')) {
       return {
-        title: "AI-Powered Personalized Learning",
-        description: "Alpha Schools use cutting-edge AI technology to create personalized learning experiences that adapt to each student's unique pace, learning style, and interests. Students typically complete traditional coursework 2-3x faster while developing critical thinking and problem-solving skills.",
+        title: "AI Powered Personalized Learning",
+        description: "Alpha Schools use cutting edge AI technology to create personalized learning experiences that adapt to each student's unique pace, learning style, and interests. Students typically complete traditional coursework 2-3x faster while developing critical thinking and problem-solving skills.",
         features: [
-          "AI-driven personalized curriculum",
+          "AI driven personalized curriculum",
           "2-3x faster learning pace",
-          "Real-world project-based learning",
+          "Real world project based learning",
           "Small class sizes (10-15 students)",
           "Focus on critical thinking and creativity"
         ]
@@ -114,7 +114,7 @@ export default function SchoolPreview({ school, onClose, onBack }: SchoolPreview
     } else if (name.includes('NextGen')) {
       return {
         title: "Future-Ready STEM Education",
-        description: "NextGen Academy prepares students for tomorrow's challenges with innovative STEM-focused education, entrepreneurship programs, and cutting-edge technology integration.",
+        description: "NextGen Academy prepares students for tomorrow's challenges with innovative STEM-focused education, entrepreneurship programs, and cutting edge technology integration.",
         features: [
           "STEM-focused curriculum",
           "Entrepreneurship training",

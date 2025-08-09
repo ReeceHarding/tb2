@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { usePostHog } from 'posthog-js/react';
 import ProgressiveDisclosureHero from './ProgressiveDisclosureHero';
 import SectionExplorer from './SectionExplorer';
-import ShareJourneyButton from './ShareJourneyButton';
 import { PROGRESSIVE_DISCLOSURE_MAPPING, MainSection, SectionMapping } from './ProgressiveDisclosureMapping';
 import { smoothScrollTo, instantReveal } from '@/libs/ui-animations';
 
@@ -318,14 +317,7 @@ export default function ProgressiveDisclosureContainer({
         </div>
       )}
       
-      {/* Share Journey Button - Fixed at bottom right */}
-      {navigationState.viewedComponents.length > 0 && (
-        <div className="fixed bottom-8 right-8 z-50 backdrop-blur-md bg-white/30 rounded-2xl p-4 shadow-2xl border border-timeback-primary/20">
-          <ShareJourneyButton 
-            viewedComponents={navigationState.viewedComponents}
-          />
-        </div>
-      )}
+      {/* Share Journey popup removed per request */}
     </div>
   );
 }

@@ -45,8 +45,7 @@ const SCHOOL_DATA = {
     { id: 'novatio-school', name: 'Novatio School' },
     { id: 'limitless-education', name: 'Limitless Education' },
     { id: 'montessorium', name: 'Montessorium' },
-    { id: 'texas-sports-academy', name: 'Texas Sports Academy' },
-    { id: 'waypoint-academy', name: 'Waypoint Academy' }
+    { id: 'texas-sports-academy', name: 'Texas Sports Academy' }
   ],
   specialCategories: [
     { id: '2-hour-learning', name: '2 Hour Learning', type: 'methodology' },

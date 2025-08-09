@@ -56,7 +56,7 @@ export default function ParentDashboard({ studentGrade, selectedSchool: _selecte
       </h3>
       <p className="text-timeback-primary mb-8 font-cal">
         Know exactly where your child stands academically. No more grade inflation or surprises.
-        Get real-time insights that traditional schools can&apos;t provide.
+        Get real time insights that traditional schools can&apos;t provide.
       </p>
 
       {/* Metric Selector */}
@@ -73,7 +73,7 @@ export default function ParentDashboard({ studentGrade, selectedSchool: _selecte
           >
             <h4 className="font-bold text-timeback-primary mb-1 font-cal">{metric.title}</h4>
             <p className="text-sm text-timeback-primary font-cal">
-              {key === 'overview' && 'Real-time learning metrics'}
+              {key === 'overview' && 'Real time learning metrics'}
               {key === 'progress' && 'Subject completion tracking'}
               {key === 'knowledge' && 'Strengths & gaps analysis'}
             </p>

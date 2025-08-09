@@ -89,6 +89,23 @@ export default function AuthStep({ onNext, quizData, generatedContent }: AuthSte
       
       // Also save to localStorage as backup
       localStorage.setItem('timebackQuizData', JSON.stringify(dataToSave));
+      
+      // Also save individual items for personalized page compatibility
+      if (dataToSave.selectedSchools && dataToSave.selectedSchools.length > 0) {
+        localStorage.setItem('timebackUserSchool', JSON.stringify(dataToSave.selectedSchools));
+        console.log('[AuthStep] Saved schools to timebackUserSchool');
+      }
+      
+      if (dataToSave.selectedSchools?.[0]?.level) {
+        localStorage.setItem('timebackUserGrade', dataToSave.selectedSchools[0].level);
+        console.log('[AuthStep] Saved grade to timebackUserGrade:', dataToSave.selectedSchools[0].level);
+      }
+      
+      if (dataToSave.kidsInterests && dataToSave.kidsInterests.length > 0) {
+        localStorage.setItem('timebackUserInterests', JSON.stringify(dataToSave.kidsInterests));
+        console.log('[AuthStep] Saved interests to timebackUserInterests:', dataToSave.kidsInterests);
+      }
+      
       if (generatedContent) {
         localStorage.setItem('timebackGeneratedContent', JSON.stringify(generatedContent));
       }

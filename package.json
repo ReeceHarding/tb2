@@ -57,7 +57,9 @@
     "@types/node-fetch": "^2.6.13",
     "ai": "^5.0.0",
     "axios": "^1.6.8",
+    "bcryptjs": "^3.0.2",
     "cal-sans": "^1.0.1",
+    "chart.js": "^4.5.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "crisp-sdk-web": "^1.0.22",
@@ -87,6 +89,7 @@
     "posthog-js": "^1.258.5",
     "posthog-node": "^5.6.0",
     "react": "18.2.0",
+    "react-chartjs-2": "^5.3.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-markdown": "^10.1.0",
@@ -101,6 +104,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "@types/jest": "^29.5.12",
     "@types/mdx": "^2.0.12",
     "@types/mongoose": "^5.11.97",

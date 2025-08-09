@@ -249,26 +249,10 @@
       "type": "other",
       "category": "other-schools",
       "googleDriveId": "1ra84cqpRwBCUP6MQ7ayukaObvH5UHi1L"
-    },
-    {
-      "id": "waypoint-academy",
-      "name": "Waypoint Academy",
-      "originalName": "Waypoint Academy",
-      "type": "other",
-      "category": "other-schools",
-      "googleDriveId": "1k0Gumvm-Gbg-v6LxDyKHdSlW7eqiG2Er"
     }
   ],
   "specialCategories": [
-    {
-      "id": "2-hour-learning",
-      "name": "2 Hour Learning",
-      "originalName": "2 Hour Learning",
-      "type": "special",
-      "category": "special",
-      "googleDriveId": "1ubJInFcaBiBX1rX5eL3xJTYaikZiABPm"
-    },
-    {
+      {
       "id": "internal",
       "name": "Internal",
       "originalName": "Internal",
@@ -318,10 +302,10 @@
     }
   ],
   "stats": {
-    "totalSchools": 39,
+    "totalSchools": 38,
     "alphaSchoolCount": 24,
     "otherSchoolCount": 8,
-    "specialCategoryCount": 7,
+    "specialCategoryCount": 6,
     "totalFiles": 192
   },
   "lastUpdated": "2025-08-03T21:38:46.793Z"

@@ -42,7 +42,7 @@ const WithWithout = () => {
   );
 
   return (
-    <section>
+    <section className="bg-timeback-bg">
       <motion.div 
         variants={animationVariants.fadeInUp}
         whileInView="animate"
@@ -79,7 +79,7 @@ const WithWithout = () => {
             <tbody>
               <tr className="border-b border-timeback-primary">
                 <td className="p-6 font-medium text-timeback-primary font-cal">Learning Speed</td>
-                <td className="p-6 text-center font-bold text-timeback-primary bg-timeback-bg font-cal">10x faster</td>
+                <td className="p-6 text-center font-bold text-timeback-primary bg-timeback-bg font-cal">6-8x faster</td>
                 <td className="p-6 text-center text-timeback-primary font-cal">Standard pace</td>
                 <td className="p-6 text-center text-timeback-primary font-cal">Standard pace</td>
                 <td className="p-6 text-center text-timeback-primary font-cal">Unstructured</td>
@@ -94,12 +94,12 @@ const WithWithout = () => {
                 </td>
                 <td className="p-6 text-center font-cal">
                   <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
-                    <XIcon /> One-size-fits-all
+                    <XIcon /> One size fits all
                   </span>
                 </td>
                 <td className="p-6 text-center font-cal">
                   <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
-                    <XIcon /> One-size-fits-all
+                    <XIcon /> One size fits all
                   </span>
                 </td>
                 <td className="p-6 text-center font-cal">
@@ -149,7 +149,7 @@ const WithWithout = () => {
                 <td className="p-6 font-medium text-timeback-primary font-cal">Success Rate</td>
                 <td className="p-6 text-center bg-timeback-bg font-cal">
                   <span className="inline-flex items-center gap-1 text-timeback-primary font-medium font-cal">
-                    <CheckIcon /> 98th percentile
+                    <CheckIcon /> 99th percentile
                   </span>
                 </td>
                 <td className="p-6 text-center font-cal">
@@ -182,7 +182,7 @@ const WithWithout = () => {
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <div className="font-medium text-timeback-primary font-cal">Learning Speed</div>
-                  <div className="font-bold text-timeback-primary font-cal">10x faster</div>
+                  <div className="font-bold text-timeback-primary font-cal">6-8x faster</div>
                 </div>
                 <div className="flex justify-between items-center">
                   <div className="font-medium text-timeback-primary font-cal">Personalization</div>
@@ -238,7 +238,7 @@ const WithWithout = () => {
                   <div className="font-medium text-timeback-primary font-cal">Personalization</div>
                   <div>
                     <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
-                      <XIcon /> One-size-fits-all
+                      <XIcon /> One size fits all
                     </span>
                   </div>
                 </div>
@@ -286,7 +286,7 @@ const WithWithout = () => {
                   <div className="font-medium text-timeback-primary font-cal">Personalization</div>
                   <div>
                     <span className="inline-flex items-center gap-1 text-timeback-primary font-cal">
-                      <XIcon /> One-size-fits-all
+                      <XIcon /> One size fits all
                     </span>
                   </div>
                 </div>

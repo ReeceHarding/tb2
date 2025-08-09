@@ -12,8 +12,9 @@ interface SchoolDiggerConfig {
 
 // Get credentials from environment variables
 export function getSchoolDiggerConfig(): SchoolDiggerConfig {
-  const appId = process.env.SCHOOLDIGGER_APP_ID;
-  const appKey = process.env.SCHOOLDIGGER_API_KEY;
+  // Prefer server-side secret envs on vercel, fallback to NEXT_PUBLIC_* for local dev
+  const appId = process.env.SCHOOLDIGGER_APP_ID || process.env.NEXT_PUBLIC_SCHOOLDIGGER_APP_ID;
+  const appKey = process.env.SCHOOLDIGGER_API_KEY || process.env.NEXT_PUBLIC_SCHOOLDIGGER_API_KEY;
   
   if (!appId || !appKey) {
     throw new Error('SchoolDigger credentials not configured. Please set SCHOOLDIGGER_APP_ID and SCHOOLDIGGER_API_KEY in .env.local');

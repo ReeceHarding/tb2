@@ -307,8 +307,8 @@ const Testimonials3 = () => {
   const containerVariants = createStaggerVariants(0.1, 0.2);
   
   return (
-    <section id="testimonials">
-      <div className="py-24 px-4 max-w-7xl mx-auto">
+      <section id="testimonials" className="bg-white">
+    <div className="py-24 px-4 max-w-7xl mx-auto">
         <motion.div 
           className="flex flex-col text-center w-full mb-20 font-cal"
           variants={animationVariants.fadeInUp}
@@ -316,13 +316,11 @@ const Testimonials3 = () => {
           initial="initial"
           viewport={{ once: true, margin: "-100px" }}
         >
-          <div className="mb-8">
-            <h2 className="sm:text-5xl text-4xl font-extrabold text-timeback-primary font-cal">
-              Real Homeschool Families Using AI-Powered Personalized Learning
-            </h2>
-          </div>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-timeback-primary/80 font-cal">
-            See how families transformed their children&apos;s education with TimeBack&apos;s AI tutoring system - achieving 99th percentile results in just 2 hours daily!
+          <h2 className="font-extrabold text-3xl md:text-5xl tracking-tight mb-6 bg-gradient-to-r from-timeback-primary via-timeback-primary to-timeback-primary bg-clip-text text-transparent font-cal">
+            Real Results That Seem Too Good to Be True (But Aren&apos;t)
+          </h2>
+          <p className="text-lg md:text-xl text-timeback-primary max-w-2xl mx-auto leading-relaxed font-cal">
+            Parents were skeptical too - until their children started scoring in the 99th percentile, completing 2 grades per year, and actually loving school. Here&apos;s what happens when you give kids their time back.
           </p>
         </motion.div>
 
@@ -368,7 +366,7 @@ const Testimonials3 = () => {
         >
           {/* MacKenzie Price - Alpha School Co-founder - Fox News */}
           <SimpleTestimonial
-            name="MacKenzie Price (Co-founder, Alpha School)"
+            name="MacKenzie Price (Cofounder, Alpha School)"
             text="Our students are learning faster. They're learning way better. In fact, our classes are in the top 2% in the country."
             sourceLink="https://www.foxnews.com/us/ai-running-classroom-texas-school-students-say-its-awesome"
           />

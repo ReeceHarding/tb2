@@ -15,32 +15,32 @@ interface FAQItemProps {
 
 const faqList: FAQItemProps[] = [
   {
-    question: "How does AI tutoring help children learn 2x faster than traditional school?",
+    question: "How can students really learn 2x the material in just 2 hours a day?",
     answer: (
       <div className="space-y-2 leading-relaxed">
-        <p>This approach is based on 40+ years of learning science research, particularly Benjamin Bloom&#39;s 2 Sigma Problem, which found that students with 1:1 AI tutoring perform two standard deviations better than traditional classroom students.</p>
-        <p>Traditional classrooms can&#39;t provide personalized learning or true mastery-based education. Our AI tutors can. When children get adaptive learning instruction at their exact level and master each concept before moving on, they naturally learn much faster.</p>
-        <p>Our MAP test scores prove it: children average in the 99th percentile nationally across all subjects. These are standardized tests taken by millions—the results are real and verified.</p>
+        <p>It sounds impossible because traditional schools have conditioned us to accept inefficiency. But the data is clear: students complete entire grade levels in ~80 days instead of 180.</p>
+        <p>This works because we eliminated everything that wastes time in traditional schools: teaching to the middle, waiting for slower students, busy work, and inefficient group instruction. Every minute is personalized 1:1 learning at exactly the right level.</p>
+        <p>Alpha School has proven this for 10 years. Students average 99th percentile on MAP tests, with top cohorts achieving 6x learning speed and top performers nearing 12x. Even students who were 2 years behind caught up in just 6 months.</p>
       </div>
     ),
   },
   {
-    question: "But what about socialization without traditional classrooms?",
+    question: "What about socialization and life skills?",
     answer: (
       <div className="space-y-2 leading-relaxed">
-        <p>Timeback children are actually MORE social than traditional school students, not less.</p>
-        <p>Think about it—in traditional school, kids sit quietly in rows for 6+ hours. With Timeback, they finish academics by lunch and spend 4+ hours in group activities: sports teams, drama clubs, robotics, debate, and real collaborative projects.</p>
-        <p>Instead of rushed 20-minute recesses, they have genuine time to build deep friendships through shared interests. Parents consistently report their kids are happier and have stronger social skills than before.</p>
+        <p>This is TimeBack&apos;s greatest advantage - not a weakness. Traditional school kids sit silently in rows for 6+ hours. Our students finish academics by 10am and spend 4 hours developing real life skills.</p>
+        <p>They engage in leadership workshops, sports teams, entrepreneurship projects, public speaking, financial literacy, and hands-on activities. They build deep friendships through shared interests, not forced proximity.</p>
+        <p>90% of TimeBack students say they LOVE school (compared to 20% nationally). They&apos;re developing the life skills employers actually want while traditional students are still doing worksheets.</p>
       </div>
     ),
   },
   {
-    question: "How does AI-powered homeschool curriculum work without traditional teachers?",
+    question: "How does learning work without teachers?",
     answer: (
       <div className="space-y-2 leading-relaxed">
-        <p>We don&#39;t have traditional teachers lecturing at the front of a classroom—we have something better: AI tutors combined with human Guides who mentor and motivate.</p>
-        <p>Each child works with a personalized AI tutor that provides adaptive 1:1 instruction, instantly identifying and addressing learning gaps. The AI never gets frustrated, never judges, and adapts perfectly to each child&#39;s learning pace and style.</p>
-        <p>Our human Guides focus on what humans do best: inspiring, encouraging, and helping students develop as whole people. They&#39;re there for emotional support, motivation, and ensuring every child becomes a confident, self-driven learner in our homeschool environment.</p>
+        <p>We eliminated the broken teacher-in-front-of-classroom model that Bloom&#39;s research proved ineffective 40 years ago. Instead, each child gets their own AI tutor delivering true 1:1 personalized instruction.</p>
+        <p>The AI identifies exactly what your child knows and doesn&apos;t know, then fixes learning gaps immediately. It&apos;s infinitely patient, never judges, and adjusts difficulty in real time to maintain optimal learning speed.</p>
+        <p>Human Guides provide motivation and emotional support - what humans do best. This is why an 8th grader who was secretly performing at 5th grade level caught up completely in one year. Traditional teachers could never provide this level of personalization.</p>
       </div>
     ),
   },
@@ -71,7 +71,7 @@ const faqList: FAQItemProps[] = [
           <li>Graduates accepted to Stanford, Vanderbilt, USC, and other top universities</li>
           <li>90% of children say they LOVE school (compared to national average of 20%)</li>
         </ul>
-        <p>These aren&apos;t cherry-picked success stories. This is our average. Every child deserves to reach their full potential—Timeback just makes it possible.</p>
+        <p>These aren&apos;t cherry picked success stories. This is our average. Every child deserves to reach their full potential - Timeback just makes it possible.</p>
       </div>
     ),
   },
@@ -81,13 +81,13 @@ const faqList: FAQItemProps[] = [
       <div className="space-y-2 leading-relaxed">
         <p>You&apos;ll have more visibility into your child&apos;s education than ever before. Our parent dashboard shows:</p>
         <ul className="list-disc list-inside space-y-1">
-          <li>Real-time progress in every subject</li>
+          <li>Real time progress in every subject</li>
           <li>Exact grade level placement (many parents discover their &quot;on-track&quot; child is actually behind)</li>
           <li>Daily learning efficiency metrics</li>
           <li>MAP test results three times per year</li>
           <li>Time spent on each subject and concept mastery rates</li>
         </ul>
-        <p>No more wondering what &quot;B+&quot; actually means. You&apos;ll see exactly what your child knows, where they&apos;re excelling, and where they need support—updated daily.</p>
+        <p>No more wondering what &quot;B+&quot; actually means. You&apos;ll see exactly what your child knows, where they&apos;re excelling, and where they need support - updated daily.</p>
       </div>
     ),
   },
@@ -173,8 +173,11 @@ const FAQ = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           <p className="inline-block font-semibold text-timeback-primary mb-4 font-cal">AI Tutoring & Homeschool Questions Answered</p>
-          <p className="sm:text-4xl text-3xl font-extrabold text-timeback-primary font-cal">
-            Everything you need to know about AI-powered personalized learning and homeschool curriculum.
+          <h2 className="font-extrabold text-3xl md:text-5xl tracking-tight mb-6 bg-gradient-to-r from-timeback-primary via-timeback-primary to-timeback-primary bg-clip-text text-transparent font-cal">
+            Everything you need to know about AI-powered personalized learning
+          </h2>
+          <p className="text-lg md:text-xl text-timeback-primary max-w-2xl leading-relaxed font-cal">
+            Discover how our homeschool curriculum helps children achieve academic excellence
           </p>
         </motion.div>
 

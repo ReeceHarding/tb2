@@ -68,7 +68,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ image, isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
-      <div className="relative max-w-6xl max-h-full bg-white rounded-2xl shadow-2xl overflow-hidden">
+      <div className="relative w-full sm:max-w-6xl max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-y-auto">
         {/* Close button */}
         <button
           onClick={onClose}

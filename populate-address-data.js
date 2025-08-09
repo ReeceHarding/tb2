@@ -63,16 +63,7 @@ const SCHOOL_ADDRESSES = {
     email: 'info@gtschool.org',
     website: 'https://gtschool.org'
   },
-  'waypoint-academy': {
-    name: 'Waypoint Academy',
-    address: '3200 Oak Springs Drive',
-    city: 'Austin',
-    state: 'TX',
-    zipCode: '78721',
-    phone: '(512) 555-0105',
-    email: 'admissions@waypointacademy.org', 
-    website: 'https://waypointacademy.org'
-  },
+
   'texas-sports-academy': {
     name: 'Texas Sports Academy',
     address: '4500 Duval Road',

@@ -109,7 +109,7 @@ export async function POST(req: NextRequest) {
     // Construct the share URL using request headers for proper domain detection
     const host = req.headers.get('host');
     const protocol = req.headers.get('x-forwarded-proto') || (host?.includes('localhost') ? 'http' : 'https');
-    const baseUrl = process.env.NEXT_PUBLIC_URL || `${protocol}://${host}`;
+    const baseUrl = process.env.NEXT_PUBLIC_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `${protocol}://${host}`);
     const shareUrl = `${baseUrl}/shared/${shareId}`;
 
     // Return success response
@@ -186,7 +186,7 @@ export async function GET() {
     }
 
     // Construct the share URL
-    const baseUrl = process.env.NEXT_PUBLIC_URL || 'http://localhost:3000';
+    const baseUrl = process.env.NEXT_PUBLIC_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
     const shareUrl = `${baseUrl}/shared/${user.shareableJourney.shareId}`;
 
     console.log(`[ShareJourneyAPI] ${timestamp} Found shareable journey:`, {

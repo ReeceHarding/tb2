@@ -1,9 +1,10 @@
 import { NextResponse, NextRequest } from "next/server";
 import { headers } from "next/headers";
 import Stripe from "stripe";
-import connectMongo from "@/libs/mongoose";
+// MongoDB disabled - this endpoint needs to be migrated to Supabase
+// import connectMongo from "@/libs/mongoose";
 import configFile from "@/config";
-import User from "@/models/User";
+// import User from "@/models/User";
 import { findCheckoutSession } from "@/libs/stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
@@ -17,7 +18,7 @@ const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 // By default, it'll store the user in the database
 // See more: https://shipfa.st/docs/features/payments
 export async function POST(req: NextRequest) {
-  await connectMongo();
+        // await connectMongo();
 
   const body = await req.text();
 
@@ -57,32 +58,35 @@ export async function POST(req: NextRequest) {
           customerId as string
         )) as Stripe.Customer;
 
-        let user;
-
-        // Get or create the user. userId is normally passed in the checkout session (clientReferenceID) to identify the user when we get the webhook event
-        if (userId) {
-          user = await User.findById(userId);
-        } else if (customer.email) {
-          user = await User.findOne({ email: customer.email });
-
-          if (!user) {
-            user = await User.create({
-              email: customer.email,
-              name: customer.name,
-            });
-
-            await user.save();
-          }
-        } else {
-          console.error("No user found");
-          throw new Error("No user found");
-        }
-
-        // Update user data + Grant user access to your product. It's a boolean in the database, but could be a number of credits, etc...
-        user.priceId = priceId;
-        user.customerId = customerId;
-        user.hasAccess = true;
-        await user.save();
+        // TODO: Migrate to Supabase
+        // let user;
+        //
+        // // Get or create the user. userId is normally passed in the checkout session (clientReferenceID) to identify the user when we get the webhook event
+        // if (userId) {
+        //   user = await User.findById(userId);
+        // } else if (customer.email) {
+        //   user = await User.findOne({ email: customer.email });
+        //
+        //   if (!user) {
+        //     user = await User.create({
+        //       email: customer.email,
+        //       name: customer.name,
+        //     });
+        //
+        //     await user.save();
+        //   }
+        // } else {
+        //   console.error("No user found");
+        //   throw new Error("No user found");
+        // }
+        //
+        // // Update user data + Grant user access to your product. It's a boolean in the database, but could be a number of credits, etc...
+        // user.priceId = priceId;
+        // user.customerId = customerId;
+        // user.hasAccess = true;
+        // await user.save();
+        
+        console.log("TODO: Save user subscription data to Supabase");
 
         // Extra: send email with user link, product page, etc...
         // try {
@@ -116,11 +120,14 @@ export async function POST(req: NextRequest) {
         const subscription = await stripe.subscriptions.retrieve(
           stripeObject.id
         );
-        const user = await User.findOne({ customerId: subscription.customer });
-
-        // Revoke access to your product
-        user.hasAccess = false;
-        await user.save();
+        // TODO: Migrate to Supabase
+        // const user = await User.findOne({ customerId: subscription.customer });
+        //
+        // // Revoke access to your product
+        // user.hasAccess = false;
+        // await user.save();
+        
+        console.log("TODO: Revoke user access in Supabase");
 
         break;
       }
@@ -135,14 +142,17 @@ export async function POST(req: NextRequest) {
         const priceId = stripeObject.lines.data[0].price.id;
         const customerId = stripeObject.customer;
 
-        const user = await User.findOne({ customerId });
-
-        // Make sure the invoice is for the same plan (priceId) the user subscribed to
-        if (user.priceId !== priceId) break;
-
-        // Grant user access to your product. It's a boolean in the database, but could be a number of credits, etc...
-        user.hasAccess = true;
-        await user.save();
+        // TODO: Migrate to Supabase
+        // const user = await User.findOne({ customerId });
+        //
+        // // Make sure the invoice is for the same plan (priceId) the user subscribed to
+        // if (user.priceId !== priceId) break;
+        //
+        // // Grant user access to your product. It's a boolean in the database, but could be a number of credits, etc...
+        // user.hasAccess = true;
+        // await user.save();
+        
+        console.log("TODO: Grant user access in Supabase");
 
         break;
       }

@@ -201,7 +201,11 @@ export default function AIChatbot({ userData, onClose }: AIChatbotProps) {
                     p: ({children}) => <p className="leading-relaxed mb-2 last:mb-0">{children}</p>,
                     ul: ({children}) => <ul className="list-disc list-inside mb-2 space-y-1">{children}</ul>,
                     ol: ({children}) => <ol className="list-decimal list-inside mb-2 space-y-1">{children}</ol>,
-                    li: ({children}) => <li>{children}</li>,
+                    li: ({children}) => (
+                      <li className="text-timeback-primary font-cal text-sm leading-relaxed [&>p]:inline [&>p]:mr-2 [&>p:last-child]:mr-0">
+                        {children}
+                      </li>
+                    ),
                     strong: ({children}) => <strong className="font-semibold font-cal">{children}</strong>,
                     em: ({children}) => <em className="italic">{children}</em>,
                     code: ({children}) => <code className="bg-timeback-bg text-timeback-primary px-1 py-0.5 rounded text-xs font-mono font-cal">{children}</code>,

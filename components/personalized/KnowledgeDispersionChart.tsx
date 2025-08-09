@@ -3,6 +3,7 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine, Cell } from 'recharts';
 import { GraduationCap, Users, BookOpen, TrendingUp, AlertTriangle } from 'lucide-react';
+import { TypewriterText } from './FollowUpQuestions';
 
 export default function KnowledgeDispersionChart() {
   // Generate histogram data for knowledge level distribution
@@ -75,16 +76,28 @@ export default function KnowledgeDispersionChart() {
           
           {/* Main Headline */}
           <h2 className="text-3xl lg:text-5xl font-bold text-timeback-primary mb-6 font-cal leading-tight">
-            Why One-Size-Fits-All Education Fails
+            <TypewriterText 
+              text="Why One-Size-Fits-All Education Fails"
+              speed={30}
+              startDelay={200}
+            />
           </h2>
           
           {/* Supporting Text */}
           <div className="space-y-3 max-w-4xl mx-auto">
             <p className="text-xl text-timeback-primary font-cal">
-              Same classroom. Same age. Vastly different knowledge levels.
+              <TypewriterText 
+                text="Same classroom. Same age. Vastly different knowledge levels."
+                speed={25}
+                startDelay={800}
+              />
             </p>
             <p className="text-lg text-timeback-primary font-cal opacity-90">
-              How can a student with 12th grade knowledge learn alongside one with 2nd grade knowledge?
+              <TypewriterText 
+                text="How can a student with 12th grade knowledge learn alongside one with 2nd grade knowledge?"
+                speed={25}
+                startDelay={1400}
+              />
             </p>
           </div>
         </div>
@@ -99,11 +112,19 @@ export default function KnowledgeDispersionChart() {
                 <GraduationCap className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-timeback-primary font-cal">
-                Knowledge Level Distribution
+                <TypewriterText 
+                  text="Knowledge Level Distribution"
+                  speed={30}
+                  startDelay={2000}
+                />
               </h3>
             </div>
             <p className="text-timeback-primary font-cal">
-              Each bar represents how many 7th grade students have that grade-level knowledge
+              <TypewriterText 
+                text="Each bar represents how many 7th grade students have that grade-level knowledge"
+                speed={25}
+                startDelay={2600}
+              />
             </p>
           </div>
 

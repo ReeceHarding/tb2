@@ -1,4 +1,4 @@
-import { safeBedrockAPI } from '@/libs/bedrock-helpers';
+// Removed Bedrock imports - using Cerebras directly
 
 export const dynamic = 'force-dynamic';
 
@@ -95,58 +95,85 @@ USER CONTEXT:
       console.log('[generate-research-explanations] User context prepared');
 
     // Create a comprehensive prompt for generating personalized research explanations
-    const prompt = `You are an expert educational researcher and parent communication specialist. Your job is to explain complex learning science research in relatable, parent-friendly terms that show exactly how it benefits THIS specific child.
+    const prompt = `<system_role>
+You are an educational psychologist translating research findings into parent-friendly explanations using their child's specific interests.
+</system_role>
 
+<user_context>
 ${userContext}
+- Primary Interest: ${primaryInterest}
+- Primary Goal: ${primaryGoal}
+</user_context>
 
-CONTEXT: The parent is looking at research that validates TimeBack's educational approach. They want to understand how these academic studies specifically apply to their child who loves ${primaryInterest} and has learning goals around ${primaryGoal}.
+<strict_requirements>
+- Generate ONLY valid JSON matching the exact schema
+- Personalize EVERY explanation using child's interest: ${primaryInterest}
+- Connect EVERY point to parent's goal: ${primaryGoal}
+- Use simple, parent-friendly language (8th grade reading level)
+- Provide concrete, relatable examples
+- Maintain scientific accuracy while being accessible
+</strict_requirements>
 
-You MUST respond with VALID JSON that exactly matches this structure. Do NOT add any escape characters, markdown formatting, or extra characters outside the JSON structure:
+<research_studies>
+1. Bloom's 2 Sigma Problem (1984): 1-on-1 tutoring → 2 standard deviation improvement (50th to 98th percentile)
+2. Zone of Proximal Development (Vygotsky): Learning optimized at current ability + 1 level
+3. Cognitive Load Theory (Sweller, 1998): Breaking complex topics into chunks improves retention
+4. Mastery Learning (Winget & Persky): Complete understanding before advancing → better long-term outcomes
+</research_studies>
 
+<personalization_rules>
+- personalizedExplanation: Must use ${primaryInterest} as the central example
+- whyItMatters: Must directly address ${primaryGoal}
+- realWorldExample: Must show specific scenario with their child
+- All examples must be age-appropriate and engaging
+- Avoid academic jargon completely
+</personalization_rules>
+
+<forbidden_actions>
+- Do NOT use generic examples
+- Do NOT use educational terminology without explanation
+- Do NOT make abstract connections
+- Do NOT include any text outside JSON
+- Do NOT use markdown formatting
+- Do NOT add escape characters unnecessarily
+- Do NOT use tool invocation syntax or XML tags
+</forbidden_actions>
+
+<quality_validation>
+- Each explanation must pass parent comprehension test
+- Examples must be immediately relatable
+- Benefits must be tangible and specific
+- Language must be conversational
+- JSON must be syntactically perfect
+</quality_validation>
+
+<output_schema>
 {
   "bloomsSigma": {
-    "personalizedExplanation": "string",
-    "whyItMatters": "string", 
-    "realWorldExample": "string"
+    "personalizedExplanation": "[How 1-on-1 tutoring transforms learning using ${primaryInterest}]",
+    "whyItMatters": "[Direct connection to ${primaryGoal}]",
+    "realWorldExample": "[Specific scenario showing 2x improvement]"
   },
   "zoneProximalDevelopment": {
-    "personalizedExplanation": "string",
-    "whyItMatters": "string",
-    "realWorldExample": "string"
+    "personalizedExplanation": "[Just-right challenge level explained via ${primaryInterest}]",
+    "whyItMatters": "[How this achieves ${primaryGoal}]",
+    "realWorldExample": "[Child progressing through ${primaryInterest} challenges]"
   },
   "cognitiveLoadTheory": {
-    "personalizedExplanation": "string",
-    "whyItMatters": "string",
-    "realWorldExample": "string"
+    "personalizedExplanation": "[Chunking complex ${primaryInterest} topics]",
+    "whyItMatters": "[Prevents overwhelm while pursuing ${primaryGoal}]",
+    "realWorldExample": "[Breaking down ${primaryInterest} into manageable steps]"
   },
   "masteryLearning": {
-    "personalizedExplanation": "string",
-    "whyItMatters": "string",
-    "realWorldExample": "string"
+    "personalizedExplanation": "[Mastering ${primaryInterest} fundamentals before advancing]",
+    "whyItMatters": "[Ensures solid foundation for ${primaryGoal}]",
+    "realWorldExample": "[Child fully understanding before moving forward]"
   },
-  "overallSummary": "string"
+  "overallSummary": "[How TimeBack combines all 4 approaches for their child's success]"
 }
+</output_schema>
 
-Generate personalized explanations for each research study:
-
-1. **Bloom's 2 Sigma Problem (1984)**: The foundational study showing 1-on-1 tutoring produces 2 standard deviation improvements (equivalent to moving from 50th percentile to 98th percentile)
-
-2. **Zone of Proximal Development (Vygotsky)**: How learning happens best when content is just slightly ahead of current ability level
-
-3. **Cognitive Load Theory (Sweller, 1998)**: Why breaking down complex topics into manageable chunks improves learning
-
-4. **Mastery Learning (Winget & Persky)**: Evidence that requiring complete understanding before advancing leads to better long-term retention
-
-CRITICAL JSON FORMATTING REQUIREMENTS:
-- Return ONLY valid JSON with no additional text, formatting, or characters
-- Use double quotes for all strings
-- Never use escape characters or backslashes in property names
-- Never add markdown formatting like backticks
-- Ensure all property names exactly match the schema above
-- Never use tool invocation syntax or XML tags
-- Use only plain text in your response - no special characters, control characters, or line breaks within JSON string values
-
-CONTENT REQUIREMENTS:
+<content_tone>
 - Write for worried parents who want the best for their child
 - Connect each theory directly to their child's interests in ${primaryInterest}
 - Show concrete examples of how this appears in their TimeBack experience
@@ -160,18 +187,39 @@ TONE: Reassuring, knowledgeable, and specific. Like an expert educator explainin
 
       console.log('[generate-research-explanations] Calling AI with prompt length:', prompt.length);
 
-      // Generate the structured content
-      const aiResult = await safeBedrockAPI.generateObject({
-        prompt: prompt,
-        maxTokens: 2000,
-        temperature: 0.7,
+      // Use Cerebras API directly
+      const cerebrasUrl = 'https://api.cerebras.ai/v1/chat/completions';
+      const cerebrasKey = process.env.CEREBRAS_API_KEY || '';
+      
+      const response = await fetch(cerebrasUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${cerebrasKey}`
+        },
+        body: JSON.stringify({
+          model: 'llama3.1-8b',
+          messages: [
+            { role: 'user', content: prompt }
+          ],
+          max_tokens: 2000,
+          temperature: 0.7,
+          response_format: { type: 'json_object' }
+        })
       });
 
+      if (!response.ok) {
+        throw new Error(`Cerebras API error: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      const aiContent = JSON.parse(data.choices?.[0]?.message?.content || '{}');
+      
       console.log('[generate-research-explanations] AI generation completed successfully');
 
       return {
         success: true,
-        content: aiResult.object,
+        content: aiContent,
         interests: interests,
         learningGoals: learningGoals,
         timestamp: new Date().toISOString()

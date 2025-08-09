@@ -2,7 +2,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 async function callGenerateAPI(prompt: string) {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/ai/generate`, {
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+    const response = await fetch(`${baseUrl}/api/ai/generate`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -230,16 +231,16 @@ CRITICAL: Use only plain text in your response - no special characters, control 
           interestConnection: `Connected to ${interests[0] || 'student interests'}`,
           nextSteps: 'Try again when AI service is available',
           followUpQuestions: [
-            'Please try your question again',
-            'AI service will be restored shortly',
-            'Thank you for your patience'
+            'Try asking again?',
+            'Service restored soon?',
+            'Thanks for patience?'
           ]
         };
       } else if (type === 'chat_suggestions') {
         fallbackData = [
-          'Please try your question again',
-          'AI service temporarily unavailable',
-          'Thank you for your patience'
+          'Try asking again?',
+          'Service temporarily unavailable?',
+          'Thanks for patience?'
         ];
       }
     }

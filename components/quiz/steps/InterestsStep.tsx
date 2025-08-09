@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useQuiz } from '../QuizContext';
 import { startOptimisticGeneration } from '@/libs/optimisticContentGeneration';
 
@@ -11,52 +11,143 @@ interface InterestsStepProps {
 
 export default function InterestsStep({ onNext: _onNext, onPrev: _onPrev }: InterestsStepProps) {
   const { state, dispatch } = useQuiz();
-  const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [showCategories, setShowCategories] = useState(true);
+  const [askedIntro, setAskedIntro] = useState<boolean>(state.kidsInterests.length > 0);
+  const [introInput, setIntroInput] = useState<string>('');
 
   console.log('[InterestsStep] Selected interests:', state.kidsInterests.length);
-  console.log('[InterestsStep] Expanded category:', expandedCategory);
+  console.log('[InterestsStep] Selected category:', selectedCategory);
 
-  // Broad, encompassing interest categories with max 8 subcategories each
-  const interestCategories = {
-    'Physical & Sports': [
-      'Team Sports', 'Individual Sports', 'Swimming & Water Sports', 'Martial Arts & Combat Sports',
-      'Dance & Movement', 'Outdoor Adventures', 'Fitness & Training', 'Motor Sports & Racing'
+  // 8 main interest categories with SVG icons (no emojis per rules) and descriptions
+  const mainCategories = useMemo(() => ([
+    {
+      id: 'sports',
+      title: 'Sports & Fitness',
+      desc: 'Physical activities & athletics',
+      icon: (
+        <svg className="w-6 h-6 text-timeback-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2a10 10 0 100 20 10 10 0 000-20Zm0 2a8 8 0 015.657 13.657L6.343 6.343A7.965 7.965 0 0112 4Zm0 16a8 8 0 01-5.657-13.657l11.314 11.314A7.965 7.965 0 0112 20Z" />
+        </svg>
+      )
+    },
+    {
+      id: 'arts',
+      title: 'Arts & Creativity',
+      desc: 'Visual arts, music & performance',
+      icon: (
+        <svg className="w-6 h-6 text-timeback-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 3c-4.97 0-9 3.582-9 8 0 2.137 1.05 4.06 2.744 5.459.3.245.497.595.497.987V20a1 1 0 001.447.894L10 20l1.312.656c.312.156.687.156.999 0L13.624 20l1.312.656A1 1 0 0016.383 20v-.554c0-.392.196-.742.497-.987C19.95 15.06 21 13.137 21 11c0-4.418-4.03-8-9-8Zm-4 9a1 1 0 110-2 1 1 0 010 2Zm4 0a1 1 0 110-2 1 1 0 010 2Zm4 0a1 1 0 110-2 1 1 0 010 2Z" />
+        </svg>
+      )
+    },
+    {
+      id: 'science',
+      title: 'Science & Nature',
+      desc: 'Exploration & discovery',
+      icon: (
+        <svg className="w-6 h-6 text-timeback-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M7 2h10v2l-4 6v6l4 4v2H7v-2l4-4V10L7 4V2z" />
+        </svg>
+      )
+    },
+    {
+      id: 'tech',
+      title: 'Technology',
+      desc: 'Gaming, coding & digital',
+      icon: (
+        <svg className="w-6 h-6 text-timeback-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M4 6h16a2 2 0 012 2v6a4 4 0 01-4 4h-2l-2 2h-4l-2-2H6a4 4 0 01-4-4V8a2 2 0 012-2zm3 3a1 1 0 100 2 1 1 0 000-2zm10 0h-4v2h4V9z" />
+        </svg>
+      )
+    },
+    {
+      id: 'reading',
+      title: 'Reading & Writing',
+      desc: 'Literature & storytelling',
+      icon: (
+        <svg className="w-6 h-6 text-timeback-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M4 4h7a3 3 0 013 3v13H7a3 3 0 00-3 3V4zm16 0h-7a3 3 0 00-3 3v13h7a3 3 0 013 3V4z" />
+        </svg>
+      )
+    },
+    {
+      id: 'building',
+      title: 'Building & Making',
+      desc: 'Hands-on construction',
+      icon: (
+        <svg className="w-6 h-6 text-timeback-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M3 14l9-9 4 4-9 9H3v-4zm14.707-7.707l1.414 1.414-2 2-1.414-1.414 2-2z" />
+        </svg>
+      )
+    },
+    {
+      id: 'social',
+      title: 'Social & Culture',
+      desc: 'People, history & languages',
+      icon: (
+        <svg className="w-6 h-6 text-timeback-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 12a5 5 0 100-10 5 5 0 000 10zm-9 9a9 9 0 0118 0H3z" />
+        </svg>
+      )
+    },
+    {
+      id: 'outdoor',
+      title: 'Outdoor Adventures',
+      desc: 'Nature & exploration',
+      icon: (
+        <svg className="w-6 h-6 text-timeback-primary" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2l7 12H5L12 2zm0 5l-3 5h6l-3-5zM4 20h16v2H4v-2z" />
+        </svg>
+      )
+    }
+  ]), []);
+
+  // Subcategories for each main category (8 each)
+  const subcategories = {
+    'sports': [
+      'Basketball', 'Soccer', 'Swimming', 'Martial Arts',
+      'Dance', 'Running', 'Baseball', 'Gymnastics'
     ],
-    'Creative & Artistic': [
-      'Visual Arts & Drawing', 'Music & Instruments', 'Performance & Theater', 'Digital & Media Arts',
-      'Crafts & Making', 'Fashion & Design', 'Photography & Film', 'Creative Writing & Storytelling'
+    'arts': [
+      'Drawing', 'Painting', 'Music', 'Theater',
+      'Photography', 'Sculpture', 'Film Making', 'Fashion Design'
     ],
-    'STEM & Discovery': [
-      'Science Experiments', 'Engineering & Building', 'Math & Logic Puzzles', 'Nature & Environmental Study',
-      'Space & Astronomy', 'Biology & Life Sciences', 'Chemistry & Physics', 'Research & Investigation'
+    'science': [
+      'Biology', 'Chemistry', 'Physics', 'Astronomy',
+      'Environmental Science', 'Geology', 'Marine Biology', 'Robotics'
     ],
-    'Technology & Digital': [
-      'Video Games & Gaming', 'Programming & Coding', 'Robotics & AI', 'Digital Creation & Apps',
-      'Virtual & Augmented Reality', 'Electronics & Hardware', 'Web Development', '3D Design & Printing'
+    'tech': [
+      'Video Games', 'Coding', 'App Design', '3D Modeling',
+      'Web Development', 'AI & Machine Learning', 'Electronics', 'VR/AR'
     ],
-    'Language & Culture': [
-      'Reading & Literature', 'Writing & Journalism', 'History & Geography', 'World Languages',
-      'Cultural Studies', 'Communication & Public Speaking', 'Research & Academic Studies', 'Philosophy & Ideas'
+    'reading': [
+      'Fiction Stories', 'Poetry', 'Comics', 'Journalism',
+      'Creative Writing', 'Research', 'Book Clubs', 'Storytelling'
+    ],
+    'building': [
+      'LEGO Building', 'Woodworking', 'Model Making', 'Engineering',
+      'Crafts', 'Architecture', 'DIY Projects', 'Invention'
+    ],
+    'social': [
+      'History', 'Geography', 'Languages', 'Cultural Studies',
+      'Community Service', 'Debate', 'Leadership', 'Travel'
+    ],
+    'outdoor': [
+      'Hiking', 'Camping', 'Rock Climbing', 'Fishing',
+      'Bird Watching', 'Gardening', 'Survival Skills', 'Nature Photography'
     ]
   };
 
 
 
-  const handleCategoryClick = (categoryName: string) => {
-    console.log('[InterestsStep] Category clicked:', categoryName);
-    
-    if (expandedCategory === categoryName) {
-      // If clicking the same expanded category, collapse it
-      setExpandedCategory(null);
-      console.log('[InterestsStep] Collapsing category:', categoryName);
-    } else {
-      // Expand the clicked category
-      setExpandedCategory(categoryName);
-      console.log('[InterestsStep] Expanding category:', categoryName);
-    }
+  const handleCategoryClick = (categoryId: string) => {
+    console.log('[InterestsStep] Category clicked:', categoryId);
+    setSelectedCategory(categoryId);
+    setShowCategories(false);
   };
 
-  const toggleSubcategoryInterest = (subcategoryName: string) => {
+  const handleSubcategoryClick = (subcategoryName: string) => {
     const isSelected = state.kidsInterests.includes(subcategoryName);
     const newInterests = isSelected 
       ? state.kidsInterests.filter(i => i !== subcategoryName)
@@ -66,9 +157,30 @@ export default function InterestsStep({ onNext: _onNext, onPrev: _onPrev }: Inte
     dispatch({ type: 'SET_KIDS_INTERESTS', interests: newInterests });
   };
 
-  const isCategorySelected = (categoryName: string) => {
-    const subcategories = interestCategories[categoryName as keyof typeof interestCategories] || [];
-    return subcategories.some(subcategory => state.kidsInterests.includes(subcategory));
+  const handleBackToCategories = () => {
+    setShowCategories(true);
+    setSelectedCategory(null);
+  };
+
+  const handleIntroSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const timestamp = new Date().toISOString();
+    const tokens = introInput
+      .split(',')
+      .map(t => t.trim())
+      .filter(Boolean);
+    const deduped = Array.from(new Set([...(state.kidsInterests || []), ...tokens]));
+    console.log(`[${timestamp}] [InterestsStep] Intro submit raw=`, introInput, 'parsed=', tokens, 'deduped=', deduped);
+    if (deduped.length > 0) {
+      dispatch({ type: 'SET_KIDS_INTERESTS', interests: deduped });
+    }
+    setAskedIntro(true);
+    setShowCategories(true);
+  };
+
+  const getCategoryInterestCount = (categoryId: string) => {
+    const catSubcategories = subcategories[categoryId as keyof typeof subcategories] || [];
+    return catSubcategories.filter(sub => state.kidsInterests.includes(sub)).length;
   };
 
   const completeQuiz = () => {
@@ -124,77 +236,101 @@ export default function InterestsStep({ onNext: _onNext, onPrev: _onPrev }: Inte
         </p>
       </div>
 
-      {/* Interest Categories Section */}
-      <div className="space-y-4">
-        <h3 className="text-lg font-bold text-timeback-primary font-cal">
-          Choose Interest Categories
-        </h3>
-        
-        <div className="space-y-4">
-          {/* 2-Column Grid for Categories */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {Object.keys(interestCategories).map((categoryName) => {
-              const isSelected = isCategorySelected(categoryName);
-              const subcategories = interestCategories[categoryName as keyof typeof interestCategories];
-              
-              return (
-                <button
-                  key={categoryName}
-                  onClick={() => handleCategoryClick(categoryName)}
-                  className={`p-4 rounded-xl border-2 text-left transition-all duration-200 ${
-                    isSelected
-                      ? 'border-timeback-primary bg-timeback-bg text-timeback-primary shadow-lg'
-                      : 'border-timeback-primary/30 bg-timeback-bg/50 text-timeback-primary hover:border-timeback-primary hover:bg-timeback-bg'
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="font-bold text-base font-cal">
-                      {categoryName}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      {isSelected && (
-                        <span className="text-xs font-cal text-timeback-primary">
-                          {subcategories.filter(sub => state.kidsInterests.includes(sub)).length}
-                        </span>
-                      )}
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
+      {/* Intro freeform interests capture (shown first) */}
+      {!askedIntro && (
+        <div className="max-w-3xl mx-auto backdrop-blur-md bg-timeback-bg/80 rounded-2xl shadow-xl border border-timeback-primary p-6">
+          <form onSubmit={handleIntroSubmit} className="space-y-4">
+            <label className="block text-left text-timeback-primary font-cal font-bold" htmlFor="intro-interests">
+              Before we begin, what are your child&apos;s interests? (comma-separated)
+            </label>
+            <input
+              id="intro-interests"
+              className="w-full px-4 py-3 border border-timeback-primary/70 rounded-xl focus:ring-2 focus:ring-timeback-primary/30 focus:border-timeback-primary outline-none text-timeback-primary placeholder:text-timeback-primary/60 font-cal bg-white backdrop-blur-sm shadow-sm"
+              placeholder="e.g., basketball, drawing, astronomy"
+              value={introInput}
+              onChange={(e) => setIntroInput(e.target.value)}
+              aria-label="Enter your child's interests"
+            />
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-timeback-primary text-white rounded-xl hover:bg-timeback-primary/90 transition-all duration-300 font-bold font-cal text-base shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-timeback-primary/30"
+                aria-label="Continue to categories"
+              >
+                Continue
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
 
-          {/* Full-Width Expanded Row for Subcategories */}
-          {expandedCategory && (
-            <div className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-6 shadow-xl animate-in slide-in-from-top-2 duration-300">
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="text-lg font-bold text-timeback-primary font-cal">
-                  Select from {expandedCategory}:
-                </h4>
+      {/* Interest Selection Section */}
+      {askedIntro && (
+      <div className="space-y-4">
+        {showCategories ? (
+          <>
+            {/* Main Categories View */}
+            <h3 className="text-lg font-bold text-timeback-primary font-cal">
+              What are your child's main interests?
+            </h3>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {mainCategories.map((category) => {
+                const count = getCategoryInterestCount(category.id);
+                
+                return (
+                  <button
+                    key={category.id}
+                    onClick={() => handleCategoryClick(category.id)}
+                    className="relative p-6 rounded-xl border-2 text-center transition-all duration-200 hover:bg-timeback-bg transform bg-white border-timeback-primary shadow-lg group"
+                  >
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-center">{category.icon}</div>
+                      <div className="font-bold text-timeback-primary font-cal">{category.title}</div>
+                      <div className="text-xs text-timeback-primary font-cal opacity-80">
+                        {category.desc}
+                      </div>
+                    </div>
+                    {count > 0 && (
+                      <div className="absolute top-2 right-2 w-6 h-6 bg-timeback-primary text-white rounded-full flex items-center justify-center text-xs font-bold font-cal">
+                        {count}
+                      </div>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </>
+        ) : (
+          <>
+            {/* Subcategories View */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-bold text-timeback-primary font-cal">
+                  Select specific {mainCategories.find(c => c.id === selectedCategory)?.title} interests:
+                </h3>
                 <button
-                  onClick={() => setExpandedCategory(null)}
-                  className="text-timeback-primary hover:bg-timeback-bg rounded-xl p-2 transition-all duration-200"
+                  onClick={handleBackToCategories}
+                  className="px-4 py-2 text-timeback-primary hover:bg-timeback-bg rounded-xl transition-all duration-200 font-cal flex items-center gap-2"
                 >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
+                  Back to categories
                 </button>
               </div>
               
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-                {interestCategories[expandedCategory as keyof typeof interestCategories].map((subcategory) => {
-                  const isSubSelected = state.kidsInterests.includes(subcategory);
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {selectedCategory && subcategories[selectedCategory as keyof typeof subcategories].map((subcategory) => {
+                  const isSelected = state.kidsInterests.includes(subcategory);
                   return (
                     <button
                       key={subcategory}
-                      onClick={() => toggleSubcategoryInterest(subcategory)}
-                      className={`p-3 rounded-xl border-2 text-center transition-all duration-200 ${
-                        isSubSelected
-                          ? 'border-timeback-primary bg-timeback-primary text-white shadow-lg'
-                          : 'border-timeback-primary/30 bg-timeback-bg text-timeback-primary hover:border-timeback-primary'
+                      onClick={() => handleSubcategoryClick(subcategory)}
+                      className={`p-4 rounded-xl border-2 text-center transition-all duration-200 transform hover:scale-105 ${
+                        isSelected
+                          ? 'border-timeback-primary bg-timeback-primary text-white shadow-xl'
+                          : 'border-timeback-primary bg-white text-timeback-primary hover:bg-timeback-bg shadow-lg'
                       }`}
                     >
                       <div className="font-semibold text-sm font-cal">
@@ -205,12 +341,13 @@ export default function InterestsStep({ onNext: _onNext, onPrev: _onPrev }: Inte
                 })}
               </div>
             </div>
-          )}
-        </div>
+          </>
+        )}
       </div>
+      )}
 
       {/* Selected Interests Display */}
-      {state.kidsInterests.length > 0 && (
+      {askedIntro && state.kidsInterests.length > 0 && (
         <div className="bg-timeback-bg border-2 border-timeback-primary rounded-xl p-4">
           <h4 className="text-base font-bold text-timeback-primary mb-3 font-cal">
             Selected ({state.kidsInterests.length}):
@@ -223,7 +360,7 @@ export default function InterestsStep({ onNext: _onNext, onPrev: _onPrev }: Inte
               >
                 {interest}
                 <button
-                  onClick={() => toggleSubcategoryInterest(interest)}
+                  onClick={() => handleSubcategoryClick(interest)}
                   className="ml-1 text-white/80 hover:text-white font-cal"
                 >
                   <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
@@ -237,6 +374,7 @@ export default function InterestsStep({ onNext: _onNext, onPrev: _onPrev }: Inte
       )}
 
       {/* Completion Section */}
+      {askedIntro && (
       <div className="bg-gradient-to-r from-timeback-bg to-white border-2 border-timeback-primary rounded-xl p-6">
         <div className="text-center space-y-3 font-cal">
           <h3 className="text-lg font-bold text-timeback-primary font-cal">
@@ -269,6 +407,7 @@ export default function InterestsStep({ onNext: _onNext, onPrev: _onPrev }: Inte
         </button>
         </div>
       </div>
+      )}
       
     </div>
   );

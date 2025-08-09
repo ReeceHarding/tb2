@@ -1,7 +1,9 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useSession } from 'next-auth/react';
 import { usePostHog } from 'posthog-js/react';
+import { unifiedDataService } from '@/libs/unified-data-service';
 import { 
   MessageCircle, 
   X, 
@@ -40,6 +42,7 @@ interface Section {
 }
 
 export default function AIExperienceClient() {
+  const { data: session } = useSession();
   const posthog = usePostHog();
   const [userData, setUserData] = useState({
     name: '', // Will be populated from Google auth if needed
@@ -53,6 +56,8 @@ export default function AIExperienceClient() {
   const [completedSections, setCompletedSections] = useState<Set<number>>(new Set());
   const [showChatbot, setShowChatbot] = useState(false);
   const [hasStarted, setHasStarted] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [clickedQuestions, setClickedQuestions] = useState<Set<string>>(new Set());
   
   const scrollRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -141,6 +146,74 @@ export default function AIExperienceClient() {
     posthog?.capture('ai_experience_page_view');
   }, [posthog]);
 
+  // Load user data from unified service
+  useEffect(() => {
+    const loadUserData = async () => {
+      setIsLoading(true);
+      
+      // Check local storage first
+      const localGrade = localStorage.getItem('timebackUserGrade');
+      const localInterests = localStorage.getItem('timebackUserInterests');
+      const localSchool = localStorage.getItem('timebackUserSchool');
+      
+      if (localGrade) {
+        setUserData(prev => ({ ...prev, childGrade: localGrade }));
+      }
+      
+      if (localInterests) {
+        try {
+          const parsedInterests = JSON.parse(localInterests);
+          setUserData(prev => ({ ...prev, interests: parsedInterests }));
+        } catch (e) {
+          console.error('Error parsing local interests:', e);
+        }
+      }
+      
+      if (localSchool) {
+        try {
+          const parsedSchool = JSON.parse(localSchool);
+          setUserData(prev => ({ ...prev, school: parsedSchool[0] || null }));
+        } catch (e) {
+          console.error('Error parsing local school:', e);
+        }
+      }
+      
+      // Load from Supabase if authenticated
+      if (session?.user?.email) {
+        try {
+          const userProfile = await unifiedDataService.getUserProfile(session.user.email);
+          if (userProfile) {
+            setUserData(prev => ({ ...prev, name: userProfile.firstName || '' }));
+            
+            const [gradeData, interestsData, schoolData] = await Promise.all([
+              unifiedDataService.getSectionData(userProfile.id, 'grade'),
+              unifiedDataService.getSectionData(userProfile.id, 'kidsInterests'),
+              unifiedDataService.getSectionData(userProfile.id, 'selectedSchools')
+            ]);
+            
+            if (gradeData?.data?.value) {
+              setUserData(prev => ({ ...prev, childGrade: gradeData.data.value }));
+            }
+            
+            if (interestsData?.data?.value) {
+              setUserData(prev => ({ ...prev, interests: interestsData.data.value }));
+            }
+            
+            if (schoolData?.data?.value && schoolData.data.value.length > 0) {
+              setUserData(prev => ({ ...prev, school: schoolData.data.value[0] }));
+            }
+          }
+        } catch (error) {
+          console.error('Error loading user data from Supabase:', error);
+        }
+      }
+      
+      setIsLoading(false);
+    };
+    
+    loadUserData();
+  }, [session]);
+
   useEffect(() => {
     if (currentSection > 0 && scrollRefs.current[currentSection]) {
       scrollRefs.current[currentSection]?.scrollIntoView({ 
@@ -159,7 +232,7 @@ export default function AIExperienceClient() {
     posthog?.capture('ai_experience_started');
   };
 
-  const handleSchoolSelect = (school: any) => {
+  const handleSchoolSelect = async (school: any) => {
     setUserData(prev => ({ ...prev, school }));
     setCompletedSections(prev => new Set(Array.from(prev).concat(1)));
     setCurrentSection(2);
@@ -168,6 +241,21 @@ export default function AIExperienceClient() {
       school_city: school.city,
       school_state: school.state
     });
+    
+    // Save to local storage
+    localStorage.setItem('timebackUserSchool', JSON.stringify([school]));
+    
+    // Save to Supabase if authenticated
+    if (session?.user?.email) {
+      try {
+        const userProfile = await unifiedDataService.getUserProfile(session.user.email);
+        if (userProfile) {
+          await unifiedDataService.saveSectionData(userProfile.id, 'selectedSchools', { value: [school] });
+        }
+      } catch (error) {
+        console.error('Error saving school to Supabase:', error);
+      }
+    }
   };
 
   const handleNextSection = () => {
@@ -306,6 +394,10 @@ export default function AIExperienceClient() {
                 <FollowUpQuestions 
                   sectionId={section.id}
                   context={userData}
+                  clickedQuestions={clickedQuestions}
+                  onQuestionClicked={(question: string) => {
+                    setClickedQuestions(prev => new Set([...Array.from(prev), question]));
+                  }}
                 />
               )}
               
@@ -330,6 +422,17 @@ export default function AIExperienceClient() {
       </div>
     );
   };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center font-cal">
+          <div className="animate-spin rounded-full h-12 w-12 border-4 border-timeback-primary border-t-transparent mx-auto mb-4"></div>
+          <p className="text-timeback-primary text-lg">Loading your personalized experience...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white">

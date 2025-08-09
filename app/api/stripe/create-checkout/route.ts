@@ -2,8 +2,9 @@ import { NextResponse, NextRequest } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/libs/next-auth";
 import { createCheckout } from "@/libs/stripe";
-import connectMongo from "@/libs/mongoose";
-import User from "@/models/User";
+// MongoDB disabled - this endpoint needs to be migrated to Supabase
+// import connectMongo from "@/libs/mongoose";
+// import User from "@/models/User";
 
 // This function is used to create a Stripe Checkout Session (one-time payment or subscription)
 // It's called by the <ButtonCheckout /> component
@@ -34,9 +35,11 @@ export async function POST(req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
 
-    await connectMongo();
+    // await connectMongo();
 
-    const user = await User.findById(session?.user?.id);
+    // TODO: Migrate to Supabase
+    // const user = await User.findById(session?.user?.id);
+    const user: any = null;
 
     const { priceId, mode, successUrl, cancelUrl } = body;
 

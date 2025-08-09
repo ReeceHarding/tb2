@@ -211,17 +211,6 @@ const SCHOOL_ADDRESSES = {
     website: 'https://gtschool.org/',
     description: 'Gifted and Talented school focusing on accelerated learning for exceptional students.'
   },
-  'waypoint-academy': {
-    name: 'Waypoint Academy',
-    address: 'To Be Determined',
-    city: 'Austin',
-    state: 'TX',
-    zipCode: '78701',
-    phone: '(512) 555-0400',
-    email: 'info@waypointacademy.org',
-    website: 'https://waypointacademy.org/',
-    description: 'Innovative educational pathways designed to guide students toward unique academic and personal goals.'
-  },
   'texas-sports-academy': {
     name: 'Texas Sports Academy',
     address: 'To Be Determined',

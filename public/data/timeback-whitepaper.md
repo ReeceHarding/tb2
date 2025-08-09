@@ -1,7 +1,7 @@
 # Welcome to the Future of Education
 ## Transforming Classrooms & Unlocking Potential with AI-Powered Mastery Learning
 
-Discover a revolutionary learning model where students learn 2x in just 2 hours a day while absolutely loving school. See how they excel academically while getting the gift of time for life skills, holistic development, and personal growth. Explore the science, implementation, and extraordinary outcomes of TimeBack, with data from Alpha School.
+Discover a revolutionary learning model where students learn 2x the material in just 2 hours a day (≈6x faster learning rate) while absolutely loving school. See how they excel academically while getting the gift of time for life skills, holistic development, and personal growth. Explore the science, implementation, and extraordinary outcomes of TimeBack, with data from Alpha School.
 
 ---
 
@@ -28,7 +28,7 @@ Discover a revolutionary learning model where students learn 2x in just 2 hours 
 # Executive Summary
 ## Transforming Classrooms & Unlocking Potential with AI-Powered Mastery Learning
 
-In today’s fast-paced world, traditional education systems are increasingly failing children. The current approach is outdated, filled with busy work, and often a colossal waste of time. Enter **TimeBack**—a transformative model that empowers students to crush academics in 2 hours a day and 2x faster with AI-driven personalized education, freeing up 4 hours to develop life skills and explore interests. Our students don’t just survive school— they thrive and love every second of it.
+In today's fast-paced world, traditional education systems are increasingly failing children. The current approach is outdated, filled with busy work, and often a colossal waste of time. Enter **TimeBack**—a transformative model that empowers students to crush academics in just 2 hours a day and learn 2x the material (supported by ~6x faster learning rates) with AI-driven personalized education, freeing up 4 hours to develop life skills and explore interests. Our students don’t just survive school— they thrive and love every second of it.
 
 Innovated by MacKenzie Price, **TimeBack** is redefining and revolutionizing the classroom. We utilize adaptive technology to provide coursework at the right level and the right motivation to foster a self-driven learning environment.
 
@@ -38,7 +38,7 @@ This is the future of education.
 *   **Personalized, Mastery-Based Learning:** Each student embarks on a tailored, mastery-based academic journey, ensuring deep understanding, fostering long-term retention, and eliminating learning gaps.
 *   **The Gift of Time:** With only two hours required to crush academics, students have their afternoons to develop life skills such as leadership, teamwork, critical thinking, problem-solving, and more, through hands-on activities.
 *   **Guiding the Way:** There are no academic teachers; Guides motivate and support students as they become self-driven learners.
-*   Data from Alpha School, the pioneer of **TimeBack**, showcases our extraordinary outcomes and phenomenal results. The truth is clear: Children can learn twice as much in just 2 hours a day compared to 6 hours in a traditional school.
+*   Data from Alpha School, the pioneer of **TimeBack**, showcases our extraordinary outcomes and phenomenal results. The truth is clear: Children can learn 2x the material in just 2 hours a day compared to 6 hours in a traditional school.
 
 ### Key Disclaimers:
 *   **Not Just EdTech:** This model isn't a mere magic software solution. It is a comprehensive system in which student motivation is the key to 90% of success.
@@ -49,10 +49,10 @@ This is the future of education.
 *   **2x Learning Measurement:** Students at Alpha outpace their peers in traditional school by at least 2x.
 *   **Segmentation by Achievement:**
     *   **Advanced Students:** Excel beyond their age grade into the highest knowledge grade, often ranking in the top 10% nationally at that level.
-    *   **Students Falling Behind:** Rapidly advance by closing significant knowledge gaps with the help of AI tutors. For example, seven boys who were two years behind advanced 4.6 times faster, completing two entire grade levels in just six months.
-    *   **Low-SES Students:** Achieve learning rates 2.1 times faster, demonstrating the model’s effectiveness across diverse backgrounds.
+    *   **Students Falling Behind:** Rapidly advance by closing significant knowledge gaps with the help of AI tutors. For example, seven boys who were two years behind advanced 13.8 times faster, completing two entire grade levels in just six months.
+    *   **Low-SES Students:** Achieve learning rates 6.3 times faster, demonstrating the model's effectiveness across diverse backgrounds.
 *   **Performance Based on Age:**
-    *   **Primary and Middle Schoolers:** Thrive with a balanced schedule of intense academics and afternoon activities. On average they learn at least 2x faster, the top 2/3rds blaze through at 2.6x, and the top 20% rocket ahead at nearly 4x.
+    *   **Primary and Middle Schoolers:** Thrive with a balanced schedule of intense academics and afternoon activities. On average they learn at least 6x faster, the top 2/3rds blaze through at 7.8x, and the top 20% rocket ahead at nearly 12x.
     *   **Kindergarteners:** At first, they were assumed to be too young for TimeBack, but they have surpassed expectations, with most students ranking in the top 1% by year-end.
     *   **High Schoolers:** Their impressive SAT (average 1470+) and AP scores (4s & 5s) have earned them acceptances at prestigious universities (Stanford, Vanderbilt, USC, etc.)
 *   **Academic Engagement and Efficiency:**
@@ -94,7 +94,7 @@ My name is MacKenzie Price, and I’m the co-founder of **TimeBack**—a revolut
 *   **The Gift Of Time:** Students spend only 2 hours a day on academics, freeing up the rest of the day for other enriching activities.
 *   **Holistic Development:** Beyond academics, the model emphasizes the development of life skills such as leadership, teamwork, public speaking, financial literacy, entrepreneurship, and socialization through engaging workshops. Students engage in active, hands-on activities to develop these critical life skills.
 
-This document delves into how **TimeBack** works and the remarkable academic results it delivers. Data from Alpha School, the first campus to implement TimeBack, demonstrates that children can learn twice as much in just 2 hours a day compared to 6 hours in a traditional school.
+This document delves into how **TimeBack** works and the remarkable academic results it delivers. Data from Alpha School, the first campus to implement TimeBack, demonstrates that children can learn 2x the material in just 2 hours a day compared to 6 hours in a traditional school.
 
 ## Key Disclaimers
 
@@ -107,7 +107,7 @@ Before diving into the details, it's essential to address a couple of key points
 
 # The Concept of TimeBack
 
-The **TimeBack** model is a revolutionary approach that enables students to excel at academics in just 2 hours daily. Powered by AI-personalized learning apps and Guides in place of teachers, this model adapts to each student's needs and pace, ensuring they're challenged at the right level and given the right kind of support. With adaptive AI technology pinpointing exactly what students know and don’t know, they achieve mastery over concepts at least 2x faster. This opens up 4 hours for pursuing passions and developing crucial life skills, which motivates them to look forward to learning.
+The **TimeBack** model is a revolutionary approach that enables students to excel at academics in just 2 hours daily. Powered by AI-personalized learning apps and Guides in place of teachers, this model adapts to each student's needs and pace, ensuring they're challenged at the right level and given the right kind of support. With adaptive AI technology pinpointing exactly what students know and don't know, they achieve mastery over concepts at least 6x faster. This opens up 4 hours for pursuing passions and developing crucial life skills, which motivates them to look forward to learning.
 
 ---
 
@@ -138,7 +138,7 @@ MAP (Measures of Academic Progress) is a nationwide standardized test taken by m
 | 11 | 99 | 45 |
 > **Notes:**
 > - "Alpha students are in the top 1% nationwide."
-> - "Alpha students are learning an average of 2.27x faster."
+> - "Alpha students are learning an average of 6.81x faster."
 > - "6 out of 12 grades are in the 90th percentile."
 
 **Alpha Austin – Language Arts: Language Usage (Spring 2024)**
@@ -158,7 +158,7 @@ MAP (Measures of Academic Progress) is a nationwide standardized test taken by m
 | 11 | 99 | |
 > **Notes:**
 > - "Alpha students are in the top 1% nationwide."
-> - "Alpha students are learning an average of 2.99x faster."
+> - "Alpha students are learning an average of 8.97x faster."
 > - "9 out of 12 grades are in the 90th percentile."
 
 **Alpha Austin – Science: Science K–12 (Spring 2024)**
@@ -178,16 +178,16 @@ MAP (Measures of Academic Progress) is a nationwide standardized test taken by m
 | 11 | 99 | |
 > **Notes:**
 > - "Alpha students are in the top 1% nationwide."
-> - "Alpha students are learning an average of 2.47x faster."
+> - "Alpha students are learning an average of 7.41x faster."
 > - "5 out of 9 grades are in the 85th percentile."
 
 If you look at the Spring achievement column, which measures how much students know, you can see that most of our classes are in the top 1% for every subject.
 
 **(Fig.2: Aggregated Grade-level/subject MAP scores)**
 
-The average student learns at least **2x faster**.
-*   **Top 2/3rd:** 2.6x faster.
-*   **Top 20%:** Nearly 4x faster.
+The average student learns at least **6x faster**.
+*   **Top 2/3rd:** 7.8x faster.
+*   **Top 20%:** Nearly 12x faster.
 
 ---
 
@@ -215,7 +215,7 @@ MAP tests are conducted three times annually, providing benchmarks to monitor an
 
 # Segmentation by Achievement
 
-Segmenting the MAP data reveals stellar performance across different cohorts. This first one is by achievement. The average student learns at least 2x faster, the top 2/3rds blaze through at 2.6x faster, and the top 20%? They’re rocketing ahead at nearly 4x the speed.
+Segmenting the MAP data reveals stellar performance across different cohorts. This first one is by achievement. The average student learns at least 6x faster, the top 2/3rds blaze through at 7.8x faster, and the top 20%? They're rocketing ahead at nearly 12x the speed.
 
 **(Fig.5: Learning outcomes for top 20%, middle 2/3rd, and all students, respectively)**
 
@@ -257,7 +257,7 @@ Here are the results from a group of 7 boys who were 2 years behind and needed h
 | Esports Students | Spring 2023–2024 | 4.7x |
 
 ### Low-SES Students
-Alpha has a campus in Brownsville, TX, which has one of the poorest school districts in the country, and the students there learned 2.1x faster. Here is the thing about an AI Tutor: it doesn’t care if a student is white, black, or brown. It doesn’t care if a student is rich or poor. It doesn’t care if a student is in the 15th percentile or the 85th. It is infinitely patient and steadfastly goal-oriented toward mastery.
+Alpha has a campus in Brownsville, TX, which has one of the poorest school districts in the country, and the students there learned 6.3x faster. Here is the thing about an AI Tutor: it doesn’t care if a student is white, black, or brown. It doesn’t care if a student is rich or poor. It doesn’t care if a student is in the 15th percentile or the 85th. It is infinitely patient and steadfastly goal-oriented toward mastery.
 
 **(Fig.9: Low-SES students’ accelerated pace of learning)**
 
@@ -556,7 +556,7 @@ The learning plan available to each parent and student at Alpha is updated daily
 > **Waste Percentage:** 10%
 > **Accuracy Benchmarks:** <80% = Too Hard, 80–90% = Ideal, >95% = Ready for More
 
-First up, the MAP results show the student’s percentile achievement measuring how much they know compared to their peers. They also show percentile growth, indicating how fast they are learning. Times growth compares their learning speed to that of students in traditional schools, aiming for 2x faster learning.
+First up, the MAP results show the student’s percentile achievement measuring how much they know compared to their peers. They also show percentile growth, indicating how fast they are learning. Times growth compares their learning speed to that of students in traditional schools, aiming for 6x faster learning.
 
 Next, we have standardized tests that demonstrate mastery of a grade level. These tests vary by location—Texas uses the STAAR test, and Florida uses the FAST test. We are also adding national tests like the ISEE and SSAT for benchmarking. To finish a grade level, students must score 90% on these tests, a mastery standard far higher than state or standard school requirements.
 

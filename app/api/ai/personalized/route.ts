@@ -32,7 +32,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Forward the request to the chat-tutor endpoint with schema format
-    const chatTutorResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/ai/chat-tutor`, {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+    const chatTutorResponse = await fetch(`${baseUrl}/api/ai/chat-tutor`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

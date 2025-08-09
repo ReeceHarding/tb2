@@ -40,7 +40,7 @@ Extract and create:
 1. **SPEAKER INFO**: Name, age, grade level (if mentioned)
 2. **CLEAN QUOTE**: A powerful, grammatically correct quote (15-30 words) that captures the essence
 3. **EXTENDED QUOTE**: A longer testimonial quote (30-60 words) for detailed sections
-4. **KEY ACHIEVEMENTS**: Specific learning gains mentioned (e.g., "2.8x growth", "learned 4x faster")
+4. **KEY ACHIEVEMENTS**: Specific learning gains mentioned (e.g., "8.4x growth", "learned 12x faster")
 5. **THEMES**: Main benefits highlighted (personalized learning, independence, engagement, etc.)
 6. **MARKETING TAGS**: 3-5 relevant tags for categorization
 7. **EMOTIONAL TONE**: The feeling conveyed (excited, confident, proud, etc.)

@@ -16,6 +16,7 @@ const SpeedComparison = dynamic(() => import('./SpeedComparison'));
 const PersonalizedSubjectExamples = dynamic(() => import('./PersonalizedSubjectExamples'));
 const StudentJourneyCarousel = dynamic(() => import('./StudentJourneyCarousel'));
 const AfternoonActivities = dynamic(() => import('./AfternoonActivities'));
+const PersonalizedDailyTimeline = dynamic(() => import('./AfternoonActivities').then(mod => ({ default: mod.PersonalizedDailyTimeline })));
 const CustomQuestionSection = dynamic(() => import('./CustomQuestionSection'));
 
 // Component mapping for dynamic rendering
@@ -31,6 +32,7 @@ const componentMap: Record<string, React.ComponentType<any>> = {
   StudentJourneyCarousel,
   AfternoonActivities,
   AfternoonActivitiesExpanded: AfternoonActivities, // Same component with different context
+  PersonalizedDailyTimeline,
   CustomQuestionSection,
 };
 

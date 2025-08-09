@@ -4,7 +4,7 @@ import User from "@/models/User";
 
 export const dynamic = 'force-dynamic';
 
-// GET: Retrieve a shared journey by shareId (public endpoint)
+// GET: Retrieve a shared journey by shareId (MongoDB implementation)
 export async function GET(
   req: NextRequest,
   { params }: { params: { shareId: string } }

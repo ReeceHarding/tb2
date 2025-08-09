@@ -1,11 +1,13 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { withLLMTracking } from '@/libs/llm-analytics';
+import { aiPromptLogger } from '@/libs/ai-prompt-logger';
 
 export const dynamic = 'force-dynamic';
 
 async function callGenerateAPI(prompt: string) {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/ai/generate`, {
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+    const response = await fetch(`${baseUrl}/api/ai/generate`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -27,66 +29,100 @@ async function callGenerateAPI(prompt: string) {
 }
 
 export async function POST(request: NextRequest) {
+  let interests, subject, gradeLevel;
+  
   try {
-    const { interests, subject, gradeLevel = '6th' } = await request.json();
+    const requestData = await request.json();
+    interests = requestData.interests;
+    subject = requestData.subject;
+    gradeLevel = requestData.gradeLevel || '6th';
     
     console.log(`[Generate Questions API] Creating ${subject} question for interests:`, interests, `at ${gradeLevel} grade level`);
     
-    const prompt = `You are creating an actual ${subject} practice question for a ${gradeLevel} grade student that they can solve. The question must be deeply connected to their specific interests to make learning engaging and personal.
+    const prompt = `<system_role>
+You are a TimeBack AI tutor creating personalized practice questions that deeply integrate student interests.
+</system_role>
 
-STUDENT INTERESTS: ${interests.join(', ')}
+<student_context>
+- Grade Level: ${gradeLevel}
+- Subject: ${subject}
+- Interests: ${interests.join(', ')}
+</student_context>
 
-CRITICAL INSTRUCTIONS:
-1. Create a REAL practice question that students can actually solve
-2. The question must deeply integrate their specific interests (not just mention them)
-3. Make it grade-appropriate but challenging
-4. Present a concrete problem with specific numbers/scenarios they can work with
-5. Use only plain text in your response - no special characters, control characters, or line breaks within JSON string values
+<strict_requirements>
+- Create ONE solvable practice question for ${gradeLevel} grade ${subject}
+- Deeply integrate ALL listed interests: ${interests.join(', ')}
+- Include specific numbers, data, or scenarios to work with
+- Ensure question has a clear, calculable/determinable answer
+- Match exact grade-level curriculum standards
+- Use real-world contexts from their interests
+</strict_requirements>
 
-EXAMPLES OF GOOD PRACTICE QUESTIONS:
+<question_criteria>
+- Complexity: Grade-appropriate but engaging
+- Interest Integration: Natural, not forced
+- Solvability: Clear path to solution
+- Relevance: Connects to real curriculum
+- Engagement: Feels like their world, not textbook
+</question_criteria>
 
-For Math + Basketball:
-"LeBron James made 73% of his free throws last season. If he attempted 582 free throws total, how many did he make? Round to the nearest whole number."
+<example_structures>
+Math: "[Character/Interest] has [specific number] of [items]. If [specific condition with numbers], how many [specific outcome]?"
+Science: "In [Interest context], when [specific phenomenon] occurs at [specific measurement], what happens to [specific variable]?"
+English: "Write [specific format] about [interest topic] that includes [specific requirements] and demonstrates [specific skill]."
+History: "If you were [character from interest] during [historical period], how would [specific event] affect [specific aspect]?"
+</example_structures>
 
-For Physics + Video Games:
-"In Fortnite, when you jump from the Battle Bus at 1,500 meters altitude, you fall at 50 meters per second. How long will it take to reach the ground if you deploy your glider at 200 meters?"
+<solution_requirements>
+- Step-by-step breakdown
+- Grade-appropriate language
+- Encouraging tone
+- Show all work/reasoning
+- Highlight key concepts
+</solution_requirements>
 
-For Science + Harry Potter:
-"If a Mandrake's cry can be heard at 150 decibels (instantly fatal to humans), and earmuffs reduce sound by 85%, what decibel level would you hear with earmuffs on? Is this safe? (Safe hearing is below 85 decibels)"
+<forbidden_actions>
+- Do NOT create discussion prompts without answers
+- Do NOT use generic placeholder names/numbers
+- Do NOT exceed grade-level complexity
+- Do NOT force interests artificially
+- Do NOT include any text outside JSON
+- Do NOT use markdown or formatting
+- Do NOT use hyphens in any field
+</forbidden_actions>
 
-For English + Minecraft:
-"Write a detailed instruction manual (3 paragraphs) explaining to a new player how to survive their first night in Minecraft. Use transition words, clear topic sentences, and specific examples."
+<output_validation>
+- Question must be solvable by target grade
+- Solution must be complete and accurate
+- Learning objective must be specific
+- Interest connection must be authentic
+- Follow-up questions must build progressively
+</output_validation>
 
-YOUR TASK:
-1. Create an actual practice question using their interests (${interests.join(', ')})
-2. Include specific names, games, characters, or scenarios they care about
-3. Present real numbers, scenarios, or tasks they can work with
-4. Make sure there's a clear answer they can calculate/write/determine
-5. The problem should feel like it comes from their world, not a textbook
-
-CRITICAL INSTRUCTIONS:
-- You MUST respond with ONLY valid JSON
-- Do NOT include any markdown formatting, headers, or explanations
-- Do NOT include any text before or after the JSON
-- Your response must start with { and end with }
-- Ensure all JSON properties are properly quoted
-- Never use hyphens in any text values
-
-Return ONLY a JSON object in this exact format:
+<output_format>
 {
-  "question": "The actual practice question with specific details and numbers/scenarios from their interests that they need to solve",
-  "solution": "Step by step solution showing exactly how to solve it, written in a friendly, encouraging tone",
-  "learningObjective": "The specific ${subject} skill being practiced (e.g., 'calculating percentages', 'understanding gravity', 'writing clear instructions')",
-  "interestConnection": "How this problem authentically uses ${interests.join(', ')} to teach the concept",
-  "nextSteps": "What similar but slightly harder problems they could try next",
+  "question": "[Specific practice question with real numbers/scenarios from their interests]",
+  "solution": "[Complete step-by-step solution with encouraging guidance]",
+  "learningObjective": "[Specific ${subject} skill being practiced]",
+  "interestConnection": "[How interests authentically enhance learning]",
+  "nextSteps": "[Progression path for continued learning]",
   "followUpQuestions": [
-    "A similar problem with the same concept but different numbers/scenario",
-    "A slightly harder version that builds on this skill",
-    "A real world application they could explore"
+    "[Similar problem with varied numbers/context]",
+    "[Slightly harder problem building on same skill]",
+    "[Real-world application to explore]"
   ]
 }
+</output_format>
 
-Remember: This should be a real question they can solve, not just a discussion prompt!`;
+RESPOND WITH ONLY THE JSON OBJECT - NO OTHER TEXT`;
+
+    // Log the XML prompt
+    aiPromptLogger.logXMLPrompt('generate-questions', prompt, {
+      interests,
+      subject,
+      gradeLevel,
+      promptLength: prompt.length
+    });
 
     console.log('[Generate Questions API] Sending prompt to centralized API...');
     
@@ -95,7 +131,7 @@ Remember: This should be a real question they can solve, not just a discussion p
       'cerebras-qwen-3-coder-480b',
       async () => {
         const response = await callGenerateAPI(prompt);
-        console.log(`[Generate Questions API] Using provider: ${response.provider}, latency: ${response.latencyMs}ms`);
+        console.log(`[Generate Questions API] Using provider: ${response.provider}, model: ${response.model}`);
         return { text: response.content };
       },
       {
@@ -148,7 +184,8 @@ Remember: This should be a real question they can solve, not just a discussion p
       console.log('[Generate Questions API] API failed, attempting fallback...');
       
       try {
-        const fallbackResponse = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'}/api/ai/generate-fallback`, {
+        const fbBase = process.env.NEXT_PUBLIC_APP_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+        const fallbackResponse = await fetch(`${fbBase}/api/ai/generate-fallback`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -182,9 +219,9 @@ Remember: This should be a real question they can solve, not just a discussion p
           interestConnection: `Connected to ${interests[0] || 'student interests'}`,
           nextSteps: 'Try again when AI service is available',
           followUpQuestions: [
-            'Please try your question again',
-            'AI service will be restored shortly', 
-            'Thank you for your patience'
+            'Try asking again?',
+            'Service restored soon?', 
+            'Thanks for patience?'
           ]
         };
       }
@@ -203,11 +240,32 @@ Remember: This should be a real question they can solve, not just a discussion p
 
   } catch (error) {
     console.error('[Generate Questions API] Error:', error);
+    console.error('[Generate Questions API] Error stack:', error.stack);
+    console.error('[Generate Questions API] Error details:', {
+      message: error.message,
+      name: error.name,
+      interests,
+      subject,
+      gradeLevel
+    });
+    
+    // Log detailed error information for debugging
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    const errorDetails = {
+      timestamp: new Date().toISOString(),
+      endpoint: 'generate-questions',
+      error: errorMessage,
+      stack: error instanceof Error ? error.stack : undefined,
+      context: { interests, subject, gradeLevel }
+    };
+    
+    console.error('[Generate Questions API] Detailed error log:', JSON.stringify(errorDetails, null, 2));
+    
     return NextResponse.json(
       { 
         success: false,
         error: 'Failed to generate personalized question',
-        details: error.message
+        details: errorMessage
       },
       { status: 500 }
     );

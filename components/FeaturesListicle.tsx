@@ -27,7 +27,7 @@ const features: {
       paragraphs: [
         "Benjamin Bloom's landmark 1984 research found that students receiving 1-on-1 tutoring performed two standard deviations better than classroom students. This moves average students to the 98th percentile.",
         "TimeBack provides each child with their own AI tutor that delivers the individualized instruction Bloom identified as transformational. Unlike classroom teachers managing 30+ students, AI gives 100% focus to your child's unique learning needs.",
-        "Alpha School data confirms Bloom's findings: students average 2.47x faster learning with top performers reaching nearly 4x acceleration through personalized AI tutoring."
+        "Alpha School data confirms Bloom's findings: students average 7.41x faster learning with top performers reaching nearly 12x acceleration through personalized AI tutoring."
       ]
     },
     bullets: [
@@ -36,7 +36,7 @@ const features: {
       "1:1 attention impossible in classrooms",
       "AI provides infinite patience and precision"
     ],
-    result: "2x faster learning",
+    result: "6x faster learning",
     researchLink: {
       text: "Read Bloom's original 2 Sigma research",
       url: "http://www.ascd.org/ASCD/pdf/journals/ed_lead/el_198405_bloom.pdf"
@@ -108,12 +108,12 @@ const features: {
     content: {
       paragraphs: [
         "Lev Vygotsky's Zone of Proximal Development theory shows learning accelerates when content is challenging enough to engage students but not so difficult as to overwhelm them.",
-        "TimeBack's AI continuously monitors student performance and adjusts difficulty in real-time. If accuracy drops below 80%, material becomes easier. If above 95%, it increases challenge to maintain optimal learning velocity.",
+        "TimeBack's AI continuously monitors student performance and adjusts difficulty in real time. If accuracy drops below 80%, material becomes easier. If above 95%, it increases challenge to maintain optimal learning velocity.",
         "This dynamic difficulty adjustment keeps students in their peak learning zone, maximizing engagement and knowledge acquisition speed."
       ]
     },
     bullets: [
-      "Real-time difficulty adjustment",
+      "Real time difficulty adjustment",
       "Maintains 80-95% accuracy sweet spot",
       "Prevents boredom and frustration", 
       "Maximizes learning velocity"
@@ -151,7 +151,7 @@ const features: {
       ]
     },
     bullets: [
-      "Real-time struggle detection",
+      "Real time struggle detection",
       "Immediate targeted interventions",
       "Prevents knowledge gaps from compounding",
       "Maintains continuous learning momentum"
@@ -217,7 +217,7 @@ const features: {
     title: "Active Learning Theory: Engagement Through Interaction",
     content: {
       paragraphs: [
-        "Educational research consistently shows that active learning—where students engage with material through problem-solving, discussion, and application—produces significantly better outcomes than passive listening.",
+        "Educational research consistently shows that active learning - where students engage with material through problem solving, discussion, and application - produces significantly better outcomes than passive listening.",
         "TimeBack eliminates passive learning entirely. Students must actively respond to questions, solve problems, and demonstrate understanding before progressing, creating constant engagement.",
         "The Pomodoro Technique's 25-minute focused sessions combined with active learning principles maximize concentration and knowledge retention while preventing cognitive overload."
       ]
@@ -299,7 +299,7 @@ const FeaturesListicle = () => {
   );
 
   return (
-    <section className="bg-gradient-to-br from-timeback-bg via-white to-white relative">
+    <section className="bg-white relative">
       <div className="max-w-7xl mx-auto px-8 py-16 md:py-32 relative">
         {/* Header */}
         <motion.div 
@@ -310,10 +310,10 @@ const FeaturesListicle = () => {
           className="text-center mb-12 md:mb-20 font-cal"
         >
           <h2 className="font-extrabold text-3xl md:text-5xl tracking-tight mb-6 bg-gradient-to-r from-timeback-primary via-timeback-primary to-timeback-primary bg-clip-text text-transparent font-cal">
-            AI Tutoring & Personalized Learning Science Behind TimeBack
+            Why TimeBack Works: The Learning Science That Traditional Schools Ignore
           </h2>
           <p className="text-lg md:text-xl text-timeback-primary max-w-2xl mx-auto leading-relaxed font-cal">
-            Six research-proven learning theories transformed into our adaptive AI-powered education platform for homeschool families
+            For 40+ years, research has proven these methods deliver 2x learning. Traditional classrooms can&apos;t implement them. AI finally can.
           </p>
         </motion.div>
 

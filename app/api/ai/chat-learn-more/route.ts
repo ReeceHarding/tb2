@@ -1,5 +1,4 @@
-import { safeBedrockAPI, rateLimiter } from '@/libs/bedrock-helpers';
-import { convertToCoreMessages } from 'ai';
+// Removed Bedrock imports - using Cerebras directly
 
 export const dynamic = 'force-dynamic';
 
@@ -89,21 +88,92 @@ Answer the parent's questions in a helpful, specific way that addresses their un
 
     console.log('[chat-learn-more] System prompt length:', systemPrompt.length);
 
-    // Convert messages to the format expected by the AI SDK
-    const coreMessages = convertToCoreMessages(messages);
-
-    // Stream the response with rate limiting and retry logic
-    const result = await rateLimiter.execute(async () => {
-      return await safeBedrockAPI.streamText({
-        messages: coreMessages,
-        system: systemPrompt,
-        temperature: 0.7,
-      }, 'chat-learn-more');
+    // Use Cerebras API for streaming
+    const cerebrasUrl = 'https://api.cerebras.ai/v1/chat/completions';
+    const cerebrasKey = process.env.CEREBRAS_API_KEY || '';
+    
+    // Convert messages to Cerebras format
+    const cerebrasMessages = [
+      { role: 'system', content: systemPrompt },
+      ...messages.map((msg: any) => ({
+        role: msg.role,
+        content: msg.content
+      }))
+    ];
+    
+    console.log('[chat-learn-more] Sending to Cerebras...');
+    
+    const response = await fetch(cerebrasUrl, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${cerebrasKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'llama-4-scout-17b-16e-instruct',
+        messages: cerebrasMessages,
+        max_completion_tokens: 2048,
+        temperature: 0.2,
+        stream: true
+      })
     });
 
+    if (!response.ok) {
+      throw new Error(`Cerebras API error: ${response.status}`);
+    }
+    
     console.log('[chat-learn-more] Streaming response initiated');
-
-    return result.toTextStreamResponse();
+    
+    // Return streaming response
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream({
+      async start(controller) {
+        const reader = response.body?.getReader();
+        const decoder = new TextDecoder();
+        
+        if (!reader) {
+          controller.close();
+          return;
+        }
+        
+        try {
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            
+            const chunk = decoder.decode(value);
+            const lines = chunk.split('\n').filter(line => line.trim() !== '');
+            
+            for (const line of lines) {
+              if (line.startsWith('data: ')) {
+                const data = line.slice(6);
+                if (data === '[DONE]') continue;
+                
+                try {
+                  const parsed = JSON.parse(data);
+                  const content = parsed.choices?.[0]?.delta?.content || '';
+                  if (content) {
+                    controller.enqueue(encoder.encode(content));
+                  }
+                } catch (e) {
+                  console.error('[chat-learn-more] Parse error:', e);
+                }
+              }
+            }
+          }
+        } finally {
+          controller.close();
+        }
+      }
+    });
+    
+    return new Response(stream, {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive'
+      }
+    });
 
   } catch (error) {
     console.error('[chat-learn-more] Error:', error);

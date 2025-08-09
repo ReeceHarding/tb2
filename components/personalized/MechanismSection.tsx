@@ -1,11 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-
-interface QuizData {
-  grade: string
-  kidsInterests?: string[]
-}
+import { useSession } from 'next-auth/react'
+import { unifiedDataService } from '@/libs/unified-data-service'
 
 interface GradePromptProps {
   onGradeSelect: (grade: string) => void
@@ -66,38 +63,107 @@ function GradePrompt({ onGradeSelect }: GradePromptProps) {
 }
 
 export default function MechanismSection() {
-  const [quizData, setQuizData] = useState<QuizData | null>(null)
+  const { data: session } = useSession()
   const [selectedGrade, setSelectedGrade] = useState<string | null>(null)
+  const [kidsInterests, setKidsInterests] = useState<string[]>([])
   const [showGradePrompt, setShowGradePrompt] = useState<boolean>(false)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    console.log('🔍 MechanismSection mounted - checking for existing quiz data')
-    const data = localStorage.getItem('timebackQuizData')
-    if (data) {
-      const parsedData = JSON.parse(data)
-      console.log('📋 Found existing quiz data:', parsedData)
-      setQuizData(parsedData)
-    } else {
-      console.log('❌ No quiz data found - will show grade prompt')
-      setShowGradePrompt(true)
+    const loadUserData = async () => {
+      console.log('🔍 MechanismSection mounted - checking for user data')
+      
+      // First check local storage for non-authenticated users
+      const localGrade = localStorage.getItem('timebackUserGrade')
+      const localInterests = localStorage.getItem('timebackUserInterests')
+      
+      if (localGrade) {
+        console.log('📋 Found local grade:', localGrade)
+        setSelectedGrade(localGrade)
+      }
+      
+      if (localInterests) {
+        try {
+          const parsedInterests = JSON.parse(localInterests)
+          console.log('📋 Found local interests:', parsedInterests)
+          setKidsInterests(parsedInterests)
+        } catch (e) {
+          console.error('Error parsing local interests:', e)
+        }
+      }
+      
+      // If authenticated, try to get data from Supabase
+      if (session?.user?.email) {
+        try {
+          const userProfile = await unifiedDataService.getUserProfile(session.user.email)
+          if (userProfile) {
+            const gradeData = await unifiedDataService.getSectionData(userProfile.id, 'grade')
+            const interestsData = await unifiedDataService.getSectionData(userProfile.id, 'kidsInterests')
+            
+            if (gradeData?.data?.value) {
+              console.log('📋 Found Supabase grade:', gradeData.data.value)
+              setSelectedGrade(gradeData.data.value)
+            }
+            
+            if (interestsData?.data?.value) {
+              console.log('📋 Found Supabase interests:', interestsData.data.value)
+              setKidsInterests(interestsData.data.value)
+            }
+          }
+        } catch (error) {
+          console.error('Error loading user data from Supabase:', error)
+        }
+      }
+      
+      // Show grade prompt if no grade found
+      if (!localGrade && !selectedGrade) {
+        console.log('❌ No grade data found - will show grade prompt')
+        setShowGradePrompt(true)
+      }
+      
+      setIsLoading(false)
     }
-  }, [])
+    
+    loadUserData()
+  }, [session])
 
-  const handleGradeSelect = (grade: string) => {
+  const handleGradeSelect = async (grade: string) => {
     console.log(`✅ Grade selected for child: ${grade}`)
     setSelectedGrade(grade)
     setShowGradePrompt(false)
     
-    // Save the grade selection temporarily (you might want to save this differently)
-    const tempQuizData = { grade: grade, kidsInterests: [] as string[] }
-    setQuizData(tempQuizData)
+    // Save to local storage
+    localStorage.setItem('timebackUserGrade', grade)
+    
+    // Save to Supabase if authenticated
+    if (session?.user?.email) {
+      try {
+        const userProfile = await unifiedDataService.getUserProfile(session.user.email)
+        if (userProfile) {
+          await unifiedDataService.saveSectionData(userProfile.id, 'grade', { value: grade })
+        }
+      } catch (error) {
+        console.error('Error saving grade to Supabase:', error)
+      }
+    }
   }
 
   // Determine which grade to use for the analysis
-  const displayGrade = selectedGrade || quizData?.grade
+  const displayGrade = selectedGrade
   const userGrade = displayGrade?.replace(/st|nd|rd|th/, '') || null
   const userHours = userGrade ? hoursData[userGrade] : null
-  const interests = quizData?.kidsInterests || []
+  const interests = kidsInterests
+
+  // Show loading state
+  if (isLoading) {
+    return (
+      <section className="py-20 lg:py-32">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-4 border-timeback-primary border-t-transparent mx-auto"></div>
+        </div>
+      </section>
+    )
+  }
 
   // Show grade prompt if no grade data is available
   if (showGradePrompt || !userGrade || !userHours) {
@@ -231,7 +297,7 @@ export default function MechanismSection() {
               <div className="w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white font-bold text-xl font-cal">✓</span>
               </div>
-              <h4 className="text-xl font-bold text-timeback-primary mb-4 text-center font-cal">Mastery-Based Progression</h4>
+              <h4 className="text-xl font-bold text-timeback-primary mb-4 text-center font-cal">Mastery Based Progression</h4>
               <div className="flex-grow flex items-center justify-center mb-6">
                 <p className="text-timeback-primary font-cal leading-relaxed text-center">
                   Students don&apos;t advance until they achieve 100% understanding, ensuring no knowledge gaps.
@@ -250,7 +316,7 @@ export default function MechanismSection() {
               <div className="w-16 h-16 bg-timeback-primary rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white font-bold text-xl font-cal">🤖</span>
               </div>
-              <h4 className="text-xl font-bold text-timeback-primary mb-4 text-center font-cal">AI-Driven Efficiency</h4>
+              <h4 className="text-xl font-bold text-timeback-primary mb-4 text-center font-cal">AI Driven Efficiency</h4>
               <div className="flex-grow flex items-center justify-center mb-6">
                 <p className="text-timeback-primary font-cal leading-relaxed text-center">
                   Personalized learning paths eliminate review of known material and adapt to each student&apos;s pace.

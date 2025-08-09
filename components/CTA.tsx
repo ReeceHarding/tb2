@@ -15,7 +15,7 @@ const CTA = () => {
     router.push("/quiz");
   };
   return (
-    <section className="py-20 lg:py-32">
+    <section className="py-20 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div 
           className="flex flex-col items-center max-w-4xl mx-auto text-center"
@@ -36,18 +36,17 @@ const CTA = () => {
           </motion.div>
           
           <motion.h2 
-            className="font-bold text-3xl md:text-5xl tracking-tight mb-8 md:mb-12 font-cal text-timeback-primary leading-tight"
+            className="font-extrabold text-3xl md:text-5xl tracking-tight mb-6 bg-gradient-to-r from-timeback-primary via-timeback-primary to-timeback-primary bg-clip-text text-transparent font-cal"
             variants={animationVariants.fadeInUp}
           >
-            Ready to See How AI Tutoring Can Help Your Child <br />
-            Achieve 99th Percentile Results in Just 2 Hours?
+            Give Your Child the Gift of Time - and a 99th Percentile Education
           </motion.h2>
           
           <motion.p 
-            className="text-lg mb-12 md:mb-16 max-w-2xl font-cal text-timeback-primary leading-relaxed"
+            className="text-lg md:text-xl text-timeback-primary max-w-2xl mx-auto leading-relaxed font-cal mb-12 md:mb-16"
             variants={animationVariants.fadeInUp}
           >
-            Experience our AI-powered personalized learning platform firsthand. See exactly how our homeschool curriculum adapts to your child&apos;s needs and why Alpha School students consistently achieve 99th percentile MAP test scores with just 2 hours of daily study.
+            Your child has unlimited potential. Traditional schools waste it. See exactly how TimeBack transforms average students into top performers in just 2 hours daily - leaving 4 hours for life, passions, and actually being a kid.
           </motion.p>
 
           <motion.div 
@@ -59,7 +58,7 @@ const CTA = () => {
               onClick={handleClick}
             >
               <span className="inline-flex items-center gap-2">
-                <span>See How TimeBack Works for Your Child</span>
+                <span>Start Your Child&apos;s TimeBack Journey</span>
                 <svg 
                   xmlns="http://www.w3.org/2000/svg" 
                   viewBox="0 0 20 20" 
@@ -80,7 +79,7 @@ const CTA = () => {
             className="text-sm mt-6 font-cal text-timeback-primary"
             variants={animationVariants.fadeInUp}
           >
-            Get a personalized AI mockup. No signup required.
+            Get a personalized AI mockup. No payment required.
           </motion.p>
         </motion.div>
       </div>

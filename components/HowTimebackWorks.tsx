@@ -35,9 +35,9 @@ const features: Feature[] = [
           />
         </svg>
       ),
-      title: "Step 1: Find Your Starting Point",
-      description: "AI tests your child in minutes to discover exactly what they know and what they need to learn.",
-      result: "Precise placement",
+      title: "Step 1: Precise Knowledge Assessment",
+      description: "Our AI identifies exactly where your child is academically - not where they should be by age. Students often test years ahead in some subjects while having critical gaps in others that traditional schools miss entirely.",
+      result: "True starting point",
       ariaLabel: "AI assessment to determine exact academic starting point"
     },
     {
@@ -59,9 +59,9 @@ const features: Feature[] = [
           />
         </svg>
       ),
-      title: "Step 2: Build Your Custom Path",
-      description: "AI creates a personalized learning journey just for your child, filling gaps and accelerating through concepts they already know.",
-      result: "Tailored curriculum",
+      title: "Step 2: 1-on-1 AI Tutoring Path",
+      description: "AI creates a truly individualized learning path impossible in traditional classrooms. Each student gets their own AI tutor that adapts instantly - advanced in math? Jump to 5th grade. Need to master fractions first? The AI waits until mastery is achieved.",
+      result: "Custom curriculum",
       ariaLabel: "Personalized learning path creation based on individual needs"
     },
     {
@@ -83,9 +83,9 @@ const features: Feature[] = [
           />
         </svg>
       ),
-      title: "Step 3: Learn in Focused Bursts", 
-      description: "Your child learns in 25-minute focused sessions. They must master each concept 100% before moving forward.",
-      result: "True mastery",
+      title: "Step 3: Structured 120-Minute Day", 
+      description: "Students complete 4 focused 25-minute sessions (Math, Science/Social Science, Language/Writing, Reading) plus 20 minutes for learning strategies. Using Pomodoro Technique, no advancing until 100% mastery is achieved.",
+      result: "Deep understanding",
       ariaLabel: "Concentrated learning sessions with complete mastery requirement"
     },
     {
@@ -107,10 +107,10 @@ const features: Feature[] = [
           />
         </svg>
       ),
-      title: "Step 4: Get Help When Stuck",
-      description: "AI instantly detects when your child struggles and provides immediate support with easier explanations or practice problems.",
-      result: "Instant support",
-      ariaLabel: "Real-time struggle detection with immediate AI assistance"
+      title: "Step 4: Speed Bumps & Struggle Detectors",
+      description: "Our AI uses Speed Bumps and Struggle Detectors to monitor progress constantly. The moment your child struggles, AI intervenes with simpler explanations, additional examples, or prerequisite review - no sitting confused like in traditional classrooms.",
+      result: "Zero frustration",
+      ariaLabel: "Real time struggle detection with immediate AI assistance"
     },
     {
       id: "adjust-and-accelerate",
@@ -131,9 +131,9 @@ const features: Feature[] = [
           />
         </svg>
       ),
-      title: "Step 5: Adjust and Accelerate",
-      description: "The system continuously adapts, making lessons easier or harder based on your child's performance to maintain optimal difficulty.",
-      result: "Optimal pacing",
+      title: "Step 5: Optimal Challenge Zone",
+      description: "AI maintains 80-95% accuracy for peak learning. Below 70%? Material is too hard - get support. Above 95%? Too easy - level up instantly. The WASTE meter tracks engagement to ensure efficient 2 hour learning.",
+      result: "Peak performance",
       ariaLabel: "Continuous optimization for ideal learning progression"
     },
     {
@@ -155,9 +155,9 @@ const features: Feature[] = [
           />
         </svg>
       ),
-      title: "Step 6: Complete Grades Fast",
-      description: "Your child finishes complete grade levels in just 80 days instead of 180.",
-      result: "2x faster progress",
+      title: "Step 6: Complete 2 Grades Per Year",
+      description: "Focused 30-minute lessons with AI corrective sessions mean students finish entire grade levels in 80 days versus traditional 180 days. Two complete grades per year while still having afternoons free for life skills and passions.",
+      result: "2x grade completion",
       ariaLabel: "Accelerated grade completion in 80 days"
     }
 ];
@@ -187,13 +187,13 @@ const HowTimebackWorks: React.FC = React.memo(() => {
           
           <h2 
             id="how-timeback-works-heading"
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight mb-8 text-timeback-primary font-cal leading-tight"
+            className="font-extrabold text-3xl md:text-5xl tracking-tight mb-6 bg-gradient-to-r from-timeback-primary via-timeback-primary to-timeback-primary bg-clip-text text-transparent font-cal"
           >
-            How AI-Powered Personalized Learning Works
+            How TimeBack Achieves 2x Learning in 2 Hours
           </h2>
           
-          <p className="max-w-4xl mx-auto text-xl sm:text-2xl lg:text-3xl text-timeback-primary leading-relaxed font-cal font-medium">
-            Our adaptive AI tutoring system helps homeschool children achieve mastery-based learning and complete grade levels in 80 days with just 2 hours of daily study.
+          <p className="text-lg md:text-xl text-timeback-primary max-w-3xl mx-auto leading-relaxed font-cal">
+            We eliminated the traditional teacher-led classroom model that learning science research has proven ineffective for over 40 years. Built on Benjamin Bloom&apos;s 2 Sigma Problem and extensive research, our AI tutors deliver true 1-on-1 mastery learning where students achieve 100% understanding before advancing - something impossible in traditional classrooms.
           </p>
         </motion.header>
 
@@ -211,7 +211,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
             <motion.article 
               key={feature.id} 
               variants={animationVariants.fadeInUp}
-              className="backdrop-blur-md bg-timeback-bg/80 rounded-2xl border-2 border-timeback-primary p-8 shadow-2xl group flex flex-col h-full"
+              className="bg-white rounded-2xl border-2 border-timeback-primary p-8 shadow-2xl group flex flex-col h-full"
               role="listitem"
               aria-labelledby={`feature-title-${feature.id}`}
               aria-describedby={`feature-desc-${feature.id}`}
@@ -253,6 +253,138 @@ const HowTimebackWorks: React.FC = React.memo(() => {
       </div>
     </section>
 
+    {/* Learning Science Foundation Section */}
+    <section 
+      className="py-20 lg:py-32 bg-white" 
+      aria-labelledby="learning-science-heading"
+      role="region"
+    >
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Header Section */}
+        <motion.header 
+          variants={animationVariants.fadeInUp}
+          whileInView="animate"
+          initial="initial"
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-20 lg:mb-28 font-cal"
+        >
+          <div className="inline-flex items-center gap-2 bg-timeback-bg border-2 border-timeback-primary rounded-full px-6 py-3 mb-8">
+            <span className="w-3 h-3 bg-timeback-primary rounded-full animate-pulse"></span>
+            <span className="text-timeback-primary font-bold text-lg font-cal">Research-Backed</span>
+          </div>
+          
+          <h2 
+            id="learning-science-heading"
+            className="font-extrabold text-3xl md:text-5xl tracking-tight mb-6 bg-gradient-to-r from-timeback-primary via-timeback-primary to-timeback-primary bg-clip-text text-transparent font-cal"
+          >
+            The Learning Science Behind TimeBack
+          </h2>
+          
+          <p className="text-lg md:text-xl text-timeback-primary max-w-3xl mx-auto leading-relaxed font-cal">
+            Over 40 years of research shows students can learn 2x, 5x, even 10x faster with individualized tutoring. Traditional classrooms simply cannot deliver these results—but AI can.
+          </p>
+        </motion.header>
+
+        {/* Learning Science Cards */}
+        <motion.div 
+          variants={createStaggerVariants(0.2, 0.1)}
+          whileInView="animate"
+          initial="initial"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
+          role="list"
+          aria-label="Learning science foundations"
+        >
+          {/* Bloom's 2 Sigma Problem */}
+          <motion.article 
+            variants={animationVariants.fadeInUp}
+            className="bg-timeback-bg rounded-2xl border-2 border-timeback-primary p-8 shadow-2xl"
+            role="listitem"
+          >
+            <div className="mb-6 flex justify-center">
+              <div className="w-20 h-20 bg-timeback-primary rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl">
+                <div className="text-white font-cal text-3xl font-bold">2σ</div>
+              </div>
+            </div>
+            <h3 className="text-2xl font-bold text-timeback-primary mb-4 leading-tight font-cal text-center">
+              Bloom&apos;s 2 Sigma Problem
+            </h3>
+            <p className="text-timeback-primary text-lg leading-relaxed font-cal text-center mb-6">
+              Benjamin Bloom&apos;s seminal 1984 research proved that students with individual tutoring learn 2 standard deviations (2σ) faster than traditional classroom students—that&apos;s the difference between 50th percentile and 98th percentile performance.
+            </p>
+            <div className="bg-timeback-primary/10 rounded-xl p-4 border border-timeback-primary">
+              <p className="text-timeback-primary font-bold text-center font-cal">
+                &ldquo;The problem is finding methods that are both effective and practical for use in conventional classrooms.&rdquo;
+              </p>
+              <p className="text-timeback-primary text-sm text-center mt-2 font-cal">
+                — Benjamin Bloom, 1984
+              </p>
+            </div>
+          </motion.article>
+
+          {/* Why Traditional Classrooms Fail */}
+          <motion.article 
+            variants={animationVariants.fadeInUp}
+            className="bg-timeback-bg rounded-2xl border-2 border-timeback-primary p-8 shadow-2xl"
+            role="listitem"
+          >
+            <div className="mb-6 flex justify-center">
+              <div className="w-20 h-20 bg-timeback-primary rounded-full flex items-center justify-center border-2 border-timeback-primary shadow-2xl">
+                <div className="text-white font-cal text-2xl font-bold">×</div>
+              </div>
+            </div>
+            <h3 className="text-2xl font-bold text-timeback-primary mb-4 leading-tight font-cal text-center">
+              Why Traditional Classrooms Fail
+            </h3>
+            <div className="space-y-4 text-timeback-primary font-cal">
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-timeback-primary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-white text-xs font-bold">1</span>
+                </div>
+                <p className="text-lg leading-relaxed">
+                  <strong>Classroom Diversity:</strong> 80% of students have different background knowledge levels—teachers must teach to the average
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-timeback-primary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-white text-xs font-bold">2</span>
+                </div>
+                <p className="text-lg leading-relaxed">
+                  <strong>Pacing Pressure:</strong> Must stick to lesson plans regardless of individual mastery—leaving gaps that snowball
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-timeback-primary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-white text-xs font-bold">3</span>
+                </div>
+                <p className="text-lg leading-relaxed">
+                  <strong>No Individual Attention:</strong> One teacher cannot provide personalized paths for 25+ students simultaneously
+                </p>
+              </div>
+            </div>
+          </motion.article>
+        </motion.div>
+
+        {/* The AI Solution */}
+        <motion.div 
+          variants={animationVariants.fadeInUp}
+          whileInView="animate"
+          initial="initial"
+          viewport={{ once: true, margin: "-50px" }}
+          className="mt-16 bg-timeback-primary rounded-2xl p-8 lg:p-12 text-white text-center"
+        >
+          <h3 className="text-3xl font-bold mb-6 font-cal">
+            The AI Solution: Perfect Individual Tutoring at Scale
+          </h3>
+          <p className="text-xl leading-relaxed font-cal max-w-4xl mx-auto">
+            For the first time in history, AI makes Bloom&apos;s ideal practical. Every student gets their own infinitely patient tutor that adapts instantly, never moves forward without mastery, and provides exactly the right level of challenge. The result? Students consistently achieve what Bloom proved was possible: 2x learning speed with true understanding.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+
+
+
     {/* Schools Using Timeback Section */}
     <section 
       className="py-20 lg:py-32" 
@@ -275,13 +407,13 @@ const HowTimebackWorks: React.FC = React.memo(() => {
           
           <h2 
             id="schools-using-timeback-heading"
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight mb-8 text-timeback-primary font-cal leading-tight"
+            className="font-extrabold text-3xl md:text-5xl tracking-tight mb-6 bg-gradient-to-r from-timeback-primary via-timeback-primary to-timeback-primary bg-clip-text text-transparent font-cal"
           >
-            Schools & Homeschool Programs Using AI Tutoring
+            Join the Pioneers Revolutionizing Education
           </h2>
           
-          <p className="max-w-4xl mx-auto text-xl sm:text-2xl lg:text-3xl text-timeback-primary leading-relaxed font-cal font-medium">
-            Join the innovative schools and homeschool families already achieving 99th percentile results with our AI-powered personalized learning system.
+          <p className="text-lg md:text-xl text-timeback-primary max-w-2xl mx-auto leading-relaxed font-cal">
+            Alpha School pioneered TimeBack over 10 years. Now innovative schools nationwide are adopting this proven model where students achieve 99th percentile results while actually loving school.
           </p>
         </motion.header>
 

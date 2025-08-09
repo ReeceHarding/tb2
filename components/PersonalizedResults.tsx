@@ -30,7 +30,14 @@ interface GeneratedContent {
 }
 
 interface PersonalizedResultsProps {
-  quizData: QuizData;
+  quizData?: QuizData; // Made optional for migration
+  userData?: {
+    interests: string[];
+    grade: string | null;
+    selectedSchools: any[];
+    userType?: string;
+    parentSubType?: string;
+  };
   preGeneratedContent?: GeneratedContent | null;
   isSharedView?: boolean;
 }
@@ -69,7 +76,7 @@ export default function PersonalizedResults({ quizData, preGeneratedContent }: P
     return {
       title: `Here's Your Personalized TimeBack Plan`,
       subtitle: 'This is an interactive site where you can learn how we\'ll tailor Timeback to get your kid the results they deserve.',
-      valueProp: 'Help your high schooler master their grade-level curriculum in 2-3 months instead of 9 months'
+      valueProp: 'Help your high schooler master their grade level curriculum in 2-3 months instead of 9 months'
     };
   };
 

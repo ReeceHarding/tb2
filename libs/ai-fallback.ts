@@ -206,9 +206,9 @@ class AIFallbackService {
         interestConnection: `This connects ${subject} learning with ${primaryInterest} to make it more engaging`,
         nextSteps: 'Refresh the page to try again when AI services are restored',
         followUpQuestions: [
-          'What specific aspects of this topic interest you most?',
-          'How do you think this concept applies in real life?',
-          'What would you like to learn next about this subject?'
+          'Most interesting topic aspects?',
+          'Real life applications?',
+          'Next learning subject?'
         ],
         emergency: true
       };
