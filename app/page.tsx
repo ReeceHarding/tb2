@@ -12,20 +12,20 @@ import Footer from "@/components/Footer";
 import { getSEOTags } from "@/libs/seo";
 
 export const metadata = getSEOTags({
-  title: "TimeBack - AI Powered Personalized Learning | 99th Percentile in 2 Hours Daily",
-  description: "Revolutionary AI tutoring platform where students achieve 99th percentile test scores in just 2 hours per day. Proven homeschool curriculum with adaptive learning for K-12. Join Alpha School's success.",
+  title: "TimeBack - Personalized Learning Software | 99th Percentile in 2 Hours Daily",
+  description: "Personalized education software that condenses academics from 6 hours to just 2 hours daily. Students achieve 99th percentile MAP test scores. Proven by Alpha School with 10 years of success. Join thousands of homeschool families.",
   keywords: [
-    "AI tutoring",
     "personalized learning",
+    "adaptive education software",
     "homeschool curriculum", 
-    "adaptive learning",
     "2 hour school day",
-    "AI education",
     "99th percentile",
     "MAP test scores",
+    "Alpha School",
     "online learning",
     "K-12 education",
-    "Alpha School",
+    "mastery learning",
+    "educational technology",
     "TimeBack"
   ],
   canonicalUrlRelative: "/",

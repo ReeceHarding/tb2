@@ -55,7 +55,7 @@ const Problem = () => {
             What is TimeBack?
           </h2>
           <p className="text-lg md:text-xl text-timeback-primary max-w-2xl mx-auto leading-relaxed font-cal">
-            TimeBack is an AI tutor we've developed that customizes the questions to your kid's ability. The result is that we boil the school day down from six hours to two hours, and our kids accomplish two times the amount of material as a kid in normal school. Additionally, our kids score in the 99th percentile on standardized tests.
+            TimeBack is personalized education software that adapts to each student's exact knowledge level. Using adaptive technology pioneered at Alpha School, students complete their daily academics in just 2 hours while learning 2x the material. Students consistently achieve 99th percentile scores on MAP standardized tests.
           </p>
         </motion.div>
 
@@ -63,18 +63,18 @@ const Problem = () => {
         <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
           <Step 
             icon={ClockIcon} 
-            title="The Gift of Time" 
-            description="Complete all academics in just 2 hours, leaving 4 hours daily for life skills, sports, arts, and passions. Traditional schools require 6 hours for the same learning. We give your child their childhood back." 
+            title="2 Hours Daily = 2x Learning" 
+            description="Students complete all academics in just 2 hours daily while learning 2x the material compared to traditional 6-hour school days. This gives children 4 hours for life skills, sports, arts, and passions." 
           />
           <Step 
             icon={BoltIcon} 
-            title="Proven 2x Learning" 
-            description="MAP test data proves it: students average 99th percentile scores. The average student learns at least 6x faster, with top performers reaching nearly 12x. Seven boys who were 2 years behind caught up in just 6 months, advancing 13.8x faster than traditional school." 
+            title="99th Percentile Results" 
+            description="Spring 2024 MAP test data shows students average 99th percentile scores across all subjects. The average student learns 6x faster, with top performers reaching 12x speed. Even students 2 years behind caught up in 6 months." 
           />
           <Step 
             icon={SparklesIcon} 
-            title="True Personalized Mastery" 
-            description="Each child gets their own AI tutor ensuring 100% mastery before advancing. No more teaching to the middle while some fall behind and others are bored. Every concept becomes a solid foundation for exponential growth." 
+            title="100% Mastery Learning" 
+            description="Each student receives personalized instruction ensuring complete mastery before advancing. Unlike classrooms teaching to the middle, every child works at their exact level. No gaps, no boredom, just continuous progress." 
           />
         </div>
       </div>

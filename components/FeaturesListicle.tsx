@@ -21,20 +21,20 @@ const features: {
   svg: JSX.Element;
 }[] = [
   {
-    name: "1-on-1 AI Tutoring",
+    name: "1-on-1 Personalized Tutoring",
     title: "Bloom's 2 Sigma Problem: The Power of Individual Tutoring",
     content: {
       paragraphs: [
         "Benjamin Bloom's landmark research published over four decades ago found that students receiving 1-on-1 tutoring performed two standard deviations better than classroom students. This moves average students to the 98th percentile.",
-        "TimeBack provides each child with their own AI tutor that delivers the individualized instruction Bloom identified as transformational. Unlike classroom teachers managing 30+ students, AI gives 100% focus to your child's unique learning needs.",
-        "Alpha School data confirms Bloom's findings: the average student learns at least 6x faster with top performers reaching nearly 12x acceleration through personalized AI tutoring."
+        "TimeBack provides each child with personalized instruction that delivers the individualized learning Bloom identified as transformational. Unlike classroom teachers managing 30+ students, adaptive software gives 100% focus to your child's unique learning needs.",
+        "Alpha School data confirms Bloom's findings: the average student learns at least 6x faster with top performers reaching nearly 12x acceleration through personalized tutoring."
       ]
     },
     bullets: [
       "Proven by 40+ years of research",
-      "Moves average students to top 2%", 
+      "Moves average students to 98th percentile", 
       "1:1 attention impossible in classrooms",
-      "AI provides infinite patience and precision"
+      "Software provides infinite patience"
     ],
     result: "6x faster learning",
     researchLink: {
@@ -59,13 +59,13 @@ const features: {
     ),
   },
   {
-    name: "Mastery Learning", 
+    name: "100% Mastery Learning", 
     title: "Mastery Learning Theory: Building Unshakeable Foundations",
     content: {
       paragraphs: [
         "Mastery learning principles show that when students master prerequisite knowledge before advancing, they can learn subsequent material much faster and with greater retention.",
         "Traditional schools move all students forward regardless of understanding, creating cumulative knowledge gaps. TimeBack requires 100% mastery before progression, ensuring every concept becomes a solid foundation for future learning.",
-        "The whitepaper shows this approach prevents the learning decay where average high school seniors perform at the same level as top 3rd graders on standardized tests."
+        "Alpha School data shows this approach prevents the learning decay where average high school seniors perform at the same level as top 3rd graders on standardized tests."
       ]
     },
     bullets: [
@@ -99,17 +99,17 @@ const features: {
     ),
   },
   {
-    name: "Optimal Challenge",
+    name: "Perfect Challenge Level",
     title: "Optimal Learning Zone: Perfect Difficulty Calibration", 
     content: {
       paragraphs: [
         "Learning accelerates when content is challenging enough to engage students but not so difficult as to overwhelm them.",
-        "TimeBack's AI continuously monitors student performance and adjusts difficulty in real time. If accuracy drops below 80%, material becomes easier. If above 95%, it increases challenge to maintain optimal learning velocity.",
+        "TimeBack's adaptive software continuously monitors student performance and adjusts difficulty in real time. If accuracy drops below 80%, material becomes easier. If above 95%, it increases challenge to maintain optimal learning velocity.",
         "This dynamic difficulty adjustment keeps students in their peak learning zone, maximizing engagement and knowledge acquisition speed."
       ]
     },
     bullets: [
-      "Real time difficulty adjustment",
+      "Real-time difficulty adjustment",
       "Maintains 80-90% accuracy sweet spot",
       "Prevents boredom and frustration", 
       "Maximizes learning velocity"
@@ -133,17 +133,17 @@ const features: {
     ),
   },
   {
-    name: "Struggle Detection",
-    title: "AI Struggle Detection: Immediate Intervention System",
+    name: "Automatic Support",
+    title: "Struggle Detection: Immediate Intervention System",
     content: {
       paragraphs: [
-        "TimeBack's AI continuously monitors student behavior patterns to detect learning struggles before they become barriers. The system tracks response time, error patterns, and engagement metrics.",
-        "When struggles are detected, the AI immediately provides targeted interventions: simpler explanations, additional practice problems, or prerequisite concept review to address the root cause.",
+        "TimeBack's software continuously monitors student behavior patterns to detect learning struggles before they become barriers. The system tracks response time, error patterns, and engagement metrics.",
+        "When struggles are detected, the software immediately provides targeted interventions: simpler explanations, additional practice problems, or prerequisite concept review to address the root cause.",
         "This prevents the cascade effect where small knowledge gaps compound into major learning deficits, ensuring every student maintains forward momentum."
       ]
     },
     bullets: [
-      "Real time struggle detection",
+      "Real-time struggle detection",
       "Immediate targeted interventions",
       "Prevents knowledge gaps from compounding",
       "Maintains continuous learning momentum"
@@ -294,10 +294,10 @@ const FeaturesListicle = () => {
           className="text-center mb-12 md:mb-20 font-cal"
         >
           <h2 className="font-extrabold text-3xl md:text-5xl tracking-tight mb-6 bg-gradient-to-r from-timeback-primary via-timeback-primary to-timeback-primary bg-clip-text text-transparent font-cal">
-            Why TimeBack Works: The Learning Science That Traditional Schools Ignore
+            Why TimeBack Works: The Learning Science Behind 2x Results
           </h2>
           <p className="text-lg md:text-xl text-timeback-primary max-w-2xl mx-auto leading-relaxed font-cal">
-            For 40+ years, research has proven these methods deliver 2x learning. Traditional classrooms can&apos;t implement them. AI finally can.
+            For 40+ years, research has proven these methods deliver 2x learning. Traditional classrooms can&apos;t implement them. Adaptive software finally can.
           </p>
         </motion.div>
 

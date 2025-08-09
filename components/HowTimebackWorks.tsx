@@ -35,10 +35,10 @@ const features: Feature[] = [
           />
         </svg>
       ),
-      title: "Step 1: Precise Knowledge Assessment",
-      description: "Our AI identifies exactly where your child is academically - not where they should be by age. Students often test years ahead in some subjects while having critical gaps in others that traditional schools miss entirely.",
+      title: "Step 1: Find Their Exact Knowledge Level",
+      description: "Adaptive assessment identifies where your child actually is - not where they should be by age. Alpha School data shows students often test 3-4 grades ahead in some subjects while having gaps in others.",
       result: "True starting point",
-      ariaLabel: "AI assessment to determine exact academic starting point"
+      ariaLabel: "Assessment to determine exact academic starting point"
     },
     {
       id: "build-custom-path",
@@ -59,8 +59,8 @@ const features: Feature[] = [
           />
         </svg>
       ),
-      title: "Step 2: 1-on-1 AI Tutoring Path",
-      description: "AI creates a truly individualized learning path impossible in traditional classrooms. Each student gets their own AI tutor that adapts instantly - advanced in math? Jump to 5th grade. Need to master fractions first? The AI waits until mastery is achieved.",
+      title: "Step 2: Create Personalized Learning Path",
+      description: "Each student gets a truly individualized curriculum impossible in classrooms. Advanced in math? Jump ahead 3 grades. Need fraction mastery first? Software ensures 100% understanding before advancing. No more teaching to the middle.",
       result: "Custom curriculum",
       ariaLabel: "Personalized learning path creation based on individual needs"
     },
@@ -83,9 +83,9 @@ const features: Feature[] = [
           />
         </svg>
       ),
-      title: "Step 3: Structured 120-Minute Day", 
-      description: "Students complete 4 focused 25-minute sessions (Math, Science/Social Science, Language/Writing, Reading) plus 20 minutes for learning strategies. No advancing until 100% mastery is achieved.",
-      result: "Deep understanding",
+      title: "Step 3: Learn in 2-Hour Daily Sessions", 
+      description: "Students complete 4 focused 25-minute sessions: Math, Science, Language, and Reading. Data shows students finish entire grade levels in 80 days versus 180. 100% mastery required before advancing.",
+      result: "2x faster learning",
       ariaLabel: "Concentrated learning sessions with complete mastery requirement"
     },
     {
@@ -107,10 +107,10 @@ const features: Feature[] = [
           />
         </svg>
       ),
-      title: "Step 4: Speed Bumps & Struggle Detectors",
-      description: "Our AI uses Speed Bumps and Struggle Detectors to monitor progress constantly. The moment your child struggles, AI intervenes with simpler explanations, additional examples, or prerequisite review - no sitting confused like in traditional classrooms.",
+      title: "Step 4: Immediate Help When Needed",
+      description: "Struggle detection monitors progress constantly. The moment a student falters, software provides simpler explanations, additional practice, or prerequisite review. No more sitting confused for hours like in traditional classrooms.",
       result: "Zero frustration",
-      ariaLabel: "Real time struggle detection with immediate AI assistance"
+      ariaLabel: "Real time struggle detection with immediate assistance"
     },
     {
       id: "adjust-and-accelerate",
@@ -131,8 +131,8 @@ const features: Feature[] = [
           />
         </svg>
       ),
-      title: "Step 5: Optimal Challenge Zone",
-      description: "AI maintains 80-90% accuracy for peak learning. Below 80%? Material is too hard - get support. Above 95%? Too easy - level up instantly. The WASTE meter tracks engagement to ensure efficient 2 hour learning.",
+      title: "Step 5: Stay in Optimal Learning Zone",
+      description: "Software maintains 80-90% accuracy for peak learning. Below 80%? Material gets easier. Above 95%? Level up instantly. The WASTE meter ensures students use their 2 hours efficiently. Average student learns 6x faster.",
       result: "Peak performance",
       ariaLabel: "Continuous optimization for ideal learning progression"
     },
@@ -156,8 +156,8 @@ const features: Feature[] = [
         </svg>
       ),
       title: "Step 6: Complete 2 Grades Per Year",
-      description: "Focused 30-minute lessons with AI corrective sessions mean students finish entire grade levels in 80 days versus traditional 180 days. Two complete grades per year while still having afternoons free for life skills and passions.",
-      result: "2x grade completion",
+      description: "Alpha School data proves students complete grade levels in 80 days versus 180. That's 2 full grades per year, verified by MAP testing. Students still have afternoons free for sports, arts, and life skills.",
+      result: "99th percentile",
       ariaLabel: "Accelerated grade completion in 80 days"
     }
 ];
@@ -193,7 +193,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
           </h2>
           
           <p className="text-lg md:text-xl text-timeback-primary max-w-3xl mx-auto leading-relaxed font-cal">
-            We eliminated the traditional teacher-led classroom model that learning science research has proven ineffective for over 40 years. Built on Benjamin Bloom&apos;s 2 Sigma Problem and extensive research, our AI tutors deliver true 1-on-1 mastery learning where students achieve 100% understanding before advancing - something impossible in traditional classrooms.
+            TimeBack replaces the classroom model with personalized software delivering true 1-on-1 instruction. Based on Bloom&apos;s 2 Sigma research and proven by 10 years at Alpha School, students achieve 100% mastery before advancing - impossible in traditional classrooms.
           </p>
         </motion.header>
 
@@ -281,7 +281,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
           </h2>
           
           <p className="text-lg md:text-xl text-timeback-primary max-w-3xl mx-auto leading-relaxed font-cal">
-            Over 40 years of research shows students can learn 2x, 5x, even 10x faster with individualized tutoring. Traditional classrooms simply cannot deliver these results—but AI can.
+            Over 40 years of research shows students can learn 2x, 5x, even 10x faster with individualized tutoring. Traditional classrooms simply cannot deliver these results—adaptive software finally can.
           </p>
         </motion.header>
 
@@ -365,7 +365,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
           </motion.article>
         </motion.div>
 
-        {/* The AI Solution */}
+        {/* The TimeBack Solution */}
         <motion.div 
           variants={animationVariants.fadeInUp}
           whileInView="animate"
@@ -374,10 +374,10 @@ const HowTimebackWorks: React.FC = React.memo(() => {
           className="mt-16 bg-timeback-primary rounded-2xl p-8 lg:p-12 text-white text-center"
         >
           <h3 className="text-3xl font-bold mb-6 font-cal">
-            The AI Solution: Perfect Individual Tutoring at Scale
+            The TimeBack Solution: Perfect Individual Tutoring at Scale
           </h3>
           <p className="text-xl leading-relaxed font-cal max-w-4xl mx-auto">
-            For the first time in history, AI makes Bloom&apos;s ideal practical. Every student gets their own infinitely patient tutor that adapts instantly, never moves forward without mastery, and provides exactly the right level of challenge. The result? Students consistently achieve what Bloom proved was possible: 2x learning speed with true understanding.
+            For the first time in history, adaptive technology makes Bloom&apos;s ideal practical. Every student gets personalized instruction that adapts instantly, never moves forward without mastery, and provides exactly the right level of challenge. The result? Students consistently achieve what Bloom proved was possible: 2x learning with 99th percentile scores.
           </p>
         </motion.div>
       </div>

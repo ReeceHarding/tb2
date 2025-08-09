@@ -15,12 +15,12 @@ interface FAQItemProps {
 
 const faqList: FAQItemProps[] = [
   {
-    question: "How can students really learn 2x the material in just 2 hours a day?",
+    question: "How can students really learn 2x the material in just 2 hours daily?",
     answer: (
       <div className="space-y-2 leading-relaxed">
-        <p>It sounds impossible because traditional schools have conditioned us to accept inefficiency. But the data is clear: students complete entire grade levels in ~80 days instead of 180.</p>
-        <p>This works because we eliminated everything that wastes time in traditional schools: teaching to the middle, waiting for slower students, busy work, and inefficient group instruction. Every minute is personalized 1:1 learning at exactly the right level.</p>
-        <p>Alpha School has proven this for 10 years. Students average 99th percentile on MAP tests. The average student learns at least 6x faster, with top performers nearing 12x. Even students who were 2 years behind caught up in just 6 months.</p>
+        <p>The data from Alpha School proves it: students complete entire grade levels in 80 days instead of the traditional 180 days. Spring 2024 MAP results show students averaging 99th percentile scores.</p>
+        <p>This works because personalized software eliminates classroom inefficiencies: no teaching to the middle, no waiting for others, no busy work. Every minute is focused 1-on-1 learning at exactly the right level.</p>
+        <p>Results speak for themselves: The average student learns 6x faster. Top performers reach 12x speed. Even 7 boys who were 2 years behind caught up in just 6 months, advancing 13.8x faster than traditional school.</p>
       </div>
     ),
   },
@@ -28,9 +28,9 @@ const faqList: FAQItemProps[] = [
     question: "What about socialization and life skills?",
     answer: (
       <div className="space-y-2 leading-relaxed">
-        <p>This is TimeBack&apos;s greatest advantage - not a weakness. Traditional school kids sit silently in rows for 6+ hours. Our students finish academics by 10am and spend 4 hours developing real life skills.</p>
-        <p>They engage in leadership workshops, sports teams, entrepreneurship projects, public speaking, financial literacy, and hands-on activities. They build deep friendships through shared interests, not forced proximity.</p>
-        <p>Over 90% of TimeBack students say they LOVE school. They&apos;re developing the life skills employers actually want while traditional students are still doing worksheets.</p>
+        <p>This is TimeBack&apos;s greatest advantage. With academics done in 2 hours, students have 4 hours daily for real life skills development - leadership, teamwork, public speaking, financial literacy, and entrepreneurship.</p>
+        <p>Compare this to traditional schools where students sit silently in rows for 6 hours. TimeBack students engage in sports teams, workshops, and hands-on activities. They build deep friendships through shared interests.</p>
+        <p>Data shows over 90% of students say they LOVE school. They&apos;re developing the critical life skills employers want while excelling academically.</p>
       </div>
     ),
   },
@@ -38,9 +38,9 @@ const faqList: FAQItemProps[] = [
     question: "How does learning work without teachers?",
     answer: (
       <div className="space-y-2 leading-relaxed">
-        <p>We eliminated the broken teacher-in-front-of-classroom model that Bloom&#39;s research proved ineffective 40 years ago. Instead, each child gets their own AI tutor delivering true 1:1 personalized instruction.</p>
-        <p>The AI identifies exactly what your child knows and doesn&apos;t know, then fixes learning gaps immediately. It&apos;s infinitely patient, never judges, and adjusts difficulty in real time to maintain optimal learning speed.</p>
-        <p>Human Guides provide motivation and emotional support - what humans do best. This is why an 8th grader who was secretly performing at 5th grade level caught up completely in one year. Traditional teachers could never provide this level of personalization.</p>
+        <p>We replaced the teacher-in-front-of-classroom model with personalized software delivering true 1-on-1 instruction - what Bloom&apos;s research proved most effective 40 years ago.</p>
+        <p>The adaptive software identifies exactly what your child knows and doesn&apos;t know, then fixes learning gaps immediately. It&apos;s infinitely patient and adjusts difficulty in real time to maintain optimal learning speed.</p>
+        <p>Human Guides provide motivation and emotional support - what humans do best. Example: An 8th grader performing at 5th grade level caught up completely in one year. Traditional classrooms could never provide this level of personalization.</p>
       </div>
     ),
   },
@@ -48,14 +48,14 @@ const faqList: FAQItemProps[] = [
     question: "Is this right for my child?",
     answer: (
       <div className="space-y-2 leading-relaxed">
-        <p>Timeback works beautifully for 80-90% of children. It&apos;s especially transformative for:</p>
+        <p>TimeBack works beautifully for 80-90% of children. It&apos;s especially transformative for:</p>
         <ul className="list-disc list-inside space-y-1">
-          <li>Bright kids who are bored and unchallenged in traditional school</li>
-          <li>Children who&apos;ve fallen behind and need to catch up</li>
+          <li>Advanced students who are bored in traditional school (often jump 3-4 grade levels)</li>
+          <li>Students who&apos;ve fallen behind (like the 7 boys who caught up 2 years in 6 months)</li>
           <li>Children who learn at a different pace than the classroom average</li>
-          <li>Kids who want time for serious pursuits (sports, arts, etc.)</li>
+          <li>Kids pursuing serious interests (sports, arts, entrepreneurship)</li>
         </ul>
-        <p>The key requirement? A motivated child and parents who believe their kids are capable of more than the traditional system allows. If you&apos;re reading this, that&apos;s probably you.</p>
+        <p>The key requirement? Parents who believe their children are capable of more than traditional schools allow. With 10 years of proven results at Alpha School, we know what works.</p>
       </div>
     ),
   },
@@ -63,15 +63,16 @@ const faqList: FAQItemProps[] = [
     question: "What are the actual results?",
     answer: (
       <div className="space-y-2 leading-relaxed">
-        <p>Let the data speak for itself:</p>
+        <p>Spring 2024 MAP test data from Alpha School:</p>
         <ul className="list-disc list-inside space-y-1">
-                  <li>Average child scores in the 99th percentile on MAP tests</li>
-        <li>Children who were 2 years behind caught up in 6 months</li>
-          <li>High schoolers average 1470+ on SATs</li>
-          <li>Graduates accepted to Stanford, Vanderbilt, USC, and other top universities</li>
-          <li>Over 90% of children say they LOVE school</li>
+          <li>Students average 99th percentile across all subjects</li>
+          <li>Average student learns 6x faster (top 20% reach 12x)</li>
+          <li>Students complete 2 grade levels in one year</li>
+          <li>High schoolers average 1470+ SAT scores</li>
+          <li>Graduates accepted to Stanford, Vanderbilt, USC</li>
+          <li>Over 90% of students say they LOVE school</li>
         </ul>
-        <p>These aren&apos;t cherry picked success stories. This is our average. Every child deserves to reach their full potential - Timeback just makes it possible.</p>
+        <p>These aren&apos;t cherry-picked stories. This is our average across 10 years and thousands of students. The data proves children are capable of far more than traditional schools allow.</p>
       </div>
     ),
   },
@@ -172,12 +173,12 @@ const FAQ = () => {
           initial="initial"
           viewport={{ once: true, margin: "-100px" }}
         >
-          <p className="inline-block font-semibold text-timeback-primary mb-4 font-cal">AI Tutoring & Homeschool Questions Answered</p>
+          <p className="inline-block font-semibold text-timeback-primary mb-4 font-cal">Personalized Learning & Homeschool Questions Answered</p>
           <h2 className="font-extrabold text-3xl md:text-5xl tracking-tight mb-6 bg-gradient-to-r from-timeback-primary via-timeback-primary to-timeback-primary bg-clip-text text-transparent font-cal">
-            Everything you need to know about AI-powered personalized learning
+            Everything you need to know about 2x learning in 2 hours daily
           </h2>
           <p className="text-lg md:text-xl text-timeback-primary max-w-2xl leading-relaxed font-cal">
-            Discover how our homeschool curriculum helps children achieve academic excellence
+            Discover how TimeBack helps students achieve 99th percentile results with proven adaptive technology
           </p>
         </motion.div>
 

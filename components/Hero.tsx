@@ -9,9 +9,9 @@ import SafeImage from "./SafeImage";
 
 // Simple array of messages to cycle through
 const typewriterMessages = [
-  "learn 2x the material in just 2 hours a day?",
-  "complete 2 grade levels in one year?", 
-  "score in the 99th percentile on MAP tests?"
+  "learn 2x the material in just 2 hours daily?",
+  "complete 2 entire grade levels in one year?", 
+  "achieve 99th percentile on standardized tests?"
 ];
 
 // Clean, simple typewriter component
@@ -116,18 +116,18 @@ const Hero = () => {
               custom={0.1}  // Reduced from 1.0s to 100ms stagger
               className="text-base sm:text-lg lg:text-xl text-timeback-primary leading-relaxed font-cal max-w-2xl mx-auto lg:mx-0 font-medium"
             >
-              Traditional schools are failing our children—wasting 6 hours daily on outdated methods while less than 50% perform at grade level. 
-              But what if there was a proven way for your child to excel academically in just 2 hours, leaving 4 hours for life skills, passions, and actually enjoying childhood? 
+              TimeBack is personalized education software that condenses academics from 6 hours down to just 2 hours daily. 
+              Students achieve 99th percentile test scores while having 4 hours for life skills, sports, arts, and passions. 
               <span className="block mt-3 font-bold font-cal flex items-center justify-center lg:justify-start gap-2">
-                Welcome to 
+                Join 
                 <SafeImage 
-                  alt="TimeBack AI-powered personalized learning platform for homeschool families" 
+                  alt="TimeBack personalized learning platform for homeschool families" 
                   src="/images/logos/BluetimeBackLogo.png" 
                   width={120} 
                   height={32} 
                   className="h-6 w-auto object-contain" 
                 />
-                .
+                today.
               </span>
             </motion.p>
             
@@ -168,8 +168,8 @@ const Hero = () => {
               
               {/* Header Section */}
               <div className="bg-gradient-to-r from-timeback-primary to-timeback-primary/90 text-white p-6 text-center font-cal">
-                <h3 className="text-2xl font-bold font-cal mb-2">TIMEBACK RESULTS</h3>
-                <p className="text-white/90 font-cal">Alpha School • Academic Year 2023-24</p>
+                <h3 className="text-2xl font-bold font-cal mb-2">PROVEN RESULTS</h3>
+                <p className="text-white/90 font-cal">Alpha School • Spring 2024</p>
                 <p className="text-white/75 text-sm font-cal mt-1">MAP Standardized Testing</p>
               </div>
 
@@ -254,7 +254,7 @@ const Hero = () => {
                 <div className="text-center pt-2 font-cal">
                   <p className="text-xs text-timeback-primary font-cal leading-tight opacity-75">
                     Source: Alpha School Spring 2024 MAP Results<br/>
-                    Students averaged top 1-2% every subject • &lt;2 hours daily
+                    Average student learns 6x faster • 2x material in 2 hours daily
                   </p>
                 </div>
               </div>

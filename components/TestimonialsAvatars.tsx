@@ -66,7 +66,7 @@ const TestimonialsAvatars = ({ priority }: { priority?: boolean }) => {
         </div>
 
         <div className="text-base text-base-content/80 font-cal">
-          <span className="font-semibold text-base-content font-cal">100,000+</span> hours saved
+          <span className="font-semibold text-base-content font-cal">10 years</span> proven results
         </div>
       </div>
     </div>
