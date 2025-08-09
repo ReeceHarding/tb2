@@ -69,8 +69,9 @@ export async function findSchoolsNearCoordinates(
       return [];
     }
     
-    // Search within ~10 mile radius
-    const radius = 10;
+    // Use v2.0 API which doesn't require state parameter for location searches
+    // Search within ~25 mile radius (increased from 10 to capture more schools)
+    const radius = 25;
     const url = `https://api.schooldigger.com/v2.0/schools?`;
     const params = new URLSearchParams({
       appID: appId,
@@ -78,7 +79,7 @@ export async function findSchoolsNearCoordinates(
       nearLatitude: coordinates.lat.toString(),
       nearLongitude: coordinates.lng.toString(),
       radius: radius.toString(),
-      perPage: '20',
+      perPage: '50',
       sortBy: 'distance'
     });
     

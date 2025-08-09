@@ -1,6 +1,6 @@
 'use client';
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { animationVariants, createStaggerVariants } from "@/libs/animations";
 
@@ -12,6 +12,14 @@ interface Feature {
   description: string;
   result: string;
   ariaLabel?: string;
+}
+
+// Button configuration interface
+interface ButtonConfig {
+  id: string;
+  text: string;
+  ariaLabel: string;
+  visibleSectionId?: string; // ID of section that, if visible, should hide this button
 }
 
 // Six-step TimeBack process in simple, actionable terms
@@ -162,10 +170,131 @@ const features: Feature[] = [
     }
 ];
 
+// Button configurations for dynamic suggestion grid
+const suggestionButtons: ButtonConfig[] = [
+  { id: 'what-is-timeback', text: 'What is TimeBack?', ariaLabel: 'Learn what TimeBack is and how it works', visibleSectionId: 'how-timeback-works-heading' },
+  { id: 'how-does-it-work', text: 'How does it work?', ariaLabel: "Understand how TimeBack's AI-powered learning system works", visibleSectionId: 'how-timeback-works-heading' },
+  { id: 'show-data', text: 'Show me your data', ariaLabel: "View TimeBack's research data and educational outcomes", visibleSectionId: 'learning-science-heading' },
+  { id: 'completion-time-data', text: 'Learning Speed Data', ariaLabel: 'See how fast students complete different subjects', visibleSectionId: 'actual-student-completion-hours' },
+  { id: 'student-journey-carousel', text: 'Student Success Stories', ariaLabel: 'View success stories from students in your grade level' },
+  { id: 'example-question', text: 'Example Tailored Question', ariaLabel: 'See a personalized example question for your child' },
+  { id: 'extra-hours', text: 'Extra Hours Activities', ariaLabel: 'Learn what your child can do with their extra time' },
+  { id: 'find-school', text: 'Find Nearby Schools', ariaLabel: 'Find TimeBack schools in your area', visibleSectionId: 'schools-using-timeback-heading' },
+  { id: 'school-report-card', text: 'School Report Cards', ariaLabel: 'View detailed school comparison report cards' }
+];
+
 // Production-ready component with proper TypeScript interfaces and performance optimizations
 const HowTimebackWorks: React.FC = React.memo(() => {
+  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
+  const [showSuggestions, setShowSuggestions] = useState(false);
+
+  useEffect(() => {
+    // Check which sections are visible on the page
+    const checkVisibleSections = () => {
+      const sections = new Set<string>();
+      
+      // Check if main HowTimebackWorks content is visible
+      if (document.getElementById('how-timeback-works-heading')) {
+        sections.add('how-timeback-works-heading');
+      }
+      
+      // Check if learning science section is visible
+      if (document.getElementById('learning-science-heading')) {
+        sections.add('learning-science-heading');
+      }
+      
+      // Check if schools section is visible
+      if (document.getElementById('schools-using-timeback-heading')) {
+        sections.add('schools-using-timeback-heading');
+      }
+      
+      // Check if actual student completion hours section is visible (from CompletionTimeData component)
+      // Look for the specific text or component structure
+      const headings = document.querySelectorAll('h2, h3');
+      headings.forEach(heading => {
+        if (heading.textContent?.includes('Actual Student Completion Hours')) {
+          sections.add('actual-student-completion-hours');
+        }
+      });
+      
+      // Also check for the CompletionTimeData component's characteristic elements
+      const gradeSelector = document.querySelector('select[class*="border-timeback-primary"]');
+      const alphaVsTraditional = document.querySelector('h3')?.textContent?.includes('Alpha vs Traditional Hours');
+      if (gradeSelector && alphaVsTraditional) {
+        sections.add('actual-student-completion-hours');
+      }
+      
+      setVisibleSections(sections);
+      setShowSuggestions(true);
+    };
+
+    // Check on mount and after a short delay to ensure all components are rendered
+    checkVisibleSections();
+    const timer = setTimeout(checkVisibleSections, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Filter buttons based on visible sections
+  const availableButtons = suggestionButtons.filter(button => {
+    // If button has a visibleSectionId and that section is visible, hide the button
+    if (button.visibleSectionId && visibleSections.has(button.visibleSectionId)) {
+      return false;
+    }
+    return true;
+  });
+
+  const handleButtonClick = (buttonId: string) => {
+    // This would need to be implemented based on your routing/scrolling logic
+    console.log(`Button clicked: ${buttonId}`);
+    // You could emit an event, navigate to a different page, or scroll to a section
+  };
   return (
     <>
+    {/* Dynamic Suggestion Grid */}
+    {showSuggestions && availableButtons.length > 0 && (
+      <section className="py-12 lg:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <motion.div 
+            variants={animationVariants.fadeInUp}
+            whileInView="animate"
+            initial="initial"
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-timeback-primary font-cal mb-4">
+              What would you like to learn about?
+            </h2>
+            <p className="text-lg text-timeback-primary font-cal">
+              Select a topic to explore more about TimeBack
+            </p>
+          </motion.div>
+          
+          <motion.div 
+            variants={createStaggerVariants(0.1, 0.05)}
+            whileInView="animate"
+            initial="initial"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto"
+          >
+            {availableButtons.map((button) => (
+              <motion.button
+                key={button.id}
+                variants={animationVariants.fadeInUp}
+                onClick={() => handleButtonClick(button.id)}
+                className="backdrop-blur-md bg-timeback-bg/20 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-timeback-bg/40 transition-all duration-300 shadow-lg hover:shadow-xl"
+                aria-label={button.ariaLabel}
+              >
+                <h3 className="text-lg font-bold text-timeback-primary font-cal leading-tight">
+                  {button.text}
+                </h3>
+              </motion.button>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+    )}
+    
     <section 
       className="bg-timeback-bg py-20 lg:py-32" 
       aria-labelledby="how-timeback-works-heading"

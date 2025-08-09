@@ -57,6 +57,27 @@ export function calculateDistance(lat1: number, lon1: number, lat2: number, lon2
   return R * c; // Distance in miles
 }
 
+// Convert state name to state code
+function getStateCode(stateName: string): string {
+  const stateMap: { [key: string]: string } = {
+    'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR',
+    'California': 'CA', 'Colorado': 'CO', 'Connecticut': 'CT', 'Delaware': 'DE',
+    'Florida': 'FL', 'Georgia': 'GA', 'Hawaii': 'HI', 'Idaho': 'ID',
+    'Illinois': 'IL', 'Indiana': 'IN', 'Iowa': 'IA', 'Kansas': 'KS',
+    'Kentucky': 'KY', 'Louisiana': 'LA', 'Maine': 'ME', 'Maryland': 'MD',
+    'Massachusetts': 'MA', 'Michigan': 'MI', 'Minnesota': 'MN', 'Mississippi': 'MS',
+    'Missouri': 'MO', 'Montana': 'MT', 'Nebraska': 'NE', 'Nevada': 'NV',
+    'New Hampshire': 'NH', 'New Jersey': 'NJ', 'New Mexico': 'NM', 'New York': 'NY',
+    'North Carolina': 'NC', 'North Dakota': 'ND', 'Ohio': 'OH', 'Oklahoma': 'OK',
+    'Oregon': 'OR', 'Pennsylvania': 'PA', 'Rhode Island': 'RI', 'South Carolina': 'SC',
+    'South Dakota': 'SD', 'Tennessee': 'TN', 'Texas': 'TX', 'Utah': 'UT',
+    'Vermont': 'VT', 'Virginia': 'VA', 'Washington': 'WA', 'West Virginia': 'WV',
+    'Wisconsin': 'WI', 'Wyoming': 'WY', 'District of Columbia': 'DC'
+  };
+  
+  return stateMap[stateName] || '';
+}
+
 // Find schools near coordinates (public/charter schools via SchoolDigger)
 export async function findSchoolsNearCoordinates(
   coordinates: Coordinates,
@@ -75,8 +96,9 @@ export async function findSchoolsNearCoordinates(
       return [];
     }
     
-    // Search within ~10 mile radius
-    const radius = 10;
+    // Use v2.0 API which doesn't require state parameter for location searches
+    // Search within ~25 mile radius (increased from 10 to capture more schools)
+    const radius = 25;
     const url = `https://api.schooldigger.com/v2.0/schools?`;
     const params = new URLSearchParams({
       appID: appId,
@@ -84,14 +106,24 @@ export async function findSchoolsNearCoordinates(
       nearLatitude: coordinates.lat.toString(),
       nearLongitude: coordinates.lng.toString(),
       radius: radius.toString(),
-      perPage: '20',
+      perPage: '50',
       sortBy: 'distance'
     });
     
+    console.log('[SchoolLocations] SchoolDigger API request URL:', url + params.toString());
     const response = await fetch(url + params.toString());
     
     if (!response.ok) {
       console.error('[SchoolLocations] SchoolDigger API error:', response.statusText);
+      
+      // Try to get more detailed error information
+      try {
+        const errorData = await response.json();
+        console.error('[SchoolLocations] SchoolDigger API error details:', errorData);
+      } catch (e) {
+        console.error('[SchoolLocations] Could not parse error response');
+      }
+      
       return [];
     }
     

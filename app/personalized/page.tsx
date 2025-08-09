@@ -1362,7 +1362,7 @@ export default function PersonalizedPage() {
                     setUserData({ selectedSchools: [], kidsInterests: [], userType: 'parents', parentSubType: 'timeback-school' });
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="px-6 py-3 border-2 border-timeback-primary text-timeback-primary rounded-xl font-bold hover:bg-timeback-bg transition-all font-cal shadow-md"
+                  className="w-full px-6 py-3 border-2 border-timeback-primary text-timeback-primary rounded-xl font-bold hover:bg-timeback-bg transition-all font-cal shadow-md"
                 >
                   Start Fresh
                 </button>
