@@ -25,9 +25,9 @@ const features: {
     title: "Bloom's 2 Sigma Problem: The Power of Individual Tutoring",
     content: {
       paragraphs: [
-        "Benjamin Bloom's landmark 1984 research found that students receiving 1-on-1 tutoring performed two standard deviations better than classroom students. This moves average students to the 98th percentile.",
+        "Benjamin Bloom's landmark research published over four decades ago found that students receiving 1-on-1 tutoring performed two standard deviations better than classroom students. This moves average students to the 98th percentile.",
         "TimeBack provides each child with their own AI tutor that delivers the individualized instruction Bloom identified as transformational. Unlike classroom teachers managing 30+ students, AI gives 100% focus to your child's unique learning needs.",
-        "Alpha School data confirms Bloom's findings: students average 7.41x faster learning with top performers reaching nearly 12x acceleration through personalized AI tutoring."
+        "Alpha School data confirms Bloom's findings: the average student learns at least 6x faster with top performers reaching nearly 12x acceleration through personalized AI tutoring."
       ]
     },
     bullets: [
@@ -63,7 +63,7 @@ const features: {
     title: "Mastery Learning Theory: Building Unshakeable Foundations",
     content: {
       paragraphs: [
-        "Educational researcher James Block demonstrated that when students master 90-95% of prerequisite knowledge before advancing, they can learn subsequent material much faster and with greater retention.",
+        "Mastery learning principles show that when students master prerequisite knowledge before advancing, they can learn subsequent material much faster and with greater retention.",
         "Traditional schools move all students forward regardless of understanding, creating cumulative knowledge gaps. TimeBack requires 100% mastery before progression, ensuring every concept becomes a solid foundation for future learning.",
         "The whitepaper shows this approach prevents the learning decay where average high school seniors perform at the same level as top 3rd graders on standardized tests."
       ]
@@ -75,10 +75,6 @@ const features: {
       "Research-proven for 50+ years"
     ],
     result: "Rock-solid foundations",
-    researchLink: {
-      text: "Read Block's Mastery Learning research",
-      url: "https://gwern.net/doc/psychology/1971-block-masterylearningtheoryandpractice.pdf"
-    },
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -104,25 +100,21 @@ const features: {
   },
   {
     name: "Optimal Challenge",
-    title: "Zone of Proximal Development: Perfect Difficulty Calibration", 
+    title: "Optimal Learning Zone: Perfect Difficulty Calibration", 
     content: {
       paragraphs: [
-        "Lev Vygotsky's Zone of Proximal Development theory shows learning accelerates when content is challenging enough to engage students but not so difficult as to overwhelm them.",
+        "Learning accelerates when content is challenging enough to engage students but not so difficult as to overwhelm them.",
         "TimeBack's AI continuously monitors student performance and adjusts difficulty in real time. If accuracy drops below 80%, material becomes easier. If above 95%, it increases challenge to maintain optimal learning velocity.",
         "This dynamic difficulty adjustment keeps students in their peak learning zone, maximizing engagement and knowledge acquisition speed."
       ]
     },
     bullets: [
       "Real time difficulty adjustment",
-      "Maintains 80-95% accuracy sweet spot",
+      "Maintains 80-90% accuracy sweet spot",
       "Prevents boredom and frustration", 
       "Maximizes learning velocity"
     ],
     result: "Peak performance",
-    researchLink: {
-      text: "Read Vygotsky's Zone of Proximal Development research",
-      url: "https://blogs.ubc.ca/vygotsky/files/2013/11/chaiklin.zpd_.pdf"
-    },
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -176,25 +168,21 @@ const features: {
   },
   {
     name: "Spaced Repetition",
-    title: "Spaced Repetition Science: Long-Term Memory Formation",
+    title: "Long-Term Memory Formation",
     content: {
       paragraphs: [
-        "Hermann Ebbinghaus's forgetting curve research shows that without reinforcement, students forget 50% of new information within one hour and 90% within one week.",
-        "TimeBack implements scientifically-optimized spaced repetition, reviewing concepts at precisely calculated intervals to move knowledge from short-term to long-term memory.",
-        "This ensures information retention rates above 95% compared to traditional schools where students often forget material immediately after tests."
+        "Research shows that without reinforcement, students forget much of what they learn within days or weeks.",
+        "TimeBack implements optimized review patterns, reinforcing concepts at strategic intervals to move knowledge from short-term to long-term memory.",
+        "This ensures superior retention compared to traditional schools where students often forget material immediately after tests."
       ]
     },
     bullets: [
-      "Scientifically-timed review intervals", 
-      "95% long-term retention rate",
-      "Prevents forgetting curve decay",
+      "Strategic review intervals", 
+      "Superior retention rates",
+      "Prevents knowledge decay",
       "Builds permanent knowledge base"
     ],
     result: "Permanent learning",
-    researchLink: {
-      text: "Read Ebbinghaus's Forgetting Curve research",
-      url: "https://psychclassics.yorku.ca/Ebbinghaus/memory7.htm"
-    },
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -219,7 +207,7 @@ const features: {
       paragraphs: [
         "Educational research consistently shows that active learning - where students engage with material through problem solving, discussion, and application - produces significantly better outcomes than passive listening.",
         "TimeBack eliminates passive learning entirely. Students must actively respond to questions, solve problems, and demonstrate understanding before progressing, creating constant engagement.",
-        "The Pomodoro Technique's 25-minute focused sessions combined with active learning principles maximize concentration and knowledge retention while preventing cognitive overload."
+        "The 25-minute focused sessions combined with active learning principles maximize concentration and knowledge retention while preventing cognitive overload."
       ]
     },
     bullets: [
@@ -229,10 +217,6 @@ const features: {
       "Prevents cognitive overload"
     ],
     result: "Deep engagement",
-    researchLink: {
-      text: "Read Freeman's Active Learning research",
-      url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4060654/"
-    },
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

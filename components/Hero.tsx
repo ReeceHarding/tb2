@@ -116,7 +116,7 @@ const Hero = () => {
               custom={0.1}  // Reduced from 1.0s to 100ms stagger
               className="text-base sm:text-lg lg:text-xl text-timeback-primary leading-relaxed font-cal max-w-2xl mx-auto lg:mx-0 font-medium"
             >
-              Traditional schools are failing our children—wasting 6+ hours daily on outdated methods while less than 50% perform at grade level. 
+              Traditional schools are failing our children—wasting 6 hours daily on outdated methods while less than 50% perform at grade level. 
               But what if there was a proven way for your child to excel academically in just 2 hours, leaving 4 hours for life skills, passions, and actually enjoying childhood? 
               <span className="block mt-3 font-bold font-cal flex items-center justify-center lg:justify-start gap-2">
                 Welcome to 
@@ -195,19 +195,12 @@ const Hero = () => {
                       <div className="space-y-2">
                         <div className="flex justify-between items-center">
                           <span className="text-xs font-cal text-timeback-primary">Daily Time:</span>
-                          <span className="font-bold text-xs font-cal text-timeback-primary">6-8 hrs</span>
-                        </div>
-                        <div className="flex justify-between items-center">
-                          <span className="text-xs font-cal text-timeback-primary">Love School:</span>
-                          <span className="font-bold text-xs font-cal text-timeback-primary">~30%</span>
+                          <span className="font-bold text-xs font-cal text-timeback-primary">6 hrs</span>
                         </div>
                         <div className="flex justify-between items-center">
                           <span className="text-xs font-cal text-timeback-primary">At Grade Level:</span>
                           <span className="font-bold text-xs font-cal text-timeback-primary">&lt;50%</span>
                         </div>
-                      </div>
-                      <div className="text-xs text-timeback-primary pt-2 border-t border-timeback-primary font-cal">
-                        + 2-3 hrs homework
                       </div>
                     </div>
                   </div>
@@ -222,16 +215,13 @@ const Hero = () => {
                           <span className="font-bold text-xs font-cal text-timeback-primary">2 hours</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-xs font-cal text-timeback-primary">Love School:</span>
-                          <span className="font-bold text-xs font-cal text-timeback-primary">90%+</span>
+                          <span className="text-xs font-cal text-timeback-primary">At Grade Level:</span>
+                          <span className="font-bold text-xs font-cal text-timeback-primary">99th percentile</span>
                         </div>
                         <div className="flex justify-between items-center">
-                          <span className="text-xs font-cal text-timeback-primary">At Grade Level:</span>
-                          <span className="font-bold text-xs font-cal text-timeback-primary">99%</span>
+                          <span className="text-xs font-cal text-timeback-primary">Love School:</span>
+                          <span className="font-bold text-xs font-cal text-timeback-primary">Over 90%</span>
                         </div>
-                      </div>
-                      <div className="text-xs text-timeback-primary font-bold pt-2 border-t border-timeback-primary font-cal">
-                        Zero homework
                       </div>
                     </div>
                   </div>
@@ -264,7 +254,7 @@ const Hero = () => {
                 <div className="text-center pt-2 font-cal">
                   <p className="text-xs text-timeback-primary font-cal leading-tight opacity-75">
                     Source: Alpha School Spring 2024 MAP Results<br/>
-                    500+ students • Top 1-2% every subject • &lt;2 hours daily
+                    Students averaged top 1-2% every subject • &lt;2 hours daily
                   </p>
                 </div>
               </div>

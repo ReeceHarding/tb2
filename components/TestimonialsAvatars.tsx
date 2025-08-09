@@ -66,8 +66,7 @@ const TestimonialsAvatars = ({ priority }: { priority?: boolean }) => {
         </div>
 
         <div className="text-base text-base-content/80 font-cal">
-          <span className="font-semibold text-base-content font-cal">500+</span> students
-          learning on Timeback
+          <span className="font-semibold text-base-content font-cal">100,000+</span> hours saved
         </div>
       </div>
     </div>

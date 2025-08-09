@@ -84,7 +84,7 @@ const features: Feature[] = [
         </svg>
       ),
       title: "Step 3: Structured 120-Minute Day", 
-      description: "Students complete 4 focused 25-minute sessions (Math, Science/Social Science, Language/Writing, Reading) plus 20 minutes for learning strategies. Using Pomodoro Technique, no advancing until 100% mastery is achieved.",
+      description: "Students complete 4 focused 25-minute sessions (Math, Science/Social Science, Language/Writing, Reading) plus 20 minutes for learning strategies. No advancing until 100% mastery is achieved.",
       result: "Deep understanding",
       ariaLabel: "Concentrated learning sessions with complete mastery requirement"
     },
@@ -132,7 +132,7 @@ const features: Feature[] = [
         </svg>
       ),
       title: "Step 5: Optimal Challenge Zone",
-      description: "AI maintains 80-95% accuracy for peak learning. Below 70%? Material is too hard - get support. Above 95%? Too easy - level up instantly. The WASTE meter tracks engagement to ensure efficient 2 hour learning.",
+      description: "AI maintains 80-90% accuracy for peak learning. Below 80%? Material is too hard - get support. Above 95%? Too easy - level up instantly. The WASTE meter tracks engagement to ensure efficient 2 hour learning.",
       result: "Peak performance",
       ariaLabel: "Continuous optimization for ideal learning progression"
     },
@@ -310,7 +310,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
               Bloom&apos;s 2 Sigma Problem
             </h3>
             <p className="text-timeback-primary text-lg leading-relaxed font-cal text-center mb-6">
-              Benjamin Bloom&apos;s seminal 1984 research proved that students with individual tutoring learn 2 standard deviations (2σ) faster than traditional classroom students—that&apos;s the difference between 50th percentile and 98th percentile performance.
+              Benjamin Bloom&apos;s seminal research published over four decades ago proved that students with individual tutoring learn 2 standard deviations (2σ) faster than traditional classroom students—that&apos;s the difference between 50th percentile and 98th percentile performance.
             </p>
             <div className="bg-timeback-primary/10 rounded-xl p-4 border border-timeback-primary">
               <p className="text-timeback-primary font-bold text-center font-cal">
@@ -413,7 +413,7 @@ const HowTimebackWorks: React.FC = React.memo(() => {
           </h2>
           
           <p className="text-lg md:text-xl text-timeback-primary max-w-2xl mx-auto leading-relaxed font-cal">
-            Alpha School pioneered TimeBack over 10 years. Now innovative schools nationwide are adopting this proven model where students achieve 99th percentile results while actually loving school.
+            Alpha School has been pioneering TimeBack since the very first school opened in 2014. Now innovative schools nationwide are adopting this proven model where students achieve 99th percentile results while actually loving school.
           </p>
         </motion.header>
 

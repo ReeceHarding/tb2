@@ -23,14 +23,18 @@ export async function trackLLMUsage(data: LLMAnalyticsData) {
   }
 
   try {
+    // Prefer server-side PostHog configuration; fall back to NEXT_PUBLIC_* if needed
+    const projectKey = process.env.POSTHOG_API_KEY || process.env.NEXT_PUBLIC_POSTHOG_KEY || '';
+    const host = process.env.POSTHOG_HOST || process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://app.posthog.com';
+
+    if (!projectKey) {
+      console.warn('[LLM Analytics] Skipping tracking: PostHog key not set');
+      return;
+    }
+
     // Import PostHog server-side client
     const { PostHog } = await import('posthog-node');
-    const posthog = new PostHog(
-      process.env.NEXT_PUBLIC_POSTHOG_KEY || '',
-      {
-        host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://app.posthog.com'
-      }
-    );
+    const posthog = new PostHog(projectKey, { host });
 
     // Track the LLM event
     posthog.capture({
@@ -110,8 +114,9 @@ export async function withLLMTracking<T>(
       }
     }
 
-    // Track the analytics
-    await trackLLMUsage({
+    // Track the analytics (non-blocking in production to avoid slowing API responses)
+    // Do not await; fire-and-forget with error capture.
+    void trackLLMUsage({
       endpoint,
       model,
       promptTokens,
@@ -122,6 +127,8 @@ export async function withLLMTracking<T>(
       error,
       context,
       responsePreview
+    }).catch((e) => {
+      console.error('[LLM Analytics] Non-blocking track error:', e);
     });
   }
 }

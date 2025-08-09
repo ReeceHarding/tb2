@@ -55,7 +55,7 @@ const Problem = () => {
             What is TimeBack?
           </h2>
           <p className="text-lg md:text-xl text-timeback-primary max-w-2xl mx-auto leading-relaxed font-cal">
-            TimeBack is an AI tutor we've developed that customizes the questions to your kid's ability and their interests. The result is that we boil the school day down from eight hours to two hours, and our kids accomplish two times the amount of material as a kid in normal school. Additionally, our kids score in the 98th percentile on standardized tests.
+            TimeBack is an AI tutor we've developed that customizes the questions to your kid's ability. The result is that we boil the school day down from six hours to two hours, and our kids accomplish two times the amount of material as a kid in normal school. Additionally, our kids score in the 99th percentile on standardized tests.
           </p>
         </motion.div>
 
@@ -64,12 +64,12 @@ const Problem = () => {
           <Step 
             icon={ClockIcon} 
             title="The Gift of Time" 
-            description="Complete all academics in just 2 hours, leaving 4 hours daily for life skills, sports, arts, and passions. Traditional schools waste 6-8 hours on inefficient teaching. We give your child their childhood back." 
+            description="Complete all academics in just 2 hours, leaving 4 hours daily for life skills, sports, arts, and passions. Traditional schools require 6 hours for the same learning. We give your child their childhood back." 
           />
           <Step 
             icon={BoltIcon} 
             title="Proven 2x Learning" 
-            description="MAP test data proves it: students average 99th percentile scores. Top performers learn nearly 12x faster. Students falling 2 years behind caught up in just 6 months, learning 13.8x faster than traditional school." 
+            description="MAP test data proves it: students average 99th percentile scores. The average student learns at least 6x faster, with top performers reaching nearly 12x. Seven boys who were 2 years behind caught up in just 6 months, advancing 13.8x faster than traditional school." 
           />
           <Step 
             icon={SparklesIcon} 

@@ -208,7 +208,7 @@ const WithWithout = () => {
                   <div className="font-medium text-timeback-primary font-cal">Success Rate</div>
                   <div>
                     <span className="inline-flex items-center gap-1 text-timeback-primary font-medium font-cal">
-                      <CheckIcon /> 98th percentile
+                      <CheckIcon /> 99th percentile
                     </span>
                   </div>
                 </div>

@@ -20,7 +20,7 @@ const faqList: FAQItemProps[] = [
       <div className="space-y-2 leading-relaxed">
         <p>It sounds impossible because traditional schools have conditioned us to accept inefficiency. But the data is clear: students complete entire grade levels in ~80 days instead of 180.</p>
         <p>This works because we eliminated everything that wastes time in traditional schools: teaching to the middle, waiting for slower students, busy work, and inefficient group instruction. Every minute is personalized 1:1 learning at exactly the right level.</p>
-        <p>Alpha School has proven this for 10 years. Students average 99th percentile on MAP tests, with top cohorts achieving 6x learning speed and top performers nearing 12x. Even students who were 2 years behind caught up in just 6 months.</p>
+        <p>Alpha School has proven this for 10 years. Students average 99th percentile on MAP tests. The average student learns at least 6x faster, with top performers nearing 12x. Even students who were 2 years behind caught up in just 6 months.</p>
       </div>
     ),
   },
@@ -30,7 +30,7 @@ const faqList: FAQItemProps[] = [
       <div className="space-y-2 leading-relaxed">
         <p>This is TimeBack&apos;s greatest advantage - not a weakness. Traditional school kids sit silently in rows for 6+ hours. Our students finish academics by 10am and spend 4 hours developing real life skills.</p>
         <p>They engage in leadership workshops, sports teams, entrepreneurship projects, public speaking, financial literacy, and hands-on activities. They build deep friendships through shared interests, not forced proximity.</p>
-        <p>90% of TimeBack students say they LOVE school (compared to 20% nationally). They&apos;re developing the life skills employers actually want while traditional students are still doing worksheets.</p>
+        <p>Over 90% of TimeBack students say they LOVE school. They&apos;re developing the life skills employers actually want while traditional students are still doing worksheets.</p>
       </div>
     ),
   },
@@ -69,7 +69,7 @@ const faqList: FAQItemProps[] = [
         <li>Children who were 2 years behind caught up in 6 months</li>
           <li>High schoolers average 1470+ on SATs</li>
           <li>Graduates accepted to Stanford, Vanderbilt, USC, and other top universities</li>
-          <li>90% of children say they LOVE school (compared to national average of 20%)</li>
+          <li>Over 90% of children say they LOVE school</li>
         </ul>
         <p>These aren&apos;t cherry picked success stories. This is our average. Every child deserves to reach their full potential - Timeback just makes it possible.</p>
       </div>

@@ -1053,25 +1053,22 @@ export default function PersonalizedPage() {
     
     const questionMap: Record<string, { id: string; text: string; }[]> = {
       'what-is-timeback': [
-        // In-place actions: regenerate current section with different styles
-        { id: 'action:regenerate-evidence', text: 'Show me the evidence' },
-        { id: 'action:regenerate-simpler', text: 'Write this simpler' },
-        { id: 'action:regenerate-different', text: 'Try a different approach' }
+        { id: 'how-does-it-work', text: 'How does it work?' },
+        { id: 'show-data', text: 'Show me your data' },
+        { id: 'example-question', text: 'Show me an example question' }
       ],
       'how-does-it-work': [
         { id: 'show-data', text: 'Show me your data' },
-        { id: 'methodology-whitepaper', text: 'View Methodology' },
         { id: 'example-question', text: 'Show me an example question' },
         { id: 'extra-hours', text: 'What will my kid do with extra time?' }
       ],
       'show-data': [
-        { id: 'methodology-whitepaper', text: 'View Methodology' },
         { id: 'example-question', text: 'Show me an example question' },
-        { id: 'find-school', text: 'Click here to grant us your location' },
+        { id: 'find-school', text: 'Find Nearby Schools' },
         { id: 'extra-hours', text: 'What about the extra 6 hours?' }
       ],
       'example-question': [
-        { id: 'find-school', text: 'Click here to grant us your location' },
+        { id: 'find-school', text: 'Find Nearby Schools' },
         { id: 'extra-hours', text: 'What about the extra 6 hours?' },
         { id: 'how-does-it-work', text: 'How does the AI work?' }
       ],
@@ -1081,52 +1078,39 @@ export default function PersonalizedPage() {
         { id: 'extra-hours', text: 'What about the extra 6 hours?' }
       ],
       'extra-hours': [
-        { id: 'find-school', text: 'Click here to grant us your location' },
+        { id: 'find-school', text: 'Find Nearby Schools' },
         { id: 'show-data', text: 'Show me your data' },
         { id: 'example-question', text: 'Show me an example question' }
       ],
       'school-report-card': [
-        { id: 'find-school', text: 'Click here to grant us your location' },
+        { id: 'find-school', text: 'Find Nearby Schools' },
         { id: 'completion-time-data', text: 'How fast do students learn?' },
-        { id: 'student-journey-carousel', text: 'Show me student success stories' },
-        { id: 'video-testimonials', text: 'Watch parent testimonials' },
-        { id: 'timeback-vs-competitors', text: 'Is Timeback a chatbot?' }
+        { id: 'student-journey-carousel', text: 'Show me student success stories' }
       ],
       'completion-time-data': [
         { id: 'student-journey-carousel', text: 'See student journeys' },
-        { id: 'timeback-vs-competitors', text: 'Is Timeback a chatbot?' },
         { id: 'example-question', text: 'Show me example questions' },
-        { id: 'extra-hours', text: 'What about the extra time?' },
-        { id: 'school-report-card', text: 'View school report cards' },
-        { id: 'methodology-whitepaper', text: 'View Methodology' }
+        { id: 'extra-hours', text: 'What about the extra time?' }
       ],
       'timeback-vs-competitors': [
         { id: 'show-data', text: 'Show me the research data' },
-        { id: 'methodology-whitepaper', text: 'View Methodology' },
         { id: 'video-testimonials', text: 'Hear from real families' },
-        { id: 'school-report-card', text: 'Compare specific schools' },
-        { id: 'find-school', text: 'Click here to grant us your location' },
-        { id: 'completion-time-data', text: 'See completion times' }
+        { id: 'find-school', text: 'Find Nearby Schools' }
       ],
       'student-journey-carousel': [
         { id: 'video-testimonials', text: 'Watch video testimonials' },
         { id: 'example-question', text: 'See personalized questions' },
-        { id: 'extra-hours', text: 'Learn about extra time activities' },
-        { id: 'find-school', text: 'Click here to grant us your location' },
-        { id: 'completion-time-data', text: 'View learning speed data' }
+        { id: 'find-school', text: 'Find Nearby Schools' }
       ],
       'video-testimonials': [
-        { id: 'find-school', text: 'Click here to grant us your location' },
+        { id: 'find-school', text: 'Find Nearby Schools' },
         { id: 'school-report-card', text: 'View school details' },
-        { id: 'what-is-timeback', text: 'Learn about TimeBack' },
-        { id: 'how-does-it-work', text: 'How does it work?' }
+        { id: 'what-is-timeback', text: 'Learn about TimeBack' }
       ],
       'methodology-whitepaper': [
-        { id: 'find-school', text: 'Find a school near me' },
+        { id: 'find-school', text: 'Find Nearby Schools' },
         { id: 'example-question', text: 'See personalized questions' },
-        { id: 'video-testimonials', text: 'Watch parent testimonials' },
-        { id: 'student-journey-carousel', text: 'See student success stories' },
-        { id: 'how-does-it-work', text: 'How does TimeBack work?' }
+        { id: 'video-testimonials', text: 'Watch parent testimonials' }
       ]
     };
 
@@ -1518,16 +1502,7 @@ export default function PersonalizedPage() {
                                     questionText: question.text,
                                     clickContext: 'follow-up-question'
                                   });
-                                  // In-place regenerate for action buttons on current section
-                                  if (question.id.startsWith('action:regenerate-')) {
-                                    const type = question.id.split('action:regenerate-')[1] as 'evidence' | 'simpler' | 'different';
-                                    const event = new CustomEvent('timeback:regenerate-current', {
-                                      detail: { type, sectionId: componentIdString }
-                                    });
-                                    window.dispatchEvent(event);
-                                  } else {
-                                    handleSectionSelect(question.id, 'follow-up');
-                                  }
+                                  handleSectionSelect(question.id, 'follow-up');
                                 }}
                                 className="backdrop-blur-md bg-white/10 border-2 border-timeback-primary rounded-xl p-4 text-center hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl"
                               >
