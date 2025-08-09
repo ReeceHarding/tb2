@@ -98,10 +98,15 @@ export async function withLLMTracking<T>(
       if ('content' in result && Array.isArray((result as any).content)) {
         const content = (result as any).content[0];
         if (content?.text) {
-          responsePreview = content.text.substring(0, 100) + '...';
+          responsePreview = typeof content.text === 'string' 
+            ? content.text.substring(0, 100) + '...'
+            : JSON.stringify(content.text).substring(0, 100) + '...';
         }
       } else if ('text' in result) {
-        responsePreview = (result as any).text.substring(0, 100) + '...';
+        const text = (result as any).text;
+        responsePreview = typeof text === 'string'
+          ? text.substring(0, 100) + '...'
+          : JSON.stringify(text).substring(0, 100) + '...';
       }
     }
 

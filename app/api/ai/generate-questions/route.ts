@@ -5,27 +5,45 @@ import { aiPromptLogger } from '@/libs/ai-prompt-logger';
 
 export const dynamic = 'force-dynamic';
 
-async function callGenerateAPI(prompt: string) {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
-    const response = await fetch(`${baseUrl}/api/ai/generate`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            prompt,
-            maxTokens: 4000,
-            temperature: 0.7
-        }),
-    });
+// Centralized function to call the AI generation API
+async function callGenerateAPI(prompt: string): Promise<any> {
+  const cerebrasUrl = 'https://api.cerebras.ai/v1/chat/completions';
+  const cerebrasKey = process.env.CEREBRAS_API_KEY || '';
+  const model = 'qwen-3-coder-480b';
 
-    if (!response.ok) {
-        const errorText = await response.text();
-        console.error(`[Generate Questions API] AI generation API failed with status ${response.status}: ${errorText}`);
-        throw new Error(`AI generation failed: ${errorText}`);
-    }
+  const response = await fetch(cerebrasUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${cerebrasKey}`
+    },
+    body: JSON.stringify({
+      model, 
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: 2000,
+      temperature: 0.7,
+      response_format: { type: 'json_object' }
+    })
+  });
 
-    return response.json();
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error(`[Generate Questions API] Cerebras API error: ${response.status} - ${errorText}`);
+    throw new Error(`AI generation failed: ${response.status} ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  const content = data.choices?.[0]?.message?.content;
+
+  if (!content) {
+    throw new Error('No content in AI response');
+  }
+
+  return {
+    content: JSON.parse(content),
+    provider: 'cerebras',
+    model
+  };
 }
 
 export async function POST(request: NextRequest) {
@@ -132,7 +150,8 @@ RESPOND WITH ONLY THE JSON OBJECT - NO OTHER TEXT`;
       async () => {
         const response = await callGenerateAPI(prompt);
         console.log(`[Generate Questions API] Using provider: ${response.provider}, model: ${response.model}`);
-        return { text: response.content };
+        // Return the raw JSON string for withLLMTracking to process
+        return { text: JSON.stringify(response.content), provider: response.provider, model: response.model };
       },
       {
         interests,
@@ -156,9 +175,9 @@ RESPOND WITH ONLY THE JSON OBJECT - NO OTHER TEXT`;
       // eslint-disable-next-line no-control-regex
       jsonText = jsonText.replace(/[\u0000-\u001F\u007F-\u009F]/g, '');
       
-      const jsonMatch = jsonText.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        let cleanJson = jsonMatch[0];
+      // Since result.text is already a JSON string, we can parse it directly
+      if (jsonText.startsWith('{') || jsonText.startsWith('[')) {
+        let cleanJson = jsonText;
         
         console.log('[Generate Questions API] Extracted JSON (first 200 chars):', JSON.stringify(cleanJson.substring(0, 200)));
         
@@ -184,7 +203,7 @@ RESPOND WITH ONLY THE JSON OBJECT - NO OTHER TEXT`;
       console.log('[Generate Questions API] API failed, attempting fallback...');
       
       try {
-        const fbBase = process.env.NEXT_PUBLIC_APP_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+        const fbBase = process.env.NEXT_PUBLIC_APP_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `http://localhost:${process.env.PORT || '3002'}`);
         const fallbackResponse = await fetch(`${fbBase}/api/ai/generate-fallback`, {
           method: 'POST',
           headers: {

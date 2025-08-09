@@ -6,6 +6,82 @@ import { QuizData, QuizSaveRequest, QuizSaveResponse, QuizRetrieveResponse } fro
 
 export const dynamic = 'force-dynamic';
 
+// API endpoint to retrieve quiz data for an authenticated user
+export async function GET(req: NextRequest) {
+  const timestamp = new Date().toISOString();
+  console.log(`[QuizRetrieveAPI-Supabase] ${timestamp} Processing quiz data retrieve request`);
+
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.email) {
+      console.log(`[QuizRetrieveAPI-Supabase] ${timestamp} Unauthorized request - no session`);
+      return NextResponse.json({ error: "Authentication required" }, { status: 401 });
+    }
+
+    console.log(`[QuizRetrieveAPI-Supabase] ${timestamp} Authenticated user:`, session.user.email);
+
+    let userProfile = await unifiedDataService.getUserProfile(session.user.email);
+    if (!userProfile) {
+      console.log(`[QuizRetrieveAPI-Supabase] ${timestamp} No profile found for user, creating one...`);
+      const firstName = session.user.name?.split(' ')[0];
+      const lastName = session.user.name?.split(' ').slice(1).join(' ');
+      userProfile = await unifiedDataService.saveUserProfile(
+        session.user.email,
+        {
+          firstName,
+          lastName
+        }
+      );
+      if (!userProfile) {
+        throw new Error('Failed to create user profile');
+      }
+      console.log(`[QuizRetrieveAPI-Supabase] ${timestamp} New user profile created:`, userProfile.id);
+    } else {
+      console.log(`[QuizRetrieveAPI-Supabase] ${timestamp} User profile found:`, userProfile.id);
+    }
+
+    // Fetch all section data for the user
+    const allData = await unifiedDataService.getAllSectionData(userProfile.id);
+    const quizDataRaw = allData.find(d => d.sectionType === 'quiz-legacy')?.data || {};
+    const generatedContentResult = await unifiedDataService.getGeneratedContent(userProfile.id, 'quiz-generated-content');
+    const generatedContent = generatedContentResult.length > 0 ? generatedContentResult.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())[0].response : null;
+
+    // Convert raw data to QuizData type
+    const quizData: QuizData | null = quizDataRaw && Object.keys(quizDataRaw).length > 0 ? {
+      userType: quizDataRaw.userType || 'parents',
+      parentSubType: quizDataRaw.parentSubType,
+      schoolSubType: quizDataRaw.schoolSubType,
+      grade: quizDataRaw.grade,
+      numberOfKids: quizDataRaw.numberOfKids || 1,
+      selectedSchools: quizDataRaw.selectedSchools || [],
+      kidsInterests: quizDataRaw.kidsInterests || []
+    } : null;
+
+    const responseData: QuizRetrieveResponse = {
+      success: true,
+      data: {
+        quizData,
+        generatedContent,
+        hasCompletedQuiz: !!quizData
+      }
+    };
+
+    console.log(`[QuizRetrieveAPI-Supabase] ${timestamp} Successfully retrieved data for user:`, {
+      userId: userProfile.id,
+      hasQuizData: !!quizData,
+      hasGeneratedContent: !!generatedContent,
+    });
+
+    return NextResponse.json(responseData);
+  } catch (error) {
+    console.error(`[QuizRetrieveAPI-Supabase] ${timestamp} Error retrieving quiz data:`, error);
+    return NextResponse.json(
+      { error: "Internal server error", message: "Failed to retrieve quiz data." },
+      { status: 500 }
+    );
+  }
+}
+
 // API endpoint to save quiz data and generated content to authenticated user's account using Supabase
 export async function POST(req: NextRequest) {
   const timestamp = new Date().toISOString();
@@ -135,69 +211,6 @@ export async function POST(req: NextRequest) {
       { 
         error: "Internal server error",
         message: "Failed to save quiz data. Please try again."
-      },
-      { status: 500 }
-    );
-  }
-}
-
-// GET endpoint to retrieve saved quiz data for authenticated user
-export async function GET() {
-  const timestamp = new Date().toISOString();
-  console.log(`[QuizSaveAPI-Supabase] ${timestamp} Processing quiz data retrieval request`);
-
-  try {
-    // Check if user is authenticated
-    const session = await getServerSession(authOptions);
-    
-    if (!session?.user?.email) {
-      console.log(`[QuizSaveAPI-Supabase] ${timestamp} Unauthorized request - no session`);
-      return NextResponse.json(
-        { error: "Authentication required" },
-        { status: 401 }
-      );
-    }
-
-    console.log(`[QuizSaveAPI-Supabase] ${timestamp} Retrieving data for user:`, session.user.email);
-
-    // Get user profile
-    const userProfile = await unifiedDataService.getUserProfile(session.user.email);
-    
-    if (!userProfile) {
-      console.log(`[QuizSaveAPI-Supabase] ${timestamp} User not found`);
-      return NextResponse.json(
-        { error: "User not found" },
-        { status: 404 }
-      );
-    }
-
-    // Get quiz data
-    const quizSection = await unifiedDataService.getSectionData(userProfile.id, 'quiz-legacy');
-    const generatedContentArray = await unifiedDataService.getGeneratedContent(userProfile.id, 'quiz-generated-content');
-    const generatedContent = generatedContentArray.length > 0 ? generatedContentArray[0] : null;
-
-    console.log(`[QuizSaveAPI-Supabase] ${timestamp} Found user data:`, {
-      userId: userProfile.id,
-      hasQuizData: !!quizSection,
-      hasGeneratedContent: !!generatedContent
-    });
-
-    return NextResponse.json<QuizRetrieveResponse>({
-      success: true,
-      data: {
-        quizData: quizSection?.data as QuizData | null,
-        generatedContent: generatedContent?.response || null,
-        hasCompletedQuiz: !!quizSection?.data?.completedAt
-      }
-    });
-
-  } catch (error) {
-    console.error(`[QuizSaveAPI-Supabase] ${timestamp} Error retrieving quiz data:`, error);
-    
-    return NextResponse.json(
-      { 
-        error: "Internal server error",
-        message: "Failed to retrieve quiz data. Please try again."
       },
       { status: 500 }
     );

@@ -92,6 +92,13 @@ class AIPromptLogger {
 
   private writeToLog(content: string): void {
     try {
+      // Skip file logging in production (Vercel) due to read-only filesystem
+      if (process.env.NODE_ENV === 'production' || process.env.VERCEL) {
+        // In production, only log to console
+        console.log('[AIPromptLogger]', content);
+        return;
+      }
+      
       fs.appendFileSync(this.logFile, content, 'utf8');
     } catch (error) {
       console.error('[AIPromptLogger] Failed to write to log file:', error);

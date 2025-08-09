@@ -24,6 +24,15 @@ supabase/seed.sql
 *.md
 !README.md
 !CHANGELOG.md
+!public/data/timeback-whitepaper.md
+!public/data/school-info.md
+!public/data/system_prompt.md
+
+# Required XML files
+!public/docs/prompt-example.xml
+
+# Required JSON data files
+!public/data/geocoded-schools.json
 
 # Development scripts
 upload-*.js

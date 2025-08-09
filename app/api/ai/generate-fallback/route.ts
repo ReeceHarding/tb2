@@ -1,30 +1,49 @@
 
 import { NextRequest, NextResponse } from 'next/server';
+import { withLLMTracking } from '@/libs/llm-analytics';
 
-async function callGenerateAPI(prompt: string) {
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
-    const response = await fetch(`${baseUrl}/api/ai/generate`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            prompt,
-            maxTokens: 2000,
-            temperature: 0.8
-        }),
-    });
+// Centralized function to call the AI generation API
+async function callGenerateAPI(prompt: string): Promise<any> {
+  const cerebrasUrl = 'https://api.cerebras.ai/v1/chat/completions';
+  const cerebrasKey = process.env.CEREBRAS_API_KEY || '';
+  const model = 'qwen-3-coder-480b';
 
-    if (!response.ok) {
-        const errorText = await response.text();
-        console.error(`[Generate Fallback API] AI generation API failed with status ${response.status}: ${errorText}`);
-        throw new Error(`AI generation failed: ${errorText}`);
-    }
+  const response = await fetch(cerebrasUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${cerebrasKey}`
+    },
+    body: JSON.stringify({
+      model,
+      messages: [{ role: 'user', content: prompt }],
+      max_tokens: 2000,
+      temperature: 0.7,
+      response_format: { type: 'json_object' }
+    })
+  });
 
-    return response.json();
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error(`[Generate Fallback API] Cerebras API error: ${response.status} - ${errorText}`);
+    throw new Error(`AI generation failed: ${response.status} ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  const content = data.choices?.[0]?.message?.content;
+
+  if (!content) {
+    throw new Error('No content in AI response');
+  }
+
+  return {
+    content: JSON.parse(content),
+    provider: 'cerebras',
+    model
+  };
 }
 
-
+// Main API handler
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -165,9 +184,10 @@ CRITICAL: Use only plain text in your response - no special characters, control 
     
     const response = await callGenerateAPI(prompt);
     
-    console.log(`[Generate Fallback API] Using provider: ${response.provider}, latency: ${response.latencyMs}ms`);
+    console.log(`[Generate Fallback API] Using provider: ${response.provider}, model: ${response.model}`);
     
-    const result = { text: response.content };
+    // Convert parsed content back to string for consistent handling
+    const result = { text: JSON.stringify(response.content) };
     
     console.log('[Generate Fallback API] Raw API response:', result.text);
     console.log('[Generate Fallback API] Response length:', result.text.length);
@@ -184,9 +204,9 @@ CRITICAL: Use only plain text in your response - no special characters, control 
       // eslint-disable-next-line no-control-regex
       jsonText = jsonText.replace(/[\u0000-\u001F\u007F-\u009F]/g, '');
       
-      const jsonMatch = jsonText.match(/\{[\s\S]*\}|\[[\s\S]*\]/);
-      if (jsonMatch) {
-        let cleanJson = jsonMatch[0];
+      // Since result.text is already a JSON string, we can parse it directly
+      if (jsonText.startsWith('{') || jsonText.startsWith('[')) {
+        let cleanJson = jsonText;
         
         console.log('[Generate Fallback API] Extracted JSON (first 200 chars):', JSON.stringify(cleanJson.substring(0, 200)));
         
